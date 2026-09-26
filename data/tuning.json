@@ -1010,7 +1010,7 @@
     }
   },
   "stakes": {
-    "_readme": "Stakes in institutions (DECIDED 2026-09-27, Corey): you start with a 1% member's share; 10% counts toward influence but gives no oversight; 25% gives a voice (priorities, policy, a plague response); 50% gives oversight and control (oversee, mentor, charter, endow, audit, invest). Cost per 1% = domain base × (1 + stake% / 10).",
+    "_readme": "Stakes in institutions (DECIDED 2026-09-27, Corey): you start with a 1% member's share; 10% counts toward influence but gives no oversight; 25% gives a voice (priorities, policy, a plague response); 50% gives oversight and control (oversee, mentor, charter, endow, audit, invest). Cost per 1% = domain base × (1 + stake% / 4).",
     "firstBuyPercent": {
       "value": 1,
       "ref": "DECIDED 2026-09-27 (Corey: 'Let's start with 1%')"
@@ -1042,8 +1042,8 @@
       }
     },
     "costGrowthPerPercent": {
-      "value": 0.1,
-      "ref": "DECIDED 2026-09-27 (Corey: increasing cost for increasing control); rate PROPOSED P0-18"
+      "value": 0.25,
+      "ref": "DECIDED 2026-09-28 (Corey, option B: each 1% costs 25% more than the first, per percent held; was 10%)"
     },
     "buyAttention": {
       "value": 2,

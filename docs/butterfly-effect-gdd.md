@@ -870,7 +870,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Entry fee and dues (P0) | Entry fee 5–30 gold by institution; annual dues = base 1–5 gold + 0.1 per percent held |
 | Jump range | Starts short (first jump about 25–50 years) and grows as technology and knowledge advance (rule to be defined) |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
-| Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/10); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |
+| Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/4); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |
 | Jump landing thresholds | Sphere Index ≥ 110 (Full), ≥ 130 (Superior) |
 | Malfunction chance | 15% Partial (5% of those lethal); 5% Standard (1% lethal) |
 | Sim Mode | 1 Attention per scene; up to 3 actions |

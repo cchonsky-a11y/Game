@@ -31,9 +31,10 @@ namespace Butterfly.Core.Tests
             double b = sim.T.Get("stakes.costPerPercent.medicine");
             double newcomer = sim.T.Get("stakes.newcomerPremium");
             Assert.Equal(b * newcomer, sim.StakeCost(circle, 1), 6);            // the first 1%, at the newcomer premium
-            Assert.Equal(b * 172.5, sim.ControlCost(Domain.Medicine), 6);       // 0→50%: Σ b(1 + k/10), k = 0..49 (normal price)
+            double g = sim.T.Get("stakes.costGrowthPerPercent");
+            Assert.Equal(b * (50 + g * 1225), sim.ControlCost(Domain.Medicine), 6); // 0→50%: Σ b(1 + g·k), k = 0..49 (normal price)
             Assert.True(sim.Buy("circle", 1).Ok);
-            Assert.Equal(b * 1.1 * newcomer, sim.StakeCost(circle, 1), 6);      // the second 1%
+            Assert.Equal(b * (1 + g) * newcomer, sim.StakeCost(circle, 1), 6);  // the second 1%
             Assert.Equal(0.01, circle.Stake, 6);
         }
 

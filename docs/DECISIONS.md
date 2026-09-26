@@ -170,3 +170,8 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-28 — The turn ends by itself when Attention runs out (Corey, from play)
 - **Decision:** if a choice uses up the turn's Attention, the turn ends automatically, unless something that costs no Attention is still available. Built: the console ends the turn when Attention hits 0, no prompt is open (seeded choice, promise, outbreak, era end) and no debt can be paid down; priorities count as a standing setting and don't hold the turn. On for keyboard play; scripts opt in with "@autoend on" so older scripts replay unchanged. PROTOTYPE_SCOPE (P0 pacing). Source: Corey.
+
+## 2026-09-28 — Steeper stake prices (Corey, option B)
+- **Decision:** buying guild stake was still too cheap. Each 1% now costs base × (1 + stake% / 4) (was / 10), so low stakes stay affordable but a voice and control become very expensive; founding stays at 65% of the cost of control and rises with it (School 556, Club 834, trading house 695 gold). SYSTEMS §7, GDD Appendix A, P0-18, tuning `stakes.costGrowthPerPercent`. Source: Corey.
+- **Batch result: gates A and B fail.** Specialized wins 73% early and 88–96% late; the Balanced scripts now reach only 21–50% of the Circle, and no one controls an institution in an early jump. Specialized's own school fails in 20% of late runs. Gate C passes. Nothing tuned; awaiting a decision. Source: batch runner.
+
