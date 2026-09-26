@@ -11,5 +11,10 @@ namespace Butterfly.Core
         private double InstitutionUpkeepTotal() => 0;
         private void InstitutionUpkeepShortfall() { }
         private void ApplyInstitutionExtra(ProjectDef def, ProjectExtra x, int causeId) { }
+        public bool IsAway => false;
+        private bool HospiceAvailable() => false;
+        private string AutomaticResponse() => "none";
+        private double InstitutionPlagueResilience() => 0;
+        private void OnPlagueResolved(int tollEventId) { }
     }
 }

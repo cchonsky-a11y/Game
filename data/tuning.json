@@ -186,5 +186,175 @@
       "value": 0.6,
       "ref": "PROPOSED P0-07"
     }
+  },
+  "plague": {
+    "startPopulation": {
+      "value": 1000,
+      "ref": "PROPOSED P0-09 (thousands; flavor)"
+    },
+    "firstWarningYear": {
+      "value": 161,
+      "ref": "PROPOSED P0-09"
+    },
+    "firstWarningJitterYears": {
+      "value": 1,
+      "ref": "PROPOSED P0-09"
+    },
+    "advanceChance": {
+      "stable": {
+        "value": 0.35,
+        "ref": "SYSTEMS §6 tiers raise crisis chance (values PROPOSED P0-09)"
+      },
+      "strained": {
+        "value": 0.55,
+        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+      },
+      "fragile": {
+        "value": 0.75,
+        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+      },
+      "critical": {
+        "value": 0.95,
+        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+      }
+    },
+    "foulWaterAdvanceBonus": {
+      "value": 0.1,
+      "ref": "PROPOSED P0-09"
+    },
+    "forceAdvanceFromYear": {
+      "value": 165,
+      "ref": "PROPOSED P0-09"
+    },
+    "baseHazard": {
+      "value": 50,
+      "ref": "PROPOSED P0-09"
+    },
+    "hazardPerMedicineDebt": {
+      "value": 0.3,
+      "ref": "SYSTEMS §6 severity scales with debt (rate PROPOSED P0-09)"
+    },
+    "foulWaterHazard": {
+      "value": 10,
+      "ref": "PROPOSED P0-09"
+    },
+    "maxHazard": {
+      "value": 100,
+      "ref": "PROPOSED P0-09"
+    },
+    "exposure": {
+      "value": 1,
+      "ref": "SYSTEMS §9 Loss = Hazard × Exposure × (1 − Resilience)"
+    },
+    "resiliencePerMedicine": {
+      "value": 0.5,
+      "ref": "PROPOSED P0-09"
+    },
+    "resiliencePerGovernance": {
+      "value": 0.25,
+      "ref": "PROPOSED P0-09"
+    },
+    "maxResilience": {
+      "value": 0.85,
+      "ref": "PROPOSED P0-09"
+    },
+    "deathRatePerSeverity": {
+      "value": 0.003,
+      "ref": "PROPOSED P0-09"
+    },
+    "goldLossPerSeverity": {
+      "value": 1,
+      "ref": "PROPOSED P0-09"
+    },
+    "severity": {
+      "mild": {
+        "value": 20,
+        "ref": "PROPOSED P0-09"
+      },
+      "grave": {
+        "value": 40,
+        "ref": "PROPOSED P0-09"
+      }
+    },
+    "damage": {
+      "medicine": {
+        "value": 0.4,
+        "ref": "PROPOSED P0-09"
+      },
+      "governance": {
+        "value": 0.2,
+        "ref": "PROPOSED P0-09"
+      },
+      "economy": {
+        "value": 0.4,
+        "ref": "PROPOSED P0-09"
+      }
+    },
+    "debtRelease": {
+      "value": 0.6,
+      "ref": "SYSTEMS §6 a crisis releases debt (fraction PROPOSED P0-09)"
+    },
+    "response": {
+      "quarantine": {
+        "gold": {
+          "value": 20,
+          "ref": "PROPOSED P0-09"
+        },
+        "attention": {
+          "value": 1,
+          "ref": "PROPOSED P0-09"
+        },
+        "resilience": {
+          "value": 0.12,
+          "ref": "PROPOSED P0-09"
+        }
+      },
+      "hospice": {
+        "gold": {
+          "value": 30,
+          "ref": "PROPOSED P0-09"
+        },
+        "attention": {
+          "value": 1,
+          "ref": "PROPOSED P0-09"
+        },
+        "resilience": {
+          "value": 0.15,
+          "ref": "PROPOSED P0-09"
+        }
+      },
+      "none": {
+        "gold": {
+          "value": 0,
+          "ref": "PROPOSED P0-09"
+        },
+        "attention": {
+          "value": 0,
+          "ref": "PROPOSED P0-09"
+        },
+        "resilience": {
+          "value": 0,
+          "ref": "PROPOSED P0-09"
+        }
+      }
+    },
+    "opening": {
+      "orphanedTalent": {
+        "value": 4,
+        "ref": "PROPOSED P0-09"
+      },
+      "laborScarcity": {
+        "value": 4,
+        "ref": "PROPOSED P0-09"
+      },
+      "newMovement": {
+        "value": 3,
+        "ref": "PROPOSED P0-09"
+      },
+      "experimentation": {
+        "value": 5,
+        "ref": "PROPOSED P0-09"
+      }
+    }
   }
 }

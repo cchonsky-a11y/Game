@@ -34,6 +34,7 @@ namespace Butterfly.Core
                 "The inventor arrives in Rome. Seed " + seed + ".");
             InitDomains(start.Id);
             InitEconomy(start.Id);
+            InitPlague();
         }
 
         /// <summary>Fraction of a year covered by one turn.</summary>
@@ -43,6 +44,7 @@ namespace Butterfly.Core
         public void EndTurn()
         {
             ProgressProjects();
+            ResolvePendingOutbreak();
             SettleGold();
             int yearBefore = Now.Year;
             Now = Now.AddMonths(MonthsPerTurn);
@@ -57,6 +59,7 @@ namespace Butterfly.Core
             Log.Record(Now, "year.start", "clock", null, new[] { "world" }, null,
                 "The year AD " + Now.Year + " begins.");
             DomainsYearTick();
+            PlagueYearTick();
         }
 
         // ---- cause tracking -------------------------------------------------
