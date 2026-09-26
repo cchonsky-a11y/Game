@@ -12,13 +12,13 @@ namespace Butterfly.Core
     /// </summary>
     public static class Why
     {
-        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "sanctuary", "school", "faction", "junian", "club", "guild", "bank", "house", "policy", "promise", "index", "attention" };
+        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "sanctuary", "school", "faction", "junian", "club", "guild", "bank", "house", "policy", "promise", "index", "attention", "machine" };
 
         public static string Explain(Simulation sim, string topic)
         {
             topic = (topic ?? "").Trim().ToLowerInvariant();
             if (sim.Arrived)
-                return "You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)";
+                return "You have been away for " + sim.T.GetInt("jump.years") + " years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)";
             if (DomainInfo.TryParseDomain(topic, out var d)) return Domain(sim, d);
             switch (topic)
             {
@@ -29,6 +29,8 @@ namespace Butterfly.Core
                 case "index": return Index(sim);
                 case "policy": return Policy(sim);
                 case "attention": return Attention(sim);
+                case "machine": return "The time machine: " + sim.MachineStepsDone + " of " + sim.MachineStepsTotal + " repair steps done. All are needed before it can jump.\n  " +
+                                       string.Join("\n  ", sim.MachineStatus());
             }
             var inst = sim.FindInstitution(topic);
             if (inst != null) return Institution(sim, inst);

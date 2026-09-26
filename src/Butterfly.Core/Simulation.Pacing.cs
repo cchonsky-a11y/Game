@@ -15,7 +15,7 @@ namespace Butterfly.Core
         {
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
             "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",
-            "bust.warning", "bust.outbreak", "bust.toll"
+            "bust.warning", "bust.outbreak", "bust.toll", "machine.step"
         };
 
         private int _turnEventStart = 1;
@@ -47,7 +47,12 @@ namespace Butterfly.Core
         /// </summary>
         public bool AffordableInvestment()
         {
-            if (AvailableProjects().Any(p => p.Gold <= World.Gold && p.AttentionPerTurn <= World.Attention)) return true;
+            if (AvailableProjects().Any(p => ProjectGold(p) <= World.Gold && p.AttentionPerTurn <= World.Attention)) return true;
+            foreach (var system in MachineSystems)
+            {
+                var step = NextMachineStep(system);
+                if (step != null && MachineStepGold(step) <= World.Gold && step.AttentionPerTurn <= World.Attention) return true;
+            }
             foreach (var i in World.Institutions)
             {
                 if (i.Def.IsOwn && !i.Exists && !i.Collapsed) { if (Can(FoundCost(i.Def.Maintains), "founding.attention")) return true; continue; }

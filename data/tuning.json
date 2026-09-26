@@ -755,8 +755,8 @@
   },
   "jump": {
     "years": {
-      "value": 250,
-      "ref": "PROTOTYPE_SCOPE (250-year absence)"
+      "value": 40,
+      "ref": "DECIDED 2026-09-28 (Corey): the first jump is about 25–50 years; P0 switched from 250 to 40"
     },
     "convergencePerDecade": {
       "value": 0.5,
@@ -1096,6 +1096,10 @@
     "activeSeniorityBonus": {
       "value": 1,
       "ref": "PROPOSED P0-20"
+    },
+    "voiceProjectShare": {
+      "value": 0.25,
+      "ref": "DECIDED 2026-09-28 (Corey: benefits to joining; voice unlocks a little more); amount PROPOSED P0-21: with a voice in an institution of the project's domain, it pays this share of the project"
     }
   },
   "founding": {
@@ -1217,6 +1221,10 @@
     "duesPerStakePercentPerYear": {
       "value": 0.1,
       "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+    },
+    "workBonusPerMembership": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-28 (Corey: benefits to joining; voice unlocks a little more); amount PROPOSED P0-21: each membership brings customers and patrons, raising pay for your work"
     }
   }
 }

@@ -11,7 +11,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 106);
             while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.EndTurn();
-            var arrival = sim.Jump();
+            var arrival = sim.JumpForTests();
             Assert.Equal("unanswered", arrival.Echoes.First(e => e.Id == "promise").AtArrival);
             Assert.DoesNotContain("would not promise", arrival.Beats.First(b => b.Name == "Personal echo").Text);
         }
@@ -39,7 +39,7 @@ namespace Butterfly.Core.Tests
                     if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
                     sim.EndTurn();
                 }
-                string text = sim.Jump().Beats.First(b => b.Name == "Personal echo").Text;
+                string text = sim.JumpForTests().Beats.First(b => b.Name == "Personal echo").Text;
                 Assert.DoesNotContain("the the", text, System.StringComparison.OrdinalIgnoreCase);
                 Assert.DoesNotContain("the an", text, System.StringComparison.OrdinalIgnoreCase);
             }

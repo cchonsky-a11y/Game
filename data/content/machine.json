@@ -1,0 +1,26 @@
+{
+  "_readme": "The time machine repair track for P0 (DECIDED 2026-09-28, Corey): three systems, three small steps each; all 9 are required before the machine can jump. Each step needs something from Rome (a membership, a finished project) or, for the first step of a system, more gold instead. No fuel puzzle, repair tiers or malfunctions (out of P0 scope). Amounts PROPOSED P0-21. To be built out later.",
+  "steps": [
+    { "id": "bronze", "system": "coil", "name": "Source bronze for the coil housing", "gold": 10, "attentionPerTurn": 1, "turns": 1,
+      "requirement": "tradeMember", "altGold": 20, "altText": "buy it at the open market instead",
+      "text": "Your trade contacts find you good bronze from the Campanian foundries." },
+    { "id": "casting", "system": "coil", "name": "Commission the casting at Ostia", "gold": 20, "attentionPerTurn": 1, "turns": 2,
+      "text": "A founder at Ostia casts the housing to your drawing and asks no questions." },
+    { "id": "fit", "system": "coil", "name": "Fit and test the coil housing", "gold": 0, "attentionPerTurn": 2, "turns": 1,
+      "text": "The new housing seats cleanly; the coil hums when you close the circuit." },
+    { "id": "glassware", "system": "coolant", "name": "Borrow glassware and a still", "gold": 0, "attentionPerTurn": 1, "turns": 1,
+      "requirement": "medicineWork", "altGold": 25, "altText": "buy them from a glassblower instead",
+      "text": "The physicians lend you flasks, a still and a pair of tongs." },
+    { "id": "distil", "system": "coolant", "name": "Distil the coolant", "gold": 10, "attentionPerTurn": 2, "turns": 1,
+      "text": "Three nights at the still give you a clear spirit, cold to the touch." },
+    { "id": "seal", "system": "coolant", "name": "Seal and test the coolant", "gold": 0, "attentionPerTurn": 1, "turns": 1,
+      "text": "The coolant holds its seal; the gauge needle settles." },
+    { "id": "archives", "system": "chronometer", "name": "Get into the state archives", "gold": 0, "attentionPerTurn": 1, "turns": 1,
+      "requirement": "factionMember", "altGold": 15, "altText": "bribe a clerk instead",
+      "text": "A senator's note gets you past the archive door." },
+    { "id": "tables", "system": "chronometer", "name": "Copy the star tables", "gold": 0, "attentionPerTurn": 1, "turns": 3,
+      "text": "You copy a season of star tables by lamplight, checking every column twice." },
+    { "id": "dial", "system": "chronometer", "name": "Recalibrate the chronometer", "gold": 0, "attentionPerTurn": 2, "turns": 1,
+      "text": "The chronometer's dial agrees with the stars to the hour." }
+  ]
+}

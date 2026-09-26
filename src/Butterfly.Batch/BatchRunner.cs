@@ -63,11 +63,14 @@ namespace Butterfly.Batch
         public static RunResult Play(GameData data, Strategy strategy, ulong seed, string timing, int jumpYear)
         {
             var sim = new Simulation(data, seed);
-            while (sim.Now.Year < jumpYear)
+            // Leave at the timing's year, or as soon after as the machine is repaired (at most 10 years later).
+            while ((sim.Now.Year < jumpYear || !sim.MachineReady) && sim.Now.Year < jumpYear + 10)
             {
+                Strategy.RepairMachine(sim);
                 strategy.PlayTurn(sim);
                 sim.EndTurn();
             }
+            if (!sim.MachineReady) throw new InvalidOperationException(strategy.Name + " never repaired the machine (seed " + seed + ").");
             strategy.BeforeJump(sim);
             double debtAtDeparture = sim.World.Domains.Sum(d => d.Debt);
             var arrival = sim.Jump();
@@ -231,7 +234,7 @@ namespace Butterfly.Batch
             var sb = new StringBuilder();
             sb.AppendLine("# P0 batch balance report");
             sb.AppendLine();
-            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
+            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 160 or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).");
             sb.AppendLine("Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).");
             sb.AppendLine();

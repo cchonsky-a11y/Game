@@ -46,7 +46,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(data, seed);
             while (sim.Now.Year < 165) { s.PlayTurn(sim); sim.EndTurn(); }
             s.BeforeJump(sim);
-            return sim.Jump().IndexByDecade[0];
+            return sim.JumpForTests().IndexByDecade[0];
         }
     }
 }

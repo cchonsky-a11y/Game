@@ -21,13 +21,14 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void JumpSimulates250YearsInDecadeSteps()
+        public void JumpSimulatesTheAbsenceInDecadeSteps()
         {
             var sim = Play(1, "fountain", true, true, 160);
             int depart = sim.Now.Year;
-            var arrival = sim.Jump();
-            Assert.Equal(depart + 250, arrival.ArrivalYear);
-            Assert.Equal(25, sim.Log.Events.Count(e => e.Type == "jump.decade"));
+            var arrival = sim.JumpForTests();
+            int years = sim.T.GetInt("jump.years");
+            Assert.Equal(depart + years, arrival.ArrivalYear);
+            Assert.Equal(years / 10, sim.Log.Events.Count(e => e.Type == "jump.decade"));
             Assert.True(sim.Arrived);
             Assert.Throws<System.InvalidOperationException>(() => sim.EndTurn());
         }
@@ -39,7 +40,7 @@ namespace Butterfly.Core.Tests
         [InlineData("workshop", true, false, 170)]
         public void ArrivalHasFourBeatsAndShowsAllThreeEchoes(string choice, bool circle, bool promise, int leave)
         {
-            var arrival = Play(7, choice, circle, promise, leave).Jump();
+            var arrival = Play(7, choice, circle, promise, leave).JumpForTests();
             Assert.Equal(new[] { "Recognition", "Wrongness", "Personal echo", "Discovery" }, arrival.Beats.Select(b => b.Name));
             Assert.Equal(3, arrival.Echoes.Count);
             Assert.Contains(arrival.Echoes, e => e.Id == "seeded");
@@ -57,7 +58,7 @@ namespace Butterfly.Core.Tests
             var sim = Play(3, "fountain", true, true, 163);
             Assert.True(sim.LeavingBreaksPromise);
             double loyalty = sim.World.Institution("circle").Loyalty;
-            var arrival = sim.Jump();
+            var arrival = sim.JumpForTests();
             Assert.Equal(PromiseStatus.Broken, sim.World.Promise.Status);
             Assert.Contains(sim.Log.Events, e => e.Type == "promise.broken");
             Assert.Equal("broken", arrival.Echoes.First(e => e.Id == "promise").AtArrival.Replace("NoKeeper", ""));
@@ -67,7 +68,7 @@ namespace Butterfly.Core.Tests
         public void PlagueStillStrikesWhileTheInventorIsAway()
         {
             var sim = Play(3, "workshop", false, false, 160);
-            var arrival = sim.Jump();
+            var arrival = sim.JumpForTests();
             Assert.True(sim.World.Plague.StruckInAbsence);
             Assert.Contains(arrival.Crises, c => c.Contains("Antonine"));
         }
@@ -75,7 +76,7 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void LearnMoreShowsIndexAndInstitutionsWithoutCausalChains()
         {
-            var arrival = Play(5, "fountain", true, true, 169).Jump();
+            var arrival = Play(5, "fountain", true, true, 169).JumpForTests();
             string text = arrival.LearnMore();
             Assert.Contains("Index", text);
             Assert.Contains("Physicians' Circle", text);
@@ -85,7 +86,7 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void JumpIsDeterministic()
         {
-            string Run() { var s = Play(9, "fountain", true, true, 166); s.Jump(); return s.Log.Hash(); }
+            string Run() { var s = Play(9, "fountain", true, true, 166); s.JumpForTests(); return s.Log.Hash(); }
             Assert.Equal(Run(), Run());
         }
     }

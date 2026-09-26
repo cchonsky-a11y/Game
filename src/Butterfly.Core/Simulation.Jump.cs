@@ -18,9 +18,17 @@ namespace Butterfly.Core
         /// <summary>Year the inventor left (0 before the jump).</summary>
         public int DepartureYear { get; private set; }
 
-        public Arrival Jump()
+        /// <summary>Leaves for the future. The machine must be repaired first (all 9 steps, decided 2026-09-28).</summary>
+        public Arrival Jump() => Jump(false);
+
+        /// <summary>Test setup: jumps even if the machine isn't repaired (tests of the absence, not of the machine).</summary>
+        internal Arrival JumpForTests() => Jump(true);
+
+        private Arrival Jump(bool ignoreMachine)
         {
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
+            if (!ignoreMachine && !MachineReady)
+                throw new InvalidOperationException("The machine isn't repaired (" + MachineStepsDone + "/" + MachineStepsTotal + " steps).");
             var arrival = new Arrival { DepartureYear = Now.Year };
             DepartureYear = Now.Year;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
@@ -43,6 +51,7 @@ namespace Butterfly.Core
             foreach (var p in World.ActiveProjects)
                 Record("project.abandoned", p.Def.Id, new[] { p.StartEventId, depart.Id }, new[] { "player" }, null, p.Def.Name + " is abandoned unfinished.");
             World.ActiveProjects.Clear();
+            World.ActiveMachineSteps.Clear();
             World.Commitments.Clear();
 
             IsAway = true;

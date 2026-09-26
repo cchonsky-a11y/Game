@@ -71,7 +71,7 @@ namespace Butterfly.Core.Tests
             {
                 var sim = new Simulation(TestData.Load(), seed);
                 foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.AcceptRisk);
-                sim.Jump();
+                sim.JumpForTests();
                 var years = sim.Log.Events.Where(e => e.Type == "plague.toll").Select(e => e.Time.Year).ToList();
                 for (int i = 1; i < years.Count; i++) Assert.True(years[i] - years[i - 1] >= 30, "seed " + seed + ": outbreaks in " + years[i - 1] + " and " + years[i]);
             }
@@ -85,7 +85,7 @@ namespace Butterfly.Core.Tests
                 var sim = new Simulation(TestData.Load(), seed);
                 foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.AcceptRisk);
                 while (sim.Now.Year < 165) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
-                sim.Jump();
+                sim.JumpForTests();
                 // No institutions at all: after year 30, a domain's debt never rises within a decade (no accrual, no compounding).
                 foreach (var e in sim.Log.Events.Where(e => e.Type == "jump.domain" && e.Time.Year - sim.DepartureYear > 30))
                 {
@@ -106,7 +106,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 5);
             sim.World[Domain.Economy].Level = 75; // 20 above the AD 155 baseline of 55
-            sim.Jump();
+            sim.JumpForTests();
             int start = sim.DepartureYear + 40;    // a decade after the window
             double baseline = sim.Benchmark(Domain.Economy, start + 10);
             Assert.Equal(baseline + 0.3 * 20, sim.DecadeTarget(Domain.Economy, start), 6);
@@ -117,7 +117,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 5);
             sim.World[Domain.Economy].Level = 35; // 20 below the baseline
-            sim.Jump();
+            sim.JumpForTests();
             int start = sim.DepartureYear + 40;
             Assert.Equal(sim.Benchmark(Domain.Economy, start + 10) - 6, sim.DecadeTarget(Domain.Economy, start), 6);
         }

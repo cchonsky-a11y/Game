@@ -120,18 +120,52 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>One small step of the P0 time machine repair track (data/content/machine.json).</summary>
+    public sealed class MachineStepDef
+    {
+        public string Id { get; }
+        public string System { get; }
+        public string Name { get; }
+        public int Gold { get; }
+        public int AttentionPerTurn { get; }
+        public int Turns { get; }
+        /// <summary>What Rome must give you for this step (tradeMember, medicineWork, factionMember), if anything.</summary>
+        public string? Requirement { get; }
+        /// <summary>Gold price instead, if the requirement isn't met.</summary>
+        public int AltGold { get; }
+        public string AltText { get; }
+        public string Text { get; }
+
+        public MachineStepDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            System = o.Str("system");
+            Name = o.Str("name");
+            Gold = (int)o.Num("gold");
+            AttentionPerTurn = (int)o.Num("attentionPerTurn");
+            Turns = (int)o.Num("turns");
+            Requirement = o.StrOr("requirement", null);
+            AltGold = o.Has("altGold") ? (int)o.Num("altGold") : 0;
+            AltText = o.StrOr("altText", "") ?? "";
+            Text = o.Str("text");
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
         public IReadOnlyList<ProjectDef> Projects { get; }
         public IReadOnlyList<InstitutionDef> Institutions { get; }
+        public IReadOnlyList<MachineStepDef> MachineSteps { get; }
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
-        private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyDictionary<string, string> text)
+        private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyList<MachineStepDef> machine,
+            IReadOnlyDictionary<string, string> text)
         {
             Projects = projects;
             Institutions = institutions;
+            MachineSteps = machine;
             Text = text;
         }
 
@@ -151,6 +185,7 @@ namespace Butterfly.Core
         {
             var projects = Read(contentDirectory, "projects.json").Arr("projects").Cast<JsonObject>().Select(o => new ProjectDef(o)).ToList();
             var institutions = Read(contentDirectory, "institutions.json").Arr("institutions").Cast<JsonObject>().Select(o => new InstitutionDef(o)).ToList();
+            var machine = Read(contentDirectory, "machine.json").Arr("steps").Cast<JsonObject>().Select(o => new MachineStepDef(o)).ToList();
             var textObj = Read(contentDirectory, "text.json");
             var text = new Dictionary<string, string>();
             foreach (var section in textObj.Keys)
@@ -159,7 +194,7 @@ namespace Butterfly.Core
                 var obj = textObj.Obj(section);
                 foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
             }
-            return new Content(projects, institutions, text);
+            return new Content(projects, institutions, machine, text);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

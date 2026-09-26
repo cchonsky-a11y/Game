@@ -80,7 +80,7 @@ namespace Butterfly.Core.Tests
         public void NoCausalTracingAfterTheJump()
         {
             var sim = new Simulation(TestData.Load(), 2);
-            sim.Jump();
+            sim.JumpForTests();
             Assert.Contains("lost to you", Why.Explain(sim, "medicine"));
         }
     }

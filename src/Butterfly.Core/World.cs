@@ -52,6 +52,9 @@ namespace Butterfly.Core
         public Institution Institution(string id) => Institutions.First(i => i.Def.Id == id);
 
         public List<ActiveProject> ActiveProjects { get; } = new List<ActiveProject>();
+        /// <summary>Time machine repair steps finished, and the ones under way (P0 repair track).</summary>
+        public List<string> MachineDone { get; } = new List<string>();
+        public List<ActiveMachineStep> ActiveMachineSteps { get; } = new List<ActiveMachineStep>();
         public List<string> CompletedProjects { get; } = new List<string>();
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>
@@ -227,6 +230,21 @@ namespace Butterfly.Core
         public int StartEventId { get; }
 
         public ActiveProject(ProjectDef def, int startEventId)
+        {
+            Def = def;
+            TurnsRemaining = def.Turns;
+            StartEventId = startEventId;
+        }
+    }
+
+    /// <summary>A machine repair step in progress.</summary>
+    public sealed class ActiveMachineStep
+    {
+        public MachineStepDef Def { get; }
+        public int TurnsRemaining { get; set; }
+        public int StartEventId { get; }
+
+        public ActiveMachineStep(MachineStepDef def, int startEventId)
         {
             Def = def;
             TurnsRemaining = def.Turns;

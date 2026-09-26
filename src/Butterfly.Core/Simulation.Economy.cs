@@ -98,13 +98,20 @@ namespace Butterfly.Core
         public IEnumerable<ProjectDef> AvailableProjects() =>
             Data.Content.Projects.Where(p => !World.CompletedProjects.Contains(p.Id) && World.ActiveProjects.All(a => a.Def.Id != p.Id));
 
+        /// <summary>
+        /// What a project costs you: with a voice in an institution that maintains its domain, the institution pays a
+        /// quarter of it (decided 2026-09-28: a voice unlocks a little more).
+        /// </summary>
+        public int ProjectGold(ProjectDef def) =>
+            (int)Math.Round(def.Gold * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0)));
+
         public CommandResult StartProject(string id)
         {
             var def = Data.Content.Project(id);
             if (def == null) return CommandResult.Fail("No project called '" + id + "'.");
             if (World.CompletedProjects.Contains(id)) return CommandResult.Fail(def.Name + " is already done.");
             if (World.ActiveProjects.Any(a => a.Def.Id == id)) return CommandResult.Fail(def.Name + " is already under way.");
-            if (World.Gold < def.Gold) return CommandResult.Fail(def.Name + " costs " + def.Gold + " gold; you have " + F(World.Gold) + ".");
+            if (World.Gold < ProjectGold(def)) return CommandResult.Fail(def.Name + " costs " + ProjectGold(def) + " gold; you have " + F(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
             return BeginProject(def, new[] { "player" }, null);
@@ -113,11 +120,13 @@ namespace Butterfly.Core
         internal CommandResult BeginProject(ProjectDef def, IEnumerable<string> actors, IEnumerable<int>? causes)
         {
             double before = World.Gold;
-            SpendGold(def.Gold);
+            int gold = ProjectGold(def);
+            var partner = gold < def.Gold ? VoiceIn(def.Domain) : null;
+            SpendGold(gold);
             SpendAttention(def.AttentionPerTurn);
-            var e = Record("project.start", def.Id, causes, actors,
+            var e = Record("project.start", def.Id, causes, partner == null ? actors : actors.Concat(new[] { partner.Leader }),
                 new[] { new Effect(GoldKey, before, World.Gold) },
-                "Work begins: " + def.Name + " (" + def.Gold + " gold, " + def.Turns + " turn" + (def.Turns == 1 ? "" : "s") + ").");
+                "Work begins: " + def.Name + " (" + gold + " gold" + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + (def.Gold - gold)) + ", " + def.Turns + " turn" + (def.Turns == 1 ? "" : "s") + ").");
             var active = new ActiveProject(def, e.Id);
             World.ActiveProjects.Add(active);
             OnProjectStarted(active);

@@ -96,7 +96,7 @@ internal sealed class ConsoleGame
         Console.WriteLine("========================================");
         Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
         Console.WriteLine("machine, what you know, and no one who owes you anything. Something is coming from the East in a few years.");
-        Console.WriteLine("When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.");
+        Console.WriteLine("Once you repair it, the machine can carry you " + _sim.T.GetInt("jump.years") + " years forward. What you leave behind will go on without you.");
         Console.WriteLine();
         Console.WriteLine("This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.");
         Console.WriteLine();
@@ -136,7 +136,9 @@ internal sealed class ConsoleGame
   log [n]                        the last n events
   end                            end the turn (3 months)
   wait                           let turns pass until something needs you
-  jump                           prepare to leave for AD +250 (then pay down, endow, audit, or 'jump' again)
+  machine                        the time machine: what's repaired and what's next
+  repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
+  jump                           prepare to leave (then pay down, endow, audit, or 'jump' again)
   quit");
     }
 
@@ -171,6 +173,11 @@ internal sealed class ConsoleGame
                 r = _sim.PayDown(pd, pts);
                 break;
             case "institutions": case "i": Institutions(); return true;
+            case "machine": case "m":
+                Console.WriteLine("Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps (all are needed to jump).");
+                foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
+                return true;
+            case "repair": r = _sim.Repair(arg); break;
             case "attend": r = _sim.Attend(arg); break;
             case "found": r = _sim.Found(arg); break;
             case "buy":
@@ -229,7 +236,8 @@ internal sealed class ConsoleGame
         if (turns > 1) Console.WriteLine(wait ? "  (" + turns + " turns pass; nothing needed you until now)"
                                               : "  (" + turns + " turns pass; your Attention was fully committed)");
         var shown = new[] { "project.complete", "debt.tier", "plague.warning", "plague.outbreak", "plague.toll", "plague.opening", "plague.passed",
-                            "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start" };
+                            "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start",
+                            "machine.step", "institution.seniority", "rivalry.strike", "institution.collapse", "bust.warning", "bust.toll" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -257,6 +265,9 @@ internal sealed class ConsoleGame
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
                               (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
+        Console.WriteLine("  Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" +
+                          string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +
+                          (_sim.MachineReady ? " — ready to jump" : "") + "   (machine)");
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
         if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (before the end of turn " + _sim.T.GetInt("seededChoice.deadlineTurn") + ").");
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
@@ -269,7 +280,7 @@ internal sealed class ConsoleGame
     private void Projects()
     {
         foreach (var p in _sim.AvailableProjects())
-            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (p.Gold + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name);
+            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (_sim.ProjectGold(p) + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name);
         Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");
     }
 
@@ -315,7 +326,13 @@ internal sealed class ConsoleGame
         if (!_jumpArmed)
         {
             _jumpArmed = true;
-            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back.");
+            if (!_sim.MachineReady)
+            {
+                Console.WriteLine("The machine isn't ready: " + _sim.MachineStepsDone + " of " + _sim.MachineStepsTotal + " repair steps done.");
+                foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
+                return;
+            }
+            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + _sim.T.GetInt("jump.years")) + ". You can't come back.");
             Briefing();
             return;
         }

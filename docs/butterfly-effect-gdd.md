@@ -868,6 +868,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Seniority and newcomer premium (P0) | +1% stake a year of paid-up membership, up to 25%; newcomer price ×3 fading to ×1 over 5 years |
 | Era length (P0) | 20 years (80 three-month turns, AD 155–175) |
 | Entry fee and dues (P0) | Entry fee 5–30 gold by institution; annual dues = base 1–5 gold + 0.1 per percent held |
+| Time machine (P0) | 9 repair steps in three systems, all required to jump; the P0 jump is 40 years |
+| Joining benefits (P0) | +10% work pay per membership; a voice (25%) makes the institution pay a quarter of projects in its domain; project gold ×1.5 |
 | Jump range | Starts short (first jump about 25–50 years) and grows as technology and knowledge advance (rule to be defined) |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
 | Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/4); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |

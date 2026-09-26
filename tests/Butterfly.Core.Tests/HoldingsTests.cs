@@ -102,7 +102,7 @@ namespace Butterfly.Core.Tests
             c.Loyalty = 90;
             sim.World[Domain.Medicine].Debt = 40;
             sim.World[Domain.Economy].Debt = 40;
-            sim.Jump();
+            sim.JumpForTests();
             var payments = sim.Log.Events.Where(e => e.Type == "debt.paidByInstitution").ToList();
             Assert.NotEmpty(payments);
             Assert.All(payments, e => Assert.Equal("medicine", e.Target));              // only its own domain
@@ -122,7 +122,7 @@ namespace Butterfly.Core.Tests
                 sim.World.Attention = 100;
                 sim.GrantStake("faction", 0.5); // venal leader, large holdings, no audit: the riskiest case
                 sim.Endow("faction", 500);
-                sim.Jump();
+                sim.JumpForTests();
                 var events = sim.Log.Events.Where(e => e.Type == "institution.corruption").ToList();
                 Assert.All(events, e => Assert.True(e.Time.Year - sim.DepartureYear <= 30));
                 if (events.Count > 0) corrupted++;
@@ -143,7 +143,7 @@ namespace Butterfly.Core.Tests
                 sim.World.Attention = 100;
                 sim.GrantStake("faction", 0.5);
                 sim.Endow("faction", 500);
-                var arrival = sim.Jump();
+                var arrival = sim.JumpForTests();
                 var f = sim.World.Institution("faction");
                 if (f.Corruption == CorruptionLevel.None || sim.OutcomeOf(f) == InstitutionOutcome.Dissolved) continue;
                 Assert.Contains("(" + f.Corruption.ToString().ToLowerInvariant() + " corruption)", arrival.Beats.First(b => b.Name == "Discovery").Text);

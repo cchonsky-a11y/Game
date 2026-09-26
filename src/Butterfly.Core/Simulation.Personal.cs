@@ -16,7 +16,8 @@ namespace Butterfly.Core
         /// <summary>Attention already pledged to multi-turn projects and commitments for this turn.</summary>
         public int ReservedAttention() =>
             World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.Turns).Sum(p => p.Def.AttentionPerTurn)
-            + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"));
+            + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
+            + ReservedMachineAttention();
 
         private void InitAttention()
         {
@@ -47,6 +48,12 @@ namespace Butterfly.Core
         public int WorkAttention(string kind) => T.GetInt("personal.work." + kind + ".attention");
         public double WorkGold(string kind) => T.Get("personal.work." + kind + ".gold");
 
+        /// <summary>Memberships in established institutions (their members bring you customers and patrons).</summary>
+        public int Memberships() => Backed().Count(i => !i.Def.IsOwn);
+
+        /// <summary>Pay for work before tax: each membership raises it 10% (decided 2026-09-28: benefits to joining).</summary>
+        public double WorkPay(string kind) => WorkGold(kind) * (1 + T.Get("joining.workBonusPerMembership") * Memberships());
+
         /// <summary>
         /// The one personal action per turn: work for pay. Better-paid work takes more Attention (decided 2026-09-27):
         /// odd jobs, skilled craft commissions, or consulting for a wealthy household.
@@ -62,13 +69,16 @@ namespace Butterfly.Core
             World.PersonalActionTurn = Turn;
             if (kind == "consult") World.ConsultJobs++;
             double before = World.Gold;
-            double tax = WorkGold(kind) * WorkTaxRate();
-            World.Gold += WorkGold(kind) - tax;
+            double pay = WorkPay(kind);
+            double tax = pay * WorkTaxRate();
+            World.Gold += pay - tax;
             string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
                         : "You advise a wealthy household on its baths and its books.";
             Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
-            return CommandResult.Success("You earn " + F(WorkGold(kind)) + " gold; " + F(tax) + " goes in tax, you keep " + F(WorkGold(kind) - tax) + ".");
+            int members = Memberships();
+            return CommandResult.Success("You earn " + F(pay) + " gold" + (members > 0 ? " (" + F(pay - WorkGold(kind)) + " of it through your " + members +
+                                         " membership" + (members == 1 ? "" : "s") + ")" : "") + "; " + F(tax) + " goes in tax, you keep " + F(pay - tax) + ".");
         }
 
         // ---- multi-turn commitments -----------------------------------------

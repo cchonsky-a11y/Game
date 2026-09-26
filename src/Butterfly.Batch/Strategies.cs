@@ -14,6 +14,20 @@ namespace Butterfly.Batch
         public abstract string Name { get; }
         public abstract void PlayTurn(Simulation sim);
 
+        /// <summary>
+        /// Every strategy repairs the time machine (all 9 steps are needed to jump): it starts the next affordable step
+        /// of each system before its own turn.
+        /// </summary>
+        public static void RepairMachine(Simulation sim)
+        {
+            if (sim.Turn == 1) return; // the hour-one choice comes first
+            foreach (var system in Simulation.MachineSystems)
+            {
+                var step = sim.NextMachineStep(system);
+                if (step != null && sim.MachineStepGold(step) <= sim.World.Gold && step.AttentionPerTurn <= sim.World.Attention) sim.Repair(system);
+            }
+        }
+
         /// <summary>Last actions before leaving (e.g. paying down debt).</summary>
         public virtual void BeforeJump(Simulation sim) { }
 
@@ -164,7 +178,7 @@ namespace Butterfly.Batch
             // Invest in the weakest domain first.
             foreach (var d in DomainInfo.All.OrderBy(sim.SubScore))
             {
-                var project = sim.AvailableProjects().Where(p => p.Domain == d && p.Gold <= sim.World.Gold).OrderBy(p => p.Gold).FirstOrDefault();
+                var project = sim.AvailableProjects().Where(p => p.Domain == d && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
                 if (project != null && sim.StartProject(project.Id).Ok) break;
             }
             if (_paydownShare > 0)
@@ -212,7 +226,7 @@ namespace Butterfly.Batch
             // Build the school up past the point where it could fail, then keep growing its share.
             var school = sim.World.Institution("school");
             if (sim.Controls(school) && school.Strength < 60 && sim.World.Gold >= 30) sim.Invest("school", System.Math.Floor(sim.World.Gold / 2));
-            var project = sim.AvailableProjects().Where(p => p.Domain == Domain.Medicine && p.Gold <= sim.World.Gold).OrderBy(p => p.Gold).FirstOrDefault();
+            var project = sim.AvailableProjects().Where(p => p.Domain == Domain.Medicine && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
             if (project != null) sim.StartProject(project.Id);
             if (sim.Controls(school) && sim.CommitmentsEnabled && sim.World.Commitments.Count == 0) sim.Mentor("school");
             PayDownDebts(sim, new[] { Domain.Medicine });
