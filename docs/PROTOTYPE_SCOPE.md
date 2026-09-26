@@ -33,8 +33,8 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Crisis | The plague, with **3 visible warning stages** and branching outcomes |
 | Institutions | **2:** a physicians' circle and a senate faction. Each with a named leader, loyalty, decay per SYSTEMS.md §7, and **2 pre-authored drift paths** (no general identity engine) |
 | Gold | Simple income and spending on projects and upkeep |
-| Institution gold | Institutions hold gold given as endowments. **Only in the 30 years after departure:** holdings grow at the region's economic growth rate (0–1.5%/yr by Economy level; no fixed-rate compounding); institutions pay down debt in their own domain at the 1.5× premium (loyal: in full; drifted: partially; rogue: nothing). Jump preparation offers paying down debt directly, endowing an institution, and founding an audit charter |
-| Institutional corruption | Checked each decade in the 30-year window. Chance = base hazard × exposure (small ×1, large ×2) × (1 − audit charter 0.5) × (1 − leader integrity: honest 0.3, average 0, venal −0.3). Minor / Major / Total (lose 25% / 50% / 100% of holdings; payments reduced / stop / stop; small / moderate / large Governance debt; Total makes the institution Captured or Rogue). Weights: unprotected 40/40/20, audited 70/25/5, shifted by integrity. Separate from loyalty. Each leader has a pre-authored integrity trait |
+| Institution gold | Institutions hold gold given as endowments. **Only in the 30 years after departure:** holdings grow at the region's economic growth rate (0–1.5%/yr by Economy level; no fixed-rate compounding); institutions pay down debt in their own domain at the 1.5× premium (loyal: in full; drifted: partially; rogue: nothing). Actions: **endow** an institution with any amount of gold (the minimum endowment makes it endowed) and found an **audit charter** (costs gold). Jump preparation offers paying down debt directly, endowing an institution, and founding an audit charter |
+| Institutional corruption | Checked each decade in the 30-year window. Chance = base hazard × exposure (small ×1, large ×2) × (1 − audit charter 0.5) × (1 − leader integrity: honest 0.3, average 0, venal −0.3). Minor / Major / Total (lose 25% / 50% / 100% of holdings; payments reduced / stop / stop; small / moderate / large Governance debt; Total makes the institution Captured or Rogue). Weights: unprotected 40/40/20, audited 70/25/5, shifted by integrity. Separate from loyalty. Each leader has a pre-authored integrity trait. The pre-jump briefing shows corruption risk (Low / Medium / High) and potential severity, never the outcome; the arrival's Discovery beat reveals any corruption and its level |
 | Attention | 4 per turn; spent on projects, overseeing an institution, or one personal action. Also test **multi-turn commitments** as an option |
 | Seeded choice | The hour-one fountain-or-workshop choice |
 | Promise | One promise from an institution leader that conflicts with jump timing |
@@ -62,7 +62,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 
 ## Order of work
 1. Build the simulation and console game.
-2. **Run the batch runner before any human test:** 100 seeded runs × 3 strategies (Balanced, Specialized, Neglectful), each with early and late jump timing. Fix any dominant strategy first.
+2. **Run the batch runner before any human test:** 100 seeded runs × 5 strategies (Balanced/Pay-down, Specialized, Neglectful, Endow, Split), each with early and late jump timing. Fix any dominant strategy first.
 3. Run 5 human testers.
 
 ## Pass criteria
@@ -72,6 +72,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Determinism | Identical results for identical seed and inputs |
 | Balance vs. specialization | Both viable; within **each** jump timing (early, late), no strategy wins more than 65% of automated runs |
 | Jump timing | Neither early nor late timing wins more than 65% of runs across all strategies |
+| Debt at departure | Within each timing, none of Pay-down (Balanced), Endow, and Split wins more than 65% of runs; the batch report flags it if more than ~80% of the best runs bought an audit charter |
 | Debt pacing | 2–3 years of accepted risk → Strained; plague warning stages visible before the outbreak |
 | Institution decay | After 250 years from strength 80: bare 80 × 0.9^25 ≈ 6; chartered 80 × 0.97^25 ≈ 37; strong 80 × 0.99^25 ≈ 62 |
 | Impact | At least 3 of 5 testers say, unprompted, that their actions changed the returned world, pointing to at least one Echo |

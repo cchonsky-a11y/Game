@@ -1,6 +1,6 @@
 # BUILD_GUIDE.md — How to Build The Butterfly Effect
 
-**Version:** 1.0 · **Date:** September 25, 2026 · **Aligned with:** GDD v1.2, VISION.md, SYSTEMS.md, PROTOTYPE_SCOPE.md (P0)
+**Version:** 1.0 · **Date:** September 25, 2026 · **Aligned with:** GDD v1.3, VISION.md, SYSTEMS.md, PROTOTYPE_SCOPE.md (P0)
 
 ---
 
@@ -207,7 +207,7 @@ For every milestone:
 | Decay over 250 years from 80, bare (10% per decade) | 80 × 0.9^25 ≈ 5.7 |
 | Chartered (3%) | 80 × 0.97^25 ≈ 37.4 |
 | Strong (1%) | 80 × 0.99^25 ≈ 62.2 |
-| Legacy: 1 student + written, no institution | 30 + 20 + 20 = 70% |
+| Legacy: 1 student + written, no institution (**P3 or later**: legacy depends on mortality and succession, out of P0 scope) | 30 + 20 + 20 = 70% |
 
 ---
 

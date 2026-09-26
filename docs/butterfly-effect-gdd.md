@@ -1,6 +1,6 @@
 # The Butterfly Effect — Game Design Document
 
-**Status:** Design complete, pre-prototype · **Version:** 1.2.1 (external reviews evaluated; post-jump tracing removed; timeline corrected to match BUILD_GUIDE.md) · **Date:** September 25, 2026 · **Purpose:** Personal design exploration
+**Status:** Design complete, pre-prototype · **Version:** 1.3 (P0 review: debt compounding cap, Medicine-only plague odds, institution gold and corruption, P0 pacing) · **Date:** September 26, 2026 · **Purpose:** Personal design exploration
 
 ---
 
@@ -855,9 +855,12 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Years per era | ~10 standard; ~7 good; ~5 or skip excellent |
 | Healthy years by medicine | ~70 / ~85 / ~95 |
 | Attention | 4 per turn |
-| Turns per standard era | 51 |
+| Turns per standard era | 51 (P0 prototype only: 6-month turns, 20 per era) |
 | Playtime | ~2.5–3 hours per era; ~22 hours per campaign |
-| Debt compounding | 5% per year |
+| Debt compounding | 5% per year; during a jump, only for the first 30 years after departure |
+| Plague odds | Medicine debt only; Governance and Economy debt tiers raise severity |
+| Institution gold (30-year window after departure) | Grows 0–1.5% per year by Economy level; pays own-domain debt at 1.5× (loyal full, drifted partial, rogue none); frozen afterward in P0 |
+| Corruption (30-year window) | Chance per decade = 0.05 × exposure (×1 small, ×2 large) × (1 − audit 0.5) × (1 − integrity: honest 0.3, average 0, venal −0.3); Minor / Major / Total lose 25% / 50% / 100%; weights 40/40/20 unprotected, 70/25/5 audited |
 | Paying down debt | 1.5× the cost of prevention |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
 | Jump landing thresholds | Sphere Index ≥ 110 (Full), ≥ 130 (Superior) |

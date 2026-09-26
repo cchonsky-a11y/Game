@@ -45,7 +45,7 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 ## 2026-09-25 — Build guide (GDD v1.2.1)
 - **Timeline corrected to about 4–8 months part-time** to a playable first jump, matching the step-by-step estimate in BUILD_GUIDE.md §6.
 
-## 2026-09-26 — P0 build (pending Corey's review)
+## 2026-09-26 — P0 build (approved by Corey, 2026-09-26)
 - **P0 simulation, console game and batch runner built** in slices 1–9 of BUILD_GUIDE §7. Source: Claude Code.
 - **Placeholders for unspecified numbers and rules** recorded in docs/P0_PROPOSALS.md (P0-01 to P0-14) and marked `PROPOSED` in data/tuning.json. None are canonical until approved; approved items move into SYSTEMS.md, the GDD and this log per BUILD_GUIDE §2.1. Source: Claude Code.
 - **First batch findings** (playtests/batch-report.md): accepted risk reaches Strained in 2 years (pass); plague warnings always precede the outbreak (pass). Pooled over both jump timings, Balanced 52% vs Specialized 48% (pass). Split by timing, Specialized dominates early jumps and Balanced dominates late jumps (fail). This awaits a decision on how to read the 65% criterion (P0_PROPOSALS open question 4). Source: batch runner.
@@ -59,5 +59,8 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 - **Legend stand-in:** a loyal leader at departure counts toward "strong", **P0-only**. Source: Corey.
 - **Pacing (P0-only, in PROTOTYPE_SCOPE, not SYSTEMS):** 6-month turns, 20 per era, auto-advance, Attention demand ≥ 1.5× supply. Source: Corey.
 - **Scope change:** institution gold (endowments grow with the economy and pay domain debt for 30 years) and institutional corruption (audit charter, leader integrity, three severities) were added to P0. The out-of-scope item "Fortune shares, loss events other than the plague" was narrowed accordingly. Source: Corey.
-- **Pending:** item C7 of the review ("The pre-jump brief…") was cut off. The brief currently shows exposures only (debts, quality and decay, holdings, growth, payment share, corruption risk and protections); the rest of the item is still to come. Source: Claude Code.
-- **Canonical docs not yet updated (owner edits needed):** SYSTEMS.md §6 (30-year compounding cap; Medicine-only plague odds; Governance/Economy severity), §7 (institution gold, corruption, integrity; strong/Legend note), §9 (institution holdings vs. the share model); GDD Appendix A (debt compounding row). Source: Claude Code.
+
+## 2026-09-26 — Second review (Corey): approved and applied
+- **Approved:** the P0 build entry and the first-review decisions above. The canonical docs are now updated by Claude Code with Corey's authorization: SYSTEMS.md §6 (30-year compounding cap; Medicine-only plague odds; Governance and Economy raise severity; a crisis resets expectations), §7 (leader integrity, institution gold, debt payment during absence, corruption, audit charter, pre-jump risk bands, Discovery reveal), §9 ("never a balance" replaced: a balance growing with the economy during the 30-year window, frozen afterward in P0, full share model at P3); PROTOTYPE_SCOPE (P0-only pacing, endow and audit actions, corruption and institution gold in scope, 5 batch strategies, debt-at-departure criterion); GDD v1.3 Appendix A; BUILD_GUIDE §8 (legacy test deferred to P3 or later). Source: Corey.
+- **C7:** the pre-jump briefing shows corruption risk as Low / Medium / High (thresholds 5% and 10% per decade, tune) and the potential severity mix, never the outcome. The Discovery beat reveals any corruption and its level. Source: Corey.
+- **Batch:** Endow and Split strategies added; the report now covers Attention demand vs. supply, debt retired by institutions, holdings, corruption rate and level mix, the Endow / Pay-down / Split gate, and the audit-charter flag (above ~80% of the best runs). Source: Corey.

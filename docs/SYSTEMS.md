@@ -44,11 +44,12 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 6. Expectations, debt, and crises
 - **Expectation** = max(historical benchmark for the era, the region's recent peak fading over time). (tune; split into social and physical values if P0 shows players avoiding improvement)
 - **Debt accrual per year** = max(0, expectation − level) × rate (rate = 1, tune).
-- **Compounding:** existing debt grows 5% per year.
+- **Compounding:** existing debt grows 5% per year. During a jump, compounding stops **30 years after departure**; yearly accrual (the gap rule above) continues.
 - **Tiers:** Stable → Strained → Fragile → Critical; each raises the yearly crisis chance. Severity scales with debt.
+- **Plague (the Medicine crisis):** its odds, both warning advancement and recurrence, come from **Medicine debt only**. Governance and Economy debt tiers instead raise plague **severity**: severity × (1 + Governance tier bonus + Economy tier bonus), with a bonus of 0 / 0.1 / 0.2 / 0.35 for Stable / Strained / Fragile / Critical (tune).
 - **Warning stages:** every major crisis passes through visible antecedent stages before breaking out.
 - **Paying down debt** costs 1.5× the gold that prevention would have cost.
-- A crisis releases debt and damages levels, population, and wealth.
+- A crisis releases (clears) debt, resets expectations to current levels, and damages levels, population, and wealth.
 - **Crisis outcomes branch:** crises can also create openings (migration, orphaned talent, new movements, experimentation, scattered scholars).
 - **Spillover:** debt spreads along trade routes, borders, and shared institutions in proportion to connection strength.
 
@@ -59,6 +60,14 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 - **Decay per decade during absence:** bare 10%; chartered and endowed 3%; chartered, endowed, in a thriving region, keeping the Legend alive 1%.
 - **Outcomes on arrival:** Thriving, Drifted, Captured, Dissolved, Rogue. Rogue institutions become AI actors.
 - Institutions maintain the domains matching their type while the inventor is away.
+- **Leader integrity:** every institution leader has an integrity trait: honest, average, or venal.
+- **Institution gold:** institutions hold gold given to them as endowments (see §9). An institution whose holdings reach the minimum endowment counts as endowed.
+- **Debt payment during absence:** only in the **30 years after departure**, institutions pay down debt in the domains matching their type, at the 1.5× paydown premium, out of their holdings. Loyal institutions pay in full, drifted ones partially (50%, tune), rogue ones not at all. Payments reduce holdings.
+- **Corruption:** checked each decade during the 30-year window only, separately from loyalty (loyalty decides whether an institution pays; corruption decides whether the gold survives).
+  - Chance per decade = base hazard (0.05, tune) × exposure (×1 small holdings, ×2 large) × (1 − audit charter 0.5) × (1 − integrity: honest 0.3, average 0, venal −0.3).
+  - Levels: **Minor** (lose 25% of holdings; debt payments continue at a reduced rate; small Governance debt); **Major** (lose 50%; payments stop; moderate Governance debt); **Total** (lose 100%; payments stop; large Governance debt; the institution becomes Captured or Rogue).
+  - Level weights (Minor / Major / Total): unprotected 40 / 40 / 20; with an audit charter 70 / 25 / 5. A venal leader shifts weight toward Total, an honest leader toward Minor.
+  - An **audit charter** (costs gold) can be founded as part of jump preparation. The pre-jump briefing shows corruption risk as Low / Medium / High and the potential severity, never the outcome; the arrival's Discovery beat reveals any corruption and its level.
 
 ## 8. Progression
 - Stages: 1 Stranger; 2 Local Figure (livelihood + patron); 3 Founder (first institution; Influence Mode opens); 4 Power Broker (institutions on 2+ paths); 5 World Shaper (3+ paths, one abroad).
@@ -67,7 +76,8 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 
 ## 9. Gold and fortune
 - Gold scales actions; institutional capacity limits how many.
-- Institutions hold a **share of the regional economy**, never a balance that earns interest. Value = share × regional economy.
+- Institutions hold a **share of the regional economy**. Value = share × regional economy.
+- **During the 30-year window after departure**, holdings are a balance growing at the regional economic growth rate (0–1.5% per year by the Economy level; equivalent to a fixed share of a growing economy), never a fixed interest rate. **After the window, holdings freeze in P0.** The full share model arrives at P3.
 - Access on arrival by loyalty: high = regular draws; medium = negotiated; low = token; rogue = none.
 - **Loss = Hazard × Exposure × (1 − Resilience).** Hazards may be random; exposure and resilience come from player choices.
 - Larger shares raise confiscation and revolution risk; aggressive extraction adds stability debt; longer jumps increase exposure.

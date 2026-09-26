@@ -57,4 +57,4 @@ Pillar 1 beats Pillar 2; Pillar 2 beats Pillar 3.
 Visible impact → Absorption → Institutions → Jump payoff → everything else.
 
 ## Reference
-Full design: butterfly-effect-gdd.md (v1.2). Canonical rules: SYSTEMS.md.
+Full design: butterfly-effect-gdd.md (v1.3). Canonical rules: SYSTEMS.md.
