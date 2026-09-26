@@ -23,6 +23,15 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void TheRepairTakesACoupleOfYears()
+        {
+            // Even with every system worked in parallel, the longest system takes at least two years (decided 2026-09-28).
+            var steps = TestData.Load().Content.MachineSteps;
+            int longest = Simulation.MachineSystems.Max(sys => steps.Where(s => s.System == sys).Sum(s => s.Turns));
+            Assert.True(longest * TestData.Load().Tuning.GetInt("time.monthsPerTurn") >= 24);
+        }
+
+        [Fact]
         public void NineStepsInThreeSystems()
         {
             var steps = TestData.Load().Content.MachineSteps;
@@ -48,7 +57,7 @@ namespace Butterfly.Core.Tests
             Assert.Equal("bronze", sim.NextMachineStep("coil")!.Id);
             Assert.True(sim.Repair("coil").Ok);
             Assert.False(sim.Repair("coil").Ok);  // already under way
-            sim.EndTurn();
+            for (int t = 0; t < sim.Data.Content.MachineSteps.First(m => m.Id == "bronze").Turns; t++) sim.EndTurn();
             Assert.Equal("casting", sim.NextMachineStep("coil")!.Id);
             var done = sim.Log.Events.Single(e => e.Type == "machine.step");
             Assert.NotEmpty(done.ImmediateCauses);
@@ -71,9 +80,9 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             sim.World.Attention = 100;
-            foreach (var id in new[] { "bronze", "casting" }) { sim.Repair("coil"); sim.EndTurn(); }
-            // the casting (1 Attention a turn for 2 turns) is still under way this turn
-            Assert.Equal(sim.AttentionPerTurn - 1, sim.World.Attention);
+            Assert.True(sim.Repair("coil").Ok);       // bronze: 1 Attention a turn for more than one turn
+            sim.EndTurn();
+            Assert.Equal(sim.AttentionPerTurn - sim.Data.Content.MachineSteps.First(m => m.Id == "bronze").AttentionPerTurn, sim.World.Attention);
         }
 
         [Fact]

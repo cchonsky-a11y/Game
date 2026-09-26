@@ -187,3 +187,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 ## 2026-09-28 — Inventions (Corey)
 - **Decision:** an option to work on inventions that affect income, standing and influence. Built as a first version, to be fleshed out later: 5 inventions (wheelbarrow, double-entry bookkeeping, soap and boiled linen, compound pulley crane, water-driven trip hammer), each needing something from Rome, made once, paying income, leader loyalty and stake. Commands `inventions` and `invent <id>`. No visibility or anachronism risk (out of P0 scope). PROTOTYPE_SCOPE, SYSTEMS §7, GDD Appendix A, P0-22. The batch strategies don't invent yet. Source: Corey.
 
+## 2026-09-28 — The machine repair takes a couple of years (Corey, from play)
+- **Decision:** the repair was too quick (4 of 9 steps in under two years). Steps now take 2–6 turns each (the star tables 6), and the casting, distilling and dial cost a little more gold (30, 15, 10). The longest system takes 2.5 years even worked alone; with Attention shared across systems, the whole track takes about 3–4 years. P0-21. Source: Corey.
+
