@@ -141,3 +141,8 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 ## 2026-09-28 — Jump range grows with knowledge; first jump 25–50 years (Corey)
 - **Decision:** jumps start short and reach further as technology and knowledge advance. The first jump is about 25–50 years; smaller early jumps let the player make more adjustments at the start. Recorded in SYSTEMS §11 and GDD Appendix A. Source: Corey.
 - **Not yet built:** the P0 prototype still jumps 250 years (PROTOTYPE_SCOPE "Jump"; arrival texts, the 30-year institution window and the long-run drift are written for that distance). Changing P0's jump needs a scope change and new arrival texts; awaiting a go-ahead. The rule for how range grows (what counts as knowledge, how far each step reaches) is still open.
+
+## 2026-09-28 — One smith doesn't move Rome's economy (Corey, from play)
+- **Decision:** the smith giving up no longer costs the Economy 4 points; one workshop is too small to move an economy the size of Rome. Causality runs the other way: if the workshop is unfunded, the smith leaves in AD 157 only if the Economy is below its historical value (logged with the Economy as a cause); otherwise he struggles on. Both outcomes are logged with the seeded choice as a cause, so the Echo is kept. Tuning `seededChoice.smithLoss` removed; P0-12. Source: Corey.
+- **Open (same concern, not changed):** the workshop still gives Economy +6 and the fountain's fever still costs Medicine −5.
+- **Batch result:** all applicable gates pass for the first time since the stakes model: A early 19 / 64 / 17, late 64 / 36 / 0 (both just under the 65% cap); B and C pass in both timings. Source: batch runner.

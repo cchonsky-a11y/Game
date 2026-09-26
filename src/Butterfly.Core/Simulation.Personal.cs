@@ -151,8 +151,16 @@ namespace Butterfly.Core
             if (!World.CompletedProjects.Contains("workshop"))
             {
                 remember = World.SeededChoice == "fountain" ? " You remember choosing the fountain over his workshop." : "";
-                ChangeLevel(Domain.Economy, -T.Get("seededChoice.smithLoss"), "seeded.payoff", new[] { World.SeededChoiceEventId },
-                    new[] { "world" }, "The smith by the Porta Trigemina gives up and takes his tools to Ostia." + remember);
+                // One smith doesn't move Rome's economy; a weak economy is what drives him out (decided 2026-09-28).
+                var economy = World[Domain.Economy];
+                double history = Benchmark(Domain.Economy, Now.Year);
+                if (economy.Level < history)
+                    Record("seeded.payoff", "workshop", new[] { World.SeededChoiceEventId, CauseOf(LevelKey(Domain.Economy)) }, new[] { "world" }, null,
+                        "Trade is worse than it should be (Economy " + F(economy.Level) + ", history " + F(history) + "): the smith by the Porta Trigemina " +
+                        "gives up and takes his tools to Ostia." + remember);
+                else
+                    Record("seeded.payoff", "workshop", new[] { World.SeededChoiceEventId }, new[] { "world" }, null,
+                        "The smith by the Porta Trigemina struggles on with one forge and no apprentices." + remember);
             }
         }
 

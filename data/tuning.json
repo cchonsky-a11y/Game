@@ -733,10 +733,6 @@
     "feverLoss": {
       "value": 5,
       "ref": "PROPOSED P0-12"
-    },
-    "smithLoss": {
-      "value": 4,
-      "ref": "PROPOSED P0-12"
     }
   },
   "promise": {

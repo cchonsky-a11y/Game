@@ -113,6 +113,25 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void TheSmithLeavesOnlyIfTheEconomyIsWeakAndThatCostsRomeNothing()
+        {
+            var sim = new Simulation(TestData.Load(), 31);
+            sim.ChooseSeeded("fountain");
+            RunTo(sim, 156);
+            sim.World[Domain.Economy].Level = sim.Benchmark(Domain.Economy, 157) - 5; // a weak economy
+            RunTo(sim, 158);
+            var payoff = sim.Log.Events.Single(e => e.Type == "seeded.payoff");
+            Assert.Contains("gives up", payoff.Text);
+            Assert.Empty(payoff.Effects); // one smith leaving doesn't move Rome's Economy
+            Assert.Contains(sim.Log.Events.Single(e => e.Type == "seeded.choice").Id, payoff.ImmediateCauses);
+
+            var healthy = new Simulation(TestData.Load(), 31);
+            healthy.ChooseSeeded("fountain");
+            RunTo(healthy, 158);
+            Assert.Contains("struggles on", healthy.Log.Events.Single(e => e.Type == "seeded.payoff").Text);
+        }
+
+        [Fact]
         public void TheChoiceLapsesIfIgnored()
         {
             var sim = new Simulation(TestData.Load(), 31);
