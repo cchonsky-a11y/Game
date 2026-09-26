@@ -126,6 +126,9 @@ namespace Butterfly.Core
             foreach (var i in Founded()) InstitutionDecadeStep(i, decade);
             FountainDecadeStep();
             if (antoninePassed) MaybeRecurrence(arrival);
+            // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).
+            double popTarget = T.Get("plague.startPopulation") * Math.Min(1.5, SubScore(Domain.Medicine) / 100.0);
+            World.Population += (popTarget - World.Population) * T.Get("jump.populationRecoveryPerDecade");
 
             Record("jump.decade", "world", null, new[] { "world" }, null,
                 "AD " + Now.Year + ": Medicine " + F(World[Domain.Medicine].Level) + ", Governance " + F(World[Domain.Governance].Level) +

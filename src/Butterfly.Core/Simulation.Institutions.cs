@@ -293,6 +293,6 @@ namespace Butterfly.Core
             return InstitutionOutcome.Thriving;
         }
 
-        internal static string Cap(string s) => s.Length == 0 ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);
+        public static string Cap(string s) => s.Length == 0 ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);
     }
 }

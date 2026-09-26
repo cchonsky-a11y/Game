@@ -108,11 +108,11 @@
   "priorities": {
     "levelChangePerYear": {
       "protect": {
-        "value": 1,
+        "value": 2,
         "ref": "PROPOSED P0-04"
       },
       "maintain": {
-        "value": -2,
+        "value": -1,
         "ref": "PROPOSED P0-04"
       },
       "acceptRisk": {
@@ -291,8 +291,8 @@
       }
     },
     "debtRelease": {
-      "value": 0.6,
-      "ref": "SYSTEMS §6 a crisis releases debt (fraction PROPOSED P0-09)"
+      "value": 1.0,
+      "ref": "SYSTEMS §6 a crisis releases debt (all of it: PROPOSED P0-09)"
     },
     "response": {
       "quarantine": {
@@ -511,7 +511,7 @@
   },
   "personal": {
     "workGold": {
-      "value": 10,
+      "value": 5,
       "ref": "PROPOSED P0-12"
     }
   },
@@ -620,6 +620,10 @@
     },
     "asHistoryBand": {
       "value": 8,
+      "ref": "PROPOSED P0-13"
+    },
+    "populationRecoveryPerDecade": {
+      "value": 0.2,
       "ref": "PROPOSED P0-13"
     }
   }

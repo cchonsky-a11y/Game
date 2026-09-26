@@ -65,7 +65,7 @@ namespace Butterfly.Core
             }
         }
 
-        internal static string PlagueStageText(int stage)
+        public static string PlagueStageText(int stage)
         {
             switch (stage)
             {
