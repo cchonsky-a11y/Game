@@ -61,6 +61,8 @@ namespace Butterfly.Core
                 double floor = Benchmark(d, Now.Year) * T.Get("priorities.neglectFloorFraction");
                 if (offset < 0) offset = Math.Max(offset, Math.Min(0, floor - s.Level - trend));
                 double change = trend + offset;
+                // What people remember moves with history too, so following history never creates debt.
+                s.Peak += trend;
                 if (Math.Abs(change) > 1e-9)
                 {
                     string text = Maintainer(d) == null

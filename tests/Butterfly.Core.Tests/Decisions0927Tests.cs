@@ -137,3 +137,18 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class FollowsHistoryDebtTests
+    {
+        [Fact]
+        public void FollowingADecliningHistoryAboveTheCurveBuildsNoDebt()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop"); // Economy above history while history slowly declines
+            for (int i = 0; i < 5 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
+            Assert.Equal(0, sim.World[Domain.Economy].Debt, 6);
+        }
+    }
+}
