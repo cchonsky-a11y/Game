@@ -20,6 +20,8 @@ namespace Butterfly.Core
             { "faction", new[] { "faction", "junian" } }, { "guild", new[] { "guild" } },
         };
 
+        public int InventionGold(InventionDef def) => (int)Math.Round(def.Gold * World.PriceLevel);
+
         public bool InventionRequirementMet(InventionDef def)
         {
             bool workshop = World.CompletedProjects.Contains("workshop");
@@ -57,14 +59,15 @@ namespace Butterfly.Core
             if (World.ActiveInventions.Any(a => a.Def.Id == def.Id)) return CommandResult.Fail(def.Name + " is already under way.");
             if (!InventionRequirementMet(def))
                 return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
-            if (World.Gold < def.Gold) return CommandResult.Fail(def.Name + " costs " + def.Gold + " gold; you have " + F(World.Gold) + ".");
+            int price = InventionGold(def);
+            if (World.Gold < price) return CommandResult.Fail(def.Name + " costs " + price + " gold; you have " + F(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
             SpendAttention(def.AttentionPerTurn);
             double before = World.Gold;
-            SpendGold(def.Gold);
+            SpendGold(price);
             var e = Record("invention.start", def.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
-                "You start work on " + def.Name + " (" + def.Gold + " gold, " + def.Turns + " turns).");
+                "You start work on " + def.Name + " (" + price + " gold, " + def.Turns + " turns).");
             World.ActiveInventions.Add(new ActiveInvention(def, e.Id));
             return CommandResult.Success("Started: " + def.Name + ".");
         }

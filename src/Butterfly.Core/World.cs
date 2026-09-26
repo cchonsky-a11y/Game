@@ -29,6 +29,8 @@ namespace Butterfly.Core
         /// <summary>Ventures that only pay while an intervention-driven boom lasts.</summary>
         public double Malinvestment { get; set; }
         public BustState Bust { get; } = new BustState();
+        /// <summary>Prices relative to AD 155 (1 = unchanged); rises with the debasement of the coin.</summary>
+        public double PriceLevel { get; set; } = 1;
         /// <summary>Per domain: level − historical value at departure (sets the long-run target during the absence).</summary>
         public double[] DepartureDeviation { get; } = new double[3];
 

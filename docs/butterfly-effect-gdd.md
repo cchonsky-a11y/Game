@@ -871,6 +871,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Inventions (P0) | 5 inventions; income +2 to +10 a year, leader loyalty +10, +3% stake, small domain effects; each needs something from Rome |
 | Time machine (P0) | 9 repair steps in three systems, all required to jump; 3 optional upgrades; the jump is 25–60 years, drawn within a range set by repairs, time in the era and upgrades |
 | Joining benefits (P0) | +10% work pay per membership; a voice (25%) makes the institution pay a quarter of projects in its domain; project gold ×1.5 |
+| Prices (P0) | Price level +1.5%/yr as history, +4% debased, 0% sound (by sway); gold costs scale with it; pay catches up half as fast |
 | Jump range | Starts short (first jump about 25–50 years) and grows as technology and knowledge advance (rule to be defined) |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
 | Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/4); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |

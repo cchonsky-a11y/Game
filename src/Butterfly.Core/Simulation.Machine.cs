@@ -96,7 +96,7 @@ namespace Butterfly.Core
         }
 
         /// <summary>Gold for a step: its price, or the alternative price if Rome can't give you what it needs.</summary>
-        public int MachineStepGold(MachineStepDef step) => MachineRequirementMet(step) ? step.Gold : step.AltGold;
+        public int MachineStepGold(MachineStepDef step) => (int)Math.Round((MachineRequirementMet(step) ? step.Gold : step.AltGold) * World.PriceLevel);
 
         /// <summary>Starts the next step of a machine system (coil, coolant or chronometer).</summary>
         public CommandResult Repair(string systemText)

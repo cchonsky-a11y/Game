@@ -96,6 +96,34 @@ namespace Butterfly.Core
             UpdateTier(d);
         }
 
+        /// <summary>
+        /// This year's inflation (decided 2026-09-28): Rome's historical practice debases the coin slowly; a debasement
+        /// policy speeds it up and sound coin stops it, each in proportion to your sway over Governance.
+        /// </summary>
+        public double InflationRate()
+        {
+            double history = T.Get("prices.inflationAsHistory");
+            int coin = Stance(PolicyIssue.Coinage);
+            if (coin == 0) return history;
+            double target = coin > 0 ? T.Get("prices.inflationSound") : T.Get("prices.inflationDebase");
+            return history + PolicySway() * (target - history);
+        }
+
+        /// <summary>A price in AD 155 gold, at today's price level.</summary>
+        public double Priced(double gold) => Math.Round(gold * World.PriceLevel, 1);
+
+        private void PricesYearTick()
+        {
+            double rate = InflationRate();
+            if (rate <= 0) return;
+            double before = World.PriceLevel;
+            World.PriceLevel *= 1 + rate;
+            Record("prices.rise", "prices", CausesOf("policy.coinage"), new[] { "world" },
+                new[] { new Effect("prices.level", before, World.PriceLevel) },
+                "Prices rise " + F(rate * 100) + "% this year as the denarius is " + (Stance(PolicyIssue.Coinage) < 0 ? "debased by policy" : "quietly debased, as Rome's mint has always done") +
+                " (prices now " + F((World.PriceLevel - 1) * 100) + "% above AD 155).");
+        }
+
         /// <summary>Tax on work income: 10% as history, lighter or heavier by policy.</summary>
         public double WorkTaxRate()
         {
@@ -136,6 +164,7 @@ namespace Butterfly.Core
                         "Bread prices climb with the sickness; crowds blame the free market.");
             }
             BustYearTick();
+            PricesYearTick();
         }
 
         public static string BustStageText(int stage)

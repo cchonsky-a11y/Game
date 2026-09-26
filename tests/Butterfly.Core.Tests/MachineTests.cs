@@ -214,5 +214,43 @@ namespace Butterfly.Core.Tests
             var stake = System.Linq.Enumerable.Single(sim.Log.Events, e => e.Type == "institution.stake");
             Xunit.Assert.NotEmpty(stake.ImmediateCauses);
         }
+    
+        [Fact]
+        public void PricesRiseWithTheDebasedCoin()
+        {
+            var history = Rich();
+            var market = history.Data.Content.Project("market")!;
+            int before = history.ProjectGold(market);
+            while (history.Now.Year < 157) history.EndTurn();                   // two years of Rome's own slow debasement
+            Assert.True(history.ProjectGold(market) > before);
+            Assert.True(history.World.PriceLevel > 1.02 && history.World.PriceLevel < 1.04);
+            Assert.Contains(history.Log.Events, e => e.Type == "prices.rise");
+
+            var debased = Rich();
+            debased.GrantStake("faction", 0.5);
+            debased.World.Institution("faction").Strength = 100;             // full sway over Governance
+            debased.World.Attention = 100;
+            Assert.True(debased.SetPolicy(PolicyIssue.Coinage, -1).Ok);
+            while (debased.Now.Year < 157) debased.EndTurn();
+            Assert.True(debased.World.PriceLevel > history.World.PriceLevel);
+
+            var sound = Rich();
+            sound.GrantStake("faction", 0.5);
+            sound.World.Institution("faction").Strength = 100;
+            sound.World.Attention = 100;
+            Assert.True(sound.SetPolicy(PolicyIssue.Coinage, 1).Ok);
+            while (sound.Now.Year < 157) sound.EndTurn();
+            Assert.True(sound.World.PriceLevel < history.World.PriceLevel);
+        }
+
+        [Fact]
+        public void PayCatchesUpWithPricesOnlyPartly()
+        {
+            var sim = Rich();
+            double pay = sim.WorkPay("craft");
+            sim.World.PriceLevel = 1.2;
+            Assert.Equal(pay * (1 + 0.2 * sim.T.Get("prices.wageCatchUp")), sim.WorkPay("craft"), 6);
+            Assert.True(sim.WorkPay("craft") / pay < 1.2);
+        }
     }
 }

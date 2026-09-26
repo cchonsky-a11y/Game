@@ -103,7 +103,7 @@ namespace Butterfly.Core
         /// quarter of it (decided 2026-09-28: a voice unlocks a little more).
         /// </summary>
         public int ProjectGold(ProjectDef def) =>
-            (int)Math.Round(def.Gold * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0)));
+            (int)Math.Round(def.Gold * World.PriceLevel * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0)));
 
         public CommandResult StartProject(string id)
         {

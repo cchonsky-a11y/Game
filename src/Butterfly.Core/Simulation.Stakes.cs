@@ -69,7 +69,7 @@ namespace Butterfly.Core
             int from = StakePercent(i);
             double cost = 0;
             for (int k = from; k < from + points; k++) cost += b * (1 + g * k);
-            return cost;
+            return Priced(cost);
         }
 
         /// <summary>Years you have been a member (0 if you aren't one).</summary>
@@ -87,7 +87,7 @@ namespace Butterfly.Core
         }
 
         /// <summary>The entry fee you pay on joining an established institution (none for your own).</summary>
-        public double EntryFee(Institution i) => i.Def.IsOwn ? 0 : T.Get("joining.entryFee." + i.Key);
+        public double EntryFee(Institution i) => i.Def.IsOwn ? 0 : Priced(T.Get("joining.entryFee." + i.Key));
 
         /// <summary>What buying <paramref name="points"/> more percent costs you now, including the entry fee if you are joining.</summary>
         public double BuyCost(Institution i, int points) => StakeCost(i, points) + (i.Stake <= 0 ? EntryFee(i) : 0);
@@ -97,7 +97,7 @@ namespace Butterfly.Core
         /// plus a little more for every percent you hold, so more influence costs more. None for your own.
         /// </summary>
         public double AnnualDues(Institution i) =>
-            !i.Backed || i.Def.IsOwn ? 0 : T.Get("joining.duesBasePerYear." + i.Key) + T.Get("joining.duesPerStakePercentPerYear") * StakePercent(i);
+            !i.Backed || i.Def.IsOwn ? 0 : Priced(T.Get("joining.duesBasePerYear." + i.Key) + T.Get("joining.duesPerStakePercentPerYear") * StakePercent(i));
 
         public double AnnualDuesTotal() => Backed().Sum(AnnualDues);
 

@@ -185,7 +185,7 @@ internal sealed class ConsoleGame
             case "upgrade": r = _sim.Upgrade(arg); break;
             case "inventions":
                 foreach (var idea in _sim.AvailableInventions())
-                    Console.WriteLine("  " + idea.Id.PadRight(12) + (idea.Gold + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
+                    Console.WriteLine("  " + idea.Id.PadRight(12) + (_sim.InventionGold(idea) + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
                                       (_sim.InventionRequirementMet(idea) ? "" : "   (needs " + _sim.InventionRequirementText(idea) + ")") + "\n" +
                                       "              " + idea.Description);
                 foreach (var a in _sim.World.ActiveInventions) Console.WriteLine("  Under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
@@ -267,6 +267,7 @@ internal sealed class ConsoleGame
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
                               "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
+        if (w.PriceLevel > 1.0001) Console.WriteLine("  Prices: +" + F((w.PriceLevel - 1) * 100) + "% since AD 155 (" + F(_sim.InflationRate() * 100) + "% a year)");
         if (Simulation.Issues.Any(i => _sim.Stance(i) != 0))
             Console.WriteLine("  Policy: " + string.Join(", ", Simulation.Issues.Select(i => i.ToString().ToLowerInvariant() + " " + Simulation.StanceWord(i, _sim.Stance(i)))));
         if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));

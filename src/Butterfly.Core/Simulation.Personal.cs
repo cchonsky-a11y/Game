@@ -55,7 +55,10 @@ namespace Butterfly.Core
 
         /// <summary>Pay for work before tax: each membership raises it 10% (decided 2026-09-28: benefits to joining).</summary>
         public double WorkPay(string kind) =>
-            WorkGold(kind) * (1 + T.Get("joining.workBonusPerMembership") * Memberships() + (kind == "consult" ? World.ConsultBonus : 0));
+            WorkGold(kind) * WageLevel() * (1 + T.Get("joining.workBonusPerMembership") * Memberships() + (kind == "consult" ? World.ConsultBonus : 0));
+
+        /// <summary>Pay catches up with prices only partly (decided 2026-09-28).</summary>
+        public double WageLevel() => 1 + (World.PriceLevel - 1) * T.Get("prices.wageCatchUp");
 
         /// <summary>
         /// The one personal action per turn: work for pay. Better-paid work takes more Attention (decided 2026-09-27):
@@ -80,7 +83,7 @@ namespace Butterfly.Core
                         : "You advise a wealthy household on its baths and its books.";
             Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
             int members = Memberships();
-            return CommandResult.Success("You earn " + F(pay) + " gold" + (members > 0 ? " (" + F(pay - WorkGold(kind)) + " of it through your " + members +
+            return CommandResult.Success("You earn " + F(pay) + " gold" + (members > 0 ? " (" + F(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
                                          " membership" + (members == 1 ? "" : "s") + ")" : "") + "; " + F(tax) + " goes in tax, you keep " + F(pay - tax) + ".");
         }
 
@@ -132,7 +135,7 @@ namespace Butterfly.Core
             if (!SeededChoiceOpen) return CommandResult.Fail("That choice has already been made.");
             if (option != "fountain" && option != "workshop") return CommandResult.Fail("Choose 'fountain' or 'workshop'.");
             var def = Data.Content.Project(option)!;
-            if (World.Gold < def.Gold) return CommandResult.Fail("You can't afford it.");
+            if (World.Gold < ProjectGold(def)) return CommandResult.Fail("You can't afford it.");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
             World.SeededChoice = option;

@@ -1257,5 +1257,24 @@
       "value": 0.1,
       "ref": "DECIDED 2026-09-28 (Corey: benefits to joining; voice unlocks a little more); amount PROPOSED P0-21: each membership brings customers and patrons, raising pay for your work"
     }
+  },
+  "prices": {
+    "_readme": "Price level (DECIDED 2026-09-28, Corey). Each year prices rise by the inflation rate set by coinage policy: Rome's historical practice debased the denarius slowly; a debasement policy speeds it up; sound coin stops it (each adjusted by your sway over Governance). Everything bought with gold scales with the price level; pay for work catches up only partly.",
+    "inflationAsHistory": {
+      "value": 0.015,
+      "ref": "DECIDED 2026-09-28 (Corey: with debasement, prices rise each year); rate PROPOSED P0-24"
+    },
+    "inflationDebase": {
+      "value": 0.04,
+      "ref": "DECIDED 2026-09-28 (Corey: with debasement, prices rise each year); rate PROPOSED P0-24"
+    },
+    "inflationSound": {
+      "value": 0.0,
+      "ref": "DECIDED 2026-09-28 (Corey: with debasement, prices rise each year); rate PROPOSED P0-24"
+    },
+    "wageCatchUp": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-28 (Corey: with debasement, prices rise each year); rate PROPOSED P0-24: work pay rises by this share of the price rise"
+    }
   }
 }
