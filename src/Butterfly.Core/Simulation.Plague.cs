@@ -156,20 +156,36 @@ namespace Butterfly.Core
         {
             var p = World.Plague;
             p.Severity = Math.Max(0.01, PlagueSeverity(p.Response));
-            double sev = p.Severity;
-            var causes = new List<int> { p.LastStageEventId, p.ResponseEventId, CauseOf(DebtKey(Domain.Medicine)),
-                CauseOf(LevelKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Governance)), CauseOf("plague.resilience"), CauseOf("fountain.clean") };
+            p.StruckInAbsence = IsAway;
+            var toll = ApplyPlagueDamage(p.Severity, new List<int> { p.LastStageEventId, p.ResponseEventId }, out double deaths);
+            p.Deaths = deaths;
+
+            OnPlagueResolved(toll.Id);
+            ChooseOpening(toll.Id);
+
+            p.Stage = PlagueState.Passed;
+            var passed = Record("plague.passed", "plague", new[] { toll.Id }, new[] { "world" },
+                new[] { new Effect("plague.stage", PlagueState.Outbreak, PlagueState.Passed) }, "The worst of the pestilence has passed.");
+            p.LastStageEventId = passed.Id;
+            OnPlaguePassedForPromise(passed.Id);
+        }
+
+        /// <summary>Tolls, level damage and debt release shared by the plague and its later recurrences.</summary>
+        internal GameEvent ApplyPlagueDamage(double sev, List<int> causes, out double deaths)
+        {
+            causes.AddRange(new[] { CauseOf(DebtKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Governance)),
+                CauseOf("plague.resilience"), CauseOf("fountain.clean") });
 
             double popBefore = World.Population;
-            p.Deaths = World.Population * sev * T.Get("plague.deathRatePerSeverity");
-            World.Population -= p.Deaths;
+            deaths = World.Population * sev * T.Get("plague.deathRatePerSeverity");
+            World.Population -= deaths;
             double goldBefore = World.Gold;
             World.Gold = Math.Max(0, World.Gold - sev * T.Get("plague.goldLossPerSeverity"));
             string label = sev < T.Get("plague.severity.mild") ? "mild" : sev < T.Get("plague.severity.grave") ? "grave" : "catastrophic";
             var toll = Record("plague.toll", "plague", causes, new[] { "world" },
                 new[] { new Effect("population", popBefore, World.Population), new Effect(GoldKey, goldBefore, World.Gold),
                         new Effect("plague.severity", 0, sev) },
-                "The pestilence is " + label + " (severity " + F(sev) + "): about " + F(p.Deaths) + " thousand dead in Rome.");
+                "The pestilence is " + label + " (severity " + F(sev) + "): about " + F(deaths) + " thousand dead in Rome.");
 
             foreach (var d in DomainInfo.All)
                 ChangeLevel(d, -sev * T.Get("plague.damage." + d.Key()), "plague.damage", new[] { toll.Id }, new[] { "world" },
@@ -186,15 +202,7 @@ namespace Butterfly.Core
                     new[] { new Effect(DebtKey(d), before, s.Debt) }, "The crisis releases " + d + " debt.");
                 UpdateTier(d);
             }
-
-            OnPlagueResolved(toll.Id);
-            ChooseOpening(toll.Id);
-
-            p.Stage = PlagueState.Passed;
-            var passed = Record("plague.passed", "plague", new[] { toll.Id }, new[] { "world" },
-                new[] { new Effect("plague.stage", PlagueState.Outbreak, PlagueState.Passed) }, "The worst of the pestilence has passed.");
-            p.LastStageEventId = passed.Id;
-            OnPlaguePassedForPromise(passed.Id);
+            return toll;
         }
 
         /// <summary>SYSTEMS §6: crises also create openings. One is chosen by weighted seeded draw.</summary>

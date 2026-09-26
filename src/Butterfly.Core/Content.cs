@@ -111,11 +111,23 @@ namespace Butterfly.Core
     {
         public IReadOnlyList<ProjectDef> Projects { get; }
         public IReadOnlyList<InstitutionDef> Institutions { get; }
+        /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
+        public IReadOnlyDictionary<string, string> Text { get; }
 
-        private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions)
+        private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyDictionary<string, string> text)
         {
             Projects = projects;
             Institutions = institutions;
+            Text = text;
+        }
+
+        /// <summary>Fills a template's {placeholders}. Unknown placeholders are left visible so tests can catch them.</summary>
+        public string Template(string key, IDictionary<string, string>? values = null)
+        {
+            if (!Text.TryGetValue(key, out var template)) throw new KeyNotFoundException("Missing text template: " + key);
+            if (values == null) return template;
+            foreach (var kv in values) template = template.Replace("{" + kv.Key + "}", kv.Value);
+            return template;
         }
 
         private static JsonObject Read(string dir, string file) =>
@@ -125,7 +137,15 @@ namespace Butterfly.Core
         {
             var projects = Read(contentDirectory, "projects.json").Arr("projects").Cast<JsonObject>().Select(o => new ProjectDef(o)).ToList();
             var institutions = Read(contentDirectory, "institutions.json").Arr("institutions").Cast<JsonObject>().Select(o => new InstitutionDef(o)).ToList();
-            return new Content(projects, institutions);
+            var textObj = Read(contentDirectory, "text.json");
+            var text = new Dictionary<string, string>();
+            foreach (var section in textObj.Keys)
+            {
+                if (section.StartsWith("_")) continue;
+                var obj = textObj.Obj(section);
+                foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
+            }
+            return new Content(projects, institutions, text);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

@@ -34,6 +34,8 @@ namespace Butterfly.Core
                 texts.AddRange(i.DriftPaths.Select(d => d.Name + " " + d.Description));
                 CheckVerb("institution " + i.Id, i.Tags, texts, problems);
             }
+            foreach (var kv in content.Text)
+                CheckVerb("text " + kv.Key, new string[0], new[] { kv.Value }, problems);
             return problems;
         }
 

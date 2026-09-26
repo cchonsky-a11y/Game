@@ -574,5 +574,53 @@
       "value": 30,
       "ref": "SYSTEMS §10 breaking affects institution loyalty (amount PROPOSED P0-12)"
     }
+  },
+  "jump": {
+    "years": {
+      "value": 250,
+      "ref": "PROTOTYPE_SCOPE (250-year absence)"
+    },
+    "convergencePerDecade": {
+      "value": 0.15,
+      "ref": "GDD §8 domains drift toward the historical baseline (rate PROPOSED P0-13)"
+    },
+    "maintainPerStrength": {
+      "value": 0.3,
+      "ref": "SYSTEMS §7 institutions maintain matching domains (amount PROPOSED P0-13)"
+    },
+    "crisisChancePerYear": {
+      "stable": {
+        "value": 0.01,
+        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
+      },
+      "strained": {
+        "value": 0.03,
+        "ref": "PROPOSED P0-13"
+      },
+      "fragile": {
+        "value": 0.06,
+        "ref": "PROPOSED P0-13"
+      },
+      "critical": {
+        "value": 0.1,
+        "ref": "PROPOSED P0-13"
+      }
+    },
+    "fountainTendedByStrength": {
+      "value": 20,
+      "ref": "PROPOSED P0-13"
+    },
+    "fountainDecayPerDecade": {
+      "value": 15,
+      "ref": "PROPOSED P0-13"
+    },
+    "fountainRunsAt": {
+      "value": 50,
+      "ref": "PROPOSED P0-13"
+    },
+    "asHistoryBand": {
+      "value": 8,
+      "ref": "PROPOSED P0-13"
+    }
   }
 }

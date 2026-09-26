@@ -147,7 +147,7 @@ namespace Butterfly.Core
 
         private void OfferPromise(int causeId)
         {
-            if (World.Promise.Status != PromiseStatus.NotOffered) return;
+            if (World.Promise.Status != PromiseStatus.NotOffered || IsAway) return;
             World.Promise.Status = PromiseStatus.Offered;
             var e = Record("promise.offer", "promise", new[] { causeId }, new[] { PromiseInstitution.Def.Leader }, null,
                 PromiseInstitution.Def.Leader + " hears the rumors from the East and asks you: \"Promise me you will stay until this sickness has passed through Rome.\"");

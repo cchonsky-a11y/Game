@@ -15,6 +15,8 @@ namespace Butterfly.Core
         public double PlagueResilienceBonus { get; set; }
         /// <summary>True once the district fountain has been repaired.</summary>
         public bool CleanWater { get; set; }
+        /// <summary>Condition of the repaired fountain (0–100); tracked for the arrival.</summary>
+        public double FountainCondition { get; set; }
 
         /// <summary>Population of Rome in thousands (flavor and plague toll).</summary>
         public double Population { get; set; }

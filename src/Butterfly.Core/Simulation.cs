@@ -45,6 +45,7 @@ namespace Butterfly.Core
         /// <summary>Ends the current turn. Runs the yearly simulation whenever a year boundary is crossed.</summary>
         public void EndTurn()
         {
+            if (IsAway || Arrived) throw new System.InvalidOperationException("The era is over; the inventor has jumped.");
             ProgressProjects();
             ProgressCommitments();
             LapseSeededChoiceIfDue();

@@ -122,6 +122,7 @@ namespace Butterfly.Core
                     break;
                 case "cleanWater":
                     World.CleanWater = true;
+                    World.FountainCondition = 100;
                     Record("water.clean", "fountain", new[] { causeId }, new[] { "player" },
                         new[] { new Effect("fountain.clean", 0, 1) }, "The district drinks clean water.");
                     break;
