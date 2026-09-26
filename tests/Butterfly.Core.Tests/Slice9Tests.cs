@@ -54,7 +54,7 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void NeglectIsNeverTheBestStrategyOnAverage()
         {
-            var results = BatchRunner.RunAll(TestData.Load(), 20);
+            var results = BatchRunner.RunAll(TestData.Load(), 100);
             var rates = BatchRunner.WinRates(results);
             foreach (var timing in BatchRunner.Timings.Select(t => t.Name))
                 Assert.True(rates[(timing, "Neglectful")] < 0.2);

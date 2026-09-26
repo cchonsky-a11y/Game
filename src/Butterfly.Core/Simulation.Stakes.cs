@@ -64,12 +64,26 @@ namespace Butterfly.Core
         /// <summary>Price of the next <paramref name="points"/> percent: each 1% costs domain base × (1 + stake% × 0.1).</summary>
         public double StakeCost(Institution i, int points)
         {
-            double b = T.Get("stakes.costPerPercent." + i.Def.Maintains.Key());
+            double b = T.Get("stakes.costPerPercent." + i.Def.Maintains.Key()) * NewcomerPremium(i);
             double g = T.Get("stakes.costGrowthPerPercent");
             int from = StakePercent(i);
             double cost = 0;
             for (int k = from; k < from + points; k++) cost += b * (1 + g * k);
             return cost;
+        }
+
+        /// <summary>Years you have been a member (0 if you aren't one).</summary>
+        public double YearsAsMember(Institution i) => i.Stake > 0 ? Math.Max(0, Now.YearFraction - i.JoinedAt) : 0;
+
+        /// <summary>
+        /// Newcomers pay a premium for more stake (decided 2026-09-28): ×3 on joining, falling to ×1 after 5 years of
+        /// membership. Heavy gold buys influence fast; time makes it cheap. None for your own institutions.
+        /// </summary>
+        public double NewcomerPremium(Institution i)
+        {
+            if (i.Def.IsOwn) return 1;
+            double fade = Math.Min(1, YearsAsMember(i) / T.Get("stakes.premiumFadeYears"));
+            return 1 + (T.Get("stakes.newcomerPremium") - 1) * (1 - fade);
         }
 
         /// <summary>The entry fee you pay on joining an established institution (none for your own).</summary>
@@ -87,7 +101,28 @@ namespace Butterfly.Core
 
         public double AnnualDuesTotal() => Backed().Sum(AnnualDues);
 
-        /// <summary>Price of going from 0% to 50% in an established institution of this domain.</summary>
+        /// <summary>
+        /// Seniority (decided 2026-09-28): every full year you stay a member of an established institution and pay what
+        /// you owe, your stake grows by 1 percentage point, up to 25%: long membership can earn a voice, never control.
+        /// </summary>
+        private void SeniorityYearTick()
+        {
+            double cap = T.Get("stakes.seniorityCap");
+            foreach (var i in Backed().Where(x => !x.Def.IsOwn).ToList())
+            {
+                bool eligible = YearsAsMember(i) >= 1 - 1e-9 && !i.MissedDuesThisYear && i.Stake < cap - 1e-9;
+                i.MissedDuesThisYear = false;
+                if (!eligible) continue;
+                double before = i.Stake;
+                int points = T.GetInt("stakes.seniorityPercentPerYear");
+                i.Stake = Math.Min(cap, (StakePercent(i) + points) / 100.0);
+                Record("institution.seniority", i.Key, CausesOf(StakeKey(i)), new[] { i.Leader },
+                    new[] { new Effect(StakeKey(i), before, i.Stake) },
+                    "Another year as a member of " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+            }
+        }
+
+        /// <summary>Price of going from 0% to 50% in an established institution of this domain (at the normal price, without the newcomer premium).</summary>
         public double ControlCost(Domain d)
         {
             double b = T.Get("stakes.costPerPercent." + d.Key());
@@ -135,7 +170,11 @@ namespace Butterfly.Core
             bool first = stake <= 0;
             SpendGold(cost);
             inst.Stake = (from + points) / 100.0;
-            if (first) inst.Loyalty = T.Get("stakes.memberLoyalty");
+            if (first)
+            {
+                inst.Loyalty = T.Get("stakes.memberLoyalty");
+                inst.JoinedAt = Now.YearFraction;
+            }
             var effects = new List<Effect> { new Effect(StakeKey(inst), stake, inst.Stake), new Effect(GoldKey, gold, World.Gold) };
             if (first) effects.Add(new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty));
             string crossed = Crossed(stake, inst.Stake);

@@ -186,7 +186,7 @@ namespace Butterfly.Core.Tests
         public void TwentySixMonthTurnsMakeATenYearEra()
         {
             var t = TestData.Load().Tuning;
-            Assert.Equal(10, t.GetInt("time.eraTurns") * t.GetInt("time.monthsPerTurn") / 12);
+            Assert.Equal(20, t.GetInt("time.eraTurns") * t.GetInt("time.monthsPerTurn") / 12);
         }
 
         [Fact]

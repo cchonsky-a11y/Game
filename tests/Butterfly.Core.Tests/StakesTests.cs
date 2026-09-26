@@ -29,10 +29,11 @@ namespace Butterfly.Core.Tests
             var sim = Rich();
             var circle = sim.World.Institution("circle");
             double b = sim.T.Get("stakes.costPerPercent.medicine");
-            Assert.Equal(b, sim.StakeCost(circle, 1), 6);                       // the first 1%
-            Assert.Equal(b * 172.5, sim.ControlCost(Domain.Medicine), 6);       // 0→50%: Σ b(1 + k/10), k = 0..49
+            double newcomer = sim.T.Get("stakes.newcomerPremium");
+            Assert.Equal(b * newcomer, sim.StakeCost(circle, 1), 6);            // the first 1%, at the newcomer premium
+            Assert.Equal(b * 172.5, sim.ControlCost(Domain.Medicine), 6);       // 0→50%: Σ b(1 + k/10), k = 0..49 (normal price)
             Assert.True(sim.Buy("circle", 1).Ok);
-            Assert.Equal(b * 1.1, sim.StakeCost(circle, 1), 6);                 // the second 1%
+            Assert.Equal(b * 1.1 * newcomer, sim.StakeCost(circle, 1), 6);      // the second 1%
             Assert.Equal(0.01, circle.Stake, 6);
         }
 
@@ -343,7 +344,7 @@ namespace Butterfly.Core.Tests
             double fee = sim.T.Get("joining.entryFee.guild");
             double gold = sim.World.Gold;
             Assert.True(sim.Buy("guild", 1).Ok);
-            Assert.Equal(fee + sim.T.Get("stakes.costPerPercent.economy"), gold - sim.World.Gold, 6);
+            Assert.Equal(fee + sim.T.Get("stakes.costPerPercent.economy") * sim.T.Get("stakes.newcomerPremium"), gold - sim.World.Gold, 6);
             gold = sim.World.Gold;
             double next = sim.StakeCost(guild, 1);
             Assert.True(sim.Buy("guild", 1).Ok);
@@ -382,6 +383,49 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.YearlyUpkeepTotal() >= sim.AnnualDues(sanctuary));
             sim.EndTurn();
             Assert.Equal(100 + expected * sim.YearsPerTurn, sim.World.Gold, 6);
+        }
+    
+        // ---- time and gold: seniority and the newcomer premium (decided 2026-09-28) ----
+
+        [Fact]
+        public void TheNewcomerPremiumFadesOverFiveYears()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            Assert.Equal(sim.T.Get("stakes.newcomerPremium"), sim.NewcomerPremium(guild), 6);
+            sim.Buy("guild", 1);
+            double atJoin = sim.NewcomerPremium(guild);
+            while (sim.YearsAsMember(guild) < 2.5) sim.EndTurn();
+            Assert.True(sim.NewcomerPremium(guild) < atJoin && sim.NewcomerPremium(guild) > 1);
+            while (sim.YearsAsMember(guild) < sim.T.Get("stakes.premiumFadeYears")) sim.EndTurn();
+            Assert.Equal(1, sim.NewcomerPremium(guild), 6);
+            Assert.Equal(1, sim.NewcomerPremium(sim.World.Institution("school")), 6); // your own: no premium
+        }
+
+        [Fact]
+        public void SeniorityGrowsYourStakeUpTo25Percent()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            sim.Buy("guild", 23);
+            int before = sim.StakePercent(guild);
+            while (sim.YearsAsMember(guild) < 1.5) sim.EndTurn();
+            Assert.Equal(before + sim.T.GetInt("stakes.seniorityPercentPerYear"), sim.StakePercent(guild));
+            Assert.Contains(sim.Log.Events, e => e.Type == "institution.seniority" && e.Effects.Any(fx => fx.Key == "guild.stake"));
+            while (sim.YearsAsMember(guild) < 6) sim.EndTurn();
+            Assert.Equal(25, sim.StakePercent(guild)); // seniority alone never goes past a voice
+        }
+
+        [Fact]
+        public void UnpaidDuesEarnNoSeniority()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            MeetJoinRequirements(sim);
+            sim.World.Gold = 100;
+            Assert.True(sim.Buy("sanctuary", 1).Ok);
+            var sanctuary = sim.World.Institution("sanctuary");
+            while (sim.YearsAsMember(sanctuary) < 2.5) { sim.World.Gold = 0; sim.EndTurn(); }
+            Assert.Equal(1, sim.StakePercent(sanctuary));
         }
     }
 }

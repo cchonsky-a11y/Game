@@ -144,8 +144,11 @@ namespace Butterfly.Core
         private void InstitutionUpkeepShortfall()
         {
             foreach (var i in Backed().Where(i => InstitutionNet(i) < 0 || AnnualDues(i) > 0))
+            {
+                i.MissedDuesThisYear = true;
                 ChangeLoyalty(i, -T.Get("institutions.unpaidLoyaltyLoss"), "institution.unpaid", CausesOf(GoldKey), new[] { i.Leader },
-                    "You couldn't pay what you owe " + i.Def.ShortName + " this season (your dues or your share of its costs).");
+                    "You couldn't pay what you owe " + i.Def.ShortName + " this season (your dues or your share of its costs); no seniority this year.");
+            }
         }
 
         private void ApplyInstitutionExtra(ProjectDef def, ProjectExtra x, int causeId)
@@ -195,6 +198,7 @@ namespace Butterfly.Core
             }
             FragileFoundationsYearTick();
             RivalryYearTick();
+            SeniorityYearTick();
         }
 
         // ---- plague hooks ---------------------------------------------------

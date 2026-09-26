@@ -69,7 +69,7 @@ namespace Butterfly.Core.Tests
         public void AttentionDemandIsAtLeastOneAndAHalfTimesSupply()
         {
             var data = TestData.Load();
-            Assert.Equal(160, AttentionBudget.Supply(data));
+            Assert.Equal(320, AttentionBudget.Supply(data)); // 80 turns × 4 (20-year eras, decided 2026-09-28)
             Assert.True(AttentionBudget.Demand(data) >= data.Tuning.Get("attention.demandTarget") * AttentionBudget.Supply(data));
         }
     }

@@ -41,7 +41,7 @@ namespace Butterfly.Batch
 
     public static class BatchRunner
     {
-        public static readonly (string Name, int Year)[] Timings = { ("Early", 160), ("Late", 165) };
+        public static readonly (string Name, int Year)[] Timings = { ("Early", 160), ("Late", 175) };
 
         /// <summary>The three strategies PROTOTYPE_SCOPE names for the balance gate.</summary>
         public static readonly string[] ScopeStrategies = { "Balanced", "Specialized", "Neglectful" };
@@ -231,7 +231,7 @@ namespace Butterfly.Batch
             var sb = new StringBuilder();
             sb.AppendLine("# P0 batch balance report");
             sb.AppendLine();
-            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 165, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
+            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).");
             sb.AppendLine("Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).");
             sb.AppendLine();

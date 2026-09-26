@@ -19,7 +19,7 @@ namespace Butterfly.Core.Tests
         [InlineData("institutions.decayPerDecade.strong", 0.01)]    // SYSTEMS §7
         [InlineData("attention.perTurn", 4)]             // SYSTEMS §3
         [InlineData("time.monthsPerTurn", 3)]            // P0-only pacing, PROTOTYPE_SCOPE (decided 2026-09-26)
-        [InlineData("time.eraTurns", 40)]                // P0-only pacing, PROTOTYPE_SCOPE
+        [InlineData("time.eraTurns", 80)]                // P0-only pacing, PROTOTYPE_SCOPE: 20-year eras
         [InlineData("time.startYear", 155)]              // VISION premise
         [InlineData("jump.years", 250)]                  // PROTOTYPE_SCOPE
         public void CanonicalValuesMatchSystems(string key, double expected)

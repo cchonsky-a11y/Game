@@ -14,8 +14,8 @@
       "ref": "DECIDED 2026-09-27 (Corey): P0-only 3-month turns, recorded in PROTOTYPE_SCOPE.md"
     },
     "eraTurns": {
-      "value": 40,
-      "ref": "DECIDED 2026-09-27 (Corey): P0-only, 40 turns per era"
+      "value": 80,
+      "ref": "DECIDED 2026-09-28 (Corey): each era is 20 years (P0-only 3-month turns: 80 turns, AD 155–175)"
     }
   },
   "domains": {
@@ -1064,6 +1064,22 @@
     "investStrengthPerGold": {
       "value": 0.1,
       "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "seniorityPercentPerYear": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey: influence grows with time and gold); amount PROPOSED P0-19"
+    },
+    "seniorityCap": {
+      "value": 0.25,
+      "ref": "DECIDED 2026-09-28 (Corey: influence grows with time and gold); amount PROPOSED P0-19 (seniority alone can earn a voice, never control)"
+    },
+    "newcomerPremium": {
+      "value": 3,
+      "ref": "DECIDED 2026-09-28 (Corey: influence grows with time and gold); amount PROPOSED P0-19"
+    },
+    "premiumFadeYears": {
+      "value": 5,
+      "ref": "DECIDED 2026-09-28 (Corey: influence grows with time and gold); amount PROPOSED P0-19"
     }
   },
   "founding": {

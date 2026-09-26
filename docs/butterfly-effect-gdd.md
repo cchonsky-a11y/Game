@@ -864,6 +864,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Corruption (30-year window) | Chance per decade = 0.05 × exposure (×1 small, ×2 large) × (1 − audit 0.5) × (1 − integrity: honest 0.3, average 0, venal −0.3); Minor / Major / Total lose 25% / 50% / 100%; weights 40/40/20 unprotected, 70/25/5 audited |
 | Paying down debt | 1.5× the cost of prevention |
 | Joining institutions (P0) | One requirement for the first purchase: Circle a Medicine project or the promise; sanctuary none; Caecilians patronage; Junians property; guild a business; bank a 5% first deposit; the two factions exclusive at 10% |
+| Seniority and newcomer premium (P0) | +1% stake a year of paid-up membership, up to 25%; newcomer price ×3 fading to ×1 over 5 years |
+| Era length (P0) | 20 years (80 three-month turns, AD 155–175) |
 | Entry fee and dues (P0) | Entry fee 5–30 gold by institution; annual dues = base 1–5 gold + 0.1 per percent held |
 | Jump range | Starts short (first jump about 25–50 years) and grows as technology and knowledge advance (rule to be defined) |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
