@@ -9,7 +9,13 @@ end
 found circle
 mentor circle
 end
+oversee circle
+work
+end
 charter circle
+end
+oversee circle
+work
 end
 promise yes
 oversee circle

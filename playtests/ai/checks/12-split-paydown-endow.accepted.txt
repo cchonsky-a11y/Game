@@ -7,11 +7,27 @@ found circle
 oversee circle
 work
 end
+oversee circle
+work
+end
 charter circle
 oversee circle
 work
 end
+oversee circle
+work
+end
 promise yes
+oversee circle
+work
+end
+oversee circle
+start market
+work
+end
+oversee circle
+work
+end
 oversee circle
 work
 end
@@ -39,9 +55,9 @@ oversee circle
 work
 end
 oversee circle
-start market
 work
 end
+respond hospice
 oversee circle
 work
 end

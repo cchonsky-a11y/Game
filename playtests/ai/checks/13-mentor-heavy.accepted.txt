@@ -10,21 +10,19 @@ work
 end
 work
 end
+work
+end
 promise yes
 found faction
 end
 mentor circle
 mentor faction
 end
-end
 mentor circle
 mentor faction
 end
-end
-end
 mentor circle
 mentor faction
-end
 end
 end
 jump

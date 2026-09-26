@@ -44,12 +44,14 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 6. Expectations, debt, and crises
 - **Expectation** = max(historical benchmark for the era, the region's recent peak fading over time). (tune; split into social and physical values if P0 shows players avoiding improvement)
 - **Debt accrual per year** = max(0, expectation − level) × rate (rate = 1, tune).
-- **Compounding:** existing debt grows 5% per year. During a jump, compounding stops **30 years after departure**; yearly accrual (the gap rule above) continues.
+- **Compounding:** existing debt grows 5% per year. During a jump, compounding stops **30 years after departure**. After those 30 years, a domain that no surviving institution maintains **stops accruing new debt** and drifts toward the historical baseline for that domain; maintained domains keep the accrual rule.
 - **Tiers:** Stable → Strained → Fragile → Critical; each raises the yearly crisis chance. Severity scales with debt.
 - **Plague (the Medicine crisis):** its odds, both warning advancement and recurrence, come from **Medicine debt only**. Governance and Economy debt tiers instead raise plague **severity**: severity × (1 + Governance tier bonus + Economy tier bonus), with a bonus of 0 / 0.1 / 0.2 / 0.35 for Stable / Strained / Fragile / Critical (tune).
 - **Warning stages:** every major crisis passes through visible antecedent stages before breaking out.
 - **Paying down debt** costs 1.5× the gold that prevention would have cost.
-- A crisis releases (clears) debt, resets expectations to current levels, and damages levels, population, and wealth.
+- A crisis releases (clears) debt, resets expectations to current levels, and damages levels, population, and wealth. In the medium term (about 10 years) a plague must always leave the Index lower than no plague would; if it doesn't, crisis damage is raised until the levels lost outweigh the debt cleared. The outbreak ends with: "The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less."
+- **Plague immunity:** no new plague outbreak within **30 years** of the last one.
+- **Plague severity labels** follow the share of the region's population that dies: **Contained** (under 5%), **Severe** (5–15%), **Catastrophic** (over 15%). The death toll is always shown.
 - **Crisis outcomes branch:** crises can also create openings (migration, orphaned talent, new movements, experimentation, scattered scholars).
 - **Spillover:** debt spreads along trade routes, borders, and shared institutions in proportion to connection strength.
 

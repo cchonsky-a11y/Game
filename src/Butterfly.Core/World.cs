@@ -22,6 +22,8 @@ namespace Butterfly.Core
         public double Population { get; set; }
 
         public PlagueState Plague { get; } = new PlagueState();
+        /// <summary>Year of the most recent plague outbreak (the Antonine plague or a recurrence); 0 if none.</summary>
+        public int LastOutbreakYear { get; set; }
 
         /// <summary>Attention left this turn (SYSTEMS §3: 4 per turn, never scales).</summary>
         public int Attention { get; set; }
@@ -65,6 +67,8 @@ namespace Butterfly.Core
         public int OutbreakYear { get; set; }
         public double Severity { get; set; }
         public double Deaths { get; set; }
+        /// <summary>Contained, severe or catastrophic, by share of the population dead.</summary>
+        public string SeverityLabel { get; set; } = "";
         /// <summary>Chosen response to the outbreak, or null while undecided.</summary>
         public string? Response { get; set; }
         public int ResponseEventId { get; set; }

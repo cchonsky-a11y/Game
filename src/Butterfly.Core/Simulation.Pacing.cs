@@ -55,7 +55,26 @@ namespace Butterfly.Core
 
         private bool Can(double gold, string attentionKey) => World.Gold >= gold && World.Attention >= T.GetInt(attentionKey);
 
-        /// <summary>Ends turns until one needs the player (or <paramref name="maxTurns"/> pass). Returns turns advanced.</summary>
+        /// <summary>
+        /// No action is possible this turn: no Attention is free and no prompt is open. (Changing a priority
+        /// or paying down debt is a standing setting the player can adjust in any turn, so it doesn't count.)
+        /// </summary>
+        public bool NoActionPossible() =>
+            !Arrived && World.Attention == 0 && !SeededChoiceOpen && World.Promise.Status != PromiseStatus.Offered && !OutbreakAwaitingResponse && !EraOver;
+
+        /// <summary>"End turn": exactly one turn, then only turns where no action is possible pass on their own. Returns turns advanced.</summary>
+        public int EndTurnAndSkipIdle(int maxTurns = 100)
+        {
+            int n = 0;
+            do
+            {
+                EndTurn();
+                n++;
+            } while (n < maxTurns && NoActionPossible());
+            return n;
+        }
+
+        /// <summary>"Wait": ends turns until one needs the player (or <paramref name="maxTurns"/> pass). Returns turns advanced.</summary>
         public int AdvanceUntilDecision(int maxTurns = 100)
         {
             int n = 0;

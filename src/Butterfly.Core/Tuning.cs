@@ -49,6 +49,19 @@ namespace Butterfly.Core
 
         public bool Has(string key) => _values.ContainsKey(key);
 
+        /// <summary>A copy with some values replaced (for tests and counterfactual experiments; never used by the game).</summary>
+        internal Tuning With(IDictionary<string, double> overrides)
+        {
+            var t = new Tuning();
+            foreach (var k in _keys)
+            {
+                t._keys.Add(k);
+                t._values[k] = overrides.TryGetValue(k, out var v) ? v : _values[k];
+                t._refs[k] = _refs[k];
+            }
+            return t;
+        }
+
         public string Ref(string key) => _refs[key];
 
         public double Get(string key)

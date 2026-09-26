@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -151,8 +153,8 @@ repaired by the shape of the street, but the basin is cracked and dry, full of l
 you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
-cover their mouths when strangers pass.
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 408.
 
 — Personal echo —
 You left before the first rumors came from the East. In the city's records, the pestilence of 163
@@ -170,21 +172,12 @@ The era is over. 'learn more' or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 158: 97   Medicine 110  Governance 95  Economy 88
-  Arrival,   AD 408: 16   Medicine 10  Governance 39  Economy 10
+  Arrival,   AD 408: 103   Medicine 102  Governance 105  Economy 103
 Institutions
   None founded.
 Crises while you were away
-  AD 163: the Antonine pestilence (grave, about 90.9 thousand dead; response: none)
-  AD 218: pestilence returns (catastrophic, about 206.9 thousand dead)
-  AD 238: pestilence returns (catastrophic, about 184.4 thousand dead)
-  AD 258: pestilence returns (catastrophic, about 187.4 thousand dead)
-  AD 268: pestilence returns (catastrophic, about 123.8 thousand dead)
-  AD 288: pestilence returns (catastrophic, about 97.6 thousand dead)
-  AD 318: pestilence returns (catastrophic, about 124.6 thousand dead)
-  AD 368: pestilence returns (catastrophic, about 207.8 thousand dead)
-  AD 378: pestilence returns (catastrophic, about 118 thousand dead)
-  AD 398: pestilence returns (catastrophic, about 101.3 thousand dead)
-  AD 408: pestilence returns (catastrophic, about 64.1 thousand dead)
+  AD 163: the Antonine pestilence (severe, about 91 thousand dead; response: none)
+  AD 238: pestilence returns (catastrophic, about 212 thousand dead)
 
 
 (after arrival) > why medicine
@@ -192,4 +185,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 116): e8cb15d87a750daa
+Run fingerprint (seed 116): c5b47e014ca3fcce

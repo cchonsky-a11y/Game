@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -391,11 +393,11 @@ Loyalty 56, strength 48.  [Attention left this turn: 1/4]
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The pestilence is grave (severity 39.9): about 119.8 thousand dead in Rome.
+  • The pestilence is severe: about 120 thousand dead, 12% of Rome.
   • Medicine moves from Strained to Stable.
   • Governance moves from Strained to Stable.
   • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
 
 == Turn 16 · Iulius, AD 162 ==  Gold 196.1 (+11.4/turn)   Attention 4/4   Index 73.5
   Medicine      28  expect   50  Maintain    debt     0 Stable
@@ -511,15 +513,15 @@ Recent changes:
   AD 162-01  Outbreak — the pestilence breaks out across Rome.
       because: Medicine moves from Stable to Strained. (AD 159-01)
       because: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor. (AD 161-01)
-  AD 162-01  The pestilence is grave (severity 39.9): about 119.8 thousand dead in Rome. [-119.8]
+  AD 162-01  The pestilence is severe: about 120 thousand dead, 12% of Rome. [-119.8]
       because: Governance moves from Stable to Strained. (AD 161-01)
       because: Medicine slips under Maintain (-1). (AD 162-01)
       because: Medicine debt grows to 58.6: level 38 is below expectation 50. (AD 162-01)
       because: Governance slips under Maintain (-1). (AD 162-01)
       because: Outbreak — the pestilence breaks out across Rome. (AD 162-01)
       because: The physicians' circle opens a hospice in the Subura. (AD 162-01)
-  AD 162-01  The worst of the pestilence has passed.
-      because: The pestilence is grave (severity 39.9): about 119.8 thousand dead in Rome. (AD 162-01)
+  AD 162-01  The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
+      because: The pestilence is severe: about 120 thousand dead, 12% of Rome. (AD 162-01)
 
 > why gold
 You have 276.3 gold.
@@ -554,13 +556,14 @@ Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. T
 The machine shudders. Decades pass in the dark...
 
 — Recognition —
-You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you find
-the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
-fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
+You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you hear
+hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
+door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
+in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
-washed in silver.
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 415.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until
@@ -574,15 +577,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 68   Medicine 50  Governance 75  Economy 83
-  Arrival,   AD 415: 31   Medicine 28  Governance 67  Economy 16
+  Arrival,   AD 415: 103   Medicine 101  Governance 105  Economy 103
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 6, loyalty 5)
 Crises while you were away
-  AD 175: pestilence returns (catastrophic, about 157.9 thousand dead)
-  AD 215: pestilence returns (catastrophic, about 154.1 thousand dead)
-  AD 245: pestilence returns (catastrophic, about 135.7 thousand dead)
-  AD 405: pestilence returns (catastrophic, about 219.3 thousand dead)
-  AD 415: pestilence returns (catastrophic, about 199.6 thousand dead)
+  AD 195: pestilence returns (catastrophic, about 246 thousand dead)
+  AD 235: pestilence returns (severe, about 100 thousand dead)
+  AD 275: pestilence returns (severe, about 121 thousand dead)
 
 
 (after arrival) > why medicine
@@ -590,4 +591,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 118): ba679bf27c51c211
+Run fingerprint (seed 118): 26de266258338fff

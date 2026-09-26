@@ -82,6 +82,8 @@ internal sealed class ConsoleGame
         Console.WriteLine("and a small circle of people willing to listen. Something is coming from the East in a few years.");
         Console.WriteLine("When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.");
         Console.WriteLine();
+        Console.WriteLine("This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.");
+        Console.WriteLine();
         Console.WriteLine("First, a choice. You can afford only one:");
         Console.WriteLine("  choose fountain  — " + _sim.Data.Content.Project("fountain")!.Description);
         Console.WriteLine("  choose workshop  — " + _sim.Data.Content.Project("workshop")!.Description);
@@ -108,7 +110,8 @@ internal sealed class ConsoleGame
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, circle, faction, promise, index, attention
   log [n]                        the last n events
-  end                            end the turn (6 months); quiet turns pass on their own
+  end                            end the turn (6 months)
+  wait                           let turns pass until something needs you
   jump                           prepare to leave for AD +250 (then pay down, endow, audit, or 'jump' again)
   quit");
     }
@@ -158,7 +161,8 @@ internal sealed class ConsoleGame
             case "work": r = _sim.Work(); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
-            case "end": case "e": EndTurn(); return true;
+            case "end": case "e": EndTurn(wait: false); return true;
+            case "wait": case "w": EndTurn(wait: true); return true;
             case "jump": Jump(); return true;
             default: Console.WriteLine("Unknown command. Type 'help'."); return false;
         }
@@ -169,11 +173,12 @@ internal sealed class ConsoleGame
         return r.Ok;
     }
 
-    private void EndTurn()
+    private void EndTurn(bool wait)
     {
         int from = _sim.Log.Events.Count;
-        int turns = _sim.AdvanceUntilDecision();
-        if (turns > 1) Console.WriteLine("  (" + turns + " turns pass; nothing needed you until now)");
+        int turns = wait ? _sim.AdvanceUntilDecision() : _sim.EndTurnAndSkipIdle();
+        if (turns > 1) Console.WriteLine(wait ? "  (" + turns + " turns pass; nothing needed you until now)"
+                                              : "  (" + turns + " turns pass; your Attention was fully committed)");
         var shown = new[] { "project.complete", "debt.tier", "plague.warning", "plague.outbreak", "plague.toll", "plague.opening", "plague.passed",
                             "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))

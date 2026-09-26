@@ -13,7 +13,13 @@ oversee circle
 work
 end
 oversee circle
-start market
+start census
+work
+end
+oversee circle
+work
+end
+oversee circle
 work
 end
 oversee circle
@@ -21,7 +27,7 @@ work
 end
 promise yes
 oversee circle
-start census
+start market
 work
 end
 oversee circle
@@ -37,7 +43,21 @@ oversee circle
 start physician
 work
 end
-respond quarantine
+oversee circle
+work
+end
+respond hospice
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
 end
 oversee circle
 work

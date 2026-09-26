@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -125,17 +127,52 @@ Draft quarantine rules for Ostia's docks costs 45 gold; you have 13.
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  (2 turns pass; nothing needed you until now)
+
+== Turn 4 · Iulius, AD 156 ==  Gold 23.1 (+10.1/turn)   Attention 2/4   Index 95.8
+  Medicine      60  expect   60  Protect     debt     0 Stable
+  Governance    47  expect   55  Accept Risk debt     8 Stable
+  Economy       47  expect 54.9  Accept Risk debt     8 Stable
+  The Circle (Demetria of Pergamon): strength 50, loyalty 60
+  Mentoring circle (4 turn(s) left)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> found circle
+The Physicians' Circle of the Subura already exists.
+
+> charter circle
+A charter costs 30 gold.
+
+> mentor circle
+You are already mentoring the Circle.
+
+> oversee circle
+Loyalty 68, strength 52.  [Attention left this turn: 1/4]
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 23.1.
+
+> start quarantine
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 23.1.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
   • The year AD 157 begins.
   • Governance moves from Stable to Strained.
   • Economy moves from Stable to Strained.
   • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 33.2 (+6.5/turn)   Attention 2/4   Index 82.5
+== Turn 5 · Ianuarius, AD 157 ==  Gold 38.2 (+6.5/turn)   Attention 2/4   Index 82.5
   Medicine      62  expect   62  Protect     debt     0 Stable
   Governance    39  expect   55  Accept Risk debt  24.4 Strained
   Economy       35  expect 54.8  Accept Risk debt  24.2 Strained
-  The Circle (Demetria of Pergamon): strength 54, loyalty 50
+  The Circle (Demetria of Pergamon): strength 56, loyalty 58
   Mentoring circle (3 turn(s) left)
 
 > promise yes
@@ -157,26 +194,61 @@ You are already mentoring the Circle.
 That needs 1 Attention; you have 0 left this turn.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 3.2.
+Fund a physician for the district costs 60 gold; you have 8.2.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 3.2.
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 8.2.
 
 > work
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  (2 turns pass; nothing needed you until now)
+
+== Turn 6 · Iulius, AD 157 ==  Gold 14.7 (+6.5/turn)   Attention 2/4   Index 82.5
+  Medicine      62  expect   62  Protect     debt     0 Stable
+  Governance    39  expect   55  Accept Risk debt  24.4 Strained
+  Economy       35  expect 54.8  Accept Risk debt  24.2 Strained
+  The Circle (Demetria of Pergamon): strength 56, loyalty 58, chartered
+  Mentoring circle (2 turn(s) left)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> found circle
+The Physicians' Circle of the Subura already exists.
+
+> charter circle
+The Circle already has a charter.
+
+> mentor circle
+You are already mentoring the Circle.
+
+> oversee circle
+Loyalty 66, strength 58.  [Attention left this turn: 1/4]
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 14.7.
+
+> start quarantine
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 14.7.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
   • The year AD 158 begins.
   • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
   • Demetria of Pergamon hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 16.2 (+4.1/turn)   Attention 2/4   Index 70.9
+== Turn 7 · Ianuarius, AD 158 ==  Gold 26.2 (+4.1/turn)   Attention 2/4   Index 70.9
   Medicine      64  expect   64  Protect     debt     0 Stable
   Governance    31  expect   55  Accept Risk debt  49.6 Strained
   Economy       27  expect 54.7  Accept Risk debt  53.1 Strained
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 50, loyalty 40, chartered
+  The Circle (Demetria of Pergamon): strength 62, loyalty 56, chartered
   Mentoring circle (1 turn(s) left)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
 
@@ -196,27 +268,27 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 56, strength 52.  [Attention left this turn: 1/4]
+Loyalty 72, strength 64.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 16.2.
+Fund a physician for the district costs 60 gold; you have 26.2.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 16.2.
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 26.2.
 
 > work
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • Your season of mentoring pays off: the Circle has members who can teach others. Strength 52 → 64.
-  • Demetria of Pergamon is grateful. Loyalty 56 → 62.
+  • Your season of mentoring pays off: the Circle has members who can teach others. Strength 64 → 76.
+  • Demetria of Pergamon is grateful. Loyalty 72 → 78.
 
-== Turn 8 · Iulius, AD 158 ==  Gold 25.3 (+4.1/turn)   Attention 4/4   Index 70.9
+== Turn 8 · Iulius, AD 158 ==  Gold 35.3 (+4.1/turn)   Attention 4/4   Index 70.9
   Medicine      64  expect   64  Protect     debt     0 Stable
   Governance    31  expect   55  Accept Risk debt  49.6 Strained
   Economy       27  expect 54.7  Accept Risk debt  53.1 Strained
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 64, loyalty 62, chartered
+  The Circle (Demetria of Pergamon): strength 76, loyalty 78, chartered
 
 > promise yes
 No promise is waiting for an answer.
@@ -234,13 +306,13 @@ The Circle already has a charter.
 Commitment made: 5 turns.  [Attention left this turn: 2/4]
 
 > oversee circle
-Loyalty 70, strength 66.  [Attention left this turn: 1/4]
+Loyalty 86, strength 78.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 25.3.
+Fund a physician for the district costs 60 gold; you have 35.3.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 25.3.
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 35.3.
 
 > work
 You earn 5 gold.  [Attention left this turn: 0/4]
@@ -250,12 +322,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • Governance moves from Strained to Fragile.
   • Economy moves from Strained to Fragile.
 
-== Turn 9 · Ianuarius, AD 159 ==  Gold 34.4 (+1.7/turn)   Attention 2/4   Index 57.7
+== Turn 9 · Ianuarius, AD 159 ==  Gold 44.4 (+1.7/turn)   Attention 2/4   Index 57.7
   Medicine      66  expect   66  Protect     debt     0 Stable
   Governance    23  expect   55  Accept Risk debt  84.1 Fragile
   Economy       19  expect 54.6  Accept Risk debt  91.4 Fragile
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 70, loyalty 60, chartered
+  The Circle (Demetria of Pergamon): strength 82, loyalty 76, chartered
   Mentoring circle (4 turn(s) left)
 
 > promise yes
@@ -274,25 +346,25 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 68, strength 72.  [Attention left this turn: 1/4]
+Loyalty 84, strength 84.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 34.4.
+Fund a physician for the district costs 60 gold; you have 44.4.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 34.4.
+Draft quarantine rules for Ostia's docks costs 45 gold; you have 44.4.
 
 > work
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 10 · Iulius, AD 159 ==  Gold 41.1 (+1.7/turn)   Attention 2/4   Index 57.7
+== Turn 10 · Iulius, AD 159 ==  Gold 51.1 (+1.7/turn)   Attention 2/4   Index 57.7
   Medicine      66  expect   66  Protect     debt     0 Stable
   Governance    23  expect   55  Accept Risk debt  84.1 Fragile
   Economy       19  expect 54.6  Accept Risk debt  91.4 Fragile
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 72, loyalty 68, chartered
+  The Circle (Demetria of Pergamon): strength 84, loyalty 84, chartered
   Mentoring circle (3 turn(s) left)
 
 > promise yes
@@ -311,13 +383,13 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 76, strength 74.  [Attention left this turn: 1/4]
+Loyalty 92, strength 86.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 41.1.
+Fund a physician for the district costs 60 gold; you have 51.1.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 41.1.
+That needs 2 Attention; you have 1 left this turn.
 
 > work
 You earn 5 gold.  [Attention left this turn: 0/4]
@@ -327,12 +399,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • Governance moves from Fragile to Critical.
   • Economy moves from Fragile to Critical.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 47.8 (+0.9/turn)   Attention 2/4   Index 49.7
+== Turn 11 · Ianuarius, AD 160 ==  Gold 57.8 (+0.9/turn)   Attention 2/4   Index 49.7
   Medicine      68  expect   68  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 126.8 Critical
   Economy     16.4  expect 54.5  Accept Risk debt 134.1 Critical
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 78, loyalty 66, chartered
+  The Circle (Demetria of Pergamon): strength 90, loyalty 82, chartered
   Mentoring circle (2 turn(s) left)
 
 > promise yes
@@ -351,10 +423,10 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 74, strength 80.  [Attention left this turn: 1/4]
+Loyalty 90, strength 92.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 47.8.
+Fund a physician for the district costs 60 gold; you have 57.8.
 
 > start quarantine
 That needs 2 Attention; you have 1 left this turn.
@@ -364,12 +436,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 12 · Iulius, AD 160 ==  Gold 53.7 (+0.9/turn)   Attention 2/4   Index 49.7
+== Turn 12 · Iulius, AD 160 ==  Gold 63.7 (+0.9/turn)   Attention 2/4   Index 49.7
   Medicine      68  expect   68  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 126.8 Critical
   Economy     16.4  expect 54.5  Accept Risk debt 134.1 Critical
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 80, loyalty 74, chartered
+  The Circle (Demetria of Pergamon): strength 92, loyalty 90, chartered
   Mentoring circle (1 turn(s) left)
 
 > promise yes
@@ -388,10 +460,10 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 82, strength 82.  [Attention left this turn: 1/4]
+Loyalty 98, strength 94.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 53.7.
+That needs 2 Attention; you have 1 left this turn.
 
 > start quarantine
 That needs 2 Attention; you have 1 left this turn.
@@ -400,16 +472,16 @@ That needs 2 Attention; you have 1 left this turn.
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • Your season of mentoring pays off: the Circle has members who can teach others. Strength 82 → 94.
-  • Demetria of Pergamon is grateful. Loyalty 82 → 88.
+  • Your season of mentoring pays off: the Circle has members who can teach others. Strength 94 → 100.
+  • Demetria of Pergamon is grateful. Loyalty 98 → 100.
   • The year AD 161 begins.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 59.6 (+0.9/turn)   Attention 4/4   Index 50.1
+== Turn 13 · Ianuarius, AD 161 ==  Gold 69.6 (+0.9/turn)   Attention 4/4   Index 50.1
   Medicine      70  expect   70  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 171.6 Critical
   Economy     16.3  expect 54.4  Accept Risk debt 178.9 Critical
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 98, loyalty 78, chartered
+  The Circle (Demetria of Pergamon): strength 100, loyalty 90, chartered
 
 > promise yes
 No promise is waiting for an answer.
@@ -427,10 +499,10 @@ The Circle already has a charter.
 Commitment made: 5 turns.  [Attention left this turn: 2/4]
 
 > oversee circle
-Loyalty 86, strength 100.  [Attention left this turn: 1/4]
+Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 59.6.
+That needs 2 Attention; you have 1 left this turn.
 
 > start quarantine
 That needs 2 Attention; you have 1 left this turn.
@@ -440,12 +512,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 14 · Iulius, AD 161 ==  Gold 65.5 (+0.9/turn)   Attention 2/4   Index 50.1
+== Turn 14 · Iulius, AD 161 ==  Gold 75.5 (+0.9/turn)   Attention 2/4   Index 50.1
   Medicine      70  expect   70  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 171.6 Critical
   Economy     16.3  expect 54.4  Accept Risk debt 178.9 Critical
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 100, loyalty 86, chartered
+  The Circle (Demetria of Pergamon): strength 100, loyalty 98, chartered
   Mentoring circle (4 turn(s) left)
 
 > promise yes
@@ -464,7 +536,7 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 94, strength 100.  [Attention left this turn: 1/4]
+Loyalty 100, strength 100.  [Attention left this turn: 1/4]
 
 > start physician
 That needs 2 Attention; you have 1 left this turn.
@@ -479,12 +551,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • The year AD 162 begins.
   • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
 
-== Turn 15 · Ianuarius, AD 162 ==  Gold 71.4 (+0.9/turn)   Attention 2/4   Index 50.6
+== Turn 15 · Ianuarius, AD 162 ==  Gold 81.4 (+0.9/turn)   Attention 2/4   Index 50.6
   Medicine      72  expect   72  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 218.7 Critical
   Economy     16.3  expect 54.3  Accept Risk debt 225.8 Critical
   Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  The Circle (Demetria of Pergamon): strength 100, loyalty 84, chartered
+  The Circle (Demetria of Pergamon): strength 100, loyalty 90, chartered
   Mentoring circle (3 turn(s) left)
 
 > promise yes
@@ -503,7 +575,7 @@ The Circle already has a charter.
 You are already mentoring the Circle.
 
 > oversee circle
-Loyalty 92, strength 100.  [Attention left this turn: 1/4]
+Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 
 > start physician
 That needs 2 Attention; you have 1 left this turn.
@@ -516,12 +588,12 @@ You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 16 · Iulius, AD 162 ==  Gold 77.3 (+0.9/turn)   Attention 2/4   Index 50.6
+== Turn 16 · Iulius, AD 162 ==  Gold 87.3 (+0.9/turn)   Attention 2/4   Index 50.6
   Medicine      72  expect   72  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 218.7 Critical
   Economy     16.3  expect 54.3  Accept Risk debt 225.8 Critical
   Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  The Circle (Demetria of Pergamon): strength 100, loyalty 92, chartered
+  The Circle (Demetria of Pergamon): strength 100, loyalty 98, chartered
   Mentoring circle (2 turn(s) left)
 
 > promise yes
@@ -555,7 +627,7 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • The year AD 163 begins.
   • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 17 · Ianuarius, AD 163 ==  Gold 83.2 (+0.9/turn)   Attention 2/4   Index 51.1
+== Turn 17 · Ianuarius, AD 163 ==  Gold 93.2 (+0.9/turn)   Attention 2/4   Index 51.1
   Medicine      74  expect   74  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 268.2 Critical
   Economy     16.3  expect 54.2  Accept Risk debt 275.1 Critical
@@ -593,7 +665,7 @@ You earn 5 gold.  [Attention left this turn: 0/4]
 > end
   • Demetria of Pergamon is grateful. Loyalty 98 → 100.
 
-== Turn 18 · Iulius, AD 163 ==  Gold 89.1 (+0.9/turn)   Attention 4/4   Index 51.1
+== Turn 18 · Iulius, AD 163 ==  Gold 99.1 (+0.9/turn)   Attention 4/4   Index 51.1
   Medicine      74  expect   74  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 268.2 Critical
   Economy     16.3  expect 54.2  Accept Risk debt 275.1 Critical
@@ -631,7 +703,7 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • The year AD 164 begins.
   • Outbreak — the pestilence breaks out across Rome.
 
-== Turn 19 · Ianuarius, AD 164 ==  Gold 94.9 (+0.9/turn)   Attention 2/4   Index 51.5
+== Turn 19 · Ianuarius, AD 164 ==  Gold 104.9 (+0.9/turn)   Attention 2/4   Index 51.5
   Medicine      76  expect   76  Protect     debt     0 Stable
   Governance  16.5  expect   55  Accept Risk debt 320.1 Critical
   Economy     16.2  expect 54.1  Accept Risk debt 326.7 Critical
@@ -668,14 +740,14 @@ That needs 2 Attention; you have 0 left this turn.
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  • The pestilence is grave (severity 23.7): about 71.1 thousand dead in Rome.
+  • The pestilence is severe: about 71 thousand dead, 7% of Rome.
   • Governance moves from Critical to Stable.
   • Economy moves from Critical to Stable.
   • Opening: in the hospice, physicians compare treatments and record what works.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Turn 20 · Iulius, AD 164 ==  Gold 40.3 (-0.9/turn)   Attention 2/4   Index 41.9
+== Turn 20 · Iulius, AD 164 ==  Gold 50.3 (-0.9/turn)   Attention 2/4   Index 41.9
   Medicine    75.1  expect 75.1  Protect     debt     0 Stable
   Governance  14.1  expect   55  Accept Risk debt     0 Stable
   Economy     10.3  expect 54.1  Accept Risk debt     0 Stable
@@ -702,10 +774,10 @@ You are already mentoring the Circle.
 Loyalty 100, strength 100.  [Attention left this turn: 1/4]
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 40.3.
+Fund a physician for the district costs 60 gold; you have 50.3.
 
 > start quarantine
-Draft quarantine rules for Ostia's docks costs 45 gold; you have 40.3.
+That needs 2 Attention; you have 1 left this turn.
 
 > work
 You earn 5 gold.  [Attention left this turn: 0/4]
@@ -715,7 +787,7 @@ You earn 5 gold.  [Attention left this turn: 0/4]
   • Governance moves from Stable to Strained.
   • Economy moves from Stable to Strained.
 
-== Turn 21 · Ianuarius, AD 165 ==  Gold 44.4 (-0.9/turn)   Attention 2/4   Index 42.3
+== Turn 21 · Ianuarius, AD 165 ==  Gold 54.4 (-0.9/turn)   Attention 2/4   Index 42.3
   Medicine    77.1  expect 77.1  Protect     debt     0 Stable
   Governance  14.1  expect   55  Accept Risk debt  40.9 Strained
   Economy     10.3  expect   54  Accept Risk debt  43.7 Strained
@@ -726,22 +798,22 @@ You earn 5 gold.  [Attention left this turn: 0/4]
 
 > jump
 You will leave AD 165 for AD 415. You can't come back.
-What you leave behind (44.4 gold in hand):
+What you leave behind (54.4 gold in hand):
   • Governance debt 40.9 keeps growing 5% a year for 30 years after you leave (about 66.6 in a decade, 176.6 after 30 years) unless a crisis clears it. Paying it down now costs 122.6 gold.
   • Economy debt 43.7 keeps growing 5% a year for 30 years after you leave (about 71.2 in a decade, 188.8 after 30 years) unless a crisis clears it. Paying it down now costs 131.1 gold.
   • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
   •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
-  • The 44 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+  • The 54 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
 Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
 
 > endow circle all
-The Circle holds 44 gold (60 makes it endowed).  [Attention left this turn: 1/4]
+The Circle holds 54 gold (60 makes it endowed).  [Attention left this turn: 1/4]
 What you leave behind (0.4 gold in hand):
   • Governance debt 40.9 keeps growing 5% a year for 30 years after you leave (about 66.6 in a decade, 176.6 after 30 years) unless a crisis clears it. Paying it down now costs 122.6 gold.
   • Economy debt 43.7 keeps growing 5% a year for 30 years after you leave (about 71.2 in a decade, 188.8 after 30 years) unless a crisis clears it. Paying it down now costs 131.1 gold.
   • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
-  •   It holds 44 gold (small), growing about 0.2% a year with the economy for 30 years.
-  •   It would pay in full toward Medicine debt (now 0); its gold covers about 14.7 points at the 1.5× premium.
+  •   It holds 54 gold (small), growing about 0.2% a year with the economy for 30 years.
+  •   It would pay in full toward Medicine debt (now 0); its gold covers about 18 points at the 1.5× premium.
   •   Corruption risk: Low for 30 years (small holdings, no audit charter, Demetria of Pergamon is honest). If it happens, it could be minor (50%), major (40%) or total (10%). (audit circle: 40 gold)
 Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
 
@@ -773,11 +845,12 @@ Index (100 = matches real history; geometric mean of Medicine, Governance, Econo
   Arrival,   AD 415: 103   Medicine 102  Governance 105  Economy 103
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 7, loyalty 6)
-    Gold: left 44, paid off 2 debt, lost 0 to corruption, 45 left when the 30 years ended
+    Gold: left 54, paid off 3 debt, lost 13 to corruption (Minor), 38 left when the 30 years ended
 Crises while you were away
-  AD 185: pestilence returns (grave, about 69.4 thousand dead)
-  AD 205: pestilence returns (grave, about 82.2 thousand dead)
-  AD 275: pestilence returns (catastrophic, about 161.8 thousand dead)
+  AD 245: pestilence returns (catastrophic, about 207 thousand dead)
+  AD 345: pestilence returns (severe, about 111 thousand dead)
+Corruption
+  AD 185: Minor corruption in the Physicians' Circle of the Subura (13.3 gold lost)
 
 
 (after arrival) > why medicine
@@ -785,4 +858,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 107): 0ad9835273fab7a0
+Run fingerprint (seed 107): 767837b1a305aaea

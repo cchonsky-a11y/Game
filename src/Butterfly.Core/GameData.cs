@@ -17,6 +17,10 @@ namespace Butterfly.Core
             DataDirectory = dataDirectory;
         }
 
+        /// <summary>The same data with some tuning values replaced (tests and experiments only).</summary>
+        internal GameData WithTuning(System.Collections.Generic.IDictionary<string, double> overrides) =>
+            new GameData(Tuning.With(overrides), Content, DataDirectory);
+
         public static GameData Load(string dataDirectory)
         {
             var tuning = Tuning.Parse(File.ReadAllText(Path.Combine(dataDirectory, "tuning.json")));

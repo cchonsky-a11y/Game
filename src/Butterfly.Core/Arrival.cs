@@ -76,6 +76,8 @@ namespace Butterfly.Core
         public List<InstitutionReport> Institutions { get; } = new List<InstitutionReport>();
         public List<string> Crises { get; } = new List<string>();
         public List<string> Corruption { get; } = new List<string>();
+        /// <summary>Sphere Index at the end of each decade of the absence (reporting only).</summary>
+        public List<double> IndexByDecade { get; } = new List<double>();
 
         /// <summary>
         /// Learn more: the Index before and after, institution outcomes and the crises that struck.

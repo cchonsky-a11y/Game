@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -425,11 +427,11 @@ Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The pestilence is catastrophic (severity 48.6): about 145.9 thousand dead in Rome.
+  • The pestilence is severe: about 146 thousand dead, 15% of Rome.
   • Medicine moves from Strained to Stable.
   • Governance moves from Strained to Stable.
   • Opening: a burial brotherhood forms among the survivors and starts settling disputes in the district.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
 
 == Turn 16 · Iulius, AD 162 ==  Gold 165.5 (+9.6/turn)   Attention 4/4   Index 69.4
   Medicine    25.8  expect   50  Maintain    debt     0 Stable
@@ -620,9 +622,10 @@ Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. T
 The machine shudders. Decades pass in the dark...
 
 — Recognition —
-You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you find
-the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
-fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
+You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you hear
+hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
+door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
+in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
 Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
@@ -633,35 +636,23 @@ Demetria's letters survive in a library copy. One mentions you: 'The foreigner w
 stay. At least it was honest.'
 
 — Discovery —
-The Caecilian faction still votes as a bloc, but its votes are for sale. Its head is Marcus Caecilius
-Varro, Prefect of the City. Everyone knows the story: within a generation of your leaving, its whole
-treasury was stolen, and those who took it took the institution too (total corruption).
+The senate faction you built with Varro is now the Caecilian Houses. Three families who hold the city
+prefecture by inheritance and remember the founder only as a name on their gate. Its head is Marcus
+Caecilius Varro, Prefect of the City.
 
 Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 64   Medicine 46  Governance 78  Economy 72
-  Arrival,   AD 415: 109   Medicine 93  Governance 150  Economy 94
+  Arrival,   AD 415: 117   Medicine 101  Governance 154  Economy 103
 Institutions
   The Caecilian faction: Captured — now the Caecilian Houses (left chartered and endowed; strength 47, loyalty 42)
-    Gold: left 196, paid off 34 debt, lost 100 to corruption (Total), 0 left when the 30 years ended
+    Gold: left 196, paid off 34 debt, lost 0 to corruption, 115 left when the 30 years ended
 Crises while you were away
-  AD 175: pestilence returns (catastrophic, about 192.3 thousand dead)
-  AD 195: pestilence returns (catastrophic, about 160.1 thousand dead)
-  AD 205: pestilence returns (catastrophic, about 97.5 thousand dead)
-  AD 225: pestilence returns (catastrophic, about 82.3 thousand dead)
-  AD 235: pestilence returns (catastrophic, about 73.5 thousand dead)
-  AD 245: pestilence returns (catastrophic, about 61.7 thousand dead)
-  AD 275: pestilence returns (catastrophic, about 82.2 thousand dead)
-  AD 295: pestilence returns (catastrophic, about 88.4 thousand dead)
-  AD 305: pestilence returns (catastrophic, about 76.3 thousand dead)
-  AD 315: pestilence returns (catastrophic, about 63.3 thousand dead)
-  AD 335: pestilence returns (catastrophic, about 62.1 thousand dead)
-  AD 345: pestilence returns (catastrophic, about 58.2 thousand dead)
-  AD 385: pestilence returns (catastrophic, about 132.9 thousand dead)
-Corruption
-  AD 175: Total corruption in the Caecilian faction (99.9 gold lost)
+  AD 205: pestilence returns (catastrophic, about 167 thousand dead)
+  AD 255: pestilence returns (severe, about 78 thousand dead)
+  AD 325: pestilence returns (severe, about 83 thousand dead)
 
 
 (after arrival) > why medicine
@@ -669,4 +660,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 111): a9d62d1b238a48d5
+Run fingerprint (seed 111): 0200a9436f3813ba

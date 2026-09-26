@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -251,11 +253,11 @@ Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The pestilence is catastrophic (severity 48.6): about 145.9 thousand dead in Rome.
+  • The pestilence is severe: about 146 thousand dead, 15% of Rome.
   • Medicine moves from Strained to Stable.
   • Governance moves from Strained to Stable.
   • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
 
 == Turn 16 · Iulius, AD 162 ==  Gold 166.7 (+10.8/turn)   Attention 4/4   Index 70
   Medicine    25.8  expect   50  Maintain    debt     0 Stable
@@ -380,8 +382,8 @@ the smith's workshop you funded by its soot-black wall. It is a stable now. Down
 fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
-cover their mouths when strangers pass.
+Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
+seems afraid of the soldiers.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to
@@ -397,28 +399,14 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 64   Medicine 46  Governance 73  Economy 79
-  Arrival,   AD 415: 21   Medicine 10  Governance 91  Economy 10
+  Arrival,   AD 415: 105   Medicine 88  Governance 147  Economy 88
 Institutions
   The Caecilian faction: Captured — now the Caecilian Houses (left chartered and endowed; strength 47, loyalty 42)
-    Gold: left 243, paid off 44 debt, lost 0 to corruption, 136 left when the 30 years ended
+    Gold: left 243, paid off 44 debt, lost 0 to corruption, 139 left when the 30 years ended
 Crises while you were away
-  AD 175: pestilence returns (catastrophic, about 172.1 thousand dead)
-  AD 205: pestilence returns (catastrophic, about 134.9 thousand dead)
-  AD 225: pestilence returns (catastrophic, about 123 thousand dead)
-  AD 235: pestilence returns (catastrophic, about 88.7 thousand dead)
-  AD 255: pestilence returns (catastrophic, about 102.2 thousand dead)
-  AD 265: pestilence returns (catastrophic, about 75.2 thousand dead)
-  AD 295: pestilence returns (catastrophic, about 97.2 thousand dead)
-  AD 305: pestilence returns (catastrophic, about 72.9 thousand dead)
-  AD 315: pestilence returns (catastrophic, about 75.4 thousand dead)
-  AD 325: pestilence returns (catastrophic, about 59.2 thousand dead)
-  AD 335: pestilence returns (catastrophic, about 44.4 thousand dead)
-  AD 345: pestilence returns (catastrophic, about 32.4 thousand dead)
-  AD 355: pestilence returns (catastrophic, about 24.7 thousand dead)
-  AD 375: pestilence returns (catastrophic, about 49.2 thousand dead)
-  AD 395: pestilence returns (catastrophic, about 68 thousand dead)
-  AD 405: pestilence returns (catastrophic, about 55.3 thousand dead)
-  AD 415: pestilence returns (catastrophic, about 37.7 thousand dead)
+  AD 215: pestilence returns (catastrophic, about 172 thousand dead)
+  AD 335: pestilence returns (severe, about 87 thousand dead)
+  AD 405: pestilence returns (severe, about 116 thousand dead)
 
 
 (after arrival) > why medicine
@@ -426,4 +414,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 110): 2c8d9a45560d71db
+Run fingerprint (seed 110): 6292623827f6b3c8

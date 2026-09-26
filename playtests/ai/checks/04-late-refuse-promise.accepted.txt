@@ -6,15 +6,23 @@ end
 found faction
 work
 end
+work
+end
 charter faction
+work
+end
 work
 end
 promise no
 work
 end
+start patronage
 work
 end
-start patronage
+work
+end
+work
+end
 work
 end
 work

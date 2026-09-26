@@ -25,7 +25,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Determinism | Seeded random generator; same seed + inputs = same result |
 | Event log | Immediate causes, actors, effects (SYSTEMS.md §1); a `why <thing>` console command for current conditions only |
 | Time | Turns in months or years; per-year simulation; one coarse-mode jump in decade steps |
-| P0 pacing (**P0-only**, not in SYSTEMS.md) | 6-month turns, 20 per era (AD 155–165). Turns with no pending decision advance on their own (a pending decision is an open prompt, news that turn, an affordable new investment, or the end of the era). Attention costs are tuned so total demand is at least 1.5× supply (20 × 4 = 80). Demand counts every project once, every institution step (found, charter, audit, endow), a full mentoring commitment per institution, the oversight needed to hold loyalty, one plague response, and one personal action per turn |
+| P0 pacing (**P0-only**, not in SYSTEMS.md) | 6-month turns, 20 per era (AD 155–165). **End turn** advances exactly one turn; **Wait** advances until something needs the player (an open prompt, news that turn, an affordable new investment, or the end of the era). Only turns where no action is possible (no free Attention and no open prompt) pass on their own. At game start the console says: "This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there." Attention costs are tuned so total demand is at least 1.5× supply (20 × 4 = 80). Demand counts every project once, every institution step (found, charter, audit, endow), a full mentoring commitment per institution, the oversight needed to hold loyalty, one plague response, and one personal action per turn |
 | Care domains | **3 only:** Medicine, Governance, Economy |
 | Priorities | Protect / Maintain / Accept Risk per domain |
 | Projects | 2–3 templated projects per domain (e.g., repair the fountain, fund a physician, market regulation, patronage for a senator) |
@@ -71,7 +71,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 |---|---|
 | Determinism | Identical results for identical seed and inputs |
 | Balance vs. specialization | Both viable; within **each** jump timing (early, late), no strategy wins more than 65% of automated runs |
-| Jump timing | Neither early nor late timing wins more than 65% of runs across all strategies |
+| Jump timing | **Not applicable to P0; deferred to P3.** Staying longer has no cost until aging and machine-discovery risk exist. Reported in the batch report for information only |
 | Debt at departure | Within each timing, none of Pay-down (Balanced), Endow, and Split wins more than 65% of runs; the batch report flags it if more than ~80% of the best runs bought an audit charter |
 | Debt pacing | 2–3 years of accepted risk → Strained; plague warning stages visible before the outbreak |
 | Institution decay | After 250 years from strength 80: bare 80 × 0.9^25 ≈ 6; chartered 80 × 0.97^25 ≈ 37; strong 80 × 0.99^25 ≈ 62 |

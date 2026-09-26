@@ -161,22 +161,32 @@ namespace Butterfly.Core
             var p = World.Plague;
             p.Severity = Math.Max(0.01, PlagueSeverity(p.Response));
             p.StruckInAbsence = IsAway;
-            var toll = ApplyPlagueDamage(p.Severity, new List<int> { p.LastStageEventId, p.ResponseEventId }, out double deaths);
+            var toll = ApplyPlagueDamage(p.Severity, new List<int> { p.LastStageEventId, p.ResponseEventId }, out double deaths, out string label);
             p.Deaths = deaths;
+            p.SeverityLabel = label;
 
             OnPlagueResolved(toll.Id);
             ChooseOpening(toll.Id);
 
             p.Stage = PlagueState.Passed;
             var passed = Record("plague.passed", "plague", new[] { toll.Id }, new[] { "world" },
-                new[] { new Effect("plague.stage", PlagueState.Outbreak, PlagueState.Passed) }, "The worst of the pestilence has passed.");
+                new[] { new Effect("plague.stage", PlagueState.Outbreak, PlagueState.Passed) },
+                "The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.");
             p.LastStageEventId = passed.Id;
             OnPlaguePassedForPromise(passed.Id);
         }
 
         /// <summary>Tolls, level damage and debt release shared by the plague and its later recurrences.</summary>
-        internal GameEvent ApplyPlagueDamage(double sev, List<int> causes, out double deaths)
+        /// <summary>Severity label by share of the population dead (decided 2026-09-27).</summary>
+        public string SeverityLabel(double deathShare) =>
+            deathShare >= T.Get("plague.severityLabels.catastrophicFromDeathShare") ? "catastrophic"
+            : deathShare >= T.Get("plague.severityLabels.severeFromDeathShare") ? "severe" : "contained";
+
+        internal GameEvent ApplyPlagueDamage(double sev, List<int> causes, out double deaths) => ApplyPlagueDamage(sev, causes, out deaths, out _);
+
+        internal GameEvent ApplyPlagueDamage(double sev, List<int> causes, out double deaths, out string label)
         {
+            World.LastOutbreakYear = Now.Year;
             causes.AddRange(new[] { CauseOf(DebtKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Governance)),
                 CauseOf(TierKey(Domain.Governance)), CauseOf(TierKey(Domain.Economy)),
                 CauseOf("plague.resilience"), CauseOf("fountain.clean") });
@@ -186,11 +196,12 @@ namespace Butterfly.Core
             World.Population -= deaths;
             double goldBefore = World.Gold;
             World.Gold = Math.Max(0, World.Gold - sev * T.Get("plague.goldLossPerSeverity"));
-            string label = sev < T.Get("plague.severity.mild") ? "mild" : sev < T.Get("plague.severity.grave") ? "grave" : "catastrophic";
+            double share = popBefore > 0 ? deaths / popBefore : 0;
+            label = SeverityLabel(share);
             var toll = Record("plague.toll", "plague", causes, new[] { "world" },
                 new[] { new Effect("population", popBefore, World.Population), new Effect(GoldKey, goldBefore, World.Gold),
                         new Effect("plague.severity", 0, sev) },
-                "The pestilence is " + label + " (severity " + F(sev) + "): about " + F(deaths) + " thousand dead in Rome.");
+                "The pestilence is " + label + ": about " + F(Math.Round(deaths)) + " thousand dead, " + F(Math.Round(share * 100)) + "% of Rome.");
 
             foreach (var d in DomainInfo.All)
                 ChangeLevel(d, -sev * T.Get("plague.damage." + d.Key()), "plague.damage", new[] { toll.Id }, new[] { "world" },

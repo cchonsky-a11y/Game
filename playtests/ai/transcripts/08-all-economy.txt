@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -140,12 +142,34 @@ Started: Repair the Ostia warehouses.  [Attention left this turn: 2/4]
 You earn 5 gold.  [Attention left this turn: 1/4]
 
 > end
-  (2 turns pass; nothing needed you until now)
+
+== Turn 6 · Iulius, AD 157 ==  Gold 38.7 (+24.9/turn)   Attention 2/4   Index 81.9
+  Medicine      29  expect   50  Accept Risk debt  24.4 Strained
+  Governance    39  expect   55  Accept Risk debt  24.4 Strained
+  Economy       73  expect   73  Protect     debt     0 Stable
+  Under way: Repair the Ostia warehouses (3 turn(s) left)
+
+> promise no
+No promise is waiting for an answer.
+
+> respond none
+There is no outbreak to respond to.
+
+> start market
+Market regulation at the Forum Boarium is already done.
+
+> start warehouses
+Repair the Ostia warehouses is already under way.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
   • The year AD 158 begins.
   • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
   • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 63.6 (+25.5/turn)   Attention 2/4   Index 68.7
+== Turn 7 · Ianuarius, AD 158 ==  Gold 68.6 (+25.5/turn)   Attention 2/4   Index 68.7
   Medicine      21  expect   50  Accept Risk debt  54.6 Strained
   Governance    31  expect   55  Accept Risk debt  49.6 Strained
   Economy       75  expect   75  Protect     debt     0 Stable
@@ -170,7 +194,7 @@ You earn 5 gold.  [Attention left this turn: 1/4]
 
 > end
 
-== Turn 8 · Iulius, AD 158 ==  Gold 94.1 (+25.5/turn)   Attention 2/4   Index 68.7
+== Turn 8 · Iulius, AD 158 ==  Gold 99.1 (+25.5/turn)   Attention 2/4   Index 68.7
   Medicine      21  expect   50  Accept Risk debt  54.6 Strained
   Governance    31  expect   55  Accept Risk debt  49.6 Strained
   Economy       75  expect   75  Protect     debt     0 Stable
@@ -200,7 +224,7 @@ You earn 5 gold.  [Attention left this turn: 1/4]
   • Governance moves from Strained to Fragile.
   • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
 
-== Turn 9 · Ianuarius, AD 159 ==  Gold 130.2 (+31.7/turn)   Attention 4/4   Index 58.9
+== Turn 9 · Ianuarius, AD 159 ==  Gold 135.2 (+31.7/turn)   Attention 4/4   Index 58.9
   Medicine      15  expect   50  Accept Risk debt  92.4 Fragile
   Governance    23  expect   55  Accept Risk debt  84.1 Fragile
   Economy       89  expect   89  Protect     debt     0 Stable
@@ -223,7 +247,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 10 · Iulius, AD 159 ==  Gold 166.9 (+31.7/turn)   Attention 4/4   Index 58.9
+== Turn 10 · Iulius, AD 159 ==  Gold 171.9 (+31.7/turn)   Attention 4/4   Index 58.9
   Medicine      15  expect   50  Accept Risk debt  92.4 Fragile
   Governance    23  expect   55  Accept Risk debt  84.1 Fragile
   Economy       89  expect   89  Protect     debt     0 Stable
@@ -250,7 +274,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • Governance moves from Fragile to Critical.
   • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 203.6 (+32.3/turn)   Attention 4/4   Index 53.2
+== Turn 11 · Ianuarius, AD 160 ==  Gold 208.6 (+32.3/turn)   Attention 4/4   Index 53.2
   Medicine      15  expect   50  Accept Risk debt   132 Critical
   Governance  16.5  expect   55  Accept Risk debt 126.8 Critical
   Economy       91  expect   91  Protect     debt     0 Stable
@@ -273,7 +297,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 12 · Iulius, AD 160 ==  Gold 240.9 (+32.3/turn)   Attention 4/4   Index 53.2
+== Turn 12 · Iulius, AD 160 ==  Gold 245.9 (+32.3/turn)   Attention 4/4   Index 53.2
   Medicine      15  expect   50  Accept Risk debt   132 Critical
   Governance  16.5  expect   55  Accept Risk debt 126.8 Critical
   Economy       91  expect   91  Protect     debt     0 Stable
@@ -298,7 +322,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • The year AD 161 begins.
   • Outbreak — the pestilence breaks out across Rome.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 278.2 (+32.9/turn)   Attention 4/4   Index 53.6
+== Turn 13 · Ianuarius, AD 161 ==  Gold 283.2 (+32.9/turn)   Attention 4/4   Index 53.6
   Medicine      15  expect   50  Accept Risk debt 173.6 Critical
   Governance  16.5  expect   55  Accept Risk debt 171.6 Critical
   Economy       93  expect   93  Protect     debt     0 Stable
@@ -321,13 +345,13 @@ Repair the Ostia warehouses is already done.
 You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
-  • The pestilence is catastrophic (severity 119.3): about 357.9 thousand dead in Rome.
+  • The pestilence is catastrophic: about 358 thousand dead, 36% of Rome.
   • Medicine moves from Critical to Stable.
   • Governance moves from Critical to Stable.
   • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
 
-== Turn 14 · Iulius, AD 161 ==  Gold 187.8 (+24/turn)   Attention 4/4   Index 27.6
+== Turn 14 · Iulius, AD 161 ==  Gold 192.8 (+24/turn)   Attention 4/4   Index 27.6
   Medicine       9  expect   50  Accept Risk debt     0 Stable
   Governance   5.5  expect   55  Accept Risk debt     0 Stable
   Economy     63.2  expect 63.2  Protect     debt     0 Stable
@@ -353,7 +377,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • Medicine moves from Stable to Strained.
   • Governance moves from Stable to Strained.
 
-== Turn 15 · Ianuarius, AD 162 ==  Gold 216.8 (+24.6/turn)   Attention 4/4   Index 27.9
+== Turn 15 · Ianuarius, AD 162 ==  Gold 221.8 (+24.6/turn)   Attention 4/4   Index 27.9
   Medicine       9  expect   50  Accept Risk debt    41 Strained
   Governance   5.5  expect   55  Accept Risk debt  49.5 Strained
   Economy     65.2  expect 65.2  Protect     debt     0 Stable
@@ -376,7 +400,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 16 · Iulius, AD 162 ==  Gold 246.3 (+24.6/turn)   Attention 4/4   Index 27.9
+== Turn 16 · Iulius, AD 162 ==  Gold 251.3 (+24.6/turn)   Attention 4/4   Index 27.9
   Medicine       9  expect   50  Accept Risk debt    41 Strained
   Governance   5.5  expect   55  Accept Risk debt  49.5 Strained
   Economy     65.2  expect 65.2  Protect     debt     0 Stable
@@ -402,7 +426,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • Medicine moves from Strained to Fragile.
   • Governance moves from Strained to Fragile.
 
-== Turn 17 · Ianuarius, AD 163 ==  Gold 275.9 (+25.2/turn)   Attention 4/4   Index 28.2
+== Turn 17 · Ianuarius, AD 163 ==  Gold 280.9 (+25.2/turn)   Attention 4/4   Index 28.2
   Medicine       9  expect   50  Accept Risk debt  84.1 Fragile
   Governance   5.5  expect   55  Accept Risk debt 101.5 Fragile
   Economy     67.2  expect 67.2  Protect     debt     0 Stable
@@ -425,7 +449,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 18 · Iulius, AD 163 ==  Gold 306.1 (+25.2/turn)   Attention 4/4   Index 28.2
+== Turn 18 · Iulius, AD 163 ==  Gold 311.1 (+25.2/turn)   Attention 4/4   Index 28.2
   Medicine       9  expect   50  Accept Risk debt  84.1 Fragile
   Governance   5.5  expect   55  Accept Risk debt 101.5 Fragile
   Economy     67.2  expect 67.2  Protect     debt     0 Stable
@@ -451,7 +475,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • Medicine moves from Fragile to Critical.
   • Governance moves from Fragile to Critical.
 
-== Turn 19 · Ianuarius, AD 164 ==  Gold 336.2 (+25.8/turn)   Attention 4/4   Index 28.4
+== Turn 19 · Ianuarius, AD 164 ==  Gold 341.2 (+25.8/turn)   Attention 4/4   Index 28.4
   Medicine       9  expect   50  Accept Risk debt 129.3 Critical
   Governance   5.5  expect   55  Accept Risk debt   156 Critical
   Economy     69.2  expect 69.2  Protect     debt     0 Stable
@@ -474,7 +498,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 20 · Iulius, AD 164 ==  Gold 367 (+25.8/turn)   Attention 4/4   Index 28.5
+== Turn 20 · Iulius, AD 164 ==  Gold 372 (+25.8/turn)   Attention 4/4   Index 28.5
   Medicine       9  expect   50  Accept Risk debt 129.3 Critical
   Governance   5.5  expect   55  Accept Risk debt   156 Critical
   Economy     69.2  expect 69.2  Protect     debt     0 Stable
@@ -498,7 +522,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 > end
   • The year AD 165 begins.
 
-== Turn 21 · Ianuarius, AD 165 ==  Gold 397.7 (+26.4/turn)   Attention 4/4   Index 28.7
+== Turn 21 · Ianuarius, AD 165 ==  Gold 402.7 (+26.4/turn)   Attention 4/4   Index 28.7
   Medicine       9  expect   50  Accept Risk debt 176.7 Critical
   Governance   5.5  expect   55  Accept Risk debt 213.4 Critical
   Economy     71.2  expect 71.2  Protect     debt     0 Stable
@@ -507,11 +531,11 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > jump
 You will leave AD 165 for AD 415. You can't come back.
-What you leave behind (397.7 gold in hand):
+What you leave behind (402.7 gold in hand):
   • Medicine debt 176.7 keeps growing 5% a year for 30 years after you leave (about 287.9 in a decade, 763.8 after 30 years) unless a crisis clears it. Paying it down now costs 530.1 gold.
   • Governance debt 213.4 keeps growing 5% a year for 30 years after you leave (about 347.5 in a decade, 922.1 after 30 years) unless a crisis clears it. Paying it down now costs 640.1 gold.
   • No institution will look after Rome while you're away.
-  • The 397 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+  • The 402 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
 Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
 
 > jump
@@ -524,8 +548,8 @@ the smith's workshop you funded by its soot-black wall. It is a stable now. Down
 fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
-washed in silver.
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 415.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to
@@ -540,28 +564,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 29   Medicine 18  Governance 10  Economy 132
-  Arrival,   AD 415: 22   Medicine 17  Governance 61  Economy 10
+  Arrival,   AD 415: 97   Medicine 94  Governance 101  Economy 95
 Institutions
   None founded.
 Crises while you were away
-  AD 175: pestilence returns (catastrophic, about 222.1 thousand dead)
-  AD 185: pestilence returns (catastrophic, about 131.4 thousand dead)
-  AD 195: pestilence returns (catastrophic, about 80.6 thousand dead)
-  AD 205: pestilence returns (catastrophic, about 46.7 thousand dead)
-  AD 225: pestilence returns (catastrophic, about 63.9 thousand dead)
-  AD 245: pestilence returns (catastrophic, about 74 thousand dead)
-  AD 255: pestilence returns (catastrophic, about 43.9 thousand dead)
-  AD 275: pestilence returns (catastrophic, about 66.8 thousand dead)
-  AD 285: pestilence returns (catastrophic, about 39.5 thousand dead)
-  AD 295: pestilence returns (catastrophic, about 27 thousand dead)
-  AD 305: pestilence returns (catastrophic, about 22.9 thousand dead)
-  AD 315: pestilence returns (catastrophic, about 19 thousand dead)
-  AD 325: pestilence returns (catastrophic, about 17.2 thousand dead)
-  AD 335: pestilence returns (catastrophic, about 16.3 thousand dead)
-  AD 345: pestilence returns (catastrophic, about 15.9 thousand dead)
-  AD 355: pestilence returns (catastrophic, about 15.8 thousand dead)
-  AD 385: pestilence returns (catastrophic, about 99.9 thousand dead)
-  AD 415: pestilence returns (catastrophic, about 123.4 thousand dead)
+  AD 195: pestilence returns (catastrophic, about 214 thousand dead)
+  AD 355: pestilence returns (severe, about 118 thousand dead)
+  AD 395: pestilence returns (severe, about 114 thousand dead)
 
 
 (after arrival) > why medicine
@@ -569,4 +578,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 108): fc69756e3f0b7967
+Run fingerprint (seed 108): f4aa46be24e3b7f7

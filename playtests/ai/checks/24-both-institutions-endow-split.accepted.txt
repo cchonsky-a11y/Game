@@ -7,13 +7,11 @@ found circle
 oversee circle
 work
 end
-charter circle
 oversee circle
 work
 end
-promise yes
+charter circle
 oversee circle
-start census
 work
 end
 oversee circle
@@ -23,6 +21,10 @@ oversee circle
 work
 end
 found faction
+oversee circle
+work
+end
+promise yes
 oversee circle
 work
 end
@@ -36,6 +38,26 @@ charter faction
 oversee circle
 work
 end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start census
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+respond quarantine
 oversee circle
 work
 end

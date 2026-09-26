@@ -187,6 +187,10 @@
     "compoundingCapYearsAfterDeparture": {
       "value": 30,
       "ref": "DECIDED 2026-09-26: debt compounds only for 30 years after departure"
+    },
+    "unmaintainedAccrualStopsAfterYears": {
+      "value": 30,
+      "ref": "SYSTEMS §6: after the 30-year window, domains no institution maintains stop accruing debt and drift to the historical baseline (DECIDED 2026-09-27)"
     }
   },
   "gold": {
@@ -281,16 +285,6 @@
     "goldLossPerSeverity": {
       "value": 1,
       "ref": "PROPOSED P0-09"
-    },
-    "severity": {
-      "mild": {
-        "value": 20,
-        "ref": "PROPOSED P0-09"
-      },
-      "grave": {
-        "value": 40,
-        "ref": "PROPOSED P0-09"
-      }
     },
     "damage": {
       "medicine": {
@@ -389,6 +383,20 @@
         "value": 0.35,
         "ref": "DECIDED 2026-09-26; amount PROPOSED P0-09"
       }
+    },
+    "severityLabels": {
+      "severeFromDeathShare": {
+        "value": 0.05,
+        "ref": "SYSTEMS §6 severity labels by share of population dead (DECIDED 2026-09-27)"
+      },
+      "catastrophicFromDeathShare": {
+        "value": 0.15,
+        "ref": "SYSTEMS §6 (DECIDED 2026-09-27)"
+      }
+    },
+    "immunityYears": {
+      "value": 30,
+      "ref": "SYSTEMS §6 no new plague outbreak for 30 years after any outbreak (DECIDED 2026-09-27)"
     }
   },
   "institutions": {

@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -313,11 +315,11 @@ You can't choose 'hospice' now.
 You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
-  • The pestilence is catastrophic (severity 43.5): about 130.4 thousand dead in Rome.
+  • The pestilence is severe: about 130 thousand dead, 13% of Rome.
   • Governance moves from Strained to Stable.
   • Economy moves from Fragile to Stable.
   • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
 == Turn 18 · Iulius, AD 163 ==  Gold 270 (+7.6/turn)   Attention 4/4   Index 73.5
@@ -594,4 +596,4 @@ Recent changes:
 
 > quit
 
-Run fingerprint (seed 114): e0dd4b33c52221b8
+Run fingerprint (seed 114): 28cf83645b03bb4e

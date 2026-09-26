@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -176,13 +178,14 @@ Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. T
 The machine shudders. Decades pass in the dark...
 
 — Recognition —
-You climb out of the machine in AD 411. The Tiber smells the same. Near the Porta Trigemina you find
-the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
-fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
+You climb out of the machine in AD 411. The Tiber smells the same. Near the Porta Trigemina you hear
+hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
+door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
+in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
-cover their mouths when strangers pass.
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 411.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until
@@ -197,29 +200,12 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 161: 89   Medicine 78  Governance 89  Economy 101
-  Arrival,   AD 411: 14   Medicine 10  Governance 28  Economy 10
+  Arrival,   AD 411: 103   Medicine 101  Governance 105  Economy 103
 Institutions
   None founded.
 Crises while you were away
-  AD 164: the Antonine pestilence (catastrophic, about 165.1 thousand dead; response: none)
-  AD 181: pestilence returns (catastrophic, about 286.9 thousand dead)
-  AD 191: pestilence returns (catastrophic, about 172.5 thousand dead)
-  AD 201: pestilence returns (catastrophic, about 100.9 thousand dead)
-  AD 231: pestilence returns (catastrophic, about 124.7 thousand dead)
-  AD 241: pestilence returns (catastrophic, about 81 thousand dead)
-  AD 261: pestilence returns (catastrophic, about 83.9 thousand dead)
-  AD 271: pestilence returns (catastrophic, about 47.9 thousand dead)
-  AD 281: pestilence returns (catastrophic, about 31.5 thousand dead)
-  AD 291: pestilence returns (catastrophic, about 23.1 thousand dead)
-  AD 301: pestilence returns (catastrophic, about 20.6 thousand dead)
-  AD 331: pestilence returns (catastrophic, about 97.4 thousand dead)
-  AD 341: pestilence returns (catastrophic, about 65.3 thousand dead)
-  AD 351: pestilence returns (catastrophic, about 41.5 thousand dead)
-  AD 361: pestilence returns (catastrophic, about 28.6 thousand dead)
-  AD 371: pestilence returns (catastrophic, about 22 thousand dead)
-  AD 391: pestilence returns (catastrophic, about 58.2 thousand dead)
-  AD 401: pestilence returns (catastrophic, about 35.7 thousand dead)
-  AD 411: pestilence returns (catastrophic, about 25.5 thousand dead)
+  AD 164: the Antonine pestilence (catastrophic, about 165 thousand dead; response: none)
+  AD 201: pestilence returns (catastrophic, about 294 thousand dead)
 
 
 (after arrival) > why medicine
@@ -227,4 +213,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 123): b49945941f75a951
+Run fingerprint (seed 123): 980fc06bfc67e4d3

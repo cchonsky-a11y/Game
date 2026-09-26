@@ -12,6 +12,9 @@ found circle
 oversee circle
 work
 end
+oversee circle
+work
+end
 charter circle
 oversee circle
 work
@@ -34,6 +37,9 @@ oversee circle
 start physician
 work
 end
+oversee circle
+work
+end
 respond hospice
 oversee circle
 work
@@ -45,7 +51,13 @@ oversee circle
 work
 end
 oversee circle
+work
+end
+oversee circle
 start magistrates
+work
+end
+oversee circle
 work
 end
 oversee circle

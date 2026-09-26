@@ -1,2 +1,2 @@
-seed 112, commands 187, arrived True, fingerprint 1d01c74d95ada6e0
+seed 112, commands 247, arrived True, fingerprint 892e8bc06966bd31
 OK | no findings

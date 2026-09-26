@@ -180,8 +180,8 @@ namespace Butterfly.Core
                 if (World.Plague.Stage != PlagueState.Passed) PlagueYearTick();
             }
             if (!antoninePassed && World.Plague.Stage == PlagueState.Passed)
-                arrival.Crises.Add("AD " + World.Plague.OutbreakYear + ": the Antonine pestilence (" + SeverityWord(World.Plague.Severity) +
-                                   ", about " + F(World.Plague.Deaths) + " thousand dead; response: " +
+                arrival.Crises.Add("AD " + World.Plague.OutbreakYear + ": the Antonine pestilence (" + World.Plague.SeverityLabel +
+                                   ", about " + F(Math.Round(World.Plague.Deaths)) + " thousand dead; response: " +
                                    (World.Plague.Response == "none" ? "none" : World.Plague.Response + ", chosen by your institutions after you left") + ")");
 
             foreach (var d in DomainInfo.All) DomainDecadeStep(d, startYear);
@@ -193,6 +193,7 @@ namespace Butterfly.Core
             double popTarget = T.Get("plague.startPopulation") * Math.Min(1.5, SubScore(Domain.Medicine) / 100.0);
             World.Population += (popTarget - World.Population) * T.Get("jump.populationRecoveryPerDecade");
 
+            arrival.IndexByDecade.Add(SphereIndex());
             Record("jump.decade", "world", null, new[] { "world" }, null,
                 "AD " + Now.Year + ": Medicine " + F(World[Domain.Medicine].Level) + ", Governance " + F(World[Domain.Governance].Level) +
                 ", Economy " + F(World[Domain.Economy].Level) + ".");
@@ -214,11 +215,15 @@ namespace Butterfly.Core
             double target = Benchmark(d, Now.Year) + MaintainBonus(d);
             s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"),
                 Math.Min(T.Get("domains.maxLevel"), s.Level + (target - s.Level) * T.Get("jump.convergencePerDecade")));
+            bool maintained = MaintainBonus(d) > 0;
             for (int y = 1; y <= 10; y++)
             {
                 double expectation = Formulas.Expectation(Benchmark(d, startYear + y), s.Peak);
+                // After the 30-year window, a domain no institution maintains accrues no new debt (decided 2026-09-27).
+                bool accrues = maintained || startYear + y - DepartureYear <= T.GetInt("debt.unmaintainedAccrualStopsAfterYears");
+                double accrual = accrues ? Formulas.DebtAccrual(expectation, s.Level, T.Get("debt.accrualRate")) : 0;
                 // Debt compounds only for the first 30 years after departure (decided 2026-09-26).
-                s.Debt = Formulas.DebtStep(s.Debt, Formulas.DebtAccrual(expectation, s.Level, T.Get("debt.accrualRate")),
+                s.Debt = Formulas.DebtStep(s.Debt, accrual,
                     Formulas.AbsenceCompoundRate(startYear + y - DepartureYear, T.GetInt("debt.compoundingCapYearsAfterDeparture"), T.Get("debt.compoundRate")));
                 s.Peak = Formulas.FadePeak(s.Peak, s.Level, T.Get("expectation.peakFadePerYear"));
             }
@@ -231,6 +236,8 @@ namespace Butterfly.Core
         /// <summary>After the Antonine plague, the same crisis can recur; the chance per decade follows the region's tier.</summary>
         private void MaybeRecurrence(Arrival arrival)
         {
+            // No new outbreak within 30 years of the last one (decided 2026-09-27).
+            if (World.LastOutbreakYear > 0 && Now.Year - World.LastOutbreakYear < T.GetInt("plague.immunityYears")) return;
             double yearly = T.Get("jump.crisisChancePerYear." + PlagueTier().ToString().ToLowerInvariant());
             double chance = 1 - Math.Pow(1 - yearly, 10);
             if (!Rng.Chance(chance)) return;
@@ -238,8 +245,8 @@ namespace Butterfly.Core
             var start = Record("crisis.recurrence", "plague", CausesOf(TierKey(Domain.Medicine)),
                 new[] { "world" }, null, "Pestilence returns to Rome (response: " + response + ").");
             double sev = Math.Max(0.01, PlagueSeverity(response));
-            ApplyPlagueDamage(sev, new List<int> { start.Id }, out double deaths);
-            arrival.Crises.Add("AD " + Now.Year + ": pestilence returns (" + SeverityWord(sev) + ", about " + F(deaths) + " thousand dead)");
+            ApplyPlagueDamage(sev, new List<int> { start.Id }, out double deaths, out string label);
+            arrival.Crises.Add("AD " + Now.Year + ": pestilence returns (" + label + ", about " + F(Math.Round(deaths)) + " thousand dead)");
         }
 
         private void FountainDecadeStep()
@@ -254,9 +261,6 @@ namespace Butterfly.Core
             Record("fountain.decay", "fountain", null, new[] { "world" }, new[] { new Effect("fountain.condition", before, World.FountainCondition) },
                 "No one maintains the district fountain.");
         }
-
-        private string SeverityWord(double sev) =>
-            sev < T.Get("plague.severity.mild") ? "mild" : sev < T.Get("plague.severity.grave") ? "grave" : "catastrophic";
 
         private string CurrentName(Institution i) => i.HasDrifted && i.DriftPath != null ? i.DriftPath.Name : i.Def.Name;
 

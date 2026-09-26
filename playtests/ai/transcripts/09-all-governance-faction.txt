@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -119,12 +121,46 @@ Started: Sponsor a household census.  [Attention left this turn: 2/4]
 You earn 5 gold.  [Attention left this turn: 1/4]
 
 > end
-  (2 turns pass; nothing needed you until now)
+
+== Turn 4 · Iulius, AD 156 ==  Gold 20.2 (+8.2/turn)   Attention 2/4   Index 105.2
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    57  expect   57  Protect     debt     0 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+  Under way: Sponsor a household census (1 turn(s) left)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+Founding costs 50 gold.
+
+> charter faction
+Found it first.
+
+> oversee faction
+Found it first.
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 20.2.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 20.2.
+
+> start census
+Sponsor a household census is already under way.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
   • For the first time, someone knows who lives in the district. Governance +6.
   • The year AD 157 begins.
   • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 28.4 (+6.7/turn)   Attention 4/4   Index 105.8
+== Turn 5 · Ianuarius, AD 157 ==  Gold 33.4 (+6.7/turn)   Attention 4/4   Index 105.8
   Medicine      56  expect   56  Maintain    debt   2.1 Stable
   Governance    65  expect   65  Protect     debt     0 Stable
   Economy       49  expect 54.8  Maintain    debt   2.9 Stable
@@ -145,10 +181,10 @@ Found it first.
 Found it first.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 28.4.
+Patronage for a senator costs 50 gold; you have 33.4.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 28.4.
+Fund the district magistrates costs 60 gold; you have 33.4.
 
 > start census
 Sponsor a household census is already done.
@@ -158,7 +194,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 40.1 (+6.7/turn)   Attention 4/4   Index 105.8
+== Turn 6 · Iulius, AD 157 ==  Gold 45.1 (+6.7/turn)   Attention 4/4   Index 105.8
   Medicine      56  expect   56  Maintain    debt   2.1 Stable
   Governance    65  expect   65  Protect     debt     0 Stable
   Economy       49  expect 54.8  Maintain    debt   2.9 Stable
@@ -179,10 +215,10 @@ Found it first.
 Found it first.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 40.1.
+Patronage for a senator costs 50 gold; you have 45.1.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 40.1.
+Fund the district magistrates costs 60 gold; you have 45.1.
 
 > start census
 Sponsor a household census is already done.
@@ -195,7 +231,7 @@ You earn 5 gold.  [Attention left this turn: 3/4]
   • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
   • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 51.8 (+6.4/turn)   Attention 4/4   Index 105.5
+== Turn 7 · Ianuarius, AD 158 ==  Gold 56.8 (+6.4/turn)   Attention 4/4   Index 105.5
   Medicine      55  expect   55  Maintain    debt   3.2 Stable
   Governance    67  expect   67  Protect     debt     0 Stable
   Economy       48  expect 54.7  Maintain    debt   9.7 Stable
@@ -218,10 +254,10 @@ A charter costs 30 gold.
 Loyalty 68, strength 52.  [Attention left this turn: 1/4]
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 1.8.
+Patronage for a senator costs 50 gold; you have 6.8.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 1.8.
+Fund the district magistrates costs 60 gold; you have 6.8.
 
 > start census
 Sponsor a household census is already done.
@@ -230,93 +266,124 @@ Sponsor a household census is already done.
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  (4 turns pass; nothing needed you until now)
+
+== Turn 8 · Iulius, AD 158 ==  Gold 14.2 (+2.4/turn)   Attention 4/4   Index 105.6
+  Medicine      55  expect   55  Maintain    debt   3.2 Stable
+  Governance    67  expect   67  Protect     debt     0 Stable
+  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 52, loyalty 68
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+A charter costs 30 gold.
+
+> oversee faction
+Loyalty 76, strength 54.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 14.2.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 14.2.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
   • The year AD 159 begins.
+
+== Turn 9 · Ianuarius, AD 159 ==  Gold 21.6 (+2.1/turn)   Attention 4/4   Index 105.3
+  Medicine      54  expect   54  Maintain    debt   4.3 Stable
+  Governance    69  expect   69  Protect     debt     0 Stable
+  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 58, loyalty 66
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+A charter costs 30 gold.
+
+> oversee faction
+Loyalty 74, strength 60.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 21.6.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 21.6.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 10 · Iulius, AD 159 ==  Gold 28.7 (+2.1/turn)   Attention 4/4   Index 105.3
+  Medicine      54  expect   54  Maintain    debt   4.3 Stable
+  Governance    69  expect   69  Protect     debt     0 Stable
+  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 60, loyalty 74
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+A charter costs 30 gold.
+
+> oversee faction
+Loyalty 82, strength 62.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 28.7.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 28.7.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
   • The year AD 160 begins.
   • Economy moves from Stable to Strained.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 15.8 (+1.8/turn)   Attention 4/4   Index 104.9
+== Turn 11 · Ianuarius, AD 160 ==  Gold 35.8 (+1.8/turn)   Attention 4/4   Index 104.9
   Medicine      53  expect   53  Maintain    debt   5.5 Stable
   Governance    71  expect   71  Protect     debt     0 Stable
   Economy       46  expect 54.5  Maintain    debt  27.2 Strained
   Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The faction (Senator Lucius Caecilius Varro): strength 52, loyalty 48
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond quarantine
-There is no outbreak to respond to.
-
-> found faction
-The Caecilian faction already exists.
-
-> charter faction
-A charter costs 30 gold.
-
-> oversee faction
-Loyalty 56, strength 54.  [Attention left this turn: 3/4]
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 15.8.
-
-> start magistrates
-Fund the district magistrates costs 60 gold; you have 15.8.
-
-> start census
-Sponsor a household census is already done.
-
-> work
-You earn 5 gold.  [Attention left this turn: 2/4]
-
-> end
-  (4 turns pass; nothing needed you until now)
-  • The year AD 161 begins.
-  • The year AD 162 begins.
-  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-
-== Turn 15 · Ianuarius, AD 162 ==  Gold 27.4 (+1.2/turn)   Attention 4/4   Index 104.1
-  Medicine      51  expect   51  Maintain    debt   8.1 Stable
-  Governance    75  expect   75  Protect     debt     0 Stable
-  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  The faction (Senator Lucius Caecilius Varro): strength 46, loyalty 36
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond quarantine
-There is no outbreak to respond to.
-
-> found faction
-The Caecilian faction already exists.
-
-> charter faction
-A charter costs 30 gold.
-
-> oversee faction
-Loyalty 44, strength 48.  [Attention left this turn: 3/4]
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 27.4.
-
-> start magistrates
-Fund the district magistrates costs 60 gold; you have 27.4.
-
-> start census
-Sponsor a household census is already done.
-
-> work
-You earn 5 gold.  [Attention left this turn: 2/4]
-
-> end
-
-== Turn 16 · Iulius, AD 162 ==  Gold 33.6 (+1.2/turn)   Attention 4/4   Index 104.1
-  Medicine      51  expect   51  Maintain    debt   8.1 Stable
-  Governance    75  expect   75  Protect     debt     0 Stable
-  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  The faction (Senator Lucius Caecilius Varro): strength 48, loyalty 44
+  The faction (Senator Lucius Caecilius Varro): strength 66, loyalty 72
 
 > promise yes
 No promise is waiting for an answer.
@@ -331,13 +398,13 @@ The Caecilian faction already exists.
 The faction is chartered (30 gold, 2 Attention). A charter slows drift; with an endowment of 60+ gold it also slows decay while you are away.  [Attention left this turn: 2/4]
 
 > oversee faction
-Loyalty 52, strength 50.  [Attention left this turn: 1/4]
+Loyalty 80, strength 68.  [Attention left this turn: 1/4]
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 3.6.
+Patronage for a senator costs 50 gold; you have 5.8.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 3.6.
+Fund the district magistrates costs 60 gold; you have 5.8.
 
 > start census
 Sponsor a household census is already done.
@@ -346,16 +413,13 @@ Sponsor a household census is already done.
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The year AD 163 begins.
-  • Economy moves from Strained to Fragile.
-  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 17 · Ianuarius, AD 163 ==  Gold 9.8 (+0.9/turn)   Attention 4/4   Index 103.6
-  Medicine      50  expect   50  Maintain    debt   9.5 Stable
-  Governance    77  expect   77  Protect     debt     0 Stable
-  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-  The faction (Senator Lucius Caecilius Varro): strength 46, loyalty 42, chartered
+== Turn 12 · Iulius, AD 160 ==  Gold 12.6 (+1.8/turn)   Attention 4/4   Index 105
+  Medicine      53  expect   53  Maintain    debt   5.5 Stable
+  Governance    71  expect   71  Protect     debt     0 Stable
+  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 68, loyalty 80, chartered
 
 > promise yes
 No promise is waiting for an answer.
@@ -370,13 +434,13 @@ The Caecilian faction already exists.
 The faction already has a charter.
 
 > oversee faction
-Loyalty 50, strength 48.  [Attention left this turn: 3/4]
+Loyalty 88, strength 70.  [Attention left this turn: 3/4]
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 9.8.
+Patronage for a senator costs 50 gold; you have 12.6.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 9.8.
+Fund the district magistrates costs 60 gold; you have 12.6.
 
 > start census
 Sponsor a household census is already done.
@@ -385,16 +449,238 @@ Sponsor a household census is already done.
 You earn 5 gold.  [Attention left this turn: 2/4]
 
 > end
-  (2 turns pass; nothing needed you until now)
+  • The year AD 161 begins.
+
+== Turn 13 · Ianuarius, AD 161 ==  Gold 19.4 (+1.5/turn)   Attention 4/4   Index 104.5
+  Medicine      52  expect   52  Maintain    debt   6.8 Stable
+  Governance    73  expect   73  Protect     debt     0 Stable
+  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 74, loyalty 78, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 86, strength 76.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 19.4.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 19.4.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 14 · Iulius, AD 161 ==  Gold 25.9 (+1.5/turn)   Attention 4/4   Index 104.6
+  Medicine      52  expect   52  Maintain    debt   6.8 Stable
+  Governance    73  expect   73  Protect     debt     0 Stable
+  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The faction (Senator Lucius Caecilius Varro): strength 76, loyalty 86, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 94, strength 78.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 25.9.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 25.9.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+  • The year AD 162 begins.
+  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+== Turn 15 · Ianuarius, AD 162 ==  Gold 32.4 (+1.2/turn)   Attention 4/4   Index 104.1
+  Medicine      51  expect   51  Maintain    debt   8.1 Stable
+  Governance    75  expect   75  Protect     debt     0 Stable
+  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+  The faction (Senator Lucius Caecilius Varro): strength 82, loyalty 84, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 92, strength 84.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 32.4.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 32.4.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 16 · Iulius, AD 162 ==  Gold 38.6 (+1.2/turn)   Attention 4/4   Index 104.1
+  Medicine      51  expect   51  Maintain    debt   8.1 Stable
+  Governance    75  expect   75  Protect     debt     0 Stable
+  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+  The faction (Senator Lucius Caecilius Varro): strength 84, loyalty 92, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 100, strength 86.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 38.6.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 38.6.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+  • The year AD 163 begins.
+  • Economy moves from Strained to Fragile.
+  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+
+== Turn 17 · Ianuarius, AD 163 ==  Gold 44.8 (+0.9/turn)   Attention 4/4   Index 103.6
+  Medicine      50  expect   50  Maintain    debt   9.5 Stable
+  Governance    77  expect   77  Protect     debt     0 Stable
+  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
+  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+  The faction (Senator Lucius Caecilius Varro): strength 90, loyalty 90, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 98, strength 92.  [Attention left this turn: 3/4]
+
+> start patronage
+Patronage for a senator costs 50 gold; you have 44.8.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 44.8.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 18 · Iulius, AD 163 ==  Gold 50.7 (+0.9/turn)   Attention 4/4   Index 103.6
+  Medicine      50  expect   50  Maintain    debt   9.5 Stable
+  Governance    77  expect   77  Protect     debt     0 Stable
+  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
+  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+  The faction (Senator Lucius Caecilius Varro): strength 92, loyalty 98, chartered
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found faction
+The Caecilian faction already exists.
+
+> charter faction
+The faction already has a charter.
+
+> oversee faction
+Loyalty 100, strength 94.  [Attention left this turn: 3/4]
+
+> start patronage
+Started: Patronage for a senator.  [Attention left this turn: 1/4]
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 0.7.
+
+> start census
+Sponsor a household census is already done.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
   • The year AD 164 begins.
   • Outbreak — the pestilence breaks out across Rome.
 
-== Turn 19 · Ianuarius, AD 164 ==  Gold 16.6 (+0.6/turn)   Attention 4/4   Index 103
+== Turn 19 · Ianuarius, AD 164 ==  Gold 6.6 (+0.6/turn)   Attention 2/4   Index 103
   Medicine      49  expect   50  Maintain    debt    11 Stable
   Governance    79  expect   79  Protect     debt     0 Stable
   Economy       42  expect 54.1  Maintain    debt  79.1 Fragile
   Pestilence: Outbreak — the pestilence breaks out across Rome.
-  The faction (Senator Lucius Caecilius Varro): strength 44, loyalty 40, chartered
+  The faction (Senator Lucius Caecilius Varro): strength 98, loyalty 90, chartered
+  Under way: Patronage for a senator (1 turn(s) left)
   ► Waiting: respond quarantine / respond none   (a hospice needs a physicians' circle of strength 30+)
 
 > promise yes
@@ -410,34 +696,35 @@ The Caecilian faction already exists.
 The faction already has a charter.
 
 > oversee faction
-Loyalty 48, strength 46.  [Attention left this turn: 3/4]
+Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 16.6.
+Patronage for a senator is already under way.
 
 > start magistrates
-Fund the district magistrates costs 60 gold; you have 16.6.
+Fund the district magistrates costs 60 gold; you have 6.6.
 
 > start census
 Sponsor a household census is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 2/4]
+You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The pestilence is grave (severity 32.5): about 97.4 thousand dead in Rome.
+  • A senator now owes you favors. Governance +6.
+  • The pestilence is severe: about 95 thousand dead, 9% of Rome.
   • Economy moves from Fragile to Stable.
   • Opening: a burial brotherhood forms among the survivors and starts settling disputes in the district.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
-  • Income +20.2, upkeep −20.2. You could pay only 89.8% of domain upkeep; the rest is neglected.
+  • Income +20.2, upkeep −20.2. You could pay only 90.2% of domain upkeep; the rest is neglected.
 
-== Turn 20 · Iulius, AD 164 ==  Gold 0 (-1.8/turn)   Attention 4/4   Index 90.2
-  Medicine    40.9  expect   50  Maintain    debt     0 Stable
-  Governance  78.8  expect 78.8  Protect     debt     0 Stable
-  Economy     33.9  expect 54.1  Maintain    debt     0 Stable
+== Turn 20 · Iulius, AD 164 ==  Gold 0 (-1.8/turn)   Attention 4/4   Index 92.9
+  Medicine    41.1  expect   50  Maintain    debt     0 Stable
+  Governance  84.8  expect 84.8  Protect     debt     0 Stable
+  Economy     34.1  expect 54.1  Maintain    debt     0 Stable
   Pestilence: The pestilence has passed.
-  The faction (Senator Lucius Caecilius Varro): strength 46, loyalty 48, chartered
+  The faction (Senator Lucius Caecilius Varro): strength 100, loyalty 100, chartered
 
 > promise yes
 No promise is waiting for an answer.
@@ -452,10 +739,10 @@ The Caecilian faction already exists.
 The faction already has a charter.
 
 > oversee faction
-Loyalty 56, strength 48.  [Attention left this turn: 3/4]
+Loyalty 100, strength 100.  [Attention left this turn: 3/4]
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 0.
+Patronage for a senator is already done.
 
 > start magistrates
 Fund the district magistrates costs 60 gold; you have 0.
@@ -470,20 +757,20 @@ You earn 5 gold.  [Attention left this turn: 2/4]
   • The year AD 165 begins.
   • Economy moves from Stable to Strained.
 
-== Turn 21 · Ianuarius, AD 165 ==  Gold 3.2 (-2.2/turn)   Attention 4/4   Index 88.6
-  Medicine    39.5  expect   50  Maintain    debt  10.5 Stable
-  Governance  80.2  expect 80.2  Protect     debt     0 Stable
-  Economy     32.5  expect   54  Maintain    debt  21.5 Strained
+== Turn 21 · Ianuarius, AD 165 ==  Gold 3.2 (-2.2/turn)   Attention 4/4   Index 91.2
+  Medicine    39.8  expect   50  Maintain    debt  10.2 Stable
+  Governance  86.4  expect 86.4  Protect     debt     0 Stable
+  Economy     32.8  expect   54  Maintain    debt  21.2 Strained
   Pestilence: The pestilence has passed.
-  The faction (Senator Lucius Caecilius Varro): strength 44, loyalty 46, chartered
+  The faction (Senator Lucius Caecilius Varro): strength 100, loyalty 90, chartered
   ► The era's 20 turns are over. Jump when you're ready (you can also stay).
 
 > jump
 You will leave AD 165 for AD 415. You can't come back.
 What you leave behind (3.2 gold in hand):
-  • Medicine debt 10.5 keeps growing 5% a year for 30 years after you leave (about 17.1 in a decade, 45.3 after 30 years) unless a crisis clears it. Paying it down now costs 31.4 gold.
-  • Economy debt 21.5 keeps growing 5% a year for 30 years after you leave (about 35 in a decade, 92.8 after 30 years) unless a crisis clears it. Paying it down now costs 64.4 gold.
-  • The Caecilian faction would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 44).
+  • Medicine debt 10.2 keeps growing 5% a year for 30 years after you leave (about 16.6 in a decade, 44.2 after 30 years) unless a crisis clears it. Paying it down now costs 30.7 gold.
+  • Economy debt 21.2 keeps growing 5% a year for 30 years after you leave (about 34.6 in a decade, 91.7 after 30 years) unless a crisis clears it. Paying it down now costs 63.7 gold.
+  • The Caecilian faction would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
   •   It holds no gold, so it can't pay down Governance debt while you're away. (endow faction <gold>)
   • The 3 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
 Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
@@ -491,9 +778,9 @@ Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. T
 > endow faction all
 The faction holds 3 gold (60 makes it endowed).  [Attention left this turn: 3/4]
 What you leave behind (0.2 gold in hand):
-  • Medicine debt 10.5 keeps growing 5% a year for 30 years after you leave (about 17.1 in a decade, 45.3 after 30 years) unless a crisis clears it. Paying it down now costs 31.4 gold.
-  • Economy debt 21.5 keeps growing 5% a year for 30 years after you leave (about 35 in a decade, 92.8 after 30 years) unless a crisis clears it. Paying it down now costs 64.4 gold.
-  • The Caecilian faction would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 44).
+  • Medicine debt 10.2 keeps growing 5% a year for 30 years after you leave (about 16.6 in a decade, 44.2 after 30 years) unless a crisis clears it. Paying it down now costs 30.7 gold.
+  • Economy debt 21.2 keeps growing 5% a year for 30 years after you leave (about 34.6 in a decade, 91.7 after 30 years) unless a crisis clears it. Paying it down now costs 63.7 gold.
+  • The Caecilian faction would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
   •   It holds 3 gold (small), growing about 0.5% a year with the economy for 30 years.
   •   It would pay in full toward Governance debt (now 0); its gold covers about 1 points at the 1.5× premium.
   •   Corruption risk: Medium for 30 years (small holdings, no audit charter, Senator Lucius Caecilius Varro is venal). If it happens, it could be minor (30%), major (40%) or total (30%). (audit faction: 40 gold)
@@ -509,8 +796,8 @@ repaired by the shape of the street, but the basin is cracked and dry, full of l
 you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
-cover their mouths when strangers pass.
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 415.
 
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
@@ -523,25 +810,15 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 165: 89   Medicine 79  Governance 146  Economy 60
-  Arrival,   AD 415: 16   Medicine 10  Governance 41  Economy 10
+  Departure, AD 165: 91   Medicine 80  Governance 157  Economy 61
+  Arrival,   AD 415: 103   Medicine 101  Governance 106  Economy 103
 Institutions
-  The Caecilian faction: Dissolved (left bare; strength 3, loyalty 3)
+  The Caecilian faction: Dissolved (left bare; strength 7, loyalty 6)
     Gold: left 3, paid off 1 debt, lost 0 to corruption, 0 left when the 30 years ended
 Crises while you were away
-  AD 235: pestilence returns (catastrophic, about 271.5 thousand dead)
-  AD 265: pestilence returns (catastrophic, about 188.9 thousand dead)
-  AD 275: pestilence returns (catastrophic, about 112.4 thousand dead)
-  AD 295: pestilence returns (catastrophic, about 112.9 thousand dead)
-  AD 305: pestilence returns (catastrophic, about 89.3 thousand dead)
-  AD 315: pestilence returns (catastrophic, about 63.8 thousand dead)
-  AD 325: pestilence returns (catastrophic, about 40.9 thousand dead)
-  AD 335: pestilence returns (catastrophic, about 28.5 thousand dead)
-  AD 355: pestilence returns (catastrophic, about 56.3 thousand dead)
-  AD 365: pestilence returns (catastrophic, about 36.5 thousand dead)
-  AD 385: pestilence returns (catastrophic, about 61.2 thousand dead)
-  AD 405: pestilence returns (catastrophic, about 65.5 thousand dead)
-  AD 415: pestilence returns (catastrophic, about 44.9 thousand dead)
+  AD 195: pestilence returns (catastrophic, about 168 thousand dead)
+  AD 255: pestilence returns (severe, about 81 thousand dead)
+  AD 355: pestilence returns (severe, about 89 thousand dead)
 
 
 (after arrival) > why medicine
@@ -549,4 +826,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 109): 52284e64c8ab468e
+Run fingerprint (seed 109): 9e3d63f63951e739

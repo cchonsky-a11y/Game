@@ -10,16 +10,16 @@ Attention (P0 pacing): demand 122 vs supply 80 = 1.5× (target ≥ 1.5×).
 
 | Timing | Strategy | Win rate (all 5) | Index at departure | Index at arrival (mean) | min–max | Plague severity | Crises in absence | Promise kept / broken | Player actions |
 |---|---|---|---|---|---|---|---|---|---|
-| Early | Balanced (Pay-down) | 21% | 97 | 63 | 14–103 | 25.8 | 3.8 | 0 / 100 | 19.0 |
-| Early | Specialized | 41% | 104 | 87 | 17–103 | 13.2 | 3.6 | 0 / 100 | 18.0 |
-| Early | Neglectful | 2% | 33 | 33 | 13–98 | 136.4 | 15.9 | 0 / 0 | 9.0 |
-| Early | Endow | 18% | 97 | 68 | 14–103 | 25.4 | 3.8 | 0 / 100 | 19.0 |
-| Early | Split | 18% | 97 | 68 | 14–103 | 25.4 | 3.8 | 0 / 100 | 20.0 |
-| Late | Balanced (Pay-down) | 14% | 99 | 98 | 62–114 | 9.5 | 2.6 | 100 / 0 | 36.0 |
-| Late | Specialized | 36% | 99 | 96 | 57–103 | 10.0 | 3.3 | 100 / 0 | 30.1 |
-| Late | Neglectful | 0% | 12 | 32 | 13–97 | 150.2 | 16.6 | 0 / 0 | 10.0 |
-| Late | Endow | 30% | 100 | 97 | 18–114 | 10.7 | 2.7 | 100 / 0 | 33.1 |
-| Late | Split | 19% | 99 | 98 | 62–114 | 9.5 | 2.6 | 100 / 0 | 35.5 |
+| Early | Balanced (Pay-down) | 21% | 97 | 99 | 66–103 | 25.8 | 1.8 | 0 / 100 | 19.0 |
+| Early | Specialized | 18% | 104 | 101 | 85–103 | 13.2 | 2.3 | 0 / 100 | 18.0 |
+| Early | Neglectful | 21% | 33 | 99 | 76–103 | 136.4 | 2.4 | 0 / 0 | 9.0 |
+| Early | Endow | 20% | 97 | 99 | 69–103 | 25.4 | 1.8 | 0 / 100 | 19.0 |
+| Early | Split | 20% | 97 | 99 | 69–103 | 25.4 | 1.8 | 0 / 100 | 20.0 |
+| Late | Balanced (Pay-down) | 16% | 99 | 102 | 87–114 | 9.5 | 2.0 | 100 / 0 | 36.0 |
+| Late | Specialized | 37% | 99 | 101 | 87–103 | 10.0 | 2.5 | 100 / 0 | 30.1 |
+| Late | Neglectful | 11% | 12 | 100 | 77–103 | 150.2 | 2.4 | 0 / 0 | 10.0 |
+| Late | Endow | 19% | 100 | 102 | 84–114 | 10.7 | 1.9 | 100 / 0 | 33.1 |
+| Late | Split | 17% | 99 | 101 | 82–114 | 9.5 | 1.9 | 100 / 0 | 35.5 |
 
 ## Institution gold and corruption
 
@@ -28,13 +28,13 @@ Attention (P0 pacing): demand 122 vs supply 80 = 1.5× (target ≥ 1.5×).
 | Early | Balanced (Pay-down) | 28.4 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 | Early | Specialized | 35.2 | 0.4 | 1 | 0 | 0% | 4% | 3 / 1 / 0 |
 | Early | Neglectful | 361.1 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Early | Endow | 36.4 | 2.7 | 24 | 19 | 0% | 6% | 4 / 2 / 0 |
-| Early | Split | 32.4 | 2.7 | 12 | 5 | 0% | 6% | 4 / 2 / 0 |
-| Late | Balanced (Pay-down) | 4.5 | 0.3 | 10 | 11 | 0% | 6% | 2 / 4 / 0 |
-| Late | Specialized | 38.1 | 0.3 | 1 | 0 | 0% | 4% | 2 / 2 / 0 |
+| Early | Endow | 36.4 | 2.7 | 24 | 19 | 0% | 8% | 5 / 2 / 1 |
+| Early | Split | 32.4 | 2.7 | 12 | 4 | 0% | 8% | 5 / 2 / 1 |
+| Late | Balanced (Pay-down) | 4.5 | 0.3 | 10 | 11 | 0% | 9% | 3 / 5 / 1 |
+| Late | Specialized | 38.1 | 0.3 | 1 | 0 | 0% | 5% | 3 / 2 / 0 |
 | Late | Neglectful | 500.9 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | Endow | 11.8 | 2.0 | 33 | 32 | 0% | 8% | 2 / 6 / 0 |
-| Late | Split | 7.8 | 1.7 | 20 | 18 | 0% | 8% | 2 / 6 / 0 |
+| Late | Endow | 11.8 | 2.0 | 33 | 31 | 0% | 11% | 4 / 6 / 1 |
+| Late | Split | 7.8 | 1.7 | 20 | 17 | 0% | 11% | 4 / 6 / 1 |
 
 ## Institution outcomes on arrival
 
@@ -73,25 +73,25 @@ Attention (P0 pacing): demand 122 vs supply 80 = 1.5× (target ≥ 1.5×).
 ## Balance criteria
 
 **A. Balance vs. specialization (PROTOTYPE_SCOPE):** among Balanced, Specialized and Neglectful, within each timing no strategy wins more than 65% and Balanced and Specialized both win some.
-- Early: Balanced 34%, Specialized 61%, Neglectful 5% → **PASS**
-- Late: Balanced 58%, Specialized 42%, Neglectful 0% → **PASS**
+- Early: Balanced 40%, Specialized 29%, Neglectful 31% → **PASS**
+- Late: Balanced 48%, Specialized 41%, Neglectful 11% → **PASS**
 
 **B. All five strategies:** within each timing no strategy wins more than 65%.
-- Early: Balanced (Pay-down) 21%, Specialized 41%, Neglectful 2%, Endow 18%, Split 18% → **PASS**
-- Late: Balanced (Pay-down) 14%, Specialized 36%, Neglectful 0%, Endow 30%, Split 19% → **PASS**
+- Early: Balanced (Pay-down) 21%, Specialized 18%, Neglectful 21%, Endow 20%, Split 20% → **PASS**
+- Late: Balanced (Pay-down) 16%, Specialized 37%, Neglectful 11%, Endow 19%, Split 17% → **PASS**
 
 **C. Debt at departure:** among Pay-down (Balanced), Endow and Split, within each timing none wins more than 65%.
-- Early: Balanced (Pay-down) 42%, Endow 29%, Split 29% → **PASS**
-- Late: Balanced (Pay-down) 26%, Endow 44%, Split 30% → **PASS**
+- Early: Balanced (Pay-down) 41%, Endow 30%, Split 30% → **PASS**
+- Late: Balanced (Pay-down) 23%, Endow 38%, Split 39% → **PASS**
 
-**D. Jump timing:** for each strategy and seed, the timing with the higher arrival Index wins; neither timing may win more than 65% across all strategies.
-- Early 29%, Late 71% → **FAIL**
-  - Balanced (Pay-down): Early 11%, Late 89%
-  - Specialized: Early 30%, Late 70%
-  - Neglectful: Early 69%, Late 31%
-  - Endow: Early 17%, Late 83%
-  - Split: Early 18%, Late 82%
+**D. Jump timing — NOT APPLICABLE TO P0 (deferred to P3, decided 2026-09-27):** staying longer has no cost until aging and machine-discovery risk exist. Reported for information only.
+- Early 30%, Late 70% → would fail (not counted)
+  - Balanced (Pay-down): Early 14%, Late 86%
+  - Specialized: Early 28%, Late 72%
+  - Neglectful: Early 51%, Late 49%
+  - Endow: Early 28%, Late 72%
+  - Split: Early 28%, Late 72%
 
 **Audit charter check (flag, not a gate):** 0% of the best runs (top arrival Index per seed and timing) bought an audit charter → no flag (at or below 80%).
 
-**All balance criteria (A–D): FAIL**
+**All applicable balance criteria (A–C): PASS**

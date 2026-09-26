@@ -11,8 +11,13 @@ work
 end
 work
 end
+work
+end
 promise yes
 found faction
+oversee faction
+work
+end
 oversee faction
 work
 end
@@ -27,6 +32,25 @@ oversee faction
 work
 end
 oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+start patronage
 work
 end
 oversee faction

@@ -7,13 +7,28 @@ found circle
 oversee circle
 work
 end
+oversee circle
+work
+end
 charter circle
 oversee circle
 work
 end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start market
+work
+end
 promise yes
 oversee circle
-start census
+work
+end
+oversee circle
 work
 end
 why plague

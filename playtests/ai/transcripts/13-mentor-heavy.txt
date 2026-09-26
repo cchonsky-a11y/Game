@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -98,11 +100,40 @@ Found it first.
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  (2 turns pass; nothing needed you until now)
+
+== Turn 4 · Iulius, AD 156 ==  Gold 19.2 (+10.2/turn)   Attention 2/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+  The Circle (Demetria of Pergamon): strength 50, loyalty 60
+  Mentoring circle (4 turn(s) left)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> found circle
+The Physicians' Circle of the Subura already exists.
+
+> found faction
+Founding costs 50 gold.
+
+> mentor circle
+You are already mentoring the Circle.
+
+> mentor faction
+Found it first.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
   • The year AD 157 begins.
   • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 29.4 (+8.7/turn)   Attention 2/4   Index 98.8
+== Turn 5 · Ianuarius, AD 157 ==  Gold 34.4 (+8.7/turn)   Attention 2/4   Index 98.8
   Medicine      56  expect   56  Maintain    debt   2.1 Stable
   Governance    53  expect   55  Maintain    debt   3.1 Stable
   Economy       49  expect 54.8  Maintain    debt   2.9 Stable
@@ -132,7 +163,7 @@ You earn 5 gold.  [Attention left this turn: 1/4]
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 43.1 (+8.7/turn)   Attention 2/4   Index 98.9
+== Turn 6 · Iulius, AD 157 ==  Gold 48.1 (+8.7/turn)   Attention 2/4   Index 98.9
   Medicine      56  expect   56  Maintain    debt   2.1 Stable
   Governance    53  expect   55  Maintain    debt   3.1 Stable
   Economy       49  expect 54.8  Maintain    debt   2.9 Stable
@@ -165,7 +196,7 @@ You earn 5 gold.  [Attention left this turn: 1/4]
   • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
   • Demetria of Pergamon hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 56.8 (+8.4/turn)   Attention 2/4   Index 97
+== Turn 7 · Ianuarius, AD 158 ==  Gold 61.8 (+8.4/turn)   Attention 2/4   Index 97
   Medicine      55  expect   55  Maintain    debt   3.2 Stable
   Governance    52  expect   55  Maintain    debt   6.2 Stable
   Economy       48  expect 54.7  Maintain    debt   9.7 Stable
@@ -199,7 +230,7 @@ That needs 1 Attention; you have 0 left this turn.
   • Your season of mentoring pays off: the Circle has members who can teach others. Strength 50 → 62.
   • Demetria of Pergamon is grateful. Loyalty 48 → 54.
 
-== Turn 8 · Iulius, AD 158 ==  Gold 11.2 (+4.4/turn)   Attention 4/4   Index 97
+== Turn 8 · Iulius, AD 158 ==  Gold 16.2 (+4.4/turn)   Attention 4/4   Index 97
   Medicine      55  expect   55  Maintain    debt   3.2 Stable
   Governance    52  expect   55  Maintain    debt   6.2 Stable
   Economy       48  expect 54.7  Maintain    debt   9.7 Stable
@@ -229,44 +260,10 @@ Commitment made: 5 turns.  [Attention left this turn: 0/4]
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  (3 turns pass; nothing needed you until now)
+  (5 turns pass; your Attention was fully committed)
   • The year AD 159 begins.
   • The year AD 160 begins.
   • Economy moves from Stable to Strained.
-
-== Turn 11 · Ianuarius, AD 160 ==  Gold 23.8 (+3.8/turn)   Attention 0/4   Index 93.3
-  Medicine      53  expect   53  Maintain    debt   5.5 Stable
-  Governance    50  expect   55  Maintain    debt    16 Stable
-  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  The Circle (Demetria of Pergamon): strength 54, loyalty 34
-  The faction (Senator Lucius Caecilius Varro): strength 50, loyalty 40
-  Mentoring circle (2 turn(s) left)
-  Mentoring faction (2 turn(s) left)
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> found circle
-The Physicians' Circle of the Subura already exists.
-
-> found faction
-The Caecilian faction already exists.
-
-> mentor circle
-You are already mentoring the Circle.
-
-> mentor faction
-You are already mentoring the faction.
-
-> work
-That needs 1 Attention; you have 0 left this turn.
-
-> end
-  (2 turns pass; nothing needed you until now)
   • Your season of mentoring pays off: the Circle has members who can teach others. Strength 54 → 66.
   • Demetria of Pergamon is grateful. Loyalty 34 → 40.
   • Your season of mentoring pays off: the faction has members who can teach others. Strength 50 → 62.
@@ -274,7 +271,7 @@ That needs 1 Attention; you have 0 left this turn.
   • The year AD 161 begins.
   • Governance moves from Stable to Strained.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 31.4 (+3.5/turn)   Attention 4/4   Index 91.5
+== Turn 13 · Ianuarius, AD 161 ==  Gold 36.4 (+3.5/turn)   Attention 4/4   Index 91.5
   Medicine      52  expect   52  Maintain    debt   6.8 Stable
   Governance    49  expect   55  Maintain    debt  22.8 Strained
   Economy       45  expect 54.4  Maintain    debt  37.9 Strained
@@ -304,85 +301,18 @@ Commitment made: 5 turns.  [Attention left this turn: 0/4]
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  (2 turns pass; nothing needed you until now)
+  (5 turns pass; your Attention was fully committed)
   • The year AD 162 begins.
   • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-
-== Turn 15 · Ianuarius, AD 162 ==  Gold 38.4 (+3.2/turn)   Attention 0/4   Index 89.7
-  Medicine      51  expect   51  Maintain    debt   8.1 Stable
-  Governance    48  expect   55  Maintain    debt    31 Strained
-  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  The Circle (Demetria of Pergamon): strength 58, loyalty 20
-  The faction (Senator Lucius Caecilius Varro): strength 54, loyalty 26
-  Mentoring circle (3 turn(s) left)
-  Mentoring faction (3 turn(s) left)
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> found circle
-The Physicians' Circle of the Subura already exists.
-
-> found faction
-The Caecilian faction already exists.
-
-> mentor circle
-You are already mentoring the Circle.
-
-> mentor faction
-You are already mentoring the faction.
-
-> work
-That needs 1 Attention; you have 0 left this turn.
-
-> end
-  (2 turns pass; nothing needed you until now)
   • The year AD 163 begins.
   • Economy moves from Strained to Fragile.
   • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-
-== Turn 17 · Ianuarius, AD 163 ==  Gold 44.8 (+2.9/turn)   Attention 0/4   Index 87.8
-  Medicine      50  expect   50  Maintain    debt   9.5 Stable
-  Governance    47  expect   55  Maintain    debt  40.5 Strained
-  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-  The Circle (Demetria of Pergamon): strength 54, loyalty 10
-  The faction (Senator Lucius Caecilius Varro): strength 50, loyalty 16
-  Mentoring circle (1 turn(s) left)
-  Mentoring faction (1 turn(s) left)
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> found circle
-The Physicians' Circle of the Subura already exists.
-
-> found faction
-The Caecilian faction already exists.
-
-> mentor circle
-You are already mentoring the Circle.
-
-> mentor faction
-You are already mentoring the faction.
-
-> work
-That needs 1 Attention; you have 0 left this turn.
-
-> end
   • Your season of mentoring pays off: the Circle has members who can teach others. Strength 54 → 66.
   • Demetria of Pergamon is grateful. Loyalty 10 → 16.
   • Your season of mentoring pays off: the faction has members who can teach others. Strength 50 → 62.
   • Senator Lucius Caecilius Varro is grateful. Loyalty 16 → 22.
 
-== Turn 18 · Iulius, AD 163 ==  Gold 47.7 (+2.9/turn)   Attention 4/4   Index 87.9
+== Turn 18 · Iulius, AD 163 ==  Gold 52.7 (+2.9/turn)   Attention 4/4   Index 87.9
   Medicine      50  expect   50  Maintain    debt   9.5 Stable
   Governance    47  expect   55  Maintain    debt  40.5 Strained
   Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
@@ -415,7 +345,7 @@ That needs 1 Attention; you have 0 left this turn.
   • The year AD 164 begins.
   • Outbreak — the pestilence breaks out across Rome.
 
-== Turn 19 · Ianuarius, AD 164 ==  Gold 50.6 (+2.6/turn)   Attention 0/4   Index 86
+== Turn 19 · Ianuarius, AD 164 ==  Gold 55.6 (+2.6/turn)   Attention 0/4   Index 86
   Medicine      49  expect   50  Maintain    debt    11 Stable
   Governance    46  expect   55  Maintain    debt  51.6 Strained
   Economy       42  expect 54.1  Maintain    debt  79.1 Fragile
@@ -448,48 +378,16 @@ You are already mentoring the faction.
 That needs 1 Attention; you have 0 left this turn.
 
 > end
-  • The pestilence is grave (severity 37.9): about 113.7 thousand dead in Rome.
+  (2 turns pass; your Attention was fully committed)
+  • The pestilence is severe: about 114 thousand dead, 11% of Rome.
   • Governance moves from Strained to Stable.
   • Economy moves from Fragile to Stable.
   • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
-
-== Turn 20 · Iulius, AD 164 ==  Gold 13.6 (+1/turn)   Attention 0/4   Index 74.3
-  Medicine    39.5  expect   50  Maintain    debt     0 Stable
-  Governance  42.2  expect   55  Maintain    debt     0 Stable
-  Economy     36.5  expect 54.1  Maintain    debt     0 Stable
-  Pestilence: The pestilence has passed.
-  The Circle (Demetria of Pergamon): strength 62, loyalty 12
-  The faction (Senator Lucius Caecilius Varro): strength 58, loyalty 12
-  Mentoring circle (3 turn(s) left)
-  Mentoring faction (3 turn(s) left)
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> found circle
-The Physicians' Circle of the Subura already exists.
-
-> found faction
-The Caecilian faction already exists.
-
-> mentor circle
-You are already mentoring the Circle.
-
-> mentor faction
-You are already mentoring the faction.
-
-> work
-That needs 1 Attention; you have 0 left this turn.
-
-> end
   • The year AD 165 begins.
 
-== Turn 21 · Ianuarius, AD 165 ==  Gold 14.6 (+0.7/turn)   Attention 0/4   Index 72.4
+== Turn 21 · Ianuarius, AD 165 ==  Gold 19.6 (+0.7/turn)   Attention 0/4   Index 72.4
   Medicine    38.5  expect   50  Maintain    debt  11.5 Stable
   Governance  41.2  expect   55  Maintain    debt  13.8 Stable
   Economy     35.5  expect   54  Maintain    debt  18.5 Stable
@@ -502,7 +400,7 @@ That needs 1 Attention; you have 0 left this turn.
 
 > jump
 You will leave AD 165 for AD 415. You can't come back.
-What you leave behind (14.6 gold in hand):
+What you leave behind (19.6 gold in hand):
   • Medicine debt 11.5 keeps growing 5% a year for 30 years after you leave (about 18.7 in a decade, 49.6 after 30 years) unless a crisis clears it. Paying it down now costs 34.4 gold.
   • Governance debt 13.8 keeps growing 5% a year for 30 years after you leave (about 22.5 in a decade, 59.6 after 30 years) unless a crisis clears it. Paying it down now costs 41.4 gold.
   • Economy debt 18.5 keeps growing 5% a year for 30 years after you leave (about 30.1 in a decade, 79.9 after 30 years) unless a crisis clears it. Paying it down now costs 55.4 gold.
@@ -510,7 +408,7 @@ What you leave behind (14.6 gold in hand):
   •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
   • The Caecilian faction would be left bare, losing 10% of its strength each decade (now 54).
   •   It holds no gold, so it can't pay down Governance debt while you're away. (endow faction <gold>)
-  • The 14 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+  • The 19 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
 Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
 
 > jump
@@ -523,8 +421,8 @@ fountain you repaired still runs: the basin is worn smooth, and someone has cut 
 rim: AQUA PURA. Of the smith you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 415.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
 
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
@@ -539,13 +437,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 72   Medicine 77  Governance 75  Economy 66
-  Arrival,   AD 415: 103   Medicine 101  Governance 105  Economy 103
+  Arrival,   AD 415: 93   Medicine 90  Governance 99  Economy 90
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 4, loyalty 0)
   The Caecilian faction: Dissolved (left bare; strength 4, loyalty 0)
 Crises while you were away
-  AD 225: pestilence returns (catastrophic, about 185.8 thousand dead)
-  AD 255: pestilence returns (grave, about 111.6 thousand dead)
+  AD 245: pestilence returns (catastrophic, about 211 thousand dead)
+  AD 405: pestilence returns (severe, about 110 thousand dead)
 
 
 (after arrival) > why medicine
@@ -553,4 +451,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 113): 8880517a78088117
+Run fingerprint (seed 113): 40eaa305aa72bee6

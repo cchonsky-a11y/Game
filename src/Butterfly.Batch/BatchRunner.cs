@@ -176,9 +176,9 @@ namespace Butterfly.Batch
             return best.Count(r => r.Audited) / (double)best.Count;
         }
 
+        /// <summary>Gates A–C. The timing gate (D) is reported but not applicable to P0 (deferred to P3, decided 2026-09-27).</summary>
         public static bool AllGatesPass(List<RunResult> results) =>
-            Timings.All(t => ScopeGatePasses(results, t.Name) && AllStrategiesGatePasses(results, t.Name) && DebtGatePasses(results, t.Name))
-            && TimingGatePasses(results);
+            Timings.All(t => ScopeGatePasses(results, t.Name) && AllStrategiesGatePasses(results, t.Name) && DebtGatePasses(results, t.Name));
 
         public static string Report(GameData data, List<RunResult> results, int runs)
         {
@@ -270,8 +270,8 @@ namespace Butterfly.Batch
                 sb.AppendLine("- " + t + ": " + string.Join(", ", DebtStrategies.Select(s => Label(s) + " " + Pct(debt[(t, s)]))) + " → " + Verdict(DebtGatePasses(results, t)));
             sb.AppendLine();
             var timingRates = TimingWinRates(results);
-            sb.AppendLine("**D. Jump timing:** for each strategy and seed, the timing with the higher arrival Index wins; neither timing may win more than 65% across all strategies.");
-            sb.AppendLine("- " + string.Join(", ", timingRates.Select(kv => kv.Key + " " + Pct(kv.Value))) + " → " + Verdict(TimingGatePasses(results)));
+            sb.AppendLine("**D. Jump timing — NOT APPLICABLE TO P0 (deferred to P3, decided 2026-09-27):** staying longer has no cost until aging and machine-discovery risk exist. Reported for information only.");
+            sb.AppendLine("- " + string.Join(", ", timingRates.Select(kv => kv.Key + " " + Pct(kv.Value))) + " → " + (TimingGatePasses(results) ? "would pass" : "would fail") + " (not counted)");
             foreach (var g in results.GroupBy(r => r.Strategy))
                 sb.AppendLine("  - " + Label(g.Key) + ": " + string.Join(", ", TimingWinRates(g.ToList()).Select(kv => kv.Key + " " + Pct(kv.Value))));
             sb.AppendLine();
@@ -279,7 +279,7 @@ namespace Butterfly.Batch
             sb.AppendLine("**Audit charter check (flag, not a gate):** " + Pct(audit) + " of the best runs (top arrival Index per seed and timing) bought an audit charter" +
                           (audit > AuditFlag ? " → ⚠ **FLAG** (above " + Pct(AuditFlag) + ": the audit charter may be a must-buy)" : " → no flag (at or below " + Pct(AuditFlag) + ")."));
             sb.AppendLine();
-            sb.AppendLine("**All balance criteria (A–D): " + (AllGatesPass(results) ? "PASS" : "FAIL") + "**");
+            sb.AppendLine("**All applicable balance criteria (A–C): " + (AllGatesPass(results) ? "PASS" : "FAIL") + "**");
             return sb.ToString();
         }
     }

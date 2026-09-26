@@ -4,6 +4,8 @@ Rome, AD 155. Your time machine failed and left you here. You have a little gold
 and a small circle of people willing to listen. Something is coming from the East in a few years.
 When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
 
+This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
@@ -432,12 +434,12 @@ Loyalty 98, strength 100.  [Attention left this turn: 1/4]
 You earn 5 gold.  [Attention left this turn: 0/4]
 
 > end
-  • The pestilence is catastrophic (severity 60.6): about 181.8 thousand dead in Rome.
+  • The pestilence is catastrophic: about 182 thousand dead, 18% of Rome.
   • Medicine moves from Critical to Stable.
   • Governance moves from Strained to Stable.
   • Economy moves from Strained to Stable.
   • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
-  • The worst of the pestilence has passed.
+  • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
 == Turn 16 · Iulius, AD 162 ==  Gold 118.7 (+7.9/turn)   Attention 4/4   Index 35.9
@@ -653,15 +655,15 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 34   Medicine 10  Governance 71  Economy 55
-  Arrival,   AD 415: 113   Medicine 137  Governance 104  Economy 102
+  Arrival,   AD 415: 97   Medicine 120  Governance 95  Economy 81
 Institutions
   The Physicians' Circle of the Subura: Drifted — now the Hospice of the Fountain (left chartered and endowed; strength 47, loyalty 42)
     Gold: left 141, paid off 47 debt, lost 0 to corruption, 0 left when the 30 years ended
 Crises while you were away
-  AD 175: pestilence returns (catastrophic, about 163.9 thousand dead)
-  AD 265: pestilence returns (grave, about 112.1 thousand dead)
-  AD 295: pestilence returns (mild, about 73.1 thousand dead)
-  AD 375: pestilence returns (grave, about 155.9 thousand dead)
+  AD 195: pestilence returns (severe, about 126 thousand dead)
+  AD 285: pestilence returns (severe, about 71 thousand dead)
+  AD 325: pestilence returns (severe, about 69 thousand dead)
+  AD 415: pestilence returns (severe, about 124 thousand dead)
 
 
 (after arrival) > why medicine
@@ -669,4 +671,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 122): 9f5458a164851e7c
+Run fingerprint (seed 122): dea5afc814ced36c
