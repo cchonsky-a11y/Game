@@ -15,7 +15,7 @@ for (int i = 0; i < args.Length - 1; i++)
 
 var data = GameData.LoadDefault();
 var results = BatchRunner.RunAll(data, runs);
-string report = BatchRunner.Report(results, runs);
+string report = BatchRunner.Report(data, results, runs);
 Console.WriteLine(report);
 if (outPath != null)
 {

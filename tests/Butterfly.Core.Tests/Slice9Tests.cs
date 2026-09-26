@@ -23,9 +23,11 @@ namespace Butterfly.Core.Tests
         public void ReportHasSummaryTableForAllStrategiesAndTimings()
         {
             var results = BatchRunner.RunAll(TestData.Load(), 5);
-            Assert.Equal(5 * 3 * 2, results.Count);
-            string report = BatchRunner.Report(results, 5);
-            foreach (var s in new[] { "Balanced", "Specialized", "Neglectful" }) Assert.Contains("| " + s + " |", report);
+            Assert.Equal(5 * 5 * 2, results.Count);
+            string report = BatchRunner.Report(TestData.Load(), results, 5);
+            foreach (var s in new[] { "Balanced (Pay-down)", "Specialized", "Neglectful", "Endow", "Split" }) Assert.Contains("| " + s + " |", report);
+            Assert.Contains("Attention (P0 pacing): demand 122 vs supply 80", report);
+            Assert.Contains("Audit charter check", report);
             Assert.Contains("Early", report);
             Assert.Contains("Late", report);
             var rates = BatchRunner.WinRates(results);

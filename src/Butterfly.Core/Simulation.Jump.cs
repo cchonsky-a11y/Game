@@ -102,9 +102,12 @@ namespace Butterfly.Core
                              F(HoldingsGrowthRate() * 100) + "% a year with the economy for " + window + " years.";
                 yield return "  It would pay " + (share >= 1 ? "in full" : share > 0 ? "partially" : "nothing") + " toward " + i.Def.Maintains +
                              " debt (now " + F(domain.Debt) + "); its gold covers about " + F(coverable) + " points at the 1.5× premium.";
-                yield return "  Corruption risk: " + F(CorruptionChance(i) * 100) + "% per decade for " + window + " years (" +
-                             (LargeHoldings(i) ? "large holdings ×2" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
-                             ", " + i.Leader + " is " + i.Def.LeaderIntegrity + ")." + (i.AuditCharter ? "" : " (audit " + i.Key + ")");
+                var w = CorruptionWeights(i);
+                double sum = w[0] + w[1] + w[2];
+                yield return "  Corruption risk: " + CorruptionRiskBand(i) + " for " + window + " years (" +
+                             (LargeHoldings(i) ? "large holdings" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
+                             ", " + i.Leader + " is " + i.Def.LeaderIntegrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
+                             F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." + (i.AuditCharter ? "" : " (audit " + i.Key + ")");
             }
             if (!Founded().Any()) yield return "No institution will look after Rome while you're away.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
@@ -308,6 +311,9 @@ namespace Butterfly.Core
                     { "pathDescription", i.DriftPath?.Description ?? "" },
                 };
                 parts.Add(text.Template("discovery." + key, v));
+                // The Discovery beat reveals any corruption and its level (decided 2026-09-26).
+                if (i.Corruption != CorruptionLevel.None && key != i.Key + ".dissolved")
+                    parts.Add(text.Template("discovery.corruption." + i.Corruption.ToString().ToLowerInvariant(), v));
                 keys.Add(key);
             }
             if (parts.Count == 0)

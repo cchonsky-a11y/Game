@@ -134,8 +134,37 @@ namespace Butterfly.Core.Tests
                 }
                 if (events.Count > 0) Assert.Contains(sim.Log.Events, e => e.Type == "debt.corruption");
             }
-            Assert.InRange(corrupted, 40, 140); // ≈ 1 − (1 − 0.13)^3 ≈ 34% of runs
+            Assert.InRange(corrupted, 40, 140);
+            // The Discovery beat reveals corruption and its level.
+            for (ulong seed = 1; seed <= 200; seed++)
+            {
+                var sim = new Simulation(TestData.Load(), seed);
+                sim.World.Gold = 2000;
+                sim.World.Attention = 100;
+                sim.Found("faction");
+                sim.Endow("faction", 500);
+                var arrival = sim.Jump();
+                var f = sim.World.Institution("faction");
+                if (f.Corruption == CorruptionLevel.None || sim.OutcomeOf(f) == InstitutionOutcome.Dissolved) continue;
+                Assert.Contains("(" + f.Corruption.ToString().ToLowerInvariant() + " corruption)", arrival.Beats.First(b => b.Name == "Discovery").Text);
+                break;
+            } // ≈ 1 − (1 − 0.13)^3 ≈ 34% of runs
             Assert.True(captured > 0);
+        }
+
+        [Fact]
+        public void RiskBandsFollowTheChance()
+        {
+            var sim = WithCircle();
+            sim.Found("faction");
+            var c = sim.World.Institution("circle");
+            var f = sim.World.Institution("faction");
+            sim.Endow("circle", 60);   // honest, small: 3.5%
+            sim.Endow("faction", 60);  // venal, small: 6.5%
+            Assert.Equal("Low", sim.CorruptionRiskBand(c));
+            Assert.Equal("Medium", sim.CorruptionRiskBand(f));
+            sim.Endow("faction", 200); // venal, large: 13%
+            Assert.Equal("High", sim.CorruptionRiskBand(f));
         }
 
         [Fact]
@@ -145,7 +174,8 @@ namespace Butterfly.Core.Tests
             sim.Endow("circle", 100);
             var lines = sim.DepartureBriefing().ToList();
             Assert.Contains(lines, l => l.Contains("holds 100 gold"));
-            Assert.Contains(lines, l => l.StartsWith("  Corruption risk:"));
+            Assert.Contains(lines, l => l.StartsWith("  Corruption risk: Low") && l.Contains("minor (50%)") && l.Contains("total (10%)"));
+            Assert.DoesNotContain(lines, l => l.Contains("per decade")); // a band, never a number or an outcome
             Assert.Contains(lines, l => l.Contains("toward Medicine debt"));
         }
     }

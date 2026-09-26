@@ -28,6 +28,13 @@ namespace Butterfly.Core
             return T.Get("corruption.baseHazardPerDecade") * exposure * (1 - audit) * (1 - IntegrityModifier(i));
         }
 
+        /// <summary>Corruption risk band shown before the jump (never the outcome).</summary>
+        public string CorruptionRiskBand(Institution i)
+        {
+            double c = CorruptionChance(i);
+            return c >= T.Get("corruption.riskBands.highFrom") ? "High" : c >= T.Get("corruption.riskBands.mediumFrom") ? "Medium" : "Low";
+        }
+
         /// <summary>Severity weights (Minor, Major, Total): by audit charter, shifted by leader integrity.</summary>
         public double[] CorruptionWeights(Institution i)
         {

@@ -38,11 +38,19 @@ namespace Butterfly.Batch
             if (i.Founded && i.Loyalty < below) sim.Oversee(id);
         }
 
-        /// <summary>Jump preparation: an audit charter, then the remaining gold as an endowment (split evenly).</summary>
+        /// <summary>
+        /// Jump preparation: split the remaining gold evenly as endowments. An audit charter is bought first
+        /// for any institution whose share would be large, or whose leader is venal.
+        /// </summary>
         protected static void AuditAndEndow(Simulation sim, params string[] ids)
         {
             var founded = ids.Select(id => sim.World.Institution(id)).Where(i => i.Founded).ToList();
-            foreach (var i in founded) sim.Audit(i.Key);
+            if (founded.Count == 0) return;
+            foreach (var i in founded)
+            {
+                double planned = i.Holdings + sim.World.Gold / founded.Count;
+                if (planned >= sim.T.Get("institutions.holdings.largeHoldings") || i.Def.LeaderIntegrity == "venal") sim.Audit(i.Key);
+            }
             for (int k = 0; k < founded.Count; k++)
             {
                 double share = System.Math.Floor(sim.World.Gold / (founded.Count - k));
@@ -51,17 +59,41 @@ namespace Butterfly.Batch
         }
 
         /// <summary>Pays down the most indebted of the given domains with whatever gold is available.</summary>
-        protected static void PayDownDebts(Simulation sim, IEnumerable<Domain> domains)
+        protected static void PayDownDebts(Simulation sim, IEnumerable<Domain> domains) => PayDownDebts(sim, domains, double.MaxValue, 1);
+
+        /// <summary>Pays down up to <paramref name="share"/> of each domain's debt, spending at most <paramref name="budget"/> gold.</summary>
+        protected static void PayDownDebts(Simulation sim, IEnumerable<Domain> domains, double budget, double share)
         {
             foreach (var d in domains.OrderByDescending(d => sim.World[d].Debt))
-                if (sim.World[d].Debt > 0) sim.PayDown(d, sim.World[d].Debt);
+            {
+                double points = System.Math.Min(sim.World[d].Debt * share, System.Math.Floor(budget / sim.PaydownCost(1)));
+                if (points <= 0) continue;
+                double before = sim.World.Gold;
+                sim.PayDown(d, points);
+                budget -= before - sim.World.Gold;
+            }
         }
     }
 
-    /// <summary>Spreads investment across all three domains and both institutions.</summary>
-    public sealed class BalancedStrategy : Strategy
+    /// <summary>
+    /// Spreads investment across all three domains and both institutions. Three variants differ only in how
+    /// they treat debt: Pay-down (the Balanced strategy) clears it, Endow leaves it to the institutions and
+    /// endows them, Split pays half and endows the rest.
+    /// </summary>
+    public class BalancedStrategy : Strategy
     {
-        public override string Name => "Balanced";
+        private readonly string _name;
+        private readonly double _paydownShare;
+
+        public BalancedStrategy() : this("Balanced", 1) { }
+
+        protected BalancedStrategy(string name, double paydownShare)
+        {
+            _name = name;
+            _paydownShare = paydownShare;
+        }
+
+        public override string Name => _name;
 
         public override void PlayTurn(Simulation sim)
         {
@@ -79,15 +111,29 @@ namespace Butterfly.Batch
                 var project = sim.AvailableProjects().Where(p => p.Domain == d && p.Gold <= sim.World.Gold).OrderBy(p => p.Gold).FirstOrDefault();
                 if (project != null && sim.StartProject(project.Id).Ok) break;
             }
-            PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained));
+            if (_paydownShare > 0)
+                PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained), double.MaxValue, _paydownShare);
             sim.Work();
         }
 
         public override void BeforeJump(Simulation sim)
         {
-            PayDownDebts(sim, DomainInfo.All);
+            if (_paydownShare >= 1) PayDownDebts(sim, DomainInfo.All);
+            else if (_paydownShare > 0) PayDownDebts(sim, DomainInfo.All, sim.World.Gold * _paydownShare, 1);
             AuditAndEndow(sim, "circle", "faction");
         }
+    }
+
+    /// <summary>Balanced play, but leaves all debt to the institutions and endows them with everything.</summary>
+    public sealed class EndowStrategy : BalancedStrategy
+    {
+        public EndowStrategy() : base("Endow", 0) { }
+    }
+
+    /// <summary>Balanced play; pays down debt with half its gold and endows the institutions with the rest.</summary>
+    public sealed class SplitStrategy : BalancedStrategy
+    {
+        public SplitStrategy() : base("Split", 0.5) { }
     }
 
     /// <summary>Puts every spare coin and hour into Medicine and the physicians' circle.</summary>

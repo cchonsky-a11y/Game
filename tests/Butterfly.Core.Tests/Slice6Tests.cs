@@ -68,23 +68,10 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void AttentionDemandIsAtLeastOneAndAHalfTimesSupply()
         {
-            // Demand, as defined in PROTOTYPE_SCOPE (P0 pacing): every project once, every institution step
-            // (found, charter, audit, endow) and a full mentoring commitment for both institutions, the oversight
-            // needed to hold loyalty over the era, one plague response, and the personal action every turn.
             var data = TestData.Load();
-            var t = data.Tuning;
-            int turns = t.GetInt("time.eraTurns");
-            double years = turns * t.Get("time.monthsPerTurn") / 12.0;
-            double supply = turns * t.Get("attention.perTurn");
-            double demand = data.Content.Projects.Sum(p => p.AttentionPerTurn * p.Turns);
-            int institutions = data.Content.Institutions.Count;
-            demand += institutions * (t.Get("institutions.foundAttention") + t.Get("institutions.charterAttention")
-                                      + t.Get("institutions.auditAttention") + t.Get("institutions.endowAttention")
-                                      + t.Get("commitments.mentor.turns") * t.Get("commitments.mentor.attentionPerTurn")
-                                      + System.Math.Ceiling(years * t.Get("institutions.loyaltyFadePerYear") / t.Get("institutions.overseeLoyalty")));
-            demand += t.Get("plague.response.hospice.attention");
-            demand += turns; // one personal action per turn
-            Assert.True(demand >= t.Get("attention.demandTarget") * supply, "demand " + demand + " vs supply " + supply);
+            Assert.Equal(80, AttentionBudget.Supply(data));
+            Assert.Equal(122, AttentionBudget.Demand(data));
+            Assert.True(AttentionBudget.Demand(data) >= data.Tuning.Get("attention.demandTarget") * AttentionBudget.Supply(data));
         }
     }
 

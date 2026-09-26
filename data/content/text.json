@@ -40,6 +40,9 @@
     "faction.rogue": "The senate faction you built is now {pathName}. {pathDescription} They know who you are, and they do not want you back.",
     "none": "You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built outlasted you.",
     "circle.corrupted": "The Physicians' Circle still has a door and a name, but its treasury was emptied long ago. It licenses whoever pays, and its head, {leader}, answers to the men who took the gold.",
-    "faction.corrupted": "The Caecilian faction still votes as a bloc, but its treasury was emptied long ago and its votes are for sale. Its head is {leader}."
+    "faction.corrupted": "The Caecilian faction still votes as a bloc, but its treasury was emptied long ago and its votes are for sale. Its head is {leader}.",
+    "corruption.minor": "Its accounts show a gap from the years after you left: some of the gold you left was quietly skimmed (minor corruption).",
+    "corruption.major": "Its records tell of a great embezzlement a generation after you left: half the treasury vanished and the payments you arranged stopped (major corruption).",
+    "corruption.total": "Everyone knows the story: within a generation of your leaving, its whole treasury was stolen, and those who took it took the institution too (total corruption)."
   }
 }
