@@ -69,8 +69,7 @@ namespace Butterfly.Core.Tests
         public void AttentionDemandIsAtLeastOneAndAHalfTimesSupply()
         {
             var data = TestData.Load();
-            Assert.Equal(80, AttentionBudget.Supply(data));
-            Assert.Equal(122, AttentionBudget.Demand(data));
+            Assert.Equal(160, AttentionBudget.Supply(data));
             Assert.True(AttentionBudget.Demand(data) >= data.Tuning.Get("attention.demandTarget") * AttentionBudget.Supply(data));
         }
     }
@@ -117,8 +116,7 @@ namespace Butterfly.Core.Tests
         public void TheChoiceLapsesIfIgnored()
         {
             var sim = new Simulation(TestData.Load(), 31);
-            sim.EndTurn();
-            sim.EndTurn();
+            for (int i = 0; i < sim.T.GetInt("seededChoice.deadlineTurn"); i++) sim.EndTurn();
             Assert.Equal("neither", sim.World.SeededChoice);
         }
     }

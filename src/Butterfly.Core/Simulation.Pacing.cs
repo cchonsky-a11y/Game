@@ -13,7 +13,8 @@ namespace Butterfly.Core
         private static readonly HashSet<string> NotableEvents = new HashSet<string>
         {
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
-            "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening"
+            "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",
+            "bust.warning", "bust.outbreak", "bust.toll"
         };
 
         private int _turnEventStart = 1;

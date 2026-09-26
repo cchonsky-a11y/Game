@@ -24,6 +24,7 @@ namespace Butterfly.Core
                 + t.Get("commitments.mentor.turns") * t.Get("commitments.mentor.attentionPerTurn")
                 + Math.Ceiling(years * t.Get("institutions.loyaltyFadePerYear") / t.Get("institutions.overseeLoyalty")));
             demand += t.Get("plague.response.hospice.attention");
+            demand += 4 * t.Get("policy.attention"); // one stance per economic issue
             demand += turns;
             return demand;
         }

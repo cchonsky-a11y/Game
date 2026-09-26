@@ -273,6 +273,7 @@ namespace Butterfly.Core
                 case "promiseKeptOrHospice": return PromiseKept() || World.Plague.Response == "hospice";
                 case "charteredAndGovernanceHeld":
                     return i.Chartered && World[Domain.Governance].Level >= Benchmark(Domain.Governance, Now.Year);
+                case "soundMoneyAndFreePrices": return SoundMoneyAndFreePrices();
                 case "otherwise": return true;
                 default: throw new InvalidOperationException("Unknown drift condition: " + condition);
             }

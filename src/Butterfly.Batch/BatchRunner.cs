@@ -28,6 +28,7 @@ namespace Butterfly.Batch
         public double HoldingsOnArrival;
         public CorruptionLevel WorstCorruption;
         public bool Audited;
+        public int Busts;
         public string Wrongness = "";
         public int Decisions;
         public Dictionary<string, InstitutionOutcome> Institutions = new Dictionary<string, InstitutionOutcome>();
@@ -50,7 +51,8 @@ namespace Butterfly.Batch
 
         public static Strategy[] Strategies() => new Strategy[]
         {
-            new BalancedStrategy(), new SpecializedStrategy(), new NeglectfulStrategy(), new EndowStrategy(), new SplitStrategy()
+            new BalancedStrategy(), new SpecializedStrategy(), new NeglectfulStrategy(), new EndowStrategy(), new SplitStrategy(),
+            new FreeMarketStrategy(), new InterventionistStrategy()
         };
 
         public static string Label(string strategy) => strategy == "Balanced" ? "Balanced (Pay-down)" : strategy;
@@ -87,6 +89,7 @@ namespace Butterfly.Batch
                 HoldingsOnArrival = sim.World.Institutions.Sum(i => i.Holdings),
                 WorstCorruption = sim.World.Institutions.Select(i => i.Corruption).DefaultIfEmpty(CorruptionLevel.None).Max(),
                 Audited = sim.World.Institutions.Any(i => i.AuditCharter),
+                Busts = sim.World.Bust.Busts,
                 Wrongness = arrival.WrongnessKey,
                 Decisions = sim.Log.Events.Count(e => e.Actors.Contains("player") && e.Type != "personal.work" && e.Type != "jump.arrive"),
                 LogHash = sim.Log.Hash(),
@@ -179,7 +182,8 @@ namespace Butterfly.Batch
         }
 
         /// <summary>Gates A–C. The timing gate (D) is reported but not applicable to P0 (deferred to P3, decided 2026-09-27).</summary>
-        public static readonly string[] InvestingStrategies = { "Balanced", "Specialized", "Endow", "Split" };
+        public static readonly string[] InvestingStrategies = { "Balanced", "Specialized", "Endow", "Split", "FreeMarket", "Interventionist" };
+        public static readonly string[] PolicyStrategies = { "FreeMarket", "Interventionist" };
 
         private static double StdDev(IEnumerable<double> xs)
         {
@@ -228,7 +232,7 @@ namespace Butterfly.Batch
             sb.AppendLine();
             sb.AppendLine("## Outcomes");
             sb.AppendLine();
-            sb.AppendLine("| Timing | Strategy | Win rate (all 5) | Index at departure | Index at arrival (mean) | min–max | Plague severity | Crises in absence | Promise kept / broken | Player actions |");
+            sb.AppendLine("| Timing | Strategy | Win rate (all) | Index at departure | Index at arrival (mean) | min–max | Plague severity | Crises in absence | Promise kept / broken | Player actions |");
             sb.AppendLine("|---|---|---|---|---|---|---|---|---|---|");
             foreach (var g in results.GroupBy(r => (r.Timing, r.Strategy)))
             {
@@ -299,6 +303,19 @@ namespace Butterfly.Batch
             sb.AppendLine("- Wrongness beat: " + string.Join(", ", results.GroupBy(r => r.Wrongness).OrderByDescending(g => g.Count())
                               .Select(g => g.Key + " " + Pct(g.Count() / (double)results.Count))) + ".");
             sb.AppendLine();
+            sb.AppendLine("## Economic policy");
+            sb.AppendLine();
+            foreach (var t in Timings.Select(x => x.Name))
+            {
+                var fm = results.Where(r => r.Timing == t && r.Strategy == "FreeMarket").ToList();
+                var iv = results.Where(r => r.Timing == t && r.Strategy == "Interventionist").ToList();
+                var bal = results.Where(r => r.Timing == t && r.Strategy == "Balanced").ToList();
+                sb.AppendLine("- " + t + ": FreeMarket arrival Index " + F1(fm.Average(r => r.IndexAfter)) + " (busts " + F1(fm.Average(r => r.Busts)) +
+                              "), Interventionist " + F1(iv.Average(r => r.IndexAfter)) + " (busts " + F1(iv.Average(r => r.Busts)) +
+                              "), Balanced with Rome's own policy " + F1(bal.Average(r => r.IndexAfter)) + ". FreeMarket beats Interventionist on " +
+                              Pct(fm.Zip(iv, (a, b) => a.IndexAfter > b.IndexAfter ? 1.0 : 0).Average()) + " of seeds.");
+            }
+            sb.AppendLine();
             sb.AppendLine("## Balance criteria");
             sb.AppendLine();
             var scope = WinRates(results, ScopeStrategies);
@@ -307,7 +324,7 @@ namespace Butterfly.Batch
             foreach (var t in Timings.Select(x => x.Name))
                 sb.AppendLine("- " + t + ": " + string.Join(", ", ScopeStrategies.Select(s => s + " " + Pct(scope[(t, s)]))) + " → " + Verdict(ScopeGatePasses(results, t)));
             sb.AppendLine();
-            sb.AppendLine("**B. All five strategies:** within each timing no strategy wins more than 65%.");
+            sb.AppendLine("**B. All strategies:** within each timing no strategy wins more than 65%.");
             foreach (var t in Timings.Select(x => x.Name))
                 sb.AppendLine("- " + t + ": " + string.Join(", ", names.Select(s => Label(s) + " " + Pct(rates[(t, s)]))) + " → " + Verdict(AllStrategiesGatePasses(results, t)));
             sb.AppendLine();

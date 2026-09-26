@@ -10,12 +10,12 @@
       "ref": "PROPOSED P0-01"
     },
     "monthsPerTurn": {
-      "value": 6,
-      "ref": "DECIDED 2026-09-26, P0-ONLY pacing recorded in PROTOTYPE_SCOPE.md (SYSTEMS §2 Stage 3 would be 3 months)"
+      "value": 3,
+      "ref": "DECIDED 2026-09-27 (Corey): P0-only 3-month turns, recorded in PROTOTYPE_SCOPE.md"
     },
     "eraTurns": {
-      "value": 20,
-      "ref": "DECIDED 2026-09-26, P0-ONLY pacing recorded in PROTOTYPE_SCOPE.md"
+      "value": 40,
+      "ref": "DECIDED 2026-09-27 (Corey): P0-only, 40 turns per era"
     }
   },
   "domains": {
@@ -280,16 +280,16 @@
     },
     "damage": {
       "medicine": {
-        "value": 0.3,
-        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
+        "value": 0.45,
+        "ref": "PROPOSED P0-09; raised to x1.8 of the original on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       },
       "governance": {
-        "value": 0.12,
-        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
+        "value": 0.18,
+        "ref": "PROPOSED P0-09; raised to x1.8 of the original on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       },
       "economy": {
-        "value": 0.3,
-        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
+        "value": 0.45,
+        "ref": "PROPOSED P0-09; raised to x1.8 of the original on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       }
     },
     "debtRelease": {
@@ -570,6 +570,10 @@
       "faction": {
         "value": 10,
         "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: running cost, depends on the institution"
+      },
+      "guild": {
+        "value": 8,
+        "ref": "DECIDED 2026-09-27 (Corey: a commercial institution maintains the Economy); amount PROPOSED P0-17"
       }
     },
     "incomePerEconomyLevel": {
@@ -580,6 +584,10 @@
       "faction": {
         "value": 0.5,
         "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: patronage; × loyalty × strength"
+      },
+      "guild": {
+        "value": 0.6,
+        "ref": "DECIDED 2026-09-27 (Corey: a commercial institution maintains the Economy); amount PROPOSED P0-17: trade; × loyalty × strength"
       }
     }
   },
@@ -638,7 +646,7 @@
     },
     "mentor": {
       "turns": {
-        "value": 5,
+        "value": 10,
         "ref": "PROPOSED P0-12"
       },
       "attentionPerTurn": {
@@ -657,7 +665,7 @@
   },
   "seededChoice": {
     "deadlineTurn": {
-      "value": 2,
+      "value": 4,
       "ref": "PROPOSED P0-12"
     },
     "payoffYear": {
@@ -862,6 +870,88 @@
       "highFrom": {
         "value": 0.1,
         "ref": "DECIDED 2026-09-26: brief shows risk as Low/Medium/High (thresholds PROPOSED P0-15)"
+      }
+    }
+  },
+  "policy": {
+    "attention": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+    },
+    "austrianEconomyPerYear": {
+      "value": 1.0,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: each Austrian stance, Economy per year against history"
+    },
+    "interventionBoomPerYear": {
+      "value": 1.5,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: each interventionist stance, short-term Economy boost per year"
+    },
+    "malinvestmentPerStancePerYear": {
+      "value": 8,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+    },
+    "backlash": {
+      "factionLoyalty": {
+        "value": 8,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: insiders who lose favors"
+      },
+      "governanceDebt": {
+        "value": 8,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      }
+    },
+    "breadRiotDebtPerYear": {
+      "value": 5,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: free prices while the plague is at warning 2 or worse"
+    },
+    "tax": {
+      "light": {
+        "value": 0.05,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      },
+      "heavy": {
+        "value": 0.2,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      }
+    },
+    "heavyTaxGovernancePerYear": {
+      "value": 1.0,
+      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: heavy levies fund public works"
+    },
+    "bust": {
+      "firstWarningAt": {
+        "value": 20,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: malinvestment level that brings the first warning"
+      },
+      "advancePerMalinvestment": {
+        "value": 0.01,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: yearly chance to advance a warning = malinvestment × this (max 0.9)"
+      },
+      "economyDamagePerMalinvestment": {
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      },
+      "governanceDamagePerMalinvestment": {
+        "value": 0.1,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      },
+      "goldLossShare": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      }
+    },
+    "absence": {
+      "austrianTargetPerStance": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: while the faction survives"
+      },
+      "interventionTargetPerStance": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      },
+      "malinvestmentPerStancePerDecade": {
+        "value": 40,
+        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
       }
     }
   }

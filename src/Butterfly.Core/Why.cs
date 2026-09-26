@@ -12,7 +12,7 @@ namespace Butterfly.Core
     /// </summary>
     public static class Why
     {
-        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "faction", "promise", "index", "attention" };
+        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "faction", "guild", "policy", "promise", "index", "attention" };
 
         public static string Explain(Simulation sim, string topic)
         {
@@ -27,6 +27,7 @@ namespace Butterfly.Core
                 case "pestilence": return Plague(sim);
                 case "promise": return Promise(sim);
                 case "index": return Index(sim);
+                case "policy": return Policy(sim);
                 case "attention": return Attention(sim);
             }
             var inst = sim.FindInstitution(topic);
@@ -75,7 +76,7 @@ namespace Butterfly.Core
                 : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
                       .Concat(sim.Founded().Where(i => sim.InstitutionNet(i) > 0).Select(i => Simulation.Cap(i.Def.ShortName) + "'s surplus " + F(sim.InstitutionNet(i))))
                       .Where(x => x != null)) + "."));
-            sb.AppendLine("Work is taxed at " + F(t.Get("personal.workTaxRate") * 100) + "%. Domains: " +
+            sb.AppendLine("Work is taxed at " + F(sim.WorkTaxRate() * 100) + "%. Domains: " +
                           string.Join(", ", DomainInfo.All.Select(x => sim.Maintainer(x) != null
                               ? x + " paid for by " + sim.Maintainer(x)!.Def.ShortName + " (" + sim.World[x].Priority.Label() + ")"
                               : x + " runs without you")) + ".");
@@ -134,6 +135,21 @@ namespace Butterfly.Core
             sb.AppendLine("Loyalty fades " + F(sim.T.Get("institutions.loyaltyFadePerYear")) + " a year unless you oversee it; it grows only while loyalty is at least " +
                           F(sim.T.Get("institutions.growthLoyaltyThreshold")) + ".");
             AppendRecent(sim, sb, new[] { Simulation.StrengthKey(i), Simulation.LoyaltyKey(i) }, 5);
+            return sb.ToString().TrimEnd();
+        }
+
+        private static string Policy(Simulation sim)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(sim.PolicyHold() ? "Your senate faction carries your line on Rome's economic policy (policy <issue> <stance>, 1 Attention)."
+                                           : "You have no voice in policy yet: found the senate faction. Until then Rome keeps its own practice.");
+            foreach (var i in Simulation.Issues)
+                sb.AppendLine("  " + i + ": " + Simulation.StanceWord(i, sim.Stance(i)) + "   (options: " + Simulation.StanceWord(i, 1) + ", " + Simulation.StanceWord(i, -1) + ", history)");
+            sb.AppendLine("Austrian stances (sound, free, secure, light) grow the Economy " + F(sim.T.Get("policy.austrianEconomyPerYear")) +
+                          " a year each against history, but those who profit from intervention push back when you adopt them.");
+            sb.AppendLine("Interventionist stances boost it " + F(sim.T.Get("policy.interventionBoomPerYear")) + " a year each for now, and build malinvestment that ends in a bust.");
+            sb.AppendLine("Malinvestment now: " + F(sim.World.Malinvestment) + (sim.World.Bust.Stage > 0 ? ". " + Simulation.BustStageText(sim.World.Bust.Stage) : "."));
+            sb.AppendLine("Work tax: " + F(sim.WorkTaxRate() * 100) + "%.");
             return sb.ToString().TrimEnd();
         }
 

@@ -67,6 +67,7 @@ namespace Butterfly.Core
                 "The year AD " + Now.Year + " begins.");
             DomainsYearTick();
             PlagueYearTick();
+            PolicyYearTick();
             InstitutionsYearTick();
             SeededPayoffYearTick();
         }

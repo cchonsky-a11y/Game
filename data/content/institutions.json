@@ -68,6 +68,40 @@
           "arrivalLeader": "Marcus Caecilius Varro, Prefect of the City"
         }
       ]
+    },
+    {
+      "id": "guild",
+      "name": "the Merchants' Guild of Ostia",
+      "shortName": "the Guild",
+      "type": "commercial",
+      "maintains": "economy",
+      "leader": "Publius Aelius Sabinus",
+      "leaderRole": "grain shipper",
+      "leaderIntegrity": "average",
+      "foundingIdentity": "a guild of shippers and traders pledged to open markets and honest coin",
+      "tags": [
+        "commerce",
+        "trade"
+      ],
+      "foundText": "Publius Aelius Sabinus, who ships grain from Alexandria, gathers a dozen traders at Ostia. You put up the dues; they elect him head.",
+      "driftPaths": [
+        {
+          "id": "freetraders",
+          "name": "the Free Traders of Ostia",
+          "identity": "commercial",
+          "condition": "soundMoneyAndFreePrices",
+          "description": "Still traders, still arguing for open markets and honest coin, and grown rich and a little smug on both.",
+          "arrivalLeader": "Aelia Sabina, Warden of the Free Traders"
+        },
+        {
+          "id": "cartel",
+          "name": "the Ostia Grain Cartel",
+          "identity": "commercial",
+          "condition": "otherwise",
+          "description": "A handful of houses that decide who may land grain at Ostia and at what price, and pay the magistrates to keep it so.",
+          "arrivalLeader": "Gaius Sabinus Magnus, Master of the Cartel"
+        }
+      ]
     }
   ]
 }

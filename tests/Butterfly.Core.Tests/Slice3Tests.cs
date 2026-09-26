@@ -12,8 +12,9 @@ namespace Butterfly.Core.Tests
         public void ContentHasTwoToThreeProjectsPerDomain()
         {
             var projects = TestData.Load().Content.Projects;
+            // 2–3 per domain (PROTOTYPE_SCOPE); Economy has a fourth, the mint audit, with economic policy (decided 2026-09-27).
             foreach (var d in DomainInfo.All)
-                Assert.InRange(projects.Count(p => p.Domain == d), 2, 3);
+                Assert.InRange(projects.Count(p => p.Domain == d), 2, d == Domain.Economy ? 4 : 3);
         }
 
         [Fact]
@@ -25,7 +26,7 @@ namespace Butterfly.Core.Tests
             var fountain = sim.Data.Content.Project("fountain")!;
             Assert.True(sim.StartProject("fountain").Ok);
             Assert.Equal(gold - fountain.Gold, sim.World.Gold);
-            sim.EndTurn();
+            for (int i = 0; i < fountain.Turns; i++) sim.EndTurn();
             Assert.Equal(level + fountain.LevelGain, sim.World[Domain.Medicine].Level);
             Assert.True(sim.World.CleanWater);
 

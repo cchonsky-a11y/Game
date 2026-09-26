@@ -24,6 +24,7 @@ namespace Butterfly.Core
             var arrival = new Arrival { DepartureYear = Now.Year };
             DepartureYear = Now.Year;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
+            foreach (var i in Issues.Where(i => Stance(i) != 0)) arrival.PolicyAtDeparture.Add(i.ToString().ToLowerInvariant() + " " + StanceWord(i, Stance(i)));
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);
             arrival.IndexBefore = SphereIndex();
 
@@ -190,6 +191,7 @@ namespace Butterfly.Core
             if (window) foreach (var i in Founded()) HoldingsDecadeGrowth(i);
             FountainDecadeStep();
             if (antoninePassed) MaybeRecurrence(arrival);
+            PolicyDecadeStep(arrival);
             // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).
             double popTarget = T.Get("plague.startPopulation") * Math.Min(1.5, SubScore(Domain.Medicine) / 100.0);
             World.Population += (popTarget - World.Population) * T.Get("jump.populationRecoveryPerDecade");
@@ -243,8 +245,9 @@ namespace Butterfly.Core
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
             double baseline = Benchmark(d, decadeStartYear + 10);
-            if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d);
-            return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d);
+            double policy = d == Domain.Economy ? PolicyTargetBonus() : 0;
+            if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d) + policy;
+            return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
         }
 
         private double DecadeDrift(int decadeStartYear) =>

@@ -80,6 +80,8 @@ namespace Butterfly.Core
         public List<double> IndexByDecade { get; } = new List<double>();
         /// <summary>Which Wrongness template was used (e.g. "medicine.low", "asHistory").</summary>
         public string WrongnessKey { get; set; } = "";
+        /// <summary>Economic policy left in place at departure, e.g. "coinage sound".</summary>
+        public List<string> PolicyAtDeparture { get; } = new List<string>();
 
         /// <summary>
         /// Learn more: the Index before and after, institution outcomes and the crises that struck.
@@ -94,6 +96,7 @@ namespace Butterfly.Core
                           string.Join("  ", DomainInfo.All.Select(d => d + " " + SubScoresBefore[d].ToString("0", ci))));
             sb.AppendLine("  Arrival,   AD " + ArrivalYear + ": " + IndexAfter.ToString("0", ci) + "   " +
                           string.Join("  ", DomainInfo.All.Select(d => d + " " + SubScoresAfter[d].ToString("0", ci))));
+            if (PolicyAtDeparture.Count > 0) sb.AppendLine("Economic policy you left: " + string.Join(", ", PolicyAtDeparture));
             sb.AppendLine("Institutions");
             if (Institutions.Count == 0) sb.AppendLine("  None founded.");
             foreach (var i in Institutions)

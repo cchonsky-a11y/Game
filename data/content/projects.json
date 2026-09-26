@@ -7,7 +7,7 @@
       "name": "Repair the district fountain",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 1,
+      "turns": 2,
       "levelGain": 8,
       "extras": [
         {
@@ -28,7 +28,7 @@
       "name": "Fund a physician for the district",
       "gold": 60,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "turns": 4,
       "levelGain": 10,
       "extras": [
         {
@@ -50,7 +50,7 @@
       "name": "Draft quarantine rules for Ostia's docks",
       "gold": 45,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "turns": 4,
       "levelGain": 5,
       "extras": [
         {
@@ -71,7 +71,7 @@
       "name": "Patronage for a senator",
       "gold": 50,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "turns": 4,
       "levelGain": 6,
       "extras": [
         {
@@ -93,7 +93,7 @@
       "name": "Fund the district magistrates",
       "gold": 60,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "turns": 8,
       "levelGain": 10,
       "tags": [
         "law",
@@ -108,7 +108,7 @@
       "name": "Sponsor a household census",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "turns": 4,
       "levelGain": 6,
       "extras": [
         {
@@ -128,7 +128,7 @@
       "name": "Buy into the smith's workshop",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 1,
+      "turns": 2,
       "levelGain": 6,
       "extras": [
         {
@@ -146,17 +146,17 @@
     {
       "id": "market",
       "domain": "economy",
-      "name": "Market regulation at the Forum Boarium",
+      "name": "Honest weights and free prices at the Forum Boarium",
       "gold": 50,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "turns": 4,
       "levelGain": 8,
       "tags": [
         "commerce",
         "law"
       ],
-      "description": "Honest weights and posted prices at the cattle market.",
-      "completionText": "Honest weights now hang in the Forum Boarium."
+      "description": "Certified weights at the cattle market, and an end to fixed prices: let buyers and sellers settle them.",
+      "completionText": "Honest weights hang in the Forum Boarium, and prices are set by the market."
     },
     {
       "id": "warehouses",
@@ -164,7 +164,7 @@
       "name": "Repair the Ostia warehouses",
       "gold": 70,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "turns": 8,
       "levelGain": 12,
       "extras": [
         {
@@ -178,6 +178,21 @@
       ],
       "description": "Re-roof the grain warehouses and hire paid dock crews to keep them dry.",
       "completionText": "The Ostia warehouses are dry and full."
+    },
+    {
+      "id": "mint",
+      "domain": "economy",
+      "name": "Mint audit: honest weight in the denarius",
+      "gold": 45,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 6,
+      "tags": [
+        "commerce",
+        "coinage"
+      ],
+      "description": "Pay assayers to weigh and publish the silver in each new issue of coin.",
+      "completionText": "The assayers publish their weights; merchants trust the new coin."
     }
   ]
 }

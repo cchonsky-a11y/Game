@@ -45,10 +45,11 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void TwoInstitutionsEachWithLeaderAndTwoDriftPaths()
+        public void ThreeInstitutionsEachWithLeaderAndTwoDriftPaths()
         {
+            // The Circle, the faction, and (decided 2026-09-27) the Merchants' Guild of Ostia.
             var defs = TestData.Load().Content.Institutions;
-            Assert.Equal(2, defs.Count);
+            Assert.Equal(3, defs.Count);
             Assert.All(defs, d =>
             {
                 Assert.False(string.IsNullOrWhiteSpace(d.Leader));

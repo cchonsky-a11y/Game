@@ -103,6 +103,9 @@ internal sealed class ConsoleGame
   endow <inst> [gold|all]        give it gold to hold (the first 60 makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
+  policy <issue> <stance>        set economic policy through your senate faction (1 Attention):
+                                   coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
+                                   (or 'history' to return to Rome's own practice)
   mentor <inst>                  commit Attention every turn for several turns
   work [odd|craft|consult]       your one personal action: earn 5 / 12 / 20 gold for 1 / 2 / 3 Attention
   choose <fountain|workshop>     the first choice
@@ -156,6 +159,15 @@ internal sealed class ConsoleGame
                         ? _sim.Endow(arg, amount) : _sim.Endow(arg);
                 break;
             case "audit": r = _sim.Audit(arg); break;
+            case "policy":
+                if (parts.Length < 3 || !Simulation.TryParsePolicy(parts[1], parts[2], out var issue, out var stance))
+                {
+                    Console.WriteLine("Usage: policy coinage sound|debase|history · policy prices free|controlled|history · " +
+                                      "policy property secure|discretionary|history · policy taxes light|heavy|history");
+                    return false;
+                }
+                r = _sim.SetPolicy(issue, stance);
+                break;
             case "oversee": r = _sim.Oversee(arg); break;
             case "mentor": r = _sim.Mentor(arg); break;
             case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
@@ -197,6 +209,9 @@ internal sealed class ConsoleGame
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
                               "  " + (_sim.Maintainer(d.Domain) == null ? "(no hold)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
+        if (Simulation.Issues.Any(i => _sim.Stance(i) != 0))
+            Console.WriteLine("  Policy: " + string.Join(", ", Simulation.Issues.Select(i => i.ToString().ToLowerInvariant() + " " + Simulation.StanceWord(i, _sim.Stance(i)))));
+        if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         foreach (var i in w.Institutions.Where(i => i.Founded))

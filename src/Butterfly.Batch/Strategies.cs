@@ -106,9 +106,21 @@ namespace Butterfly.Batch
 
         public override string Name => _name;
 
+        /// <summary>0: leave Rome's policy as history; +1 Austrian; −1 interventionist.</summary>
+        protected virtual int PolicyStance => 0;
+
         public override void PlayTurn(Simulation sim)
         {
             if (sim.Turn == 1) sim.ChooseSeeded("fountain");
+            if (PolicyStance != 0)
+            {
+                // Policy strategies go for the faction first (policy) and the guild (Economy), then the Circle.
+                TryInstitution(sim, "faction", 0);
+                if (sim.World.Institution("faction").Founded) TryInstitution(sim, "guild", 0);
+                foreach (var issue in Simulation.Issues)
+                    if (sim.Stance(issue) != PolicyStance) sim.SetPolicy(issue, PolicyStance);
+                if (sim.World[Domain.Economy].Priority != Priority.Protect) sim.SetPriority(Domain.Economy, Priority.Protect);
+            }
             // Foreknowledge: the inventor knows a plague arrives around AD 165. Balanced response: Protect Medicine
             // as soon as an institution gives them a hold over it.
             if (sim.World[Domain.Medicine].Priority != Priority.Protect) sim.SetPriority(Domain.Medicine, Priority.Protect);
@@ -178,6 +190,20 @@ namespace Butterfly.Batch
             PayDownDebts(sim, DomainInfo.All);
             AuditAndEndow(sim, "circle");
         }
+    }
+
+    /// <summary>Balanced play plus the faction and the guild, with Austrian stances on every issue (free-market).</summary>
+    public sealed class FreeMarketStrategy : BalancedStrategy
+    {
+        public FreeMarketStrategy() : base("FreeMarket", 1) { }
+        protected override int PolicyStance => 1;
+    }
+
+    /// <summary>Balanced play plus the faction and the guild, with interventionist stances on every issue.</summary>
+    public sealed class InterventionistStrategy : BalancedStrategy
+    {
+        public InterventionistStrategy() : base("Interventionist", 1) { }
+        protected override int PolicyStance => -1;
     }
 
     /// <summary>Spends nothing on upkeep or the future; hoards gold.</summary>

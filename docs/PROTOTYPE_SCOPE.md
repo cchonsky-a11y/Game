@@ -25,13 +25,14 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Determinism | Seeded random generator; same seed + inputs = same result |
 | Event log | Immediate causes, actors, effects (SYSTEMS.md §1); a `why <thing>` console command for current conditions only |
 | Time | Turns in months or years; per-year simulation; one coarse-mode jump in decade steps |
-| P0 pacing (**P0-only**, not in SYSTEMS.md) | 6-month turns, 20 per era (AD 155–165). **End turn** advances exactly one turn; **Wait** advances until something needs the player (an open prompt, news that turn, an affordable new investment, or the end of the era). Only turns where no action is possible (no free Attention and no open prompt) pass on their own. At game start the console says: "This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there." Attention costs are tuned so total demand is at least 1.5× supply (20 × 4 = 80). Demand counts every project once, every institution step (found, charter, audit, endow), a full mentoring commitment per institution, the oversight needed to hold loyalty, one plague response, and one personal action per turn |
+| P0 pacing (**P0-only**, not in SYSTEMS.md) | **3-month turns, 40 per era** (AD 155–165). **End turn** advances exactly one turn; **Wait** advances until something needs the player (an open prompt, news that turn, an affordable new investment, or the end of the era). Only turns where no action is possible (no free Attention and no open prompt) pass on their own. At game start the console says: "This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there." Attention costs are tuned so total demand is at least 1.5× supply (40 × 4 = 160). Demand counts every project once, every institution step (found, charter, audit, endow), a full mentoring commitment per institution, the oversight needed to hold loyalty, one plague response, and one personal action per turn |
 | Care domains | **3 only:** Medicine, Governance, Economy |
 | Priorities | Protect / Maintain / Accept Risk, available only for domains one of the player's institutions maintains (the Circle: Medicine; the faction: Governance). Other domains follow Rome's real history until the player can influence them; priorities act relative to that history |
-| Projects | 2–3 templated projects per domain (e.g., repair the fountain, fund a physician, market regulation, patronage for a senator) |
+| Projects | 2–3 templated projects per domain (Economy 4, with the mint audit) (e.g., repair the fountain, fund a physician, free prices at the market, patronage for a senator) |
+| Economic policy | Set through the senate faction: coinage, prices, property, taxes, each Austrian / as history / interventionist (SYSTEMS §9). Austrian stances are better but provoke backlash; interventionist stances build malinvestment that ends in a **boom-bust crisis** with three visible warnings (SYSTEMS §6) |
 | Expectations and debt | SYSTEMS.md §6: expectation rule, 5% compounding, tiers, 1.5× paydown |
-| Crisis | The plague, with **3 visible warning stages** and branching outcomes |
-| Institutions | **2:** a physicians' circle and a senate faction. Each with a named leader, loyalty, decay per SYSTEMS.md §7, and **2 pre-authored drift paths** (no general identity engine) |
+| Crisis | The plague, with **3 visible warning stages** and branching outcomes; the economic bust (from intervention), also with 3 visible warnings |
+| Institutions | **3:** a physicians' circle, a senate faction, and the Merchants' Guild of Ostia (commercial; maintains the Economy). Each with a named leader, loyalty, decay per SYSTEMS.md §7, and **2 pre-authored drift paths** (no general identity engine) |
 | Gold | No passive income: work (odd / craft / consult: more gold for more Attention), owned property (workshop, warehouses) scaled by Economy, and institution surpluses. Work income is taxed (10%). Institutions pay the upkeep of the domain they maintain plus their own running cost; the player never pays domain upkeep and covers institution shortfalls |
 | Institution gold | Institutions hold gold given as endowments. **Only in the 30 years after departure:** holdings grow at the region's economic growth rate (0–1.5%/yr by Economy level; no fixed-rate compounding); institutions pay down debt in their own domain at the 1.5× premium (loyal: in full; drifted: partially; rogue: nothing). Actions: **endow** an institution with any amount of gold (the minimum endowment makes it endowed) and found an **audit charter** (costs gold). Jump preparation offers paying down debt directly, endowing an institution, and founding an audit charter |
 | Institutional corruption | Checked each decade in the 30-year window. Chance = base hazard × exposure (small ×1, large ×2) × (1 − audit charter 0.5) × (1 − leader integrity: honest 0.3, average 0, venal −0.3). Minor / Major / Total (lose 25% / 50% / 100% of holdings; payments reduced / stop / stop; small / moderate / large Governance debt; Total makes the institution Captured or Rogue). Weights: unprotected 40/40/20, audited 70/25/5, shifted by integrity. Separate from loyalty. Each leader has a pre-authored integrity trait. The pre-jump briefing shows corruption risk (Low / Medium / High) and potential severity, never the outcome; the arrival's Discovery beat reveals any corruption and its level |
@@ -52,7 +53,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 - Multiple regions, spillover, AI civilizations, diplomacy, warfare
 - Agriculture, Knowledge, Military, Infrastructure, Faith and Culture domains
 - Life budget, aging, mortality, succession, the Journal
-- Fortune shares (the regional-economy share model of SYSTEMS §9), loss events other than the plague and institutional corruption
+- Fortune shares (the regional-economy share model of SYSTEMS §9), loss events other than the plague, the economic bust and institutional corruption
 - Visibility, anachronism risk, Legend
 - Stages of control (use a fixed Stage 3 setup)
 - A general institution identity engine
@@ -62,7 +63,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 
 ## Order of work
 1. Build the simulation and console game.
-2. **Run the batch runner before any human test:** 100 seeded runs × 5 strategies (Balanced/Pay-down, Specialized, Neglectful, Endow, Split), each with early and late jump timing. Fix any dominant strategy first.
+2. **Run the batch runner before any human test:** 100 seeded runs × 7 strategies (Balanced/Pay-down, Specialized, Neglectful, Endow, Split, FreeMarket, Interventionist), each with early and late jump timing. Fix any dominant strategy first.
 3. Run 5 human testers.
 
 ## Pass criteria

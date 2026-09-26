@@ -219,7 +219,7 @@ namespace Butterfly.Core.Tests
                 if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
                 sim.AdvanceUntilDecision();
             }
-            Assert.Equal(21, sim.Turn);
+            Assert.Equal(sim.EraTurns + 1, sim.Turn);
             Assert.Contains(sim.PendingDecisions(), r => r.Contains("turns are over"));
         }
     }

@@ -61,7 +61,7 @@ namespace Butterfly.Core
             SpendAttention(cost);
             World.PersonalActionTurn = Turn;
             double before = World.Gold;
-            double tax = WorkGold(kind) * T.Get("personal.workTaxRate");
+            double tax = WorkGold(kind) * WorkTaxRate();
             World.Gold += WorkGold(kind) - tax;
             string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."

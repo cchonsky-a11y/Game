@@ -44,6 +44,12 @@
     "faction.corrupted": "The Caecilian faction still votes as a bloc, but its votes are for sale. Its head is {leader}.",
     "corruption.minor": "Its accounts show a gap from the years after you left: some of the gold you left was quietly skimmed (minor corruption).",
     "corruption.major": "Its records tell of a great embezzlement a generation after you left: half the treasury vanished and the payments you arranged stopped (major corruption).",
-    "corruption.total": "Everyone knows the story: within a generation of your leaving, its whole treasury was stolen, and those who took it took the institution too (total corruption)."
+    "corruption.total": "Everyone knows the story: within a generation of your leaving, its whole treasury was stolen, and those who took it took the institution too (total corruption).",
+    "guild.thriving": "The Merchants' Guild of Ostia still meets at the harbor, still arguing for open markets and honest coin. Its head is {leader}.",
+    "guild.drifted": "The guild you founded at Ostia is now {pathName}. {pathDescription} Its head is {leader}.",
+    "guild.captured": "The guild you founded at Ostia is now {pathName}. {pathDescription} Its head is {leader}.",
+    "guild.dissolved": "Of the Merchants' Guild of Ostia nothing remains but a name carved on a warehouse lintel.",
+    "guild.rogue": "The guild you founded is now {pathName}. {pathDescription} They know who you are, and they do not want you back.",
+    "guild.corrupted": "The Merchants' Guild still has its hall at Ostia, but its treasury was emptied long ago and its seats are for sale. Its head is {leader}."
   }
 }

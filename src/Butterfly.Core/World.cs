@@ -24,6 +24,11 @@ namespace Butterfly.Core
         public PlagueState Plague { get; } = new PlagueState();
         /// <summary>Year of the most recent plague outbreak (the Antonine plague or a recurrence); 0 if none.</summary>
         public int LastOutbreakYear { get; set; }
+        /// <summary>Stance per economic policy issue: +1 Austrian, 0 as history, −1 interventionist.</summary>
+        public int[] Policy { get; } = new int[4];
+        /// <summary>Ventures that only pay while an intervention-driven boom lasts.</summary>
+        public double Malinvestment { get; set; }
+        public BustState Bust { get; } = new BustState();
         /// <summary>Per domain: level − historical value at departure (sets the long-run target during the absence).</summary>
         public double[] DepartureDeviation { get; } = new double[3];
 
@@ -184,6 +189,15 @@ namespace Butterfly.Core
         }
 
         public string Key => Def.Id;
+    }
+
+    /// <summary>The boom-bust track: 0 quiet, 1–3 visible warnings, then the bust.</summary>
+    public sealed class BustState
+    {
+        public int Stage { get; set; }
+        public int StageEnteredYear { get; set; }
+        public int LastEventId { get; set; }
+        public int Busts { get; set; }
     }
 
     /// <summary>A project in progress: its definition and the turns of work still needed.</summary>
