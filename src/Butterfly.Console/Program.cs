@@ -25,6 +25,9 @@ internal sealed class ConsoleGame
     private readonly ScriptInput? _script;
     private readonly Harness? _harness;
     private bool _jumpArmed;
+    /// <summary>End the turn by itself once a choice uses the last Attention (decided 2026-09-28). On for keyboard play;
+    /// scripts turn it on with the line "@autoend on" so older scripts with explicit 'end's still replay the same.</summary>
+    private bool _autoEnd;
     private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?" };
 
     public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null)
@@ -32,6 +35,7 @@ internal sealed class ConsoleGame
         _sim = sim;
         _script = script;
         _harness = harness;
+        _autoEnd = script == null;
     }
 
     /// <summary>Next command: from the script (echoed so transcripts read like a session) or from the keyboard.</summary>
@@ -67,8 +71,20 @@ internal sealed class ConsoleGame
                 _harness?.AfterCommand(line, true);
                 continue;
             }
+            if (cmd == "@autoend") { _autoEnd = arg != "off"; continue; }
+            int attentionBefore = _sim.World.Attention;
             bool ok = Handle(cmd, arg, parts);
             _harness?.AfterCommand(line, ok);
+            if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore > 0)
+            {
+                if (_sim.ShouldAutoEnd())
+                {
+                    Console.WriteLine("  (No Attention left: the turn ends.)");
+                    EndTurn(wait: false);
+                }
+                else if (_sim.NoActionPossible())
+                    Console.WriteLine("  (No Attention left. You can still pay down debt; type 'end' when you're done.)");
+            }
         }
         Console.WriteLine("\nRun fingerprint (seed " + _sim.Seed + "): " + _sim.Log.Hash().Substring(0, 16));
         _harness?.Finish(_script);

@@ -82,6 +82,19 @@ namespace Butterfly.Core
         public bool NoActionPossible() =>
             !Arrived && World.Attention == 0 && !SeededChoiceOpen && World.Promise.Status != PromiseStatus.Offered && !OutbreakAwaitingResponse && !EraOver;
 
+        /// <summary>
+        /// Something the player could still do this turn without Attention that is worth pausing for (decided
+        /// 2026-09-28): paying down debt they can afford. Priorities are a standing setting and don't count.
+        /// </summary>
+        public bool FreeActionWorthPausingFor() =>
+            World.Domains.Any(d => d.Debt > 0) && World.Gold >= PaydownCost(1);
+
+        /// <summary>
+        /// Auto-end (decided 2026-09-28): once a choice uses up the turn's Attention, the turn ends by itself unless an
+        /// open prompt or a free action (paying down debt) is still available.
+        /// </summary>
+        public bool ShouldAutoEnd() => NoActionPossible() && !FreeActionWorthPausingFor();
+
         /// <summary>"End turn": exactly one turn, then only turns where no action is possible pass on their own. Returns turns advanced.</summary>
         public int EndTurnAndSkipIdle(int maxTurns = 100)
         {

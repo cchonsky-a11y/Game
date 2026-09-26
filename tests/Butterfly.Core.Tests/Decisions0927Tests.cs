@@ -31,6 +31,19 @@ namespace Butterfly.Core.Tests
             Assert.False(sim.NoActionPossible());
         }
 
+        [Fact]
+        public void TheTurnEndsByItselfWhenAttentionRunsOutUnlessDebtCanBePaid()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            sim.ChooseSeeded("workshop");
+            Assert.False(sim.ShouldAutoEnd());       // Attention left
+            sim.Work("craft");
+            Assert.True(sim.ShouldAutoEnd());        // none left, nothing free to do
+            sim.World[Domain.Economy].Debt = 10;
+            sim.World.Gold = 100;
+            Assert.False(sim.ShouldAutoEnd());       // could still pay down debt
+        }
+
         [Theory]
         [InlineData(0.04, "contained")]
         [InlineData(0.05, "severe")]
