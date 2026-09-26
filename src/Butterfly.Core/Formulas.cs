@@ -22,6 +22,10 @@ namespace Butterfly.Core
         /// <summary>SYSTEMS §6: existing debt compounds, then this year's accrual is added.</summary>
         public static double DebtStep(double debt, double accrual, double compoundRate) => debt * (1 + compoundRate) + accrual;
 
+        /// <summary>Compounding rate during an absence: the §6 rate for the first <paramref name="capYears"/> years after departure, then none.</summary>
+        public static double AbsenceCompoundRate(int yearsSinceDeparture, int capYears, double compoundRate) =>
+            yearsSinceDeparture <= capYears ? compoundRate : 0;
+
         /// <summary>SYSTEMS §6 tiers by debt thresholds (thresholds are tuning values).</summary>
         public static DebtTier Tier(double debt, double strained, double fragile, double critical)
         {

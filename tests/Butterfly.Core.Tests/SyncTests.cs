@@ -33,7 +33,7 @@ namespace Butterfly.Core.Tests
             {
                 string r = T.Ref(key);
                 Assert.False(string.IsNullOrWhiteSpace(r), key + " has no ref");
-                Assert.True(r.Contains("SYSTEMS") || r.Contains("PROPOSED") || r.Contains("SCOPE") || r.Contains("VISION") || r.Contains("GDD"),
+                Assert.True(r.Contains("SYSTEMS") || r.Contains("PROPOSED") || r.Contains("DECIDED") || r.Contains("SCOPE") || r.Contains("VISION") || r.Contains("GDD"),
                     key + " ref '" + r + "' names no source document");
             }
         }

@@ -49,16 +49,18 @@ namespace Butterfly.Core
             if (s.Level < expectation)
                 sb.AppendLine("The shortfall of " + F(expectation - s.Level) + " adds that much debt each year.");
             sb.AppendLine("Debt " + F(s.Debt) + " (" + s.Tier + "). Debt grows 5% a year until paid down, which costs " +
-                          F(sim.PaydownCost(1)) + " gold per point." + TierNote(sim, s.Tier));
+                          F(sim.PaydownCost(1)) + " gold per point." + TierNote(sim, d, s.Tier));
             sb.AppendLine("Index sub-score " + F(sim.SubScore(d)) + " (100 = as in real history).");
             AppendRecent(sim, sb, new[] { Simulation.LevelKey(d), Simulation.DebtKey(d) }, 5);
             return sb.ToString().TrimEnd();
         }
 
-        private static string TierNote(Simulation sim, DebtTier tier)
+        private static string TierNote(Simulation sim, Domain d, DebtTier tier)
         {
-            double chance = sim.T.Get("plague.advanceChance." + tier.ToString().ToLowerInvariant());
-            return " At " + tier + ", if this is the region's worst domain, plague warnings advance with " + F(chance * 100) + "% chance a year.";
+            if (d == Core.Domain.Medicine)
+                return " At " + tier + ", plague warnings advance with " + F(sim.T.Get("plague.advanceChance." + tier.ToString().ToLowerInvariant()) * 100) + "% chance a year.";
+            double extra = sim.T.Get("plague.severityPerTier." + tier.ToString().ToLowerInvariant());
+            return extra > 0 ? " At " + tier + ", it makes any plague " + F(extra * 100) + "% more severe." : " At Stable, it doesn't worsen the plague.";
         }
 
         private static string Gold(Simulation sim)
@@ -89,16 +91,16 @@ namespace Butterfly.Core
             sb.AppendLine(Simulation.PlagueStageText(p.Stage));
             if (p.IsWarning)
             {
-                var worst = sim.World.Domains.OrderByDescending(x => x.Tier).First();
                 sb.AppendLine("Chance the next stage comes within a year: " + F(sim.PlagueAdvanceChance() * 100) + "%.");
-                sb.AppendLine("  Because the region's worst debt tier is " + sim.RegionTier() + " (" + worst.Domain + ")" +
-                              (sim.World.CleanWater ? "." : ", and the district fountain is still foul."));
+                sb.AppendLine("  Because Medicine's debt is " + sim.PlagueTier() + (sim.World.CleanWater ? "." : ", and the district fountain is still foul."));
                 sb.AppendLine("  Expect the outbreak in about " + (4 - p.Stage) + "–" + (2 * (4 - p.Stage) + 1) + " years; never sooner than " + (4 - p.Stage) + ".");
                 sb.AppendLine("If it broke out now, severity would be about " + F(sim.PlagueSeverity(null)) + " with no response:");
                 sb.AppendLine("  Hazard " + F(sim.PlagueHazard()) + " = base " + F(sim.T.Get("plague.baseHazard")) + " + Medicine debt " +
                               F(sim.World[Core.Domain.Medicine].Debt) + " × " + F(sim.T.Get("plague.hazardPerMedicineDebt")) +
                               (sim.World.CleanWater ? "" : " + foul water " + F(sim.T.Get("plague.foulWaterHazard"))) + ".");
                 sb.AppendLine("  Resilience " + F(sim.PlagueResilience(null) * 100) + "% from Medicine, Governance, preparations and the Circle.");
+                if (sim.PlagueSeverityMultiplier() > 1)
+                    sb.AppendLine("  Governance and Economy debt make it " + F((sim.PlagueSeverityMultiplier() - 1) * 100) + "% worse.");
             }
             if (p.Stage == PlagueState.Passed)
                 sb.AppendLine("It struck in AD " + p.OutbreakYear + ": severity " + F(p.Severity) + ", about " + F(p.Deaths) + " thousand dead; response: " + p.Response + ".");

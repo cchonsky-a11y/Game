@@ -179,6 +179,10 @@
     "paydownMultiplier": {
       "value": 1.5,
       "ref": "SYSTEMS §6"
+    },
+    "compoundingCapYearsAfterDeparture": {
+      "value": 30,
+      "ref": "DECIDED 2026-09-26: debt compounds only for 30 years after departure"
     }
   },
   "gold": {
@@ -211,19 +215,19 @@
     "advanceChance": {
       "stable": {
         "value": 0.35,
-        "ref": "SYSTEMS §6 tiers raise crisis chance (values PROPOSED P0-09)"
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26, values PROPOSED P0-09)"
       },
       "strained": {
         "value": 0.55,
-        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26, values PROPOSED P0-09)"
       },
       "fragile": {
         "value": 0.75,
-        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26, values PROPOSED P0-09)"
       },
       "critical": {
         "value": 0.95,
-        "ref": "SYSTEMS §6 (PROPOSED P0-09)"
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26, values PROPOSED P0-09)"
       }
     },
     "foulWaterAdvanceBonus": {
@@ -300,7 +304,7 @@
     },
     "debtRelease": {
       "value": 1.0,
-      "ref": "SYSTEMS §6 a crisis releases debt (all of it: PROPOSED P0-09)"
+      "ref": "SYSTEMS §6 a crisis releases debt; all of it and expectations reset (DECIDED 2026-09-26)"
     },
     "response": {
       "quarantine": {
@@ -362,6 +366,24 @@
       "experimentation": {
         "value": 5,
         "ref": "PROPOSED P0-09"
+      }
+    },
+    "severityPerTier": {
+      "stable": {
+        "value": 0,
+        "ref": "DECIDED 2026-09-26 (Governance/Economy tiers raise severity); amount PROPOSED P0-09"
+      },
+      "strained": {
+        "value": 0.1,
+        "ref": "DECIDED 2026-09-26; amount PROPOSED P0-09"
+      },
+      "fragile": {
+        "value": 0.2,
+        "ref": "DECIDED 2026-09-26; amount PROPOSED P0-09"
+      },
+      "critical": {
+        "value": 0.35,
+        "ref": "DECIDED 2026-09-26; amount PROPOSED P0-09"
       }
     }
   },
@@ -466,7 +488,7 @@
     },
     "strongMinLoyalty": {
       "value": 70,
-      "ref": "PROPOSED P0-10 (stands in for 'keeping the Legend alive'; Legend is out of scope)"
+      "ref": "DECIDED 2026-09-26, P0-ONLY: a loyal leader at departure stands in for 'keeping the Legend alive' (Legend is out of P0 scope)"
     },
     "driftPerDecade": {
       "base": {
@@ -598,20 +620,20 @@
     },
     "crisisChancePerYear": {
       "stable": {
-        "value": 0.005,
-        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
+        "value": 0.01,
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26; batch damping removed; values PROPOSED P0-13)"
       },
       "strained": {
-        "value": 0.01,
-        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
+        "value": 0.03,
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26; batch damping removed; values PROPOSED P0-13)"
       },
       "fragile": {
-        "value": 0.02,
-        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
+        "value": 0.06,
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26; batch damping removed; values PROPOSED P0-13)"
       },
       "critical": {
-        "value": 0.04,
-        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
+        "value": 0.1,
+        "ref": "SYSTEMS §6 tiers raise crisis chance; Medicine tier only (DECIDED 2026-09-26; batch damping removed; values PROPOSED P0-13)"
       }
     },
     "fountainTendedByStrength": {

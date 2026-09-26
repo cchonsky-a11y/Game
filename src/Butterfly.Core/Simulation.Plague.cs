@@ -20,13 +20,13 @@ namespace Butterfly.Core
             p.FirstWarningYear = T.GetInt("plague.firstWarningYear") + Rng.NextInt(0, T.GetInt("plague.firstWarningJitterYears") + 1);
         }
 
-        /// <summary>Worst debt tier across the region's domains; drives the yearly crisis chance.</summary>
-        public DebtTier RegionTier() => World.Domains.Max(d => d.Tier);
+        /// <summary>Medicine's debt tier alone drives the plague's odds (decided 2026-09-26).</summary>
+        public DebtTier PlagueTier() => World[Domain.Medicine].Tier;
 
         /// <summary>Chance per year that a visible warning stage advances (SYSTEMS §6: tiers raise crisis chance).</summary>
         public double PlagueAdvanceChance()
         {
-            double chance = T.Get("plague.advanceChance." + RegionTier().ToString().ToLowerInvariant());
+            double chance = T.Get("plague.advanceChance." + PlagueTier().ToString().ToLowerInvariant());
             if (!World.CleanWater) chance += T.Get("plague.foulWaterAdvanceBonus");
             if (Now.Year >= T.GetInt("plague.forceAdvanceFromYear")) chance = 1;
             return Math.Min(1, chance);
@@ -50,8 +50,7 @@ namespace Butterfly.Core
             int before = p.Stage;
             p.Stage++;
             p.StageEnteredYear = Now.Year;
-            var causes = new List<int> { p.LastStageEventId };
-            causes.AddRange(DomainInfo.All.Select(d => CauseOf(TierKey(d))));
+            var causes = new List<int> { p.LastStageEventId, CauseOf(TierKey(Domain.Medicine)) };
             if (!World.CleanWater) causes.Add(CauseOf("fountain.clean"));
             string text = PlagueStageText(p.Stage);
             var e = Record(p.Stage == PlagueState.Outbreak ? "plague.outbreak" : "plague.warning", "plague", causes,
@@ -148,9 +147,14 @@ namespace Butterfly.Core
             return Math.Min(T.Get("plague.maxResilience"), r);
         }
 
-        /// <summary>Severity = Hazard × Exposure × (1 − Resilience), the SYSTEMS §9 loss form.</summary>
+        /// <summary>Governance and Economy debt tiers make the plague worse (decided 2026-09-26).</summary>
+        public double PlagueSeverityMultiplier() =>
+            1 + T.Get("plague.severityPerTier." + World[Domain.Governance].Tier.ToString().ToLowerInvariant())
+              + T.Get("plague.severityPerTier." + World[Domain.Economy].Tier.ToString().ToLowerInvariant());
+
+        /// <summary>Severity = Hazard × Exposure × (1 − Resilience) (the SYSTEMS §9 loss form), raised by Governance and Economy debt.</summary>
         public double PlagueSeverity(string? response) =>
-            PlagueHazard() * T.Get("plague.exposure") * (1 - PlagueResilience(response));
+            PlagueHazard() * T.Get("plague.exposure") * (1 - PlagueResilience(response)) * PlagueSeverityMultiplier();
 
         private void ResolveOutbreakDamage()
         {
@@ -174,6 +178,7 @@ namespace Butterfly.Core
         internal GameEvent ApplyPlagueDamage(double sev, List<int> causes, out double deaths)
         {
             causes.AddRange(new[] { CauseOf(DebtKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Medicine)), CauseOf(LevelKey(Domain.Governance)),
+                CauseOf(TierKey(Domain.Governance)), CauseOf(TierKey(Domain.Economy)),
                 CauseOf("plague.resilience"), CauseOf("fountain.clean") });
 
             double popBefore = World.Population;

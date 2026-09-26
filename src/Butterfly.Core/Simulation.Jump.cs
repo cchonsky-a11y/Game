@@ -15,11 +15,14 @@ namespace Butterfly.Core
         /// <summary>True once the inventor has arrived in the new era; the P0 scenario is over.</summary>
         public bool Arrived { get; private set; }
         public Arrival? Arrival { get; private set; }
+        /// <summary>Year the inventor left (0 before the jump).</summary>
+        public int DepartureYear { get; private set; }
 
         public Arrival Jump()
         {
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
             var arrival = new Arrival { DepartureYear = Now.Year };
+            DepartureYear = Now.Year;
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);
             arrival.IndexBefore = SphereIndex();
 
@@ -68,10 +71,11 @@ namespace Butterfly.Core
         public IEnumerable<string> DepartureBriefing()
         {
             double rate = T.Get("debt.compoundRate");
+            int cap = T.GetInt("debt.compoundingCapYearsAfterDeparture");
             foreach (var d in World.Domains.Where(x => x.Debt > 0))
-                yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year while you're away (about " +
-                             F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, 50)) +
-                             " in fifty years) until a crisis releases it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
+                yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year for " + cap + " years after you leave (about " +
+                             F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, cap)) +
+                             " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
             foreach (var i in Founded())
             {
                 var q = QualityAtDeparture(i);
@@ -176,7 +180,9 @@ namespace Butterfly.Core
             for (int y = 1; y <= 10; y++)
             {
                 double expectation = Formulas.Expectation(Benchmark(d, startYear + y), s.Peak);
-                s.Debt = Formulas.DebtStep(s.Debt, Formulas.DebtAccrual(expectation, s.Level, T.Get("debt.accrualRate")), T.Get("debt.compoundRate"));
+                // Debt compounds only for the first 30 years after departure (decided 2026-09-26).
+                s.Debt = Formulas.DebtStep(s.Debt, Formulas.DebtAccrual(expectation, s.Level, T.Get("debt.accrualRate")),
+                    Formulas.AbsenceCompoundRate(startYear + y - DepartureYear, T.GetInt("debt.compoundingCapYearsAfterDeparture"), T.Get("debt.compoundRate")));
                 s.Peak = Formulas.FadePeak(s.Peak, s.Level, T.Get("expectation.peakFadePerYear"));
             }
             Record("jump.domain", d.Key(), CausesOf(LevelKey(d), DebtKey(d)), new[] { "world" },
@@ -188,11 +194,11 @@ namespace Butterfly.Core
         /// <summary>After the Antonine plague, the same crisis can recur; the chance per decade follows the region's tier.</summary>
         private void MaybeRecurrence(Arrival arrival)
         {
-            double yearly = T.Get("jump.crisisChancePerYear." + RegionTier().ToString().ToLowerInvariant());
+            double yearly = T.Get("jump.crisisChancePerYear." + PlagueTier().ToString().ToLowerInvariant());
             double chance = 1 - Math.Pow(1 - yearly, 10);
             if (!Rng.Chance(chance)) return;
             string response = AutomaticResponse();
-            var start = Record("crisis.recurrence", "plague", CausesOf(TierKey(Domain.Medicine), TierKey(Domain.Governance), TierKey(Domain.Economy)),
+            var start = Record("crisis.recurrence", "plague", CausesOf(TierKey(Domain.Medicine)),
                 new[] { "world" }, null, "Pestilence returns to Rome (response: " + response + ").");
             double sev = Math.Max(0.01, PlagueSeverity(response));
             ApplyPlagueDamage(sev, new List<int> { start.Id }, out double deaths);

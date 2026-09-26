@@ -201,7 +201,8 @@ namespace Butterfly.Core
 
         /// <summary>
         /// SYSTEMS §7 quality at departure: bare; chartered and endowed; or strong (chartered, endowed,
-        /// thriving region, and — standing in for the out-of-scope Legend — a loyal leader).
+        /// thriving region, and a loyal leader). P0-ONLY: the loyal leader stands in for "keeping the
+        /// Legend alive", because Legend is out of P0 scope (decided 2026-09-26).
         /// </summary>
         public InstitutionQuality QualityAtDeparture(Institution i)
         {
