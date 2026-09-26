@@ -130,25 +130,21 @@
     },
     "upkeepPerYear": {
       "protect": {
-        "value": 20,
-        "ref": "SYSTEMS §5 (upkeep split by priority; amounts PROPOSED P0-07)"
+        "value": 12,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16"
       },
       "maintain": {
-        "value": 8,
-        "ref": "SYSTEMS §5 (amounts PROPOSED P0-07)"
+        "value": 4,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16"
       },
       "acceptRisk": {
         "value": 0,
-        "ref": "SYSTEMS §5 (amounts PROPOSED P0-07)"
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16"
       }
     },
     "neglectFloorFraction": {
       "value": 0.3,
       "ref": "PROPOSED P0-04 (neglect alone never takes a domain below 30% of its historical value)"
-    },
-    "requireInstitution": {
-      "value": true,
-      "ref": "PROPOSED P0-16 (Claude): before any institution, domain upkeep is free and priorities have no effect (every domain behaves as Maintain)"
     }
   },
   "expectation": {
@@ -284,16 +280,16 @@
     },
     "damage": {
       "medicine": {
-        "value": 0.25,
-        "ref": "PROPOSED P0-09"
+        "value": 0.3,
+        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       },
       "governance": {
-        "value": 0.1,
-        "ref": "PROPOSED P0-09"
+        "value": 0.12,
+        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       },
       "economy": {
-        "value": 0.25,
-        "ref": "PROPOSED P0-09"
+        "value": 0.3,
+        "ref": "PROPOSED P0-09; raised 20% on 2026-09-27 under the G4 rule (a plague must lower the Index in the medium term)"
       }
     },
     "debtRelease": {
@@ -568,22 +564,22 @@
     },
     "upkeepPerYear": {
       "circle": {
-        "value": 10,
-        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: the circle costs more to run than it earns"
+        "value": 6,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: running cost, depends on the institution"
       },
       "faction": {
-        "value": 12,
-        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        "value": 10,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: running cost, depends on the institution"
       }
     },
     "incomePerEconomyLevel": {
       "circle": {
-        "value": 0.1,
-        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: fees; scaled by loyalty"
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: fees; × loyalty × strength, so margins are tight until established"
       },
       "faction": {
-        "value": 0.3,
-        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: patronage; scaled by loyalty"
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-27 (Corey, option A); amount PROPOSED P0-16: patronage; × loyalty × strength"
       }
     }
   },

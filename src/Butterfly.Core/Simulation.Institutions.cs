@@ -138,14 +138,14 @@ namespace Butterfly.Core
 
         internal IEnumerable<Institution> Founded() => World.Institutions.Where(i => i.Founded);
 
-        private double InstitutionUpkeepTotal() =>
-            Founded().Where(i => !i.Endowed).Sum(i => T.Get("institutions.upkeepPerYear." + i.Key));
+        /// <summary>Shortfalls you must cover for institutions whose income doesn't meet their costs.</summary>
+        private double InstitutionUpkeepTotal() => Founded().Sum(i => Math.Max(0, -InstitutionNet(i)));
 
         private void InstitutionUpkeepShortfall()
         {
-            foreach (var i in Founded().Where(i => !i.Endowed))
+            foreach (var i in Founded().Where(i => InstitutionNet(i) < 0))
                 ChangeLoyalty(i, -T.Get("institutions.unpaidLoyaltyLoss"), "institution.unpaid", CausesOf(GoldKey), new[] { i.Leader },
-                    Cap(i.Def.ShortName) + " went unpaid this season.");
+                    Cap(i.Def.ShortName) + " ran short this season and you couldn't cover it.");
         }
 
         private void ApplyInstitutionExtra(ProjectDef def, ProjectExtra x, int causeId)

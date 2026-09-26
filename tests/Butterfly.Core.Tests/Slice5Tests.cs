@@ -78,9 +78,10 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             sim.Found("faction");
-            double withUpkeep = sim.YearlyUpkeepTotal();
+            var f = sim.World.Institution("faction");
+            double costs = sim.InstitutionCosts(f);
             sim.Endow("faction");
-            Assert.Equal(withUpkeep - sim.T.Get("institutions.upkeepPerYear.faction"), sim.YearlyUpkeepTotal(), 6);
+            Assert.Equal(costs - sim.T.Get("institutions.upkeepPerYear.faction"), sim.InstitutionCosts(f), 6);
         }
 
         [Fact]

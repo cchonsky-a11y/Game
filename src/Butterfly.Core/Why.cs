@@ -68,15 +68,20 @@ namespace Butterfly.Core
             var t = sim.T;
             var sb = new StringBuilder();
             sb.AppendLine("You have " + F(sim.World.Gold) + " gold.");
-            sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year" +
-                          (sim.YearlyIncome() <= 0 ? ": none. Until you own property or have an institution, you earn only by working (work odd / craft / consult)."
-                           : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
-                                 .Concat(sim.Founded().Select(i => Simulation.Cap(i.Def.ShortName) + " " + F(sim.InstitutionIncome(i)) + " (at loyalty " + F(i.Loyalty) + ")"))
-                                 .Where(x => x != null)) + "."));
-            sb.AppendLine("Upkeep " + F(sim.YearlyUpkeepTotal()) + " a year: " +
-                          string.Join(", ", DomainInfo.All.Select(x => x + " " + F(sim.YearlyUpkeep(x)) + " (" + sim.World[x].Priority.Label() + ")")) +
-                          (sim.Founded().Any(i => !i.Endowed) ? ", institutions " + F(sim.Founded().Where(i => !i.Endowed).Sum(i => t.Get("institutions.upkeepPerYear." + i.Key))) : "") +
-                          (sim.PrioritiesActive ? "." : ". (Domain upkeep is free until you found an institution; until then priorities have no effect.)"));
+            sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year" + (sim.YearlyIncome() <= 0
+                ? ": none. You earn by working (work odd / craft / consult); owned property and well-run institutions add income."
+                : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
+                      .Concat(sim.Founded().Where(i => sim.InstitutionNet(i) > 0).Select(i => Simulation.Cap(i.Def.ShortName) + "'s surplus " + F(sim.InstitutionNet(i))))
+                      .Where(x => x != null)) + "."));
+            sb.AppendLine("Your upkeep " + F(sim.YearlyUpkeepTotal()) + " a year: " +
+                          string.Join(", ", DomainInfo.All.Select(x => sim.Maintainer(x) != null
+                              ? x + " paid by " + sim.Maintainer(x)!.Def.ShortName
+                              : x + " " + F(sim.YearlyUpkeep(x)) + " (" + sim.World[x].Priority.Label() + ")")) + ".");
+            foreach (var i in sim.Founded())
+                sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + ": earns " + F(sim.InstitutionIncome(i)) + " (grows with its strength and loyalty), costs " +
+                              F(sim.InstitutionCosts(i)) + " (running " + F(i.Endowed ? 0 : t.Get("institutions.upkeepPerYear." + i.Key)) + " + " +
+                              i.Def.Maintains + " upkeep " + F(sim.DomainUpkeep(i.Def.Maintains)) + ") → " +
+                              (sim.InstitutionNet(i) >= 0 ? "surplus " + F(sim.InstitutionNet(i)) + " to you." : "short " + F(-sim.InstitutionNet(i)) + ", which you cover."));
             sb.AppendLine("Settled each turn: " + F((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();
