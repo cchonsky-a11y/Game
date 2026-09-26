@@ -4,7 +4,11 @@ using Butterfly.Core;
 
 namespace Butterfly.Batch
 {
-    /// <summary>A scripted player. Each turn it issues commands through the same API as the console.</summary>
+    /// <summary>
+    /// A scripted player. Each turn it issues commands through the same API as the console. Every strategy has
+    /// the inventor's foreknowledge that a plague arrives around AD 165 and responds from turn one in its own style
+    /// (decided 2026-09-27); none of them wait for the warnings, since early leavers depart before they appear.
+    /// </summary>
     public abstract class Strategy
     {
         public abstract string Name { get; }
@@ -97,7 +101,12 @@ namespace Butterfly.Batch
 
         public override void PlayTurn(Simulation sim)
         {
-            if (sim.SeededChoiceOpen) sim.ChooseSeeded("fountain");
+            if (sim.Turn == 1)
+            {
+                sim.ChooseSeeded("fountain");
+                // Foreknowledge: the inventor knows a plague arrives around AD 165. Balanced response: Protect Medicine.
+                sim.SetPriority(Domain.Medicine, Priority.Protect);
+            }
             AnswerPending(sim, true, "hospice", "quarantine");
             OverseeIfNeeded(sim, "circle", 65);
             OverseeIfNeeded(sim, "faction", 65);
@@ -146,6 +155,7 @@ namespace Butterfly.Batch
             if (sim.Turn == 1)
             {
                 sim.ChooseSeeded("fountain");
+                // Foreknowledge of the plague matches its chosen focus: Protect Medicine.
                 sim.SetPriority(Domain.Medicine, Priority.Protect);
             }
             AnswerPending(sim, true, "hospice", "quarantine");
@@ -175,7 +185,9 @@ namespace Butterfly.Batch
             if (sim.Turn == 1)
             {
                 sim.ChooseSeeded("workshop");
-                foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.AcceptRisk);
+                // Foreknowledge, minimal response: keep Medicine at Maintain; accept risk everywhere else.
+                sim.SetPriority(Domain.Governance, Priority.AcceptRisk);
+                sim.SetPriority(Domain.Economy, Priority.AcceptRisk);
             }
             AnswerPending(sim, false, "none");
             sim.Work();
