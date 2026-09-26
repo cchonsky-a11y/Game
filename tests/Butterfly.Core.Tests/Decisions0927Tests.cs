@@ -22,10 +22,10 @@ namespace Butterfly.Core.Tests
             sim.World.Gold = 1000;
             sim.ChooseSeeded("fountain");
             sim.EndTurn();
-            sim.Found("circle");                      // 2 Attention now
+            sim.Found("school");                      // 2 Attention now
             sim.EndTurn();
             Assert.True(sim.StartProject("warehouses").Ok); // 2 per turn for 4 turns
-            Assert.True(sim.Mentor("circle").Ok);           // 2 per turn for 5 turns
+            Assert.True(sim.Mentor("school").Ok);           // 2 per turn for 5 turns
             int advanced = sim.EndTurnAndSkipIdle();
             Assert.True(advanced > 1);                      // fully committed turns pass on their own
             Assert.False(sim.NoActionPossible());

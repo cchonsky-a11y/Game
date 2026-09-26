@@ -32,6 +32,9 @@ namespace Butterfly.Batch
         public string Wrongness = "";
         public int Decisions;
         public Dictionary<string, InstitutionOutcome> Institutions = new Dictionary<string, InstitutionOutcome>();
+        /// <summary>Stake percent per institution at departure (stakes don't change during the absence).</summary>
+        public Dictionary<string, int> Stakes = new Dictionary<string, int>();
+        public List<string> Collapsed = new List<string>();
         public Dictionary<Domain, int> FirstStrainedYear = new Dictionary<Domain, int>();
         public string LogHash = "";
     }
@@ -94,7 +97,12 @@ namespace Butterfly.Batch
                 Decisions = sim.Log.Events.Count(e => e.Actors.Contains("player") && e.Type != "personal.work" && e.Type != "jump.arrive"),
                 LogHash = sim.Log.Hash(),
             };
-            foreach (var i in sim.World.Institutions) r.Institutions[i.Key] = sim.OutcomeOf(i);
+            foreach (var i in sim.World.Institutions)
+            {
+                r.Institutions[i.Key] = sim.OutcomeOf(i);
+                r.Stakes[i.Key] = sim.StakePercent(i);
+                if (i.Collapsed) r.Collapsed.Add(i.Key);
+            }
             foreach (var d in DomainInfo.All)
             {
                 var strained = sim.Log.Events.FirstOrDefault(e => e.Type == "debt.tier" && e.Target == d.Key() && e.Time.Year <= arrival.DepartureYear);
@@ -223,7 +231,7 @@ namespace Butterfly.Batch
             var sb = new StringBuilder();
             sb.AppendLine("# P0 batch balance report");
             sb.AppendLine();
-            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 165, when the era's 20 turns end).");
+            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 165, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).");
             sb.AppendLine("Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).");
             sb.AppendLine();
@@ -260,16 +268,18 @@ namespace Butterfly.Batch
             sb.AppendLine();
             sb.AppendLine("## Institution outcomes on arrival");
             sb.AppendLine();
-            sb.AppendLine("| Timing | Strategy | Institution | Thriving | Drifted | Captured | Dissolved | Rogue | Not founded |");
-            sb.AppendLine("|---|---|---|---|---|---|---|---|---|");
+            sb.AppendLine("Institutions a strategy held a stake of 10%+ in (or founded) in any run. Stake: mean percent held at departure; failed: own institutions that collapsed in the era.");
+            sb.AppendLine();
+            sb.AppendLine("| Timing | Strategy | Institution | Stake | Thriving | Drifted | Captured | Dissolved | Rogue | Not backed | Failed |");
+            sb.AppendLine("|---|---|---|---|---|---|---|---|---|---|---|");
             foreach (var g in results.GroupBy(r => (r.Timing, r.Strategy)))
-                foreach (var inst in new[] { "circle", "faction" })
+                foreach (var inst in g.First().Institutions.Keys.Where(k => g.Any(r => r.Institutions[k] != InstitutionOutcome.NotBacked)))
                 {
                     var outcomes = g.Select(r => r.Institutions[inst]).ToList();
-                    sb.Append("| " + g.Key.Timing + " | " + Label(g.Key.Strategy) + " | " + inst + " |");
-                    foreach (var o in new[] { InstitutionOutcome.Thriving, InstitutionOutcome.Drifted, InstitutionOutcome.Captured, InstitutionOutcome.Dissolved, InstitutionOutcome.Rogue, InstitutionOutcome.NotFounded })
+                    sb.Append("| " + g.Key.Timing + " | " + Label(g.Key.Strategy) + " | " + inst + " | " + F0(g.Average(r => r.Stakes[inst])) + "% |");
+                    foreach (var o in new[] { InstitutionOutcome.Thriving, InstitutionOutcome.Drifted, InstitutionOutcome.Captured, InstitutionOutcome.Dissolved, InstitutionOutcome.Rogue, InstitutionOutcome.NotBacked })
                         sb.Append(" " + outcomes.Count(x => x == o) + " |");
-                    sb.AppendLine();
+                    sb.AppendLine(" " + g.Count(r => r.Collapsed.Contains(inst)) + " |");
                 }
             sb.AppendLine();
             sb.AppendLine("## Pacing");

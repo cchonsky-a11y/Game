@@ -24,7 +24,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 11);
             var circle = sim.World.Institution("circle");
-            circle.Founded = true;
+            sim.GrantStake("circle", 0.5);
             circle.Strength = 80;
             circle.Loyalty = 80;
             circle.Quality = quality;
@@ -47,9 +47,14 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void ThreeInstitutionsEachWithLeaderAndTwoDriftPaths()
         {
-            // The Circle, the faction, and (decided 2026-09-27) the Merchants' Guild of Ostia.
+            // Per domain (decided 2026-09-27): two established rivals you can buy into, and one you can found.
             var defs = TestData.Load().Content.Institutions;
-            Assert.Equal(3, defs.Count);
+            Assert.Equal(9, defs.Count);
+            foreach (var d in DomainInfo.All)
+            {
+                Assert.Equal(2, defs.Count(x => x.Maintains == d && !x.IsOwn));
+                Assert.Equal(1, defs.Count(x => x.Maintains == d && x.IsOwn));
+            }
             Assert.All(defs, d =>
             {
                 Assert.False(string.IsNullOrWhiteSpace(d.Leader));
@@ -62,8 +67,9 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             Assert.False(sim.Charter("circle").Ok);
-            Assert.True(sim.Found("circle").Ok);
-            Assert.False(sim.Found("circle").Ok);
+            Assert.False(sim.Found("circle").Ok);          // established: you buy into it, you don't found it
+            Assert.True(sim.Buy("circle", 50).Ok);
+            Assert.False(sim.Buy("school", 1).Ok);         // your own: you found it, you don't buy it
             Assert.True(sim.Charter("circle").Ok);
             Assert.True(sim.Endow("circle").Ok);
             var c = sim.World.Institution("circle");
@@ -71,14 +77,14 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.Oversee("circle").Ok);
             Assert.True(c.Loyalty > loyalty);
             Assert.False(sim.Oversee("circle").Ok); // once per turn
-            Assert.Contains(sim.Log.Events, e => e.Type == "institution.found" && e.Actors.Contains("Demetria of Pergamon"));
+            Assert.Contains(sim.Log.Events, e => e.Type == "institution.buy" && e.Actors.Contains("Demetria of Pergamon"));
         }
 
         [Fact]
         public void EndowedInstitutionsCostNoUpkeep()
         {
             var sim = Rich();
-            sim.Found("faction");
+            sim.GrantStake("faction", 0.5);
             var f = sim.World.Institution("faction");
             double costs = sim.InstitutionCosts(f);
             sim.Endow("faction");
@@ -89,7 +95,7 @@ namespace Butterfly.Core.Tests
         public void QualityRequiresCharterAndEndowment()
         {
             var sim = Rich();
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             var c = sim.World.Institution("circle");
             Assert.Equal(InstitutionQuality.Bare, sim.QualityAtDeparture(c));
             sim.Charter("circle");
@@ -105,7 +111,7 @@ namespace Butterfly.Core.Tests
         public void DriftPathFollowsPreAuthoredConditions()
         {
             var sim = Rich();
-            sim.Found("faction");
+            sim.GrantStake("faction", 0.5);
             var f = sim.World.Institution("faction");
             Assert.Equal("oligarchs", sim.ChooseDriftPath(f).Id);
             sim.Charter("faction");
@@ -120,7 +126,7 @@ namespace Butterfly.Core.Tests
         public void OutcomesFollowStrengthLoyaltyAndDrift()
         {
             var sim = Rich();
-            sim.Found("faction");
+            sim.GrantStake("faction", 0.5);
             var f = sim.World.Institution("faction");
             Assert.Equal(InstitutionOutcome.Thriving, sim.OutcomeOf(f));
             f.HasDrifted = true;
@@ -132,14 +138,14 @@ namespace Butterfly.Core.Tests
             Assert.Equal(InstitutionOutcome.Rogue, sim.OutcomeOf(f));
             f.Strength = 5;
             Assert.Equal(InstitutionOutcome.Dissolved, sim.OutcomeOf(f));
-            Assert.Equal(InstitutionOutcome.NotFounded, sim.OutcomeOf(sim.World.Institution("circle")));
+            Assert.Equal(InstitutionOutcome.NotBacked, sim.OutcomeOf(sim.World.Institution("circle")));
         }
 
         [Fact]
         public void LoyaltyFadesEachYearWithoutOversight()
         {
             var sim = Rich();
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             double loyalty = sim.World.Institution("circle").Loyalty;
             for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             Assert.Equal(loyalty - sim.T.Get("institutions.loyaltyFadePerYear"), sim.World.Institution("circle").Loyalty, 6);

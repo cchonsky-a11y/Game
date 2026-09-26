@@ -32,7 +32,7 @@ namespace Butterfly.Core
                 "You start the machine and leave AD " + Now.Year + ".");
             SettlePromiseOnDeparture(depart.Id);
             TagEchoes(arrival, depart.Id);
-            foreach (var i in Founded())
+            foreach (var i in Influential())
             {
                 i.Quality = QualityAtDeparture(i);
                 i.HoldingsAtDeparture = i.Holdings;
@@ -55,7 +55,7 @@ namespace Butterfly.Core
             arrival.ArrivalYear = Now.Year;
             foreach (var d in DomainInfo.All) arrival.SubScoresAfter[d] = SubScore(d);
             arrival.IndexAfter = SphereIndex();
-            foreach (var i in Founded())
+            foreach (var i in Influential())
             {
                 i.Outcome = OutcomeOf(i);
                 arrival.Institutions.Add(new InstitutionReport(i.Def.Name, CurrentName(i), i.Outcome, i.Strength, i.Loyalty, i.Quality)
@@ -87,7 +87,7 @@ namespace Butterfly.Core
                              F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, cap)) +
                              " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
             int window = T.GetInt("institutions.holdings.windowYears");
-            foreach (var i in Founded())
+            foreach (var i in Influential())
             {
                 var q = QualityAtDeparture(i);
                 string why = q != InstitutionQuality.Bare ? "" : i.Chartered ? " (chartered but not endowed, so it counts as bare)"
@@ -114,7 +114,7 @@ namespace Butterfly.Core
                              F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." +
                              (i.AuditCharter ? "" : " (audit " + i.Key + ": " + F(T.Get("institutions.auditGold")) + " gold)");
             }
-            if (!Founded().Any()) yield return "No institution will look after Rome while you're away.";
+            if (!Influential().Any()) yield return "No institution you hold " + F(InfluenceAt * 100) + "%+ of will look after Rome while you're away.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
             if (World.Gold >= 1) yield return "The " + F(Math.Floor(World.Gold)) + " gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.";
@@ -138,7 +138,7 @@ namespace Butterfly.Core
                 new[] { new Effect("promise.status", (int)PromiseStatus.Active, (int)PromiseStatus.Broken) },
                 "You leave before the sickness has passed. You promised " + leader + " you would stay.");
             p.LastEventId = broken.Id;
-            if (PromiseInstitution.Founded)
+            if (PromiseInstitution.Backed)
                 ChangeLoyalty(PromiseInstitution, -T.Get("promise.brokenLoyalty"), "institution.loyalty", new[] { broken.Id }, new[] { leader },
                     leader + " tells the Circle you broke your word.");
         }
@@ -152,11 +152,10 @@ namespace Butterfly.Core
                 new EchoRecord("seeded", choice == "neither" ? "The fountain and the workshop" : choice == "fountain" ? "The district fountain" : "The smith's workshop",
                     "hour-one choice: " + choice),
             };
-            var circle = World.Institution("circle");
-            var faction = World.Institution("faction");
-            var inst = circle.Founded ? circle : faction.Founded ? faction : null;
+            // The institution Echo is the one you hold the largest influential stake in.
+            var inst = Influential().OrderByDescending(i => i.Stake).ThenBy(i => i.Key, StringComparer.Ordinal).FirstOrDefault();
             echoes.Add(inst != null
-                ? new EchoRecord("institution", Cap(inst.Def.Name), "founded, led by " + inst.Leader)
+                ? new EchoRecord("institution", Cap(inst.Def.Name), (inst.Def.IsOwn ? "founded" : StakePercent(inst) + "% stake") + ", led by " + inst.Leader)
                 : new EchoRecord("institution", "Demetria and Varro", "never backed"));
             echoes.Add(new EchoRecord("promise", "Your promise to Demetria", World.Promise.Status.ToString().ToLowerInvariant()));
             foreach (var e in echoes)
@@ -174,7 +173,7 @@ namespace Butterfly.Core
             bool antoninePassed = World.Plague.Stage == PlagueState.Passed;
             // Institution gold acts only in the 30 years after departure (decided 2026-09-26).
             bool window = startYear - DepartureYear < T.GetInt("institutions.holdings.windowYears");
-            if (window) foreach (var i in Founded()) HoldingsDecadeStart(i, arrival);
+            if (window) foreach (var i in Influential()) HoldingsDecadeStart(i, arrival);
             // The plague keeps its yearly rules while it is still on its way.
             for (int y = 1; y <= 10; y++)
             {
@@ -187,8 +186,8 @@ namespace Butterfly.Core
                                    (World.Plague.Response == "none" ? "none" : World.Plague.Response + ", chosen by your institutions after you left") + ")");
 
             foreach (var d in DomainInfo.All) DomainDecadeStep(d, startYear);
-            foreach (var i in Founded()) InstitutionDecadeStep(i, decade);
-            if (window) foreach (var i in Founded()) HoldingsDecadeGrowth(i);
+            foreach (var i in Influential()) InstitutionDecadeStep(i, decade);
+            if (window) foreach (var i in Influential()) HoldingsDecadeGrowth(i);
             FountainDecadeStep();
             if (antoninePassed) MaybeRecurrence(arrival);
             PolicyDecadeStep(arrival);
@@ -202,10 +201,14 @@ namespace Butterfly.Core
                 ", Economy " + F(World[Domain.Economy].Level) + ".");
         }
 
-        /// <summary>Institutions maintain the domain matching their type while the inventor is away (SYSTEMS §7).</summary>
+        /// <summary>
+        /// Institutions maintain the domain matching their type while the inventor is away (SYSTEMS §7): strength ×
+        /// rate, scaled by how much of each you steer and how much of the domain it holds against its rivals
+        /// (full at half the domain, decided 2026-09-27).
+        /// </summary>
         public double MaintainBonus(Domain d) =>
-            Founded().Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"))
-                     .Sum(i => i.Strength * T.Get("jump.maintainPerStrength"));
+            Influential().Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"))
+                         .Sum(i => ControlFactor(i) * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength"));
 
         /// <summary>
         /// One decade for a domain: the level drifts toward the historical baseline (plus what institutions
@@ -272,8 +275,7 @@ namespace Butterfly.Core
         private void FountainDecadeStep()
         {
             if (!World.CleanWater || World.FountainCondition <= 0) return;
-            var circle = World.Institution("circle");
-            bool tended = (circle.Founded && circle.Strength >= T.Get("jump.fountainTendedByStrength"))
+            bool tended = Influential().Any(i => i.Def.Maintains == Domain.Medicine && i.Strength >= T.Get("jump.fountainTendedByStrength"))
                           || World[Domain.Medicine].Level >= Benchmark(Domain.Medicine, Now.Year);
             if (tended) return;
             double before = World.FountainCondition;
@@ -313,7 +315,7 @@ namespace Butterfly.Core
 
             // 3. Personal echo — the promise.
             var circle = World.Institution("circle");
-            bool keeperAlive = circle.Founded && OutcomeOf(circle) != InstitutionOutcome.Dissolved;
+            bool keeperAlive = HasInfluence(circle) && OutcomeOf(circle) != InstitutionOutcome.Dissolved;
             values["keeper"] = keeperAlive ? CurrentName(circle) : "an old house in the Subura";
             string personalKey;
             switch (World.Promise.Status)
@@ -330,18 +332,23 @@ namespace Butterfly.Core
             // 4. Discovery — what the institutions became.
             var parts = new List<string>();
             var keys = new List<string>();
-            foreach (var i in World.Institutions.Where(i => i.Founded))
+            foreach (var i in Influential().ToList())
             {
                 var outcome = OutcomeOf(i);
-                string key = i.Key + "." + (i.ForcedOutcome == InstitutionOutcome.Captured && outcome == InstitutionOutcome.Captured ? "corrupted"
-                    : outcome == InstitutionOutcome.Captured && i.Key == "circle" ? "drifted" : outcome.ToString().ToLowerInvariant());
+                string state = i.ForcedOutcome == InstitutionOutcome.Captured && outcome == InstitutionOutcome.Captured ? "corrupted"
+                    : outcome == InstitutionOutcome.Captured && i.Key == "circle" ? "drifted" : outcome.ToString().ToLowerInvariant();
+                string key = i.Key + "." + state;
                 var v = new Dictionary<string, string>(values)
                 {
                     { "leader", i.Leader },
+                    { "name", i.Def.Name },
+                    { "how", i.Def.IsOwn ? "you founded" : "you held " + StakePercent(i) + "% of" },
                     { "pathName", i.DriftPath?.Name ?? i.Def.Name },
                     { "pathDescription", i.DriftPath?.Description ?? "" },
                 };
-                parts.Add(text.Template("discovery." + key, v));
+                // Institutions without their own templates use the generic ones.
+                string template = text.Text.ContainsKey("discovery." + key) ? "discovery." + key : "discovery.generic." + state;
+                parts.Add(Cap(text.Template(template, v)));
                 // The Discovery beat reveals any corruption and its level (decided 2026-09-26).
                 if (i.Corruption != CorruptionLevel.None && key != i.Key + ".dissolved")
                     parts.Add(text.Template("discovery.corruption." + i.Corruption.ToString().ToLowerInvariant(), v));

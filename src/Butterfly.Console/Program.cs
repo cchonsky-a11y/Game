@@ -96,14 +96,18 @@ internal sealed class ConsoleGame
   status                         where things stand
   projects                       projects you can start
   start <project>                start a project (costs gold and Attention)
-  priority <domain> <protect|maintain|accept>
+  priority <domain> <protect|maintain|accept>   (needs a 25% voice in an institution of that domain)
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
-  found <circle|faction>         found an institution
-  charter <inst>                 write its founding principles (slows drift)
+  institutions                   who holds each domain, your stakes, and what the next step costs
+  buy <inst> [percent]           buy into an established institution (1 Attention; the first buy is 1%, each 1% costs more):
+                                   10% counts toward influence · 25% a voice (priorities, policy) · 50% control
+  found <school|club|house>      found your own institution: you control it, but it starts small and may fail
+  invest <inst> <gold>           build up an institution you control (1 Attention)
+  charter <inst>                 write its founding principles (slows drift; needs control)
   endow <inst> [gold|all]        give it gold to hold (the first 60 makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
-  policy <issue> <stance>        set economic policy through your senate faction (1 Attention):
+  policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (1 Attention):
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
   mentor <inst>                  commit Attention every turn for several turns
@@ -111,9 +115,9 @@ internal sealed class ConsoleGame
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
-  why <thing>                    medicine, governance, economy, gold, plague, circle, faction, promise, index, attention
+  why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   log [n]                        the last n events
-  end                            end the turn (6 months)
+  end                            end the turn (3 months)
   wait                           let turns pass until something needs you
   jump                           prepare to leave for AD +250 (then pay down, endow, audit, or 'jump' again)
   quit");
@@ -149,7 +153,22 @@ internal sealed class ConsoleGame
                 }
                 r = _sim.PayDown(pd, pts);
                 break;
+            case "institutions": case "i": Institutions(); return true;
             case "found": r = _sim.Found(arg); break;
+            case "buy":
+                if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
+                int pct = 1;
+                if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
+                r = _sim.Buy(arg, pct);
+                break;
+            case "invest":
+                if (parts.Length < 3 || !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var inv))
+                {
+                    Console.WriteLine("Usage: invest <institution> <gold>");
+                    return false;
+                }
+                r = _sim.Invest(arg, inv);
+                break;
             case "charter": r = _sim.Charter(arg); break;
             case "endow":
                 if (parts.Length > 2 && parts[2].Equals("all", StringComparison.OrdinalIgnoreCase))
@@ -208,14 +227,15 @@ internal sealed class ConsoleGame
                           "/turn)   Attention " + w.Attention + "/" + _sim.AttentionPerTurn + "   Index " + F(_sim.SphereIndex()));
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
-                              "  " + (_sim.Maintainer(d.Domain) == null ? "(no hold)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
+                              "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
         if (Simulation.Issues.Any(i => _sim.Stance(i) != 0))
             Console.WriteLine("  Policy: " + string.Join(", ", Simulation.Issues.Select(i => i.ToString().ToLowerInvariant() + " " + Simulation.StanceWord(i, _sim.Stance(i)))));
         if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
-        foreach (var i in w.Institutions.Where(i => i.Founded))
-            Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): strength " + F(i.Strength) + ", loyalty " + F(i.Loyalty) +
+        foreach (var i in _sim.Backed())
+            Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i) + ", strength " + F(i.Strength) +
+                              " (" + F(_sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ")" + (_sim.Controls(i) ? ", loyalty " + F(i.Loyalty) : "") +
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
                               (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
@@ -232,8 +252,34 @@ internal sealed class ConsoleGame
     {
         foreach (var p in _sim.AvailableProjects())
             Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (p.Gold + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name);
-        if (!_sim.World.Institution("circle").Founded || !_sim.World.Institution("faction").Founded)
-            Console.WriteLine("  Institutions: found circle / found faction (" + F(_sim.T.Get("institutions.foundGold")) + "g, 1 Attention)");
+        Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");
+    }
+
+    private string StakeLabel(Institution i) =>
+        _sim.Controls(i) ? " (control)" : _sim.HasVoice(i) ? " (voice)" : _sim.HasInfluence(i) ? " (influence)" : " (member)";
+
+    private void Institutions()
+    {
+        foreach (var d in DomainInfo.All)
+        {
+            Console.WriteLine(d + ": your influence " + F(_sim.Influence(d) * 100) + "%, sway " + F(_sim.Sway(d) * 100) + "%");
+            foreach (var i in _sim.World.Institutions.Where(x => x.Def.Maintains == d))
+            {
+                string line = "  " + i.Key.PadRight(10) + Simulation.Cap(i.Def.Name) + " — " + i.Leader + " (" + i.Def.LeaderIntegrity + ")";
+                if (!i.Exists)
+                    line += i.Collapsed ? ": failed" : ": yours to found for " + F(_sim.FoundCost(d)) + " gold, " + _sim.T.GetInt("founding.attention") +
+                                                       " Attention (starts at strength " + F(_sim.T.Get("founding.startStrength")) + ")";
+                else
+                {
+                    line += ": strength " + F(i.Strength) + " (" + F(_sim.DomainShare(i) * 100) + "%)";
+                    if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
+                    int next = _sim.NextThresholdPercent(i);
+                    if (!i.Def.IsOwn && next > 0)
+                        line += "; next 1% " + F(_sim.StakeCost(i, 1)) + "g, to " + next + "% " + F(_sim.StakeCost(i, next - _sim.StakePercent(i))) + "g";
+                }
+                Console.WriteLine(line);
+            }
+        }
     }
 
     private void Log(int n)

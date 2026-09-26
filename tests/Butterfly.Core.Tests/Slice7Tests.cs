@@ -11,7 +11,7 @@ namespace Butterfly.Core.Tests
             if (choice != "neither") sim.ChooseSeeded(choice);
             while (sim.Now.Year < leaveYear)
             {
-                if (foundCircle && !sim.World.Institution("circle").Founded && sim.World.Gold >= 50) sim.Found("circle");
+                if (foundCircle && sim.World.Institution("circle").Stake <= 0) sim.GrantStake("circle", 0.5);
                 if (sim.World.Promise.Status == PromiseStatus.Offered) sim.AnswerPromise(acceptPromise);
                 if (sim.OutbreakAwaitingResponse) sim.RespondToPlague(sim.AvailablePlagueResponses().First());
                 sim.Work("craft"); // no passive income before institutions: the inventor works
@@ -100,7 +100,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 3);
             sim.World.Gold = 500;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             sim.World[Domain.Economy].Debt = 10;
             sim.World.Promise.Status = PromiseStatus.Active;
             var lines = System.Linq.Enumerable.ToList(sim.DepartureBriefing());

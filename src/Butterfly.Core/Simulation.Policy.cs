@@ -8,7 +8,7 @@ namespace Butterfly.Core
     public enum PolicyIssue { Coinage, Prices, Property, Taxes }
 
     /// <summary>
-    /// Economic policy (decided 2026-09-27): set through the senate faction. Each issue has an Austrian stance,
+    /// Economic policy (decided 2026-09-27): set through a Governance institution you have a voice in, and adopted in proportion to your sway. Each issue has an Austrian stance,
     /// Rome's historical practice, or an interventionist stance. Austrian stances make the Economy grow faster than
     /// history but provoke backlash from those who profit from intervention. Interventionist stances give a quick
     /// boom but build malinvestment, which ends in a bust after three visible warnings.
@@ -46,26 +46,30 @@ namespace Butterfly.Core
 
         public int Stance(PolicyIssue i) => World.Policy[(int)i];
 
-        /// <summary>Policy needs a working senate faction: politics is where policy is made.</summary>
-        public bool PolicyHold()
-        {
-            var f = World.Institution("faction");
-            return f.Founded && f.Strength >= T.Get("institutions.dissolvedBelow");
-        }
+        /// <summary>Policy needs a voice (25%+) in a working Governance institution: politics is where policy is made.</summary>
+        public bool PolicyHold() => HasHold(Domain.Governance);
+
+        /// <summary>The Governance institution that carries your line in the Curia.</summary>
+        public Institution? PolicyInstitution => VoiceIn(Domain.Governance);
+
+        /// <summary>How much of your policy Rome actually adopts: your sway over Governance (decided 2026-09-27).</summary>
+        public double PolicySway() => PolicyHold() ? Sway(Domain.Governance) : 0;
 
         public CommandResult SetPolicy(PolicyIssue issue, int stance)
         {
-            if (!PolicyHold()) return CommandResult.Fail("You have no voice in Rome's policy yet. Found the senate faction first.");
+            if (!PolicyHold()) return CommandResult.Fail("You have no voice in Rome's policy yet. You need " + F(VoiceAt * 100) +
+                                                         "% of a Governance institution (buy faction / buy junian, or found club).");
             if (Stance(issue) == stance) return CommandResult.Fail(issue + " is already " + StanceWord(issue, stance) + ".");
             var attention = CheckAttention(T.GetInt("policy.attention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("policy.attention"));
             int before = Stance(issue);
             World.Policy[(int)issue] = stance;
-            var faction = World.Institution("faction");
+            var faction = PolicyInstitution!;
             var e = Record("policy.set", issue.ToString().ToLowerInvariant(), null, new[] { "player", faction.Leader },
                 new[] { new Effect("policy." + issue.ToString().ToLowerInvariant(), before, stance) },
-                faction.Leader + " carries your line in the Curia: " + issue + " becomes " + StanceWord(issue, stance) + ".");
+                faction.Leader + " carries your line in the Curia: " + issue + " becomes " + StanceWord(issue, stance) +
+                " (your sway over Governance: " + F(PolicySway() * 100) + "%).");
             if (stance > 0) Backlash(issue, e.Id);
             return CommandResult.Success(issue + ": " + StanceWord(issue, stance) + ".");
         }
@@ -73,14 +77,14 @@ namespace Butterfly.Core
         /// <summary>Those who profited from intervention push back when an Austrian stance is adopted.</summary>
         private void Backlash(PolicyIssue issue, int causeId)
         {
-            var faction = World.Institution("faction");
+            var faction = PolicyInstitution!;
             string who = issue == PolicyIssue.Coinage ? "Mint officials and the creditors of the treasury"
                        : issue == PolicyIssue.Prices ? "Grain dealers who lived off fixed prices"
                        : issue == PolicyIssue.Property ? "Insiders who were used to favors and seizures"
                        : "Contractors paid from the levies";
             ChangeLoyalty(faction, -T.Get("policy.backlash.factionLoyalty"), "policy.backlash", new[] { causeId }, new[] { faction.Leader },
                 who + " lean on the senators of " + faction.Def.ShortName + ".");
-            AddDebt(Domain.Governance, T.Get("policy.backlash.governanceDebt"), "policy.backlash", causeId, who + " stir up trouble in the Forum.");
+            AddDebt(Domain.Governance, T.Get("policy.backlash.governanceDebt") * PolicySway(), "policy.backlash", causeId, who + " stir up trouble in the Forum.");
         }
 
         internal void AddDebt(Domain d, double amount, string type, int causeId, string text)
@@ -102,29 +106,33 @@ namespace Butterfly.Core
         public int AustrianCount() => Issues.Count(i => Stance(i) > 0);
         public int InterventionCount() => Issues.Count(i => Stance(i) < 0);
 
-        /// <summary>Yearly: stances move the Economy against history; intervention builds malinvestment; riots; the bust track.</summary>
+        /// <summary>
+        /// Yearly: stances move the Economy against history; intervention builds malinvestment; riots; the bust track.
+        /// Every effect is scaled by your sway over Governance.
+        /// </summary>
         private void PolicyYearTick()
         {
             if (PolicyHold())
             {
-                double offset = AustrianCount() * T.Get("policy.austrianEconomyPerYear") + InterventionCount() * T.Get("policy.interventionBoomPerYear");
+                double sway = PolicySway();
+                double offset = sway * (AustrianCount() * T.Get("policy.austrianEconomyPerYear") + InterventionCount() * T.Get("policy.interventionBoomPerYear"));
                 if (offset != 0)
                     ChangeLevel(Domain.Economy, offset, "policy.effect", CausesOf("policy.coinage", "policy.prices", "policy.property", "policy.taxes"),
                         new[] { "world" }, "Rome's economic policy moves the Economy " + Signed(offset) + " against history" +
                         (InterventionCount() > 0 ? " (part of it a boom built on intervention)." : "."));
                 if (Stance(PolicyIssue.Taxes) < 0)
-                    ChangeLevel(Domain.Governance, T.Get("policy.heavyTaxGovernancePerYear"), "policy.effect", CausesOf("policy.taxes"), new[] { "world" },
+                    ChangeLevel(Domain.Governance, sway * T.Get("policy.heavyTaxGovernancePerYear"), "policy.effect", CausesOf("policy.taxes"), new[] { "world" },
                         "Heavy levies pay for public works and the grain dole.");
                 if (InterventionCount() > 0)
                 {
                     double before = World.Malinvestment;
-                    World.Malinvestment += InterventionCount() * T.Get("policy.malinvestmentPerStancePerYear");
+                    World.Malinvestment += sway * InterventionCount() * T.Get("policy.malinvestmentPerStancePerYear");
                     Record("policy.malinvestment", "economy", CausesOf("policy.coinage", "policy.prices", "policy.property", "policy.taxes"), new[] { "world" },
                         new[] { new Effect("economy.malinvestment", before, World.Malinvestment) },
                         "Cheap coin and fixed prices steer money into ventures that only pay while the boom lasts.");
                 }
                 if (Stance(PolicyIssue.Prices) > 0 && World.Plague.Stage >= 2 && World.Plague.Stage <= PlagueState.Outbreak)
-                    AddDebt(Domain.Governance, T.Get("policy.breadRiotDebtPerYear"), "policy.backlash", CauseOf("policy.prices"),
+                    AddDebt(Domain.Governance, sway * T.Get("policy.breadRiotDebtPerYear"), "policy.backlash", CauseOf("policy.prices"),
                         "Bread prices climb with the sickness; crowds blame the free market.");
             }
             BustYearTick();
@@ -194,11 +202,11 @@ namespace Butterfly.Core
 
         /// <summary>While the faction survives, the stances you left keep shaping the Economy's target during the absence.</summary>
         internal double PolicyTargetBonus() =>
-            !PolicyHold() ? 0 : AustrianCount() * T.Get("policy.absence.austrianTargetPerStance") + InterventionCount() * T.Get("policy.absence.interventionTargetPerStance");
+            PolicySway() * (AustrianCount() * T.Get("policy.absence.austrianTargetPerStance") + InterventionCount() * T.Get("policy.absence.interventionTargetPerStance"));
 
         internal void PolicyDecadeStep(Arrival arrival)
         {
-            if (PolicyHold() && InterventionCount() > 0) World.Malinvestment += InterventionCount() * T.Get("policy.absence.malinvestmentPerStancePerDecade");
+            if (PolicyHold() && InterventionCount() > 0) World.Malinvestment += PolicySway() * InterventionCount() * T.Get("policy.absence.malinvestmentPerStancePerDecade");
             if (World.Malinvestment >= T.Get("policy.bust.firstWarningAt") && Rng.Chance(Math.Min(0.9, World.Malinvestment * T.Get("policy.bust.advancePerMalinvestment"))))
             {
                 var e = Record("bust.outbreak", "economy", null, new[] { "world" }, null, "A boom built on intervention collapses.");

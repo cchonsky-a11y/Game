@@ -78,6 +78,9 @@ namespace Butterfly.Core
     public sealed class InstitutionDef
     {
         public string Id { get; }
+        /// <summary>"established" (exists from the start; you buy into it) or "own" (you found it yourself).</summary>
+        public string Origin { get; }
+        public bool IsOwn => Origin == "own";
         public string Name { get; }
         public string ShortName { get; }
         public string Type { get; }
@@ -88,12 +91,14 @@ namespace Butterfly.Core
         public string LeaderIntegrity { get; }
         public string FoundingIdentity { get; }
         public IReadOnlyList<string> Tags { get; }
+        /// <summary>Shown when you found it (own institutions) or first buy into it (established ones).</summary>
         public string FoundText { get; }
         public IReadOnlyList<DriftPathDef> DriftPaths { get; }
 
         public InstitutionDef(JsonObject o)
         {
             Id = o.Str("id");
+            Origin = o.Str("origin");
             Name = o.Str("name");
             ShortName = o.Str("shortName");
             Type = o.Str("type");
@@ -104,7 +109,7 @@ namespace Butterfly.Core
             LeaderIntegrity = o.Str("leaderIntegrity");
             FoundingIdentity = o.Str("foundingIdentity");
             Tags = o.Arr("tags").Cast<string>().ToList();
-            FoundText = o.Str("foundText");
+            FoundText = o.StrOr(Origin == "own" ? "foundText" : "joinText", null) ?? "";
             DriftPaths = o.Arr("driftPaths").Cast<JsonObject>().Select(x => new DriftPathDef(x)).ToList();
         }
     }

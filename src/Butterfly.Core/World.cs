@@ -134,7 +134,8 @@ namespace Butterfly.Core
     /// <summary>Arrival outcomes (SYSTEMS §7).</summary>
     public enum InstitutionOutcome
     {
-        NotFounded,
+        /// <summary>You never held an influential stake in it.</summary>
+        NotBacked,
         Thriving,
         Drifted,
         Captured,
@@ -151,11 +152,18 @@ namespace Butterfly.Core
         Total
     }
 
-    /// <summary>Runtime state of one of the two P0 institutions.</summary>
+    /// <summary>Runtime state of one institution: an established one you can buy into, or one you found yourself.</summary>
     public sealed class Institution
     {
         public InstitutionDef Def { get; }
-        public bool Founded { get; set; }
+        /// <summary>True while the institution exists in Rome (established ones from the start; yours once founded, until it collapses).</summary>
+        public bool Exists { get; set; }
+        /// <summary>Your share of it, 0–1 (decided 2026-09-27): 10% counts toward influence, 25% gives a voice, 50% control.</summary>
+        public double Stake { get; set; }
+        /// <summary>True if you hold any stake in an existing institution.</summary>
+        public bool Backed => Exists && Stake > 0;
+        /// <summary>True if one of your own institutions collapsed before it was established.</summary>
+        public bool Collapsed { get; set; }
         public double Strength { get; set; }
         public double Loyalty { get; set; }
         public bool Chartered { get; set; }

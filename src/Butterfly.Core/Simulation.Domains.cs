@@ -32,9 +32,10 @@ namespace Butterfly.Core
         public CommandResult SetPriority(Domain d, Priority p)
         {
             var s = World[d];
-            // Influence over a domain comes only through an institution that maintains it (decided 2026-09-27).
-            if (Maintainer(d) == null)
-                return CommandResult.Fail("You have no hold over " + d + " yet. Found an institution that maintains it first; until then Rome runs it without you.");
+            // Influence over a domain comes only through a voice (25%+) in an institution that maintains it (decided 2026-09-27).
+            if (!HasHold(d))
+                return CommandResult.Fail("You have no voice in " + d + " yet. You need " + F(VoiceAt * 100) + "% of an institution that maintains it " +
+                                          "(buy into one, or found your own); until then Rome runs it without you.");
             if (s.Priority == p) return CommandResult.Fail(d + " is already set to " + p.Label() + ".");
             var before = s.Priority;
             s.Priority = p;
@@ -65,10 +66,11 @@ namespace Butterfly.Core
                 s.Peak += trend;
                 if (Math.Abs(change) > 1e-9)
                 {
-                    string text = Maintainer(d) == null
-                        ? d + " follows Rome's history this year (" + Signed(change) + "); you have no hold over it."
+                    string text = !HasHold(d)
+                        ? d + " follows Rome's history this year (" + Signed(change) + "); you have no voice in it."
                         : d + " " + (offset > 0 ? "improves" : offset < 0 ? "slips" : "holds") + " under " + s.Priority.Label() +
-                          " (" + Signed(offset) + " against history" + (Math.Abs(trend) > 1e-9 ? ", history " + Signed(trend) : "") + ").";
+                          " (" + Signed(offset) + " against history at your sway of " + F(Sway(d) * 100) + "%" +
+                          (Math.Abs(trend) > 1e-9 ? ", history " + Signed(trend) : "") + ").";
                     ChangeLevel(d, change, "domain.upkeep", CausesOf(PriorityKey(d)), new[] { "world" }, text);
                 }
 
@@ -95,24 +97,20 @@ namespace Butterfly.Core
             World.UpkeepTurnsThisYear = 0;
         }
 
-        /// <summary>
-        /// Yearly level change from the domain's priority. If upkeep went partly unpaid this year,
-        /// the unpaid share behaves as Accept Risk.
-        /// </summary>
         /// <summary>How much Rome's real history moved this domain over the past year (decided 2026-09-27).</summary>
         public double HistoricalTrend(Domain d) => Benchmark(d, Now.Year) - Benchmark(d, Now.Year - 1);
 
         /// <summary>
-        /// Your change against history from the domain's priority. None without a hold: Rome follows its history.
-        /// If upkeep went partly unpaid this year, the unpaid share behaves as Accept Risk.
+        /// Your change against history from the domain's priority, scaled by your sway over the domain. None without
+        /// a voice: Rome follows its history. If upkeep went partly unpaid this year, the unpaid share behaves as Accept Risk.
         /// </summary>
         internal double PriorityLevelChange(Domain d)
         {
-            if (Maintainer(d) == null) return 0;
+            if (!HasHold(d)) return 0;
             double chosen = T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
             double neglect = T.Get("priorities.levelChangePerYear.acceptRisk");
             double paid = World.UpkeepTurnsThisYear == 0 ? 1 : World.UpkeepPaidThisYear[(int)d] / World.UpkeepTurnsThisYear;
-            return paid * chosen + (1 - paid) * neglect;
+            return Sway(d) * (paid * chosen + (1 - paid) * neglect);
         }
 
         internal void UpdateTier(Domain d)

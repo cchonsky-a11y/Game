@@ -17,33 +17,44 @@ namespace Butterfly.Core
 
         /// <summary>
         /// Yearly income (decided 2026-09-27): nothing passive before you have leverage. Property you funded and own
-        /// grows with the Economy; each institution brings in its own share of the Economy, scaled by its loyalty.
+        /// grows with the Economy; each institution you hold a stake in pays you your share of its surplus.
         /// Work (the personal action) is paid when you do it.
         /// </summary>
-        public double YearlyIncome() => OwnedIncome() + Founded().Sum(i => Math.Max(0, InstitutionNet(i)));
+        public double YearlyIncome() => OwnedIncome() + Backed().Sum(i => i.Stake * Math.Max(0, InstitutionNet(i)));
 
         /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level.</summary>
         public double OwnedIncome() => World.IncomeBonus * World[Domain.Economy].Level;
 
-        /// <summary>An institution's income: its own rate × Economy × loyalty × strength (margins are tight until it is established).</summary>
+        /// <summary>An institution's income: its own rate × Economy × strength (margins are thin until it is established).</summary>
         public double InstitutionIncome(Institution i) =>
-            T.Get("institutions.incomePerEconomyLevel." + i.Key) * World[Domain.Economy].Level * i.Loyalty / 100.0 * i.Strength / 100.0;
+            T.Get("institutions.incomePerEconomyLevel." + i.Key) * World[Domain.Economy].Level * i.Strength / 100.0;
 
-        /// <summary>The institution that pays a domain's upkeep, if one is working (option A, decided 2026-09-27).</summary>
-        public Institution? Maintainer(Domain d) =>
-            Founded().FirstOrDefault(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"));
+        /// <summary>The institution that carries out your priority for a domain: the one you have the largest voice in.</summary>
+        public Institution? Maintainer(Domain d) => VoiceIn(d);
 
-        /// <summary>Upkeep of a domain at its current priority, whoever pays it.</summary>
+        /// <summary>Upkeep of a domain at its current priority, if your institutions carried it all.</summary>
         public double DomainUpkeep(Domain d) => T.Get("priorities.upkeepPerYear." + World[d].Priority.Key());
 
-        /// <summary>An institution's running cost (none if endowed) plus the upkeep of the domain it maintains.</summary>
-        public double InstitutionCosts(Institution i) =>
-            (i.Endowed ? 0 : T.Get("institutions.upkeepPerYear." + i.Key)) + DomainUpkeep(i.Def.Maintains);
+        /// <summary>
+        /// The part of a domain's priority upkeep this institution pays: upkeep × your sway over the domain, split
+        /// among your institutions there by how much of the domain each carries for you.
+        /// </summary>
+        public double PriorityUpkeep(Institution i)
+        {
+            var d = i.Def.Maintains;
+            double weight = ControlFactor(i) * DomainShare(i), influence = Influence(d);
+            if (!HasHold(d) || weight <= 0 || influence <= 0) return 0;
+            return DomainUpkeep(d) * Sway(d) * weight / influence;
+        }
 
-        /// <summary>Income minus costs. A surplus comes to you; a shortfall you must cover.</summary>
+        /// <summary>An institution's running cost (none if endowed) plus its part of the upkeep of your priority for its domain.</summary>
+        public double InstitutionCosts(Institution i) =>
+            (i.Endowed ? 0 : T.Get("institutions.upkeepPerYear." + i.Key)) + PriorityUpkeep(i);
+
+        /// <summary>Income minus costs. Your stake's share of a surplus comes to you; of a shortfall, you must cover.</summary>
         public double InstitutionNet(Institution i) => InstitutionIncome(i) - InstitutionCosts(i);
 
-        /// <summary>You never pay domain upkeep directly: a maintaining institution pays it, and otherwise Rome runs the domain itself.</summary>
+        /// <summary>You never pay domain upkeep directly: your institutions pay it, and otherwise Rome runs the domain itself.</summary>
         public double YearlyUpkeep(Domain d) => 0;
 
         public double YearlyUpkeepTotal() => DomainInfo.All.Sum(YearlyUpkeep) + InstitutionUpkeepTotal();
@@ -66,9 +77,9 @@ namespace Butterfly.Core
             double instFraction = institutionUpkeep <= 0 ? 1 : instPaid / institutionUpkeep;
             foreach (var d in DomainInfo.All)
             {
-                var m = Maintainer(d);
-                // A domain an institution maintains is paid for unless that institution ran short and you couldn't cover it.
-                World.UpkeepPaidThisYear[(int)d] += m != null ? (InstitutionNet(m) < 0 ? instFraction : 1) : YearlyUpkeep(d) > 0 ? paidFraction : 1;
+                // A domain your institutions maintain is paid for unless one of them ran short and you couldn't cover your share.
+                bool short_ = HasHold(d) && Backed().Any(i => i.Def.Maintains == d && InstitutionNet(i) < 0);
+                World.UpkeepPaidThisYear[(int)d] += HasHold(d) ? (short_ ? instFraction : 1) : YearlyUpkeep(d) > 0 ? paidFraction : 1;
             }
             World.UpkeepTurnsThisYear++;
             if (instPaid < institutionUpkeep) InstitutionUpkeepShortfall();

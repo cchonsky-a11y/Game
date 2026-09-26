@@ -67,7 +67,7 @@ namespace Butterfly.Core
                 Cap(i.Def.ShortName) + "'s holdings grow with Rome's economy.");
         }
 
-        private bool Holds(Institution i) => i.Founded && i.Strength >= T.Get("institutions.dissolvedBelow") && i.Holdings > 0;
+        private bool Holds(Institution i) => HasInfluence(i) && i.Strength >= T.Get("institutions.dissolvedBelow") && i.Holdings > 0;
 
         private void Corrupt(Institution i, Arrival arrival)
         {

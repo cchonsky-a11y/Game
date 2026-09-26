@@ -15,7 +15,7 @@ namespace Butterfly.Core.Tests
             Assert.False(sim.Oversee("circle").Ok);          // not founded yet
             Assert.True(sim.Work().Ok);                     // 1
             Assert.Equal(1, sim.World.Attention);
-            Assert.False(sim.Found("circle").Ok);           // needs 2
+            Assert.False(sim.Found("school").Ok);           // needs 2
             Assert.False(sim.StartProject("market").Ok);
             sim.EndTurn();
             Assert.Equal(4 - sim.Data.Content.Project("physician")!.AttentionPerTurn, sim.World.Attention); // still working on it
@@ -50,7 +50,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 21);
             sim.World.Gold = 1000;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             sim.EndTurn();
             var c = sim.World.Institution("circle");
             Assert.True(sim.Mentor("circle").Ok);

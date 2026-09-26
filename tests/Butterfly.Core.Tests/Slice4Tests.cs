@@ -54,7 +54,7 @@ namespace Butterfly.Core.Tests
                 {
                     var sim = new Simulation(TestData.Load(), seed);
                     sim.World.Gold = 10000; // enough to pay any upkeep, so only the priority differs
-                    sim.Found("circle"); // priorities act only once an institution exists
+                    sim.GrantStake("circle", 0.5); // priorities act only once an institution exists
                     foreach (var d in DomainInfo.All) if (p != Priority.Maintain) sim.SetPriority(d, p);
                     RunUntil(sim, 171);
                     sum += sim.World.Plague.OutbreakYear;

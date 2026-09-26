@@ -106,7 +106,7 @@ namespace Butterfly.Core
             switch (response)
             {
                 case "quarantine": text = "The district is closed: sick houses are chalked and the docks held."; break;
-                case "hospice": text = "The physicians' circle opens a hospice in the Subura."; break;
+                case "hospice": text = Cap(HospiceInstitution()?.Def.Name ?? "the physicians") + " opens a hospice in the Subura."; break;
                 default: text = "No organized response: each household fends for itself."; break;
             }
             var e = Record("plague.response", "plague", new[] { p.LastStageEventId }, actors,

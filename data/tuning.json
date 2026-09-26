@@ -392,14 +392,6 @@
     }
   },
   "institutions": {
-    "foundGold": {
-      "value": 50,
-      "ref": "PROPOSED P0-10"
-    },
-    "foundAttention": {
-      "value": 2,
-      "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
-    },
     "charterGold": {
       "value": 30,
       "ref": "PROPOSED P0-10"
@@ -409,14 +401,6 @@
       "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
     },
     "endowGold": {
-      "value": 60,
-      "ref": "PROPOSED P0-10"
-    },
-    "startStrength": {
-      "value": 50,
-      "ref": "PROPOSED P0-10"
-    },
-    "startLoyalty": {
       "value": 60,
       "ref": "PROPOSED P0-10"
     },
@@ -574,6 +558,30 @@
       "guild": {
         "value": 8,
         "ref": "DECIDED 2026-09-27 (Corey: a commercial institution maintains the Economy); amount PROPOSED P0-17"
+      },
+      "sanctuary": {
+        "value": 6,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
+      },
+      "school": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
+      },
+      "junian": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
+      },
+      "club": {
+        "value": 8,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
+      },
+      "bank": {
+        "value": 8,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
+      },
+      "house": {
+        "value": 6,
+        "ref": "DECIDED 2026-09-27 (Corey: running cost depends on the institution); amount PROPOSED P0-18"
       }
     },
     "incomePerEconomyLevel": {
@@ -588,6 +596,56 @@
       "guild": {
         "value": 0.6,
         "ref": "DECIDED 2026-09-27 (Corey: a commercial institution maintains the Economy); amount PROPOSED P0-17: trade; × loyalty × strength"
+      },
+      "sanctuary": {
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      },
+      "school": {
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      },
+      "junian": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      },
+      "club": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      },
+      "bank": {
+        "value": 0.6,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      },
+      "house": {
+        "value": 0.6,
+        "ref": "DECIDED 2026-09-27 (Corey: margins thin until established); amount PROPOSED P0-18"
+      }
+    },
+    "establishedStrength": {
+      "circle": {
+        "value": 30,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      },
+      "sanctuary": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      },
+      "faction": {
+        "value": 45,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      },
+      "junian": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      },
+      "guild": {
+        "value": 40,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      },
+      "bank": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
       }
     }
   },
@@ -953,6 +1011,105 @@
         "value": 40,
         "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
       }
+    }
+  },
+  "stakes": {
+    "_readme": "Stakes in institutions (DECIDED 2026-09-27, Corey): you start with a 1% member's share; 10% counts toward influence but gives no oversight; 25% gives a voice (priorities, policy, a plague response); 50% gives oversight and control (oversee, mentor, charter, endow, audit, invest). Cost per 1% = domain base × (1 + stake% / 10).",
+    "firstBuyPercent": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-27 (Corey: 'Let's start with 1%')"
+    },
+    "influenceAt": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-27 (Corey: 10% has influence but not oversight)"
+    },
+    "voiceAt": {
+      "value": 0.25,
+      "ref": "DECIDED 2026-09-27 (Corey: agrees with 25%)"
+    },
+    "controlAt": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-27 (Corey: at least 50% to oversee and control)"
+    },
+    "costPerPercent": {
+      "medicine": {
+        "value": 1.2,
+        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+      },
+      "governance": {
+        "value": 1.8,
+        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+      },
+      "economy": {
+        "value": 1.5,
+        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+      }
+    },
+    "costGrowthPerPercent": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-27 (Corey: increasing cost for increasing control); rate PROPOSED P0-18"
+    },
+    "buyAttention": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "memberLoyalty": {
+      "value": 40,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "swayPerInfluence": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "investAttention": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "investStrengthPerGold": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    }
+  },
+  "founding": {
+    "_readme": "Founding your own institution (DECIDED 2026-09-27, Corey): costs about 65% of buying 0→50% of an established institution in the same domain; you control it from the start, but it starts weak, holds little of its domain, and may fail.",
+    "costShareOfControl": {
+      "value": 0.65,
+      "ref": "DECIDED 2026-09-27 (Corey: about 65% of the cost of 50% control)"
+    },
+    "attention": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "startStrength": {
+      "value": 15,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "startLoyalty": {
+      "value": 70,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "fragileBelow": {
+      "value": 25,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "collapseChancePerYear": {
+      "value": 0.15,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    }
+  },
+  "rivalry": {
+    "_readme": "Rival institutions in the same domain push back when one you control grows its share (DECIDED 2026-09-27, Corey: institutions battle for control and influence).",
+    "shareThreshold": {
+      "value": 0.4,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "strikeChancePerYear": {
+      "value": 0.3,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    },
+    "strikeStrength": {
+      "value": 3,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
     }
   }
 }

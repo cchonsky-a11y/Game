@@ -32,7 +32,7 @@ namespace Butterfly.Core.Tests
                 var sim = new Simulation(TestData.Load(), seed);
                 sim.World.Gold = 500;
                 sim.World.Attention = 100;
-                if (foundCircle) { sim.Found("circle"); sim.Charter("circle"); sim.Endow("circle"); }
+                if (foundCircle) { sim.GrantStake("circle", 0.5); sim.Charter("circle"); sim.Endow("circle"); }
                 while (sim.World.Plague.Stage != PlagueState.Passed)
                 {
                     if (sim.World.Promise.Status == PromiseStatus.Offered) sim.AnswerPromise(true);
@@ -51,7 +51,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 1);
             sim.World.Gold = 500;
             sim.World.Attention = 100;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             sim.Charter("circle");
             Assert.Contains(sim.DepartureBriefing(), l => l.Contains("chartered but not endowed, so it counts as bare"));
         }

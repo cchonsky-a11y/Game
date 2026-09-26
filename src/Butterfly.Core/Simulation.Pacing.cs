@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Butterfly.Core
 {
     /// <summary>
-    /// P0-only pacing (decided 2026-09-26, recorded in PROTOTYPE_SCOPE.md): 6-month turns, 20 per era,
+    /// P0-only pacing (decided 2026-09-26, recorded in PROTOTYPE_SCOPE.md): 3-month turns, 40 per era,
     /// and turns with no pending decision advance on their own.
     /// </summary>
     public sealed partial class Simulation
@@ -40,18 +41,36 @@ namespace Butterfly.Core
             return reasons;
         }
 
-        /// <summary>A project or institution step (found, charter, audit, minimum endowment) that gold and Attention allow now.</summary>
+        /// <summary>
+        /// A project or institution step that gold and Attention allow now: founding your own, buying up to the next
+        /// stake threshold (10%, 25%, 50%), or a charter, audit or minimum endowment for one you control.
+        /// </summary>
         public bool AffordableInvestment()
         {
             if (AvailableProjects().Any(p => p.Gold <= World.Gold && p.AttentionPerTurn <= World.Attention)) return true;
             foreach (var i in World.Institutions)
             {
-                if (!i.Founded) { if (Can(T.Get("institutions.foundGold"), "institutions.foundAttention")) return true; continue; }
+                if (i.Def.IsOwn && !i.Exists && !i.Collapsed) { if (Can(FoundCost(i.Def.Maintains), "founding.attention")) return true; continue; }
+                if (!i.Exists) continue;
+                int next = NextThresholdPercent(i);
+                if (next > 0 && Can(StakeCost(i, next - StakePercent(i)), "stakes.buyAttention")) return true;
+                if (!Controls(i)) continue;
                 if (!i.Chartered && Can(T.Get("institutions.charterGold"), "institutions.charterAttention")) return true;
                 if (!i.AuditCharter && Can(T.Get("institutions.auditGold"), "institutions.auditAttention")) return true;
                 if (!i.Endowed && Can(T.Get("institutions.endowGold") - i.Holdings, "institutions.endowAttention")) return true;
             }
             return false;
+        }
+
+        /// <summary>The next stake threshold (10, 25 or 50 percent) above your stake, or 0 once you control it.</summary>
+        public int NextThresholdPercent(Institution i)
+        {
+            foreach (var t in new[] { InfluenceAt, VoiceAt, ControlAt })
+            {
+                int p = (int)Math.Round(t * 100);
+                if (StakePercent(i) < p) return p;
+            }
+            return 0;
         }
 
         private bool Can(double gold, string attentionKey) => World.Gold >= gold && World.Attention >= T.GetInt(attentionKey);

@@ -47,7 +47,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 2);
             sim.ChooseSeeded("workshop");
             sim.World.Gold = 500;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             sim.SetPriority(Domain.Medicine, Priority.AcceptRisk);
             while (sim.Now.Year < 158) sim.EndTurn();
             string why = Why.Explain(sim, "medicine");
@@ -63,7 +63,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 2);
             sim.World.Gold = 500;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             while (sim.World.Plague.Stage < 2) sim.EndTurn();
             foreach (var topic in Why.Topics)
             {

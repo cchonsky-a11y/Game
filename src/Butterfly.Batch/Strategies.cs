@@ -28,18 +28,39 @@ namespace Butterfly.Batch
             }
         }
 
+        /// <summary>Buys as much of an established institution as gold allows, up to <paramref name="targetPercent"/>.</summary>
+        protected static void BuyToward(Simulation sim, string id, int targetPercent, double reserve)
+        {
+            var i = sim.World.Institution(id);
+            if (!i.Exists || i.Def.IsOwn) return;
+            int points = 0;
+            while (sim.StakePercent(i) + points < targetPercent && sim.StakeCost(i, points + 1) <= sim.World.Gold - reserve) points++;
+            if (points > 0) sim.Buy(id, points);
+        }
+
+        /// <summary>
+        /// Works toward controlling an institution (founding it if it is the player's own, buying up to 50% otherwise),
+        /// then charters and endows it.
+        /// </summary>
         protected static void TryInstitution(Simulation sim, string id, double reserve)
         {
             var i = sim.World.Institution(id);
-            if (!i.Founded) { if (sim.World.Gold - sim.T.Get("institutions.foundGold") >= reserve) sim.Found(id); return; }
+            if (i.Def.IsOwn)
+            {
+                if (!i.Exists && !i.Collapsed && sim.World.Gold - sim.FoundCost(i.Def.Maintains) >= reserve) sim.Found(id);
+            }
+            else if (!sim.Controls(i)) BuyToward(sim, id, (int)System.Math.Round(sim.ControlAt * 100), reserve);
+            if (!sim.Controls(i)) return;
             if (!i.Chartered && sim.World.Gold - sim.T.Get("institutions.charterGold") >= reserve) sim.Charter(id);
             if (!i.Endowed && sim.World.Gold - sim.T.Get("institutions.endowGold") >= reserve) sim.Endow(id);
         }
 
+        protected static bool Controls(Simulation sim, string id) => sim.Controls(sim.World.Institution(id));
+
         protected static void OverseeIfNeeded(Simulation sim, string id, double below)
         {
             var i = sim.World.Institution(id);
-            if (i.Founded && i.Loyalty < below) sim.Oversee(id);
+            if (sim.Controls(i) && i.Loyalty < below) sim.Oversee(id);
         }
 
         /// <summary>
@@ -48,7 +69,7 @@ namespace Butterfly.Batch
         /// </summary>
         protected static void AuditAndEndow(Simulation sim, params string[] ids)
         {
-            var founded = ids.Select(id => sim.World.Institution(id)).Where(i => i.Founded).ToList();
+            var founded = ids.Select(id => sim.World.Institution(id)).Where(sim.Controls).ToList();
             if (founded.Count == 0) return;
             foreach (var i in founded)
             {
@@ -87,7 +108,7 @@ namespace Butterfly.Batch
     }
 
     /// <summary>
-    /// Spreads investment across all three domains and both institutions. Three variants differ only in how
+    /// Spreads investment across all three domains and takes control of established institutions. Three variants differ only in how
     /// they treat debt: Pay-down (the Balanced strategy) clears it, Endow leaves it to the institutions and
     /// endows them, Split pays half and endows the rest.
     /// </summary>
@@ -114,9 +135,9 @@ namespace Butterfly.Batch
             if (sim.Turn == 1) sim.ChooseSeeded("fountain");
             if (PolicyStance != 0)
             {
-                // Policy strategies go for the faction first (policy) and the guild (Economy), then the Circle.
+                // Policy strategies take control of the faction first (policy), then a voice in the guild (Economy), then the Circle.
                 TryInstitution(sim, "faction", 0);
-                if (sim.World.Institution("faction").Founded) TryInstitution(sim, "guild", 0);
+                if (Controls(sim, "faction")) BuyToward(sim, "guild", (int)System.Math.Round(sim.VoiceAt * 100), 0);
                 foreach (var issue in Simulation.Issues)
                     if (sim.Stance(issue) != PolicyStance) sim.SetPolicy(issue, PolicyStance);
                 if (sim.World[Domain.Economy].Priority != Priority.Protect) sim.SetPriority(Domain.Economy, Priority.Protect);
@@ -127,9 +148,9 @@ namespace Butterfly.Batch
             AnswerPending(sim, true, "hospice", "quarantine");
             OverseeIfNeeded(sim, "circle", 65);
             OverseeIfNeeded(sim, "faction", 65);
-            // Finish the circle (found, charter, endow) before starting the faction.
+            // Take control of the circle (then charter and endow it) before buying into the faction.
             var circle = sim.World.Institution("circle");
-            TryInstitution(sim, "circle", 0);
+            if (PolicyStance == 0 || Controls(sim, "faction")) TryInstitution(sim, "circle", 0);
             if (circle.Chartered && circle.Endowed) TryInstitution(sim, "faction", 0);
             // Invest in the weakest domain first.
             foreach (var d in DomainInfo.All.OrderBy(sim.SubScore))
@@ -146,7 +167,7 @@ namespace Butterfly.Batch
         {
             if (_paydownShare >= 1) PayDownDebts(sim, DomainInfo.All);
             else if (_paydownShare > 0) PayDownDebts(sim, DomainInfo.All, sim.World.Gold * _paydownShare, 1);
-            AuditAndEndow(sim, "circle", "faction");
+            AuditAndEndow(sim, "circle", "faction", "guild");
         }
     }
 
@@ -162,7 +183,7 @@ namespace Butterfly.Batch
         public SplitStrategy() : base("Split", 0.5) { }
     }
 
-    /// <summary>Puts every spare coin and hour into Medicine and the physicians' circle.</summary>
+    /// <summary>Puts every spare coin and hour into Medicine and a school of its own, which it founds and builds up.</summary>
     public sealed class SpecializedStrategy : Strategy
     {
         public override string Name => "Specialized";
@@ -173,14 +194,17 @@ namespace Butterfly.Batch
             {
                 sim.ChooseSeeded("fountain");
             }
-            // Foreknowledge of the plague matches its chosen focus: Protect Medicine once the Circle gives it a hold.
+            // Foreknowledge of the plague matches its chosen focus: Protect Medicine once the school gives it a voice.
             if (sim.World[Domain.Medicine].Priority != Priority.Protect) sim.SetPriority(Domain.Medicine, Priority.Protect);
             AnswerPending(sim, true, "hospice", "quarantine");
-            OverseeIfNeeded(sim, "circle", 80);
-            TryInstitution(sim, "circle", 0);
+            OverseeIfNeeded(sim, "school", 80);
+            TryInstitution(sim, "school", 0);
+            // Build the school up past the point where it could fail, then keep growing its share.
+            var school = sim.World.Institution("school");
+            if (sim.Controls(school) && school.Strength < 60 && sim.World.Gold >= 30) sim.Invest("school", System.Math.Floor(sim.World.Gold / 2));
             var project = sim.AvailableProjects().Where(p => p.Domain == Domain.Medicine && p.Gold <= sim.World.Gold).OrderBy(p => p.Gold).FirstOrDefault();
             if (project != null) sim.StartProject(project.Id);
-            if (sim.World.Institution("circle").Founded && sim.CommitmentsEnabled && sim.World.Commitments.Count == 0) sim.Mentor("circle");
+            if (sim.Controls(school) && sim.CommitmentsEnabled && sim.World.Commitments.Count == 0) sim.Mentor("school");
             PayDownDebts(sim, new[] { Domain.Medicine });
             WorkBest(sim);
         }
@@ -188,18 +212,18 @@ namespace Butterfly.Batch
         public override void BeforeJump(Simulation sim)
         {
             PayDownDebts(sim, DomainInfo.All);
-            AuditAndEndow(sim, "circle");
+            AuditAndEndow(sim, "school");
         }
     }
 
-    /// <summary>Balanced play plus the faction and the guild, with Austrian stances on every issue (free-market).</summary>
+    /// <summary>Balanced play, but takes the faction (policy) and a voice in the guild first, with Austrian stances on every issue (free-market).</summary>
     public sealed class FreeMarketStrategy : BalancedStrategy
     {
         public FreeMarketStrategy() : base("FreeMarket", 1) { }
         protected override int PolicyStance => 1;
     }
 
-    /// <summary>Balanced play plus the faction and the guild, with interventionist stances on every issue.</summary>
+    /// <summary>Balanced play, but takes the faction (policy) and a voice in the guild first, with interventionist stances on every issue.</summary>
     public sealed class InterventionistStrategy : BalancedStrategy
     {
         public InterventionistStrategy() : base("Interventionist", 1) { }

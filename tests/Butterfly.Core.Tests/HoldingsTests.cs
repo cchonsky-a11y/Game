@@ -11,7 +11,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), seed);
             sim.World.Gold = 2000;
             sim.World.Attention = 100;
-            sim.Found("circle");
+            sim.GrantStake("circle", 0.5);
             return sim;
         }
 
@@ -53,7 +53,7 @@ namespace Butterfly.Core.Tests
             sim.Audit("circle");
             Assert.Equal(0.05 * 2 * 0.5 * (1 - 0.3), sim.CorruptionChance(c), 9);
 
-            sim.Found("faction"); // Varro is venal
+            sim.GrantStake("faction", 0.5); // Varro is venal
             var f = sim.World.Institution("faction");
             sim.Endow("faction", 60);
             Assert.Equal(0.05 * 1 * 1 * 1.3, sim.CorruptionChance(f), 9);
@@ -63,7 +63,7 @@ namespace Butterfly.Core.Tests
         public void SeverityWeightsShiftWithAuditAndIntegrity()
         {
             var sim = WithCircle();
-            sim.Found("faction");
+            sim.GrantStake("faction", 0.5);
             var honest = sim.World.Institution("circle");
             var venal = sim.World.Institution("faction");
             Assert.Equal(new double[] { 50, 40, 10 }, sim.CorruptionWeights(honest));
@@ -120,7 +120,7 @@ namespace Butterfly.Core.Tests
                 var sim = new Simulation(TestData.Load(), seed);
                 sim.World.Gold = 2000;
                 sim.World.Attention = 100;
-                sim.Found("faction"); // venal leader, large holdings, no audit: the riskiest case
+                sim.GrantStake("faction", 0.5); // venal leader, large holdings, no audit: the riskiest case
                 sim.Endow("faction", 500);
                 sim.Jump();
                 var events = sim.Log.Events.Where(e => e.Type == "institution.corruption").ToList();
@@ -141,7 +141,7 @@ namespace Butterfly.Core.Tests
                 var sim = new Simulation(TestData.Load(), seed);
                 sim.World.Gold = 2000;
                 sim.World.Attention = 100;
-                sim.Found("faction");
+                sim.GrantStake("faction", 0.5);
                 sim.Endow("faction", 500);
                 var arrival = sim.Jump();
                 var f = sim.World.Institution("faction");
@@ -156,7 +156,7 @@ namespace Butterfly.Core.Tests
         public void RiskBandsFollowTheChance()
         {
             var sim = WithCircle();
-            sim.Found("faction");
+            sim.GrantStake("faction", 0.5);
             var c = sim.World.Institution("circle");
             var f = sim.World.Institution("faction");
             sim.Endow("circle", 60);   // honest, small: 3.5%

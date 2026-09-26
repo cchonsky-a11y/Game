@@ -78,8 +78,9 @@ namespace Butterfly.Core
         public CommandResult Mentor(string institutionId)
         {
             if (!CommitmentsEnabled) return CommandResult.Fail("Multi-turn commitments are switched off in tuning.json.");
-            var inst = FindInstitution(institutionId);
-            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            var inst = FindInstitution(institutionId)!;
+            var fail = RequireControl(inst, institutionId);
+            if (fail != null) return fail;
             if (World.Commitments.Any(c => c.InstitutionId == inst.Key)) return CommandResult.Fail("You are already mentoring " + inst.Def.ShortName + ".");
             int perTurn = T.GetInt("commitments.mentor.attentionPerTurn");
             var attention = CheckAttention(perTurn);
@@ -164,7 +165,7 @@ namespace Butterfly.Core
             if (World.Promise.Status != PromiseStatus.NotOffered || IsAway) return;
             World.Promise.Status = PromiseStatus.Offered;
             var e = Record("promise.offer", "promise", new[] { causeId }, new[] { PromiseInstitution.Def.Leader }, null,
-                PromiseInstitution.Def.Leader + (PromiseInstitution.Founded ? "" : ", a Greek physician who treats the Subura's poor,") +
+                PromiseInstitution.Def.Leader + (PromiseInstitution.Backed ? "" : ", a Greek physician who treats the Subura's poor,") +
                 " hears the rumors from the East and asks you: \"Promise me you will stay until this sickness has passed through Rome.\"");
             World.Promise.OfferEventId = e.Id;
             World.Promise.LastEventId = e.Id;
@@ -180,7 +181,7 @@ namespace Butterfly.Core
                 new[] { new Effect("promise.status", (int)PromiseStatus.Offered, (int)p.Status) },
                 accept ? "You promise " + leader + " you will stay until the sickness has passed." : "You tell " + leader + " you can't promise that.");
             p.LastEventId = e.Id;
-            if (PromiseInstitution.Founded)
+            if (PromiseInstitution.Backed)
                 ChangeLoyalty(PromiseInstitution, accept ? T.Get("promise.acceptLoyalty") : -T.Get("promise.refuseLoyalty"),
                     "institution.loyalty", new[] { e.Id }, new[] { leader }, accept ? leader + " trusts you." : leader + " is disappointed.");
             return CommandResult.Success(accept ? "You gave your word." : "You refused.");
@@ -197,7 +198,7 @@ namespace Butterfly.Core
                 new[] { new Effect("promise.status", (int)PromiseStatus.Active, (int)PromiseStatus.Kept) },
                 "You stayed through the pestilence, as you promised " + leader + ".");
             p.LastEventId = e.Id;
-            if (PromiseInstitution.Founded)
+            if (PromiseInstitution.Backed)
                 ChangeLoyalty(PromiseInstitution, T.Get("promise.keptLoyalty"), "institution.loyalty", new[] { e.Id }, new[] { leader },
                     leader + " will not forget it.");
         }

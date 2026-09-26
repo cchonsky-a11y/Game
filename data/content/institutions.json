@@ -1,5 +1,5 @@
 {
-  "_readme": "The two P0 institutions (PROTOTYPE_SCOPE), each with a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Drift path selection rules: PROPOSED P0-11.",
+  "_readme": "Institutions (SYSTEMS §7). Each domain has two established institutions you can buy into (origin 'established', they exist from the start) and one you can found yourself (origin 'own'). Each has a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Stakes and rivalry: DECIDED 2026-09-27, numbers PROPOSED P0-18.",
   "institutions": [
     {
       "id": "circle",
@@ -15,7 +15,6 @@
         "medicine",
         "teaching"
       ],
-      "foundText": "Demetria of Pergamon gathers four physicians in a rented room by the fountain. You pay the rent; she sets the rules.",
       "driftPaths": [
         {
           "id": "hospice",
@@ -33,6 +32,78 @@
           "description": "A closed guild that sells cures to the rich, licenses who may practice, and sues anyone who treats the poor for free.",
           "arrivalLeader": "Flavius Demetrianus, Dean of the Collegium"
         }
+      ],
+      "origin": "established",
+      "joinText": "Demetria of Pergamon takes your dues and writes your name in the Circle's book of members. She sets the rules; you have bought a seat, not a say."
+    },
+    {
+      "id": "sanctuary",
+      "origin": "established",
+      "name": "the healers of the Tiber Island sanctuary",
+      "shortName": "the sanctuary",
+      "type": "religious",
+      "maintains": "medicine",
+      "leader": "Gaius Herennius Asper",
+      "leaderRole": "temple physician",
+      "leaderIntegrity": "average",
+      "foundingIdentity": "old temple healers who treat the sick with sleep, diet and votive offerings",
+      "tags": [
+        "medicine",
+        "temple"
+      ],
+      "joinText": "Gaius Herennius Asper accepts your offering for the sanctuary's porticoes and adds your name to its list of benefactors.",
+      "driftPaths": [
+        {
+          "id": "infirmary",
+          "name": "the Infirmary of the Island",
+          "identity": "charitable",
+          "condition": "charteredAndDomainHeld",
+          "description": "The porticoes became wards. They still leave offerings, but now they also keep records of who recovers.",
+          "arrivalLeader": "Herennia Salvia, Mistress of the Infirmary"
+        },
+        {
+          "id": "shrine",
+          "name": "the Keepers of the Island Shrine",
+          "identity": "ritualistic",
+          "condition": "otherwise",
+          "description": "A shrine that sells cures by the dream and the amulet, and warns the city against any physician who asks too many questions.",
+          "arrivalLeader": "Asper Minor, Keeper of the Shrine"
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "origin": "own",
+      "name": "the School of the Fountain",
+      "shortName": "the School",
+      "type": "scholarly",
+      "maintains": "medicine",
+      "leader": "Theon of Alexandria",
+      "leaderRole": "physician",
+      "leaderIntegrity": "honest",
+      "foundingIdentity": "your own school of medicine: clean water, boiled linen, and notes on every patient",
+      "tags": [
+        "medicine",
+        "teaching"
+      ],
+      "foundText": "You rent two rooms by the fountain and hire Theon of Alexandria, a young physician with no patrons, to teach what you tell him. It is yours, and it is tiny.",
+      "driftPaths": [
+        {
+          "id": "academy",
+          "name": "the Academy of the Fountain",
+          "identity": "reformist",
+          "condition": "promiseKeptOrHospice",
+          "description": "A teaching hospital that still boils its linen and still argues about why it works.",
+          "arrivalLeader": "Theonilla, Rector of the Academy"
+        },
+        {
+          "id": "secret",
+          "name": "the Brotherhood of the Fountain",
+          "identity": "isolationist",
+          "condition": "otherwise",
+          "description": "A closed brotherhood that guards the founder's notes as secrets and treats only its own.",
+          "arrivalLeader": "Brother Theonas, Keeper of the Notes"
+        }
       ]
     },
     {
@@ -49,7 +120,6 @@
         "politics",
         "patronage"
       ],
-      "foundText": "Senator Lucius Caecilius Varro agrees to lead a bloc in the Curia. He wants your gold; you want his votes.",
       "driftPaths": [
         {
           "id": "reformers",
@@ -67,6 +137,78 @@
           "description": "Three families who hold the city prefecture by inheritance and remember the founder only as a name on their gate.",
           "arrivalLeader": "Marcus Caecilius Varro, Prefect of the City"
         }
+      ],
+      "origin": "established",
+      "joinText": "Senator Lucius Caecilius Varro accepts your gold for the faction's chest. He wants your money; you want his votes."
+    },
+    {
+      "id": "junian",
+      "origin": "established",
+      "name": "the Junian faction",
+      "shortName": "the Junians",
+      "type": "political",
+      "maintains": "governance",
+      "leader": "Senator Quintus Junius Silvanus",
+      "leaderRole": "senator",
+      "leaderIntegrity": "average",
+      "foundingIdentity": "an old senate bloc of landowners who guard the courts and the grain dole",
+      "tags": [
+        "politics",
+        "land"
+      ],
+      "joinText": "Senator Quintus Junius Silvanus receives you in his atrium, takes your gift for the bloc, and promises nothing.",
+      "driftPaths": [
+        {
+          "id": "magistrates",
+          "name": "the Junian Bench",
+          "identity": "bureaucratic",
+          "condition": "charteredAndDomainHeld",
+          "description": "A family of magistrates who run the courts by the book, slowly, and for everyone.",
+          "arrivalLeader": "Junia Silvana, President of the Bench"
+        },
+        {
+          "id": "landlords",
+          "name": "the Junian Estates",
+          "identity": "politically powerful",
+          "condition": "otherwise",
+          "description": "Landowners who hold half the province and the magistracies that tax it.",
+          "arrivalLeader": "Quintus Junius Magnus, Lord of the Estates"
+        }
+      ]
+    },
+    {
+      "id": "club",
+      "origin": "own",
+      "name": "the Club of the Aventine",
+      "shortName": "the Club",
+      "type": "political",
+      "maintains": "governance",
+      "leader": "Titus Flavius Rufus",
+      "leaderRole": "equestrian",
+      "leaderIntegrity": "average",
+      "foundingIdentity": "your own dining club of equestrians and junior magistrates pledged to honest courts",
+      "tags": [
+        "politics",
+        "patronage"
+      ],
+      "foundText": "You host a dinner on the Aventine for a dozen equestrians and junior magistrates. Titus Flavius Rufus agrees to lead them. It is yours, and it is small.",
+      "driftPaths": [
+        {
+          "id": "reform",
+          "name": "the Aventine Reformers",
+          "identity": "reformist",
+          "condition": "charteredAndDomainHeld",
+          "description": "Still a club of reformers, still dining once a month, still writing laws no one else reads.",
+          "arrivalLeader": "Flavia Rufina, President of the Aventine"
+        },
+        {
+          "id": "clientele",
+          "name": "the Aventine Clientele",
+          "identity": "politically powerful",
+          "condition": "otherwise",
+          "description": "A patronage machine that sells offices to its members' sons.",
+          "arrivalLeader": "Flavius Rufus Magnus, Patron of the Aventine"
+        }
       ]
     },
     {
@@ -83,7 +225,6 @@
         "commerce",
         "trade"
       ],
-      "foundText": "Publius Aelius Sabinus, who ships grain from Alexandria, gathers a dozen traders at Ostia. You put up the dues; they elect him head.",
       "driftPaths": [
         {
           "id": "freetraders",
@@ -100,6 +241,78 @@
           "condition": "otherwise",
           "description": "A handful of houses that decide who may land grain at Ostia and at what price, and pay the magistrates to keep it so.",
           "arrivalLeader": "Gaius Sabinus Magnus, Master of the Cartel"
+        }
+      ],
+      "origin": "established",
+      "joinText": "Publius Aelius Sabinus, who ships grain from Alexandria, takes your dues at the guild hall in Ostia and enters you as a sleeping partner."
+    },
+    {
+      "id": "bank",
+      "origin": "established",
+      "name": "the banking house of Octavius at the Forum",
+      "shortName": "the bank",
+      "type": "commercial",
+      "maintains": "economy",
+      "leader": "Lucius Octavius Crispus",
+      "leaderRole": "moneychanger",
+      "leaderIntegrity": "venal",
+      "foundingIdentity": "moneychangers and lenders at the Forum who test coin and finance cargoes",
+      "tags": [
+        "commerce",
+        "credit"
+      ],
+      "joinText": "Lucius Octavius Crispus weighs your coin twice, then writes you in as a depositor with a share in the house.",
+      "driftPaths": [
+        {
+          "id": "counting",
+          "name": "the Counting House of Octavius",
+          "identity": "commercial",
+          "condition": "soundMoneyAndFreePrices",
+          "description": "A house that lends on honest coin at honest rates, and is trusted for it from Ostia to Alexandria.",
+          "arrivalLeader": "Octavia Prisca, Mistress of the Counting House"
+        },
+        {
+          "id": "creditors",
+          "name": "the Creditors of the Treasury",
+          "identity": "politically powerful",
+          "condition": "otherwise",
+          "description": "Lenders to the emperors, paid in new coin and new taxes, who own more of Rome's debts than Rome does.",
+          "arrivalLeader": "Octavius Crispinus, First Creditor"
+        }
+      ]
+    },
+    {
+      "id": "house",
+      "origin": "own",
+      "name": "the trading house of Menodora",
+      "shortName": "the house",
+      "type": "commercial",
+      "maintains": "economy",
+      "leader": "Menodora",
+      "leaderRole": "freedwoman trader",
+      "leaderIntegrity": "honest",
+      "foundingIdentity": "your own trading house: fair weights, written contracts, and credit on honest terms",
+      "tags": [
+        "commerce",
+        "trade"
+      ],
+      "foundText": "You back Menodora, a freedwoman who trades oil and cloth, to open a house of your own by the river. It is yours, and it has one warehouse.",
+      "driftPaths": [
+        {
+          "id": "openhouse",
+          "name": "the House of Menodora",
+          "identity": "commercial",
+          "condition": "soundMoneyAndFreePrices",
+          "description": "A trading house with agents in every port, famous for paying on the day it promises.",
+          "arrivalLeader": "Menodora the Younger, Head of the House"
+        },
+        {
+          "id": "monopoly",
+          "name": "the Menodoran Monopoly",
+          "identity": "commercial",
+          "condition": "otherwise",
+          "description": "A house that won a monopoly on oil from the magistrates and has not let go of it since.",
+          "arrivalLeader": "Menodorus, Holder of the Oil Monopoly"
         }
       ]
     }

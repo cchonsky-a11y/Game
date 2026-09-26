@@ -864,6 +864,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Corruption (30-year window) | Chance per decade = 0.05 × exposure (×1 small, ×2 large) × (1 − audit 0.5) × (1 − integrity: honest 0.3, average 0, venal −0.3); Minor / Major / Total lose 25% / 50% / 100%; weights 40/40/20 unprotected, 70/25/5 audited |
 | Paying down debt | 1.5× the cost of prevention |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
+| Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/10); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |
 | Jump landing thresholds | Sphere Index ≥ 110 (Full), ≥ 130 (Superior) |
 | Malfunction chance | 15% Partial (5% of those lethal); 5% Standard (1% lethal) |
 | Sim Mode | 1 Attention per scene; up to 3 actions |

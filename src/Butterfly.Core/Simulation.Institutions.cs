@@ -5,52 +5,50 @@ using System.Linq;
 namespace Butterfly.Core
 {
     /// <summary>
-    /// The physicians' circle and the senate faction (SYSTEMS §7): founding, charters, endowments,
-    /// oversight, loyalty, decay per decade during absence and the two pre-authored drift paths each.
+    /// Institutions (SYSTEMS §7): charters, endowments, audits and oversight for those you control, loyalty,
+    /// decay per decade during absence and the two pre-authored drift paths each. Stakes, founding and
+    /// rivals live in Simulation.Stakes.cs.
     /// </summary>
     public sealed partial class Simulation
     {
         private void InitInstitutions()
         {
-            foreach (var def in Data.Content.Institutions) World.Institutions.Add(new Institution(def));
+            foreach (var def in Data.Content.Institutions)
+            {
+                var i = new Institution(def);
+                if (!def.IsOwn)
+                {
+                    i.Exists = true;
+                    i.Strength = T.Get("institutions.establishedStrength." + def.Id);
+                }
+                World.Institutions.Add(i);
+            }
         }
 
         internal static string StrengthKey(Institution i) => i.Key + ".strength";
         internal static string LoyaltyKey(Institution i) => i.Key + ".loyalty";
         internal static string HoldingsKey(Institution i) => i.Key + ".holdings";
 
+        private static readonly Dictionary<string, string> Aliases = new Dictionary<string, string>
+        {
+            { "senate", "faction" }, { "physicians", "circle" }, { "island", "sanctuary" }, { "temple", "sanctuary" },
+            { "junius", "junian" }, { "octavius", "bank" }, { "menodora", "house" }, { "aventine", "club" }, { "ostia", "guild" },
+        };
+
         public Institution? FindInstitution(string text)
         {
-            text = text.ToLowerInvariant();
-            return World.Institutions.FirstOrDefault(i => i.Key == text || i.Def.ShortName.ToLowerInvariant().Contains(text) ||
-                                                          (text == "senate" && i.Key == "faction") || (text == "physicians" && i.Key == "circle"));
-        }
-
-        public CommandResult Found(string id)
-        {
-            var inst = FindInstitution(id);
-            if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
-            if (inst.Founded) return CommandResult.Fail(Cap(inst.Def.Name) + " already exists.");
-            double cost = T.Get("institutions.foundGold");
-            if (World.Gold < cost) return CommandResult.Fail("Founding costs " + F(cost) + " gold.");
-            var attention = CheckAttention(T.GetInt("institutions.foundAttention"));
-            if (attention != null) return attention;
-            SpendAttention(T.GetInt("institutions.foundAttention"));
-            double gold = World.Gold;
-            SpendGold(cost);
-            inst.Founded = true;
-            inst.Strength = T.Get("institutions.startStrength");
-            inst.Loyalty = T.Get("institutions.startLoyalty");
-            Record("institution.found", inst.Key, null, new[] { "player", inst.Leader },
-                new[] { new Effect(StrengthKey(inst), 0, inst.Strength), new Effect(LoyaltyKey(inst), 0, inst.Loyalty), new Effect(GoldKey, gold, World.Gold) },
-                inst.Def.FoundText);
-            return CommandResult.Success("You founded " + inst.Def.Name + ", led by " + inst.Leader + " (" + F(cost) + " gold, " + T.GetInt("institutions.foundAttention") + " Attention).");
+            text = (text ?? "").Trim().ToLowerInvariant();
+            if (text.Length < 3) return null;
+            if (Aliases.TryGetValue(text, out var alias)) text = alias;
+            return World.Institutions.FirstOrDefault(i => i.Key == text)
+                   ?? World.Institutions.FirstOrDefault(i => i.Def.ShortName.ToLowerInvariant().Replace("the ", "").StartsWith(text, StringComparison.Ordinal));
         }
 
         public CommandResult Charter(string id)
         {
-            var inst = FindInstitution(id);
-            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            var inst = FindInstitution(id)!;
+            var fail = RequireControl(inst, id);
+            if (fail != null) return fail;
             if (inst.Chartered) return CommandResult.Fail(Cap(inst.Def.ShortName) + " already has a charter.");
             double cost = T.Get("institutions.charterGold");
             if (World.Gold < cost) return CommandResult.Fail("A charter costs " + F(cost) + " gold.");
@@ -76,8 +74,9 @@ namespace Butterfly.Core
         /// </summary>
         public CommandResult Endow(string id, double amount)
         {
-            var inst = FindInstitution(id);
-            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            var inst = FindInstitution(id)!;
+            var fail = RequireControl(inst, id);
+            if (fail != null) return fail;
             if (amount <= 0) return CommandResult.Fail("Endow how much?");
             if (World.Gold < amount) return CommandResult.Fail("You have only " + F(World.Gold) + " gold.");
             var attention = CheckAttention(T.GetInt("institutions.endowAttention"));
@@ -100,8 +99,9 @@ namespace Butterfly.Core
         /// <summary>An audit charter: halves the corruption hazard and shifts its severity toward Minor.</summary>
         public CommandResult Audit(string id)
         {
-            var inst = FindInstitution(id);
-            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            var inst = FindInstitution(id)!;
+            var fail = RequireControl(inst, id);
+            if (fail != null) return fail;
             if (inst.AuditCharter) return CommandResult.Fail(Cap(inst.Def.ShortName) + " already has an audit charter.");
             double cost = T.Get("institutions.auditGold");
             if (World.Gold < cost) return CommandResult.Fail("An audit charter costs " + F(cost) + " gold.");
@@ -120,8 +120,9 @@ namespace Butterfly.Core
         /// <summary>Overseeing in person: one Attention, raises loyalty (GDD §7). Once per turn per institution.</summary>
         public CommandResult Oversee(string id)
         {
-            var inst = FindInstitution(id);
-            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            var inst = FindInstitution(id)!;
+            var fail = RequireControl(inst, id);
+            if (fail != null) return fail;
             if (inst.OverseenTurn == Turn) return CommandResult.Fail("You already oversaw " + inst.Def.ShortName + " this turn.");
             var attention = CheckAttention(1);
             if (attention != null) return attention;
@@ -136,14 +137,12 @@ namespace Butterfly.Core
             return CommandResult.Success("Loyalty " + F(inst.Loyalty) + ", strength " + F(inst.Strength) + ".");
         }
 
-        internal IEnumerable<Institution> Founded() => World.Institutions.Where(i => i.Founded);
-
-        /// <summary>Shortfalls you must cover for institutions whose income doesn't meet their costs.</summary>
-        private double InstitutionUpkeepTotal() => Founded().Sum(i => Math.Max(0, -InstitutionNet(i)));
+        /// <summary>Your share of the shortfalls of institutions whose income doesn't meet their costs (by stake).</summary>
+        private double InstitutionUpkeepTotal() => Backed().Sum(i => i.Stake * Math.Max(0, -InstitutionNet(i)));
 
         private void InstitutionUpkeepShortfall()
         {
-            foreach (var i in Founded().Where(i => InstitutionNet(i) < 0))
+            foreach (var i in Backed().Where(i => InstitutionNet(i) < 0))
                 ChangeLoyalty(i, -T.Get("institutions.unpaidLoyaltyLoss"), "institution.unpaid", CausesOf(GoldKey), new[] { i.Leader },
                     Cap(i.Def.ShortName) + " ran short this season and you couldn't cover it.");
         }
@@ -151,7 +150,7 @@ namespace Butterfly.Core
         private void ApplyInstitutionExtra(ProjectDef def, ProjectExtra x, int causeId)
         {
             var inst = x.Institution == null ? null : FindInstitution(x.Institution);
-            if (inst == null || !inst.Founded) return;
+            if (inst == null || !inst.Backed) return;
             if (x.Type == "institutionLoyalty")
                 ChangeLoyalty(inst, x.Value, "institution.loyalty", new[] { causeId }, new[] { "player" },
                     def.Name + " pleases " + inst.Leader + ".");
@@ -178,58 +177,64 @@ namespace Butterfly.Core
                     text + " Strength " + F(before) + " → " + F(i.Strength) + ".");
         }
 
-        /// <summary>In-era yearly step: loyalty fades without attention; loyal institutions grow, disloyal ones wither.</summary>
+        /// <summary>
+        /// In-era yearly step for institutions you control: loyalty fades without attention; loyal ones grow, disloyal
+        /// ones wither. Then young institutions of your own may fail, and rivals push back.
+        /// </summary>
         private void InstitutionsYearTick()
         {
-            foreach (var i in Founded())
+            foreach (var i in Controlled().ToList())
             {
                 ChangeLoyalty(i, -T.Get("institutions.loyaltyFadePerYear"), "institution.loyalty", CausesOf(LoyaltyKey(i)), new[] { i.Leader },
-                    "Without your presence, " + i.Leader + " follows " + (i.Key == "circle" ? "her" : "his") + " own judgment more.");
+                    "Without your presence, " + i.Leader + " follows their own judgment more.");
                 double growth = i.Loyalty >= T.Get("institutions.growthLoyaltyThreshold")
                     ? T.Get("institutions.growthPerYear") : -T.Get("institutions.witherPerYear");
                 ChangeStrength(i, growth, "institution.strength", CausesOf(LoyaltyKey(i)), new[] { i.Leader },
                     Cap(i.Def.ShortName) + (growth > 0 ? " recruits members." : " loses members."));
             }
+            FragileFoundationsYearTick();
+            RivalryYearTick();
         }
 
         // ---- plague hooks ---------------------------------------------------
 
-        private bool HospiceAvailable()
+        /// <summary>The Medicine institution you have a voice in, if it is strong enough to run a hospice.</summary>
+        internal Institution? HospiceInstitution()
         {
-            var c = World.Institution("circle");
-            return c.Founded && c.Strength >= T.Get("institutions.hospiceMinStrength");
+            var m = VoiceIn(Domain.Medicine);
+            return m != null && m.Strength >= T.Get("institutions.hospiceMinStrength") ? m : null;
         }
+
+        private bool HospiceAvailable() => HospiceInstitution() != null;
 
         /// <summary>When the inventor is away, institutions respond on their own if loyal enough.</summary>
         private string AutomaticResponse()
         {
-            var circle = World.Institution("circle");
-            var faction = World.Institution("faction");
             double min = T.Get("institutions.autonomousResponseLoyalty");
-            if (HospiceAvailable() && circle.Loyalty >= min) return "hospice";
-            if (faction.Founded && faction.Loyalty >= min) return "quarantine";
+            var h = HospiceInstitution();
+            if (h != null && h.Loyalty >= min) return "hospice";
+            var g = VoiceIn(Domain.Governance);
+            if (g != null && g.Loyalty >= min) return "quarantine";
             return "none";
         }
 
-        private double InstitutionPlagueResilience()
-        {
-            var c = World.Institution("circle");
-            return c.Founded ? c.Strength / 100.0 * T.Get("institutions.circlePlagueResilience") : 0;
-        }
+        /// <summary>Medicine institutions you steer blunt an epidemic in proportion to their strength.</summary>
+        private double InstitutionPlagueResilience() =>
+            InDomain(Domain.Medicine).Sum(i => ControlFactor(i) * i.Strength / 100.0) * T.Get("institutions.circlePlagueResilience");
 
         private void OnPlagueResolved(int tollEventId)
         {
-            var c = World.Institution("circle");
-            if (!c.Founded) return;
+            var m = VoiceIn(Domain.Medicine);
+            if (m == null) return;
             if (World.Plague.Response == "hospice")
             {
-                ChangeStrength(c, T.Get("institutions.hospiceStrengthGain"), "institution.strength", new[] { tollEventId }, new[] { c.Leader },
-                    "The hospice made the Circle's name in the district.");
+                ChangeStrength(m, T.Get("institutions.hospiceStrengthGain"), "institution.strength", new[] { tollEventId }, new[] { m.Leader },
+                    "The hospice made " + m.Def.ShortName + "'s name in the district.");
             }
             else
             {
-                ChangeLoyalty(c, -T.Get("institutions.noHospiceLoyaltyLoss"), "institution.loyalty", new[] { tollEventId }, new[] { c.Leader },
-                    c.Leader + " watched the district die without a plan.");
+                ChangeLoyalty(m, -T.Get("institutions.noHospiceLoyaltyLoss"), "institution.loyalty", new[] { tollEventId }, new[] { m.Leader },
+                    m.Leader + " watched the district die without a plan.");
             }
         }
 
@@ -273,6 +278,8 @@ namespace Butterfly.Core
                 case "promiseKeptOrHospice": return PromiseKept() || World.Plague.Response == "hospice";
                 case "charteredAndGovernanceHeld":
                     return i.Chartered && World[Domain.Governance].Level >= Benchmark(Domain.Governance, Now.Year);
+                case "charteredAndDomainHeld":
+                    return i.Chartered && World[i.Def.Maintains].Level >= Benchmark(i.Def.Maintains, Now.Year);
                 case "soundMoneyAndFreePrices": return SoundMoneyAndFreePrices();
                 case "otherwise": return true;
                 default: throw new InvalidOperationException("Unknown drift condition: " + condition);
@@ -285,7 +292,7 @@ namespace Butterfly.Core
         /// </summary>
         internal void InstitutionDecadeStep(Institution i, int decade)
         {
-            if (!i.Founded || i.Strength <= 0) return;
+            if (!HasInfluence(i) || i.Strength <= 0) return;
             double rate = DecayRate(i.Quality);
             double s = i.Strength, l = i.Loyalty, drift = i.Drift;
             i.Strength = Formulas.Decay(i.Strength, rate, 1);
@@ -323,7 +330,8 @@ namespace Butterfly.Core
         /// <summary>SYSTEMS §7 outcome on arrival.</summary>
         public InstitutionOutcome OutcomeOf(Institution i)
         {
-            if (!i.Founded) return InstitutionOutcome.NotFounded;
+            if (i.Collapsed) return InstitutionOutcome.Dissolved;
+            if (!HasInfluence(i)) return InstitutionOutcome.NotBacked;
             if (i.Strength < T.Get("institutions.dissolvedBelow")) return InstitutionOutcome.Dissolved;
             if (i.ForcedOutcome.HasValue) return i.ForcedOutcome.Value;
             if (i.Loyalty < T.Get("institutions.rogueBelowLoyalty")) return InstitutionOutcome.Rogue;

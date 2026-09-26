@@ -12,7 +12,7 @@ namespace Butterfly.Core
     /// </summary>
     public static class Why
     {
-        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "faction", "guild", "policy", "promise", "index", "attention" };
+        public static readonly string[] Topics = { "medicine", "governance", "economy", "gold", "plague", "circle", "sanctuary", "school", "faction", "junian", "club", "guild", "bank", "house", "policy", "promise", "index", "attention" };
 
         public static string Explain(Simulation sim, string topic)
         {
@@ -43,9 +43,13 @@ namespace Butterfly.Core
             double benchmark = sim.Benchmark(d, sim.Now.Year);
             double expectation = sim.Expectation(d);
             var sb = new StringBuilder();
-            sb.AppendLine(d + " is at " + F(s.Level) + ". " + (sim.Maintainer(d) == null
-                ? "You have no hold over it, so it follows Rome's real history (" + Signed(sim.HistoricalTrend(d)) + " last year). Only your projects and their consequences move it."
+            sb.AppendLine(d + " is at " + F(s.Level) + ". " + (!sim.HasHold(d)
+                ? "You have no voice in it, so it follows Rome's real history (" + Signed(sim.HistoricalTrend(d)) + " last year). Only your projects and their consequences move it."
                 : "Under " + s.Priority.Label() + " it moves " + Signed(sim.PriorityLevelChange(d)) + " a year against history."));
+            sb.AppendLine("Your influence over it: " + F(sim.Influence(d) * 100) + "%, so your priorities and policy take " + F(sim.Sway(d) * 100) + "% effect. Who holds it:");
+            foreach (var i in sim.InDomain(d).OrderByDescending(x => x.Strength))
+                sb.AppendLine("  " + Simulation.Cap(i.Def.Name) + ": strength " + F(i.Strength) + ", " + F(sim.DomainShare(i) * 100) + "% of " + d +
+                              (i.Stake > 0 ? ", you hold " + sim.StakePercent(i) + "%" : ""));
             sb.AppendLine("People expect " + F(expectation) + ": " +
                           (s.Peak > benchmark ? "they remember your recent peak of " + F(s.Peak) + " (the memory fades 5 a year)."
                                               : "what was normal in Rome in AD " + sim.Now.Year + "."));
@@ -74,17 +78,18 @@ namespace Butterfly.Core
             sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year" + (sim.YearlyIncome() <= 0
                 ? ": none. You earn by working (work odd / craft / consult); owned property and well-run institutions add income."
                 : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
-                      .Concat(sim.Founded().Where(i => sim.InstitutionNet(i) > 0).Select(i => Simulation.Cap(i.Def.ShortName) + "'s surplus " + F(sim.InstitutionNet(i))))
+                      .Concat(sim.Backed().Where(i => sim.InstitutionNet(i) > 0).Select(i => "your " + sim.StakePercent(i) + "% of " + i.Def.ShortName + "'s surplus " + F(i.Stake * sim.InstitutionNet(i))))
                       .Where(x => x != null)) + "."));
             sb.AppendLine("Work is taxed at " + F(sim.WorkTaxRate() * 100) + "%. Domains: " +
-                          string.Join(", ", DomainInfo.All.Select(x => sim.Maintainer(x) != null
+                          string.Join(", ", DomainInfo.All.Select(x => sim.HasHold(x)
                               ? x + " paid for by " + sim.Maintainer(x)!.Def.ShortName + " (" + sim.World[x].Priority.Label() + ")"
                               : x + " runs without you")) + ".");
-            foreach (var i in sim.Founded())
-                sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + ": earns " + F(sim.InstitutionIncome(i)) + " (grows with its strength and loyalty), costs " +
+            foreach (var i in sim.Backed())
+                sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + " (you hold " + sim.StakePercent(i) + "%): earns " + F(sim.InstitutionIncome(i)) + " (grows with its strength), costs " +
                               F(sim.InstitutionCosts(i)) + " (running " + F(i.Endowed ? 0 : t.Get("institutions.upkeepPerYear." + i.Key)) + " + " +
-                              i.Def.Maintains + " upkeep " + F(sim.DomainUpkeep(i.Def.Maintains)) + ") → " +
-                              (sim.InstitutionNet(i) >= 0 ? "surplus " + F(sim.InstitutionNet(i)) + " to you." : "short " + F(-sim.InstitutionNet(i)) + ", which you cover."));
+                              i.Def.Maintains + " upkeep " + F(sim.PriorityUpkeep(i)) + ") → " +
+                              (sim.InstitutionNet(i) >= 0 ? "surplus " + F(sim.InstitutionNet(i)) + ", your share " + F(i.Stake * sim.InstitutionNet(i)) + "."
+                                                          : "short " + F(-sim.InstitutionNet(i)) + ", your share to cover " + F(i.Stake * -sim.InstitutionNet(i)) + "."));
             sb.AppendLine("Settled each turn: " + F((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();
@@ -122,12 +127,22 @@ namespace Butterfly.Core
         private static string Institution(Simulation sim, Institution i)
         {
             var sb = new StringBuilder();
-            if (!i.Founded)
+            if (!i.Exists)
             {
-                sb.AppendLine(Simulation.Cap(i.Def.Name) + " doesn't exist yet. " + i.Def.Leader + " would lead it. (found " + i.Key + ")");
+                sb.AppendLine(i.Collapsed ? Simulation.Cap(i.Def.Name) + " failed before it was established."
+                    : Simulation.Cap(i.Def.Name) + " doesn't exist yet. " + i.Def.Leader + " would lead it. (found " + i.Key + ": " + F(sim.FoundCost(i.Def.Maintains)) +
+                      " gold; you would control it, but it would start at strength " + F(sim.T.Get("founding.startStrength")) + " and may fail until it reaches " +
+                      F(sim.T.Get("founding.fragileBelow")) + ")");
                 return sb.ToString().TrimEnd();
             }
-            sb.AppendLine(Simulation.Cap(i.Def.Name) + ", led by " + i.Leader + ": strength " + F(i.Strength) + ", loyalty " + F(i.Loyalty) + ".");
+            sb.AppendLine(Simulation.Cap(i.Def.Name) + ", led by " + i.Leader + ": strength " + F(i.Strength) + ", " + F(sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ".");
+            sb.AppendLine("You hold " + sim.StakePercent(i) + "%: " + StakeMeaning(sim, i));
+            if (!sim.Controls(i))
+            {
+                AppendRecent(sim, sb, new[] { Simulation.StrengthKey(i), Simulation.StakeKey(i) }, 3);
+                return sb.ToString().TrimEnd();
+            }
+            sb.AppendLine("Loyalty " + F(i.Loyalty) + ".");
             sb.AppendLine("It is " + (i.Chartered ? "chartered" : "not chartered") + " and " + (i.Endowed ? "endowed" : "not endowed") + ".");
             var q = sim.QualityAtDeparture(i);
             sb.AppendLine("If you left now it would be " + q + ": it would lose " + F(sim.DecayRate(q) * 100) + "% of its strength each decade.");
@@ -138,11 +153,24 @@ namespace Butterfly.Core
             return sb.ToString().TrimEnd();
         }
 
+        private static string StakeMeaning(Simulation sim, Institution i)
+        {
+            string next = i.Def.IsOwn ? "" : " Next 1% costs " + F(sim.StakeCost(i, 1)) + " gold.";
+            if (sim.Controls(i)) return "you control it (oversee, mentor, charter, endow, audit, invest)." + next;
+            int to = sim.NextThresholdPercent(i);
+            string gap = " " + to + "% would cost " + F(sim.StakeCost(i, to - sim.StakePercent(i))) + " more gold.";
+            if (sim.HasVoice(i)) return "a voice (priorities in its domain" + (i.Def.Maintains == Core.Domain.Governance ? ", policy" : "") + "), no control." + gap;
+            if (sim.HasInfluence(i)) return "it counts toward your influence over " + i.Def.Maintains + ", but gives you no say." + gap;
+            if (i.Stake > 0) return "a member's share: a little of its surplus, no say." + gap;
+            return "nothing yet (buy " + i.Key + ": the first 1% costs " + F(sim.StakeCost(i, 1)) + " gold).";
+        }
+
         private static string Policy(Simulation sim)
         {
             var sb = new StringBuilder();
-            sb.AppendLine(sim.PolicyHold() ? "Your senate faction carries your line on Rome's economic policy (policy <issue> <stance>, 1 Attention)."
-                                           : "You have no voice in policy yet: found the senate faction. Until then Rome keeps its own practice.");
+            sb.AppendLine(sim.PolicyHold() ? Simulation.Cap(sim.PolicyInstitution!.Def.ShortName) + " carries your line on Rome's economic policy (policy <issue> <stance>, 1 Attention); " +
+                                             "your sway over Governance is " + F(sim.PolicySway() * 100) + "%, so that much of it takes effect."
+                                           : "You have no voice in policy yet: you need " + F(sim.VoiceAt * 100) + "% of a Governance institution. Until then Rome keeps its own practice.");
             foreach (var i in Simulation.Issues)
                 sb.AppendLine("  " + i + ": " + Simulation.StanceWord(i, sim.Stance(i)) + "   (options: " + Simulation.StanceWord(i, 1) + ", " + Simulation.StanceWord(i, -1) + ", history)");
             sb.AppendLine("Austrian stances (sound, free, secure, light) grow the Economy " + F(sim.T.Get("policy.austrianEconomyPerYear")) +
@@ -195,7 +223,7 @@ namespace Butterfly.Core
             foreach (var e in events)
             {
                 var fx = e.Effects.First(x => keys.Contains(x.Key));
-                sb.AppendLine("  " + e.Time.Stamp + "  " + e.Text + (fx.Delta != 0 && !fx.Key.Contains("stage") ? " [" + Signed(fx.Delta) + "]" : ""));
+                sb.AppendLine("  " + e.Time.Stamp + "  " + e.Text + (fx.Delta != 0 && !fx.Key.Contains("stage") && !fx.Key.EndsWith(".stake") ? " [" + Signed(fx.Delta) + "]" : ""));
                 // Skip causes that are just the previous step of the same trend (e.g. last year's loyalty fade).
                 foreach (var c in e.ImmediateCauses.Select(sim.Log.Get)
                              .Where(c => c.Type != "scenario.start" && c.Type != "turn.start" && !(c.Type == e.Type && c.Target == e.Target)))

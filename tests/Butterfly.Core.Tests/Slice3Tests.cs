@@ -77,12 +77,13 @@ namespace Butterfly.Core.Tests
         {
             var sim = NewSim();
             sim.World.Gold = 100;
-            Assert.True(sim.Found("circle").Ok);
+            sim.GrantStake("circle", 0.5);
             Assert.True(sim.SetPriority(Domain.Medicine, Priority.Protect).Ok);
-            sim.World.Gold = 0; // the new Circle runs short and you can't cover it, so Medicine's upkeep goes unpaid
+            sim.World.Gold = 0; // the Circle runs short and you can't cover your share, so Medicine's upkeep goes unpaid
+            double sway = sim.Sway(Domain.Medicine); // priorities act in proportion to your sway over the domain
             for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             double neglect = sim.T.Get("priorities.levelChangePerYear.acceptRisk");
-            Assert.Equal(sim.T.Get("domains.startLevel.medicine") + neglect, sim.World[Domain.Medicine].Level, 6);
+            Assert.Equal(sim.T.Get("domains.startLevel.medicine") + neglect * sway, sim.World[Domain.Medicine].Level, 6);
         }
 
         [Fact]
