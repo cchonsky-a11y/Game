@@ -21,6 +21,19 @@ namespace Butterfly.Core
 
         public PlagueState Plague { get; } = new PlagueState();
 
+        /// <summary>Attention left this turn (SYSTEMS §3: 4 per turn, never scales).</summary>
+        public int Attention { get; set; }
+        /// <summary>Turn on which the one personal action was last used.</summary>
+        public int PersonalActionTurn { get; set; }
+
+        /// <summary>The hour-one seeded choice: "fountain", "workshop", "neither", or null while open.</summary>
+        public string? SeededChoice { get; set; }
+        public int SeededChoiceEventId { get; set; }
+
+        public PromiseState Promise { get; } = new PromiseState();
+
+        public List<Commitment> Commitments { get; } = new List<Commitment>();
+
         public List<Institution> Institutions { get; } = new List<Institution>();
 
         public Institution Institution(string id) => Institutions.First(i => i.Def.Id == id);
@@ -58,6 +71,41 @@ namespace Butterfly.Core
         public bool StruckInAbsence { get; set; }
 
         public bool IsWarning => Stage >= 1 && Stage <= 3;
+    }
+
+    public enum PromiseStatus
+    {
+        NotOffered,
+        Offered,
+        Active,
+        Refused,
+        Kept,
+        Broken
+    }
+
+    /// <summary>The one P0 promise: an institution leader asks the inventor to stay through the plague.</summary>
+    public sealed class PromiseState
+    {
+        public PromiseStatus Status { get; set; }
+        public int OfferEventId { get; set; }
+        public int LastEventId { get; set; }
+    }
+
+    /// <summary>A multi-turn commitment of Attention (GDD §7, tested in P0).</summary>
+    public sealed class Commitment
+    {
+        public string Id { get; }
+        public string InstitutionId { get; }
+        public int TurnsRemaining { get; set; }
+        public int StartEventId { get; }
+
+        public Commitment(string id, string institutionId, int turns, int startEventId)
+        {
+            Id = id;
+            InstitutionId = institutionId;
+            TurnsRemaining = turns;
+            StartEventId = startEventId;
+        }
     }
 
     /// <summary>Institution quality, which sets decay per decade during absence (SYSTEMS §7).</summary>

@@ -57,6 +57,7 @@ namespace Butterfly.Core
             var e = Record(p.Stage == PlagueState.Outbreak ? "plague.outbreak" : "plague.warning", "plague", causes,
                 new[] { "world" }, new[] { new Effect("plague.stage", before, p.Stage) }, text);
             p.LastStageEventId = e.Id;
+            if (p.Stage == 1) OfferPromise(e.Id);
             if (p.Stage == PlagueState.Outbreak)
             {
                 p.OutbreakYear = Now.Year;
@@ -193,6 +194,7 @@ namespace Butterfly.Core
             var passed = Record("plague.passed", "plague", new[] { toll.Id }, new[] { "world" },
                 new[] { new Effect("plague.stage", PlagueState.Outbreak, PlagueState.Passed) }, "The worst of the pestilence has passed.");
             p.LastStageEventId = passed.Id;
+            OnPlaguePassedForPromise(passed.Id);
         }
 
         /// <summary>SYSTEMS §6: crises also create openings. One is chosen by weighted seeded draw.</summary>

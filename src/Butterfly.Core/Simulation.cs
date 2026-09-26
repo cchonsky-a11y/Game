@@ -36,6 +36,7 @@ namespace Butterfly.Core
             InitEconomy(start.Id);
             InitPlague();
             InitInstitutions();
+            InitAttention();
         }
 
         /// <summary>Fraction of a year covered by one turn.</summary>
@@ -45,6 +46,8 @@ namespace Butterfly.Core
         public void EndTurn()
         {
             ProgressProjects();
+            ProgressCommitments();
+            LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();
             SettleGold();
             int yearBefore = Now.Year;
@@ -53,6 +56,7 @@ namespace Butterfly.Core
             if (Now.Year != yearBefore) YearTick();
             Log.Record(Now, "turn.start", "clock", null, new[] { "world" }, null,
                 "Turn " + Turn + " begins: " + Now.Display + ".");
+            RefreshAttention();
         }
 
         private void YearTick()
@@ -62,6 +66,7 @@ namespace Butterfly.Core
             DomainsYearTick();
             PlagueYearTick();
             InstitutionsYearTick();
+            SeededPayoffYearTick();
         }
 
         // ---- cause tracking -------------------------------------------------

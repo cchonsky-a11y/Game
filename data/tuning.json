@@ -502,5 +502,77 @@
       "value": 3,
       "ref": "PROPOSED P0-11"
     }
+  },
+  "attention": {
+    "perTurn": {
+      "value": 4,
+      "ref": "SYSTEMS §3"
+    }
+  },
+  "personal": {
+    "workGold": {
+      "value": 10,
+      "ref": "PROPOSED P0-12"
+    }
+  },
+  "commitments": {
+    "enabled": {
+      "value": true,
+      "ref": "PROTOTYPE_SCOPE: test multi-turn commitments as an option"
+    },
+    "mentor": {
+      "turns": {
+        "value": 3,
+        "ref": "PROPOSED P0-12"
+      },
+      "attentionPerTurn": {
+        "value": 1,
+        "ref": "PROPOSED P0-12"
+      },
+      "strength": {
+        "value": 12,
+        "ref": "PROPOSED P0-12"
+      },
+      "loyalty": {
+        "value": 6,
+        "ref": "PROPOSED P0-12"
+      }
+    }
+  },
+  "seededChoice": {
+    "deadlineTurn": {
+      "value": 2,
+      "ref": "PROPOSED P0-12"
+    },
+    "payoffYear": {
+      "value": 157,
+      "ref": "PROPOSED P0-12"
+    },
+    "feverLoss": {
+      "value": 5,
+      "ref": "PROPOSED P0-12"
+    },
+    "smithLoss": {
+      "value": 4,
+      "ref": "PROPOSED P0-12"
+    }
+  },
+  "promise": {
+    "acceptLoyalty": {
+      "value": 8,
+      "ref": "PROPOSED P0-12"
+    },
+    "refuseLoyalty": {
+      "value": 5,
+      "ref": "PROPOSED P0-12"
+    },
+    "keptLoyalty": {
+      "value": 12,
+      "ref": "PROPOSED P0-12"
+    },
+    "brokenLoyalty": {
+      "value": 30,
+      "ref": "SYSTEMS §10 breaking affects institution loyalty (amount PROPOSED P0-12)"
+    }
   }
 }

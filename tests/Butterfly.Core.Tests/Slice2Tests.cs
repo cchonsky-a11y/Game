@@ -76,6 +76,7 @@ namespace Butterfly.Core.Tests
         public void ProtectKeepsDebtAtZeroEarly()
         {
             var sim = new Simulation(TestData.Load(), 1);
+            sim.ChooseSeeded("fountain"); // otherwise the broken fountain's fever lowers Medicine in 157
             sim.SetPriority(Domain.Medicine, Priority.Protect);
             RunYears(sim, 3);
             Assert.Equal(0, sim.World[Domain.Medicine].Debt);
