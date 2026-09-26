@@ -1,0 +1,25 @@
+{
+  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Amounts PROPOSED P0-22.",
+  "inventions": [
+    { "id": "wheelbarrow", "name": "The wheelbarrow", "gold": 30, "attentionPerTurn": 2, "turns": 2, "requirement": "workshop",
+      "effects": [ { "type": "income", "value": 3 } ],
+      "description": "One wheel, two handles, a tray: a builder's laborer moves three times the load.",
+      "completionText": "The smith turns out wheelbarrows by the dozen, and every builder in the Subura knows whose idea they were." },
+    { "id": "bookkeeping", "name": "Double-entry bookkeeping", "gold": 40, "attentionPerTurn": 2, "turns": 3, "requirement": "tradeMember",
+      "effects": [ { "type": "consultBonus", "value": 0.2 }, { "type": "loyalty", "group": "trade", "value": 10 }, { "type": "stake", "group": "trade", "value": 3 } ],
+      "description": "Every sum written twice, once as a debit and once as a credit, so the books always balance.",
+      "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them give you a share in return." },
+    { "id": "soap", "name": "Soap and boiled linen", "gold": 35, "attentionPerTurn": 2, "turns": 3, "requirement": "medicineWork",
+      "effects": [ { "type": "income", "value": 2 }, { "type": "loyalty", "group": "medicine", "value": 10 }, { "type": "level", "domain": "medicine", "value": 2 }, { "type": "plagueResilience", "value": 0.03 } ],
+      "description": "Lye and tallow boiled into hard soap, and linen boiled before it touches a wound.",
+      "completionText": "The physicians wash with your soap and boil their linen; fewer wounds turn bad." },
+    { "id": "crane", "name": "The compound pulley crane", "gold": 60, "attentionPerTurn": 2, "turns": 4, "requirement": "workshopAndFaction",
+      "effects": [ { "type": "income", "value": 5 }, { "type": "loyalty", "group": "faction", "value": 10 }, { "type": "stake", "group": "faction", "value": 3 } ],
+      "description": "Five pulleys in two blocks: one man lifts what took five, and public works go up faster.",
+      "completionText": "Your crane lifts the new portico's columns; the senators who let the contract remember who built it." },
+    { "id": "triphammer", "name": "The water-driven trip hammer", "gold": 90, "attentionPerTurn": 2, "turns": 6, "requirement": "workshopAndGuild10",
+      "effects": [ { "type": "income", "value": 10 }, { "type": "loyalty", "group": "guild", "value": 10 }, { "type": "stake", "group": "guild", "value": 3 }, { "type": "level", "domain": "economy", "value": 2 } ],
+      "description": "A water wheel lifts a heavy hammer by a cam, day and night, for fulling cloth and beating iron.",
+      "completionText": "The trip hammer pounds beside the river; the guild's members queue to use it, and pay." }
+  ]
+}

@@ -33,6 +33,7 @@ namespace Butterfly.Core
             demand += domains * years * t.Get("stakes.activeMeetingsPerYear") * t.Get("stakes.attendAttention");
             // The 9 time machine repair steps (all needed to jump).
             demand += data.Content.MachineSteps.Sum(m => m.AttentionPerTurn * m.Turns);
+            demand += data.Content.Inventions.Sum(i => i.AttentionPerTurn * i.Turns);
             demand += turns;
             return demand;
         }

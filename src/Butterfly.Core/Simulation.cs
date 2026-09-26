@@ -49,6 +49,7 @@ namespace Butterfly.Core
             MarkTurnEventStart(Log.NextId);
             ProgressProjects();
             ProgressMachine();
+            ProgressInventions();
             ProgressCommitments();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();

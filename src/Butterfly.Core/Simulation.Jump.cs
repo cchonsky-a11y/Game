@@ -52,6 +52,7 @@ namespace Butterfly.Core
                 Record("project.abandoned", p.Def.Id, new[] { p.StartEventId, depart.Id }, new[] { "player" }, null, p.Def.Name + " is abandoned unfinished.");
             World.ActiveProjects.Clear();
             World.ActiveMachineSteps.Clear();
+            World.ActiveInventions.Clear();
             World.Commitments.Clear();
 
             IsAway = true;

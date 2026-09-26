@@ -184,3 +184,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 - **Seniority during a jump (Corey, open):** you don't attend meetings while away, so members forget you or never knew you. Not built: in P0 the test ends on arrival; stakes don't grow during the absence. To be designed with later eras.
 - **Batch result: gates A and B fail.** Specialized wins 67–93%. With a 40-year jump, leaving early is now very costly: early arrivals average Index 44–81 (the plague strikes in the absence, and its damage and the debt haven't faded yet). Attention demand 528 vs 320. Nothing tuned. Source: batch runner.
 
+## 2026-09-28 — Inventions (Corey)
+- **Decision:** an option to work on inventions that affect income, standing and influence. Built as a first version, to be fleshed out later: 5 inventions (wheelbarrow, double-entry bookkeeping, soap and boiled linen, compound pulley crane, water-driven trip hammer), each needing something from Rome, made once, paying income, leader loyalty and stake. Commands `inventions` and `invent <id>`. No visibility or anachronism risk (out of P0 scope). PROTOTYPE_SCOPE, SYSTEMS §7, GDD Appendix A, P0-22. The batch strategies don't invent yet. Source: Corey.
+

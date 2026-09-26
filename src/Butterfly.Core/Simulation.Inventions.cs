@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Butterfly.Core
+{
+    /// <summary>
+    /// Inventions (decided 2026-09-28; a first version, to be fleshed out later): things the inventor makes from future
+    /// knowledge. Knowing is not making: each needs something from Rome (the workshop, a membership, a finished project).
+    /// Each pays off in income, standing (leader loyalty) and influence (stake), and can be made once.
+    /// </summary>
+    public sealed partial class Simulation
+    {
+        public IEnumerable<InventionDef> AvailableInventions() =>
+            Data.Content.Inventions.Where(i => !World.Invented.Contains(i.Id) && World.ActiveInventions.All(a => a.Def.Id != i.Id));
+
+        private static readonly Dictionary<string, string[]> InventionGroups = new Dictionary<string, string[]>
+        {
+            { "trade", new[] { "guild", "bank" } }, { "medicine", new[] { "circle", "sanctuary" } },
+            { "faction", new[] { "faction", "junian" } }, { "guild", new[] { "guild" } },
+        };
+
+        public bool InventionRequirementMet(InventionDef def)
+        {
+            bool workshop = World.CompletedProjects.Contains("workshop");
+            bool backed(params string[] ids) => ids.Any(id => World.Institution(id).Backed);
+            switch (def.Requirement)
+            {
+                case "workshop": return workshop;
+                case "tradeMember": return backed("guild", "bank");
+                case "medicineWork":
+                    return new[] { "fountain", "physician", "quarantine", "midwives" }.Any(World.CompletedProjects.Contains) || backed("circle", "sanctuary");
+                case "workshopAndFaction": return workshop && backed("faction", "junian");
+                case "workshopAndGuild10": return workshop && HasInfluence(World.Institution("guild"));
+                default: throw new InvalidOperationException("Unknown invention requirement: " + def.Requirement);
+            }
+        }
+
+        public string InventionRequirementText(InventionDef def)
+        {
+            switch (def.Requirement)
+            {
+                case "workshop": return "the smith's workshop (tools and hands to build it)";
+                case "tradeMember": return "membership in the guild or the bank (traders to use it)";
+                case "medicineWork": return "a finished Medicine project or membership in the Circle or the sanctuary (physicians to use it)";
+                case "workshopAndFaction": return "the workshop and membership in a senate faction (a public-works contract)";
+                case "workshopAndGuild10": return "the workshop and 10% of the guild (a mill site and the guild's backing)";
+                default: return def.Requirement;
+            }
+        }
+
+        public CommandResult Invent(string id)
+        {
+            var def = Data.Content.Inventions.FirstOrDefault(i => i.Id == (id ?? "").Trim().ToLowerInvariant());
+            if (def == null) return CommandResult.Fail("No invention called '" + id + "'. (inventions)");
+            if (World.Invented.Contains(def.Id)) return CommandResult.Fail(def.Name + " is already made.");
+            if (World.ActiveInventions.Any(a => a.Def.Id == def.Id)) return CommandResult.Fail(def.Name + " is already under way.");
+            if (!InventionRequirementMet(def))
+                return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
+            if (World.Gold < def.Gold) return CommandResult.Fail(def.Name + " costs " + def.Gold + " gold; you have " + F(World.Gold) + ".");
+            var attention = CheckAttention(def.AttentionPerTurn);
+            if (attention != null) return attention;
+            SpendAttention(def.AttentionPerTurn);
+            double before = World.Gold;
+            SpendGold(def.Gold);
+            var e = Record("invention.start", def.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
+                "You start work on " + def.Name + " (" + def.Gold + " gold, " + def.Turns + " turns).");
+            World.ActiveInventions.Add(new ActiveInvention(def, e.Id));
+            return CommandResult.Success("Started: " + def.Name + ".");
+        }
+
+        private int ReservedInventionAttention() =>
+            World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.Turns).Sum(a => a.Def.AttentionPerTurn);
+
+        private void ProgressInventions()
+        {
+            foreach (var a in World.ActiveInventions.ToList())
+            {
+                a.TurnsRemaining--;
+                if (a.TurnsRemaining > 0) continue;
+                World.ActiveInventions.Remove(a);
+                World.Invented.Add(a.Def.Id);
+                var done = Record("invention.complete", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
+                    new[] { new Effect("invention." + a.Def.Id, 0, 1) }, a.Def.CompletionText);
+                foreach (var fx in a.Def.Effects) ApplyInventionEffect(a.Def, fx, done.Id);
+            }
+        }
+
+        /// <summary>The institution an invention's effect lands on: the one of its group you hold the most of.</summary>
+        private Institution? InventionTarget(InventionEffect fx) =>
+            fx.Group == null ? null : InventionGroups[fx.Group].Select(World.Institution).Where(i => i.Backed)
+                .OrderByDescending(i => i.Stake).ThenBy(i => i.Key, StringComparer.Ordinal).FirstOrDefault();
+
+        private void ApplyInventionEffect(InventionDef def, InventionEffect fx, int causeId)
+        {
+            switch (fx.Type)
+            {
+                case "income":
+                {
+                    double before = World.InventionIncome;
+                    World.InventionIncome += fx.Value;
+                    Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
+                        new[] { new Effect("income.inventions", before, World.InventionIncome) }, def.Name + " pays you " + F(fx.Value) + " gold a year.");
+                    break;
+                }
+                case "consultBonus":
+                    World.ConsultBonus += fx.Value;
+                    Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
+                        new[] { new Effect("income.consultBonus", World.ConsultBonus - fx.Value, World.ConsultBonus) },
+                        "Households pay more for your advice: consulting +" + F(fx.Value * 100) + "%.");
+                    break;
+                case "loyalty":
+                {
+                    var i = InventionTarget(fx);
+                    if (i != null) ChangeLoyalty(i, fx.Value, "institution.loyalty", new[] { causeId }, new[] { "player", i.Leader }, def.Name + " impresses " + i.Leader + ".");
+                    break;
+                }
+                case "stake":
+                {
+                    var i = InventionTarget(fx);
+                    if (i == null) break;
+                    double before = i.Stake;
+                    i.Stake = Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0);
+                    Record("institution.stake", i.Key, new[] { causeId }, new[] { "player", i.Leader }, new[] { new Effect(StakeKey(i), before, i.Stake) },
+                        "In return for " + def.Name + ", " + i.Def.Name + " gives you a larger share: " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                    break;
+                }
+                case "level":
+                    if (fx.Domain.HasValue)
+                        ChangeLevel(fx.Domain.Value, fx.Value, "invention.effect", new[] { causeId }, new[] { "player" }, def.Name + " spreads: " + fx.Domain.Value + " " + Signed(fx.Value) + ".");
+                    break;
+                case "plagueResilience":
+                    World.PlagueResilienceBonus += fx.Value;
+                    Record("plague.resilience", "plague", new[] { causeId }, new[] { "player" },
+                        new[] { new Effect("plague.resilience", World.PlagueResilienceBonus - fx.Value, World.PlagueResilienceBonus) }, def.Name + " will blunt any epidemic.");
+                    break;
+                default: throw new InvalidOperationException("Unknown invention effect: " + fx.Type);
+            }
+        }
+    }
+}

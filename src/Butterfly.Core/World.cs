@@ -55,6 +55,11 @@ namespace Butterfly.Core
         /// <summary>Time machine repair steps finished, and the ones under way (P0 repair track).</summary>
         public List<string> MachineDone { get; } = new List<string>();
         public List<ActiveMachineStep> ActiveMachineSteps { get; } = new List<ActiveMachineStep>();
+        /// <summary>Inventions finished and under way; what they pay you each year; the extra pay they add to consulting.</summary>
+        public List<string> Invented { get; } = new List<string>();
+        public List<ActiveInvention> ActiveInventions { get; } = new List<ActiveInvention>();
+        public double InventionIncome { get; set; }
+        public double ConsultBonus { get; set; }
         public List<string> CompletedProjects { get; } = new List<string>();
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>
@@ -245,6 +250,21 @@ namespace Butterfly.Core
         public int StartEventId { get; }
 
         public ActiveMachineStep(MachineStepDef def, int startEventId)
+        {
+            Def = def;
+            TurnsRemaining = def.Turns;
+            StartEventId = startEventId;
+        }
+    }
+
+    /// <summary>An invention in progress.</summary>
+    public sealed class ActiveInvention
+    {
+        public InventionDef Def { get; }
+        public int TurnsRemaining { get; set; }
+        public int StartEventId { get; }
+
+        public ActiveInvention(InventionDef def, int startEventId)
         {
             Def = def;
             TurnsRemaining = def.Turns;

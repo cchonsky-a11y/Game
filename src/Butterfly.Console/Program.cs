@@ -136,6 +136,8 @@ internal sealed class ConsoleGame
   log [n]                        the last n events
   end                            end the turn (3 months)
   wait                           let turns pass until something needs you
+  inventions                     things you can make from what you know, and what each needs from Rome
+  invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
   repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
   jump                           prepare to leave (then pay down, endow, audit, or 'jump' again)
@@ -178,6 +180,14 @@ internal sealed class ConsoleGame
                 foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
                 return true;
             case "repair": r = _sim.Repair(arg); break;
+            case "inventions":
+                foreach (var idea in _sim.AvailableInventions())
+                    Console.WriteLine("  " + idea.Id.PadRight(12) + (idea.Gold + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
+                                      (_sim.InventionRequirementMet(idea) ? "" : "   (needs " + _sim.InventionRequirementText(idea) + ")") + "\n" +
+                                      "              " + idea.Description);
+                foreach (var a in _sim.World.ActiveInventions) Console.WriteLine("  Under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
+                return true;
+            case "invent": r = _sim.Invent(arg); break;
             case "attend": r = _sim.Attend(arg); break;
             case "found": r = _sim.Found(arg); break;
             case "buy":
@@ -237,7 +247,7 @@ internal sealed class ConsoleGame
                                               : "  (" + turns + " turns pass; your Attention was fully committed)");
         var shown = new[] { "project.complete", "debt.tier", "plague.warning", "plague.outbreak", "plague.toll", "plague.opening", "plague.passed",
                             "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start",
-                            "machine.step", "institution.seniority", "rivalry.strike", "institution.collapse", "bust.warning", "bust.toll" };
+                            "machine.step", "invention.complete", "institution.stake", "institution.seniority", "rivalry.strike", "institution.collapse", "bust.warning", "bust.toll" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -265,6 +275,7 @@ internal sealed class ConsoleGame
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
                               (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
+        foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
         Console.WriteLine("  Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" +
                           string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +
                           (_sim.MachineReady ? " — ready to jump" : "") + "   (machine)");

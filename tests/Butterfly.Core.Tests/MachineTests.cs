@@ -102,3 +102,60 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Inventions (decided 2026-09-28, first version).</summary>
+    public class InventionTests
+    {
+        private static Simulation Rich()
+        {
+            var sim = new Simulation(TestData.Load(), 9);
+            sim.World.Gold = 1000;
+            sim.World.Attention = 100;
+            return sim;
+        }
+
+        private static void Finish(Simulation sim, string id)
+        {
+            Xunit.Assert.True(sim.Invent(id).Ok);
+            for (int t = 0; t < 10 && !sim.World.Invented.Contains(id); t++) { sim.EndTurn(); sim.World.Attention = 100; }
+            Xunit.Assert.Contains(id, sim.World.Invented);
+        }
+
+        [Xunit.Fact]
+        public void KnowingIsNotMaking()
+        {
+            var sim = Rich();
+            Xunit.Assert.False(sim.Invent("wheelbarrow").Ok); // no workshop
+            sim.World.CompletedProjects.Add("workshop");
+            Xunit.Assert.True(sim.Invent("wheelbarrow").Ok);
+            Xunit.Assert.False(sim.Invent("wheelbarrow").Ok); // once
+        }
+
+        [Xunit.Fact]
+        public void TheWheelbarrowPaysIncome()
+        {
+            var sim = Rich();
+            sim.World.CompletedProjects.Add("workshop");
+            double before = sim.YearlyIncome();
+            Finish(sim, "wheelbarrow");
+            Xunit.Assert.True(sim.YearlyIncome() >= before + 3 - 1e-9);
+        }
+
+        [Xunit.Fact]
+        public void BookkeepingRaisesStandingInfluenceAndConsultingPay()
+        {
+            var sim = Rich();
+            sim.GrantStake("guild", 0.02);
+            var guild = sim.World.Institution("guild");
+            double loyalty = guild.Loyalty, pay = sim.WorkPay("consult");
+            Finish(sim, "bookkeeping");
+            Xunit.Assert.Equal(5, sim.StakePercent(guild));
+            Xunit.Assert.True(guild.Loyalty > loyalty);
+            Xunit.Assert.True(sim.WorkPay("consult") > pay);
+            var stake = System.Linq.Enumerable.Single(sim.Log.Events, e => e.Type == "institution.stake");
+            Xunit.Assert.NotEmpty(stake.ImmediateCauses);
+        }
+    }
+}

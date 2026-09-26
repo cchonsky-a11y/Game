@@ -23,7 +23,7 @@ namespace Butterfly.Core
         public double YearlyIncome() => OwnedIncome() + Backed().Sum(i => i.Stake * Math.Max(0, InstitutionNet(i)));
 
         /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level.</summary>
-        public double OwnedIncome() => World.IncomeBonus * World[Domain.Economy].Level;
+        public double OwnedIncome() => World.IncomeBonus * World[Domain.Economy].Level + World.InventionIncome;
 
         /// <summary>An institution's income: its own rate × Economy × strength (margins are thin until it is established).</summary>
         public double InstitutionIncome(Institution i) =>

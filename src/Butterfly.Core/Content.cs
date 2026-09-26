@@ -151,18 +151,65 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>One effect of an invention (income, consultBonus, loyalty, stake, level, plagueResilience).</summary>
+    public sealed class InventionEffect
+    {
+        public string Type { get; }
+        public double Value { get; }
+        /// <summary>Which institutions it touches: trade (guild or bank), medicine (Circle or sanctuary), faction (either faction), guild.</summary>
+        public string? Group { get; }
+        public Domain? Domain { get; }
+
+        public InventionEffect(JsonObject o)
+        {
+            Type = o.Str("type");
+            Value = o.Num("value");
+            Group = o.StrOr("group", null);
+            if (o.Has("domain") && DomainInfo.TryParseDomain(o.Str("domain"), out var d)) Domain = d;
+        }
+    }
+
+    /// <summary>An invention (data/content/inventions.json): made once, needs something from Rome.</summary>
+    public sealed class InventionDef
+    {
+        public string Id { get; }
+        public string Name { get; }
+        public int Gold { get; }
+        public int AttentionPerTurn { get; }
+        public int Turns { get; }
+        public string Requirement { get; }
+        public IReadOnlyList<InventionEffect> Effects { get; }
+        public string Description { get; }
+        public string CompletionText { get; }
+
+        public InventionDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Name = o.Str("name");
+            Gold = (int)o.Num("gold");
+            AttentionPerTurn = (int)o.Num("attentionPerTurn");
+            Turns = (int)o.Num("turns");
+            Requirement = o.Str("requirement");
+            Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new InventionEffect(x)).ToList();
+            Description = o.Str("description");
+            CompletionText = o.Str("completionText");
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
         public IReadOnlyList<ProjectDef> Projects { get; }
         public IReadOnlyList<InstitutionDef> Institutions { get; }
         public IReadOnlyList<MachineStepDef> MachineSteps { get; }
+        public IReadOnlyList<InventionDef> Inventions { get; }
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
         private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyList<MachineStepDef> machine,
-            IReadOnlyDictionary<string, string> text)
+            IReadOnlyList<InventionDef> inventions, IReadOnlyDictionary<string, string> text)
         {
+            Inventions = inventions;
             Projects = projects;
             Institutions = institutions;
             MachineSteps = machine;
@@ -186,6 +233,7 @@ namespace Butterfly.Core
             var projects = Read(contentDirectory, "projects.json").Arr("projects").Cast<JsonObject>().Select(o => new ProjectDef(o)).ToList();
             var institutions = Read(contentDirectory, "institutions.json").Arr("institutions").Cast<JsonObject>().Select(o => new InstitutionDef(o)).ToList();
             var machine = Read(contentDirectory, "machine.json").Arr("steps").Cast<JsonObject>().Select(o => new MachineStepDef(o)).ToList();
+            var inventions = Read(contentDirectory, "inventions.json").Arr("inventions").Cast<JsonObject>().Select(o => new InventionDef(o)).ToList();
             var textObj = Read(contentDirectory, "text.json");
             var text = new Dictionary<string, string>();
             foreach (var section in textObj.Keys)
@@ -194,7 +242,7 @@ namespace Butterfly.Core
                 var obj = textObj.Obj(section);
                 foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
             }
-            return new Content(projects, institutions, machine, text);
+            return new Content(projects, institutions, machine, inventions, text);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

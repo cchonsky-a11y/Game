@@ -17,7 +17,8 @@ namespace Butterfly.Core
         public int ReservedAttention() =>
             World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.Turns).Sum(p => p.Def.AttentionPerTurn)
             + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
-            + ReservedMachineAttention();
+            + ReservedMachineAttention()
+            + ReservedInventionAttention();
 
         private void InitAttention()
         {
@@ -52,7 +53,8 @@ namespace Butterfly.Core
         public int Memberships() => Backed().Count(i => !i.Def.IsOwn);
 
         /// <summary>Pay for work before tax: each membership raises it 10% (decided 2026-09-28: benefits to joining).</summary>
-        public double WorkPay(string kind) => WorkGold(kind) * (1 + T.Get("joining.workBonusPerMembership") * Memberships());
+        public double WorkPay(string kind) =>
+            WorkGold(kind) * (1 + T.Get("joining.workBonusPerMembership") * Memberships() + (kind == "consult" ? World.ConsultBonus : 0));
 
         /// <summary>
         /// The one personal action per turn: work for pay. Better-paid work takes more Attention (decided 2026-09-27):
