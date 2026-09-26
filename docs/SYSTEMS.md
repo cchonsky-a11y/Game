@@ -113,6 +113,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 | Superior | 0% | 0% | Late in era or skip (Sphere Index ≥ 130) |
 
 - The player is never forced to jump.
+- **Jump range (decided 2026-09-28):** the machine's range starts short and grows as technology and knowledge advance. The **first jump is about 25–50 years**, so early jumps allow more adjustment; later jumps reach further. The growth rule is not yet defined (tune; needs the Knowledge Web, P3+).
 - **Echoes:** 3–5 specific elements (person, institution, idea, object, mistake) tagged per era before a jump and surfaced later. The Rome era always includes the hour-one seeded choice.
 - **Arrival:** recognition → wrongness → personal echo → discovery. Chronicle and Era Report available under an optional Learn more.
 
