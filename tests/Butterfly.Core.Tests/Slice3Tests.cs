@@ -75,6 +75,7 @@ namespace Butterfly.Core.Tests
         public void UnpaidUpkeepActsAsAcceptedRisk()
         {
             var sim = NewSim();
+            Assert.True(sim.Found("circle").Ok); // upkeep applies only once an institution exists
             foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.Protect);
             sim.World.Gold = 0;
             sim.World.IncomeBonus = -1000; // no income at all

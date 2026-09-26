@@ -132,8 +132,8 @@
       "levelGain": 6,
       "extras": [
         {
-          "type": "income",
-          "value": 6
+          "type": "ownedIncome",
+          "value": 0.1
         }
       ],
       "tags": [
@@ -168,8 +168,8 @@
       "levelGain": 12,
       "extras": [
         {
-          "type": "income",
-          "value": 4
+          "type": "ownedIncome",
+          "value": 0.05
         }
       ],
       "tags": [

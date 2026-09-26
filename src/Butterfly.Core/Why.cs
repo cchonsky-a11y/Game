@@ -68,12 +68,15 @@ namespace Butterfly.Core
             var t = sim.T;
             var sb = new StringBuilder();
             sb.AppendLine("You have " + F(sim.World.Gold) + " gold.");
-            sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year: base " + F(t.Get("gold.incomeBase")) + " + Economy " +
-                          F(sim.World[Core.Domain.Economy].Level) + " × " + F(t.Get("gold.incomePerEconomyLevel")) +
-                          (sim.World.IncomeBonus != 0 ? " + " + F(sim.World.IncomeBonus) + " from projects" : "") + ".");
+            sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year" +
+                          (sim.YearlyIncome() <= 0 ? ": none. Until you own property or have an institution, you earn only by working (work odd / craft / consult)."
+                           : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
+                                 .Concat(sim.Founded().Select(i => Simulation.Cap(i.Def.ShortName) + " " + F(sim.InstitutionIncome(i)) + " (at loyalty " + F(i.Loyalty) + ")"))
+                                 .Where(x => x != null)) + "."));
             sb.AppendLine("Upkeep " + F(sim.YearlyUpkeepTotal()) + " a year: " +
                           string.Join(", ", DomainInfo.All.Select(x => x + " " + F(sim.YearlyUpkeep(x)) + " (" + sim.World[x].Priority.Label() + ")")) +
-                          (sim.Founded().Any(i => !i.Endowed) ? ", institutions " + F(sim.Founded().Count(i => !i.Endowed) * t.Get("institutions.upkeepPerYear")) : "") + ".");
+                          (sim.Founded().Any(i => !i.Endowed) ? ", institutions " + F(sim.Founded().Where(i => !i.Endowed).Sum(i => t.Get("institutions.upkeepPerYear." + i.Key))) : "") +
+                          (sim.PrioritiesActive ? "." : ". (Domain upkeep is free until you found an institution; until then priorities have no effect.)"));
             sb.AppendLine("Settled each turn: " + F((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();

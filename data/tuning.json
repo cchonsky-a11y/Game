@@ -145,6 +145,10 @@
     "neglectFloorFraction": {
       "value": 0.3,
       "ref": "PROPOSED P0-04 (neglect alone never takes a domain below 30% of its historical value)"
+    },
+    "requireInstitution": {
+      "value": true,
+      "ref": "PROPOSED P0-16 (Claude): before any institution, domain upkeep is free and priorities have no effect (every domain behaves as Maintain)"
     }
   },
   "expectation": {
@@ -196,14 +200,6 @@
   "gold": {
     "start": {
       "value": 60,
-      "ref": "PROPOSED P0-07"
-    },
-    "incomeBase": {
-      "value": 20,
-      "ref": "SYSTEMS §9 (simple income; PROPOSED P0-07)"
-    },
-    "incomePerEconomyLevel": {
-      "value": 0.6,
       "ref": "PROPOSED P0-07"
     }
   },
@@ -428,10 +424,6 @@
       "value": 60,
       "ref": "PROPOSED P0-10"
     },
-    "upkeepPerYear": {
-      "value": 8,
-      "ref": "PROPOSED P0-10"
-    },
     "unpaidLoyaltyLoss": {
       "value": 3,
       "ref": "PROPOSED P0-10"
@@ -573,6 +565,26 @@
     "auditAttention": {
       "value": 2,
       "ref": "PROPOSED P0-15"
+    },
+    "upkeepPerYear": {
+      "circle": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: the circle costs more to run than it earns"
+      },
+      "faction": {
+        "value": 12,
+        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+      }
+    },
+    "incomePerEconomyLevel": {
+      "circle": {
+        "value": 0.1,
+        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: fees; scaled by loyalty"
+      },
+      "faction": {
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16: patronage; scaled by loyalty"
+      }
     }
   },
   "attention": {
@@ -586,9 +598,37 @@
     }
   },
   "personal": {
-    "workGold": {
-      "value": 5,
-      "ref": "PROPOSED P0-12"
+    "work": {
+      "odd": {
+        "attention": {
+          "value": 1,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        },
+        "gold": {
+          "value": 5,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        }
+      },
+      "craft": {
+        "attention": {
+          "value": 2,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        },
+        "gold": {
+          "value": 12,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        }
+      },
+      "consult": {
+        "attention": {
+          "value": 3,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        },
+        "gold": {
+          "value": 20,
+          "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
+        }
+      }
     }
   },
   "commitments": {

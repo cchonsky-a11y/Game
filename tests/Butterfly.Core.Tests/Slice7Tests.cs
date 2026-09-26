@@ -14,6 +14,7 @@ namespace Butterfly.Core.Tests
                 if (foundCircle && !sim.World.Institution("circle").Founded && sim.World.Gold >= 50) sim.Found("circle");
                 if (sim.World.Promise.Status == PromiseStatus.Offered) sim.AnswerPromise(acceptPromise);
                 if (sim.OutbreakAwaitingResponse) sim.RespondToPlague(sim.AvailablePlagueResponses().First());
+                sim.Work("craft"); // no passive income before institutions: the inventor works
                 sim.EndTurn();
             }
             return sim;

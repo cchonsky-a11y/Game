@@ -15,11 +15,23 @@ namespace Butterfly.Core
             MarkChanged(GoldKey, startEventId);
         }
 
-        /// <summary>Yearly income: base + Economy level × rate + project bonuses.</summary>
-        public double YearlyIncome() =>
-            T.Get("gold.incomeBase") + World[Domain.Economy].Level * T.Get("gold.incomePerEconomyLevel") + World.IncomeBonus;
+        /// <summary>
+        /// Yearly income (decided 2026-09-27): nothing passive before you have leverage. Property you funded and own
+        /// grows with the Economy; each institution brings in its own share of the Economy, scaled by its loyalty.
+        /// Work (the personal action) is paid when you do it.
+        /// </summary>
+        public double YearlyIncome() => OwnedIncome() + Founded().Sum(InstitutionIncome);
 
-        public double YearlyUpkeep(Domain d) => T.Get("priorities.upkeepPerYear." + World[d].Priority.Key());
+        /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level.</summary>
+        public double OwnedIncome() => World.IncomeBonus * World[Domain.Economy].Level;
+
+        public double InstitutionIncome(Institution i) =>
+            T.Get("institutions.incomePerEconomyLevel." + i.Key) * World[Domain.Economy].Level * i.Loyalty / 100.0;
+
+        /// <summary>Before any institution exists there is no machinery to maintain anything: upkeep is free and priorities have no effect.</summary>
+        public bool PrioritiesActive => !T.GetBool("priorities.requireInstitution") || Founded().Any();
+
+        public double YearlyUpkeep(Domain d) => PrioritiesActive ? T.Get("priorities.upkeepPerYear." + World[d].Priority.Key()) : 0;
 
         public double YearlyUpkeepTotal() => DomainInfo.All.Sum(YearlyUpkeep) + InstitutionUpkeepTotal();
 
@@ -108,11 +120,11 @@ namespace Butterfly.Core
         {
             switch (x.Type)
             {
-                case "income":
+                case "ownedIncome":
                     World.IncomeBonus += x.Value;
                     Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
                         new[] { new Effect("income.bonus", World.IncomeBonus - x.Value, World.IncomeBonus) },
-                        def.Name + " adds " + F(x.Value) + " gold a year.");
+                        "You own a share of it: about " + F(x.Value * World[Domain.Economy].Level) + " gold a year, rising and falling with the Economy.");
                     break;
                 case "plagueResilience":
                     World.PlagueResilienceBonus += x.Value;

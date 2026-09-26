@@ -104,7 +104,7 @@ internal sealed class ConsoleGame
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
   mentor <inst>                  commit Attention every turn for several turns
-  work                           your one personal action: earn gold
+  work [odd|craft|consult]       your one personal action: earn 5 / 12 / 20 gold for 1 / 2 / 3 Attention
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
@@ -158,7 +158,7 @@ internal sealed class ConsoleGame
             case "audit": r = _sim.Audit(arg); break;
             case "oversee": r = _sim.Oversee(arg); break;
             case "mentor": r = _sim.Mentor(arg); break;
-            case "work": r = _sim.Work(); break;
+            case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
             case "end": case "e": EndTurn(wait: false); return true;

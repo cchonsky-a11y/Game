@@ -62,6 +62,13 @@ namespace Butterfly.Batch
             }
         }
 
+        /// <summary>The personal action: the best-paid work the remaining Attention allows.</summary>
+        protected static void WorkBest(Simulation sim)
+        {
+            foreach (var kind in Simulation.WorkKinds.Reverse())
+                if (sim.WorkAttention(kind) <= sim.World.Attention && sim.Work(kind).Ok) return;
+        }
+
         /// <summary>Pays down the most indebted of the given domains with whatever gold is available.</summary>
         protected static void PayDownDebts(Simulation sim, IEnumerable<Domain> domains) => PayDownDebts(sim, domains, double.MaxValue, 1);
 
@@ -122,7 +129,7 @@ namespace Butterfly.Batch
             }
             if (_paydownShare > 0)
                 PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained), double.MaxValue, _paydownShare);
-            sim.Work();
+            WorkBest(sim);
         }
 
         public override void BeforeJump(Simulation sim)
@@ -165,7 +172,7 @@ namespace Butterfly.Batch
             if (project != null) sim.StartProject(project.Id);
             if (sim.World.Institution("circle").Founded && sim.CommitmentsEnabled && sim.World.Commitments.Count == 0) sim.Mentor("circle");
             PayDownDebts(sim, new[] { Domain.Medicine });
-            sim.Work();
+            WorkBest(sim);
         }
 
         public override void BeforeJump(Simulation sim)
@@ -190,7 +197,7 @@ namespace Butterfly.Batch
                 sim.SetPriority(Domain.Economy, Priority.AcceptRisk);
             }
             AnswerPending(sim, false, "none");
-            sim.Work();
+            WorkBest(sim);
         }
     }
 }

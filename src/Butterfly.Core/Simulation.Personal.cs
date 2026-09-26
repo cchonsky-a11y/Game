@@ -42,18 +42,31 @@ namespace Butterfly.Core
         // ---- personal action ------------------------------------------------
 
         /// <summary>The one personal action per turn: practice your trade for gold.</summary>
-        public CommandResult Work()
+        public static readonly string[] WorkKinds = { "odd", "craft", "consult" };
+
+        public int WorkAttention(string kind) => T.GetInt("personal.work." + kind + ".attention");
+        public double WorkGold(string kind) => T.Get("personal.work." + kind + ".gold");
+
+        /// <summary>
+        /// The one personal action per turn: work for pay. Better-paid work takes more Attention (decided 2026-09-27):
+        /// odd jobs, skilled craft commissions, or consulting for a wealthy household.
+        /// </summary>
+        public CommandResult Work(string kind = "odd")
         {
+            if (!WorkKinds.Contains(kind)) return CommandResult.Fail("Work at what? odd, craft or consult.");
             if (World.PersonalActionTurn == Turn) return CommandResult.Fail("You already took your personal action this turn.");
-            var attention = CheckAttention(1);
+            int cost = WorkAttention(kind);
+            var attention = CheckAttention(cost);
             if (attention != null) return attention;
-            SpendAttention(1);
+            SpendAttention(cost);
             World.PersonalActionTurn = Turn;
             double before = World.Gold;
-            World.Gold += T.Get("personal.workGold");
-            Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
-                "You spend the season mending instruments and advising builders for pay.");
-            return CommandResult.Success("You earn " + F(T.Get("personal.workGold")) + " gold.");
+            World.Gold += WorkGold(kind);
+            string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
+                        : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
+                        : "You advise a wealthy household on its baths and its books.";
+            Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
+            return CommandResult.Success("You earn " + F(WorkGold(kind)) + " gold.");
         }
 
         // ---- multi-turn commitments -----------------------------------------

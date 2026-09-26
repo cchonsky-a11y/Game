@@ -65,6 +65,7 @@ namespace Butterfly.Core.Tests
         {
             // PROTOTYPE_SCOPE pass criterion: 2–3 years of accepted risk -> Strained.
             var sim = new Simulation(TestData.Load(), 1);
+            Assert.True(sim.Found("circle").Ok); // priorities act only once an institution exists
             sim.SetPriority(Domain.Medicine, Priority.AcceptRisk);
             RunYears(sim, 1);
             Assert.Equal(DebtTier.Stable, sim.World[Domain.Medicine].Tier);
@@ -76,7 +77,10 @@ namespace Butterfly.Core.Tests
         public void ProtectKeepsDebtAtZeroEarly()
         {
             var sim = new Simulation(TestData.Load(), 1);
+            sim.World.Gold = 500;
             sim.ChooseSeeded("fountain"); // otherwise the broken fountain's fever lowers Medicine in 157
+            sim.EndTurn();
+            Assert.True(sim.Found("circle").Ok); // priorities act only once an institution exists
             sim.SetPriority(Domain.Medicine, Priority.Protect);
             RunYears(sim, 3);
             Assert.Equal(0, sim.World[Domain.Medicine].Debt);

@@ -139,7 +139,7 @@ namespace Butterfly.Core
         internal IEnumerable<Institution> Founded() => World.Institutions.Where(i => i.Founded);
 
         private double InstitutionUpkeepTotal() =>
-            Founded().Where(i => !i.Endowed).Sum(i => T.Get("institutions.upkeepPerYear"));
+            Founded().Where(i => !i.Endowed).Sum(i => T.Get("institutions.upkeepPerYear." + i.Key));
 
         private void InstitutionUpkeepShortfall()
         {

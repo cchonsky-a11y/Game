@@ -88,6 +88,7 @@ namespace Butterfly.Core
         /// </summary>
         internal double PriorityLevelChange(Domain d)
         {
+            if (!PrioritiesActive) return T.Get("priorities.levelChangePerYear.maintain");
             double chosen = T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
             double neglect = T.Get("priorities.levelChangePerYear.acceptRisk");
             double paid = World.UpkeepTurnsThisYear == 0 ? 1 : World.UpkeepPaidThisYear[(int)d] / World.UpkeepTurnsThisYear;
