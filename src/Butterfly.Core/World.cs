@@ -34,6 +34,8 @@ namespace Butterfly.Core
 
         /// <summary>Attention left this turn (SYSTEMS §3: 4 per turn, never scales).</summary>
         public int Attention { get; set; }
+        /// <summary>Times you consulted for a wealthy household (a way into the Caecilian faction).</summary>
+        public int ConsultJobs { get; set; }
         /// <summary>Turn on which the one personal action was last used.</summary>
         public int PersonalActionTurn { get; set; }
 

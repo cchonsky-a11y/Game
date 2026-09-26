@@ -12,7 +12,15 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), seed);
             sim.World.Gold = 5000;
             sim.World.Attention = 100;
+            MeetJoinRequirements(sim);
             return sim;
+        }
+
+        /// <summary>These tests check stakes, not joining requirements.</summary>
+        internal static void MeetJoinRequirements(Simulation sim)
+        {
+            sim.World.CompletedProjects.Add("fountain");
+            sim.World.CompletedProjects.Add("workshop");
         }
 
         [Fact]
@@ -74,6 +82,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 5);
             sim.World.Gold = 1000;
+            MeetJoinRequirements(sim);
             int before = sim.World.Attention;
             Assert.True(sim.Buy("guild", 5).Ok);
             Assert.Equal(before - sim.T.GetInt("stakes.buyAttention"), sim.World.Attention);
@@ -242,5 +251,86 @@ namespace Butterfly.Core.Tests
             sim.GrantStake("circle", 0.25);
             Assert.Equal(expected * 0.5, sim.MaintainBonus(Domain.Medicine), 6);
         }
+    
+        // ---- joining requirements (decided 2026-09-28) ---------------------------
+
+        private static Simulation Bare()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.World.Gold = 5000;
+            sim.World.Attention = 100;
+            return sim;
+        }
+
+        [Fact]
+        public void TheCircleWantsMedicineWorkOrThePromise()
+        {
+            var sim = Bare();
+            Assert.False(sim.Buy("circle", 1).Ok);
+            sim.World.CompletedProjects.Add("physician");
+            Assert.True(sim.Buy("circle", 1).Ok);
+            var promised = Bare();
+            promised.World.Promise.Status = PromiseStatus.Active;
+            Assert.True(promised.Buy("circle", 1).Ok);
+        }
+
+        [Fact]
+        public void TheSanctuaryAsksNothing() => Assert.True(Bare().Buy("sanctuary", 1).Ok);
+
+        [Fact]
+        public void TheGuildAndTheJuniansWantABusinessOrProperty()
+        {
+            var sim = Bare();
+            Assert.False(sim.Buy("guild", 1).Ok);
+            Assert.False(sim.Buy("junian", 1).Ok);
+            sim.World.CompletedProjects.Add("warehouses");
+            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.True(sim.Buy("junian", 1).Ok);
+        }
+
+        [Fact]
+        public void TheCaeciliansWantPatronage()
+        {
+            var sim = Bare();
+            Assert.False(sim.Buy("faction", 1).Ok);
+            sim.World.ConsultJobs = sim.T.GetInt("joining.patronageConsultJobs");
+            Assert.True(sim.Buy("faction", 1).Ok);
+        }
+
+        [Fact]
+        public void ConsultingCountsTowardPatronage()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            Assert.True(sim.Work("consult").Ok);
+            Assert.Equal(1, sim.World.ConsultJobs);
+        }
+
+        [Fact]
+        public void TheBankWantsADepositFirst()
+        {
+            var sim = Bare();
+            int min = sim.T.GetInt("joining.bankMinFirstPercent");
+            Assert.False(sim.Buy("bank", min - 1).Ok);
+            Assert.True(sim.Buy("bank", min).Ok);
+            Assert.True(sim.Buy("bank", 1).Ok); // only the first purchase has a minimum
+        }
+
+        [Fact]
+        public void TheFactionsWontShareAMember()
+        {
+            var sim = Bare();
+            sim.World.CompletedProjects.Add("workshop");
+            sim.World.ConsultJobs = 5;
+            Assert.True(sim.Buy("junian", 10).Ok);
+            Assert.False(sim.Buy("faction", 1).Ok);
+            var small = Bare();
+            small.World.CompletedProjects.Add("workshop");
+            small.World.ConsultJobs = 5;
+            Assert.True(small.Buy("junian", 9).Ok);
+            Assert.True(small.Buy("faction", 1).Ok); // under 10% doesn't count
+        }
+
+        [Fact]
+        public void OwnInstitutionsHaveNoRequirement() => Assert.True(Bare().Found("school").Ok);
     }
 }

@@ -162,7 +162,8 @@ namespace Butterfly.Core
             if (sim.HasVoice(i)) return "a voice (priorities in its domain" + (i.Def.Maintains == Core.Domain.Governance ? ", policy" : "") + "), no control." + gap;
             if (sim.HasInfluence(i)) return "it counts toward your influence over " + i.Def.Maintains + ", but gives you no say." + gap;
             if (i.Stake > 0) return "a member's share: a little of its surplus, no say." + gap;
-            return "nothing yet (buy " + i.Key + ": the first 1% costs " + F(sim.StakeCost(i, 1)) + " gold).";
+            return "nothing yet. To join it asks for " + sim.JoinRequirementText(i) + (sim.JoinBlocker(i) == null ? " (you qualify)" : " (you don't yet)") +
+                   "; the first 1% costs " + F(sim.StakeCost(i, 1)) + " gold.";
         }
 
         private static string Policy(Simulation sim)

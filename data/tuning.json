@@ -1115,5 +1115,20 @@
       "value": 3,
       "ref": "PROPOSED P0-18"
     }
+  },
+  "joining": {
+    "_readme": "Requirements for your first purchase in an established institution (DECIDED 2026-09-28, Corey; a first version, to be built out later).",
+    "patronageConsultJobs": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: requirements to join institutions); amount PROPOSED P0-19"
+    },
+    "bankMinFirstPercent": {
+      "value": 5,
+      "ref": "DECIDED 2026-09-28 (Corey: requirements to join institutions); amount PROPOSED P0-19"
+    },
+    "exclusiveAtStake": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-28 (Corey): holding 10% of one faction shuts you out of the other"
+    }
   }
 }

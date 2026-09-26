@@ -1,5 +1,5 @@
 {
-  "_readme": "Institutions (SYSTEMS §7). Each domain has two established institutions you can buy into (origin 'established', they exist from the start) and one you can found yourself (origin 'own'). Each has a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Stakes and rivalry: DECIDED 2026-09-27, numbers PROPOSED P0-18.",
+  "_readme": "Institutions (SYSTEMS §7). Each domain has two established institutions you can buy into (origin 'established', they exist from the start) and one you can found yourself (origin 'own'). Each has a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Stakes and rivalry: DECIDED 2026-09-27, numbers PROPOSED P0-18. Joining requirements (joinRequirement, exclusiveWith) apply to your first purchase only: DECIDED 2026-09-28 (Corey), a first version to be built out later.",
   "institutions": [
     {
       "id": "circle",
@@ -34,7 +34,8 @@
         }
       ],
       "origin": "established",
-      "joinText": "Demetria of Pergamon takes your dues and writes your name in the Circle's book of members. She sets the rules; you have bought a seat, not a say."
+      "joinText": "Demetria of Pergamon takes your dues and writes your name in the Circle's book of members. She sets the rules; you have bought a seat, not a say.",
+      "joinRequirement": "medicineWork"
     },
     {
       "id": "sanctuary",
@@ -69,7 +70,8 @@
           "description": "A shrine that sells cures by the dream and the amulet, and warns the city against any physician who asks too many questions.",
           "arrivalLeader": "Asper Minor, Keeper of the Shrine"
         }
-      ]
+      ],
+      "joinRequirement": "none"
     },
     {
       "id": "school",
@@ -104,7 +106,8 @@
           "description": "A closed brotherhood that guards the founder's notes as secrets and treats only its own.",
           "arrivalLeader": "Brother Theonas, Keeper of the Notes"
         }
-      ]
+      ],
+      "joinRequirement": "none"
     },
     {
       "id": "faction",
@@ -139,7 +142,9 @@
         }
       ],
       "origin": "established",
-      "joinText": "Senator Lucius Caecilius Varro accepts your gold for the faction's chest. He wants your money; you want his votes."
+      "joinText": "Senator Lucius Caecilius Varro accepts your gold for the faction's chest. He wants your money; you want his votes.",
+      "joinRequirement": "patronage",
+      "exclusiveWith": "junian"
     },
     {
       "id": "junian",
@@ -174,7 +179,9 @@
           "description": "Landowners who hold half the province and the magistracies that tax it.",
           "arrivalLeader": "Quintus Junius Magnus, Lord of the Estates"
         }
-      ]
+      ],
+      "joinRequirement": "property",
+      "exclusiveWith": "faction"
     },
     {
       "id": "club",
@@ -209,7 +216,8 @@
           "description": "A patronage machine that sells offices to its members' sons.",
           "arrivalLeader": "Flavius Rufus Magnus, Patron of the Aventine"
         }
-      ]
+      ],
+      "joinRequirement": "none"
     },
     {
       "id": "guild",
@@ -244,7 +252,8 @@
         }
       ],
       "origin": "established",
-      "joinText": "Publius Aelius Sabinus, who ships grain from Alexandria, takes your dues at the guild hall in Ostia and enters you as a sleeping partner."
+      "joinText": "Publius Aelius Sabinus, who ships grain from Alexandria, takes your dues at the guild hall in Ostia and enters you as a sleeping partner.",
+      "joinRequirement": "business"
     },
     {
       "id": "bank",
@@ -279,7 +288,8 @@
           "description": "Lenders to the emperors, paid in new coin and new taxes, who own more of Rome's debts than Rome does.",
           "arrivalLeader": "Octavius Crispinus, First Creditor"
         }
-      ]
+      ],
+      "joinRequirement": "deposit"
     },
     {
       "id": "house",
@@ -314,7 +324,8 @@
           "description": "A house that won a monopoly on oil from the magistrates and has not let go of it since.",
           "arrivalLeader": "Menodorus, Holder of the Oil Monopoly"
         }
-      ]
+      ],
+      "joinRequirement": "none"
     }
   ]
 }

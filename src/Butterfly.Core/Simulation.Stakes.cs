@@ -100,6 +100,15 @@ namespace Butterfly.Core
             int from = StakePercent(inst);
             points = Math.Min(points, 100 - from);
             if (points <= 0) return CommandResult.Fail("You already own all of " + inst.Def.ShortName + ".");
+            if (inst.Stake <= 0)
+            {
+                string? unmet = JoinBlocker(inst);
+                if (unmet != null) return CommandResult.Fail(unmet);
+                int minFirst = inst.Def.JoinRequirement == "deposit" ? T.GetInt("joining.bankMinFirstPercent") : 1;
+                if (points < minFirst)
+                    return CommandResult.Fail(Cap(inst.Def.ShortName) + " takes new partners only with a deposit of at least " + minFirst + "% (" +
+                                              F(StakeCost(inst, minFirst)) + " gold): buy " + inst.Key + " " + minFirst + ".");
+            }
             double cost = StakeCost(inst, points);
             if (World.Gold < cost) return CommandResult.Fail(points + "% of " + inst.Def.ShortName + " costs " + F(cost) + " gold; you have " + F(World.Gold) + ".");
             int att = T.GetInt("stakes.buyAttention");
@@ -118,6 +127,49 @@ namespace Butterfly.Core
                 (first ? inst.Def.FoundText + " " : "") + "You now hold " + (from + points) + "% of " + inst.Def.Name + "." + crossed);
             return CommandResult.Success("You hold " + (from + points) + "% of " + inst.Def.ShortName + " (" + F(cost) + " gold, " + att + " Attention)." + crossed +
                                          (Controls(inst) ? "" : " Next 1% costs " + F(StakeCost(inst, 1)) + "."));
+        }
+
+        /// <summary>What joining an established institution asks of you, in words (decided 2026-09-28).</summary>
+        public string JoinRequirementText(Institution i)
+        {
+            string text;
+            switch (i.Def.JoinRequirement)
+            {
+                case "medicineWork": text = "a finished Medicine project (the fountain, a physician, or quarantine rules) or your promise to Demetria"; break;
+                case "patronage": text = "consulting for wealthy households at least " + T.GetInt("joining.patronageConsultJobs") + " times, or the senator's patronage project"; break;
+                case "property": text = "property in Rome (the workshop or the warehouses)"; break;
+                case "business": text = "a business of your own (the workshop or the warehouses)"; break;
+                case "deposit": text = "a first purchase of at least " + T.GetInt("joining.bankMinFirstPercent") + "%"; break;
+                default: text = "nothing beyond the price"; break;
+            }
+            if (i.Def.ExclusiveWith != null)
+                text += "; and less than " + F(T.Get("joining.exclusiveAtStake") * 100) + "% of " + World.Institution(i.Def.ExclusiveWith).Def.ShortName;
+            return text;
+        }
+
+        /// <summary>Why you can't join this institution yet, or null if you can (the deposit is checked at purchase).</summary>
+        public string? JoinBlocker(Institution i)
+        {
+            if (i.Def.ExclusiveWith != null)
+            {
+                var rival = World.Institution(i.Def.ExclusiveWith);
+                if (rival.Stake >= T.Get("joining.exclusiveAtStake") - 1e-9)
+                    return Cap(i.Def.ShortName) + " won't take a member of " + rival.Def.ShortName + " (you hold " + StakePercent(rival) + "% of it).";
+            }
+            bool done(string id) => World.CompletedProjects.Contains(id);
+            bool met;
+            switch (i.Def.JoinRequirement)
+            {
+                case "medicineWork":
+                    met = done("fountain") || done("physician") || done("quarantine") ||
+                          World.Promise.Status == PromiseStatus.Active || World.Promise.Status == PromiseStatus.Kept;
+                    break;
+                case "patronage": met = World.ConsultJobs >= T.GetInt("joining.patronageConsultJobs") || done("patronage"); break;
+                case "property":
+                case "business": met = done("workshop") || done("warehouses"); break;
+                default: met = true; break;
+            }
+            return met ? null : i.Leader + " won't take you yet. " + Cap(i.Def.ShortName) + " asks for " + JoinRequirementText(i) + ".";
         }
 
         private string Crossed(double before, double after)

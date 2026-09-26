@@ -137,7 +137,9 @@ namespace Butterfly.Batch
             {
                 // Policy strategies take control of the faction first (policy), then a voice in the guild (Economy), then the Circle.
                 TryInstitution(sim, "faction", 0);
-                if (Controls(sim, "faction")) BuyToward(sim, "guild", (int)System.Math.Round(sim.VoiceAt * 100), 0);
+                // The guild wants a business of your own; without one, the bank takes a depositor instead.
+                string economy = sim.World.Institution("guild").Stake > 0 || sim.JoinBlocker(sim.World.Institution("guild")) == null ? "guild" : "bank";
+                if (Controls(sim, "faction")) BuyToward(sim, economy, (int)System.Math.Round(sim.VoiceAt * 100), 0);
                 foreach (var issue in Simulation.Issues)
                     if (sim.Stance(issue) != PolicyStance) sim.SetPolicy(issue, PolicyStance);
                 if (sim.World[Domain.Economy].Priority != Priority.Protect) sim.SetPriority(Domain.Economy, Priority.Protect);
@@ -167,7 +169,7 @@ namespace Butterfly.Batch
         {
             if (_paydownShare >= 1) PayDownDebts(sim, DomainInfo.All);
             else if (_paydownShare > 0) PayDownDebts(sim, DomainInfo.All, sim.World.Gold * _paydownShare, 1);
-            AuditAndEndow(sim, "circle", "faction", "guild");
+            AuditAndEndow(sim, "circle", "faction", "guild", "bank");
         }
     }
 

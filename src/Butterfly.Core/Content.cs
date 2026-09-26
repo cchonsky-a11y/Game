@@ -94,6 +94,10 @@ namespace Butterfly.Core
         /// <summary>Shown when you found it (own institutions) or first buy into it (established ones).</summary>
         public string FoundText { get; }
         public IReadOnlyList<DriftPathDef> DriftPaths { get; }
+        /// <summary>What you must have done before your first purchase (decided 2026-09-28).</summary>
+        public string JoinRequirement { get; }
+        /// <summary>A rival that won't share a member with this one, if any.</summary>
+        public string? ExclusiveWith { get; }
 
         public InstitutionDef(JsonObject o)
         {
@@ -110,6 +114,8 @@ namespace Butterfly.Core
             FoundingIdentity = o.Str("foundingIdentity");
             Tags = o.Arr("tags").Cast<string>().ToList();
             FoundText = o.StrOr(Origin == "own" ? "foundText" : "joinText", null) ?? "";
+            JoinRequirement = o.StrOr("joinRequirement", "none") ?? "none";
+            ExclusiveWith = o.StrOr("exclusiveWith", null);
             DriftPaths = o.Arr("driftPaths").Cast<JsonObject>().Select(x => new DriftPathDef(x)).ToList();
         }
     }

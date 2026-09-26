@@ -60,6 +60,7 @@ namespace Butterfly.Core
             if (attention != null) return attention;
             SpendAttention(cost);
             World.PersonalActionTurn = Turn;
+            if (kind == "consult") World.ConsultJobs++;
             double before = World.Gold;
             double tax = WorkGold(kind) * WorkTaxRate();
             World.Gold += WorkGold(kind) - tax;

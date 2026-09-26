@@ -273,6 +273,8 @@ internal sealed class ConsoleGame
                 {
                     line += ": strength " + F(i.Strength) + " (" + F(_sim.DomainShare(i) * 100) + "%)";
                     if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
+                    else if (!i.Def.IsOwn)
+                        line += "; to join: " + _sim.JoinRequirementText(i) + (_sim.JoinBlocker(i) == null ? " (you qualify)" : " (not yet)");
                     int next = _sim.NextThresholdPercent(i);
                     if (!i.Def.IsOwn && next > 0)
                         line += "; next 1% " + F(_sim.StakeCost(i, 1)) + "g, to " + next + "% " + F(_sim.StakeCost(i, next - _sim.StakePercent(i))) + "g";

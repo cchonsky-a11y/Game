@@ -41,6 +41,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 12);
             sim.World.Gold = 1000;
             sim.World.Attention = 100; // these tests check institution rules, not Attention
+            StakesTests.MeetJoinRequirements(sim);
             return sim;
         }
 
