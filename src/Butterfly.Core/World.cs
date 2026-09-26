@@ -247,6 +247,8 @@ namespace Butterfly.Core
     {
         public MachineStepDef Def { get; }
         public int TurnsRemaining { get; set; }
+        /// <summary>True if you paid the gold instead of getting help from Rome.</summary>
+        public bool WithoutRome { get; set; }
         public int StartEventId { get; }
 
         public ActiveMachineStep(MachineStepDef def, int startEventId)

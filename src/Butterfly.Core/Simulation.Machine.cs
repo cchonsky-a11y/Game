@@ -72,7 +72,7 @@ namespace Butterfly.Core
             var e = Record("machine.start", step.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
                 "You begin: " + step.Name + (step.Requirement != null && !viaRome ? " (without help from Rome, you " + step.AltText + ")" : "") +
                 " (" + gold + " gold, " + step.Turns + " turn" + (step.Turns == 1 ? "" : "s") + ").");
-            World.ActiveMachineSteps.Add(new ActiveMachineStep(step, e.Id));
+            World.ActiveMachineSteps.Add(new ActiveMachineStep(step, e.Id) { WithoutRome = !viaRome });
             return CommandResult.Success("Started: " + step.Name + ".");
         }
 
@@ -86,7 +86,7 @@ namespace Butterfly.Core
                 World.MachineDone.Add(a.Def.Id);
                 Record("machine.step", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
                     new[] { new Effect("machine.steps", MachineStepsDone - 1, MachineStepsDone) },
-                    a.Def.Text + " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : ".") + ")");
+                    (a.WithoutRome ? a.Def.AltDoneText : a.Def.Text) + " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : ".") + ")");
             }
         }
 

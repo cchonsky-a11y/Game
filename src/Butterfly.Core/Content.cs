@@ -135,6 +135,8 @@ namespace Butterfly.Core
         public int AltGold { get; }
         public string AltText { get; }
         public string Text { get; }
+        /// <summary>Completion text when you paid the gold instead of getting help from Rome.</summary>
+        public string AltDoneText { get; }
 
         public MachineStepDef(JsonObject o)
         {
@@ -148,6 +150,7 @@ namespace Butterfly.Core
             AltGold = o.Has("altGold") ? (int)o.Num("altGold") : 0;
             AltText = o.StrOr("altText", "") ?? "";
             Text = o.Str("text");
+            AltDoneText = o.StrOr("altDoneText", null) ?? Text;
         }
     }
 
