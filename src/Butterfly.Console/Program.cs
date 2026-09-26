@@ -78,8 +78,8 @@ internal sealed class ConsoleGame
     {
         Console.WriteLine("THE BUTTERFLY EFFECT — P0 Butterfly Test");
         Console.WriteLine("========================================");
-        Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,");
-        Console.WriteLine("and a small circle of people willing to listen. Something is coming from the East in a few years.");
+        Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
+        Console.WriteLine("machine, what you know, and no one who owes you anything. Something is coming from the East in a few years.");
         Console.WriteLine("When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.");
         Console.WriteLine();
         Console.WriteLine("This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.");

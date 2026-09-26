@@ -125,7 +125,7 @@
     {
       "id": "workshop",
       "domain": "economy",
-      "name": "Fund the smith's workshop",
+      "name": "Buy into the smith's workshop",
       "gold": 40,
       "attentionPerTurn": 2,
       "turns": 1,
@@ -140,8 +140,8 @@
         "craft",
         "commerce"
       ],
-      "description": "Equip the smith by the Porta Trigemina with a second forge and paid apprentices.",
-      "completionText": "The smith's second forge is lit; his apprentices are paid."
+      "description": "Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.",
+      "completionText": "The smith's second forge is lit, and part of the workshop is now yours."
     },
     {
       "id": "market",
