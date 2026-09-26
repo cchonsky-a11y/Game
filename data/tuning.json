@@ -1129,6 +1129,62 @@
     "exclusiveAtStake": {
       "value": 0.1,
       "ref": "DECIDED 2026-09-28 (Corey): holding 10% of one faction shuts you out of the other"
+    },
+    "entryFee": {
+      "circle": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "sanctuary": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "faction": {
+        "value": 30,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "junian": {
+        "value": 25,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "guild": {
+        "value": 20,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "bank": {
+        "value": 0,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      }
+    },
+    "duesBasePerYear": {
+      "circle": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "sanctuary": {
+        "value": 1,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "faction": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "junian": {
+        "value": 4,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "guild": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      },
+      "bank": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
+      }
+    },
+    "duesPerStakePercentPerYear": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-28 (Corey: an entry fee to join, then annual dues that depend on your stake); amount PROPOSED P0-19"
     }
   }
 }

@@ -332,5 +332,56 @@ namespace Butterfly.Core.Tests
 
         [Fact]
         public void OwnInstitutionsHaveNoRequirement() => Assert.True(Bare().Found("school").Ok);
+    
+        // ---- entry fee and annual dues (decided 2026-09-28) ----------------------
+
+        [Fact]
+        public void JoiningChargesTheEntryFeeOnce()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            double fee = sim.T.Get("joining.entryFee.guild");
+            double gold = sim.World.Gold;
+            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.Equal(fee + sim.T.Get("stakes.costPerPercent.economy"), gold - sim.World.Gold, 6);
+            gold = sim.World.Gold;
+            double next = sim.StakeCost(guild, 1);
+            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.Equal(next, gold - sim.World.Gold, 6); // no fee the second time
+        }
+
+        [Fact]
+        public void DuesGrowWithYourStake()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            Assert.Equal(0, sim.AnnualDues(guild), 6);
+            sim.GrantStake("guild", 0.01);
+            double member = sim.AnnualDues(guild);
+            Assert.Equal(sim.T.Get("joining.duesBasePerYear.guild") + sim.T.Get("joining.duesPerStakePercentPerYear"), member, 6);
+            sim.GrantStake("guild", 0.5);
+            Assert.True(sim.AnnualDues(guild) > member);
+        }
+
+        [Fact]
+        public void YourOwnInstitutionsChargeNoDues()
+        {
+            var sim = Rich();
+            sim.Found("house");
+            Assert.Equal(0, sim.AnnualDues(sim.World.Institution("house")), 6);
+        }
+
+        [Fact]
+        public void DuesArePaidEachTurn()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.GrantStake("sanctuary", 0.2);
+            var sanctuary = sim.World.Institution("sanctuary");
+            sim.World.Gold = 100;
+            double expected = sim.YearlyIncome() - sim.YearlyUpkeepTotal();
+            Assert.True(sim.YearlyUpkeepTotal() >= sim.AnnualDues(sanctuary));
+            sim.EndTurn();
+            Assert.Equal(100 + expected * sim.YearsPerTurn, sim.World.Gold, 6);
+        }
     }
 }

@@ -277,7 +277,9 @@ internal sealed class ConsoleGame
                         line += "; to join: " + _sim.JoinRequirementText(i) + (_sim.JoinBlocker(i) == null ? " (you qualify)" : " (not yet)");
                     int next = _sim.NextThresholdPercent(i);
                     if (!i.Def.IsOwn && next > 0)
-                        line += "; next 1% " + F(_sim.StakeCost(i, 1)) + "g, to " + next + "% " + F(_sim.StakeCost(i, next - _sim.StakePercent(i))) + "g";
+                        line += "; next 1% " + F(_sim.BuyCost(i, 1)) + "g" + (i.Stake <= 0 && _sim.EntryFee(i) > 0 ? " incl. " + F(_sim.EntryFee(i)) + "g entry fee" : "") +
+                                ", to " + next + "% " + F(_sim.BuyCost(i, next - _sim.StakePercent(i))) + "g; dues " + F(_sim.T.Get("joining.duesBasePerYear." + i.Key)) + "g/yr + " +
+                                F(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";
                 }
                 Console.WriteLine(line);
             }

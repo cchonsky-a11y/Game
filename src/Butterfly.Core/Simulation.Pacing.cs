@@ -53,7 +53,7 @@ namespace Butterfly.Core
                 if (i.Def.IsOwn && !i.Exists && !i.Collapsed) { if (Can(FoundCost(i.Def.Maintains), "founding.attention")) return true; continue; }
                 if (!i.Exists) continue;
                 int next = NextThresholdPercent(i);
-                if (next > 0 && Can(StakeCost(i, next - StakePercent(i)), "stakes.buyAttention")) return true;
+                if (next > 0 && Can(BuyCost(i, next - StakePercent(i)), "stakes.buyAttention")) return true;
                 if (!Controls(i)) continue;
                 if (!i.Chartered && Can(T.Get("institutions.charterGold"), "institutions.charterAttention")) return true;
                 if (!i.AuditCharter && Can(T.Get("institutions.auditGold"), "institutions.auditAttention")) return true;

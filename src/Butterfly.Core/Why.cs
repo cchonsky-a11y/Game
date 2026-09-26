@@ -90,6 +90,9 @@ namespace Butterfly.Core
                               i.Def.Maintains + " upkeep " + F(sim.PriorityUpkeep(i)) + ") → " +
                               (sim.InstitutionNet(i) >= 0 ? "surplus " + F(sim.InstitutionNet(i)) + ", your share " + F(i.Stake * sim.InstitutionNet(i)) + "."
                                                           : "short " + F(-sim.InstitutionNet(i)) + ", your share to cover " + F(i.Stake * -sim.InstitutionNet(i)) + "."));
+            if (sim.AnnualDuesTotal() > 0)
+                sb.AppendLine("Dues " + F(sim.AnnualDuesTotal()) + " a year: " + string.Join(", ", sim.Backed().Where(i => sim.AnnualDues(i) > 0)
+                    .Select(i => i.Def.ShortName + " " + F(sim.AnnualDues(i)) + " (" + sim.StakePercent(i) + "%)")) + ". More stake, more dues.");
             sb.AppendLine("Settled each turn: " + F((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();
@@ -155,7 +158,7 @@ namespace Butterfly.Core
 
         private static string StakeMeaning(Simulation sim, Institution i)
         {
-            string next = i.Def.IsOwn ? "" : " Next 1% costs " + F(sim.StakeCost(i, 1)) + " gold.";
+            string next = i.Def.IsOwn ? "" : " Next 1% costs " + F(sim.StakeCost(i, 1)) + " gold. Dues " + F(sim.AnnualDues(i)) + " gold a year.";
             if (sim.Controls(i)) return "you control it (oversee, mentor, charter, endow, audit, invest)." + next;
             int to = sim.NextThresholdPercent(i);
             string gap = " " + to + "% would cost " + F(sim.StakeCost(i, to - sim.StakePercent(i))) + " more gold.";
@@ -163,7 +166,8 @@ namespace Butterfly.Core
             if (sim.HasInfluence(i)) return "it counts toward your influence over " + i.Def.Maintains + ", but gives you no say." + gap;
             if (i.Stake > 0) return "a member's share: a little of its surplus, no say." + gap;
             return "nothing yet. To join it asks for " + sim.JoinRequirementText(i) + (sim.JoinBlocker(i) == null ? " (you qualify)" : " (you don't yet)") +
-                   "; the first 1% costs " + F(sim.StakeCost(i, 1)) + " gold.";
+                   "; joining costs " + F(sim.BuyCost(i, 1)) + " gold (entry fee " + F(sim.EntryFee(i)) + " + the first 1%), then dues of " +
+                   F(sim.T.Get("joining.duesBasePerYear." + i.Key)) + " gold a year plus " + F(sim.T.Get("joining.duesPerStakePercentPerYear")) + " per percent you hold.";
         }
 
         private static string Policy(Simulation sim)

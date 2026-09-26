@@ -72,6 +72,21 @@ namespace Butterfly.Core
             return cost;
         }
 
+        /// <summary>The entry fee you pay on joining an established institution (none for your own).</summary>
+        public double EntryFee(Institution i) => i.Def.IsOwn ? 0 : T.Get("joining.entryFee." + i.Key);
+
+        /// <summary>What buying <paramref name="points"/> more percent costs you now, including the entry fee if you are joining.</summary>
+        public double BuyCost(Institution i, int points) => StakeCost(i, points) + (i.Stake <= 0 ? EntryFee(i) : 0);
+
+        /// <summary>
+        /// Annual dues to an established institution you belong to (decided 2026-09-28): a base per institution
+        /// plus a little more for every percent you hold, so more influence costs more. None for your own.
+        /// </summary>
+        public double AnnualDues(Institution i) =>
+            !i.Backed || i.Def.IsOwn ? 0 : T.Get("joining.duesBasePerYear." + i.Key) + T.Get("joining.duesPerStakePercentPerYear") * StakePercent(i);
+
+        public double AnnualDuesTotal() => Backed().Sum(AnnualDues);
+
         /// <summary>Price of going from 0% to 50% in an established institution of this domain.</summary>
         public double ControlCost(Domain d)
         {
@@ -107,9 +122,10 @@ namespace Butterfly.Core
                 int minFirst = inst.Def.JoinRequirement == "deposit" ? T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (points < minFirst)
                     return CommandResult.Fail(Cap(inst.Def.ShortName) + " takes new partners only with a deposit of at least " + minFirst + "% (" +
-                                              F(StakeCost(inst, minFirst)) + " gold): buy " + inst.Key + " " + minFirst + ".");
+                                              F(BuyCost(inst, minFirst)) + " gold): buy " + inst.Key + " " + minFirst + ".");
             }
-            double cost = StakeCost(inst, points);
+            double fee = inst.Stake <= 0 ? EntryFee(inst) : 0;
+            double cost = BuyCost(inst, points);
             if (World.Gold < cost) return CommandResult.Fail(points + "% of " + inst.Def.ShortName + " costs " + F(cost) + " gold; you have " + F(World.Gold) + ".");
             int att = T.GetInt("stakes.buyAttention");
             var attention = CheckAttention(att);
@@ -124,8 +140,10 @@ namespace Butterfly.Core
             if (first) effects.Add(new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty));
             string crossed = Crossed(stake, inst.Stake);
             Record("institution.buy", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader }, effects,
-                (first ? inst.Def.FoundText + " " : "") + "You now hold " + (from + points) + "% of " + inst.Def.Name + "." + crossed);
-            return CommandResult.Success("You hold " + (from + points) + "% of " + inst.Def.ShortName + " (" + F(cost) + " gold, " + att + " Attention)." + crossed +
+                (first ? inst.Def.FoundText + (fee > 0 ? " Entry fee: " + F(fee) + " gold." : "") + " " : "") + "You now hold " + (from + points) + "% of " + inst.Def.Name + "." + crossed);
+            return CommandResult.Success("You hold " + (from + points) + "% of " + inst.Def.ShortName + " (" + F(cost) + " gold" +
+                                         (fee > 0 ? ", including a " + F(fee) + "-gold entry fee" : "") + ", " + att + " Attention)." + crossed +
+                                         " Dues: " + F(AnnualDues(inst)) + " gold a year." +
                                          (Controls(inst) ? "" : " Next 1% costs " + F(StakeCost(inst, 1)) + "."));
         }
 

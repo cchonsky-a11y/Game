@@ -138,14 +138,14 @@ namespace Butterfly.Core
             return CommandResult.Success("Loyalty " + F(inst.Loyalty) + ", strength " + F(inst.Strength) + ".");
         }
 
-        /// <summary>Your share of the shortfalls of institutions whose income doesn't meet their costs (by stake).</summary>
-        private double InstitutionUpkeepTotal() => Backed().Sum(i => i.Stake * Math.Max(0, -InstitutionNet(i)));
+        /// <summary>What you owe institutions each year: your stake's share of their shortfalls, plus your dues.</summary>
+        private double InstitutionUpkeepTotal() => Backed().Sum(i => i.Stake * Math.Max(0, -InstitutionNet(i)) + AnnualDues(i));
 
         private void InstitutionUpkeepShortfall()
         {
-            foreach (var i in Backed().Where(i => InstitutionNet(i) < 0))
+            foreach (var i in Backed().Where(i => InstitutionNet(i) < 0 || AnnualDues(i) > 0))
                 ChangeLoyalty(i, -T.Get("institutions.unpaidLoyaltyLoss"), "institution.unpaid", CausesOf(GoldKey), new[] { i.Leader },
-                    Cap(i.Def.ShortName) + " ran short this season and you couldn't cover it.");
+                    "You couldn't pay what you owe " + i.Def.ShortName + " this season (your dues or your share of its costs).");
         }
 
         private void ApplyInstitutionExtra(ProjectDef def, ProjectExtra x, int causeId)

@@ -34,7 +34,7 @@ namespace Butterfly.Batch
             var i = sim.World.Institution(id);
             if (!i.Exists || i.Def.IsOwn) return;
             int points = 0;
-            while (sim.StakePercent(i) + points < targetPercent && sim.StakeCost(i, points + 1) <= sim.World.Gold - reserve) points++;
+            while (sim.StakePercent(i) + points < targetPercent && sim.BuyCost(i, points + 1) <= sim.World.Gold - reserve) points++;
             if (points > 0) sim.Buy(id, points);
         }
 
