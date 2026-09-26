@@ -9,7 +9,7 @@ namespace Butterfly.Core
     /// into, 1% at a time and at a rising price, and one you can found yourself. 10% counts toward influence
     /// but gives no oversight; 25% gives a voice (priorities, policy, a plague response); 50% gives oversight
     /// and control. Your influence over a domain is how much of it your institutions hold, weighted by how
-    /// much of each you control; rivals push back when one you control grows.
+    /// much of each you control; rivals push back from 20%, harder the more you hold.
     /// </summary>
     public sealed partial class Simulation
     {
@@ -223,21 +223,26 @@ namespace Butterfly.Core
             }
         }
 
+        /// <summary>Chance a year that each rival strikes at an institution you hold this much of (decided 2026-09-28).</summary>
+        public double RivalStrikeChance(Institution i) =>
+            i.Stake < T.Get("rivalry.startsAtStake") - 1e-9 ? 0
+                : Math.Min(T.Get("rivalry.maxStrikeChancePerYear"), T.Get("rivalry.strikeChancePerStakePercent") * StakePercent(i));
+
         /// <summary>
-        /// Rivals push back: when an institution you control holds a large share of its domain, each rival in the
-        /// domain may strike at it (rumors, lawsuits, poached members).
+        /// Rivals push back: once you hold 20% of an institution, each rival in its domain may strike at it each year
+        /// (rumors, lawsuits, poached members), more often the larger your stake.
         /// </summary>
         private void RivalryYearTick()
         {
-            foreach (var mine in Controlled().ToList())
+            foreach (var mine in World.Institutions.Where(i => i.Exists && RivalStrikeChance(i) > 0).ToList())
             {
-                if (DomainShare(mine) < T.Get("rivalry.shareThreshold")) continue;
-                foreach (var rival in InDomain(mine.Def.Maintains).Where(r => r != mine && !Controls(r)).ToList())
+                double chance = RivalStrikeChance(mine);
+                foreach (var rival in InDomain(mine.Def.Maintains).Where(r => r != mine && RivalStrikeChance(r) <= 0).ToList())
                 {
-                    if (!Rng.Chance(T.Get("rivalry.strikeChancePerYear"))) continue;
-                    ChangeStrength(mine, -T.Get("rivalry.strikeStrength"), "rivalry.strike", CausesOf(StrengthKey(mine)), new[] { rival.Leader },
-                        Cap(rival.Def.Name) + " works against " + mine.Def.Name + " (" + F(DomainShare(mine) * 100) + "% of " + mine.Def.Maintains +
-                        "): " + RivalMove(mine.Def.Maintains) + ".");
+                    if (!Rng.Chance(chance)) continue;
+                    ChangeStrength(mine, -T.Get("rivalry.strikeStrength"), "rivalry.strike", CausesOf(StrengthKey(mine), StakeKey(mine)), new[] { rival.Leader },
+                        Cap(rival.Def.Name) + " works against " + mine.Def.Name + ", where you hold " + StakePercent(mine) + "%: " +
+                        RivalMove(mine.Def.Maintains) + ".");
                 }
             }
         }

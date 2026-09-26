@@ -1098,18 +1098,22 @@
     }
   },
   "rivalry": {
-    "_readme": "Rival institutions in the same domain push back when one you control grows its share (DECIDED 2026-09-27, Corey: institutions battle for control and influence).",
-    "shareThreshold": {
-      "value": 0.4,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    "_readme": "Rival institutions in the same domain push back once you hold 20% of an institution, harder the larger your stake (DECIDED 2026-09-28, Corey). Chance per rival per year = min(max, rate × your stake in percent).",
+    "startsAtStake": {
+      "value": 0.2,
+      "ref": "DECIDED 2026-09-28 (Corey: rivals push back at 20%)"
     },
-    "strikeChancePerYear": {
-      "value": 0.3,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+    "strikeChancePerStakePercent": {
+      "value": 0.0075,
+      "ref": "DECIDED 2026-09-28 (Corey: rivals push back from 20% and harder the more control you take); rate PROPOSED P0-18"
+    },
+    "maxStrikeChancePerYear": {
+      "value": 0.75,
+      "ref": "DECIDED 2026-09-28 (Corey: rivals push back from 20% and harder the more control you take); rate PROPOSED P0-18"
     },
     "strikeStrength": {
       "value": 3,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "ref": "PROPOSED P0-18"
     }
   }
 }

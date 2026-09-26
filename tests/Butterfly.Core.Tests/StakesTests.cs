@@ -166,18 +166,33 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void RivalsStrikeAtADominantInstitution()
+        public void RivalsPushBackFrom20PercentAndHarderWithMoreControl()
         {
-            var data = TestData.Load().WithTuning(new Dictionary<string, double> { { "rivalry.strikeChancePerYear", 1 } });
-            var sim = new Simulation(data, 3);
-            sim.GrantStake("guild", 0.5);
+            var sim = Rich();
             var guild = sim.World.Institution("guild");
-            guild.Strength = 90;
-            guild.Loyalty = 100;
+            double rate = sim.T.Get("rivalry.strikeChancePerStakePercent");
+            sim.GrantStake("guild", 0.19);
+            Assert.Equal(0, sim.RivalStrikeChance(guild), 6);
+            sim.GrantStake("guild", 0.2);
+            Assert.Equal(20 * rate, sim.RivalStrikeChance(guild), 6);
+            sim.GrantStake("guild", 0.5);
+            Assert.Equal(50 * rate, sim.RivalStrikeChance(guild), 6);
+            Assert.True(sim.RivalStrikeChance(guild) > 20 * rate);
+            sim.GrantStake("guild", 1);
+            Assert.Equal(System.Math.Min(sim.T.Get("rivalry.maxStrikeChancePerYear"), 100 * rate), sim.RivalStrikeChance(guild), 6);
+        }
+
+        [Fact]
+        public void RivalsStrikeWithCausesAndActors()
+        {
+            var data = TestData.Load().WithTuning(new Dictionary<string, double> { { "rivalry.strikeChancePerStakePercent", 1 }, { "rivalry.maxStrikeChancePerYear", 1 } });
+            var sim = new Simulation(data, 3);
+            sim.GrantStake("guild", 0.2); // a voice-level stake is enough to draw fire
             for (int t = 0; t < 4; t++) sim.EndTurn();
             var strikes = sim.Log.Events.Where(x => x.Type == "rivalry.strike").ToList();
             Assert.NotEmpty(strikes); // the bank is the only rival (the house was never founded)
             Assert.All(strikes, x => Assert.Contains(sim.World.Institution("bank").Def.Leader, x.Actors));
+            Assert.All(strikes, x => Assert.NotEmpty(x.ImmediateCauses));
         }
 
         [Fact]
