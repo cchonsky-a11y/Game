@@ -1,0 +1,9 @@
+# Accepts the promise, then leaves at the first sign of the outbreak without responding
+# seed: 120
+choose fountain
+@until 164: promise yes; found circle; oversee circle; work; end
+jump
+jump
+learn more
+why medicine
+quit

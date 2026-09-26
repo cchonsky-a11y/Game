@@ -1,0 +1,10 @@
+# Venal leader, large endowment, no audit charter, debt left to the institution
+# seed: 110
+choose workshop
+@until era-end: promise no; respond quarantine; found faction; charter faction; oversee faction; work; end
+jump
+endow faction all
+jump
+learn more
+why medicine
+quit

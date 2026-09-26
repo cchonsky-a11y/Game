@@ -1,0 +1,12 @@
+# Late jump (era end), workshop, promise kept, endows and audits the Circle
+# seed: 102
+choose workshop
+@until era-end: promise yes; respond hospice; respond quarantine; found circle; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+status
+jump
+audit circle
+endow circle all
+jump
+learn more
+why medicine
+quit

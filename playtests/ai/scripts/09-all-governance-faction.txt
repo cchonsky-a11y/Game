@@ -1,0 +1,11 @@
+# Governance and the faction only; quarantine response
+# seed: 109
+choose fountain
+priority governance protect
+@until era-end: promise yes; respond quarantine; found faction; charter faction; oversee faction; start patronage; start magistrates; start census; work; end
+jump
+endow faction all
+jump
+learn more
+why medicine
+quit

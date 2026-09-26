@@ -1,0 +1,25 @@
+choose fountain
+priority medicine protect
+priority governance protect
+priority economy protect
+work
+end
+work
+end
+work
+end
+promise yes
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+jump
+jump
+learn more
+why medicine

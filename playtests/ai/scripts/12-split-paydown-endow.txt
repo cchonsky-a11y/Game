@@ -1,0 +1,11 @@
+# Pays down Medicine only, endows the Circle with the rest
+# seed: 112
+choose fountain
+@until era-end: promise yes; respond hospice; respond quarantine; found circle; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+jump
+paydown medicine 9999
+endow circle all
+jump
+learn more
+why medicine
+quit

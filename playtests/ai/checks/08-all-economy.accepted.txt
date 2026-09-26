@@ -1,0 +1,50 @@
+choose workshop
+priority economy protect
+priority medicine accept
+priority governance accept
+work
+end
+work
+end
+start market
+work
+end
+work
+end
+start warehouses
+work
+end
+promise no
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+respond none
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+jump
+jump
+learn more
+why medicine

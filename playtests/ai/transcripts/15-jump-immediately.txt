@@ -1,0 +1,79 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> jump
+You will leave AD 155 for AD 405. You can't come back.
+What you leave behind (60 gold in hand):
+  • No institution will look after Rome while you're away.
+  • The 60 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> jump
+
+The machine shudders. Decades pass in the dark...
+
+— Recognition —
+You climb out of the machine in AD 405. The Tiber smells the same. You pass the corner where the
+smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.
+
+— Wrongness —
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
+
+— Personal echo —
+You left before the first rumors came from the East. In the city's records, the pestilence of 162
+fills page after page: about 110 thousand dead in Rome. You aren't in any of them.
+
+— Discovery —
+You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
+outlasted you.
+
+Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 155: 100   Medicine 100  Governance 100  Economy 100
+  Arrival,   AD 405: 14   Medicine 10  Governance 26  Economy 10
+Institutions
+  None founded.
+Crises while you were away
+  AD 162: the Antonine pestilence (grave, about 110.3 thousand dead; response: none)
+  AD 185: pestilence returns (catastrophic, about 258.3 thousand dead)
+  AD 195: pestilence returns (catastrophic, about 168.2 thousand dead)
+  AD 205: pestilence returns (catastrophic, about 136.3 thousand dead)
+  AD 225: pestilence returns (catastrophic, about 102.9 thousand dead)
+  AD 255: pestilence returns (catastrophic, about 125.5 thousand dead)
+  AD 265: pestilence returns (catastrophic, about 83.8 thousand dead)
+  AD 275: pestilence returns (catastrophic, about 55.5 thousand dead)
+  AD 285: pestilence returns (catastrophic, about 35.2 thousand dead)
+  AD 295: pestilence returns (catastrophic, about 27.2 thousand dead)
+  AD 315: pestilence returns (catastrophic, about 56.7 thousand dead)
+  AD 335: pestilence returns (catastrophic, about 69.6 thousand dead)
+  AD 355: pestilence returns (catastrophic, about 75.3 thousand dead)
+  AD 365: pestilence returns (catastrophic, about 44.8 thousand dead)
+  AD 375: pestilence returns (catastrophic, about 30.3 thousand dead)
+  AD 385: pestilence returns (catastrophic, about 22.9 thousand dead)
+  AD 395: pestilence returns (catastrophic, about 19.1 thousand dead)
+  AD 405: pestilence returns (catastrophic, about 17.3 thousand dead)
+
+
+(after arrival) > why medicine
+You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+
+(after arrival) > quit
+
+Run fingerprint (seed 115): a9724dd71a5239d0

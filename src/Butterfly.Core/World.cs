@@ -89,6 +89,8 @@ namespace Butterfly.Core
     public sealed class PromiseState
     {
         public PromiseStatus Status { get; set; }
+        /// <summary>True if the promise lapsed because it was never answered (text only).</summary>
+        public bool Unanswered { get; set; }
         public int OfferEventId { get; set; }
         public int LastEventId { get; set; }
     }

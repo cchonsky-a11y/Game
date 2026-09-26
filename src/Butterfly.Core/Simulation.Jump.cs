@@ -88,8 +88,10 @@ namespace Butterfly.Core
             foreach (var i in Founded())
             {
                 var q = QualityAtDeparture(i);
+                string why = q != InstitutionQuality.Bare ? "" : i.Chartered ? " (chartered but not endowed, so it counts as bare)"
+                           : i.Endowed ? " (endowed but not chartered, so it counts as bare)" : "";
                 yield return Cap(i.Def.Name) + " would be left " + (q == InstitutionQuality.Strong ? "strong" : q == InstitutionQuality.CharteredAndEndowed ? "chartered and endowed" : "bare") +
-                             ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
+                             why + ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
                 if (i.Holdings <= 0)
                 {
                     yield return "  It holds no gold, so it can't pay down " + i.Def.Maintains + " debt while you're away. (endow " + i.Key + " <gold>)";
@@ -107,11 +109,13 @@ namespace Butterfly.Core
                 yield return "  Corruption risk: " + CorruptionRiskBand(i) + " for " + window + " years (" +
                              (LargeHoldings(i) ? "large holdings" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
                              ", " + i.Leader + " is " + i.Def.LeaderIntegrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
-                             F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." + (i.AuditCharter ? "" : " (audit " + i.Key + ")");
+                             F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." +
+                             (i.AuditCharter ? "" : " (audit " + i.Key + ": " + F(T.Get("institutions.auditGold")) + " gold)");
             }
             if (!Founded().Any()) yield return "No institution will look after Rome while you're away.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
+            if (World.Gold >= 1) yield return "The " + F(Math.Floor(World.Gold)) + " gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.";
         }
 
         private void SettlePromiseOnDeparture(int departId)
@@ -120,6 +124,7 @@ namespace Butterfly.Core
             if (p.Status == PromiseStatus.Offered)
             {
                 p.Status = PromiseStatus.Refused;
+                p.Unanswered = true;
                 var e = Record("promise.refuse", "promise", new[] { p.OfferEventId, departId }, new[] { "player" }, null,
                     "You leave without ever answering Demetria.");
                 p.LastEventId = e.Id;
@@ -176,7 +181,8 @@ namespace Butterfly.Core
             }
             if (!antoninePassed && World.Plague.Stage == PlagueState.Passed)
                 arrival.Crises.Add("AD " + World.Plague.OutbreakYear + ": the Antonine pestilence (" + SeverityWord(World.Plague.Severity) +
-                                   ", about " + F(World.Plague.Deaths) + " thousand dead; response: " + World.Plague.Response + ")");
+                                   ", about " + F(World.Plague.Deaths) + " thousand dead; response: " +
+                                   (World.Plague.Response == "none" ? "none" : World.Plague.Response + ", chosen by your institutions after you left") + ")");
 
             foreach (var d in DomainInfo.All) DomainDecadeStep(d, startYear);
             foreach (var i in Founded()) InstitutionDecadeStep(i, decade);
@@ -283,13 +289,13 @@ namespace Butterfly.Core
             // 3. Personal echo — the promise.
             var circle = World.Institution("circle");
             bool keeperAlive = circle.Founded && OutcomeOf(circle) != InstitutionOutcome.Dissolved;
-            values["keeper"] = keeperAlive ? CurrentName(circle) : "house by the fountain";
+            values["keeper"] = keeperAlive ? CurrentName(circle) : "an old house in the Subura";
             string personalKey;
             switch (World.Promise.Status)
             {
                 case PromiseStatus.Kept: personalKey = "kept"; break;
                 case PromiseStatus.Broken: personalKey = keeperAlive ? "broken" : "brokenNoKeeper"; break;
-                case PromiseStatus.Refused: personalKey = "refused"; break;
+                case PromiseStatus.Refused: personalKey = World.Promise.Unanswered ? "unanswered" : "refused"; break;
                 default: personalKey = World.Plague.OutbreakYear > 0 ? "notOffered" : "notOfferedNoOutbreak"; break;
             }
             promise.AtArrival = personalKey;

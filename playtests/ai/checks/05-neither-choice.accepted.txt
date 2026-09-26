@@ -1,0 +1,51 @@
+found circle
+oversee circle
+work
+end
+oversee circle
+work
+end
+charter circle
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start market
+work
+end
+oversee circle
+work
+end
+promise yes
+oversee circle
+start census
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start physician
+work
+end
+respond quarantine
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+jump
+jump
+learn more
+why medicine

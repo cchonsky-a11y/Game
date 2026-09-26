@@ -1,0 +1,2 @@
+seed 114, commands 123, arrived False, fingerprint e0dd4b33c52221b8
+DEAD END | the run never jumped/arrived (last time AD 170-01, turn 31)

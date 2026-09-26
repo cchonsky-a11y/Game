@@ -1,0 +1,61 @@
+choose workshop
+work
+end
+start census
+work
+end
+work
+end
+found circle
+oversee circle
+work
+end
+charter circle
+oversee circle
+work
+end
+promise yes
+oversee circle
+work
+end
+oversee circle
+start market
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start physician
+work
+end
+respond hospice
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start magistrates
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+status
+jump
+audit circle
+endow circle all
+jump
+learn more
+why medicine

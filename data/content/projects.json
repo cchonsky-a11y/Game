@@ -42,7 +42,7 @@
         "patronage"
       ],
       "description": "Pay a trained Greek physician to treat the district's poor.",
-      "completionText": "A physician now keeps open hours near the fountain."
+      "completionText": "A physician now keeps open hours in the Subura."
     },
     {
       "id": "quarantine",

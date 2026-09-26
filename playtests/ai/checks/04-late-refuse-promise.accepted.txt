@@ -1,0 +1,44 @@
+choose fountain
+work
+end
+work
+end
+found faction
+work
+end
+charter faction
+work
+end
+promise no
+work
+end
+work
+end
+start patronage
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+respond none
+work
+end
+work
+end
+work
+end
+work
+end
+jump
+paydown medicine 9999
+paydown governance 9999
+jump
+learn more
+why medicine

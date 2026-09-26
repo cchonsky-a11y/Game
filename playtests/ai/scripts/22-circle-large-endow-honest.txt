@@ -1,0 +1,12 @@
+# Honest leader, large endowment and audit, debt left to the Circle
+# seed: 122
+choose fountain
+priority medicine accept
+@until era-end: promise yes; respond hospice; found circle; charter circle; oversee circle; work; end
+jump
+audit circle
+endow circle all
+jump
+learn more
+why medicine
+quit

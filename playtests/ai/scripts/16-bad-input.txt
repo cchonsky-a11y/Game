@@ -1,0 +1,30 @@
+# Odd: invalid, repeated and out-of-order commands
+# seed: 116
+dance
+start
+start nonsense
+priority medicine
+priority blah protect
+paydown medicine abc
+endow circle -5
+endow circle
+audit circle
+oversee circle
+promise yes
+respond hospice
+choose fountain
+choose workshop
+start fountain
+work
+work
+why
+why nothing
+log 3
+@until 158: end
+jump
+status
+jump
+jump
+learn more
+why medicine
+quit

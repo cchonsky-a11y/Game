@@ -1,0 +1,7 @@
+# Odd: jumps on turn 1 without doing anything
+# seed: 115
+jump
+jump
+learn more
+why medicine
+quit

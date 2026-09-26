@@ -1,0 +1,8 @@
+# Does nothing at all: only ends turns until the era is over, then jumps
+# seed: 106
+@until era-end: end
+jump
+jump
+learn more
+why medicine
+quit

@@ -1,0 +1,64 @@
+choose fountain
+work
+end
+work
+end
+found circle
+oversee circle
+work
+end
+charter circle
+oversee circle
+work
+end
+promise yes
+oversee circle
+start census
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start market
+work
+end
+respond quarantine
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start physician
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+work
+end
+oversee circle
+start magistrates
+work
+end
+oversee circle
+work
+end
+jump
+paydown medicine 9999
+jump
+learn more
+why medicine

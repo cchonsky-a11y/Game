@@ -1,0 +1,12 @@
+# Accept Risk everywhere but spends the savings on projects
+# seed: 121
+choose workshop
+priority medicine accept
+priority governance accept
+priority economy accept
+@until era-end: promise yes; respond none; start physician; start market; start patronage; start census; start quarantine; start magistrates; start warehouses; work; end
+jump
+jump
+learn more
+why medicine
+quit

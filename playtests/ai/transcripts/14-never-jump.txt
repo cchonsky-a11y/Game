@@ -1,0 +1,597 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> choose fountain
+You chose the fountain.  [Attention left this turn: 2/4]
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
+  • Clean water runs again in the district fountain. Medicine +8.
+
+== Turn 2 · Iulius, AD 155 ==  Gold 39.5 (+14.5/turn)   Attention 4/4   Index 105.1
+  Medicine      58  expect   58  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 156 begins.
+
+== Turn 3 · Ianuarius, AD 156 ==  Gold 59 (+14.2/turn)   Attention 4/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 4 · Iulius, AD 156 ==  Gold 78.2 (+14.2/turn)   Attention 4/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 157 begins.
+  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+
+== Turn 5 · Ianuarius, AD 157 ==  Gold 97.4 (+12.7/turn)   Attention 4/4   Index 98.8
+  Medicine      56  expect   56  Maintain    debt   2.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 6 · Iulius, AD 157 ==  Gold 115.1 (+12.7/turn)   Attention 4/4   Index 98.9
+  Medicine      56  expect   56  Maintain    debt   2.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 158 begins.
+
+== Turn 7 · Ianuarius, AD 158 ==  Gold 132.8 (+12.4/turn)   Attention 4/4   Index 97
+  Medicine      55  expect   55  Maintain    debt   3.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 8 · Iulius, AD 158 ==  Gold 150.2 (+12.4/turn)   Attention 4/4   Index 97
+  Medicine      55  expect   55  Maintain    debt   3.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 159 begins.
+  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
+
+== Turn 9 · Ianuarius, AD 159 ==  Gold 167.6 (+12.1/turn)   Attention 4/4   Index 95.2
+  Medicine      54  expect   54  Maintain    debt   4.3 Stable
+  Governance    51  expect   55  Maintain    debt  10.5 Stable
+  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> promise yes
+You gave your word.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 10 · Iulius, AD 159 ==  Gold 184.7 (+12.1/turn)   Attention 4/4   Index 95.2
+  Medicine      54  expect   54  Maintain    debt   4.3 Stable
+  Governance    51  expect   55  Maintain    debt  10.5 Stable
+  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 160 begins.
+  • Economy moves from Stable to Strained.
+
+== Turn 11 · Ianuarius, AD 160 ==  Gold 201.8 (+11.8/turn)   Attention 4/4   Index 93.3
+  Medicine      53  expect   53  Maintain    debt   5.5 Stable
+  Governance    50  expect   55  Maintain    debt    16 Stable
+  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 12 · Iulius, AD 160 ==  Gold 218.6 (+11.8/turn)   Attention 4/4   Index 93.4
+  Medicine      53  expect   53  Maintain    debt   5.5 Stable
+  Governance    50  expect   55  Maintain    debt    16 Stable
+  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 161 begins.
+  • Governance moves from Stable to Strained.
+  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+== Turn 13 · Ianuarius, AD 161 ==  Gold 235.4 (+11.5/turn)   Attention 4/4   Index 91.5
+  Medicine      52  expect   52  Maintain    debt   6.8 Stable
+  Governance    49  expect   55  Maintain    debt  22.8 Strained
+  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 14 · Iulius, AD 161 ==  Gold 251.9 (+11.5/turn)   Attention 4/4   Index 91.5
+  Medicine      52  expect   52  Maintain    debt   6.8 Stable
+  Governance    49  expect   55  Maintain    debt  22.8 Strained
+  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 162 begins.
+  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+
+== Turn 15 · Ianuarius, AD 162 ==  Gold 268.4 (+11.2/turn)   Attention 4/4   Index 89.7
+  Medicine      51  expect   51  Maintain    debt   8.1 Stable
+  Governance    48  expect   55  Maintain    debt    31 Strained
+  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
+  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 16 · Iulius, AD 162 ==  Gold 284.6 (+11.2/turn)   Attention 4/4   Index 89.7
+  Medicine      51  expect   51  Maintain    debt   8.1 Stable
+  Governance    48  expect   55  Maintain    debt    31 Strained
+  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
+  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 163 begins.
+  • Economy moves from Strained to Fragile.
+  • Outbreak — the pestilence breaks out across Rome.
+
+== Turn 17 · Ianuarius, AD 163 ==  Gold 300.8 (+10.9/turn)   Attention 4/4   Index 87.8
+  Medicine      50  expect   50  Maintain    debt   9.5 Stable
+  Governance    47  expect   55  Maintain    debt  40.5 Strained
+  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
+  Pestilence: Outbreak — the pestilence breaks out across Rome.
+  ► Waiting: respond quarantine / respond none   (a hospice needs a physicians' circle of strength 30+)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+You can't choose 'hospice' now.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The pestilence is catastrophic (severity 43.5): about 130.4 thousand dead in Rome.
+  • Governance moves from Strained to Stable.
+  • Economy moves from Fragile to Stable.
+  • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
+  • The worst of the pestilence has passed.
+  • You stayed through the pestilence, as you promised Demetria of Pergamon.
+
+== Turn 18 · Iulius, AD 163 ==  Gold 270 (+7.6/turn)   Attention 4/4   Index 73.5
+  Medicine    43.1  expect   50  Maintain    debt     0 Stable
+  Governance  42.7  expect   55  Maintain    debt     0 Stable
+  Economy     32.1  expect 54.2  Maintain    debt     0 Stable
+  Pestilence: The pestilence has passed.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 164 begins.
+  • Economy moves from Stable to Strained.
+
+== Turn 19 · Ianuarius, AD 164 ==  Gold 282.6 (+7.3/turn)   Attention 4/4   Index 71.6
+  Medicine    42.1  expect   50  Maintain    debt   7.9 Stable
+  Governance  41.7  expect   55  Maintain    debt  13.3 Stable
+  Economy     31.1  expect 54.1  Maintain    debt    23 Strained
+  Pestilence: The pestilence has passed.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 20 · Iulius, AD 164 ==  Gold 295 (+7.3/turn)   Attention 4/4   Index 71.6
+  Medicine    42.1  expect   50  Maintain    debt   7.9 Stable
+  Governance  41.7  expect   55  Maintain    debt  13.3 Stable
+  Economy     31.1  expect 54.1  Maintain    debt    23 Strained
+  Pestilence: The pestilence has passed.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 165 begins.
+  • Governance moves from Stable to Strained.
+
+== Turn 21 · Ianuarius, AD 165 ==  Gold 307.3 (+7/turn)   Attention 4/4   Index 69.7
+  Medicine    41.1  expect   50  Maintain    debt  17.1 Stable
+  Governance  40.7  expect   55  Maintain    debt  28.4 Strained
+  Economy     30.1  expect   54  Maintain    debt    48 Strained
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 22 · Iulius, AD 165 ==  Gold 319.3 (+7/turn)   Attention 4/4   Index 70.3
+  Medicine    41.1  expect   50  Maintain    debt  17.1 Stable
+  Governance  40.7  expect   55  Maintain    debt  28.4 Strained
+  Economy     30.1  expect   54  Maintain    debt    48 Strained
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 166 begins.
+  • Medicine moves from Stable to Strained.
+  • Economy moves from Strained to Fragile.
+
+== Turn 23 · Ianuarius, AD 166 ==  Gold 331.4 (+6.7/turn)   Attention 4/4   Index 68.9
+  Medicine    40.1  expect 48.8  Maintain    debt  26.7 Strained
+  Governance  39.7  expect 54.6  Maintain    debt  44.7 Strained
+  Economy     29.1  expect 53.2  Maintain    debt  74.4 Fragile
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 24 · Iulius, AD 166 ==  Gold 343.1 (+6.7/turn)   Attention 4/4   Index 69.4
+  Medicine    40.1  expect 48.8  Maintain    debt  26.7 Strained
+  Governance  39.7  expect 54.6  Maintain    debt  44.7 Strained
+  Economy     29.1  expect 53.2  Maintain    debt  74.4 Fragile
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 167 begins.
+  • Governance moves from Strained to Fragile.
+
+== Turn 25 · Ianuarius, AD 167 ==  Gold 354.9 (+6.4/turn)   Attention 4/4   Index 68
+  Medicine    39.1  expect 47.6  Maintain    debt  36.5 Strained
+  Governance  38.7  expect 54.2  Maintain    debt  62.5 Fragile
+  Economy     28.1  expect 52.4  Maintain    debt 102.4 Fragile
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 26 · Iulius, AD 167 ==  Gold 366.3 (+6.4/turn)   Attention 4/4   Index 68.6
+  Medicine    39.1  expect 47.6  Maintain    debt  36.5 Strained
+  Governance  38.7  expect 54.2  Maintain    debt  62.5 Fragile
+  Economy     28.1  expect 52.4  Maintain    debt 102.4 Fragile
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 168 begins.
+  • Economy moves from Fragile to Critical.
+
+== Turn 27 · Ianuarius, AD 168 ==  Gold 377.7 (+6.1/turn)   Attention 4/4   Index 67.1
+  Medicine    38.1  expect 46.4  Maintain    debt  46.5 Strained
+  Governance  37.7  expect 53.8  Maintain    debt  81.8 Fragile
+  Economy     27.1  expect 51.6  Maintain    debt   132 Critical
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 28 · Iulius, AD 168 ==  Gold 388.9 (+6.1/turn)   Attention 4/4   Index 67.7
+  Medicine    38.1  expect 46.4  Maintain    debt  46.5 Strained
+  Governance  37.7  expect 53.8  Maintain    debt  81.8 Fragile
+  Economy     27.1  expect 51.6  Maintain    debt   132 Critical
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 169 begins.
+
+== Turn 29 · Ianuarius, AD 169 ==  Gold 400 (+5.8/turn)   Attention 4/4   Index 66.2
+  Medicine    37.1  expect 45.2  Maintain    debt  56.9 Strained
+  Governance  36.7  expect 53.4  Maintain    debt 102.6 Fragile
+  Economy     26.1  expect 50.8  Maintain    debt 163.3 Critical
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 30 · Iulius, AD 169 ==  Gold 410.9 (+5.8/turn)   Attention 4/4   Index 66.8
+  Medicine    37.1  expect 45.2  Maintain    debt  56.9 Strained
+  Governance  36.7  expect 53.4  Maintain    debt 102.6 Fragile
+  Economy     26.1  expect 50.8  Maintain    debt 163.3 Critical
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 170 begins.
+  • Medicine moves from Strained to Fragile.
+  • Governance moves from Fragile to Critical.
+
+== Turn 31 · Ianuarius, AD 170 ==  Gold 421.7 (+5.5/turn)   Attention 4/4   Index 65.2
+  Medicine    36.1  expect   44  Maintain    debt  67.6 Fragile
+  Governance  35.7  expect   53  Maintain    debt 125.1 Critical
+  Economy     25.1  expect   50  Maintain    debt 196.3 Critical
+  Pestilence: The pestilence has passed.
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> learn more
+Unknown command. Type 'help'.
+
+> why medicine
+Medicine is at 36.1. Under Maintain it changes -1 a year.
+People expect 44: what was normal in Rome in AD 170.
+The shortfall of 7.9 adds that much debt each year.
+Debt 67.6 (Fragile). Debt grows 5% a year until paid down, which costs 3 gold per point. At Fragile, plague warnings advance with 75% chance a year.
+Index sub-score 82.1 (100 = as in real history).
+Recent changes:
+  AD 168-01  Medicine debt grows to 46.5: level 38.1 is below expectation 46.4. [+10.1]
+      because: Medicine slips under Maintain (-1). (AD 168-01)
+  AD 169-01  Medicine slips under Maintain (-1). [-1]
+  AD 169-01  Medicine debt grows to 56.9: level 37.1 is below expectation 45.2. [+10.4]
+      because: Medicine slips under Maintain (-1). (AD 169-01)
+  AD 170-01  Medicine slips under Maintain (-1). [-1]
+  AD 170-01  Medicine debt grows to 67.6: level 36.1 is below expectation 44. [+10.7]
+      because: Medicine slips under Maintain (-1). (AD 170-01)
+
+> quit
+
+Run fingerprint (seed 114): e0dd4b33c52221b8

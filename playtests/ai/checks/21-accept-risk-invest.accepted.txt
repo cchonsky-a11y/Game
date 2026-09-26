@@ -1,0 +1,54 @@
+choose workshop
+priority medicine accept
+priority governance accept
+priority economy accept
+work
+end
+start market
+work
+end
+start census
+end
+work
+end
+start physician
+work
+end
+work
+end
+promise yes
+start patronage
+work
+end
+start quarantine
+end
+work
+end
+start magistrates
+work
+end
+work
+end
+work
+end
+start warehouses
+end
+work
+end
+respond none
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+jump
+jump
+learn more
+why medicine

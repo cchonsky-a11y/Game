@@ -44,7 +44,7 @@ namespace Butterfly.Core
             Record("institution.found", inst.Key, null, new[] { "player", inst.Leader },
                 new[] { new Effect(StrengthKey(inst), 0, inst.Strength), new Effect(LoyaltyKey(inst), 0, inst.Loyalty), new Effect(GoldKey, gold, World.Gold) },
                 inst.Def.FoundText);
-            return CommandResult.Success("You founded " + inst.Def.Name + ", led by " + inst.Leader + ".");
+            return CommandResult.Success("You founded " + inst.Def.Name + ", led by " + inst.Leader + " (" + F(cost) + " gold, " + T.GetInt("institutions.foundAttention") + " Attention).");
         }
 
         public CommandResult Charter(string id)
@@ -63,7 +63,7 @@ namespace Butterfly.Core
             Record("institution.charter", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(inst.Key + ".chartered", 0, 1), new Effect(GoldKey, gold, World.Gold) },
                 "You write a charter for " + inst.Def.Name + ": its founding principles, in your hand. Charters slow drift.");
-            return CommandResult.Success(Cap(inst.Def.ShortName) + " is chartered.");
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " is chartered (" + F(cost) + " gold, " + T.GetInt("institutions.charterAttention") + " Attention). A charter slows drift; with an endowment of " + F(T.Get("institutions.endowGold")) + "+ gold it also slows decay while you are away.");
         }
 
         /// <summary>Endows the institution with the minimum endowment.</summary>
@@ -114,7 +114,7 @@ namespace Butterfly.Core
             Record("institution.audit", inst.Key, CausesOf(HoldingsKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(inst.Key + ".audit", 0, 1), new Effect(GoldKey, gold, World.Gold) },
                 "You found an audit charter for " + inst.Def.Name + ": outside auditors will open its books every year.");
-            return CommandResult.Success(Cap(inst.Def.ShortName) + " has an audit charter.");
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " has an audit charter (" + F(cost) + " gold, " + T.GetInt("institutions.auditAttention") + " Attention).");
         }
 
         /// <summary>Overseeing in person: one Attention, raises loyalty (GDD §7). Once per turn per institution.</summary>

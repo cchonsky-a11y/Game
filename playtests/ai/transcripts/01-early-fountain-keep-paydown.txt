@@ -1,0 +1,334 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> choose fountain
+You chose the fountain.  [Attention left this turn: 2/4]
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found circle
+Founding costs 50 gold.
+
+> charter circle
+Found it first.
+
+> oversee circle
+Found it first.
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 20.
+
+> start market
+Market regulation at the Forum Boarium costs 50 gold; you have 20.
+
+> start census
+Sponsor a household census costs 40 gold; you have 20.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 20.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
+  • Clean water runs again in the district fountain. Medicine +8.
+
+== Turn 2 · Iulius, AD 155 ==  Gold 39.5 (+14.5/turn)   Attention 4/4   Index 105.1
+  Medicine      58  expect   58  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found circle
+Founding costs 50 gold.
+
+> charter circle
+Found it first.
+
+> oversee circle
+Found it first.
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 39.5.
+
+> start market
+Market regulation at the Forum Boarium costs 50 gold; you have 39.5.
+
+> start census
+Sponsor a household census costs 40 gold; you have 39.5.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 39.5.
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 156 begins.
+
+== Turn 3 · Ianuarius, AD 156 ==  Gold 59 (+14.2/turn)   Attention 4/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found circle
+You founded the Physicians' Circle of the Subura, led by Demetria of Pergamon (50 gold, 2 Attention).  [Attention left this turn: 2/4]
+
+> charter circle
+A charter costs 30 gold.
+
+> oversee circle
+Loyalty 68, strength 52.  [Attention left this turn: 1/4]
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 9.
+
+> start market
+Market regulation at the Forum Boarium costs 50 gold; you have 9.
+
+> start census
+Sponsor a household census costs 40 gold; you have 9.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 9.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • The year AD 157 begins.
+  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+
+== Turn 5 · Ianuarius, AD 157 ==  Gold 34.4 (+8.7/turn)   Attention 4/4   Index 98.8
+  Medicine      56  expect   56  Maintain    debt   2.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+  The Circle (Demetria of Pergamon): strength 56, loyalty 58
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found circle
+The Physicians' Circle of the Subura already exists.
+
+> charter circle
+The Circle is chartered (30 gold, 2 Attention). A charter slows drift; with an endowment of 60+ gold it also slows decay while you are away.  [Attention left this turn: 2/4]
+
+> oversee circle
+Loyalty 66, strength 58.  [Attention left this turn: 1/4]
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 4.4.
+
+> start market
+Market regulation at the Forum Boarium costs 50 gold; you have 4.4.
+
+> start census
+Sponsor a household census costs 40 gold; you have 4.4.
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 4.4.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  (4 turns pass; nothing needed you until now)
+  • The year AD 158 begins.
+  • The year AD 159 begins.
+  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  • Demetria of Pergamon hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
+
+== Turn 9 · Ianuarius, AD 159 ==  Gold 43.6 (+8.1/turn)   Attention 4/4   Index 95.2
+  Medicine      54  expect   54  Maintain    debt   4.3 Stable
+  Governance    51  expect   55  Maintain    debt  10.5 Stable
+  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The Circle (Demetria of Pergamon): strength 58, loyalty 46, chartered
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> promise yes
+You gave your word.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found circle
+The Physicians' Circle of the Subura already exists.
+
+> charter circle
+The Circle already has a charter.
+
+> oversee circle
+Loyalty 62, strength 60.  [Attention left this turn: 3/4]
+
+> start physician
+Fund a physician for the district costs 60 gold; you have 43.6.
+
+> start market
+Market regulation at the Forum Boarium costs 50 gold; you have 43.6.
+
+> start census
+Started: Sponsor a household census.  [Attention left this turn: 1/4]
+
+> start magistrates
+Fund the district magistrates costs 60 gold; you have 3.6.
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • For the first time, someone knows who lives in the district. Governance +6.
+  • The year AD 160 begins.
+  • Economy moves from Stable to Strained.
+  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+== Turn 11 · Ianuarius, AD 160 ==  Gold 24.8 (+7.8/turn)   Attention 4/4   Index 96.9
+  Medicine      53  expect   53  Maintain    debt   5.5 Stable
+  Governance    56  expect   56  Maintain    debt    12 Stable
+  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+  The Circle (Demetria of Pergamon): strength 64, loyalty 52, chartered
+
+> why plague
+Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+Chance the next stage comes within a year: 35%.
+  Because Medicine's debt is Stable.
+  Expect the outbreak in about 2–5 years; never sooner than 2.
+If it broke out now, severity would be about 25.5 with no response:
+  Hazard 51.7 = base 50 + Medicine debt 5.5 × 0.3.
+  Resilience 55.1% from Medicine, Governance, preparations and the Circle.
+  Governance and Economy debt make it 10% worse.
+Recent changes:
+  AD 159-01  Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  AD 160-01  Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+> jump
+You will leave AD 160 for AD 410. You can't come back.
+What you leave behind (24.8 gold in hand):
+  • Medicine debt 5.5 keeps growing 5% a year for 30 years after you leave (about 9 in a decade, 23.9 after 30 years) unless a crisis clears it. Paying it down now costs 16.6 gold.
+  • Governance debt 12 keeps growing 5% a year for 30 years after you leave (about 19.6 in a decade, 52 after 30 years) unless a crisis clears it. Paying it down now costs 36.1 gold.
+  • Economy debt 27.2 keeps growing 5% a year for 30 years after you leave (about 44.3 in a decade, 117.4 after 30 years) unless a crisis clears it. Paying it down now costs 81.5 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 64).
+  •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
+  • You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.
+  • The 24 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> paydown medicine 9999
+Paid 16.6 gold; Medicine debt now 0.
+What you leave behind (8.2 gold in hand):
+  • Governance debt 12 keeps growing 5% a year for 30 years after you leave (about 19.6 in a decade, 52 after 30 years) unless a crisis clears it. Paying it down now costs 36.1 gold.
+  • Economy debt 27.2 keeps growing 5% a year for 30 years after you leave (about 44.3 in a decade, 117.4 after 30 years) unless a crisis clears it. Paying it down now costs 81.5 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 64).
+  •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
+  • You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.
+  • The 8 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> paydown governance 9999
+Paid 6 gold; Governance debt now 10.
+What you leave behind (2.2 gold in hand):
+  • Governance debt 10 keeps growing 5% a year for 30 years after you leave (about 16.4 in a decade, 43.4 after 30 years) unless a crisis clears it. Paying it down now costs 30.1 gold.
+  • Economy debt 27.2 keeps growing 5% a year for 30 years after you leave (about 44.3 in a decade, 117.4 after 30 years) unless a crisis clears it. Paying it down now costs 81.5 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 64).
+  •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
+  • You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.
+  • The 2 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> paydown economy 9999
+Not enough gold to pay down any Economy debt.
+
+> jump
+
+The machine shudders. Decades pass in the dark...
+
+— Recognition —
+You climb out of the machine in AD 410. The Tiber smells the same. You find the district fountain you
+repaired by the shape of the street, but the basin is cracked and dry, full of leaves. Of the smith
+you didn't choose, there is no trace.
+
+— Wrongness —
+Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
+washed in silver.
+
+— Personal echo —
+In a tomb inscription on the Via Latina you find Demetria's name, and a line she chose herself: 'I
+kept my promises.' You did not keep yours.
+
+— Discovery —
+The Physicians' Circle is gone. One inscription remains, built into the wall of a newer house.
+
+Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 160: 97   Medicine 106  Governance 102  Economy 84
+  Arrival,   AD 410: 20   Medicine 13  Governance 60  Economy 10
+Institutions
+  The Physicians' Circle of the Subura: Dissolved (left bare; strength 5, loyalty 1)
+Crises while you were away
+  AD 162: the Antonine pestilence (grave, about 74.1 thousand dead; response: none)
+  AD 340: pestilence returns (catastrophic, about 167.5 thousand dead)
+  AD 370: pestilence returns (catastrophic, about 165.9 thousand dead)
+  AD 380: pestilence returns (catastrophic, about 143.7 thousand dead)
+  AD 390: pestilence returns (catastrophic, about 134.2 thousand dead)
+  AD 410: pestilence returns (catastrophic, about 144.6 thousand dead)
+
+
+(after arrival) > why medicine
+You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+
+(after arrival) > quit
+
+Run fingerprint (seed 101): b100f91033755aa8

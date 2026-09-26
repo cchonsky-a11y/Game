@@ -1,0 +1,25 @@
+choose fountain
+work
+end
+work
+end
+found circle
+oversee circle
+work
+end
+charter circle
+oversee circle
+work
+end
+promise yes
+oversee circle
+start census
+work
+end
+why plague
+jump
+paydown medicine 9999
+paydown governance 9999
+jump
+learn more
+why medicine

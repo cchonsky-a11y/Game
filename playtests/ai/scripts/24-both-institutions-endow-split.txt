@@ -1,0 +1,13 @@
+# Both institutions, splits gold between them, audits both
+# seed: 124
+choose fountain
+@until era-end: promise yes; respond hospice; respond quarantine; found circle; found faction; charter faction; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+jump
+audit circle
+audit faction
+endow circle 60
+endow faction all
+jump
+learn more
+why medicine
+quit

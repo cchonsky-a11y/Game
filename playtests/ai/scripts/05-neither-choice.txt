@@ -1,0 +1,8 @@
+# Never makes the seeded choice; otherwise balanced; late jump
+# seed: 105
+@until era-end: promise yes; respond hospice; respond quarantine; found circle; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+jump
+jump
+learn more
+why medicine
+quit

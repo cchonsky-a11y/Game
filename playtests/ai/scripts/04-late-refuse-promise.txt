@@ -1,0 +1,12 @@
+# Refuses the promise, stays to era end, pays down
+# seed: 104
+choose fountain
+@until era-end: promise no; respond none; found faction; charter faction; start patronage; start courts; work; end
+jump
+paydown medicine 9999
+paydown governance 9999
+paydown economy 9999
+jump
+learn more
+why medicine
+quit

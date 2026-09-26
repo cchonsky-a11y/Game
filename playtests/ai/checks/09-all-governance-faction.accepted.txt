@@ -1,0 +1,42 @@
+choose fountain
+priority governance protect
+work
+end
+work
+end
+start census
+work
+end
+work
+end
+work
+end
+promise yes
+found faction
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+charter faction
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+oversee faction
+work
+end
+jump
+endow faction all
+jump
+learn more
+why medicine

@@ -1,0 +1,13 @@
+# Early jump (AD 160), fountain, promise accepted (so broken by leaving), pays down all debt
+# seed: 101
+choose fountain
+@until 160: promise yes; respond hospice; respond quarantine; found circle; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+why plague
+jump
+paydown medicine 9999
+paydown governance 9999
+paydown economy 9999
+jump
+learn more
+why medicine
+quit

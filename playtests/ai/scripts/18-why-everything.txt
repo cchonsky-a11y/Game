@@ -1,0 +1,27 @@
+# Legibility pass: asks 'why' about everything at several points
+# seed: 118
+choose workshop
+why medicine
+why governance
+why economy
+why gold
+why plague
+why circle
+why faction
+why promise
+why index
+why attention
+@until 159: promise yes; found circle; work; end
+why plague
+why circle
+why promise
+why medicine
+@until era-end: respond hospice; oversee circle; work; end
+why plague
+why gold
+why index
+jump
+jump
+learn more
+why medicine
+quit

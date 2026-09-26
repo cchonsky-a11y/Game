@@ -1,0 +1,13 @@
+# Everything into Medicine: Protect Medicine, Accept Risk elsewhere, Medicine projects only
+# seed: 107
+choose fountain
+priority medicine protect
+priority governance accept
+priority economy accept
+@until era-end: promise yes; respond hospice; found circle; charter circle; mentor circle; oversee circle; start physician; start quarantine; work; end
+jump
+endow circle all
+jump
+learn more
+why medicine
+quit

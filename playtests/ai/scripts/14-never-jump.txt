@@ -1,0 +1,7 @@
+# Odd: never leaves; stays until AD 170 and quits (expected: never arrives, by the player's choice)
+# seed: 114
+choose fountain
+@until 170: promise yes; respond hospice; work; end
+learn more
+why medicine
+quit

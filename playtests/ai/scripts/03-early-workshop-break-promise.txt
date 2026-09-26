@@ -1,0 +1,9 @@
+# Early jump right after warnings; accepted promise is broken; no paydown
+# seed: 103
+choose workshop
+@until 160: promise yes; found circle; oversee circle; work; end
+jump
+jump
+learn more
+why medicine
+quit

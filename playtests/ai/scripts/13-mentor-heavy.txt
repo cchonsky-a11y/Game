@@ -1,0 +1,9 @@
+# Mentors both institutions repeatedly (multi-turn commitments)
+# seed: 113
+choose fountain
+@until era-end: promise yes; respond hospice; found circle; found faction; mentor circle; mentor faction; work; end
+jump
+jump
+learn more
+why medicine
+quit

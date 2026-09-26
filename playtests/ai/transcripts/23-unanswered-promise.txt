@@ -1,0 +1,230 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> choose workshop
+You chose the workshop.  [Attention left this turn: 2/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
+  • The smith's second forge is lit; his apprentices are paid. Economy +6.
+  • Fund the smith's workshop adds 6 gold a year.
+
+== Turn 2 · Iulius, AD 155 ==  Gold 44.3 (+19.3/turn)   Attention 4/4   Index 103.5
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       61  expect   61  Maintain    debt     0 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 156 begins.
+
+== Turn 3 · Ianuarius, AD 156 ==  Gold 68.6 (+19/turn)   Attention 4/4   Index 101.7
+  Medicine      49  expect   50  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       60  expect   60  Maintain    debt     1 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 4 · Iulius, AD 156 ==  Gold 92.6 (+19/turn)   Attention 4/4   Index 101.7
+  Medicine      49  expect   50  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       60  expect   60  Maintain    debt     1 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 157 begins.
+  • Fever in the district: children who drink from the broken fountain fall sick. You remember choosing the workshop over the fountain.
+
+== Turn 5 · Ianuarius, AD 157 ==  Gold 116.6 (+18.7/turn)   Attention 4/4   Index 96.3
+  Medicine      43  expect   50  Maintain    debt   3.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       59  expect   59  Maintain    debt   2.1 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 6 · Iulius, AD 157 ==  Gold 140.3 (+18.7/turn)   Attention 4/4   Index 96.3
+  Medicine      43  expect   50  Maintain    debt   3.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       59  expect   59  Maintain    debt   2.1 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 158 begins.
+
+== Turn 7 · Ianuarius, AD 158 ==  Gold 164 (+18.4/turn)   Attention 4/4   Index 94.4
+  Medicine      42  expect   50  Maintain    debt  11.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       58  expect   58  Maintain    debt   3.2 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 8 · Iulius, AD 158 ==  Gold 187.4 (+18.4/turn)   Attention 4/4   Index 94.5
+  Medicine      42  expect   50  Maintain    debt  11.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       58  expect   58  Maintain    debt   3.2 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 159 begins.
+  • Medicine moves from Stable to Strained.
+  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
+
+== Turn 9 · Ianuarius, AD 159 ==  Gold 210.8 (+18.1/turn)   Attention 4/4   Index 92.6
+  Medicine      41  expect   50  Maintain    debt  20.8 Strained
+  Governance    51  expect   55  Maintain    debt  10.5 Stable
+  Economy       57  expect   57  Maintain    debt   4.3 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 10 · Iulius, AD 159 ==  Gold 233.9 (+18.1/turn)   Attention 4/4   Index 92.6
+  Medicine      41  expect   50  Maintain    debt  20.8 Strained
+  Governance    51  expect   55  Maintain    debt  10.5 Stable
+  Economy       57  expect   57  Maintain    debt   4.3 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 160 begins.
+
+== Turn 11 · Ianuarius, AD 160 ==  Gold 257 (+17.8/turn)   Attention 4/4   Index 90.7
+  Medicine      40  expect   50  Maintain    debt  31.8 Strained
+  Governance    50  expect   55  Maintain    debt    16 Stable
+  Economy       56  expect   56  Maintain    debt   5.5 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 12 · Iulius, AD 160 ==  Gold 279.8 (+17.8/turn)   Attention 4/4   Index 90.8
+  Medicine      40  expect   50  Maintain    debt  31.8 Strained
+  Governance    50  expect   55  Maintain    debt    16 Stable
+  Economy       56  expect   56  Maintain    debt   5.5 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 161 begins.
+  • Governance moves from Stable to Strained.
+
+== Turn 13 · Ianuarius, AD 161 ==  Gold 302.6 (+17.5/turn)   Attention 4/4   Index 88.9
+  Medicine      39  expect   50  Maintain    debt  44.4 Strained
+  Governance    49  expect   55  Maintain    debt  22.8 Strained
+  Economy       55  expect   55  Maintain    debt   6.8 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> jump
+You will leave AD 161 for AD 411. You can't come back.
+What you leave behind (302.6 gold in hand):
+  • Medicine debt 44.4 keeps growing 5% a year for 30 years after you leave (about 72.3 in a decade, 191.9 after 30 years) unless a crisis clears it. Paying it down now costs 133.2 gold.
+  • Governance debt 22.8 keeps growing 5% a year for 30 years after you leave (about 37.2 in a decade, 98.7 after 30 years) unless a crisis clears it. Paying it down now costs 68.5 gold.
+  • Economy debt 6.8 keeps growing 5% a year for 30 years after you leave (about 11.1 in a decade, 29.4 after 30 years) unless a crisis clears it. Paying it down now costs 20.4 gold.
+  • No institution will look after Rome while you're away.
+  • The 302 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> jump
+
+The machine shudders. Decades pass in the dark...
+
+— Recognition —
+You climb out of the machine in AD 411. The Tiber smells the same. Near the Porta Trigemina you find
+the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
+fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
+
+— Wrongness —
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
+
+— Personal echo —
+Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until
+the sickness passed. I never had an answer.'
+
+— Discovery —
+You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
+outlasted you.
+
+Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 161: 89   Medicine 78  Governance 89  Economy 101
+  Arrival,   AD 411: 14   Medicine 10  Governance 28  Economy 10
+Institutions
+  None founded.
+Crises while you were away
+  AD 164: the Antonine pestilence (catastrophic, about 165.1 thousand dead; response: none)
+  AD 181: pestilence returns (catastrophic, about 286.9 thousand dead)
+  AD 191: pestilence returns (catastrophic, about 172.5 thousand dead)
+  AD 201: pestilence returns (catastrophic, about 100.9 thousand dead)
+  AD 231: pestilence returns (catastrophic, about 124.7 thousand dead)
+  AD 241: pestilence returns (catastrophic, about 81 thousand dead)
+  AD 261: pestilence returns (catastrophic, about 83.9 thousand dead)
+  AD 271: pestilence returns (catastrophic, about 47.9 thousand dead)
+  AD 281: pestilence returns (catastrophic, about 31.5 thousand dead)
+  AD 291: pestilence returns (catastrophic, about 23.1 thousand dead)
+  AD 301: pestilence returns (catastrophic, about 20.6 thousand dead)
+  AD 331: pestilence returns (catastrophic, about 97.4 thousand dead)
+  AD 341: pestilence returns (catastrophic, about 65.3 thousand dead)
+  AD 351: pestilence returns (catastrophic, about 41.5 thousand dead)
+  AD 361: pestilence returns (catastrophic, about 28.6 thousand dead)
+  AD 371: pestilence returns (catastrophic, about 22 thousand dead)
+  AD 391: pestilence returns (catastrophic, about 58.2 thousand dead)
+  AD 401: pestilence returns (catastrophic, about 35.7 thousand dead)
+  AD 411: pestilence returns (catastrophic, about 25.5 thousand dead)
+
+
+(after arrival) > why medicine
+You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+
+(after arrival) > quit
+
+Run fingerprint (seed 123): b49945941f75a951

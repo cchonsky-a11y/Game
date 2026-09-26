@@ -5,22 +5,42 @@ using Butterfly.Core;
 
 // The Butterfly Effect — P0 Butterfly Test, text console for human players.
 // Usage: dotnet run --project src/Butterfly.Console -- --seed 42
+// Scripted (automated playtests): add --inputs <file> [--checks <file>]; see playtests/ai/README.md.
 ulong seed = 42;
+string? inputs = null, checks = null;
 for (int i = 0; i < args.Length - 1; i++)
+{
     if (args[i] == "--seed") seed = ulong.Parse(args[i + 1], CultureInfo.InvariantCulture);
+    if (args[i] == "--inputs") inputs = args[i + 1];
+    if (args[i] == "--checks") checks = args[i + 1];
+}
 
-var game = new ConsoleGame(new Simulation(GameData.LoadDefault(), seed));
+var sim = new Simulation(GameData.LoadDefault(), seed);
+var game = new ConsoleGame(sim, inputs == null ? null : new ScriptInput(inputs, sim), checks == null ? null : new Harness(sim, checks));
 game.Run();
 
 internal sealed class ConsoleGame
 {
     private readonly Simulation _sim;
+    private readonly ScriptInput? _script;
+    private readonly Harness? _harness;
     private bool _jumpArmed;
     private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?" };
 
-    public ConsoleGame(Simulation sim)
+    public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null)
     {
         _sim = sim;
+        _script = script;
+        _harness = harness;
+    }
+
+    /// <summary>Next command: from the script (echoed so transcripts read like a session) or from the keyboard.</summary>
+    private string? ReadCommand()
+    {
+        if (_script == null) return Console.ReadLine();
+        string? line = _script.Next();
+        if (line != null) Console.WriteLine(line);
+        return line;
     }
 
     private static string F(double v) => v.ToString("0.#", CultureInfo.InvariantCulture);
@@ -32,7 +52,7 @@ internal sealed class ConsoleGame
         while (true)
         {
             Console.Write(_sim.Arrived ? "\n(after arrival) > " : "\n> ");
-            string? line = Console.ReadLine();
+            string? line = ReadCommand();
             if (line == null) break;
             var parts = line.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length == 0) continue;
@@ -44,11 +64,14 @@ internal sealed class ConsoleGame
             if (_sim.Arrived)
             {
                 AfterArrival(cmd, arg);
+                _harness?.AfterCommand(line, true);
                 continue;
             }
-            Handle(cmd, arg, parts);
+            bool ok = Handle(cmd, arg, parts);
+            _harness?.AfterCommand(line, ok);
         }
         Console.WriteLine("\nRun fingerprint (seed " + _sim.Seed + "): " + _sim.Log.Hash().Substring(0, 16));
+        _harness?.Finish(_script);
     }
 
     private void Intro()
@@ -75,7 +98,7 @@ internal sealed class ConsoleGame
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
   found <circle|faction>         found an institution
   charter <inst>                 write its founding principles (slows drift)
-  endow <inst> [gold]            give it gold to hold (the first 60 makes it endowed)
+  endow <inst> [gold|all]        give it gold to hold (the first 60 makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
   mentor <inst>                  commit Attention every turn for several turns
@@ -90,23 +113,25 @@ internal sealed class ConsoleGame
   quit");
     }
 
-    private void Handle(string cmd, string arg, string[] parts)
+    /// <summary>Runs one command. Returns false only when a game command was refused (used by the playtest harness).</summary>
+    private bool Handle(string cmd, string arg, string[] parts)
     {
+        int attentionBefore = _sim.World.Attention;
         CommandResult? r = null;
         switch (cmd)
         {
-            case "help": case "?": Help(); return;
-            case "status": case "s": Status(); return;
-            case "projects": case "p": Projects(); return;
-            case "why": Console.WriteLine(Why.Explain(_sim, arg)); return;
-            case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return;
+            case "help": case "?": Help(); return true;
+            case "status": case "s": Status(); return true;
+            case "projects": case "p": Projects(); return true;
+            case "why": Console.WriteLine(Why.Explain(_sim, arg)); return true;
+            case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "start": r = _sim.StartProject(arg.ToLowerInvariant()); break;
             case "choose": r = _sim.ChooseSeeded(arg.ToLowerInvariant()); break;
             case "priority":
                 if (parts.Length < 3 || !DomainInfo.TryParseDomain(parts[1], out var d) || !DomainInfo.TryParsePriority(parts[2], out var p))
                 {
                     Console.WriteLine("Usage: priority <medicine|governance|economy> <protect|maintain|accept>");
-                    return;
+                    return false;
                 }
                 r = _sim.SetPriority(d, p);
                 break;
@@ -114,15 +139,18 @@ internal sealed class ConsoleGame
                 if (parts.Length < 3 || !DomainInfo.TryParseDomain(parts[1], out var pd) || !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var pts))
                 {
                     Console.WriteLine("Usage: paydown <domain> <points>   (costs " + F(_sim.PaydownCost(1)) + " gold per point)");
-                    return;
+                    return false;
                 }
                 r = _sim.PayDown(pd, pts);
                 break;
             case "found": r = _sim.Found(arg); break;
             case "charter": r = _sim.Charter(arg); break;
             case "endow":
-                r = parts.Length > 2 && double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var amount)
-                    ? _sim.Endow(arg, amount) : _sim.Endow(arg);
+                if (parts.Length > 2 && parts[2].Equals("all", StringComparison.OrdinalIgnoreCase))
+                    r = _sim.Endow(arg, Math.Floor(_sim.World.Gold));
+                else
+                    r = parts.Length > 2 && double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var amount)
+                        ? _sim.Endow(arg, amount) : _sim.Endow(arg);
                 break;
             case "audit": r = _sim.Audit(arg); break;
             case "oversee": r = _sim.Oversee(arg); break;
@@ -130,11 +158,15 @@ internal sealed class ConsoleGame
             case "work": r = _sim.Work(); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
-            case "end": case "e": EndTurn(); return;
-            case "jump": Jump(); return;
-            default: Console.WriteLine("Unknown command. Type 'help'."); return;
+            case "end": case "e": EndTurn(); return true;
+            case "jump": Jump(); return true;
+            default: Console.WriteLine("Unknown command. Type 'help'."); return false;
         }
-        Console.WriteLine(r.Message);
+        Console.WriteLine(r.Message + (r.Ok && _sim.World.Attention < attentionBefore
+            ? "  [Attention left this turn: " + _sim.World.Attention + "/" + _sim.AttentionPerTurn + "]" : ""));
+        // During jump preparation, show the updated briefing after each change.
+        if (_jumpArmed && r.Ok && (cmd == "paydown" || cmd == "endow" || cmd == "audit")) Briefing();
+        return r.Ok;
     }
 
     private void EndTurn()
@@ -170,7 +202,9 @@ internal sealed class ConsoleGame
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
         if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (before the end of turn 2).");
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
-        if (_sim.OutbreakAwaitingResponse) Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()));
+        if (_sim.OutbreakAwaitingResponse)
+            Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()) +
+                              (_sim.AvailablePlagueResponses().Contains("hospice") ? "" : "   (a hospice needs a physicians' circle of strength 30+)"));
         if (_sim.EraOver) Console.WriteLine("  ► The era's " + _sim.EraTurns + " turns are over. Jump when you're ready (you can also stay).");
     }
 
@@ -193,9 +227,8 @@ internal sealed class ConsoleGame
         if (!_jumpArmed)
         {
             _jumpArmed = true;
-            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back. What you leave behind:");
-            foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
-            Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <gold> · audit <inst>. Type 'jump' again to go, or anything else to stay.");
+            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back.");
+            Briefing();
             return;
         }
         var arrival = _sim.Jump();
@@ -205,13 +238,20 @@ internal sealed class ConsoleGame
             Console.WriteLine("— " + beat.Name + " —");
             Console.WriteLine(Wrap(beat.Text));
             Console.WriteLine();
-            if (!Console.IsInputRedirected)
+            if (!Console.IsInputRedirected && _script == null)
             {
                 Console.Write("(press Enter)");
                 Console.ReadLine();
             }
         }
         Console.WriteLine("Type 'learn more' for the Index and what became of your institutions, or 'quit'.");
+    }
+
+    private void Briefing()
+    {
+        Console.WriteLine("What you leave behind (" + F(_sim.World.Gold) + " gold in hand):");
+        foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
+        Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.");
     }
 
     private void AfterArrival(string cmd, string arg)

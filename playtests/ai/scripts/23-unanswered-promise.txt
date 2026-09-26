@@ -1,0 +1,9 @@
+# Never answers the promise, jumps at 161
+# seed: 123
+choose workshop
+@until 161: work; end
+jump
+jump
+learn more
+why medicine
+quit

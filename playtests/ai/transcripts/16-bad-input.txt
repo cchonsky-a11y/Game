@@ -1,0 +1,195 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> dance
+Unknown command. Type 'help'.
+
+> start
+No project called ''.
+
+> start nonsense
+No project called 'nonsense'.
+
+> priority medicine
+Usage: priority <medicine|governance|economy> <protect|maintain|accept>
+
+> priority blah protect
+Usage: priority <medicine|governance|economy> <protect|maintain|accept>
+
+> paydown medicine abc
+Usage: paydown <domain> <points>   (costs 3 gold per point)
+
+> endow circle -5
+Found it first.
+
+> endow circle
+Found it first.
+
+> audit circle
+Found it first.
+
+> oversee circle
+Found it first.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> choose fountain
+You chose the fountain.  [Attention left this turn: 2/4]
+
+> choose workshop
+That choice has already been made.
+
+> start fountain
+Repair the district fountain is already under way.
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> work
+You already took your personal action this turn.
+
+> why
+The Physicians' Circle of the Subura doesn't exist yet. Demetria of Pergamon would lead it. (found circle)
+
+> why nothing
+Why what? Try: medicine, governance, economy, gold, plague, circle, faction, promise, index, attention.
+
+> log 3
+  AD 155-01  You can afford only one: you choose the district fountain over the smith's workshop.
+  AD 155-01  Work begins: Repair the district fountain (40 gold, 1 turn).
+  AD 155-01  You spend the season mending instruments and advising builders for pay.
+
+> end
+  • Clean water runs again in the district fountain. Medicine +8.
+
+== Turn 2 · Iulius, AD 155 ==  Gold 39.5 (+14.5/turn)   Attention 4/4   Index 105.1
+  Medicine      58  expect   58  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+
+> end
+  • The year AD 156 begins.
+
+== Turn 3 · Ianuarius, AD 156 ==  Gold 54 (+14.2/turn)   Attention 4/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+
+> end
+
+== Turn 4 · Iulius, AD 156 ==  Gold 68.2 (+14.2/turn)   Attention 4/4   Index 103.3
+  Medicine      57  expect   57  Maintain    debt     1 Stable
+  Governance    54  expect   55  Maintain    debt     1 Stable
+  Economy       54  expect 54.9  Maintain    debt     1 Stable
+
+> end
+  • The year AD 157 begins.
+  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+
+== Turn 5 · Ianuarius, AD 157 ==  Gold 82.4 (+12.7/turn)   Attention 4/4   Index 98.8
+  Medicine      56  expect   56  Maintain    debt   2.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+
+> end
+
+== Turn 6 · Iulius, AD 157 ==  Gold 95.1 (+12.7/turn)   Attention 4/4   Index 98.9
+  Medicine      56  expect   56  Maintain    debt   2.1 Stable
+  Governance    53  expect   55  Maintain    debt   3.1 Stable
+  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+
+> end
+  • The year AD 158 begins.
+
+== Turn 7 · Ianuarius, AD 158 ==  Gold 107.8 (+12.4/turn)   Attention 4/4   Index 97
+  Medicine      55  expect   55  Maintain    debt   3.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+
+> jump
+You will leave AD 158 for AD 408. You can't come back.
+What you leave behind (107.8 gold in hand):
+  • Medicine debt 3.2 keeps growing 5% a year for 30 years after you leave (about 5.1 in a decade, 13.6 after 30 years) unless a crisis clears it. Paying it down now costs 9.5 gold.
+  • Governance debt 6.2 keeps growing 5% a year for 30 years after you leave (about 10.1 in a decade, 26.8 after 30 years) unless a crisis clears it. Paying it down now costs 18.6 gold.
+  • Economy debt 9.7 keeps growing 5% a year for 30 years after you leave (about 15.8 in a decade, 41.9 after 30 years) unless a crisis clears it. Paying it down now costs 29.1 gold.
+  • No institution will look after Rome while you're away.
+  • The 107 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> status
+
+== Turn 7 · Ianuarius, AD 158 ==  Gold 107.8 (+12.4/turn)   Attention 4/4   Index 97
+  Medicine      55  expect   55  Maintain    debt   3.2 Stable
+  Governance    52  expect   55  Maintain    debt   6.2 Stable
+  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+
+> jump
+
+The machine shudders. Decades pass in the dark...
+
+— Recognition —
+You climb out of the machine in AD 408. The Tiber smells the same. You find the district fountain you
+repaired by the shape of the street, but the basin is cracked and dry, full of leaves. Of the smith
+you didn't choose, there is no trace.
+
+— Wrongness —
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
+
+— Personal echo —
+You left before the first rumors came from the East. In the city's records, the pestilence of 163
+fills page after page: about 91 thousand dead in Rome. You aren't in any of them.
+
+— Discovery —
+You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
+outlasted you.
+
+Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+
+(after arrival) > jump
+The era is over. 'learn more' or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 158: 97   Medicine 110  Governance 95  Economy 88
+  Arrival,   AD 408: 16   Medicine 10  Governance 39  Economy 10
+Institutions
+  None founded.
+Crises while you were away
+  AD 163: the Antonine pestilence (grave, about 90.9 thousand dead; response: none)
+  AD 218: pestilence returns (catastrophic, about 206.9 thousand dead)
+  AD 238: pestilence returns (catastrophic, about 184.4 thousand dead)
+  AD 258: pestilence returns (catastrophic, about 187.4 thousand dead)
+  AD 268: pestilence returns (catastrophic, about 123.8 thousand dead)
+  AD 288: pestilence returns (catastrophic, about 97.6 thousand dead)
+  AD 318: pestilence returns (catastrophic, about 124.6 thousand dead)
+  AD 368: pestilence returns (catastrophic, about 207.8 thousand dead)
+  AD 378: pestilence returns (catastrophic, about 118 thousand dead)
+  AD 398: pestilence returns (catastrophic, about 101.3 thousand dead)
+  AD 408: pestilence returns (catastrophic, about 64.1 thousand dead)
+
+
+(after arrival) > why medicine
+You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+
+(after arrival) > quit
+
+Run fingerprint (seed 116): e8cb15d87a750daa

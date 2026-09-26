@@ -1,0 +1,12 @@
+# Everything into Economy: Protect Economy, Accept Risk elsewhere
+# seed: 108
+choose workshop
+priority economy protect
+priority medicine accept
+priority governance accept
+@until era-end: promise no; respond none; start market; start warehouses; work; end
+jump
+jump
+learn more
+why medicine
+quit

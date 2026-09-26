@@ -1,0 +1,394 @@
+THE BUTTERFLY EFFECT — P0 Butterfly Test
+========================================
+Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
+and a small circle of people willing to listen. Something is coming from the East in a few years.
+When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+
+First, a choice. You can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+Type 'help' for commands.
+
+== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       55  expect   55  Maintain    debt     0 Stable
+  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+
+> choose workshop
+You chose the workshop.  [Attention left this turn: 2/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
+  • The smith's second forge is lit; his apprentices are paid. Economy +6.
+  • Fund the smith's workshop adds 6 gold a year.
+
+== Turn 2 · Iulius, AD 155 ==  Gold 44.3 (+19.3/turn)   Attention 4/4   Index 103.5
+  Medicine      50  expect   50  Maintain    debt     0 Stable
+  Governance    55  expect   55  Maintain    debt     0 Stable
+  Economy       61  expect   61  Maintain    debt     0 Stable
+
+> start census
+Started: Sponsor a household census.  [Attention left this turn: 2/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 1/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • The year AD 156 begins.
+  • For the first time, someone knows who lives in the district. Governance +6.
+
+== Turn 4 · Iulius, AD 156 ==  Gold 47.6 (+19/turn)   Attention 4/4   Index 105.4
+  Medicine      49  expect   50  Maintain    debt     1 Stable
+  Governance    60  expect   60  Maintain    debt     1 Stable
+  Economy       60  expect   60  Maintain    debt     1 Stable
+
+> work
+You earn 5 gold.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 157 begins.
+  • Fever in the district: children who drink from the broken fountain fall sick. You remember choosing the workshop over the fountain.
+
+== Turn 5 · Ianuarius, AD 157 ==  Gold 71.6 (+18.7/turn)   Attention 4/4   Index 99.8
+  Medicine      43  expect   50  Maintain    debt   3.1 Stable
+  Governance    59  expect   59  Maintain    debt   2.1 Stable
+  Economy       59  expect   59  Maintain    debt   2.1 Stable
+
+> found circle
+You founded the Physicians' Circle of the Subura, led by Demetria of Pergamon (50 gold, 2 Attention).  [Attention left this turn: 2/4]
+
+> oversee circle
+Loyalty 68, strength 52.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 6 · Iulius, AD 157 ==  Gold 41.3 (+14.7/turn)   Attention 4/4   Index 99.8
+  Medicine      43  expect   50  Maintain    debt   3.1 Stable
+  Governance    59  expect   59  Maintain    debt   2.1 Stable
+  Economy       59  expect   59  Maintain    debt   2.1 Stable
+  The Circle (Demetria of Pergamon): strength 52, loyalty 68
+
+> charter circle
+The Circle is chartered (30 gold, 2 Attention). A charter slows drift; with an endowment of 60+ gold it also slows decay while you are away.  [Attention left this turn: 2/4]
+
+> oversee circle
+Loyalty 76, strength 54.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  • The year AD 158 begins.
+  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  • Demetria of Pergamon hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
+
+== Turn 7 · Ianuarius, AD 158 ==  Gold 31 (+14.4/turn)   Attention 4/4   Index 97.9
+  Medicine      42  expect   50  Maintain    debt  11.2 Stable
+  Governance    58  expect   58  Maintain    debt   3.2 Stable
+  Economy       58  expect   58  Maintain    debt   3.2 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The Circle (Demetria of Pergamon): strength 58, loyalty 66, chartered
+  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> promise yes
+You gave your word.
+
+> oversee circle
+Loyalty 82, strength 60.  [Attention left this turn: 3/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 8 · Iulius, AD 158 ==  Gold 50.4 (+14.4/turn)   Attention 4/4   Index 98
+  Medicine      42  expect   50  Maintain    debt  11.2 Stable
+  Governance    58  expect   58  Maintain    debt   3.2 Stable
+  Economy       58  expect   58  Maintain    debt   3.2 Stable
+  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+  The Circle (Demetria of Pergamon): strength 60, loyalty 82, chartered
+
+> oversee circle
+Loyalty 90, strength 62.  [Attention left this turn: 3/4]
+
+> start market
+Started: Market regulation at the Forum Boarium.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  • The year AD 159 begins.
+  • Medicine moves from Stable to Strained.
+  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+
+== Turn 9 · Ianuarius, AD 159 ==  Gold 19.8 (+14.1/turn)   Attention 2/4   Index 96.1
+  Medicine      41  expect   50  Maintain    debt  20.8 Strained
+  Governance    57  expect   57  Maintain    debt   4.3 Stable
+  Economy       57  expect   57  Maintain    debt   4.3 Stable
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+  The Circle (Demetria of Pergamon): strength 66, loyalty 80, chartered
+  Under way: Market regulation at the Forum Boarium (1 turn(s) left)
+
+> oversee circle
+Loyalty 88, strength 68.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  • Honest weights now hang in the Forum Boarium. Economy +8.
+
+== Turn 10 · Iulius, AD 159 ==  Gold 41.3 (+16.5/turn)   Attention 4/4   Index 100.4
+  Medicine      41  expect   50  Maintain    debt  20.8 Strained
+  Governance    57  expect   57  Maintain    debt   4.3 Stable
+  Economy       65  expect   65  Maintain    debt   4.3 Stable
+  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+  The Circle (Demetria of Pergamon): strength 68, loyalty 88, chartered
+
+> oversee circle
+Loyalty 96, strength 70.  [Attention left this turn: 3/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+  • The year AD 160 begins.
+  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+
+== Turn 11 · Ianuarius, AD 160 ==  Gold 62.8 (+16.2/turn)   Attention 4/4   Index 98.5
+  Medicine      40  expect   50  Maintain    debt  31.8 Strained
+  Governance    56  expect   56  Maintain    debt   5.5 Stable
+  Economy       64  expect   64  Maintain    debt   5.5 Stable
+  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+  The Circle (Demetria of Pergamon): strength 74, loyalty 86, chartered
+
+> oversee circle
+Loyalty 94, strength 76.  [Attention left this turn: 3/4]
+
+> start physician
+Started: Fund a physician for the district.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • A physician now keeps open hours in the Subura. Medicine +10.
+  • The year AD 161 begins.
+  • Outbreak — the pestilence breaks out across Rome.
+
+== Turn 13 · Ianuarius, AD 161 ==  Gold 40.2 (+15.9/turn)   Attention 4/4   Index 104.3
+  Medicine      49  expect   50  Maintain    debt  34.4 Strained
+  Governance    55  expect   55  Maintain    debt   6.8 Stable
+  Economy       63  expect   63  Maintain    debt   6.8 Stable
+  Pestilence: Outbreak — the pestilence breaks out across Rome.
+  The Circle (Demetria of Pergamon): strength 90, loyalty 84, chartered
+  ► Waiting: respond quarantine / respond hospice / respond none
+
+> respond hospice
+Response chosen: hospice. It takes effect at the end of the turn.  [Attention left this turn: 2/4]
+
+> oversee circle
+Loyalty 92, strength 92.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  • The pestilence is mild (severity 19.7): about 59 thousand dead in Rome.
+  • Medicine moves from Strained to Stable.
+  • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
+  • The worst of the pestilence has passed.
+  • You stayed through the pestilence, as you promised Demetria of Pergamon.
+
+== Turn 14 · Iulius, AD 161 ==  Gold 15.6 (+15.6/turn)   Attention 4/4   Index 99
+  Medicine    44.1  expect   50  Maintain    debt     0 Stable
+  Governance    53  expect   55  Maintain    debt     0 Stable
+  Economy     62.1  expect 62.1  Maintain    debt     0 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 100, chartered
+
+> oversee circle
+Loyalty 100, strength 100.  [Attention left this turn: 3/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • The year AD 162 begins.
+
+== Turn 16 · Iulius, AD 162 ==  Gold 51.6 (+15.3/turn)   Attention 4/4   Index 97.2
+  Medicine    43.1  expect   50  Maintain    debt   6.9 Stable
+  Governance    52  expect   55  Maintain    debt     3 Stable
+  Economy     61.1  expect 61.1  Maintain    debt     1 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 90, chartered
+
+> oversee circle
+Loyalty 98, strength 100.  [Attention left this turn: 3/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 2/4]
+
+> end
+  • The year AD 163 begins.
+
+== Turn 17 · Ianuarius, AD 163 ==  Gold 71.9 (+15/turn)   Attention 4/4   Index 95.3
+  Medicine    42.1  expect   50  Maintain    debt  15.2 Stable
+  Governance    51  expect   55  Maintain    debt   7.1 Stable
+  Economy     60.1  expect 60.1  Maintain    debt   2.1 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 88, chartered
+
+> oversee circle
+Loyalty 96, strength 100.  [Attention left this turn: 3/4]
+
+> start magistrates
+Started: Fund the district magistrates.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  (2 turns pass; nothing needed you until now)
+  • The year AD 164 begins.
+  • Medicine moves from Stable to Strained.
+
+== Turn 19 · Ianuarius, AD 164 ==  Gold 47 (+14.7/turn)   Attention 2/4   Index 93.5
+  Medicine    41.1  expect   50  Maintain    debt  24.8 Strained
+  Governance    50  expect   55  Maintain    debt  12.4 Stable
+  Economy     59.1  expect 59.1  Maintain    debt   3.2 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 86, chartered
+  Under way: Fund the district magistrates (2 turn(s) left)
+
+> oversee circle
+Loyalty 94, strength 100.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 20 · Iulius, AD 164 ==  Gold 66.7 (+14.7/turn)   Attention 2/4   Index 93.5
+  Medicine    41.1  expect   50  Maintain    debt  24.8 Strained
+  Governance    50  expect   55  Maintain    debt  12.4 Stable
+  Economy     59.1  expect 59.1  Maintain    debt   3.2 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 94, chartered
+  Under way: Fund the district magistrates (1 turn(s) left)
+
+> oversee circle
+Loyalty 100, strength 100.  [Attention left this turn: 1/4]
+
+> work
+You earn 5 gold.  [Attention left this turn: 0/4]
+
+> end
+  • The district magistrates hear cases again, and people bring them. Governance +10.
+  • The year AD 165 begins.
+
+== Turn 21 · Ianuarius, AD 165 ==  Gold 86.4 (+14.4/turn)   Attention 4/4   Index 97.5
+  Medicine    40.1  expect   50  Maintain    debt    36 Strained
+  Governance    59  expect   59  Maintain    debt    14 Stable
+  Economy     58.1  expect 58.1  Maintain    debt   4.3 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 90, chartered
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> status
+
+== Turn 21 · Ianuarius, AD 165 ==  Gold 86.4 (+14.4/turn)   Attention 4/4   Index 97.5
+  Medicine    40.1  expect   50  Maintain    debt    36 Strained
+  Governance    59  expect   59  Maintain    debt    14 Stable
+  Economy     58.1  expect 58.1  Maintain    debt   4.3 Stable
+  Pestilence: The pestilence has passed.
+  The Circle (Demetria of Pergamon): strength 100, loyalty 90, chartered
+  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+
+> jump
+You will leave AD 165 for AD 415. You can't come back.
+What you leave behind (86.4 gold in hand):
+  • Medicine debt 36 keeps growing 5% a year for 30 years after you leave (about 58.6 in a decade, 155.6 after 30 years) unless a crisis clears it. Paying it down now costs 108 gold.
+  • Governance debt 14 keeps growing 5% a year for 30 years after you leave (about 22.8 in a decade, 60.6 after 30 years) unless a crisis clears it. Paying it down now costs 42.1 gold.
+  • Economy debt 4.3 keeps growing 5% a year for 30 years after you leave (about 7 in a decade, 18.6 after 30 years) unless a crisis clears it. Paying it down now costs 12.9 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
+  •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
+  • The 86 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> audit circle
+The Circle has an audit charter (40 gold, 2 Attention).  [Attention left this turn: 2/4]
+What you leave behind (46.4 gold in hand):
+  • Medicine debt 36 keeps growing 5% a year for 30 years after you leave (about 58.6 in a decade, 155.6 after 30 years) unless a crisis clears it. Paying it down now costs 108 gold.
+  • Governance debt 14 keeps growing 5% a year for 30 years after you leave (about 22.8 in a decade, 60.6 after 30 years) unless a crisis clears it. Paying it down now costs 42.1 gold.
+  • Economy debt 4.3 keeps growing 5% a year for 30 years after you leave (about 7 in a decade, 18.6 after 30 years) unless a crisis clears it. Paying it down now costs 12.9 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
+  •   It holds no gold, so it can't pay down Medicine debt while you're away. (endow circle <gold>)
+  • The 46 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> endow circle all
+The Circle holds 46 gold (60 makes it endowed).  [Attention left this turn: 1/4]
+What you leave behind (0.4 gold in hand):
+  • Medicine debt 36 keeps growing 5% a year for 30 years after you leave (about 58.6 in a decade, 155.6 after 30 years) unless a crisis clears it. Paying it down now costs 108 gold.
+  • Governance debt 14 keeps growing 5% a year for 30 years after you leave (about 22.8 in a decade, 60.6 after 30 years) unless a crisis clears it. Paying it down now costs 42.1 gold.
+  • Economy debt 4.3 keeps growing 5% a year for 30 years after you leave (about 7 in a decade, 18.6 after 30 years) unless a crisis clears it. Paying it down now costs 12.9 gold.
+  • The Physicians' Circle of the Subura would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
+  •   It holds 46 gold (small), growing about 0.9% a year with the economy for 30 years.
+  •   It would pay in full toward Medicine debt (now 36); its gold covers about 15.3 points at the 1.5× premium.
+  •   Corruption risk: Low for 30 years (small holdings, audit charter, Demetria of Pergamon is honest). If it happens, it could be minor (75%), major (25%) or total (0%).
+Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+
+> jump
+
+The machine shudders. Decades pass in the dark...
+
+— Recognition —
+You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you hear
+hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
+door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
+in long ago. An old woman calls the spot 'fever corner'.
+
+— Wrongness —
+Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
+Rome almost exactly as the history books describe AD 415.
+
+— Personal echo —
+In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
+who stayed.' They don't know it means you.
+
+— Discovery —
+The Physicians' Circle is gone. One inscription remains, built into the wall of a newer house.
+
+Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 165: 97   Medicine 80  Governance 107  Economy 108
+  Arrival,   AD 415: 103   Medicine 102  Governance 105  Economy 103
+Institutions
+  The Physicians' Circle of the Subura: Dissolved (left bare; strength 7, loyalty 6)
+    Gold: left 46, paid off 15 debt, lost 0 to corruption, 0 left when the 30 years ended
+Crises while you were away
+  AD 175: pestilence returns (mild, about 52.4 thousand dead)
+  AD 215: pestilence returns (mild, about 58.3 thousand dead)
+  AD 265: pestilence returns (grave, about 142.8 thousand dead)
+  AD 275: pestilence returns (grave, about 130.2 thousand dead)
+
+
+(after arrival) > why medicine
+You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+
+(after arrival) > quit
+
+Run fingerprint (seed 102): f7caa82f6e699b5e

@@ -150,7 +150,8 @@ namespace Butterfly.Core
             if (World.Promise.Status != PromiseStatus.NotOffered || IsAway) return;
             World.Promise.Status = PromiseStatus.Offered;
             var e = Record("promise.offer", "promise", new[] { causeId }, new[] { PromiseInstitution.Def.Leader }, null,
-                PromiseInstitution.Def.Leader + " hears the rumors from the East and asks you: \"Promise me you will stay until this sickness has passed through Rome.\"");
+                PromiseInstitution.Def.Leader + (PromiseInstitution.Founded ? "" : ", a Greek physician who treats the Subura's poor,") +
+                " hears the rumors from the East and asks you: \"Promise me you will stay until this sickness has passed through Rome.\"");
             World.Promise.OfferEventId = e.Id;
             World.Promise.LastEventId = e.Id;
         }
@@ -174,7 +175,7 @@ namespace Butterfly.Core
         private void OnPlaguePassedForPromise(int passedEventId)
         {
             var p = World.Promise;
-            if (p.Status == PromiseStatus.Offered) p.Status = PromiseStatus.Refused; // never answered
+            if (p.Status == PromiseStatus.Offered) { p.Status = PromiseStatus.Refused; p.Unanswered = true; } // never answered
             if (p.Status != PromiseStatus.Active || IsAway) return;
             p.Status = PromiseStatus.Kept;
             var leader = PromiseInstitution.Def.Leader;

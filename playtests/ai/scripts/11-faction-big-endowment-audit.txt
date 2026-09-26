@@ -1,0 +1,11 @@
+# Venal leader, large endowment, with audit charter
+# seed: 111
+choose workshop
+@until era-end: promise no; respond quarantine; found faction; charter faction; oversee faction; work; end
+jump
+audit faction
+endow faction all
+jump
+learn more
+why medicine
+quit

@@ -1,0 +1,12 @@
+# Stays past the era's end to AD 168, then jumps
+# seed: 119
+choose fountain
+@until 168: promise yes; respond hospice; respond quarantine; found circle; charter circle; oversee circle; start physician; start market; start census; start magistrates; work; end
+jump
+paydown medicine 9999
+paydown governance 9999
+paydown economy 9999
+jump
+learn more
+why medicine
+quit

@@ -42,7 +42,7 @@ namespace Butterfly.Core
             double benchmark = sim.Benchmark(d, sim.Now.Year);
             double expectation = sim.Expectation(d);
             var sb = new StringBuilder();
-            sb.AppendLine(d + " is at " + F(s.Level) + " under " + s.Priority.Label() + " (" + Signed(sim.PriorityLevelChange(d)) + " a year from upkeep).");
+            sb.AppendLine(d + " is at " + F(s.Level) + ". Under " + s.Priority.Label() + " it changes " + Signed(sim.PriorityLevelChange(d)) + " a year.");
             sb.AppendLine("People expect " + F(expectation) + ": " +
                           (s.Peak > benchmark ? "they remember your recent peak of " + F(s.Peak) + " (the memory fades 5 a year)."
                                               : "what was normal in Rome in AD " + sim.Now.Year + "."));
@@ -170,7 +170,9 @@ namespace Butterfly.Core
             {
                 var fx = e.Effects.First(x => keys.Contains(x.Key));
                 sb.AppendLine("  " + e.Time.Stamp + "  " + e.Text + (fx.Delta != 0 && !fx.Key.Contains("stage") ? " [" + Signed(fx.Delta) + "]" : ""));
-                foreach (var c in e.ImmediateCauses.Select(sim.Log.Get).Where(c => c.Type != "scenario.start" && c.Type != "turn.start"))
+                // Skip causes that are just the previous step of the same trend (e.g. last year's loyalty fade).
+                foreach (var c in e.ImmediateCauses.Select(sim.Log.Get)
+                             .Where(c => c.Type != "scenario.start" && c.Type != "turn.start" && !(c.Type == e.Type && c.Target == e.Target)))
                     sb.AppendLine("      because: " + c.Text + " (" + c.Time.Stamp + ")");
             }
         }

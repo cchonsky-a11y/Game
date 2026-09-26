@@ -1,0 +1,12 @@
+# Odd: spends everything on turn one and hoards nothing; Protect everything (upkeep starvation)
+# seed: 117
+choose fountain
+priority medicine protect
+priority governance protect
+priority economy protect
+@until era-end: promise yes; respond hospice; start physician; start market; start patronage; work; end
+jump
+jump
+learn more
+why medicine
+quit
