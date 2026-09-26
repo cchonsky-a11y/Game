@@ -731,8 +731,8 @@
       "ref": "PROPOSED P0-12"
     },
     "feverLoss": {
-      "value": 5,
-      "ref": "PROPOSED P0-12"
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey: local-sized effects; one district's fever barely moves Rome's Medicine)"
     }
   },
   "promise": {

@@ -130,10 +130,12 @@ namespace Butterfly.Core.Tests
         public void YourProjectsMoveADomainOffHistoryAndItStaysAhead()
         {
             var sim = new Simulation(TestData.Load(), 42);
-            sim.ChooseSeeded("workshop"); // Economy +6
+            sim.World.Gold = 1000;
+            Assert.True(sim.StartProject("market").Ok); // a Rome-wide reform (the workshop is only local)
+            double gain = sim.Data.Content.Project("market")!.LevelGain;
             for (int i = 0; i < 2 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             var eco = sim.World[Domain.Economy];
-            Assert.Equal(sim.Benchmark(Domain.Economy, sim.Now.Year) + 6, eco.Level, 6);
+            Assert.Equal(sim.Benchmark(Domain.Economy, sim.Now.Year) + gain, eco.Level, 6);
         }
     }
 }
@@ -146,7 +148,8 @@ namespace Butterfly.Core.Tests
         public void FollowingADecliningHistoryAboveTheCurveBuildsNoDebt()
         {
             var sim = new Simulation(TestData.Load(), 42);
-            sim.ChooseSeeded("workshop"); // Economy above history while history slowly declines
+            sim.World.Gold = 1000;
+            sim.StartProject("market"); // Economy above history while history slowly declines
             for (int i = 0; i < 5 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             Assert.Equal(0, sim.World[Domain.Economy].Debt, 6);
         }

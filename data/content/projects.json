@@ -8,7 +8,7 @@
       "gold": 40,
       "attentionPerTurn": 2,
       "turns": 2,
-      "levelGain": 8,
+      "levelGain": 1,
       "extras": [
         {
           "type": "cleanWater",
@@ -129,7 +129,7 @@
       "gold": 40,
       "attentionPerTurn": 2,
       "turns": 2,
-      "levelGain": 6,
+      "levelGain": 0,
       "extras": [
         {
           "type": "ownedIncome",

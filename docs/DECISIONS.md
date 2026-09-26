@@ -144,5 +144,8 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-28 — One smith doesn't move Rome's economy (Corey, from play)
 - **Decision:** the smith giving up no longer costs the Economy 4 points; one workshop is too small to move an economy the size of Rome. Causality runs the other way: if the workshop is unfunded, the smith leaves in AD 157 only if the Economy is below its historical value (logged with the Economy as a cause); otherwise he struggles on. Both outcomes are logged with the seeded choice as a cause, so the Echo is kept. Tuning `seededChoice.smithLoss` removed; P0-12. Source: Corey.
-- **Open (same concern, not changed):** the workshop still gives Economy +6 and the fountain's fever still costs Medicine −5.
 - **Batch result:** all applicable gates pass for the first time since the stakes model: A early 19 / 64 / 17, late 64 / 36 / 0 (both just under the 65% cap); B and C pass in both timings. Source: batch runner.
+
+## 2026-09-28 — Local investments have local effects (Corey, from play)
+- **Decision:** an investment doesn't move Rome's economy by itself; what comes of it does. The workshop no longer raises the Economy (was +6); it only gives you a share of the business (income that rises and falls with the Economy). The fountain repair is local too: Medicine +1 (was +8); its clean water still lowers plague hazard. The AD 157 fever from the broken fountain costs Medicine −1 (was −5). Projects with no Rome-wide effect still log their completion. data/content/projects.json, tuning `seededChoice.feverLoss`, P0-08 and P0-12. Source: Corey.
+- **Batch result:** all applicable gates still pass (A early 16 / 63 / 21, late 61 / 36 / 3; B and C pass). Source: batch runner.

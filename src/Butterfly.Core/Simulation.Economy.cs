@@ -140,8 +140,11 @@ namespace Butterfly.Core
         {
             var def = p.Def;
             World.CompletedProjects.Add(def.Id);
-            var e = ChangeLevel(def.Domain, def.LevelGain, "project.complete", new[] { p.StartEventId }, new[] { "player" },
-                def.CompletionText + " " + def.Domain + " " + Signed(def.LevelGain) + ".");
+            // Some investments are local: they change nothing Rome-wide by themselves (decided 2026-09-28).
+            var e = def.LevelGain != 0
+                ? ChangeLevel(def.Domain, def.LevelGain, "project.complete", new[] { p.StartEventId }, new[] { "player" },
+                    def.CompletionText + " " + def.Domain + " " + Signed(def.LevelGain) + ".")
+                : Record("project.complete", def.Id, new[] { p.StartEventId }, new[] { "player" }, null, def.CompletionText);
             int causeId = e?.Id ?? p.StartEventId;
             foreach (var x in def.Extras) ApplyProjectExtra(def, x, causeId);
         }
