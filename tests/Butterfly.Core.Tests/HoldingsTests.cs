@@ -204,6 +204,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 8);
             Assert.Contains(sim.PendingDecisions(), r => r.Contains("fountain or workshop"));
+            sim.World.CompletedProjects.Add("fountain"); // Demetria asks only if she has a reason (decided 2026-09-28)
             while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.AdvanceUntilDecision();
             Assert.Contains(sim.PendingDecisions(), r => r.Contains("Demetria"));
         }

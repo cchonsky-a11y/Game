@@ -27,7 +27,8 @@
     "refused": "Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to stay. At least it was honest.'",
     "notOffered": "You left before the first rumors came from the East. In the city's records, the pestilence of {outbreakYear} fills page after page: about {deaths} thousand dead in Rome. You aren't in any of them.",
     "notOfferedNoOutbreak": "You left before the first rumors came from the East. You never learned whether Demetria would have asked you to stay.",
-    "unanswered": "Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until the sickness passed. I never had an answer.'"
+    "unanswered": "Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until the sickness passed. I never had an answer.'",
+    "neverAsked": "Demetria's letters survive in a library copy. They name everyone who stayed to help the sick in {outbreakYear}. You are not among them; she never thought to ask you."
   },
   "discovery": {
     "circle.thriving": "The Physicians' Circle of the Subura still meets by the fountain. They teach, argue about remedies, and keep a copy of your charter under glass. Its head is {leader}.",

@@ -10,6 +10,7 @@ namespace Butterfly.Core.Tests
         public void UnansweredPromiseIsNotDescribedAsARefusal()
         {
             var sim = new Simulation(TestData.Load(), 106);
+            sim.World.CompletedProjects.Add("fountain"); // Demetria asks only if she has a reason (decided 2026-09-28)
             while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.EndTurn();
             var arrival = sim.JumpForTests();
             Assert.Equal("unanswered", arrival.Echoes.First(e => e.Id == "promise").AtArrival);

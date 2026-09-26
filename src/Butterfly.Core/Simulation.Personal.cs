@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Butterfly.Core
@@ -181,13 +182,35 @@ namespace Butterfly.Core
 
         public Institution PromiseInstitution => World.Institution("circle");
 
+        /// <summary>
+        /// Why Demetria would ask anything of you (decided 2026-09-28): something she has seen you do for the sick.
+        /// Null if you have stayed out of medicine entirely; then she never asks.
+        /// </summary>
+        public string? PromiseMotive()
+        {
+            if (PromiseInstitution.Backed) return "your years in her Circle";
+            var seen = new List<string>();
+            if (World.CompletedProjects.Contains("fountain")) seen.Add("the fountain you had cleaned");
+            if (World.CompletedProjects.Contains("physician")) seen.Add("the physician you paid for");
+            if (World.CompletedProjects.Contains("quarantine")) seen.Add("the quarantine rules you drafted for the docks");
+            if (World.CompletedProjects.Contains("midwives")) seen.Add("the midwives you trained");
+            if (World.Invented.Contains("soap")) seen.Add("your soap and boiled linen");
+            if (World.Institution("sanctuary").Backed) seen.Add("your gifts to the Island sanctuary");
+            return seen.Count == 0 ? null : string.Join(", ", seen);
+        }
+
         private void OfferPromise(int causeId)
         {
             if (World.Promise.Status != PromiseStatus.NotOffered || IsAway) return;
+            string? motive = PromiseMotive();
+            if (motive == null) return;
             World.Promise.Status = PromiseStatus.Offered;
+            string who = PromiseInstitution.Backed ? PromiseInstitution.Def.Leader + ", head of the Circle you belong to,"
+                                                   : PromiseInstitution.Def.Leader + ", a Greek physician who treats the Subura's poor,";
             var e = Record("promise.offer", "promise", new[] { causeId }, new[] { PromiseInstitution.Def.Leader }, null,
-                PromiseInstitution.Def.Leader + (PromiseInstitution.Backed ? "" : ", a Greek physician who treats the Subura's poor,") +
-                " hears the rumors from the East and asks you: \"Promise me you will stay until this sickness has passed through Rome.\"");
+                who + " has watched you: " + motive + ", and the way you talk about fever as if you had seen it before. " +
+                "\"When the sickness comes, the rich will leave for their villas, and the famous physicians with them. " +
+                "Promise me you will stay and help until it has passed.\"");
             World.Promise.OfferEventId = e.Id;
             World.Promise.LastEventId = e.Id;
         }

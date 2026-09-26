@@ -56,7 +56,8 @@ namespace Butterfly.Core
             var e = Record(p.Stage == PlagueState.Outbreak ? "plague.outbreak" : "plague.warning", "plague", causes,
                 new[] { "world" }, new[] { new Effect("plague.stage", before, p.Stage) }, text);
             p.LastStageEventId = e.Id;
-            if (p.Stage == 1) OfferPromise(e.Id);
+            // Demetria asks during the warnings, once she has a reason to ask you (decided 2026-09-28).
+            if (p.IsWarning) OfferPromise(e.Id);
             if (p.Stage == PlagueState.Outbreak)
             {
                 p.OutbreakYear = Now.Year;

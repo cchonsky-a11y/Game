@@ -145,6 +145,7 @@ namespace Butterfly.Core.Tests
         private static Simulation ToFirstWarning(ulong seed)
         {
             var sim = new Simulation(TestData.Load(), seed);
+            sim.World.CompletedProjects.Add("fountain"); // Demetria asks only if she has a reason (decided 2026-09-28)
             while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.EndTurn();
             return sim;
         }
@@ -169,6 +170,18 @@ namespace Butterfly.Core.Tests
             Assert.False(sim.LeavingBreaksPromise);
             Assert.Equal(PromiseStatus.Kept, sim.World.Promise.Status);
             Assert.True(sim.PromiseKept());
+        }
+
+        [Fact]
+        public void DemetriaAsksOnlyIfSheHasAReason()
+        {
+            var sim = new Simulation(TestData.Load(), 41);
+            while (sim.World.Plague.Stage < 3) sim.EndTurn();
+            Assert.Equal(PromiseStatus.NotOffered, sim.World.Promise.Status); // nothing done for the sick: she never asks
+            var helped = ToFirstWarning(41);
+            var offer = helped.Log.Events.Single(e => e.Type == "promise.offer");
+            Assert.Contains("fountain you had cleaned", offer.Text);
+            Assert.Contains("villas", offer.Text);
         }
 
         [Fact]

@@ -24,6 +24,9 @@ namespace Butterfly.Core
         /// <summary>Test setup: jumps even if the machine isn't repaired (tests of the absence, not of the machine).</summary>
         internal Arrival JumpForTests() => Jump(true);
 
+        /// <summary>True if the plague's warnings had begun before you left (so Demetria could have asked).</summary>
+        private bool _warningsBeforeDeparture;
+
         private Arrival Jump(bool ignoreMachine)
         {
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
@@ -31,6 +34,7 @@ namespace Butterfly.Core
                 throw new InvalidOperationException("The machine isn't repaired (" + MachineStepsDone + "/" + MachineStepsTotal + " steps).");
             var arrival = new Arrival { DepartureYear = Now.Year };
             DepartureYear = Now.Year;
+            _warningsBeforeDeparture = World.Plague.Stage >= 1;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
             foreach (var i in Issues.Where(i => Stance(i) != 0)) arrival.PolicyAtDeparture.Add(i.ToString().ToLowerInvariant() + " " + StanceWord(i, Stance(i)));
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);
@@ -333,7 +337,10 @@ namespace Butterfly.Core
                 case PromiseStatus.Kept: personalKey = "kept"; break;
                 case PromiseStatus.Broken: personalKey = keeperAlive ? "broken" : "brokenNoKeeper"; break;
                 case PromiseStatus.Refused: personalKey = World.Promise.Unanswered ? "unanswered" : "refused"; break;
-                default: personalKey = World.Plague.OutbreakYear > 0 ? "notOffered" : "notOfferedNoOutbreak"; break;
+                default:
+                    // She never asked because she had no reason to: you did nothing for the sick (decided 2026-09-28).
+                    personalKey = _warningsBeforeDeparture ? "neverAsked" : World.Plague.OutbreakYear > 0 ? "notOffered" : "notOfferedNoOutbreak";
+                    break;
             }
             promise.AtArrival = personalKey;
             promise.Beat = "Personal echo";

@@ -190,3 +190,7 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 ## 2026-09-28 — The machine repair takes a couple of years (Corey, from play)
 - **Decision:** the repair was too quick (4 of 9 steps in under two years). Steps now take 2–6 turns each (the star tables 6), and the casting, distilling and dial cost a little more gold (30, 15, 10). The longest system takes 2.5 years even worked alone; with Attention shared across systems, the whole track takes about 3–4 years. P0-21. Source: Corey.
 
+## 2026-09-28 — Why Demetria asks you to stay (Corey, from play)
+- **Problem:** Demetria's request had no motive: she has no reason to care whether a stranger stays, and can't know about the machine.
+- **Decision:** she asks only once she has seen you do something for the sick (the fountain, a Medicine project, soap and boiled linen, sanctuary membership, or membership in her Circle), at the first plague warning after that. Her reason is historical: when the pestilence came, the rich fled to their villas and famous physicians with them (Galen left Rome in AD 166); she asks you not to flee. From her side your jump looks like flight. If you never gave her a reason, she never asks, and the arrival says so ("she never thought to ask you"). PROTOTYPE_SCOPE "Promise" unchanged. Source: Corey.
+
