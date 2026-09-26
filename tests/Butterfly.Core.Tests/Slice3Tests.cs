@@ -75,8 +75,10 @@ namespace Butterfly.Core.Tests
         public void UnpaidUpkeepActsAsAcceptedRisk()
         {
             var sim = NewSim();
-            foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.Protect);
-            sim.World.Gold = 0; // no income before property or institutions, so Protect goes unpaid
+            sim.World.Gold = 100;
+            Assert.True(sim.Found("circle").Ok);
+            Assert.True(sim.SetPriority(Domain.Medicine, Priority.Protect).Ok);
+            sim.World.Gold = 0; // the new Circle runs short and you can't cover it, so Medicine's upkeep goes unpaid
             for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             double neglect = sim.T.Get("priorities.levelChangePerYear.acceptRisk");
             Assert.Equal(sim.T.Get("domains.startLevel.medicine") + neglect, sim.World[Domain.Medicine].Level, 6);

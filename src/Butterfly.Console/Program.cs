@@ -196,7 +196,7 @@ internal sealed class ConsoleGame
                           "/turn)   Attention " + w.Attention + "/" + _sim.AttentionPerTurn + "   Index " + F(_sim.SphereIndex()));
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
-                              "  " + d.Priority.Label().PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
+                              "  " + (_sim.Maintainer(d.Domain) == null ? "(no hold)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         foreach (var i in w.Institutions.Where(i => i.Founded))

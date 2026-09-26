@@ -61,12 +61,13 @@ namespace Butterfly.Core
             SpendAttention(cost);
             World.PersonalActionTurn = Turn;
             double before = World.Gold;
-            World.Gold += WorkGold(kind);
+            double tax = WorkGold(kind) * T.Get("personal.workTaxRate");
+            World.Gold += WorkGold(kind) - tax;
             string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
                         : "You advise a wealthy household on its baths and its books.";
             Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
-            return CommandResult.Success("You earn " + F(WorkGold(kind)) + " gold.");
+            return CommandResult.Success("You earn " + F(WorkGold(kind)) + " gold; " + F(tax) + " goes in tax, you keep " + F(WorkGold(kind) - tax) + ".");
         }
 
         // ---- multi-turn commitments -----------------------------------------

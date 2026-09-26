@@ -43,8 +43,8 @@ namespace Butterfly.Core
         /// <summary>Income minus costs. A surplus comes to you; a shortfall you must cover.</summary>
         public double InstitutionNet(Institution i) => InstitutionIncome(i) - InstitutionCosts(i);
 
-        /// <summary>What you pay for a domain's upkeep yourself: nothing if an institution maintains it.</summary>
-        public double YearlyUpkeep(Domain d) => Maintainer(d) != null ? 0 : DomainUpkeep(d);
+        /// <summary>You never pay domain upkeep directly: a maintaining institution pays it, and otherwise Rome runs the domain itself.</summary>
+        public double YearlyUpkeep(Domain d) => 0;
 
         public double YearlyUpkeepTotal() => DomainInfo.All.Sum(YearlyUpkeep) + InstitutionUpkeepTotal();
 

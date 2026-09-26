@@ -42,7 +42,9 @@ namespace Butterfly.Core
             double benchmark = sim.Benchmark(d, sim.Now.Year);
             double expectation = sim.Expectation(d);
             var sb = new StringBuilder();
-            sb.AppendLine(d + " is at " + F(s.Level) + ". Under " + s.Priority.Label() + " it changes " + Signed(sim.PriorityLevelChange(d)) + " a year.");
+            sb.AppendLine(d + " is at " + F(s.Level) + ". " + (sim.Maintainer(d) == null
+                ? "No institution of yours maintains it, so Rome runs it without you (" + Signed(sim.PriorityLevelChange(d)) + " a year)."
+                : "Under " + s.Priority.Label() + " it changes " + Signed(sim.PriorityLevelChange(d)) + " a year."));
             sb.AppendLine("People expect " + F(expectation) + ": " +
                           (s.Peak > benchmark ? "they remember your recent peak of " + F(s.Peak) + " (the memory fades 5 a year)."
                                               : "what was normal in Rome in AD " + sim.Now.Year + "."));
@@ -73,10 +75,10 @@ namespace Butterfly.Core
                 : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
                       .Concat(sim.Founded().Where(i => sim.InstitutionNet(i) > 0).Select(i => Simulation.Cap(i.Def.ShortName) + "'s surplus " + F(sim.InstitutionNet(i))))
                       .Where(x => x != null)) + "."));
-            sb.AppendLine("Your upkeep " + F(sim.YearlyUpkeepTotal()) + " a year: " +
+            sb.AppendLine("Work is taxed at " + F(t.Get("personal.workTaxRate") * 100) + "%. Domains: " +
                           string.Join(", ", DomainInfo.All.Select(x => sim.Maintainer(x) != null
-                              ? x + " paid by " + sim.Maintainer(x)!.Def.ShortName
-                              : x + " " + F(sim.YearlyUpkeep(x)) + " (" + sim.World[x].Priority.Label() + ")")) + ".");
+                              ? x + " paid for by " + sim.Maintainer(x)!.Def.ShortName + " (" + sim.World[x].Priority.Label() + ")"
+                              : x + " runs without you")) + ".");
             foreach (var i in sim.Founded())
                 sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + ": earns " + F(sim.InstitutionIncome(i)) + " (grows with its strength and loyalty), costs " +
                               F(sim.InstitutionCosts(i)) + " (running " + F(i.Endowed ? 0 : t.Get("institutions.upkeepPerYear." + i.Key)) + " + " +

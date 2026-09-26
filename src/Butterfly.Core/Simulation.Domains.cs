@@ -32,6 +32,9 @@ namespace Butterfly.Core
         public CommandResult SetPriority(Domain d, Priority p)
         {
             var s = World[d];
+            // Influence over a domain comes only through an institution that maintains it (decided 2026-09-27).
+            if (Maintainer(d) == null)
+                return CommandResult.Fail("You have no hold over " + d + " yet. Found an institution that maintains it first; until then Rome runs it without you.");
             if (s.Priority == p) return CommandResult.Fail(d + " is already set to " + p.Label() + ".");
             var before = s.Priority;
             s.Priority = p;
@@ -88,6 +91,8 @@ namespace Butterfly.Core
         /// </summary>
         internal double PriorityLevelChange(Domain d)
         {
+            // A domain no institution maintains runs on its own, at the Maintain rate, at no cost to you.
+            if (Maintainer(d) == null) return T.Get("priorities.levelChangePerYear.maintain");
             double chosen = T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
             double neglect = T.Get("priorities.levelChangePerYear.acceptRisk");
             double paid = World.UpkeepTurnsThisYear == 0 ? 1 : World.UpkeepPaidThisYear[(int)d] / World.UpkeepTurnsThisYear;

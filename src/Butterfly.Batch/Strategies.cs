@@ -108,12 +108,10 @@ namespace Butterfly.Batch
 
         public override void PlayTurn(Simulation sim)
         {
-            if (sim.Turn == 1)
-            {
-                sim.ChooseSeeded("fountain");
-                // Foreknowledge: the inventor knows a plague arrives around AD 165. Balanced response: Protect Medicine.
-                sim.SetPriority(Domain.Medicine, Priority.Protect);
-            }
+            if (sim.Turn == 1) sim.ChooseSeeded("fountain");
+            // Foreknowledge: the inventor knows a plague arrives around AD 165. Balanced response: Protect Medicine
+            // as soon as an institution gives them a hold over it.
+            if (sim.World[Domain.Medicine].Priority != Priority.Protect) sim.SetPriority(Domain.Medicine, Priority.Protect);
             AnswerPending(sim, true, "hospice", "quarantine");
             OverseeIfNeeded(sim, "circle", 65);
             OverseeIfNeeded(sim, "faction", 65);
@@ -162,9 +160,9 @@ namespace Butterfly.Batch
             if (sim.Turn == 1)
             {
                 sim.ChooseSeeded("fountain");
-                // Foreknowledge of the plague matches its chosen focus: Protect Medicine.
-                sim.SetPriority(Domain.Medicine, Priority.Protect);
             }
+            // Foreknowledge of the plague matches its chosen focus: Protect Medicine once the Circle gives it a hold.
+            if (sim.World[Domain.Medicine].Priority != Priority.Protect) sim.SetPriority(Domain.Medicine, Priority.Protect);
             AnswerPending(sim, true, "hospice", "quarantine");
             OverseeIfNeeded(sim, "circle", 80);
             TryInstitution(sim, "circle", 0);

@@ -90,13 +90,16 @@ namespace Butterfly.Core.Tests
         public void DebtEventsNameTheirImmediateCauses()
         {
             var sim = new Simulation(TestData.Load(), 1);
-            var set = sim.SetPriority(Domain.Economy, Priority.AcceptRisk);
+            Assert.False(sim.SetPriority(Domain.Economy, Priority.AcceptRisk).Ok); // no hold without an institution
+            sim.World.Gold = 500;
+            Assert.True(sim.Found("faction").Ok);
+            var set = sim.SetPriority(Domain.Governance, Priority.AcceptRisk);
             Assert.True(set.Ok);
             RunYears(sim, 1);
-            var upkeep = sim.Log.Events.First(e => e.Type == "domain.upkeep" && e.Target == "economy")!;
+            var upkeep = sim.Log.Events.First(e => e.Type == "domain.upkeep" && e.Target == "governance")!;
             var priorityEvent = sim.Log.Events.First(e => e.Type == "priority.set")!;
             Assert.Contains(priorityEvent.Id, upkeep.ImmediateCauses);
-            var debt = sim.Log.Events.First(e => e.Type == "debt.accrue" && e.Target == "economy")!;
+            var debt = sim.Log.Events.First(e => e.Type == "debt.accrue" && e.Target == "governance")!;
             Assert.Contains(upkeep.Id, debt.ImmediateCauses);
         }
     }

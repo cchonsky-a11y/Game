@@ -625,6 +625,10 @@
           "ref": "DECIDED 2026-09-27 (Corey: no passive income before institutions); amount PROPOSED P0-16"
         }
       }
+    },
+    "workTaxRate": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-27 (Corey): work income is taxed; rate PROPOSED P0-16"
     }
   },
   "commitments": {

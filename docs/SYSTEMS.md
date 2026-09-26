@@ -38,7 +38,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 5. Care domains, priorities, and projects
 - Domains: Agriculture, Medicine, Knowledge, Governance, Military, Economy, Infrastructure, Faith and Culture.
 - Each region has a level per domain. Levels decay without upkeep.
-- The player sets each domain per region to **Protect**, **Maintain**, or **Accept Risk**. Upkeep gold is split by priority.
+- The player sets each domain per region to **Protect**, **Maintain**, or **Accept Risk**, but **only for a domain that one of their institutions maintains**; that institution pays the upkeep, split by priority. A domain no institution of theirs maintains runs without them (at the Maintain rate, at no cost to them). The inventor starts with no responsibilities: they survive on work, and work income is taxed (P0: 10%, tune).
 - Investment happens through **projects** (templated per domain, re-dressed per era) that change domain levels. The player never sets a domain level directly.
 
 ## 6. Expectations, debt, and crises
@@ -79,7 +79,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 
 ## 9. Gold and fortune
 - Gold scales actions; institutional capacity limits how many.
-- **No passive income without leverage.** The inventor earns gold by working (better-paid work costs more Attention) and from property they funded and own, which grows with the Economy. Each institution earns its own rate × the Economy level × loyalty × strength, so margins are thin until it is established. It pays its own running cost (different per institution; none once endowed) **and the upkeep of the domain it maintains**. Its surplus comes to the inventor, and the inventor covers any shortfall. The inventor pays upkeep only for domains no institution maintains. (tune)
+- **No passive income without leverage.** The inventor earns gold by working (better-paid work costs more Attention) and from property they funded and own, which grows with the Economy. Each institution earns its own rate × the Economy level × loyalty × strength, so margins are thin until it is established. It pays its own running cost (different per institution; none once endowed) **and the upkeep of the domain it maintains**. Its surplus comes to the inventor, and the inventor covers any shortfall. The inventor never pays domain upkeep directly. (tune)
 - Institutions hold a **share of the regional economy**. Value = share × regional economy.
 - **During the 30-year window after departure**, holdings are a balance growing at the regional economic growth rate (0–1.5% per year by the Economy level; equivalent to a fixed share of a growing economy), never a fixed interest rate. **After the window, holdings freeze in P0.** The full share model arrives at P3.
 - Access on arrival by loyalty: high = regular draws; medium = negotiated; low = token; rogue = none.
