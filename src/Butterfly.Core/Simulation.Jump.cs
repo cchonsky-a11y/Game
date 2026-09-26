@@ -23,6 +23,7 @@ namespace Butterfly.Core
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
             var arrival = new Arrival { DepartureYear = Now.Year };
             DepartureYear = Now.Year;
+            foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);
             arrival.IndexBefore = SphereIndex();
 
@@ -212,9 +213,8 @@ namespace Butterfly.Core
         {
             var s = World[d];
             double levelBefore = s.Level, debtBefore = s.Debt;
-            double target = Benchmark(d, Now.Year) + MaintainBonus(d);
             s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"),
-                Math.Min(T.Get("domains.maxLevel"), s.Level + (target - s.Level) * T.Get("jump.convergencePerDecade")));
+                Math.Min(T.Get("domains.maxLevel"), s.Level + (DecadeTarget(d, startYear) - s.Level) * DecadeDrift(startYear)));
             bool maintained = MaintainBonus(d) > 0;
             for (int y = 1; y <= 10; y++)
             {
@@ -232,6 +232,23 @@ namespace Butterfly.Core
                 d + " over the decade to AD " + Now.Year + ".");
             UpdateTier(d);
         }
+
+        private bool AfterWindow(int decadeStartYear) => decadeStartYear - DepartureYear >= T.GetInt("institutions.holdings.windowYears");
+
+        /// <summary>
+        /// Where a domain heads this decade. In the 30-year window: the historical baseline plus what institutions
+        /// maintain. After it (decided 2026-09-27): the long-run target, baseline + k × (departure level − baseline
+        /// at departure), plus what surviving institutions maintain on top.
+        /// </summary>
+        public double DecadeTarget(Domain d, int decadeStartYear)
+        {
+            double baseline = Benchmark(d, decadeStartYear + 10);
+            if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d);
+            return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d);
+        }
+
+        private double DecadeDrift(int decadeStartYear) =>
+            AfterWindow(decadeStartYear) ? T.Get("jump.longRun.driftPerDecade") : T.Get("jump.convergencePerDecade");
 
         /// <summary>After the Antonine plague, the same crisis can recur; the chance per decade follows the region's tier.</summary>
         private void MaybeRecurrence(Arrival arrival)
@@ -288,7 +305,8 @@ namespace Butterfly.Core
             arrival.Beats.Add(new ArrivalBeat("Recognition", recognition));
 
             // 2. Wrongness — the world is not the one history describes.
-            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template("wrongness." + WrongnessKey(arrival), values)));
+            arrival.WrongnessKey = WrongnessKey(arrival);
+            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template("wrongness." + arrival.WrongnessKey, values)));
 
             // 3. Personal echo — the promise.
             var circle = World.Institution("circle");

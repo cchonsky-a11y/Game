@@ -1194,8 +1194,8 @@ fountain you repaired still runs: the basin is worn smooth, and someone has cut 
 rim: AQUA PURA. Of the smith you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 418.
+Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
+seems afraid of the soldiers.
 
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
@@ -1209,12 +1209,11 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 168: 101   Medicine 110  Governance 105  Economy 90
-  Arrival,   AD 418: 101   Medicine 99  Governance 104  Economy 100
+  Arrival,   AD 418: 110   Medicine 112  Governance 117  Economy 103
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 7, loyalty 6)
 Crises while you were away
   AD 198: pestilence returns (severe, about 65 thousand dead)
-  AD 388: pestilence returns (severe, about 120 thousand dead)
 
 
 (after arrival) > why medicine
@@ -1222,4 +1221,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 119): 34dcdb07a7f4d9a3
+Run fingerprint (seed 119): 8689cab6185c170f

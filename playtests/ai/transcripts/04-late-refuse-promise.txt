@@ -685,8 +685,8 @@ repaired by the shape of the street, but the basin is cracked and dry, full of l
 you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 415.
+Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
+washed in silver.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to
@@ -700,12 +700,12 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 75   Medicine 76  Governance 86  Economy 65
-  Arrival,   AD 415: 101   Medicine 98  Governance 104  Economy 100
+  Arrival,   AD 415: 88   Medicine 85  Governance 101  Economy 79
 Institutions
   The Caecilian faction: Dissolved (left bare; strength 2, loyalty 0)
 Crises while you were away
-  AD 215: pestilence returns (catastrophic, about 265 thousand dead)
-  AD 385: pestilence returns (severe, about 103 thousand dead)
+  AD 215: pestilence returns (catastrophic, about 266 thousand dead)
+  AD 385: pestilence returns (severe, about 95 thousand dead)
 
 
 (after arrival) > why medicine
@@ -713,4 +713,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 104): d295474419018e48
+Run fingerprint (seed 104): 5255966d6230cfca

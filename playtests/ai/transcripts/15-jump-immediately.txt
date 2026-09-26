@@ -33,8 +33,8 @@ You climb out of the machine in AD 405. The Tiber smells the same. You pass the 
 smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 405.
+Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
+seems afraid of the soldiers.
 
 — Personal echo —
 You left before the first rumors came from the East. In the city's records, the pestilence of 162
@@ -49,13 +49,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 155: 100   Medicine 100  Governance 100  Economy 100
-  Arrival,   AD 405: 103   Medicine 102  Governance 106  Economy 102
+  Arrival,   AD 405: 106   Medicine 103  Governance 113  Economy 104
 Institutions
   None founded.
 Crises while you were away
   AD 162: the Antonine pestilence (severe, about 110 thousand dead; response: none)
   AD 195: pestilence returns (catastrophic, about 264 thousand dead)
-  AD 305: pestilence returns (severe, about 115 thousand dead)
+  AD 305: pestilence returns (severe, about 110 thousand dead)
 
 
 (after arrival) > why medicine
@@ -63,4 +63,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 115): 15e722e4c27592d2
+Run fingerprint (seed 115): d211969622b5c62e

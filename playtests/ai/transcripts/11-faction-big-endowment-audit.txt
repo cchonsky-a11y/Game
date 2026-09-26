@@ -622,10 +622,9 @@ Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. T
 The machine shudders. Decades pass in the dark...
 
 — Recognition —
-You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you hear
-hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
-door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
-in long ago. An old woman calls the spot 'fever corner'.
+You climb out of the machine in AD 415. The Tiber smells the same. Near the Porta Trigemina you find
+the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
+fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
 Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
@@ -645,14 +644,14 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 64   Medicine 46  Governance 78  Economy 72
-  Arrival,   AD 415: 117   Medicine 101  Governance 154  Economy 103
+  Arrival,   AD 415: 104   Medicine 81  Governance 153  Economy 91
 Institutions
   The Caecilian faction: Captured — now the Caecilian Houses (left chartered and endowed; strength 47, loyalty 42)
     Gold: left 196, paid off 34 debt, lost 0 to corruption, 115 left when the 30 years ended
 Crises while you were away
-  AD 205: pestilence returns (catastrophic, about 167 thousand dead)
-  AD 255: pestilence returns (severe, about 78 thousand dead)
-  AD 325: pestilence returns (severe, about 83 thousand dead)
+  AD 205: pestilence returns (catastrophic, about 173 thousand dead)
+  AD 255: pestilence returns (severe, about 70 thousand dead)
+  AD 325: pestilence returns (severe, about 70 thousand dead)
 
 
 (after arrival) > why medicine
@@ -660,4 +659,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 111): 0200a9436f3813ba
+Run fingerprint (seed 111): e947374dd38c5a71

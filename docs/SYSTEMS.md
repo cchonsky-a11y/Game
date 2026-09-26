@@ -44,7 +44,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 6. Expectations, debt, and crises
 - **Expectation** = max(historical benchmark for the era, the region's recent peak fading over time). (tune; split into social and physical values if P0 shows players avoiding improvement)
 - **Debt accrual per year** = max(0, expectation − level) × rate (rate = 1, tune).
-- **Compounding:** existing debt grows 5% per year. During a jump, compounding stops **30 years after departure**. After those 30 years, a domain that no surviving institution maintains **stops accruing new debt** and drifts toward the historical baseline for that domain; maintained domains keep the accrual rule.
+- **Compounding:** existing debt grows 5% per year. During a jump, compounding stops **30 years after departure**. After those 30 years, a domain that no surviving institution maintains **stops accruing new debt** and drifts toward its long-run target (see §8); maintained domains keep the accrual rule.
 - **Tiers:** Stable → Strained → Fragile → Critical; each raises the yearly crisis chance. Severity scales with debt.
 - **Plague (the Medicine crisis):** its odds, both warning advancement and recurrence, come from **Medicine debt only**. Governance and Economy debt tiers instead raise plague **severity**: severity × (1 + Governance tier bonus + Economy tier bonus), with a bonus of 0 / 0.1 / 0.2 / 0.35 for Stable / Strained / Fragile / Critical (tune).
 - **Warning stages:** every major crisis passes through visible antecedent stages before breaking out.
@@ -74,6 +74,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 8. Progression
 - Stages: 1 Stranger; 2 Local Figure (livelihood + patron); 3 Founder (first institution; Influence Mode opens); 4 Power Broker (institutions on 2+ paths); 5 World Shaper (3+ paths, one abroad).
 - At most one stage lost per negative event.
+- **Long-run state during an absence** (after the 30-year window): each domain drifts **25% per decade** toward its long-run target = historical baseline + k × (departure level − baseline at departure), with **k = 0.3**. This applies to deviations both above and below the baseline, so the region you leave keeps part of its lead or its deficit for centuries. Surviving institutions that maintain a domain add their maintenance on top and can hold it above the target. During the first 30 years, domains move 50% per decade toward the baseline plus institutional maintenance. (tune)
 - Starting stage on arrival: 1 by default; 2 with a Legend or weak surviving institution; 3 maximum with a strong, loyal surviving institution.
 
 ## 9. Gold and fortune

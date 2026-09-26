@@ -200,12 +200,12 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 161: 89   Medicine 78  Governance 89  Economy 101
-  Arrival,   AD 411: 103   Medicine 101  Governance 105  Economy 103
+  Arrival,   AD 411: 103   Medicine 95  Governance 108  Economy 107
 Institutions
   None founded.
 Crises while you were away
   AD 164: the Antonine pestilence (catastrophic, about 165 thousand dead; response: none)
-  AD 201: pestilence returns (catastrophic, about 294 thousand dead)
+  AD 201: pestilence returns (catastrophic, about 297 thousand dead)
 
 
 (after arrival) > why medicine
@@ -213,4 +213,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 123): 980fc06bfc67e4d3
+Run fingerprint (seed 123): c81cfdd3c01b01bf

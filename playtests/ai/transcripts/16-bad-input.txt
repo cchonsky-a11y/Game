@@ -153,8 +153,8 @@ repaired by the shape of the street, but the basin is cracked and dry, full of l
 you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 408.
+Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
+seems afraid of the soldiers.
 
 — Personal echo —
 You left before the first rumors came from the East. In the city's records, the pestilence of 163
@@ -172,12 +172,12 @@ The era is over. 'learn more' or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 158: 97   Medicine 110  Governance 95  Economy 88
-  Arrival,   AD 408: 103   Medicine 102  Governance 105  Economy 103
+  Arrival,   AD 408: 106   Medicine 107  Governance 111  Economy 100
 Institutions
   None founded.
 Crises while you were away
   AD 163: the Antonine pestilence (severe, about 91 thousand dead; response: none)
-  AD 238: pestilence returns (catastrophic, about 212 thousand dead)
+  AD 238: pestilence returns (catastrophic, about 211 thousand dead)
 
 
 (after arrival) > why medicine
@@ -185,4 +185,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 116): c5b47e014ca3fcce
+Run fingerprint (seed 116): c26e0b0bff6799e1

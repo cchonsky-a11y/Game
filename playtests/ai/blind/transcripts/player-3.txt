@@ -382,8 +382,8 @@ the smith's workshop you funded by its soot-black wall. It is a stable now. Down
 fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
-seems afraid of the soldiers.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to
@@ -399,14 +399,14 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 64   Medicine 46  Governance 73  Economy 79
-  Arrival,   AD 415: 105   Medicine 88  Governance 147  Economy 88
+  Arrival,   AD 415: 84   Medicine 60  Governance 140  Economy 71
 Institutions
   The Caecilian faction: Captured — now the Caecilian Houses (left chartered and endowed; strength 47, loyalty 42)
     Gold: left 243, paid off 44 debt, lost 0 to corruption, 139 left when the 30 years ended
 Crises while you were away
-  AD 215: pestilence returns (catastrophic, about 172 thousand dead)
-  AD 335: pestilence returns (severe, about 87 thousand dead)
-  AD 405: pestilence returns (severe, about 116 thousand dead)
+  AD 215: pestilence returns (catastrophic, about 178 thousand dead)
+  AD 335: pestilence returns (severe, about 76 thousand dead)
+  AD 405: pestilence returns (severe, about 95 thousand dead)
 
 
 (after arrival) > why medicine
@@ -414,4 +414,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 110): 6292623827f6b3c8
+Run fingerprint (seed 110): bd00d7fe2e8451b9

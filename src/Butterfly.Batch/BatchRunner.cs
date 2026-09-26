@@ -28,6 +28,7 @@ namespace Butterfly.Batch
         public double HoldingsOnArrival;
         public CorruptionLevel WorstCorruption;
         public bool Audited;
+        public string Wrongness = "";
         public int Decisions;
         public Dictionary<string, InstitutionOutcome> Institutions = new Dictionary<string, InstitutionOutcome>();
         public Dictionary<Domain, int> FirstStrainedYear = new Dictionary<Domain, int>();
@@ -86,6 +87,7 @@ namespace Butterfly.Batch
                 HoldingsOnArrival = sim.World.Institutions.Sum(i => i.Holdings),
                 WorstCorruption = sim.World.Institutions.Select(i => i.Corruption).DefaultIfEmpty(CorruptionLevel.None).Max(),
                 Audited = sim.World.Institutions.Any(i => i.AuditCharter),
+                Wrongness = arrival.WrongnessKey,
                 Decisions = sim.Log.Events.Count(e => e.Actors.Contains("player") && e.Type != "personal.work" && e.Type != "jump.arrive"),
                 LogHash = sim.Log.Hash(),
             };
@@ -177,6 +179,31 @@ namespace Butterfly.Batch
         }
 
         /// <summary>Gates A–C. The timing gate (D) is reported but not applicable to P0 (deferred to P3, decided 2026-09-27).</summary>
+        public static readonly string[] InvestingStrategies = { "Balanced", "Specialized", "Endow", "Split" };
+
+        private static double StdDev(IEnumerable<double> xs)
+        {
+            var l = xs.ToList();
+            double m = l.Average();
+            return Math.Sqrt(l.Sum(x => (x - m) * (x - m)) / l.Count);
+        }
+
+        /// <summary>Mean arrival Index of the investing strategies minus Neglectful's, for a timing (null = all).</summary>
+        public static double InvestingGap(List<RunResult> results, string? timing = null)
+        {
+            var pool = timing == null ? results : results.Where(r => r.Timing == timing).ToList();
+            return pool.Where(r => InvestingStrategies.Contains(r.Strategy)).Average(r => r.IndexAfter)
+                 - pool.Where(r => r.Strategy == "Neglectful").Average(r => r.IndexAfter);
+        }
+
+        /// <summary>Share of (seed, timing) pairs where the investing strategies' average beats Neglectful on the same seed.</summary>
+        public static double InvestingBeatsNeglectShare(List<RunResult> results)
+        {
+            var pairs = results.GroupBy(r => (r.Timing, r.Seed)).ToList();
+            return pairs.Count(g => g.Where(r => InvestingStrategies.Contains(r.Strategy)).Average(r => r.IndexAfter)
+                                    > g.Single(r => r.Strategy == "Neglectful").IndexAfter) / (double)pairs.Count;
+        }
+
         public static bool AllGatesPass(List<RunResult> results) =>
             Timings.All(t => ScopeGatePasses(results, t.Name) && AllStrategiesGatePasses(results, t.Name) && DebtGatePasses(results, t.Name));
 
@@ -252,6 +279,25 @@ namespace Butterfly.Batch
                 sb.AppendLine("- " + Label(s.Key) + ": first debt tier change " +
                               (strained.Count > 0 ? F1(strained.Min() - 155) + "–" + F1(strained.Average() - 155) + " years in (earliest–mean)" : "never") + ".");
             }
+            sb.AppendLine();
+            sb.AppendLine("## Arrival spread");
+            sb.AppendLine();
+            sb.AppendLine("| Timing | Strategy | Mean arrival Index | SD | 10th–90th percentile |");
+            sb.AppendLine("|---|---|---|---|---|");
+            foreach (var g in results.GroupBy(r => (r.Timing, r.Strategy)))
+            {
+                var xs = g.Select(r => r.IndexAfter).OrderBy(x => x).ToList();
+                sb.AppendLine("| " + g.Key.Timing + " | " + Label(g.Key.Strategy) + " | " + F1(xs.Average()) + " | " + F1(StdDev(xs)) + " | " +
+                              F0(xs[(int)(xs.Count * 0.1)]) + "–" + F0(xs[(int)(xs.Count * 0.9) - 1]) + " |");
+            }
+            sb.AppendLine();
+            sb.AppendLine("- All runs: SD of arrival Index " + F1(StdDev(results.Select(r => r.IndexAfter))) + "; SD of the strategy means " +
+                          F1(StdDev(results.GroupBy(r => (r.Timing, r.Strategy)).Select(g => g.Average(r => r.IndexAfter)))) + ".");
+            sb.AppendLine("- Investing (Balanced, Specialized, Endow, Split) minus Neglectful, mean arrival Index: all " + F1(InvestingGap(results)) + "; " +
+                          string.Join("; ", Timings.Select(t => t.Name + " " + F1(InvestingGap(results, t.Name)))) +
+                          ". Investing beats Neglectful on the same seed in " + Pct(InvestingBeatsNeglectShare(results)) + " of seeds.");
+            sb.AppendLine("- Wrongness beat: " + string.Join(", ", results.GroupBy(r => r.Wrongness).OrderByDescending(g => g.Count())
+                              .Select(g => g.Key + " " + Pct(g.Count() / (double)results.Count))) + ".");
             sb.AppendLine();
             sb.AppendLine("## Balance criteria");
             sb.AppendLine();

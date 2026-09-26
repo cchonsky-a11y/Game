@@ -198,8 +198,8 @@ the smith's workshop you funded by its soot-black wall. It is a stable now. Down
 fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 410.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
 
 — Personal echo —
 In a tomb inscription on the Via Latina you find Demetria's name, and a line she chose herself: 'I
@@ -213,13 +213,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 160: 91   Medicine 80  Governance 91  Economy 103
-  Arrival,   AD 410: 101   Medicine 99  Governance 104  Economy 99
+  Arrival,   AD 410: 96   Medicine 90  Governance 103  Economy 95
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 7, loyalty 4)
 Crises while you were away
   AD 162: the Antonine pestilence (severe, about 84 thousand dead; response: hospice, chosen by your institutions after you left)
-  AD 250: pestilence returns (catastrophic, about 241 thousand dead)
-  AD 380: pestilence returns (severe, about 136 thousand dead)
+  AD 250: pestilence returns (catastrophic, about 235 thousand dead)
+  AD 380: pestilence returns (severe, about 129 thousand dead)
 
 
 (after arrival) > why medicine
@@ -227,4 +227,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 103): a0f3d1797126d562
+Run fingerprint (seed 103): 5f8acc97395455ce

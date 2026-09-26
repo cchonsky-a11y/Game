@@ -83,3 +83,30 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class LongRunTargetTests
+    {
+        [Fact]
+        public void LongRunTargetKeepsThirtyPercentOfTheDepartureDeviation()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.World[Domain.Economy].Level = 75; // 20 above the AD 155 baseline of 55
+            sim.Jump();
+            int start = sim.DepartureYear + 40;    // a decade after the window
+            double baseline = sim.Benchmark(Domain.Economy, start + 10);
+            Assert.Equal(baseline + 0.3 * 20, sim.DecadeTarget(Domain.Economy, start), 6);
+        }
+
+        [Fact]
+        public void DeficitsCarryForwardToo()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.World[Domain.Economy].Level = 35; // 20 below the baseline
+            sim.Jump();
+            int start = sim.DepartureYear + 40;
+            Assert.Equal(sim.Benchmark(Domain.Economy, start + 10) - 6, sim.DecadeTarget(Domain.Economy, start), 6);
+        }
+    }
+}

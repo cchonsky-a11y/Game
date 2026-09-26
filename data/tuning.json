@@ -701,6 +701,16 @@
     "populationRecoveryPerDecade": {
       "value": 0.2,
       "ref": "PROPOSED P0-13"
+    },
+    "longRun": {
+      "deviationShare": {
+        "value": 0.3,
+        "ref": "SYSTEMS §6/§8 long-run target = baseline + k × (departure level − baseline), k (DECIDED 2026-09-27)"
+      },
+      "driftPerDecade": {
+        "value": 0.25,
+        "ref": "SYSTEMS §6/§8 drift toward the long-run target after the 30-year window (DECIDED 2026-09-27)"
+      }
     }
   },
   "corruption": {

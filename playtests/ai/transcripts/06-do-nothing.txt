@@ -238,8 +238,8 @@ You climb out of the machine in AD 415. The Tiber smells the same. You pass the 
 smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.
 
 — Wrongness —
-Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
-washed in silver.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until
@@ -254,14 +254,14 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 48   Medicine 33  Governance 68  Economy 49
-  Arrival,   AD 415: 91   Medicine 88  Governance 98  Economy 87
+  Arrival,   AD 415: 63   Medicine 54  Governance 85  Economy 55
 Institutions
   None founded.
 Crises while you were away
-  AD 215: pestilence returns (catastrophic, about 284 thousand dead)
-  AD 265: pestilence returns (severe, about 93 thousand dead)
-  AD 305: pestilence returns (severe, about 96 thousand dead)
-  AD 405: pestilence returns (severe, about 123 thousand dead)
+  AD 215: pestilence returns (catastrophic, about 292 thousand dead)
+  AD 265: pestilence returns (severe, about 70 thousand dead)
+  AD 305: pestilence returns (severe, about 66 thousand dead)
+  AD 405: pestilence returns (severe, about 91 thousand dead)
 
 
 (after arrival) > why medicine
@@ -269,4 +269,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 106): 20636ab2d5d4e0b0
+Run fingerprint (seed 106): bb588f94280a6a74

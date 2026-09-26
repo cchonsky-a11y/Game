@@ -587,8 +587,8 @@ repaired by the shape of the street, but the basin is cracked and dry, full of l
 you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 415.
+Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
+seems afraid of the soldiers.
 
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
@@ -603,7 +603,7 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 140   Medicine 145  Governance 132  Economy 144
-  Arrival,   AD 415: 103   Medicine 101  Governance 105  Economy 103
+  Arrival,   AD 415: 126   Medicine 120  Governance 131  Economy 128
 Institutions
   None founded.
 Crises while you were away
@@ -615,4 +615,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 117): 7ceaa02c6d7b64d3
+Run fingerprint (seed 117): 92d9b75142fa898e

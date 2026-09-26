@@ -24,6 +24,8 @@ namespace Butterfly.Core
         public PlagueState Plague { get; } = new PlagueState();
         /// <summary>Year of the most recent plague outbreak (the Antonine plague or a recurrence); 0 if none.</summary>
         public int LastOutbreakYear { get; set; }
+        /// <summary>Per domain: level − historical value at departure (sets the long-run target during the absence).</summary>
+        public double[] DepartureDeviation { get; } = new double[3];
 
         /// <summary>Attention left this turn (SYSTEMS §3: 4 per turn, never scales).</summary>
         public int Attention { get; set; }

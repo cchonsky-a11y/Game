@@ -548,8 +548,8 @@ the smith's workshop you funded by its soot-black wall. It is a stable now. Down
 fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 415.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass.
 
 — Personal echo —
 Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to
@@ -564,13 +564,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 165: 29   Medicine 18  Governance 10  Economy 132
-  Arrival,   AD 415: 97   Medicine 94  Governance 101  Economy 95
+  Arrival,   AD 415: 64   Medicine 50  Governance 54  Economy 96
 Institutions
   None founded.
 Crises while you were away
   AD 195: pestilence returns (catastrophic, about 214 thousand dead)
-  AD 355: pestilence returns (severe, about 118 thousand dead)
-  AD 395: pestilence returns (severe, about 114 thousand dead)
+  AD 355: pestilence returns (severe, about 94 thousand dead)
+  AD 395: pestilence returns (severe, about 83 thousand dead)
 
 
 (after arrival) > why medicine
@@ -578,4 +578,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 108): f4aa46be24e3b7f7
+Run fingerprint (seed 108): 65fc2726474515db

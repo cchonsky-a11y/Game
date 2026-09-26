@@ -498,13 +498,13 @@ Not enough gold to pay down any Economy debt.
 The machine shudders. Decades pass in the dark...
 
 — Recognition —
-You climb out of the machine in AD 410. The Tiber smells the same. In the Subura, the district
-fountain you repaired still runs: the basin is worn smooth, and someone has cut two words into its
-rim: AQUA PURA. Of the smith you didn't choose, there is no trace.
+You climb out of the machine in AD 410. The Tiber smells the same. You find the district fountain you
+repaired by the shape of the street, but the basin is cracked and dry, full of leaves. Of the smith
+you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 410.
+Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper
+washed in silver.
 
 — Personal echo —
 In a tomb inscription on the Via Latina you find Demetria's name, and a line she chose herself: 'I
@@ -518,13 +518,13 @@ Type 'learn more' for the Index and what became of your institutions, or 'quit'.
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 160: 98   Medicine 106  Governance 91  Economy 99
-  Arrival,   AD 410: 98   Medicine 96  Governance 102  Economy 95
+  Arrival,   AD 410: 89   Medicine 89  Governance 98  Economy 81
 Institutions
   The Physicians' Circle of the Subura: Dissolved (left bare; strength 7, loyalty 4)
 Crises while you were away
   AD 162: the Antonine pestilence (severe, about 51 thousand dead; response: hospice, chosen by your institutions after you left)
-  AD 350: pestilence returns (catastrophic, about 193 thousand dead)
-  AD 390: pestilence returns (severe, about 116 thousand dead)
+  AD 350: pestilence returns (catastrophic, about 199 thousand dead)
+  AD 390: pestilence returns (severe, about 131 thousand dead)
 
 
 (after arrival) > why medicine
@@ -532,4 +532,4 @@ You have been away for 250 years. What happened in between is lost to you; the w
 
 (after arrival) > quit
 
-Run fingerprint (seed 101): af781ef6bcc36d5a
+Run fingerprint (seed 101): b977fcfb834c8cd4
