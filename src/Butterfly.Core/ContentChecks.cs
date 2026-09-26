@@ -28,6 +28,12 @@ namespace Butterfly.Core
             var problems = new List<string>();
             foreach (var p in content.Projects)
                 CheckVerb("project " + p.Id, p.Tags, new[] { p.Name, p.Description, p.CompletionText }, problems);
+            foreach (var i in content.Institutions)
+            {
+                var texts = new List<string> { i.Name, i.FoundingIdentity, i.FoundText };
+                texts.AddRange(i.DriftPaths.Select(d => d.Name + " " + d.Description));
+                CheckVerb("institution " + i.Id, i.Tags, texts, problems);
+            }
             return problems;
         }
 

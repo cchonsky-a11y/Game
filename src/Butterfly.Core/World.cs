@@ -21,6 +21,10 @@ namespace Butterfly.Core
 
         public PlagueState Plague { get; } = new PlagueState();
 
+        public List<Institution> Institutions { get; } = new List<Institution>();
+
+        public Institution Institution(string id) => Institutions.First(i => i.Def.Id == id);
+
         public List<ActiveProject> ActiveProjects { get; } = new List<ActiveProject>();
         public List<string> CompletedProjects { get; } = new List<string>();
 
@@ -54,6 +58,53 @@ namespace Butterfly.Core
         public bool StruckInAbsence { get; set; }
 
         public bool IsWarning => Stage >= 1 && Stage <= 3;
+    }
+
+    /// <summary>Institution quality, which sets decay per decade during absence (SYSTEMS §7).</summary>
+    public enum InstitutionQuality
+    {
+        Bare,
+        CharteredAndEndowed,
+        Strong
+    }
+
+    /// <summary>Arrival outcomes (SYSTEMS §7).</summary>
+    public enum InstitutionOutcome
+    {
+        NotFounded,
+        Thriving,
+        Drifted,
+        Captured,
+        Dissolved,
+        Rogue
+    }
+
+    /// <summary>Runtime state of one of the two P0 institutions.</summary>
+    public sealed class Institution
+    {
+        public InstitutionDef Def { get; }
+        public bool Founded { get; set; }
+        public double Strength { get; set; }
+        public double Loyalty { get; set; }
+        public bool Chartered { get; set; }
+        public bool Endowed { get; set; }
+        public string Leader { get; set; }
+        /// <summary>Accumulated drift away from the founding identity during absence.</summary>
+        public double Drift { get; set; }
+        /// <summary>The pre-authored drift path this institution is heading down (chosen at departure).</summary>
+        public DriftPathDef? DriftPath { get; set; }
+        public bool HasDrifted { get; set; }
+        public InstitutionQuality Quality { get; set; }
+        public InstitutionOutcome Outcome { get; set; }
+        public int OverseenTurn { get; set; }
+
+        public Institution(InstitutionDef def)
+        {
+            Def = def;
+            Leader = def.Leader;
+        }
+
+        public string Key => Def.Id;
     }
 
     /// <summary>A project in progress: its definition and the turns of work still needed.</summary>

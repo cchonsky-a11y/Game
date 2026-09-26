@@ -53,23 +53,82 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>A pre-authored drift path (PROTOTYPE_SCOPE: 2 per institution, no general identity engine).</summary>
+    public sealed class DriftPathDef
+    {
+        public string Id { get; }
+        public string Name { get; }
+        public string Identity { get; }
+        public string Condition { get; }
+        public string Description { get; }
+        public string ArrivalLeader { get; }
+
+        public DriftPathDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Name = o.Str("name");
+            Identity = o.Str("identity");
+            Condition = o.Str("condition");
+            Description = o.Str("description");
+            ArrivalLeader = o.Str("arrivalLeader");
+        }
+    }
+
+    /// <summary>An institution template (SYSTEMS §7), authored in data/content/institutions.json.</summary>
+    public sealed class InstitutionDef
+    {
+        public string Id { get; }
+        public string Name { get; }
+        public string ShortName { get; }
+        public string Type { get; }
+        public Domain Maintains { get; }
+        public string Leader { get; }
+        public string LeaderRole { get; }
+        public string FoundingIdentity { get; }
+        public IReadOnlyList<string> Tags { get; }
+        public string FoundText { get; }
+        public IReadOnlyList<DriftPathDef> DriftPaths { get; }
+
+        public InstitutionDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Name = o.Str("name");
+            ShortName = o.Str("shortName");
+            Type = o.Str("type");
+            DomainInfo.TryParseDomain(o.Str("maintains"), out var d);
+            Maintains = d;
+            Leader = o.Str("leader");
+            LeaderRole = o.Str("leaderRole");
+            FoundingIdentity = o.Str("foundingIdentity");
+            Tags = o.Arr("tags").Cast<string>().ToList();
+            FoundText = o.Str("foundText");
+            DriftPaths = o.Arr("driftPaths").Cast<JsonObject>().Select(x => new DriftPathDef(x)).ToList();
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
         public IReadOnlyList<ProjectDef> Projects { get; }
+        public IReadOnlyList<InstitutionDef> Institutions { get; }
 
-        private Content(IReadOnlyList<ProjectDef> projects)
+        private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions)
         {
             Projects = projects;
+            Institutions = institutions;
         }
+
+        private static JsonObject Read(string dir, string file) =>
+            (JsonObject)Json.Parse(File.ReadAllText(Path.Combine(dir, file)))!;
 
         public static Content Load(string contentDirectory)
         {
-            var projects = ((JsonObject)Json.Parse(File.ReadAllText(Path.Combine(contentDirectory, "projects.json")))!)
-                .Arr("projects").Cast<JsonObject>().Select(o => new ProjectDef(o)).ToList();
-            return new Content(projects);
+            var projects = Read(contentDirectory, "projects.json").Arr("projects").Cast<JsonObject>().Select(o => new ProjectDef(o)).ToList();
+            var institutions = Read(contentDirectory, "institutions.json").Arr("institutions").Cast<JsonObject>().Select(o => new InstitutionDef(o)).ToList();
+            return new Content(projects, institutions);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);
+        public InstitutionDef? Institution(string id) => Institutions.FirstOrDefault(i => i.Id == id);
     }
 }

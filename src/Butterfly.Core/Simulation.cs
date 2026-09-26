@@ -35,6 +35,7 @@ namespace Butterfly.Core
             InitDomains(start.Id);
             InitEconomy(start.Id);
             InitPlague();
+            InitInstitutions();
         }
 
         /// <summary>Fraction of a year covered by one turn.</summary>
@@ -60,6 +61,7 @@ namespace Butterfly.Core
                 "The year AD " + Now.Year + " begins.");
             DomainsYearTick();
             PlagueYearTick();
+            InstitutionsYearTick();
         }
 
         // ---- cause tracking -------------------------------------------------

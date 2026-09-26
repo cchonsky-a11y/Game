@@ -1,0 +1,65 @@
+{
+  "_readme": "The two P0 institutions (PROTOTYPE_SCOPE), each with a named leader and 2 pre-authored drift paths. No general identity engine. Drift path selection rules: PROPOSED P0-11.",
+  "institutions": [
+    {
+      "id": "circle",
+      "name": "the Physicians' Circle of the Subura",
+      "shortName": "the Circle",
+      "type": "scholarly",
+      "maintains": "medicine",
+      "leader": "Demetria of Pergamon",
+      "leaderRole": "physician",
+      "foundingIdentity": "a teaching circle that treats the poor and questions every remedy",
+      "tags": ["medicine", "teaching"],
+      "foundText": "Demetria of Pergamon gathers four physicians in a rented room by the fountain. You pay the rent; she sets the rules.",
+      "driftPaths": [
+        {
+          "id": "hospice",
+          "name": "the Hospice of the Fountain",
+          "identity": "charitable",
+          "condition": "promiseKeptOrHospice",
+          "description": "They stopped questioning remedies long ago. Now they only tend: free beds for anyone, in the founder's name.",
+          "arrivalLeader": "Mother Theodota, twelfth Keeper of the Hospice"
+        },
+        {
+          "id": "collegium",
+          "name": "the Collegium of Physicians",
+          "identity": "commercial",
+          "condition": "otherwise",
+          "description": "A closed guild that sells cures to the rich, licenses who may practice, and sues anyone who treats the poor for free.",
+          "arrivalLeader": "Flavius Demetrianus, Dean of the Collegium"
+        }
+      ]
+    },
+    {
+      "id": "faction",
+      "name": "the Caecilian faction",
+      "shortName": "the faction",
+      "type": "political",
+      "maintains": "governance",
+      "leader": "Senator Lucius Caecilius Varro",
+      "leaderRole": "senator",
+      "foundingIdentity": "a senate bloc pledged to honest courts and public works",
+      "tags": ["politics", "patronage"],
+      "foundText": "Senator Lucius Caecilius Varro agrees to lead a bloc in the Curia. He wants your gold; you want his votes.",
+      "driftPaths": [
+        {
+          "id": "reformers",
+          "name": "the Reform Bench",
+          "identity": "reformist",
+          "condition": "charteredAndGovernanceHeld",
+          "description": "Still a bloc of reformers, but now they reform everything, endlessly, and nothing is ever finished.",
+          "arrivalLeader": "Aurelia Caeciliana, Speaker of the Reform Bench"
+        },
+        {
+          "id": "oligarchs",
+          "name": "the Caecilian Houses",
+          "identity": "politically powerful",
+          "condition": "otherwise",
+          "description": "Three families who hold the city prefecture by inheritance and remember the founder only as a name on their gate.",
+          "arrivalLeader": "Marcus Caecilius Varro, Prefect of the City"
+        }
+      ]
+    }
+  ]
+}

@@ -356,5 +356,151 @@
         "ref": "PROPOSED P0-09"
       }
     }
+  },
+  "institutions": {
+    "foundGold": {
+      "value": 50,
+      "ref": "PROPOSED P0-10"
+    },
+    "foundAttention": {
+      "value": 1,
+      "ref": "PROPOSED P0-10"
+    },
+    "charterGold": {
+      "value": 30,
+      "ref": "PROPOSED P0-10"
+    },
+    "charterAttention": {
+      "value": 1,
+      "ref": "PROPOSED P0-10"
+    },
+    "endowGold": {
+      "value": 60,
+      "ref": "PROPOSED P0-10"
+    },
+    "startStrength": {
+      "value": 50,
+      "ref": "PROPOSED P0-10"
+    },
+    "startLoyalty": {
+      "value": 60,
+      "ref": "PROPOSED P0-10"
+    },
+    "upkeepPerYear": {
+      "value": 8,
+      "ref": "PROPOSED P0-10"
+    },
+    "unpaidLoyaltyLoss": {
+      "value": 3,
+      "ref": "PROPOSED P0-10"
+    },
+    "overseeLoyalty": {
+      "value": 8,
+      "ref": "GDD §7 overseeing boosts loyalty (amount PROPOSED P0-10)"
+    },
+    "overseeStrength": {
+      "value": 2,
+      "ref": "PROPOSED P0-10"
+    },
+    "loyaltyFadePerYear": {
+      "value": 4,
+      "ref": "PROPOSED P0-10"
+    },
+    "growthLoyaltyThreshold": {
+      "value": 50,
+      "ref": "PROPOSED P0-10"
+    },
+    "growthPerYear": {
+      "value": 4,
+      "ref": "PROPOSED P0-10"
+    },
+    "witherPerYear": {
+      "value": 4,
+      "ref": "PROPOSED P0-10"
+    },
+    "hospiceMinStrength": {
+      "value": 30,
+      "ref": "PROPOSED P0-10"
+    },
+    "autonomousResponseLoyalty": {
+      "value": 50,
+      "ref": "PROPOSED P0-10"
+    },
+    "circlePlagueResilience": {
+      "value": 0.15,
+      "ref": "PROPOSED P0-10"
+    },
+    "hospiceStrengthGain": {
+      "value": 10,
+      "ref": "PROPOSED P0-10"
+    },
+    "noHospiceLoyaltyLoss": {
+      "value": 10,
+      "ref": "PROPOSED P0-10"
+    },
+    "decayPerDecade": {
+      "bare": {
+        "value": 0.1,
+        "ref": "SYSTEMS §7"
+      },
+      "chartered": {
+        "value": 0.03,
+        "ref": "SYSTEMS §7"
+      },
+      "strong": {
+        "value": 0.01,
+        "ref": "SYSTEMS §7"
+      }
+    },
+    "strongMinIndex": {
+      "value": 100,
+      "ref": "SYSTEMS §7 'thriving region' (threshold PROPOSED P0-10)"
+    },
+    "strongMinLoyalty": {
+      "value": 70,
+      "ref": "PROPOSED P0-10 (stands in for 'keeping the Legend alive'; Legend is out of scope)"
+    },
+    "driftPerDecade": {
+      "base": {
+        "value": 4,
+        "ref": "SYSTEMS §7 drift (rate PROPOSED P0-11)"
+      },
+      "charterMultiplier": {
+        "value": 0.5,
+        "ref": "SYSTEMS §7 charters slow drift (PROPOSED P0-11)"
+      },
+      "strongMultiplier": {
+        "value": 0.5,
+        "ref": "SYSTEMS §7 reverence for the founder slows drift (PROPOSED P0-11)"
+      },
+      "random": {
+        "value": 3,
+        "ref": "PROPOSED P0-11"
+      },
+      "lowLoyalty": {
+        "value": 4,
+        "ref": "PROPOSED P0-11"
+      }
+    },
+    "lowLoyalty": {
+      "value": 40,
+      "ref": "PROPOSED P0-11"
+    },
+    "driftThreshold": {
+      "value": 60,
+      "ref": "PROPOSED P0-11"
+    },
+    "dissolvedBelow": {
+      "value": 10,
+      "ref": "SYSTEMS §7 outcomes (threshold PROPOSED P0-11)"
+    },
+    "rogueBelowLoyalty": {
+      "value": 15,
+      "ref": "SYSTEMS §7 outcomes (threshold PROPOSED P0-11)"
+    },
+    "leaderGenerationDecades": {
+      "value": 3,
+      "ref": "PROPOSED P0-11"
+    }
   }
 }

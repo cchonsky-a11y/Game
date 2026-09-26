@@ -8,4 +8,8 @@
     <RootNamespace>Butterfly.Core</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Butterfly.Core.Tests" />
+  </ItemGroup>
+
 </Project>
