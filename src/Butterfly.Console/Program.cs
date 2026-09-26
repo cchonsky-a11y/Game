@@ -75,7 +75,7 @@ internal sealed class ConsoleGame
             int attentionBefore = _sim.World.Attention;
             bool ok = Handle(cmd, arg, parts);
             _harness?.AfterCommand(line, ok);
-            if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore > 0)
+            if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && (attentionBefore > 0 || cmd == "paydown"))
             {
                 if (_sim.ShouldAutoEnd())
                 {
