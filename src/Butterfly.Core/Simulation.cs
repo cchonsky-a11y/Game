@@ -33,11 +33,17 @@ namespace Butterfly.Core
             var start = Log.Record(Now, "scenario.start", "region", null, new[] { "world" }, null,
                 "The inventor arrives in Rome. Seed " + seed + ".");
             InitDomains(start.Id);
+            InitEconomy(start.Id);
         }
+
+        /// <summary>Fraction of a year covered by one turn.</summary>
+        public double YearsPerTurn => MonthsPerTurn / 12.0;
 
         /// <summary>Ends the current turn. Runs the yearly simulation whenever a year boundary is crossed.</summary>
         public void EndTurn()
         {
+            ProgressProjects();
+            SettleGold();
             int yearBefore = Now.Year;
             Now = Now.AddMonths(MonthsPerTurn);
             Turn++;

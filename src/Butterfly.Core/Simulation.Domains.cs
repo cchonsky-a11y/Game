@@ -74,10 +74,21 @@ namespace Butterfly.Core
 
                 UpdateTier(d);
             }
+            for (int i = 0; i < World.UpkeepPaidThisYear.Length; i++) World.UpkeepPaidThisYear[i] = 0;
+            World.UpkeepTurnsThisYear = 0;
         }
 
-        internal double PriorityLevelChange(Domain d) =>
-            T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
+        /// <summary>
+        /// Yearly level change from the domain's priority. If upkeep went partly unpaid this year,
+        /// the unpaid share behaves as Accept Risk.
+        /// </summary>
+        internal double PriorityLevelChange(Domain d)
+        {
+            double chosen = T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
+            double neglect = T.Get("priorities.levelChangePerYear.acceptRisk");
+            double paid = World.UpkeepTurnsThisYear == 0 ? 1 : World.UpkeepPaidThisYear[(int)d] / World.UpkeepTurnsThisYear;
+            return paid * chosen + (1 - paid) * neglect;
+        }
 
         internal void UpdateTier(Domain d)
         {

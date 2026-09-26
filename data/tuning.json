@@ -1,42 +1,190 @@
 {
   "_readme": "Every tuning value. Each leaf is {value, ref}. ref = the SYSTEMS.md section it implements, or a PROPOSED id in docs/P0_PROPOSALS.md awaiting approval.",
   "time": {
-    "startYear": { "value": 155, "ref": "VISION.md Premise; GDD App. A" },
-    "startMonth": { "value": 0, "ref": "PROPOSED P0-01" },
-    "monthsPerTurn": { "value": 3, "ref": "SYSTEMS §2 (Stage 3 = 3 months); PROTOTYPE_SCOPE fixed Stage 3" }
+    "startYear": {
+      "value": 155,
+      "ref": "VISION.md Premise; GDD App. A"
+    },
+    "startMonth": {
+      "value": 0,
+      "ref": "PROPOSED P0-01"
+    },
+    "monthsPerTurn": {
+      "value": 3,
+      "ref": "SYSTEMS §2 (Stage 3 = 3 months); PROTOTYPE_SCOPE fixed Stage 3"
+    }
   },
   "domains": {
-    "maxLevel": { "value": 100, "ref": "PROPOSED P0-02" },
+    "maxLevel": {
+      "value": 100,
+      "ref": "PROPOSED P0-02"
+    },
     "startLevel": {
-      "medicine": { "value": 50, "ref": "PROPOSED P0-02" },
-      "governance": { "value": 55, "ref": "PROPOSED P0-02" },
-      "economy": { "value": 55, "ref": "PROPOSED P0-02" }
+      "medicine": {
+        "value": 50,
+        "ref": "PROPOSED P0-02"
+      },
+      "governance": {
+        "value": 55,
+        "ref": "PROPOSED P0-02"
+      },
+      "economy": {
+        "value": 55,
+        "ref": "PROPOSED P0-02"
+      }
     }
   },
   "history": {
     "_comment": "Authored historical curves for Rome (GDD §14: authored curves, labeled as estimates). Used as the SYSTEMS §6 benchmark and the §12 Index denominator.",
-    "years": { "value": [155, 165, 170, 193, 235, 250, 270, 284, 300, 350, 405, 420], "ref": "PROPOSED P0-03" },
-    "medicine": { "value": [50, 50, 44, 46, 44, 40, 42, 43, 44, 44, 40, 40], "ref": "PROPOSED P0-03" },
-    "governance": { "value": [55, 55, 53, 46, 40, 38, 34, 35, 45, 42, 32, 30], "ref": "PROPOSED P0-03" },
-    "economy": { "value": [55, 54, 50, 48, 42, 38, 30, 34, 38, 40, 35, 33], "ref": "PROPOSED P0-03" }
+    "years": {
+      "value": [
+        155,
+        165,
+        170,
+        193,
+        235,
+        250,
+        270,
+        284,
+        300,
+        350,
+        405,
+        420
+      ],
+      "ref": "PROPOSED P0-03"
+    },
+    "medicine": {
+      "value": [
+        50,
+        50,
+        44,
+        46,
+        44,
+        40,
+        42,
+        43,
+        44,
+        44,
+        40,
+        40
+      ],
+      "ref": "PROPOSED P0-03"
+    },
+    "governance": {
+      "value": [
+        55,
+        55,
+        53,
+        46,
+        40,
+        38,
+        34,
+        35,
+        45,
+        42,
+        32,
+        30
+      ],
+      "ref": "PROPOSED P0-03"
+    },
+    "economy": {
+      "value": [
+        55,
+        54,
+        50,
+        48,
+        42,
+        38,
+        30,
+        34,
+        38,
+        40,
+        35,
+        33
+      ],
+      "ref": "PROPOSED P0-03"
+    }
   },
   "priorities": {
     "levelChangePerYear": {
-      "protect": { "value": 1, "ref": "PROPOSED P0-04" },
-      "maintain": { "value": -2, "ref": "PROPOSED P0-04" },
-      "acceptRisk": { "value": -8, "ref": "PROPOSED P0-04" }
+      "protect": {
+        "value": 1,
+        "ref": "PROPOSED P0-04"
+      },
+      "maintain": {
+        "value": -2,
+        "ref": "PROPOSED P0-04"
+      },
+      "acceptRisk": {
+        "value": -8,
+        "ref": "PROPOSED P0-04"
+      }
+    },
+    "upkeepPerYear": {
+      "protect": {
+        "value": 20,
+        "ref": "SYSTEMS §5 (upkeep split by priority; amounts PROPOSED P0-07)"
+      },
+      "maintain": {
+        "value": 8,
+        "ref": "SYSTEMS §5 (amounts PROPOSED P0-07)"
+      },
+      "acceptRisk": {
+        "value": 0,
+        "ref": "SYSTEMS §5 (amounts PROPOSED P0-07)"
+      }
     }
   },
   "expectation": {
-    "peakFadePerYear": { "value": 5, "ref": "SYSTEMS §6 (fade rate PROPOSED P0-05)" }
+    "peakFadePerYear": {
+      "value": 5,
+      "ref": "SYSTEMS §6 (fade rate PROPOSED P0-05)"
+    }
   },
   "debt": {
-    "accrualRate": { "value": 1, "ref": "SYSTEMS §6" },
-    "compoundRate": { "value": 0.05, "ref": "SYSTEMS §6" },
+    "accrualRate": {
+      "value": 1,
+      "ref": "SYSTEMS §6"
+    },
+    "compoundRate": {
+      "value": 0.05,
+      "ref": "SYSTEMS §6"
+    },
     "tiers": {
-      "strained": { "value": 20, "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)" },
-      "fragile": { "value": 60, "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)" },
-      "critical": { "value": 120, "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)" }
+      "strained": {
+        "value": 20,
+        "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)"
+      },
+      "fragile": {
+        "value": 60,
+        "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)"
+      },
+      "critical": {
+        "value": 120,
+        "ref": "SYSTEMS §6 (threshold PROPOSED P0-06)"
+      }
+    },
+    "preventionGoldPerPoint": {
+      "value": 2,
+      "ref": "SYSTEMS §6 (PROPOSED P0-07)"
+    },
+    "paydownMultiplier": {
+      "value": 1.5,
+      "ref": "SYSTEMS §6"
+    }
+  },
+  "gold": {
+    "start": {
+      "value": 60,
+      "ref": "PROPOSED P0-07"
+    },
+    "incomeBase": {
+      "value": 20,
+      "ref": "SYSTEMS §9 (simple income; PROPOSED P0-07)"
+    },
+    "incomePerEconomyLevel": {
+      "value": 0.6,
+      "ref": "PROPOSED P0-07"
     }
   }
 }

@@ -7,18 +7,21 @@ namespace Butterfly.Core
     public sealed class GameData
     {
         public Tuning Tuning { get; }
+        public Content Content { get; }
         public string DataDirectory { get; }
 
-        private GameData(Tuning tuning, string dataDirectory)
+        private GameData(Tuning tuning, Content content, string dataDirectory)
         {
             Tuning = tuning;
+            Content = content;
             DataDirectory = dataDirectory;
         }
 
         public static GameData Load(string dataDirectory)
         {
             var tuning = Tuning.Parse(File.ReadAllText(Path.Combine(dataDirectory, "tuning.json")));
-            return new GameData(tuning, dataDirectory);
+            var content = Content.Load(Path.Combine(dataDirectory, "content"));
+            return new GameData(tuning, content, dataDirectory);
         }
 
         /// <summary>Loads from the nearest data/ directory above <paramref name="startDirectory"/>.</summary>
