@@ -1,0 +1,8 @@
+{
+  "_readme": "Every tuning value. Each leaf is {value, ref}. ref = the SYSTEMS.md section it implements, or a PROPOSED id in docs/P0_PROPOSALS.md awaiting approval.",
+  "time": {
+    "startYear": { "value": 155, "ref": "VISION.md Premise; GDD App. A" },
+    "startMonth": { "value": 0, "ref": "PROPOSED P0-01" },
+    "monthsPerTurn": { "value": 3, "ref": "SYSTEMS §2 (Stage 3 = 3 months); PROTOTYPE_SCOPE fixed Stage 3" }
+  }
+}
