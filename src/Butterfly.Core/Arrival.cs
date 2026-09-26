@@ -98,7 +98,7 @@ namespace Butterfly.Core
                           string.Join("  ", DomainInfo.All.Select(d => d + " " + SubScoresAfter[d].ToString("0", ci))));
             if (PolicyAtDeparture.Count > 0) sb.AppendLine("Economic policy you left: " + string.Join(", ", PolicyAtDeparture));
             sb.AppendLine("Institutions");
-            if (Institutions.Count == 0) sb.AppendLine("  None founded.");
+            if (Institutions.Count == 0) sb.AppendLine("  None you held 10% or more of.");
             foreach (var i in Institutions)
                 sb.AppendLine("  " + Simulation.Cap(i.Name) + ": " + i.Outcome + (i.NowCalled != i.Name && i.Outcome != InstitutionOutcome.Dissolved ? " — now " + i.NowCalled : "") +
                               " (left " + Label(i.Quality) + "; strength " + i.Strength.ToString("0", ci) + ", loyalty " + i.Loyalty.ToString("0", ci) + ")" +

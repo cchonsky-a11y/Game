@@ -129,6 +129,7 @@ namespace Butterfly.Core
                              (i.AuditCharter ? "" : " (audit " + i.Key + ": " + F(T.Get("institutions.auditGold")) + " gold)");
             }
             if (!Influential().Any()) yield return "No institution you hold " + F(InfluenceAt * 100) + "%+ of will look after Rome while you're away.";
+            if (World.Promise.Status == PromiseStatus.Offered) yield return "Demetria asked you to stay until the sickness has passed. If you leave now, she will never have an answer.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
             if (World.Gold >= 1) yield return "The " + F(Math.Floor(World.Gold)) + " gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.";
@@ -399,7 +400,9 @@ namespace Butterfly.Core
                 secondKey = workshopDone ? "unchosenWorkshop.later" : "unchosenWorkshop.gone";
                 return fountainRuns ? "fountain.runs" : "fountain.dry";
             }
-            secondKey = fountainRuns ? "unchosenFountain.fixed" : "unchosenFountain.foul";
+            // The fountain you didn't choose at first, but repaired later yourself.
+            if (World.CompletedProjects.Contains("fountain")) secondKey = fountainRuns ? "unchosenFountain.laterRuns" : "unchosenFountain.laterDry";
+            else secondKey = fountainRuns ? "unchosenFountain.fixed" : "unchosenFountain.foul";
             return economyHeld ? "workshop.thrives" : "workshop.gone";
         }
 

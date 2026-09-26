@@ -9,7 +9,9 @@
     "unchosenFountain.fixed": "Down the street, the fountain you didn't choose was repaired after all. Someone else did it.",
     "unchosenFountain.foul": "Down the street, the fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.",
     "unchosenWorkshop.later": "The smith's forge, which you funded later, still smokes a few doors down.",
-    "unchosenWorkshop.gone": "Of the smith you didn't choose, there is no trace."
+    "unchosenWorkshop.gone": "Of the smith you didn't choose, there is no trace.",
+    "unchosenFountain.laterRuns": "Down the street, the fountain you repaired later still runs.",
+    "unchosenFountain.laterDry": "Down the street, the fountain you repaired later has gone dry again; no one kept it up after you left."
   },
   "wrongness": {
     "medicine.high": "Something is wrong, and it takes you a moment to see it: children, everywhere. More than any Roman street you remember, and fewer small graves along the Via Appia.",
@@ -40,7 +42,7 @@
     "faction.captured": "The senate faction you backed with Varro is now {pathName}. {pathDescription} Its head is {leader}.",
     "faction.dissolved": "Of the Caecilian faction nothing remains but a family tomb.",
     "faction.rogue": "The senate faction you backed is now {pathName}. {pathDescription} They know who you are, and they do not want you back.",
-    "none": "You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built outlasted you.",
+    "none": "You ask at the guild halls and the Curia whether anyone remembers you. No one does: you never held enough of anything in Rome to leave your mark on it.",
     "circle.corrupted": "The Physicians' Circle still has a door and a name, but it licenses whoever pays. Its head, {leader}, answers to other people now.",
     "faction.corrupted": "The Caecilian faction still votes as a bloc, but its votes are for sale. Its head is {leader}.",
     "corruption.minor": "Its accounts show a gap from the years after you left: some of the gold you left was quietly skimmed (minor corruption).",

@@ -56,5 +56,36 @@ namespace Butterfly.Core.Tests
             sim.Charter("circle");
             Assert.Contains(sim.DepartureBriefing(), l => l.Contains("chartered but not endowed, so it counts as bare"));
         }
+    
+        [Fact]
+        public void AFountainRepairedLaterIsNotDescribedAsFilledIn()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop");
+            sim.World.CompletedProjects.Add("fountain");
+            sim.World.CleanWater = true;
+            sim.World.FountainCondition = 100;
+            var arrival = sim.JumpForTests();
+            var recognition = arrival.Beats.First(b => b.Name == "Recognition").Text;
+            Assert.DoesNotContain("filled in long ago", recognition);
+            Assert.Contains("you repaired later", recognition);
+        }
+
+        [Fact]
+        public void NoBackingDoesNotClaimNoOneKnowsDemetria()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            var arrival = sim.JumpForTests();
+            Assert.DoesNotContain("No one has heard", arrival.Beats.First(b => b.Name == "Discovery").Text);
+        }
+
+        [Fact]
+        public void TheBriefingWarnsAboutAnUnansweredPromise()
+        {
+            var sim = new Simulation(TestData.Load(), 41);
+            sim.World.CompletedProjects.Add("fountain");
+            while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.EndTurn();
+            Assert.Contains(sim.DepartureBriefing(), l => l.Contains("never have an answer"));
+        }
     }
 }

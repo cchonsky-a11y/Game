@@ -194,3 +194,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 - **Problem:** Demetria's request had no motive: she has no reason to care whether a stranger stays, and can't know about the machine.
 - **Decision:** she asks only once she has seen you do something for the sick (the fountain, a Medicine project, soap and boiled linen, sanctuary membership, or membership in her Circle), at the first plague warning after that. Her reason is historical: when the pestilence came, the rich fled to their villas and famous physicians with them (Galen left Rome in AD 166); she asks you not to flee. From her side your jump looks like flight. If you never gave her a reason, she never asks, and the arrival says so ("she never thought to ask you"). PROTOTYPE_SCOPE "Promise" unchanged. Source: Corey.
 
+## 2026-09-28 — Arrival text fixes from play (bugs)
+- A fountain you repaired later was described as "the fountain you didn't choose ... filled in long ago"; it now gets its own lines (still runs / gone dry again). The Discovery beat for "nothing backed" claimed no one had heard of Demetria while her letters survive; it now says no one remembers you. Learn more said "None founded"; now "None you held 10% or more of". The jump briefing now warns when Demetria's request is unanswered. Source: phone playtest (seed 42).
+
