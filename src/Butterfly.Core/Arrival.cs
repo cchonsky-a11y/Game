@@ -74,6 +74,8 @@ namespace Butterfly.Core
         public double IndexBefore { get; set; }
         public double IndexAfter { get; set; }
         public List<InstitutionReport> Institutions { get; } = new List<InstitutionReport>();
+        /// <summary>How far the machine carried you this time.</summary>
+        public int JumpYears { get; set; }
         public List<string> Crises { get; } = new List<string>();
         public List<string> Corruption { get; } = new List<string>();
         /// <summary>Sphere Index at the end of each decade of the absence (reporting only).</summary>

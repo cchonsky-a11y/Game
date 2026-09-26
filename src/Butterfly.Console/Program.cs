@@ -96,7 +96,8 @@ internal sealed class ConsoleGame
         Console.WriteLine("========================================");
         Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
         Console.WriteLine("machine, what you know, and no one who owes you anything. Something is coming from the East in a few years.");
-        Console.WriteLine("Once you repair it, the machine can carry you " + _sim.T.GetInt("jump.years") + " years forward. What you leave behind will go on without you.");
+        Console.WriteLine("Once you repair it, the machine can carry you forward, " + _sim.T.GetInt("jump.range.baseMin") + " to " + _sim.T.GetInt("jump.range.maxYears") +
+                          " years depending on how well you repair it. What you leave behind will go on without you.");
         Console.WriteLine();
         Console.WriteLine("This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.");
         Console.WriteLine();
@@ -140,6 +141,7 @@ internal sealed class ConsoleGame
   invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
   repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
+  upgrade <contacts|lens|flywheel>    optional: each upgrade lets the machine carry you further
   jump                           prepare to leave (then pay down, endow, audit, or 'jump' again)
   quit");
     }
@@ -180,6 +182,7 @@ internal sealed class ConsoleGame
                 foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
                 return true;
             case "repair": r = _sim.Repair(arg); break;
+            case "upgrade": r = _sim.Upgrade(arg); break;
             case "inventions":
                 foreach (var idea in _sim.AvailableInventions())
                     Console.WriteLine("  " + idea.Id.PadRight(12) + (idea.Gold + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
@@ -343,12 +346,14 @@ internal sealed class ConsoleGame
                 foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
                 return;
             }
-            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + _sim.T.GetInt("jump.years")) + ". You can't come back.");
+            var (lo, hi) = _sim.JumpRange();
+            Console.WriteLine("You will leave AD " + _sim.Now.Year + " and arrive somewhere between AD " + (_sim.Now.Year + lo) + " and AD " + (_sim.Now.Year + hi) +
+                              ": the machine's range is " + _sim.JumpRangeText() + ". You can't come back.");
             Briefing();
             return;
         }
         var arrival = _sim.Jump();
-        Console.WriteLine("\nThe machine shudders. Decades pass in the dark...\n");
+        Console.WriteLine("\nThe machine shudders. Decades pass in the dark... It carries you " + arrival.JumpYears + " years.\n");
         foreach (var beat in arrival.Beats)
         {
             Console.WriteLine("— " + beat.Name + " —");

@@ -16,7 +16,7 @@ Target tester sentence (unprompted): *"The plague hit harder because I left befo
 - A **small batch runner** that plays the scenario automatically with scripted strategies.
 
 ## Scenario
-Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roughly 20 in-game years, faces the plague, repairs the time machine, then jumps about 40 years forward and receives a four-beat arrival.
+Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roughly 20 in-game years, faces the plague, repairs the time machine, then jumps 25–60 years forward and receives a four-beat arrival.
 
 ## In scope
 
@@ -40,8 +40,8 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Seeded choice | The hour-one fountain-or-workshop choice |
 | Promise | One promise from an institution leader that conflicts with jump timing |
 | Inventions (P0) | **5 inventions** the player makes from future knowledge (wheelbarrow, double-entry bookkeeping, soap and boiled linen, compound pulley crane, water-driven trip hammer); each needs something from Rome (the workshop, a membership, a finished project) and pays off in income, standing (leader loyalty) and influence (stake). Made once each. No visibility or anachronism risk (decided 2026-09-28; a first version, to be fleshed out later) |
-| Time machine (P0) | A repair track of **9 small steps** in three systems (coil housing, coolant, chronometer); each step costs a little gold and Attention and needs something from Rome (a membership or a finished project), or more gold instead. **All 9 are required to jump** (decided 2026-09-28; to be built out later). No fuel puzzle, repair tiers or malfunctions |
-| Jump | Player chooses when to leave once the machine is repaired; a **40-year** absence (the first jump is 25–50 years, decided 2026-09-28) simulated in decade steps |
+| Time machine (P0) | A repair track of **9 small steps** in three systems (coil housing, coolant, chronometer); each step costs a little gold and Attention and needs something from Rome (a membership or a finished project), or more gold instead. **All 9 are required to jump** (decided 2026-09-28; to be built out later). Plus **3 optional upgrades** (gild the coil contacts, grind a sighting lens, balance the flywheel) that lengthen the jump. No fuel puzzle, repair tiers or malfunctions |
+| Jump | Player chooses when to leave once the machine is repaired. The distance is drawn at departure (seeded, 5-year steps) within a range set by the repairs (25–40 years), time in the era (+5 per 5 years beyond the first 5, up to +10) and upgrades (+5 each), capped at 60; the briefing shows the range, not the result (decided 2026-09-28). Simulated in decade steps, with a final half-decade step when needed |
 | Echoes | **3 specific elements** (e.g., the fountain, the physicians' circle, the broken or kept promise). The seeded choice is always one of them |
 | Arrival | Text version of the four beats: recognition, wrongness, personal echo, discovery. Optional `learn more` shows the Index and institution outcomes. **No causal chains after the jump** |
 | Index | Geometric mean over the 3 domains, before and after the jump |
@@ -77,7 +77,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Jump timing | **Not applicable to P0; deferred to P3.** Staying longer has no cost until aging and machine-discovery risk exist. Reported in the batch report for information only |
 | Debt at departure | Within each timing, none of Pay-down (Balanced), Endow, and Split wins more than 65% of runs; the batch report flags it if more than ~80% of the best runs bought an audit charter |
 | Debt pacing | 2–3 years of accepted risk → Strained; plague warning stages visible before the outbreak |
-| Institution decay | Formula check (the P0 jump is now 40 years): after 250 years from strength 80: bare 80 × 0.9^25 ≈ 6; chartered 80 × 0.97^25 ≈ 37; strong 80 × 0.99^25 ≈ 62 |
+| Institution decay | Formula check (the P0 jump is now 25–60 years): after 250 years from strength 80: bare 80 × 0.9^25 ≈ 6; chartered 80 × 0.97^25 ≈ 37; strong 80 × 0.99^25 ≈ 62 |
 | Impact | At least 3 of 5 testers say, unprompted, that their actions changed the returned world, pointing to at least one Echo |
 | Real choices | Testers can describe what they were choosing *between*, not just what they clicked |
 | Desire to continue | Testers want to see what happens after another jump |

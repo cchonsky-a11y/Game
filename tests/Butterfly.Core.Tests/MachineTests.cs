@@ -32,6 +32,54 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void AnEarlyBareJumpGoes25To40Years()
+        {
+            var sim = Rich();
+            Assert.Equal((25, 40), sim.JumpRange());
+            var seen = new System.Collections.Generic.HashSet<int>();
+            for (ulong seed = 1; seed <= 40; seed++)
+            {
+                var s = Rich(seed);
+                seen.Add(s.JumpForTests().JumpYears);
+            }
+            Assert.Contains(25, seen);                        // an early, bare machine can fall short
+            Assert.All(seen, y => Assert.InRange(y, 25, 40));
+            Assert.All(seen, y => Assert.Equal(0, y % 5));
+        }
+
+        [Fact]
+        public void UpgradesAndTimeInTheEraLengthenTheJump()
+        {
+            var sim = Rich();
+            foreach (var u in sim.Data.Content.MachineUpgrades) sim.World.MachineDone.Add(u.Id);
+            Assert.Equal((40, 55), sim.JumpRange());                // three upgrades: +15
+            while (sim.Now.Year < 170) sim.EndTurn();                 // 15 years in the era: +10
+            Assert.Equal((50, 60), sim.JumpRange());                // capped at 60
+        }
+
+        [Fact]
+        public void UpgradesAreOptionalAndNeedRome()
+        {
+            var sim = Rich();
+            sim.World.Attention = 100;
+            Assert.True(sim.Upgrade("flywheel").Ok);
+            Assert.False(sim.Upgrade("flywheel").Ok);
+            Assert.False(sim.Upgrade("warpdrive").Ok);
+            var lens = sim.Data.Content.MachineUpgrades.First(u => u.Id == "lens");
+            Assert.Equal(lens.AltGold, sim.MachineStepGold(lens)); // no medicine work yet: the glassblower's price
+            FinishMachine(sim);
+            Assert.True(sim.MachineReady);                         // the 9 required steps are enough to jump
+        }
+
+        [Fact]
+        public void AHalfDecadeJumpScalesTheAbsence()
+        {
+            var a = Rich(3);
+            var arrival = a.JumpForTests();
+            Assert.InRange(arrival.ArrivalYear - arrival.DepartureYear, 25, 40);
+        }
+
+        [Fact]
         public void NineStepsInThreeSystems()
         {
             var steps = TestData.Load().Content.MachineSteps;
@@ -47,7 +95,7 @@ namespace Butterfly.Core.Tests
             FinishMachine(sim);
             Assert.True(sim.MachineReady);
             var arrival = sim.Jump();
-            Assert.Equal(arrival.DepartureYear + sim.T.GetInt("jump.years"), arrival.ArrivalYear);
+            Assert.Equal(arrival.DepartureYear + arrival.JumpYears, arrival.ArrivalYear);
         }
 
         [Fact]

@@ -18,7 +18,7 @@ namespace Butterfly.Core
         {
             topic = (topic ?? "").Trim().ToLowerInvariant();
             if (sim.Arrived)
-                return "You have been away for " + sim.T.GetInt("jump.years") + " years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)";
+                return "You have been away for " + (sim.Arrival?.JumpYears ?? 0) + " years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)";
             if (DomainInfo.TryParseDomain(topic, out var d)) return Domain(sim, d);
             switch (topic)
             {

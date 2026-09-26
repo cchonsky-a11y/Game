@@ -52,7 +52,7 @@ namespace Butterfly.Core
         private void HoldingsDecadeStart(Institution i, Arrival arrival)
         {
             if (!Holds(i)) return;
-            if (Rng.Chance(CorruptionChance(i))) Corrupt(i, arrival);
+            if (Rng.Chance(1 - Math.Pow(1 - CorruptionChance(i), StepFraction))) Corrupt(i, arrival);
             PayDebtFromHoldings(i, arrival);
         }
 
@@ -61,7 +61,7 @@ namespace Butterfly.Core
         {
             if (!Holds(i)) return;
             double before = i.Holdings;
-            i.Holdings *= Math.Pow(1 + HoldingsGrowthRate(), 10);
+            i.Holdings *= Math.Pow(1 + HoldingsGrowthRate(), _stepYears);
             Record("holdings.grow", i.Key, CausesOf(LevelKey(Domain.Economy)), new[] { i.Leader },
                 new[] { new Effect(HoldingsKey(i), before, i.Holdings) },
                 Cap(i.Def.ShortName) + "'s holdings grow with Rome's economy.");

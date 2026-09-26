@@ -754,10 +754,6 @@
     }
   },
   "jump": {
-    "years": {
-      "value": 40,
-      "ref": "DECIDED 2026-09-28 (Corey): the first jump is about 25–50 years; P0 switched from 250 to 40"
-    },
     "convergencePerDecade": {
       "value": 0.5,
       "ref": "GDD §8 domains drift toward the historical baseline (rate PROPOSED P0-13)"
@@ -812,6 +808,41 @@
       "driftPerDecade": {
         "value": 0.25,
         "ref": "SYSTEMS §6/§8 drift toward the long-run target after the 30-year window (DECIDED 2026-09-27)"
+      }
+    },
+    "range": {
+      "_readme": "Distance drawn at departure, in 5-year steps, uniformly between min and max. min = baseMin + perUpgrade × upgrades + time bonus; max likewise from baseMax; both capped at maxYears. Time bonus = perFiveYears × whole 5-year spans in the era beyond freeYears, up to timeBonusMax.",
+      "baseMin": {
+        "value": 25,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "baseMax": {
+        "value": 40,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "perUpgrade": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "freeYears": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "perFiveYears": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "timeBonusMax": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "maxYears": {
+        "value": 60,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
+      },
+      "stepYears": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
       }
     }
   },

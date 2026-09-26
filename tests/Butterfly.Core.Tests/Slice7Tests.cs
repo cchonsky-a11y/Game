@@ -26,9 +26,9 @@ namespace Butterfly.Core.Tests
             var sim = Play(1, "fountain", true, true, 160);
             int depart = sim.Now.Year;
             var arrival = sim.JumpForTests();
-            int years = sim.T.GetInt("jump.years");
+            int years = arrival.JumpYears;
             Assert.Equal(depart + years, arrival.ArrivalYear);
-            Assert.Equal(years / 10, sim.Log.Events.Count(e => e.Type == "jump.decade"));
+            Assert.Equal((years + 9) / 10, sim.Log.Events.Count(e => e.Type == "jump.decade")); // decades, plus a half-decade step if needed
             Assert.True(sim.Arrived);
             Assert.Throws<System.InvalidOperationException>(() => sim.EndTurn());
         }

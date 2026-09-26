@@ -206,7 +206,7 @@ namespace Butterfly.Core
 
         internal void PolicyDecadeStep(Arrival arrival)
         {
-            if (PolicyHold() && InterventionCount() > 0) World.Malinvestment += PolicySway() * InterventionCount() * T.Get("policy.absence.malinvestmentPerStancePerDecade");
+            if (PolicyHold() && InterventionCount() > 0) World.Malinvestment += StepFraction * PolicySway() * InterventionCount() * T.Get("policy.absence.malinvestmentPerStancePerDecade");
             if (World.Malinvestment >= T.Get("policy.bust.firstWarningAt") && Rng.Chance(Math.Min(0.9, World.Malinvestment * T.Get("policy.bust.advancePerMalinvestment"))))
             {
                 var e = Record("bust.outbreak", "economy", null, new[] { "world" }, null, "A boom built on intervention collapses.");

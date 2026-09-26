@@ -43,6 +43,10 @@ namespace Butterfly.Core
         public static double Decay(double strength, double ratePerDecade, int decades) =>
             strength * Math.Pow(1 - ratePerDecade, decades);
 
+        /// <summary>Decay over part of a decade (a half-decade step at the end of a jump).</summary>
+        public static double Decay(double strength, double ratePerDecade, double decades) =>
+            strength * Math.Pow(1 - ratePerDecade, decades);
+
         /// <summary>SYSTEMS §12: sub-score = world value ÷ historical value × 100.</summary>
         public static double SubScore(double worldValue, double historicalValue) => worldValue / historicalValue * 100.0;
 

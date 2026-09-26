@@ -1,5 +1,5 @@
 {
-  "_readme": "The time machine repair track for P0 (DECIDED 2026-09-28, Corey): three systems, three small steps each; all 9 are required before the machine can jump. Each step needs something from Rome (a membership, a finished project) or, for the first step of a system, more gold instead. No fuel puzzle, repair tiers or malfunctions (out of P0 scope). Amounts PROPOSED P0-21. To be built out later. Slowed down 2026-09-28 (Corey: the repair should take a couple of years): steps take 2–6 turns; with Attention shared across systems, the full track takes about 3–4 years.",
+  "_readme": "The time machine repair track for P0 (DECIDED 2026-09-28, Corey): three systems, three small steps each; all 9 are required before the machine can jump. Each step needs something from Rome (a membership, a finished project) or, for the first step of a system, more gold instead. No fuel puzzle, repair tiers or malfunctions (out of P0 scope). Amounts PROPOSED P0-21. To be built out later. Slowed down 2026-09-28 (Corey: the repair should take a couple of years): steps take 2–6 turns; with Attention shared across systems, the full track takes about 3–4 years. Optional upgrades (DECIDED 2026-09-28, Corey): not needed to jump; each lengthens the jump. The jump's distance depends on the repairs, your time in the era and the upgrades (tuning jump.range).",
   "steps": [
     {
       "id": "bronze",
@@ -93,6 +93,47 @@
       "attentionPerTurn": 2,
       "turns": 2,
       "text": "The chronometer's dial agrees with the stars to the hour."
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "contacts",
+      "system": "upgrades",
+      "name": "Gild the coil contacts",
+      "gold": 30,
+      "attentionPerTurn": 1,
+      "turns": 3,
+      "requirement": "tradeMember",
+      "altGold": 50,
+      "altText": "buy gold leaf from a jeweller instead",
+      "text": "Your trade contacts find gold leaf; the gilded contacts spark cleanly.",
+      "altDoneText": "A jeweller's gold leaf, dearly bought, and the contacts spark cleanly."
+    },
+    {
+      "id": "lens",
+      "system": "upgrades",
+      "name": "Grind a sighting lens for the chronometer",
+      "gold": 20,
+      "attentionPerTurn": 2,
+      "turns": 3,
+      "requirement": "medicineWork",
+      "altGold": 35,
+      "altText": "pay a glassblower instead",
+      "text": "The physicians' glassblower grinds you a clear lens; the stars sit sharp in the sight.",
+      "altDoneText": "A glassblower grinds you a clear lens at a stranger's price; the stars sit sharp in the sight."
+    },
+    {
+      "id": "flywheel",
+      "system": "upgrades",
+      "name": "Balance the flywheel",
+      "gold": 25,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "requirement": "workshop",
+      "altGold": 45,
+      "altText": "hire a smith by the day instead",
+      "text": "The smith trues the flywheel on his lathe until it spins without a tremor.",
+      "altDoneText": "A hired smith trues the flywheel until it spins without a tremor."
     }
   ]
 }

@@ -300,14 +300,14 @@ namespace Butterfly.Core
             if (!HasInfluence(i) || i.Strength <= 0) return;
             double rate = DecayRate(i.Quality);
             double s = i.Strength, l = i.Loyalty, drift = i.Drift;
-            i.Strength = Formulas.Decay(i.Strength, rate, 1);
-            i.Loyalty = Formulas.Decay(i.Loyalty, rate, 1);
+            i.Strength = Formulas.Decay(i.Strength, rate, StepFraction);
+            i.Loyalty = Formulas.Decay(i.Loyalty, rate, StepFraction);
             double baseDrift = T.Get("institutions.driftPerDecade.base");
             if (i.Chartered) baseDrift *= T.Get("institutions.driftPerDecade.charterMultiplier");
             if (i.Quality == InstitutionQuality.Strong) baseDrift *= T.Get("institutions.driftPerDecade.strongMultiplier");
-            i.Drift += baseDrift
+            i.Drift += StepFraction * (baseDrift
                        + Rng.NextDouble() * T.Get("institutions.driftPerDecade.random")
-                       + (i.Loyalty < T.Get("institutions.lowLoyalty") ? T.Get("institutions.driftPerDecade.lowLoyalty") : 0);
+                       + (i.Loyalty < T.Get("institutions.lowLoyalty") ? T.Get("institutions.driftPerDecade.lowLoyalty") : 0));
             var effects = new List<Effect> { new Effect(StrengthKey(i), s, i.Strength), new Effect(LoyaltyKey(i), l, i.Loyalty), new Effect(i.Key + ".drift", drift, i.Drift) };
             string text = Cap(i.Def.ShortName) + " endures another decade.";
             if (!i.HasDrifted && i.Drift >= T.Get("institutions.driftThreshold") && i.DriftPath != null)

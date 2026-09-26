@@ -21,7 +21,8 @@ namespace Butterfly.Core.Tests
         [InlineData("time.monthsPerTurn", 3)]            // P0-only pacing, PROTOTYPE_SCOPE (decided 2026-09-26)
         [InlineData("time.eraTurns", 80)]                // P0-only pacing, PROTOTYPE_SCOPE: 20-year eras
         [InlineData("time.startYear", 155)]              // VISION premise
-        [InlineData("jump.years", 40)]                   // PROTOTYPE_SCOPE: the first jump, 25–50 years
+        [InlineData("jump.range.baseMin", 25)]           // the first jump: 25–60 years by repairs, time and upgrades
+        [InlineData("jump.range.maxYears", 60)]
         public void CanonicalValuesMatchSystems(string key, double expected)
         {
             Assert.Equal(expected, T.Get(key), 9);

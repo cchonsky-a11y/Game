@@ -32,7 +32,7 @@ namespace Butterfly.Core
             // Attending meetings often enough to be an active member of one established institution per domain.
             demand += domains * years * t.Get("stakes.activeMeetingsPerYear") * t.Get("stakes.attendAttention");
             // The 9 time machine repair steps (all needed to jump).
-            demand += data.Content.MachineSteps.Sum(m => m.AttentionPerTurn * m.Turns);
+            demand += data.Content.MachineSteps.Concat(data.Content.MachineUpgrades).Sum(m => m.AttentionPerTurn * m.Turns);
             demand += data.Content.Inventions.Sum(i => i.AttentionPerTurn * i.Turns);
             demand += turns;
             return demand;

@@ -61,8 +61,16 @@ namespace Butterfly.Core
 
             IsAway = true;
             if (OutbreakAwaitingResponse) ResolveOutbreak(AutomaticResponse(), new[] { "world" });
-            int decades = T.GetInt("jump.years") / 10;
-            for (int k = 1; k <= decades; k++) DecadeStep(k, arrival);
+            // How far the machine carries you is drawn now, within the range its repairs allow (decided 2026-09-28).
+            int years = DrawJumpYears();
+            arrival.JumpYears = years;
+            for (int k = 1; k * 10 <= years; k++) DecadeStep(k, arrival);
+            if (years % 10 != 0)
+            {
+                _stepYears = years % 10; // a final half-decade step, with every per-decade rate scaled to it
+                DecadeStep(years / 10 + 1, arrival);
+                _stepYears = 10;
+            }
             IsAway = false;
             Arrived = true;
 
@@ -129,6 +137,8 @@ namespace Butterfly.Core
                              (i.AuditCharter ? "" : " (audit " + i.Key + ": " + F(T.Get("institutions.auditGold")) + " gold)");
             }
             if (!Influential().Any()) yield return "No institution you hold " + F(InfluenceAt * 100) + "%+ of will look after Rome while you're away.";
+            yield return "The machine will carry you " + JumpRangeText() + "; exactly how far, you'll know when you arrive." +
+                         (MachineUpgradesDone < Data.Content.MachineUpgrades.Count ? " Upgrades and more time here would lengthen it." : "");
             if (World.Promise.Status == PromiseStatus.Offered) yield return "Demetria asked you to stay until the sickness has passed. If you leave now, she will never have an answer.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
@@ -182,6 +192,13 @@ namespace Butterfly.Core
 
         // ---- coarse mode ----------------------------------------------------
 
+        /// <summary>Years in the current coarse step: 10, or 5 for a final half-decade.</summary>
+        private int _stepYears = 10;
+        /// <summary>The current step as a fraction of a decade (per-decade rates are scaled by it).</summary>
+        private double StepFraction => _stepYears / 10.0;
+        /// <summary>A per-decade share (drift, recovery) scaled to the current step.</summary>
+        private double ScaleShare(double perDecade) => 1 - Math.Pow(1 - perDecade, StepFraction);
+
         private void DecadeStep(int decade, Arrival arrival)
         {
             int startYear = Now.Year;
@@ -190,7 +207,7 @@ namespace Butterfly.Core
             bool window = startYear - DepartureYear < T.GetInt("institutions.holdings.windowYears");
             if (window) foreach (var i in Influential()) HoldingsDecadeStart(i, arrival);
             // The plague keeps its yearly rules while it is still on its way.
-            for (int y = 1; y <= 10; y++)
+            for (int y = 1; y <= _stepYears; y++)
             {
                 Now = SimTime.FromYear(startYear + y);
                 if (World.Plague.Stage != PlagueState.Passed) PlagueYearTick();
@@ -208,7 +225,7 @@ namespace Butterfly.Core
             PolicyDecadeStep(arrival);
             // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).
             double popTarget = T.Get("plague.startPopulation") * Math.Min(1.5, SubScore(Domain.Medicine) / 100.0);
-            World.Population += (popTarget - World.Population) * T.Get("jump.populationRecoveryPerDecade");
+            World.Population += (popTarget - World.Population) * ScaleShare(T.Get("jump.populationRecoveryPerDecade"));
 
             arrival.IndexByDecade.Add(SphereIndex());
             Record("jump.decade", "world", null, new[] { "world" }, null,
@@ -234,9 +251,9 @@ namespace Butterfly.Core
             var s = World[d];
             double levelBefore = s.Level, debtBefore = s.Debt;
             s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"),
-                Math.Min(T.Get("domains.maxLevel"), s.Level + (DecadeTarget(d, startYear) - s.Level) * DecadeDrift(startYear)));
+                Math.Min(T.Get("domains.maxLevel"), s.Level + (DecadeTarget(d, startYear) - s.Level) * ScaleShare(DecadeDrift(startYear))));
             bool maintained = MaintainBonus(d) > 0;
-            for (int y = 1; y <= 10; y++)
+            for (int y = 1; y <= _stepYears; y++)
             {
                 double expectation = Formulas.Expectation(Benchmark(d, startYear + y), s.Peak);
                 // After the 30-year window, a domain no institution maintains accrues no new debt (decided 2026-09-27).
@@ -262,7 +279,7 @@ namespace Butterfly.Core
         /// </summary>
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
-            double baseline = Benchmark(d, decadeStartYear + 10);
+            double baseline = Benchmark(d, decadeStartYear + _stepYears);
             double policy = d == Domain.Economy ? PolicyTargetBonus() : 0;
             if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d) + policy;
             return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
@@ -277,7 +294,7 @@ namespace Butterfly.Core
             // No new outbreak within 30 years of the last one (decided 2026-09-27).
             if (World.LastOutbreakYear > 0 && Now.Year - World.LastOutbreakYear < T.GetInt("plague.immunityYears")) return;
             double yearly = T.Get("jump.crisisChancePerYear." + PlagueTier().ToString().ToLowerInvariant());
-            double chance = 1 - Math.Pow(1 - yearly, 10);
+            double chance = 1 - Math.Pow(1 - yearly, _stepYears);
             if (!Rng.Chance(chance)) return;
             string response = AutomaticResponse();
             var start = Record("crisis.recurrence", "plague", CausesOf(TierKey(Domain.Medicine)),
@@ -294,7 +311,7 @@ namespace Butterfly.Core
                           || World[Domain.Medicine].Level >= Benchmark(Domain.Medicine, Now.Year);
             if (tended) return;
             double before = World.FountainCondition;
-            World.FountainCondition = Math.Max(0, World.FountainCondition - T.Get("jump.fountainDecayPerDecade"));
+            World.FountainCondition = Math.Max(0, World.FountainCondition - T.Get("jump.fountainDecayPerDecade") * StepFraction);
             Record("fountain.decay", "fountain", null, new[] { "world" }, new[] { new Effect("fountain.condition", before, World.FountainCondition) },
                 "No one maintains the district fountain.");
         }
