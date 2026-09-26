@@ -158,7 +158,7 @@ internal sealed class ConsoleGame
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
-        if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (this turn only).");
+        if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (before the end of turn 2).");
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
         if (_sim.OutbreakAwaitingResponse) Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()));
     }
@@ -182,10 +182,9 @@ internal sealed class ConsoleGame
         if (!_jumpArmed)
         {
             _jumpArmed = true;
-            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back.");
-            if (_sim.LeavingBreaksPromise) Console.WriteLine("You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.");
-            if (_sim.World.ActiveProjects.Count > 0) Console.WriteLine("Unfinished work will be abandoned.");
-            Console.WriteLine("Type 'jump' again to go.");
+            Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back. What you leave behind:");
+            foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
+            Console.WriteLine("Type 'jump' again to go, or anything else to stay.");
             return;
         }
         var arrival = _sim.Jump();

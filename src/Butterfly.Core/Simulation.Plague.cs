@@ -191,10 +191,11 @@ namespace Butterfly.Core
                 ChangeLevel(d, -sev * T.Get("plague.damage." + d.Key()), "plague.damage", new[] { toll.Id }, new[] { "world" },
                     "The pestilence strikes " + d + ".");
 
-            // A crisis releases debt (SYSTEMS §6), violently.
+            // A crisis releases debt (SYSTEMS §6), violently, and resets what people expect.
             foreach (var d in DomainInfo.All)
             {
                 var s = World[d];
+                s.Peak = s.Level;
                 if (s.Debt <= 0) continue;
                 double before = s.Debt;
                 s.Debt *= 1 - T.Get("plague.debtRelease");

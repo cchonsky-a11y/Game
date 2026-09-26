@@ -44,3 +44,10 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-25 — Build guide (GDD v1.2.1)
 - **Timeline corrected to about 4–8 months part-time** to a playable first jump, matching the step-by-step estimate in BUILD_GUIDE.md §6.
+
+## 2026-09-26 — P0 build (pending Corey's review)
+- **P0 simulation, console game and batch runner built** in slices 1–9 of BUILD_GUIDE §7. Source: Claude Code.
+- **Placeholders for unspecified numbers and rules** recorded in docs/P0_PROPOSALS.md (P0-01 to P0-14) and marked `PROPOSED` in data/tuning.json. None are canonical until approved; approved items move into SYSTEMS.md, the GDD and this log per BUILD_GUIDE §2.1. Source: Claude Code.
+- **First batch findings** (playtests/batch-report.md): accepted risk reaches Strained in 2 years (pass); plague warnings always precede the outbreak (pass). Pooled over both jump timings, Balanced 52% vs Specialized 48% (pass). Split by timing, Specialized dominates early jumps and Balanced dominates late jumps (fail). This awaits a decision on how to read the 65% criterion (P0_PROPOSALS open question 4). Source: batch runner.
+- **Found during tuning:** applied literally over a 250-year absence, the §6 rules produce crisis spirals. Damped with placeholders: a crisis releases all debt and resets expectations, domains converge faster to baseline, and recurrence chances are lower. Open questions 1–2 in P0_PROPOSALS. Source: batch runner.
+- **Not built:** the legacy formula (BUILD_GUIDE §8 reference values). It belongs to mortality and succession, which are out of P0 scope. Source: PROTOTYPE_SCOPE.

@@ -61,6 +61,28 @@ namespace Butterfly.Core
             return arrival;
         }
 
+        /// <summary>
+        /// What the player is leaving behind: exposures, never outcomes. Debts keep compounding during
+        /// the absence; institutions decay at the rate their quality sets; an active promise would break.
+        /// </summary>
+        public IEnumerable<string> DepartureBriefing()
+        {
+            double rate = T.Get("debt.compoundRate");
+            foreach (var d in World.Domains.Where(x => x.Debt > 0))
+                yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year while you're away (about " +
+                             F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, 50)) +
+                             " in fifty years) until a crisis releases it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
+            foreach (var i in Founded())
+            {
+                var q = QualityAtDeparture(i);
+                yield return Cap(i.Def.Name) + " would be left " + (q == InstitutionQuality.Strong ? "strong" : q == InstitutionQuality.CharteredAndEndowed ? "chartered and endowed" : "bare") +
+                             ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
+            }
+            if (!Founded().Any()) yield return "No institution will look after Rome while you're away.";
+            if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
+            if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
+        }
+
         private void SettlePromiseOnDeparture(int departId)
         {
             var p = World.Promise;
@@ -149,7 +171,8 @@ namespace Butterfly.Core
             var s = World[d];
             double levelBefore = s.Level, debtBefore = s.Debt;
             double target = Benchmark(d, Now.Year) + MaintainBonus(d);
-            s.Level = Math.Max(0, Math.Min(T.Get("domains.maxLevel"), s.Level + (target - s.Level) * T.Get("jump.convergencePerDecade")));
+            s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"),
+                Math.Min(T.Get("domains.maxLevel"), s.Level + (target - s.Level) * T.Get("jump.convergencePerDecade")));
             for (int y = 1; y <= 10; y++)
             {
                 double expectation = Formulas.Expectation(Benchmark(d, startYear + y), s.Peak);

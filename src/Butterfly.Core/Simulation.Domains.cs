@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -52,6 +53,9 @@ namespace Butterfly.Core
 
                 // 1. Priority upkeep changes the level.
                 double change = PriorityLevelChange(d);
+                // Neglect alone never takes a domain below a floor; only crises can.
+                double floor = Benchmark(d, Now.Year) * T.Get("priorities.neglectFloorFraction");
+                if (change < 0) change = Math.Max(change, Math.Min(0, floor - s.Level));
                 if (change != 0) ChangeLevel(d, change, "domain.upkeep", CausesOf(PriorityKey(d)), new[] { "world" },
                     d + " " + (change > 0 ? "improves" : "slips") + " under " + s.Priority.Label() + " (" + Signed(change) + ").");
 
@@ -108,7 +112,8 @@ namespace Butterfly.Core
         {
             var s = World[d];
             double before = s.Level;
-            s.Level = System.Math.Max(0, System.Math.Min(T.Get("domains.maxLevel"), s.Level + delta));
+            double min = Math.Min(s.Level, Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"));
+            s.Level = Math.Max(min, Math.Min(T.Get("domains.maxLevel"), s.Level + delta));
             if (s.Level == before) return null;
             if (s.Level > s.Peak) s.Peak = s.Level;
             return Record(type, d.Key(), causes, actors, new[] { new Effect(LevelKey(d), before, s.Level) }, text);

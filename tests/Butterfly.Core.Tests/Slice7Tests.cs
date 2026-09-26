@@ -89,3 +89,23 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class DepartureBriefingTests
+    {
+        [Fact]
+        public void BriefingNamesDebtsInstitutionsAndThePromise()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            sim.World.Gold = 500;
+            sim.Found("circle");
+            sim.World[Domain.Economy].Debt = 10;
+            sim.World.Promise.Status = PromiseStatus.Active;
+            var lines = System.Linq.Enumerable.ToList(sim.DepartureBriefing());
+            Assert.Contains(lines, l => l.StartsWith("Economy debt 10"));
+            Assert.Contains(lines, l => l.Contains("would be left bare"));
+            Assert.Contains(lines, l => l.Contains("breaks that promise"));
+        }
+    }
+}

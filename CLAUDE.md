@@ -28,7 +28,7 @@ The full design document (docs/butterfly-effect-gdd.md) is background reference 
 - `src/Butterfly.Console/` — text game for human players
 - `src/Butterfly.Batch/` — automated strategy runner
 - `tests/Butterfly.Core.Tests/` — unit, determinism, and snapshot tests
-- `data/tuning.json` — all tuning values
+- `data/tuning.json` — all tuning values; each leaf is `{ "value", "ref" }`, where `ref` names its SYSTEMS.md section or a `PROPOSED P0-xx` entry in `docs/P0_PROPOSALS.md` (placeholders awaiting approval)
 - `data/content/` — projects, institutions, Echoes, text templates
 
 ## Commands

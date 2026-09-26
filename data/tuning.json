@@ -32,6 +32,10 @@
         "value": 55,
         "ref": "PROPOSED P0-02"
       }
+    },
+    "minLevelFraction": {
+      "value": 0.1,
+      "ref": "PROPOSED P0-02 (no domain falls below 10% of its historical value, even in a crisis)"
     }
   },
   "history": {
@@ -133,6 +137,10 @@
         "value": 0,
         "ref": "SYSTEMS §5 (amounts PROPOSED P0-07)"
       }
+    },
+    "neglectFloorFraction": {
+      "value": 0.3,
+      "ref": "PROPOSED P0-04 (neglect alone never takes a domain below 30% of its historical value)"
     }
   },
   "expectation": {
@@ -278,15 +286,15 @@
     },
     "damage": {
       "medicine": {
-        "value": 0.4,
+        "value": 0.25,
         "ref": "PROPOSED P0-09"
       },
       "governance": {
-        "value": 0.2,
+        "value": 0.1,
         "ref": "PROPOSED P0-09"
       },
       "economy": {
-        "value": 0.4,
+        "value": 0.25,
         "ref": "PROPOSED P0-09"
       }
     },
@@ -581,7 +589,7 @@
       "ref": "PROTOTYPE_SCOPE (250-year absence)"
     },
     "convergencePerDecade": {
-      "value": 0.15,
+      "value": 0.5,
       "ref": "GDD §8 domains drift toward the historical baseline (rate PROPOSED P0-13)"
     },
     "maintainPerStrength": {
@@ -590,20 +598,20 @@
     },
     "crisisChancePerYear": {
       "stable": {
-        "value": 0.01,
+        "value": 0.005,
         "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
       },
       "strained": {
-        "value": 0.03,
-        "ref": "PROPOSED P0-13"
+        "value": 0.01,
+        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
       },
       "fragile": {
-        "value": 0.06,
-        "ref": "PROPOSED P0-13"
+        "value": 0.02,
+        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
       },
       "critical": {
-        "value": 0.1,
-        "ref": "PROPOSED P0-13"
+        "value": 0.04,
+        "ref": "SYSTEMS §6 tiers raise crisis chance (PROPOSED P0-13)"
       }
     },
     "fountainTendedByStrength": {

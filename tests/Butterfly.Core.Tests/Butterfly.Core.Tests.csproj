@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Butterfly.Core\Butterfly.Core.csproj" />
+    <ProjectReference Include="..\..\src\Butterfly.Batch\Butterfly.Batch.csproj" />
   </ItemGroup>
 
 </Project>
