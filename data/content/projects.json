@@ -1,13 +1,24 @@
 {
-  "_readme": "Templated projects (SYSTEMS §5), 2–3 per domain (PROTOTYPE_SCOPE). Costs and effects are PROPOSED P0-08. Tags are checked against SYSTEMS §14 hard constraints by ContentChecks.",
+  "_readme": "Templated projects (SYSTEMS §5), 2–3 per domain (PROTOTYPE_SCOPE). Costs and effects are PROPOSED P0-08; Attention costs tuned so demand ≥ 1.5× supply (DECIDED 2026-09-26). Tags are checked against SYSTEMS §14 hard constraints by ContentChecks.",
   "projects": [
     {
       "id": "fountain",
       "domain": "medicine",
       "name": "Repair the district fountain",
-      "gold": 40, "attentionPerTurn": 1, "turns": 1, "levelGain": 8,
-      "extras": [ { "type": "cleanWater", "value": 1 } ],
-      "tags": ["public-works", "water"],
+      "gold": 40,
+      "attentionPerTurn": 2,
+      "turns": 1,
+      "levelGain": 8,
+      "extras": [
+        {
+          "type": "cleanWater",
+          "value": 1
+        }
+      ],
+      "tags": [
+        "public-works",
+        "water"
+      ],
       "description": "The Subura's fountain runs brown. Clear the lead pipe and reline the basin.",
       "completionText": "Clean water runs again in the district fountain."
     },
@@ -15,9 +26,21 @@
       "id": "physician",
       "domain": "medicine",
       "name": "Fund a physician for the district",
-      "gold": 60, "attentionPerTurn": 1, "turns": 1, "levelGain": 10,
-      "extras": [ { "type": "institutionStrength", "institution": "circle", "value": 10 } ],
-      "tags": ["medicine", "patronage"],
+      "gold": 60,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 10,
+      "extras": [
+        {
+          "type": "institutionStrength",
+          "institution": "circle",
+          "value": 10
+        }
+      ],
+      "tags": [
+        "medicine",
+        "patronage"
+      ],
       "description": "Pay a trained Greek physician to treat the district's poor.",
       "completionText": "A physician now keeps open hours near the fountain."
     },
@@ -25,9 +48,20 @@
       "id": "quarantine",
       "domain": "medicine",
       "name": "Draft quarantine rules for Ostia's docks",
-      "gold": 45, "attentionPerTurn": 1, "turns": 2, "levelGain": 5,
-      "extras": [ { "type": "plagueResilience", "value": 0.15 } ],
-      "tags": ["law", "medicine"],
+      "gold": 45,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 5,
+      "extras": [
+        {
+          "type": "plagueResilience",
+          "value": 0.15
+        }
+      ],
+      "tags": [
+        "law",
+        "medicine"
+      ],
       "description": "Work with the harbor officials on rules for holding sick crews offshore.",
       "completionText": "Ostia's harbor officials adopt your quarantine rules."
     },
@@ -35,9 +69,21 @@
       "id": "patronage",
       "domain": "governance",
       "name": "Patronage for a senator",
-      "gold": 50, "attentionPerTurn": 1, "turns": 1, "levelGain": 6,
-      "extras": [ { "type": "institutionLoyalty", "institution": "faction", "value": 10 } ],
-      "tags": ["patronage", "politics"],
+      "gold": 50,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 6,
+      "extras": [
+        {
+          "type": "institutionLoyalty",
+          "institution": "faction",
+          "value": 10
+        }
+      ],
+      "tags": [
+        "patronage",
+        "politics"
+      ],
       "description": "Fund a senator's games and debts in exchange for his ear.",
       "completionText": "A senator now owes you favors."
     },
@@ -45,8 +91,14 @@
       "id": "magistrates",
       "domain": "governance",
       "name": "Fund the district magistrates",
-      "gold": 60, "attentionPerTurn": 1, "turns": 2, "levelGain": 10,
-      "tags": ["law", "administration"],
+      "gold": 60,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "levelGain": 10,
+      "tags": [
+        "law",
+        "administration"
+      ],
       "description": "Pay clerks and lamp oil so the district's disputes are actually heard.",
       "completionText": "The district magistrates hear cases again, and people bring them."
     },
@@ -54,9 +106,19 @@
       "id": "census",
       "domain": "governance",
       "name": "Sponsor a household census",
-      "gold": 40, "attentionPerTurn": 1, "turns": 1, "levelGain": 6,
-      "extras": [ { "type": "plagueResilience", "value": 0.05 } ],
-      "tags": ["administration"],
+      "gold": 40,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 6,
+      "extras": [
+        {
+          "type": "plagueResilience",
+          "value": 0.05
+        }
+      ],
+      "tags": [
+        "administration"
+      ],
       "description": "Count the households of the district, street by street.",
       "completionText": "For the first time, someone knows who lives in the district."
     },
@@ -64,9 +126,20 @@
       "id": "workshop",
       "domain": "economy",
       "name": "Fund the smith's workshop",
-      "gold": 40, "attentionPerTurn": 1, "turns": 1, "levelGain": 6,
-      "extras": [ { "type": "income", "value": 6 } ],
-      "tags": ["craft", "commerce"],
+      "gold": 40,
+      "attentionPerTurn": 2,
+      "turns": 1,
+      "levelGain": 6,
+      "extras": [
+        {
+          "type": "income",
+          "value": 6
+        }
+      ],
+      "tags": [
+        "craft",
+        "commerce"
+      ],
       "description": "Equip the smith by the Porta Trigemina with a second forge and paid apprentices.",
       "completionText": "The smith's second forge is lit; his apprentices are paid."
     },
@@ -74,8 +147,14 @@
       "id": "market",
       "domain": "economy",
       "name": "Market regulation at the Forum Boarium",
-      "gold": 50, "attentionPerTurn": 1, "turns": 1, "levelGain": 8,
-      "tags": ["commerce", "law"],
+      "gold": 50,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "levelGain": 8,
+      "tags": [
+        "commerce",
+        "law"
+      ],
       "description": "Honest weights and posted prices at the cattle market.",
       "completionText": "Honest weights now hang in the Forum Boarium."
     },
@@ -83,9 +162,20 @@
       "id": "warehouses",
       "domain": "economy",
       "name": "Repair the Ostia warehouses",
-      "gold": 70, "attentionPerTurn": 1, "turns": 3, "levelGain": 12,
-      "extras": [ { "type": "income", "value": 4 } ],
-      "tags": ["public-works", "commerce"],
+      "gold": 70,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "levelGain": 12,
+      "extras": [
+        {
+          "type": "income",
+          "value": 4
+        }
+      ],
+      "tags": [
+        "public-works",
+        "commerce"
+      ],
       "description": "Re-roof the grain warehouses and hire paid dock crews to keep them dry.",
       "completionText": "The Ostia warehouses are dry and full."
     }

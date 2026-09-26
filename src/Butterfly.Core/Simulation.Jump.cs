@@ -33,6 +33,7 @@ namespace Butterfly.Core
             foreach (var i in Founded())
             {
                 i.Quality = QualityAtDeparture(i);
+                i.HoldingsAtDeparture = i.Holdings;
                 i.DriftPath = ChooseDriftPath(i);
                 Record("institution.departure", i.Key, new[] { depart.Id }, new[] { i.Leader }, null,
                     Cap(i.Def.Name) + " is left " + i.Quality + ", led by " + i.Leader + ".");
@@ -55,7 +56,14 @@ namespace Butterfly.Core
             foreach (var i in Founded())
             {
                 i.Outcome = OutcomeOf(i);
-                arrival.Institutions.Add(new InstitutionReport(i.Def.Name, CurrentName(i), i.Outcome, i.Strength, i.Loyalty, i.Quality));
+                arrival.Institutions.Add(new InstitutionReport(i.Def.Name, CurrentName(i), i.Outcome, i.Strength, i.Loyalty, i.Quality)
+                {
+                    HoldingsAtDeparture = i.HoldingsAtDeparture,
+                    HoldingsNow = i.Holdings,
+                    DebtPaidAway = i.DebtPaidAway,
+                    GoldLostToCorruption = i.GoldLostToCorruption,
+                    Corruption = i.Corruption,
+                });
             }
             BuildBeats(arrival);
             Record("jump.arrive", "machine", new[] { depart.Id }, new[] { "player" }, null,
@@ -76,11 +84,27 @@ namespace Butterfly.Core
                 yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year for " + cap + " years after you leave (about " +
                              F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, cap)) +
                              " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
+            int window = T.GetInt("institutions.holdings.windowYears");
             foreach (var i in Founded())
             {
                 var q = QualityAtDeparture(i);
                 yield return Cap(i.Def.Name) + " would be left " + (q == InstitutionQuality.Strong ? "strong" : q == InstitutionQuality.CharteredAndEndowed ? "chartered and endowed" : "bare") +
                              ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
+                if (i.Holdings <= 0)
+                {
+                    yield return "  It holds no gold, so it can't pay down " + i.Def.Maintains + " debt while you're away. (endow " + i.Key + " <gold>)";
+                    continue;
+                }
+                var domain = World[i.Def.Maintains];
+                double share = PaymentShare(i);
+                double coverable = i.Holdings / PaydownCost(1);
+                yield return "  It holds " + F(i.Holdings) + " gold (" + (LargeHoldings(i) ? "large" : "small") + "), growing about " +
+                             F(HoldingsGrowthRate() * 100) + "% a year with the economy for " + window + " years.";
+                yield return "  It would pay " + (share >= 1 ? "in full" : share > 0 ? "partially" : "nothing") + " toward " + i.Def.Maintains +
+                             " debt (now " + F(domain.Debt) + "); its gold covers about " + F(coverable) + " points at the 1.5× premium.";
+                yield return "  Corruption risk: " + F(CorruptionChance(i) * 100) + "% per decade for " + window + " years (" +
+                             (LargeHoldings(i) ? "large holdings ×2" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
+                             ", " + i.Leader + " is " + i.Def.LeaderIntegrity + ")." + (i.AuditCharter ? "" : " (audit " + i.Key + ")");
             }
             if (!Founded().Any()) yield return "No institution will look after Rome while you're away.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
@@ -138,6 +162,9 @@ namespace Butterfly.Core
         {
             int startYear = Now.Year;
             bool antoninePassed = World.Plague.Stage == PlagueState.Passed;
+            // Institution gold acts only in the 30 years after departure (decided 2026-09-26).
+            bool window = startYear - DepartureYear < T.GetInt("institutions.holdings.windowYears");
+            if (window) foreach (var i in Founded()) HoldingsDecadeStart(i, arrival);
             // The plague keeps its yearly rules while it is still on its way.
             for (int y = 1; y <= 10; y++)
             {
@@ -150,6 +177,7 @@ namespace Butterfly.Core
 
             foreach (var d in DomainInfo.All) DomainDecadeStep(d, startYear);
             foreach (var i in Founded()) InstitutionDecadeStep(i, decade);
+            if (window) foreach (var i in Founded()) HoldingsDecadeGrowth(i);
             FountainDecadeStep();
             if (antoninePassed) MaybeRecurrence(arrival);
             // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).
@@ -271,7 +299,8 @@ namespace Butterfly.Core
             foreach (var i in World.Institutions.Where(i => i.Founded))
             {
                 var outcome = OutcomeOf(i);
-                string key = i.Key + "." + (outcome == InstitutionOutcome.Captured && i.Key == "circle" ? "drifted" : outcome.ToString().ToLowerInvariant());
+                string key = i.Key + "." + (i.ForcedOutcome == InstitutionOutcome.Captured && outcome == InstitutionOutcome.Captured ? "corrupted"
+                    : outcome == InstitutionOutcome.Captured && i.Key == "circle" ? "drifted" : outcome.ToString().ToLowerInvariant());
                 var v = new Dictionary<string, string>(values)
                 {
                     { "leader", i.Leader },

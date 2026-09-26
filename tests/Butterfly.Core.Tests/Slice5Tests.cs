@@ -40,6 +40,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 12);
             sim.World.Gold = 1000;
+            sim.World.Attention = 100; // these tests check institution rules, not Attention
             return sim;
         }
 
@@ -138,7 +139,7 @@ namespace Butterfly.Core.Tests
             var sim = Rich();
             sim.Found("circle");
             double loyalty = sim.World.Institution("circle").Loyalty;
-            for (int i = 0; i < 4; i++) sim.EndTurn();
+            for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             Assert.Equal(loyalty - sim.T.Get("institutions.loyaltyFadePerYear"), sim.World.Institution("circle").Loyalty, 6);
         }
     }

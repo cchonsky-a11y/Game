@@ -22,6 +22,8 @@ namespace Butterfly.Batch
         public int FirstWarningYear;
         public PromiseStatus Promise;
         public int CrisesInAbsence;
+        public double DebtPaidByInstitutions;
+        public bool Corrupted;
         public double GoldSpentOnProjects;
         public int Decisions;
         public Dictionary<string, InstitutionOutcome> Institutions = new Dictionary<string, InstitutionOutcome>();
@@ -31,7 +33,7 @@ namespace Butterfly.Batch
 
     public static class BatchRunner
     {
-        public static readonly (string Name, int Year)[] Timings = { ("Early", 162), ("Late", 169) };
+        public static readonly (string Name, int Year)[] Timings = { ("Early", 160), ("Late", 165) };
 
         public static Strategy[] Strategies() => new Strategy[] { new BalancedStrategy(), new SpecializedStrategy(), new NeglectfulStrategy() };
 
@@ -60,6 +62,8 @@ namespace Butterfly.Batch
                 FirstWarningYear = sim.Log.Events.First(e => e.Type == "plague.warning").Time.Year,
                 Promise = sim.World.Promise.Status,
                 CrisesInAbsence = sim.Log.Events.Count(e => e.Type == "crisis.recurrence"),
+                DebtPaidByInstitutions = sim.World.Institutions.Sum(i => i.DebtPaidAway),
+                Corrupted = sim.World.Institutions.Any(i => i.Corruption != CorruptionLevel.None),
                 Decisions = sim.Log.Events.Count(e => e.Actors.Contains("player") && e.Type != "personal.work" && e.Type != "jump.arrive"),
                 LogHash = sim.Log.Hash(),
             };
@@ -108,6 +112,35 @@ namespace Butterfly.Batch
             return rates;
         }
 
+        /// <summary>
+        /// Timing check (decided 2026-09-26): for each strategy and seed, which jump timing gave the higher
+        /// arrival Index (ties split). Returns the share of those comparisons won by each timing.
+        /// </summary>
+        public static Dictionary<string, double> TimingWinRates(List<RunResult> results)
+        {
+            var wins = Timings.ToDictionary(t => t.Name, t => 0.0);
+            int comparisons = 0;
+            foreach (var g in results.GroupBy(r => (r.Strategy, r.Seed)))
+            {
+                double best = g.Max(r => Math.Round(r.IndexAfter, 6));
+                var winners = g.Where(r => Math.Round(r.IndexAfter, 6) == best).ToList();
+                foreach (var w in winners) wins[w.Timing] += 1.0 / winners.Count;
+                comparisons++;
+            }
+            return wins.ToDictionary(kv => kv.Key, kv => kv.Value / comparisons);
+        }
+
+        /// <summary>Gate 1: within each timing, no strategy wins more than 65% and Balanced and Specialized both win some.</summary>
+        public static bool StrategyGatePasses(List<RunResult> results, string timing)
+        {
+            var rates = WinRates(results);
+            double cap = 0.65;
+            return Strategies().All(s => rates[(timing, s.Name)] <= cap) && rates[(timing, "Balanced")] > 0 && rates[(timing, "Specialized")] > 0;
+        }
+
+        /// <summary>Gate 2: neither timing wins more than 65% of runs across all strategies.</summary>
+        public static bool TimingGatePasses(List<RunResult> results) => TimingWinRates(results).Values.All(v => v <= 0.65);
+
         public static string Report(List<RunResult> results, int runs)
         {
             var ci = CultureInfo.InvariantCulture;
@@ -118,18 +151,19 @@ namespace Butterfly.Batch
             var sb = new StringBuilder();
             sb.AppendLine("# P0 batch balance report");
             sb.AppendLine();
-            sb.AppendLine(runs + " seeded runs × 3 strategies × 2 jump timings (Early: leave at the start of AD 162, before the outbreak; Late: leave at the start of AD 169, after it).");
+            sb.AppendLine(runs + " seeded runs × 3 strategies × 2 jump timings (Early: leave at the start of AD 160, before the outbreak; Late: leave at the start of AD 165, when the era's 20 turns end).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the three strategies for that seed and timing (ties split).");
             sb.AppendLine();
-            sb.AppendLine("| Timing | Strategy | Win rate | Index at departure | Index at arrival (mean) | min–max | Plague severity | Outbreak while away | Crises in absence | Promise kept / broken | Player actions |");
-            sb.AppendLine("|---|---|---|---|---|---|---|---|---|---|---|");
+            sb.AppendLine("| Timing | Strategy | Win rate | Index at departure | Index at arrival (mean) | min–max | Plague severity | Outbreak while away | Crises in absence | Institution debt paid | Corruption (runs) | Promise kept / broken | Player actions |");
+            sb.AppendLine("|---|---|---|---|---|---|---|---|---|---|---|---|---|");
             foreach (var g in results.GroupBy(r => (r.Timing, r.Strategy)))
             {
                 var list = g.ToList();
                 sb.AppendLine("| " + g.Key.Timing + " | " + g.Key.Strategy + " | " + Pct(rates[g.Key]) + " | " + F0(list.Average(r => r.IndexBefore)) +
                               " | " + F0(list.Average(r => r.IndexAfter)) + " | " + F0(list.Min(r => r.IndexAfter)) + "–" + F0(list.Max(r => r.IndexAfter)) +
                               " | " + F1(list.Average(r => r.Severity)) + " | " + Pct(list.Count(r => r.OutbreakWhileAway) / (double)list.Count) +
-                              " | " + F1(list.Average(r => r.CrisesInAbsence)) +
+                              " | " + F1(list.Average(r => r.CrisesInAbsence)) + " | " + F1(list.Average(r => r.DebtPaidByInstitutions)) +
+                              " | " + list.Count(r => r.Corrupted) +
                               " | " + list.Count(r => r.Promise == PromiseStatus.Kept) + " / " + list.Count(r => r.Promise == PromiseStatus.Broken) +
                               " | " + F1(list.Average(r => r.Decisions)) + " |");
             }
@@ -162,17 +196,26 @@ namespace Butterfly.Batch
             sb.AppendLine();
             sb.AppendLine("## Pass criteria (PROTOTYPE_SCOPE)");
             sb.AppendLine();
-            var pooled = results.GroupBy(r => r.Strategy).ToDictionary(g => g.Key, g => g.Select(r => rates[(r.Timing, r.Strategy)]).Average());
-            bool pooledPass = pooled.Values.All(v => v <= 0.65) && pooled["Balanced"] > 0 && pooled["Specialized"] > 0;
-            sb.AppendLine("- All runs pooled: Balanced " + Pct(pooled["Balanced"]) + ", Specialized " + Pct(pooled["Specialized"]) + ", Neglectful " +
-                          Pct(pooled["Neglectful"]) + " → " + (pooledPass ? "**PASS** (both viable, none above 65%)" : "**FAIL**"));
+            sb.AppendLine("Gate 1, per timing: within each timing, no strategy wins more than 65% of seeds, and Balanced and Specialized both win some.");
             foreach (var timing in Timings.Select(t => t.Name))
             {
                 double b = rates[(timing, "Balanced")], s = rates[(timing, "Specialized")], n = rates[(timing, "Neglectful")];
-                bool pass = b <= 0.65 && s <= 0.65 && n <= 0.65 && b > 0 && s > 0;
                 sb.AppendLine("- " + timing + ": Balanced " + Pct(b) + ", Specialized " + Pct(s) + ", Neglectful " + Pct(n) + " → " +
-                              (pass ? "**PASS** (both viable, none above 65%)" : "**FAIL** (a strategy dominates or one isn't viable)"));
+                              (StrategyGatePasses(results, timing) ? "**PASS**" : "**FAIL**"));
             }
+            var timingRates = TimingWinRates(results);
+            sb.AppendLine();
+            sb.AppendLine("Gate 2, timing: for each strategy and seed, the timing with the higher arrival Index wins; neither timing may win more than 65% overall.");
+            sb.AppendLine("- " + string.Join(", ", timingRates.Select(kv => kv.Key + " " + Pct(kv.Value))) + " → " +
+                          (TimingGatePasses(results) ? "**PASS**" : "**FAIL**"));
+            foreach (var g in results.GroupBy(r => r.Strategy))
+            {
+                var tr = TimingWinRates(g.ToList());
+                sb.AppendLine("  - " + g.Key + ": " + string.Join(", ", tr.Select(kv => kv.Key + " " + Pct(kv.Value))));
+            }
+            sb.AppendLine();
+            bool all = Timings.All(t => StrategyGatePasses(results, t.Name)) && TimingGatePasses(results);
+            sb.AppendLine("**Overall balance gate: " + (all ? "PASS" : "FAIL") + "**");
             return sb.ToString();
         }
     }

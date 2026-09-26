@@ -38,6 +38,8 @@
     "faction.captured": "The senate faction you built with Varro is now {pathName}. {pathDescription} Its head, {leader}, holds the city.",
     "faction.dissolved": "Of the Caecilian faction nothing remains but a family tomb.",
     "faction.rogue": "The senate faction you built is now {pathName}. {pathDescription} They know who you are, and they do not want you back.",
-    "none": "You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built outlasted you."
+    "none": "You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built outlasted you.",
+    "circle.corrupted": "The Physicians' Circle still has a door and a name, but its treasury was emptied long ago. It licenses whoever pays, and its head, {leader}, answers to the men who took the gold.",
+    "faction.corrupted": "The Caecilian faction still votes as a bloc, but its treasury was emptied long ago and its votes are for sale. Its head is {leader}."
   }
 }

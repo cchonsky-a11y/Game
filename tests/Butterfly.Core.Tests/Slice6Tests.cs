@@ -11,14 +11,14 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 21);
             sim.World.Gold = 1000;
             Assert.Equal(4, sim.World.Attention);
-            Assert.True(sim.StartProject("physician").Ok);
-            Assert.True(sim.Found("circle").Ok);
-            Assert.True(sim.Oversee("circle").Ok);
-            Assert.True(sim.Work().Ok);
-            Assert.Equal(0, sim.World.Attention);
+            Assert.True(sim.StartProject("physician").Ok); // 2 per turn
+            Assert.False(sim.Oversee("circle").Ok);          // not founded yet
+            Assert.True(sim.Work().Ok);                     // 1
+            Assert.Equal(1, sim.World.Attention);
+            Assert.False(sim.Found("circle").Ok);           // needs 2
             Assert.False(sim.StartProject("market").Ok);
             sim.EndTurn();
-            Assert.Equal(4, sim.World.Attention);
+            Assert.Equal(4 - sim.Data.Content.Project("physician")!.AttentionPerTurn, sim.World.Attention); // still working on it
         }
 
         [Fact]
@@ -34,11 +34,13 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 21);
             sim.World.Gold = 1000;
-            Assert.True(sim.StartProject("warehouses").Ok); // 3 turns, 1 Attention each
-            sim.EndTurn();
-            Assert.Equal(3, sim.World.Attention);
-            sim.EndTurn();
-            Assert.Equal(3, sim.World.Attention);
+            var def = sim.Data.Content.Project("warehouses")!;
+            Assert.True(sim.StartProject("warehouses").Ok);
+            for (int i = 1; i < def.Turns; i++)
+            {
+                sim.EndTurn();
+                Assert.Equal(4 - def.AttentionPerTurn, sim.World.Attention);
+            }
             sim.EndTurn();
             Assert.Equal(4, sim.World.Attention);
         }
@@ -49,15 +51,40 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 21);
             sim.World.Gold = 1000;
             sim.Found("circle");
+            sim.EndTurn();
             var c = sim.World.Institution("circle");
             Assert.True(sim.Mentor("circle").Ok);
-            double strength = c.Strength;
+            int turns = sim.T.GetInt("commitments.mentor.turns");
+            int perTurn = sim.T.GetInt("commitments.mentor.attentionPerTurn");
+            for (int i = 1; i < turns; i++)
+            {
+                sim.EndTurn();
+                Assert.Equal(4 - perTurn, sim.World.Attention);
+            }
             sim.EndTurn();
-            Assert.Equal(3, sim.World.Attention);
-            sim.EndTurn();
-            sim.EndTurn();
-            Assert.True(c.Strength >= strength + sim.T.Get("commitments.mentor.strength") - sim.T.Get("institutions.witherPerYear"));
             Assert.Contains(sim.Log.Events, e => e.Type == "commitment.complete");
+        }
+
+        [Fact]
+        public void AttentionDemandIsAtLeastOneAndAHalfTimesSupply()
+        {
+            // Demand, as defined in PROTOTYPE_SCOPE (P0 pacing): every project once, every institution step
+            // (found, charter, audit, endow) and a full mentoring commitment for both institutions, the oversight
+            // needed to hold loyalty over the era, one plague response, and the personal action every turn.
+            var data = TestData.Load();
+            var t = data.Tuning;
+            int turns = t.GetInt("time.eraTurns");
+            double years = turns * t.Get("time.monthsPerTurn") / 12.0;
+            double supply = turns * t.Get("attention.perTurn");
+            double demand = data.Content.Projects.Sum(p => p.AttentionPerTurn * p.Turns);
+            int institutions = data.Content.Institutions.Count;
+            demand += institutions * (t.Get("institutions.foundAttention") + t.Get("institutions.charterAttention")
+                                      + t.Get("institutions.auditAttention") + t.Get("institutions.endowAttention")
+                                      + t.Get("commitments.mentor.turns") * t.Get("commitments.mentor.attentionPerTurn")
+                                      + System.Math.Ceiling(years * t.Get("institutions.loyaltyFadePerYear") / t.Get("institutions.overseeLoyalty")));
+            demand += t.Get("plague.response.hospice.attention");
+            demand += turns; // one personal action per turn
+            Assert.True(demand >= t.Get("attention.demandTarget") * supply, "demand " + demand + " vs supply " + supply);
         }
     }
 

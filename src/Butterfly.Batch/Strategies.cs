@@ -38,6 +38,18 @@ namespace Butterfly.Batch
             if (i.Founded && i.Loyalty < below) sim.Oversee(id);
         }
 
+        /// <summary>Jump preparation: an audit charter, then the remaining gold as an endowment (split evenly).</summary>
+        protected static void AuditAndEndow(Simulation sim, params string[] ids)
+        {
+            var founded = ids.Select(id => sim.World.Institution(id)).Where(i => i.Founded).ToList();
+            foreach (var i in founded) sim.Audit(i.Key);
+            for (int k = 0; k < founded.Count; k++)
+            {
+                double share = System.Math.Floor(sim.World.Gold / (founded.Count - k));
+                if (share > 0) sim.Endow(founded[k].Key, share);
+            }
+        }
+
         /// <summary>Pays down the most indebted of the given domains with whatever gold is available.</summary>
         protected static void PayDownDebts(Simulation sim, IEnumerable<Domain> domains)
         {
@@ -71,7 +83,11 @@ namespace Butterfly.Batch
             sim.Work();
         }
 
-        public override void BeforeJump(Simulation sim) => PayDownDebts(sim, DomainInfo.All);
+        public override void BeforeJump(Simulation sim)
+        {
+            PayDownDebts(sim, DomainInfo.All);
+            AuditAndEndow(sim, "circle", "faction");
+        }
     }
 
     /// <summary>Puts every spare coin and hour into Medicine and the physicians' circle.</summary>
@@ -96,7 +112,11 @@ namespace Butterfly.Batch
             sim.Work();
         }
 
-        public override void BeforeJump(Simulation sim) => PayDownDebts(sim, DomainInfo.All);
+        public override void BeforeJump(Simulation sim)
+        {
+            PayDownDebts(sim, DomainInfo.All);
+            AuditAndEndow(sim, "circle");
+        }
     }
 
     /// <summary>Spends nothing on upkeep or the future; hoards gold.</summary>

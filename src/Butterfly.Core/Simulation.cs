@@ -46,6 +46,7 @@ namespace Butterfly.Core
         public void EndTurn()
         {
             if (IsAway || Arrived) throw new System.InvalidOperationException("The era is over; the inventor has jumped.");
+            MarkTurnEventStart(Log.NextId);
             ProgressProjects();
             ProgressCommitments();
             LapseSeededChoiceIfDue();

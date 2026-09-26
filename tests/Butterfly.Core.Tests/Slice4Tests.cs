@@ -40,7 +40,7 @@ namespace Butterfly.Core.Tests
             {
                 var sim = new Simulation(TestData.Load(), seed);
                 RunUntil(sim, 171);
-                Assert.InRange(sim.World.Plague.OutbreakYear, 164, 168);
+                Assert.InRange(sim.World.Plague.OutbreakYear, 161, 164); // inside the 20-turn era (ends AD 165)
             }
         }
 

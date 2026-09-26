@@ -129,6 +129,15 @@ namespace Butterfly.Core
         Rogue
     }
 
+    /// <summary>Corruption severity during the absence (worst so far).</summary>
+    public enum CorruptionLevel
+    {
+        None,
+        Minor,
+        Major,
+        Total
+    }
+
     /// <summary>Runtime state of one of the two P0 institutions.</summary>
     public sealed class Institution
     {
@@ -147,6 +156,18 @@ namespace Butterfly.Core
         public InstitutionQuality Quality { get; set; }
         public InstitutionOutcome Outcome { get; set; }
         public int OverseenTurn { get; set; }
+
+        /// <summary>Gold the institution holds (from endowments).</summary>
+        public double Holdings { get; set; }
+        public double HoldingsAtDeparture { get; set; }
+        /// <summary>An audit charter halves the corruption hazard and softens its severity.</summary>
+        public bool AuditCharter { get; set; }
+        public CorruptionLevel Corruption { get; set; }
+        /// <summary>Outcome imposed by total corruption (Captured or Rogue), if any.</summary>
+        public InstitutionOutcome? ForcedOutcome { get; set; }
+        /// <summary>Debt points this institution paid down while the inventor was away.</summary>
+        public double DebtPaidAway { get; set; }
+        public double GoldLostToCorruption { get; set; }
 
         public Institution(InstitutionDef def)
         {

@@ -1,5 +1,5 @@
 {
-  "_readme": "The two P0 institutions (PROTOTYPE_SCOPE), each with a named leader and 2 pre-authored drift paths. No general identity engine. Drift path selection rules: PROPOSED P0-11.",
+  "_readme": "The two P0 institutions (PROTOTYPE_SCOPE), each with a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Drift path selection rules: PROPOSED P0-11.",
   "institutions": [
     {
       "id": "circle",
@@ -9,8 +9,12 @@
       "maintains": "medicine",
       "leader": "Demetria of Pergamon",
       "leaderRole": "physician",
+      "leaderIntegrity": "honest",
       "foundingIdentity": "a teaching circle that treats the poor and questions every remedy",
-      "tags": ["medicine", "teaching"],
+      "tags": [
+        "medicine",
+        "teaching"
+      ],
       "foundText": "Demetria of Pergamon gathers four physicians in a rented room by the fountain. You pay the rent; she sets the rules.",
       "driftPaths": [
         {
@@ -39,8 +43,12 @@
       "maintains": "governance",
       "leader": "Senator Lucius Caecilius Varro",
       "leaderRole": "senator",
+      "leaderIntegrity": "venal",
       "foundingIdentity": "a senate bloc pledged to honest courts and public works",
-      "tags": ["politics", "patronage"],
+      "tags": [
+        "politics",
+        "patronage"
+      ],
       "foundText": "Senator Lucius Caecilius Varro agrees to lead a bloc in the Curia. He wants your gold; you want his votes.",
       "driftPaths": [
         {

@@ -17,6 +17,7 @@ namespace Butterfly.Core
 
         internal static string StrengthKey(Institution i) => i.Key + ".strength";
         internal static string LoyaltyKey(Institution i) => i.Key + ".loyalty";
+        internal static string HoldingsKey(Institution i) => i.Key + ".holdings";
 
         public Institution? FindInstitution(string text)
         {
@@ -65,20 +66,55 @@ namespace Butterfly.Core
             return CommandResult.Success(Cap(inst.Def.ShortName) + " is chartered.");
         }
 
-        public CommandResult Endow(string id)
+        /// <summary>Endows the institution with the minimum endowment.</summary>
+        public CommandResult Endow(string id) => Endow(id, T.Get("institutions.endowGold"));
+
+        /// <summary>
+        /// Gives the institution gold to hold. Once holdings reach the minimum endowment it counts as endowed
+        /// (no more yearly upkeep; needed for the chartered-and-endowed quality). During the 30 years after
+        /// departure, holdings grow with the economy and pay down the institution's domain debt.
+        /// </summary>
+        public CommandResult Endow(string id, double amount)
         {
             var inst = FindInstitution(id);
             if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
-            if (inst.Endowed) return CommandResult.Fail(Cap(inst.Def.ShortName) + " is already endowed.");
-            double cost = T.Get("institutions.endowGold");
-            if (World.Gold < cost) return CommandResult.Fail("An endowment costs " + F(cost) + " gold.");
+            if (amount <= 0) return CommandResult.Fail("Endow how much?");
+            if (World.Gold < amount) return CommandResult.Fail("You have only " + F(World.Gold) + " gold.");
+            var attention = CheckAttention(T.GetInt("institutions.endowAttention"));
+            if (attention != null) return attention;
+            SpendAttention(T.GetInt("institutions.endowAttention"));
+            double gold = World.Gold, holdings = inst.Holdings;
+            SpendGold(amount);
+            inst.Holdings += amount;
+            bool nowEndowed = !inst.Endowed && inst.Holdings >= T.Get("institutions.endowGold");
+            if (nowEndowed) inst.Endowed = true;
+            var effects = new List<Effect> { new Effect(HoldingsKey(inst), holdings, inst.Holdings), new Effect(GoldKey, gold, World.Gold) };
+            if (nowEndowed) effects.Add(new Effect(inst.Key + ".endowed", 0, 1));
+            Record("institution.endow", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player" }, effects,
+                "You give " + inst.Def.Name + " " + F(amount) + " gold to hold (now " + F(inst.Holdings) + ")." +
+                (nowEndowed ? " It is endowed: it no longer needs your yearly upkeep." : ""));
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " holds " + F(inst.Holdings) + " gold" +
+                (inst.Endowed ? "." : " (" + F(T.Get("institutions.endowGold")) + " makes it endowed)."));
+        }
+
+        /// <summary>An audit charter: halves the corruption hazard and shifts its severity toward Minor.</summary>
+        public CommandResult Audit(string id)
+        {
+            var inst = FindInstitution(id);
+            if (inst == null || !inst.Founded) return CommandResult.Fail("Found it first.");
+            if (inst.AuditCharter) return CommandResult.Fail(Cap(inst.Def.ShortName) + " already has an audit charter.");
+            double cost = T.Get("institutions.auditGold");
+            if (World.Gold < cost) return CommandResult.Fail("An audit charter costs " + F(cost) + " gold.");
+            var attention = CheckAttention(T.GetInt("institutions.auditAttention"));
+            if (attention != null) return attention;
+            SpendAttention(T.GetInt("institutions.auditAttention"));
             double gold = World.Gold;
             SpendGold(cost);
-            inst.Endowed = true;
-            Record("institution.endow", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player" },
-                new[] { new Effect(inst.Key + ".endowed", 0, 1), new Effect(GoldKey, gold, World.Gold) },
-                "You endow " + inst.Def.Name + " with rents from two shops. It no longer needs your yearly upkeep.");
-            return CommandResult.Success(Cap(inst.Def.ShortName) + " is endowed.");
+            inst.AuditCharter = true;
+            Record("institution.audit", inst.Key, CausesOf(HoldingsKey(inst)), new[] { "player", inst.Leader },
+                new[] { new Effect(inst.Key + ".audit", 0, 1), new Effect(GoldKey, gold, World.Gold) },
+                "You found an audit charter for " + inst.Def.Name + ": outside auditors will open its books every year.");
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " has an audit charter.");
         }
 
         /// <summary>Overseeing in person: one Attention, raises loyalty (GDD §7). Once per turn per institution.</summary>
@@ -288,6 +324,7 @@ namespace Butterfly.Core
         {
             if (!i.Founded) return InstitutionOutcome.NotFounded;
             if (i.Strength < T.Get("institutions.dissolvedBelow")) return InstitutionOutcome.Dissolved;
+            if (i.ForcedOutcome.HasValue) return i.ForcedOutcome.Value;
             if (i.Loyalty < T.Get("institutions.rogueBelowLoyalty")) return InstitutionOutcome.Rogue;
             if (i.HasDrifted && i.DriftPath != null && i.DriftPath.Identity == "politically powerful") return InstitutionOutcome.Captured;
             if (i.HasDrifted) return InstitutionOutcome.Drifted;

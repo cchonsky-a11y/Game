@@ -45,6 +45,11 @@ namespace Butterfly.Core
         public double Strength { get; }
         public double Loyalty { get; }
         public InstitutionQuality Quality { get; }
+        public double HoldingsAtDeparture { get; set; }
+        public double HoldingsNow { get; set; }
+        public double DebtPaidAway { get; set; }
+        public double GoldLostToCorruption { get; set; }
+        public CorruptionLevel Corruption { get; set; }
 
         public InstitutionReport(string name, string nowCalled, InstitutionOutcome outcome, double strength, double loyalty, InstitutionQuality quality)
         {
@@ -70,6 +75,7 @@ namespace Butterfly.Core
         public double IndexAfter { get; set; }
         public List<InstitutionReport> Institutions { get; } = new List<InstitutionReport>();
         public List<string> Crises { get; } = new List<string>();
+        public List<string> Corruption { get; } = new List<string>();
 
         /// <summary>
         /// Learn more: the Index before and after, institution outcomes and the crises that struck.
@@ -87,11 +93,21 @@ namespace Butterfly.Core
             sb.AppendLine("Institutions");
             if (Institutions.Count == 0) sb.AppendLine("  None founded.");
             foreach (var i in Institutions)
-                sb.AppendLine("  " + Simulation.Cap(i.Name) + ": " + i.Outcome + (i.NowCalled != i.Name ? " — now " + i.NowCalled : "") +
-                              " (left " + Label(i.Quality) + "; strength " + i.Strength.ToString("0", ci) + ", loyalty " + i.Loyalty.ToString("0", ci) + ")");
+                sb.AppendLine("  " + Simulation.Cap(i.Name) + ": " + i.Outcome + (i.NowCalled != i.Name && i.Outcome != InstitutionOutcome.Dissolved ? " — now " + i.NowCalled : "") +
+                              " (left " + Label(i.Quality) + "; strength " + i.Strength.ToString("0", ci) + ", loyalty " + i.Loyalty.ToString("0", ci) + ")" +
+                              (i.HoldingsAtDeparture > 0
+                                  ? "\n    Gold: left " + i.HoldingsAtDeparture.ToString("0", ci) + ", paid off " + i.DebtPaidAway.ToString("0", ci) + " debt, lost " +
+                                    i.GoldLostToCorruption.ToString("0", ci) + " to corruption" + (i.Corruption != CorruptionLevel.None ? " (" + i.Corruption + ")" : "") +
+                                    ", " + i.HoldingsNow.ToString("0", ci) + " left when the 30 years ended"
+                                  : ""));
             sb.AppendLine("Crises while you were away");
             if (Crises.Count == 0) sb.AppendLine("  None recorded.");
             foreach (var c in Crises) sb.AppendLine("  " + c);
+            if (Corruption.Count > 0)
+            {
+                sb.AppendLine("Corruption");
+                foreach (var c in Corruption) sb.AppendLine("  " + c);
+            }
             return sb.ToString();
         }
 

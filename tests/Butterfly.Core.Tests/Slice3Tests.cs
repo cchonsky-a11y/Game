@@ -41,8 +41,8 @@ namespace Butterfly.Core.Tests
             var sim = NewSim();
             sim.World.Gold = 500;
             Assert.True(sim.StartProject("warehouses").Ok);
-            sim.EndTurn();
-            sim.EndTurn();
+            int turns = sim.Data.Content.Project("warehouses")!.Turns;
+            for (int i = 1; i < turns; i++) sim.EndTurn();
             Assert.DoesNotContain("warehouses", sim.World.CompletedProjects);
             sim.EndTurn();
             Assert.Contains("warehouses", sim.World.CompletedProjects);
@@ -78,7 +78,7 @@ namespace Butterfly.Core.Tests
             foreach (var d in DomainInfo.All) sim.SetPriority(d, Priority.Protect);
             sim.World.Gold = 0;
             sim.World.IncomeBonus = -1000; // no income at all
-            for (int i = 0; i < 4; i++) sim.EndTurn();
+            for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             double neglect = sim.T.Get("priorities.levelChangePerYear.acceptRisk");
             Assert.Equal(sim.T.Get("domains.startLevel.medicine") + neglect, sim.World[Domain.Medicine].Level, 6);
         }

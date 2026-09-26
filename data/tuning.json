@@ -10,8 +10,12 @@
       "ref": "PROPOSED P0-01"
     },
     "monthsPerTurn": {
-      "value": 3,
-      "ref": "SYSTEMS §2 (Stage 3 = 3 months); PROTOTYPE_SCOPE fixed Stage 3"
+      "value": 6,
+      "ref": "DECIDED 2026-09-26, P0-ONLY pacing recorded in PROTOTYPE_SCOPE.md (SYSTEMS §2 Stage 3 would be 3 months)"
+    },
+    "eraTurns": {
+      "value": 20,
+      "ref": "DECIDED 2026-09-26, P0-ONLY pacing recorded in PROTOTYPE_SCOPE.md"
     }
   },
   "domains": {
@@ -205,8 +209,8 @@
       "ref": "PROPOSED P0-09 (thousands; flavor)"
     },
     "firstWarningYear": {
-      "value": 161,
-      "ref": "PROPOSED P0-09"
+      "value": 158,
+      "ref": "PROPOSED P0-09 (moved earlier so the outbreak falls inside the 20-turn era)"
     },
     "firstWarningJitterYears": {
       "value": 1,
@@ -235,8 +239,8 @@
       "ref": "PROPOSED P0-09"
     },
     "forceAdvanceFromYear": {
-      "value": 165,
-      "ref": "PROPOSED P0-09"
+      "value": 162,
+      "ref": "PROPOSED P0-09 (moved earlier so the outbreak falls inside the 20-turn era)"
     },
     "baseHazard": {
       "value": 50,
@@ -313,7 +317,7 @@
           "ref": "PROPOSED P0-09"
         },
         "attention": {
-          "value": 1,
+          "value": 2,
           "ref": "PROPOSED P0-09"
         },
         "resilience": {
@@ -327,7 +331,7 @@
           "ref": "PROPOSED P0-09"
         },
         "attention": {
-          "value": 1,
+          "value": 2,
           "ref": "PROPOSED P0-09"
         },
         "resilience": {
@@ -393,16 +397,16 @@
       "ref": "PROPOSED P0-10"
     },
     "foundAttention": {
-      "value": 1,
-      "ref": "PROPOSED P0-10"
+      "value": 2,
+      "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
     },
     "charterGold": {
       "value": 30,
       "ref": "PROPOSED P0-10"
     },
     "charterAttention": {
-      "value": 1,
-      "ref": "PROPOSED P0-10"
+      "value": 2,
+      "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
     },
     "endowGold": {
       "value": 60,
@@ -433,8 +437,8 @@
       "ref": "PROPOSED P0-10"
     },
     "loyaltyFadePerYear": {
-      "value": 4,
-      "ref": "PROPOSED P0-10"
+      "value": 10,
+      "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
     },
     "growthLoyaltyThreshold": {
       "value": 50,
@@ -531,12 +535,46 @@
     "leaderGenerationDecades": {
       "value": 3,
       "ref": "PROPOSED P0-11"
+    },
+    "endowAttention": {
+      "value": 1,
+      "ref": "PROPOSED P0-12 (Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
+    },
+    "holdings": {
+      "windowYears": {
+        "value": 30,
+        "ref": "DECIDED 2026-09-26: holdings grow, pay debt and face corruption only in the 30 years after departure"
+      },
+      "growthMaxRatePerYear": {
+        "value": 0.015,
+        "ref": "DECIDED 2026-09-26: growth 0–1.5% a year, by Economy level"
+      },
+      "partialPaymentShare": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-26: drifted institutions pay partially (share PROPOSED P0-15)"
+      },
+      "largeHoldings": {
+        "value": 150,
+        "ref": "DECIDED 2026-09-26: exposure ×2 for large holdings (threshold PROPOSED P0-15)"
+      }
+    },
+    "auditGold": {
+      "value": 40,
+      "ref": "DECIDED 2026-09-26: audit charter costs gold (amount PROPOSED P0-15)"
+    },
+    "auditAttention": {
+      "value": 2,
+      "ref": "PROPOSED P0-15"
     }
   },
   "attention": {
     "perTurn": {
       "value": 4,
       "ref": "SYSTEMS §3"
+    },
+    "demandTarget": {
+      "value": 1.5,
+      "ref": "DECIDED 2026-09-26: total Attention demand at least 1.5× supply"
     }
   },
   "personal": {
@@ -552,11 +590,11 @@
     },
     "mentor": {
       "turns": {
-        "value": 3,
+        "value": 5,
         "ref": "PROPOSED P0-12"
       },
       "attentionPerTurn": {
-        "value": 1,
+        "value": 2,
         "ref": "PROPOSED P0-12"
       },
       "strength": {
@@ -655,6 +693,108 @@
     "populationRecoveryPerDecade": {
       "value": 0.2,
       "ref": "PROPOSED P0-13"
+    }
+  },
+  "corruption": {
+    "baseHazardPerDecade": {
+      "value": 0.05,
+      "ref": "DECIDED 2026-09-26"
+    },
+    "exposureSmall": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-26"
+    },
+    "exposureLarge": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-26"
+    },
+    "auditReduction": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-26"
+    },
+    "integrity": {
+      "honest": {
+        "value": 0.3,
+        "ref": "DECIDED 2026-09-26"
+      },
+      "average": {
+        "value": 0,
+        "ref": "DECIDED 2026-09-26"
+      },
+      "venal": {
+        "value": -0.3,
+        "ref": "DECIDED 2026-09-26"
+      }
+    },
+    "weights": {
+      "unprotected": {
+        "minor": {
+          "value": 40,
+          "ref": "DECIDED 2026-09-26"
+        },
+        "major": {
+          "value": 40,
+          "ref": "DECIDED 2026-09-26"
+        },
+        "total": {
+          "value": 20,
+          "ref": "DECIDED 2026-09-26"
+        }
+      },
+      "audited": {
+        "minor": {
+          "value": 70,
+          "ref": "DECIDED 2026-09-26"
+        },
+        "major": {
+          "value": 25,
+          "ref": "DECIDED 2026-09-26"
+        },
+        "total": {
+          "value": 5,
+          "ref": "DECIDED 2026-09-26"
+        }
+      },
+      "integrityShift": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-26: venal shifts weight from Minor to Total, honest the reverse (amount PROPOSED P0-15)"
+      }
+    },
+    "loss": {
+      "minor": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-26"
+      },
+      "major": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-26"
+      },
+      "total": {
+        "value": 1.0,
+        "ref": "DECIDED 2026-09-26"
+      }
+    },
+    "minorPaymentFactor": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-26: minor corruption reduces debt payments (factor PROPOSED P0-15)"
+    },
+    "governanceDebt": {
+      "minor": {
+        "value": 10,
+        "ref": "DECIDED 2026-09-26 small (amount PROPOSED P0-15)"
+      },
+      "major": {
+        "value": 25,
+        "ref": "DECIDED 2026-09-26 moderate (amount PROPOSED P0-15)"
+      },
+      "total": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-26 large (amount PROPOSED P0-15)"
+      }
+    },
+    "rogueBelowLoyalty": {
+      "value": 50,
+      "ref": "DECIDED 2026-09-26: total corruption makes a disloyal institution Rogue, a loyal one Captured (threshold PROPOSED P0-15)"
     }
   }
 }

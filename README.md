@@ -12,7 +12,7 @@ Requires the .NET SDK (8.0 or later).
 
 ```
 dotnet build
-dotnet test                                                   # 90 tests: formulas, determinism, systems, sync with SYSTEMS.md
+dotnet test                                                   # 109 tests: formulas, determinism, systems, sync with SYSTEMS.md
 dotnet run --project src/Butterfly.Console -- --seed 42       # play (type 'help')
 dotnet run --project src/Butterfly.Batch -- --runs 100 --out playtests/batch-report.md
 ```

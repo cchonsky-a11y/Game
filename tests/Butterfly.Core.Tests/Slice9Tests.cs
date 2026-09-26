@@ -36,10 +36,17 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void EarlyJumpBreaksTheAcceptedPromiseAndLateJumpKeepsIt()
         {
-            var early = BatchRunner.Play(TestData.Load(), new BalancedStrategy(), 3, "Early", 162);
-            var late = BatchRunner.Play(TestData.Load(), new BalancedStrategy(), 3, "Late", 169);
+            var early = BatchRunner.Play(TestData.Load(), new BalancedStrategy(), 3, "Early", BatchRunner.Timings[0].Year);
+            var late = BatchRunner.Play(TestData.Load(), new BalancedStrategy(), 3, "Late", BatchRunner.Timings[1].Year);
             Assert.Contains(early.Promise, new[] { PromiseStatus.Broken, PromiseStatus.Refused });
             Assert.Equal(PromiseStatus.Kept, late.Promise);
+        }
+
+        [Fact]
+        public void TimingWinRatesSumToOne()
+        {
+            var rates = BatchRunner.TimingWinRates(BatchRunner.RunAll(TestData.Load(), 5));
+            Assert.Equal(1.0, rates.Values.Sum(), 6);
         }
 
         [Fact]

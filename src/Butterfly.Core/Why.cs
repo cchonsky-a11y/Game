@@ -85,7 +85,7 @@ namespace Butterfly.Core
             var sb = new StringBuilder();
             if (p.Stage == PlagueState.Quiet)
             {
-                sb.AppendLine("No sign of pestilence yet. History says one is coming from the East in the 160s.");
+                sb.AppendLine("No sign of pestilence yet. History says one is coming from the East within a few years.");
                 return sb.ToString().TrimEnd();
             }
             sb.AppendLine(Simulation.PlagueStageText(p.Stage));

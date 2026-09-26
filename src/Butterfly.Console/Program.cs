@@ -16,6 +16,7 @@ internal sealed class ConsoleGame
 {
     private readonly Simulation _sim;
     private bool _jumpArmed;
+    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?" };
 
     public ConsoleGame(Simulation sim)
     {
@@ -38,7 +39,8 @@ internal sealed class ConsoleGame
             string cmd = parts[0].ToLowerInvariant();
             string arg = parts.Length > 1 ? parts[1] : "";
             if (cmd == "quit" || cmd == "exit") break;
-            if (cmd != "jump") _jumpArmed = false;
+            // Jump preparation: these commands keep the jump armed.
+            if (cmd != "jump" && !(_jumpArmed && PrepCommands.Contains(cmd))) _jumpArmed = false;
             if (_sim.Arrived)
             {
                 AfterArrival(cmd, arg);
@@ -72,17 +74,19 @@ internal sealed class ConsoleGame
   priority <domain> <protect|maintain|accept>
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
   found <circle|faction>         found an institution
-  charter <inst> / endow <inst>  make an institution last
+  charter <inst>                 write its founding principles (slows drift)
+  endow <inst> [gold]            give it gold to hold (the first 60 makes it endowed)
+  audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
-  mentor <inst>                  commit 1 Attention a turn for 3 turns
+  mentor <inst>                  commit Attention every turn for several turns
   work                           your one personal action: earn gold
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, circle, faction, promise, index, attention
   log [n]                        the last n events
-  end                            end the turn (3 months)
-  jump                           leave for AD +250
+  end                            end the turn (6 months); quiet turns pass on their own
+  jump                           prepare to leave for AD +250 (then pay down, endow, audit, or 'jump' again)
   quit");
     }
 
@@ -116,7 +120,11 @@ internal sealed class ConsoleGame
                 break;
             case "found": r = _sim.Found(arg); break;
             case "charter": r = _sim.Charter(arg); break;
-            case "endow": r = _sim.Endow(arg); break;
+            case "endow":
+                r = parts.Length > 2 && double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var amount)
+                    ? _sim.Endow(arg, amount) : _sim.Endow(arg);
+                break;
+            case "audit": r = _sim.Audit(arg); break;
             case "oversee": r = _sim.Oversee(arg); break;
             case "mentor": r = _sim.Mentor(arg); break;
             case "work": r = _sim.Work(); break;
@@ -132,7 +140,8 @@ internal sealed class ConsoleGame
     private void EndTurn()
     {
         int from = _sim.Log.Events.Count;
-        _sim.EndTurn();
+        int turns = _sim.AdvanceUntilDecision();
+        if (turns > 1) Console.WriteLine("  (" + turns + " turns pass; nothing needed you until now)");
         var shown = new[] { "project.complete", "debt.tier", "plague.warning", "plague.outbreak", "plague.toll", "plague.opening", "plague.passed",
                             "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
@@ -155,12 +164,14 @@ internal sealed class ConsoleGame
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         foreach (var i in w.Institutions.Where(i => i.Founded))
             Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): strength " + F(i.Strength) + ", loyalty " + F(i.Loyalty) +
-                              (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : ""));
+                              (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
+                              (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
         if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (before the end of turn 2).");
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
         if (_sim.OutbreakAwaitingResponse) Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()));
+        if (_sim.EraOver) Console.WriteLine("  ► The era's " + _sim.EraTurns + " turns are over. Jump when you're ready (you can also stay).");
     }
 
     private void Projects()
@@ -184,7 +195,7 @@ internal sealed class ConsoleGame
             _jumpArmed = true;
             Console.WriteLine("You will leave AD " + _sim.Now.Year + " for AD " + (_sim.Now.Year + 250) + ". You can't come back. What you leave behind:");
             foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
-            Console.WriteLine("Type 'jump' again to go, or anything else to stay.");
+            Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <gold> · audit <inst>. Type 'jump' again to go, or anything else to stay.");
             return;
         }
         var arrival = _sim.Jump();

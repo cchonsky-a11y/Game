@@ -49,7 +49,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 1);
             Assert.Equal(155, sim.Now.Year);
-            for (int i = 0; i < 4; i++) sim.EndTurn();
+            for (int i = 0; i < 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
             Assert.Equal(156, sim.Now.Year);
             Assert.Equal(0, sim.Now.Month);
             Assert.Contains(sim.Log.Events, e => e.Type == "year.start" && e.Time.Year == 156);

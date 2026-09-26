@@ -84,6 +84,8 @@ namespace Butterfly.Core
         public Domain Maintains { get; }
         public string Leader { get; }
         public string LeaderRole { get; }
+        /// <summary>Pre-authored leader integrity: honest, average or venal.</summary>
+        public string LeaderIntegrity { get; }
         public string FoundingIdentity { get; }
         public IReadOnlyList<string> Tags { get; }
         public string FoundText { get; }
@@ -99,6 +101,7 @@ namespace Butterfly.Core
             Maintains = d;
             Leader = o.Str("leader");
             LeaderRole = o.Str("leaderRole");
+            LeaderIntegrity = o.Str("leaderIntegrity");
             FoundingIdentity = o.Str("foundingIdentity");
             Tags = o.Arr("tags").Cast<string>().ToList();
             FoundText = o.Str("foundText");
