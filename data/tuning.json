@@ -117,15 +117,15 @@
     "levelChangePerYear": {
       "protect": {
         "value": 2,
-        "ref": "PROPOSED P0-04"
+        "ref": "DECIDED 2026-09-27: yearly change relative to the historical trend (Maintain tracks history); offsets PROPOSED P0-04"
       },
       "maintain": {
-        "value": -1,
-        "ref": "PROPOSED P0-04"
+        "value": 0,
+        "ref": "DECIDED 2026-09-27: yearly change relative to the historical trend (Maintain tracks history); offsets PROPOSED P0-04"
       },
       "acceptRisk": {
         "value": -8,
-        "ref": "PROPOSED P0-04"
+        "ref": "DECIDED 2026-09-27: yearly change relative to the historical trend (Maintain tracks history); offsets PROPOSED P0-04"
       }
     },
     "upkeepPerYear": {

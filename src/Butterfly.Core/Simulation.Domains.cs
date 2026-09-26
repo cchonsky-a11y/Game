@@ -54,13 +54,21 @@ namespace Butterfly.Core
             {
                 var d = s.Domain;
 
-                // 1. Priority upkeep changes the level.
-                double change = PriorityLevelChange(d);
+                // 1. Rome follows its real history; your priority (if you have a hold) adds to or subtracts from that trend.
+                double trend = HistoricalTrend(d);
+                double offset = PriorityLevelChange(d);
                 // Neglect alone never takes a domain below a floor; only crises can.
                 double floor = Benchmark(d, Now.Year) * T.Get("priorities.neglectFloorFraction");
-                if (change < 0) change = Math.Max(change, Math.Min(0, floor - s.Level));
-                if (change != 0) ChangeLevel(d, change, "domain.upkeep", CausesOf(PriorityKey(d)), new[] { "world" },
-                    d + " " + (change > 0 ? "improves" : "slips") + " under " + s.Priority.Label() + " (" + Signed(change) + ").");
+                if (offset < 0) offset = Math.Max(offset, Math.Min(0, floor - s.Level - trend));
+                double change = trend + offset;
+                if (Math.Abs(change) > 1e-9)
+                {
+                    string text = Maintainer(d) == null
+                        ? d + " follows Rome's history this year (" + Signed(change) + "); you have no hold over it."
+                        : d + " " + (offset > 0 ? "improves" : offset < 0 ? "slips" : "holds") + " under " + s.Priority.Label() +
+                          " (" + Signed(offset) + " against history" + (Math.Abs(trend) > 1e-9 ? ", history " + Signed(trend) : "") + ").";
+                    ChangeLevel(d, change, "domain.upkeep", CausesOf(PriorityKey(d)), new[] { "world" }, text);
+                }
 
                 // 2. Debt compounds and accrues against the expectation.
                 double expectation = Expectation(d);
@@ -89,10 +97,16 @@ namespace Butterfly.Core
         /// Yearly level change from the domain's priority. If upkeep went partly unpaid this year,
         /// the unpaid share behaves as Accept Risk.
         /// </summary>
+        /// <summary>How much Rome's real history moved this domain over the past year (decided 2026-09-27).</summary>
+        public double HistoricalTrend(Domain d) => Benchmark(d, Now.Year) - Benchmark(d, Now.Year - 1);
+
+        /// <summary>
+        /// Your change against history from the domain's priority. None without a hold: Rome follows its history.
+        /// If upkeep went partly unpaid this year, the unpaid share behaves as Accept Risk.
+        /// </summary>
         internal double PriorityLevelChange(Domain d)
         {
-            // A domain no institution maintains runs on its own, at the Maintain rate, at no cost to you.
-            if (Maintainer(d) == null) return T.Get("priorities.levelChangePerYear.maintain");
+            if (Maintainer(d) == null) return 0;
             double chosen = T.Get("priorities.levelChangePerYear." + World[d].Priority.Key());
             double neglect = T.Get("priorities.levelChangePerYear.acceptRisk");
             double paid = World.UpkeepTurnsThisYear == 0 ? 1 : World.UpkeepPaidThisYear[(int)d] / World.UpkeepTurnsThisYear;

@@ -110,3 +110,30 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class FollowsHistoryTests
+    {
+        [Fact]
+        public void WithoutAHoldADomainFollowsRomesHistoryAndBuildsNoDebt()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("fountain"); // no fever, no projects on Governance
+            for (int i = 0; i < 4 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn(); // to AD 159
+            var gov = sim.World[Domain.Governance];
+            Assert.Equal(sim.Benchmark(Domain.Governance, sim.Now.Year), gov.Level, 6);
+            Assert.Equal(0, gov.Debt, 6);
+        }
+
+        [Fact]
+        public void YourProjectsMoveADomainOffHistoryAndItStaysAhead()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop"); // Economy +6
+            for (int i = 0; i < 2 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn();
+            var eco = sim.World[Domain.Economy];
+            Assert.Equal(sim.Benchmark(Domain.Economy, sim.Now.Year) + 6, eco.Level, 6);
+        }
+    }
+}

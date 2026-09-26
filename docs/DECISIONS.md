@@ -104,3 +104,7 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-27 — Starting gold and the workshop stake (Corey)
 - **Decision:** the inventor starts with no property and no income, only gold scavenged from the time machine (60). Choosing the workshop in the hour-one choice spends part of it to buy a stake in the smith's business, which pays about 0.1 gold a year per Economy point. Choosing the fountain gives no income. Intro and project text updated. Source: Corey.
+
+## 2026-09-27 — Rome follows history until you can influence it (Corey, from play)
+- **Decision:** a domain doesn't slip just because the inventor lacks influence. Without a hold it follows the historical curve; only the player's projects and the consequences of their choices (e.g. the broken fountain's fever) move it. With a hold, priorities act relative to history. **Number change:** Maintain went from −1 to ±0 a year; otherwise founding an institution and choosing Maintain would be worse than having no hold. SYSTEMS.md §5, PROTOTYPE_SCOPE, tuning. Source: Corey.
+- **Batch result:** gates B and C pass; A passes early (61 / 17 / 22) and fails late (Balanced 81%, above the 80% artifact limit). Investing beats Neglectful by 13.3 Index points on 83% of seeds; the neglect test still fails. Open for decision. Source: batch runner.

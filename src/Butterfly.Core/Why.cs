@@ -43,8 +43,8 @@ namespace Butterfly.Core
             double expectation = sim.Expectation(d);
             var sb = new StringBuilder();
             sb.AppendLine(d + " is at " + F(s.Level) + ". " + (sim.Maintainer(d) == null
-                ? "No institution of yours maintains it, so Rome runs it without you (" + Signed(sim.PriorityLevelChange(d)) + " a year)."
-                : "Under " + s.Priority.Label() + " it changes " + Signed(sim.PriorityLevelChange(d)) + " a year."));
+                ? "You have no hold over it, so it follows Rome's real history (" + Signed(sim.HistoricalTrend(d)) + " last year). Only your projects and their consequences move it."
+                : "Under " + s.Priority.Label() + " it moves " + Signed(sim.PriorityLevelChange(d)) + " a year against history."));
             sb.AppendLine("People expect " + F(expectation) + ": " +
                           (s.Peak > benchmark ? "they remember your recent peak of " + F(s.Peak) + " (the memory fades 5 a year)."
                                               : "what was normal in Rome in AD " + sim.Now.Year + "."));

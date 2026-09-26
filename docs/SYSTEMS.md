@@ -38,7 +38,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 ## 5. Care domains, priorities, and projects
 - Domains: Agriculture, Medicine, Knowledge, Governance, Military, Economy, Infrastructure, Faith and Culture.
 - Each region has a level per domain. Levels decay without upkeep.
-- The player sets each domain per region to **Protect**, **Maintain**, or **Accept Risk**, but **only for a domain that one of their institutions maintains**; that institution pays the upkeep, split by priority. A domain no institution of theirs maintains runs without them (at the Maintain rate, at no cost to them). The inventor starts with no responsibilities: they survive on work, and work income is taxed (P0: 10%, tune).
+- The player sets each domain per region to **Protect**, **Maintain**, or **Accept Risk**, but **only for a domain that one of their institutions maintains**; that institution pays the upkeep, split by priority. A domain no institution of theirs maintains **follows Rome's real history** (the historical curve), at no cost to them; only their projects and the consequences of their choices move it off that curve. With a hold, priorities act **relative to history**: Protect +2 a year, Maintain ±0, Accept Risk −8 (tune). The inventor starts with no responsibilities: they survive on work, and work income is taxed (P0: 10%, tune).
 - Investment happens through **projects** (templated per domain, re-dressed per era) that change domain levels. The player never sets a domain level directly.
 
 ## 6. Expectations, debt, and crises
