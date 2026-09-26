@@ -166,28 +166,52 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void RivalsPushBackFrom20PercentAndHarderWithMoreControl()
+        public void BuyingAStakeProvokesNoOne()
         {
             var sim = Rich();
             var guild = sim.World.Institution("guild");
-            double rate = sim.T.Get("rivalry.strikeChancePerStakePercent");
-            sim.GrantStake("guild", 0.19);
-            Assert.Equal(0, sim.RivalStrikeChance(guild), 6);
-            sim.GrantStake("guild", 0.2);
-            Assert.Equal(20 * rate, sim.RivalStrikeChance(guild), 6);
-            sim.GrantStake("guild", 0.5);
-            Assert.Equal(50 * rate, sim.RivalStrikeChance(guild), 6);
-            Assert.True(sim.RivalStrikeChance(guild) > 20 * rate);
             sim.GrantStake("guild", 1);
-            Assert.Equal(System.Math.Min(sim.T.Get("rivalry.maxStrikeChancePerYear"), 100 * rate), sim.RivalStrikeChance(guild), 6);
+            Assert.Equal(0, sim.RivalStrikeChance(guild), 6); // same share of the Economy as at the start
+        }
+
+        [Fact]
+        public void EstablishedInstitutionsDrawFireWhenTheyGrowPastTheirStartingShare()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            sim.GrantStake("guild", 0.5);
+            double baseline = sim.DomainShare(guild);
+            guild.Strength += 20;
+            double excess = (sim.DomainShare(guild) - baseline) * 100;
+            Assert.Equal(sim.T.Get("rivalry.chanceAtThreshold") + sim.T.Get("rivalry.chancePerSharePoint") * excess, sim.RivalStrikeChance(guild), 6);
+            double before = sim.RivalStrikeChance(guild);
+            guild.Strength += 20;
+            Assert.True(sim.RivalStrikeChance(guild) > before); // more of the domain, more pushback
+        }
+
+        [Fact]
+        public void OwnInstitutionsDrawFireFrom20PercentOfTheDomain()
+        {
+            var sim = Rich();
+            sim.Found("school");
+            var school = sim.World.Institution("school");
+            Assert.True(sim.DomainShare(school) < 0.2);
+            Assert.Equal(0, sim.RivalStrikeChance(school), 6);
+            school.Strength = 20; // 20 / (30 + 50 + 20) = 20%
+            Assert.Equal(sim.T.Get("rivalry.chanceAtThreshold"), sim.RivalStrikeChance(school), 6);
+            school.Strength = 40;
+            Assert.True(sim.RivalStrikeChance(school) > sim.T.Get("rivalry.chanceAtThreshold"));
         }
 
         [Fact]
         public void RivalsStrikeWithCausesAndActors()
         {
-            var data = TestData.Load().WithTuning(new Dictionary<string, double> { { "rivalry.strikeChancePerStakePercent", 1 }, { "rivalry.maxStrikeChancePerYear", 1 } });
+            var data = TestData.Load().WithTuning(new Dictionary<string, double> { { "rivalry.chanceAtThreshold", 1 }, { "rivalry.maxStrikeChancePerYear", 1 } });
             var sim = new Simulation(data, 3);
-            sim.GrantStake("guild", 0.2); // a voice-level stake is enough to draw fire
+            sim.GrantStake("guild", 0.5);
+            var guild = sim.World.Institution("guild");
+            guild.Strength = 90; // far past its starting share of the Economy
+            guild.Loyalty = 100;
             for (int t = 0; t < 4; t++) sim.EndTurn();
             var strikes = sim.Log.Events.Where(x => x.Type == "rivalry.strike").ToList();
             Assert.NotEmpty(strikes); // the bank is the only rival (the house was never founded)

@@ -164,6 +164,8 @@ namespace Butterfly.Core
         public bool Backed => Exists && Stake > 0;
         /// <summary>True if one of your own institutions collapsed before it was established.</summary>
         public bool Collapsed { get; set; }
+        /// <summary>An established institution's share of its domain at the start; rivals push back when it grows past this.</summary>
+        public double BaselineShare { get; set; }
         public double Strength { get; set; }
         public double Loyalty { get; set; }
         public bool Chartered { get; set; }

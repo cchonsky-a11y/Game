@@ -23,6 +23,7 @@ namespace Butterfly.Core
                 }
                 World.Institutions.Add(i);
             }
+            foreach (var i in World.Institutions.Where(i => i.Exists)) i.BaselineShare = DomainShare(i);
         }
 
         internal static string StrengthKey(Institution i) => i.Key + ".strength";
