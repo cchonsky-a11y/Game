@@ -397,8 +397,8 @@
       "ref": "PROPOSED P0-10"
     },
     "charterAttention": {
-      "value": 2,
-      "ref": "PROPOSED P0-10 (tuned for Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
+      "value": 3,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "endowGold": {
       "value": 60,
@@ -517,8 +517,8 @@
       "ref": "PROPOSED P0-11"
     },
     "endowAttention": {
-      "value": 1,
-      "ref": "PROPOSED P0-12 (Attention demand ≥ 1.5× supply, DECIDED 2026-09-26)"
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "holdings": {
       "windowYears": {
@@ -543,8 +543,8 @@
       "ref": "DECIDED 2026-09-26: audit charter costs gold (amount PROPOSED P0-15)"
     },
     "auditAttention": {
-      "value": 2,
-      "ref": "PROPOSED P0-15"
+      "value": 3,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "upkeepPerYear": {
       "circle": {
@@ -929,8 +929,8 @@
   },
   "policy": {
     "attention": {
-      "value": 1,
-      "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "austrianEconomyPerYear": {
       "value": 1.0,
@@ -1029,16 +1029,16 @@
     },
     "costPerPercent": {
       "medicine": {
-        "value": 1.2,
-        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+        "value": 2.4,
+        "ref": "DECIDED 2026-09-28 (Corey: stake prices higher, ×2); base PROPOSED P0-18"
       },
       "governance": {
-        "value": 1.8,
-        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+        "value": 3.6,
+        "ref": "DECIDED 2026-09-28 (Corey: stake prices higher, ×2); base PROPOSED P0-18"
       },
       "economy": {
-        "value": 1.5,
-        "ref": "DECIDED 2026-09-27 (Corey: cost depends on the domain); amount PROPOSED P0-18"
+        "value": 3.0,
+        "ref": "DECIDED 2026-09-28 (Corey: stake prices higher, ×2); base PROPOSED P0-18"
       }
     },
     "costGrowthPerPercent": {
@@ -1046,8 +1046,8 @@
       "ref": "DECIDED 2026-09-27 (Corey: increasing cost for increasing control); rate PROPOSED P0-18"
     },
     "buyAttention": {
-      "value": 1,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "memberLoyalty": {
       "value": 40,
@@ -1058,8 +1058,8 @@
       "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
     },
     "investAttention": {
-      "value": 1,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "investStrengthPerGold": {
       "value": 0.1,
@@ -1080,6 +1080,22 @@
     "premiumFadeYears": {
       "value": 5,
       "ref": "DECIDED 2026-09-28 (Corey: influence grows with time and gold); amount PROPOSED P0-19"
+    },
+    "attendAttention": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey: more things to spend Attention on); PROPOSED P0-20"
+    },
+    "attendLoyalty": {
+      "value": 2,
+      "ref": "PROPOSED P0-20"
+    },
+    "activeMeetingsPerYear": {
+      "value": 2,
+      "ref": "PROPOSED P0-20"
+    },
+    "activeSeniorityBonus": {
+      "value": 1,
+      "ref": "PROPOSED P0-20"
     }
   },
   "founding": {
@@ -1089,8 +1105,8 @@
       "ref": "DECIDED 2026-09-27 (Corey: about 65% of the cost of 50% control)"
     },
     "attention": {
-      "value": 2,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "value": 3,
+      "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "startStrength": {
       "value": 15,

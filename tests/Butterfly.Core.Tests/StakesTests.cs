@@ -427,5 +427,36 @@ namespace Butterfly.Core.Tests
             while (sim.YearsAsMember(sanctuary) < 2.5) { sim.World.Gold = 0; sim.EndTurn(); }
             Assert.Equal(1, sim.StakePercent(sanctuary));
         }
+    
+        [Fact]
+        public void AttendingMeetingsEarnsExtraSeniority()
+        {
+            var sim = Rich();
+            var guild = sim.World.Institution("guild");
+            sim.Buy("guild", 1);
+            var idle = Rich();
+            var idleGuild = idle.World.Institution("guild");
+            idle.Buy("guild", 1);
+            while (sim.YearsAsMember(guild) < 1.5)
+            {
+                sim.World.Attention = 100;
+                sim.Attend("guild");
+                sim.EndTurn();
+                idle.EndTurn();
+            }
+            int bonus = sim.T.GetInt("stakes.activeSeniorityBonus");
+            Assert.Equal(idle.StakePercent(idleGuild) + bonus, sim.StakePercent(guild));
+            Assert.False(sim.Attend("sanctuary").Ok); // not a member
+            Assert.False(sim.Attend("school").Ok);    // your own (or not founded): oversee instead
+        }
+
+        [Fact]
+        public void AttendingOncePerTurn()
+        {
+            var sim = Rich();
+            sim.Buy("guild", 1);
+            Assert.True(sim.Attend("guild").Ok);
+            Assert.False(sim.Attend("guild").Ok);
+        }
     }
 }

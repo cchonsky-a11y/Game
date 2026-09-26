@@ -102,6 +102,34 @@ namespace Butterfly.Core
         public double AnnualDuesTotal() => Backed().Sum(AnnualDues);
 
         /// <summary>
+        /// Attending an established institution's meetings as a member (decided 2026-09-28: more things to spend
+        /// Attention on): 1 Attention, once a turn per institution. The leader thinks better of you, and a member who
+        /// attends at least twice a year earns an extra point of seniority that year.
+        /// </summary>
+        public CommandResult Attend(string id)
+        {
+            var inst = FindInstitution(id);
+            if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
+            if (inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.ShortName) + " is yours; oversee it instead.");
+            if (!inst.Backed) return CommandResult.Fail("You aren't a member of " + inst.Def.ShortName + " (buy " + inst.Key + ").");
+            if (inst.AttendedTurn == Turn) return CommandResult.Fail("You already attended " + inst.Def.ShortName + " this turn.");
+            int att = T.GetInt("stakes.attendAttention");
+            var attention = CheckAttention(att);
+            if (attention != null) return attention;
+            SpendAttention(att);
+            inst.AttendedTurn = Turn;
+            inst.MeetingsThisYear++;
+            double loyalty = inst.Loyalty;
+            inst.Loyalty = Math.Min(100, inst.Loyalty + T.Get("stakes.attendLoyalty"));
+            int needed = T.GetInt("stakes.activeMeetingsPerYear");
+            Record("institution.attend", inst.Key, CausesOf(StakeKey(inst)), new[] { "player", inst.Leader },
+                new[] { new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty) },
+                "You sit through a meeting of " + inst.Def.Name + ", speak once, and are remembered for it.");
+            return CommandResult.Success("Meetings this year: " + inst.MeetingsThisYear + (inst.MeetingsThisYear >= needed
+                ? " (an active member: extra seniority this year)." : " (" + needed + " make you an active member, for extra seniority)."));
+        }
+
+        /// <summary>
         /// Seniority (decided 2026-09-28): every full year you stay a member of an established institution and pay what
         /// you owe, your stake grows by 1 percentage point, up to 25%: long membership can earn a voice, never control.
         /// </summary>
@@ -111,14 +139,16 @@ namespace Butterfly.Core
             foreach (var i in Backed().Where(x => !x.Def.IsOwn).ToList())
             {
                 bool eligible = YearsAsMember(i) >= 1 - 1e-9 && !i.MissedDuesThisYear && i.Stake < cap - 1e-9;
+                bool active = i.MeetingsThisYear >= T.GetInt("stakes.activeMeetingsPerYear");
                 i.MissedDuesThisYear = false;
+                i.MeetingsThisYear = 0;
                 if (!eligible) continue;
                 double before = i.Stake;
-                int points = T.GetInt("stakes.seniorityPercentPerYear");
+                int points = T.GetInt("stakes.seniorityPercentPerYear") + (active ? T.GetInt("stakes.activeSeniorityBonus") : 0);
                 i.Stake = Math.Min(cap, (StakePercent(i) + points) / 100.0);
                 Record("institution.seniority", i.Key, CausesOf(StakeKey(i)), new[] { i.Leader },
                     new[] { new Effect(StakeKey(i), before, i.Stake) },
-                    "Another year as a member of " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                    "Another year as " + (active ? "an active" : "a") + " member of " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
             }
         }
 

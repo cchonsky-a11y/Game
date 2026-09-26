@@ -7,7 +7,7 @@ namespace Butterfly.Core
     /// P0 Attention budget (PROTOTYPE_SCOPE, P0 pacing). Demand counts every project once, every institution
     /// step for one institution per domain (the buys to control or founding, charter, audit, endow, invest), a full
     /// mentoring commitment per institution, the oversight needed to hold loyalty over the era, one plague response,
-    /// one stance per policy issue, and one personal action per turn.
+    /// one stance per policy issue, active membership (meetings) in one institution per domain, and one personal action per turn.
     /// </summary>
     public static class AttentionBudget
     {
@@ -29,6 +29,8 @@ namespace Butterfly.Core
                 + Math.Ceiling(years * t.Get("institutions.loyaltyFadePerYear") / t.Get("institutions.overseeLoyalty")));
             demand += t.Get("plague.response.hospice.attention");
             demand += 4 * t.Get("policy.attention"); // one stance per economic issue
+            // Attending meetings often enough to be an active member of one established institution per domain.
+            demand += domains * years * t.Get("stakes.activeMeetingsPerYear") * t.Get("stakes.attendAttention");
             demand += turns;
             return demand;
         }

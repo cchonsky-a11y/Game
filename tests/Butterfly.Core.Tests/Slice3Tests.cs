@@ -12,9 +12,9 @@ namespace Butterfly.Core.Tests
         public void ContentHasTwoToThreeProjectsPerDomain()
         {
             var projects = TestData.Load().Content.Projects;
-            // 2–3 per domain (PROTOTYPE_SCOPE); Economy has a fourth, the mint audit, with economic policy (decided 2026-09-27).
+            // 3–4 per domain (PROTOTYPE_SCOPE; one more each decided 2026-09-28); Economy has one more, the mint audit (decided 2026-09-27).
             foreach (var d in DomainInfo.All)
-                Assert.InRange(projects.Count(p => p.Domain == d), 2, d == Domain.Economy ? 4 : 3);
+                Assert.InRange(projects.Count(p => p.Domain == d), 3, d == Domain.Economy ? 5 : 4);
         }
 
         [Fact]

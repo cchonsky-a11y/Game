@@ -99,15 +99,16 @@ internal sealed class ConsoleGame
   priority <domain> <protect|maintain|accept>   (needs a 25% voice in an institution of that domain)
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
   institutions                   who holds each domain, your stakes, and what the next step costs
-  buy <inst> [percent]           buy into an established institution (1 Attention; the first buy is 1%, each 1% costs more):
+  buy <inst> [percent]           buy into an established institution (2 Attention; entry fee on joining, each 1% costs more):
                                    10% counts toward influence · 25% a voice (priorities, policy) · 50% control
+  attend <inst>                  attend a meeting as a member (1 Attention; twice a year earns extra seniority)
   found <school|club|house>      found your own institution: you control it, but it starts small and may fail
-  invest <inst> <gold>           build up an institution you control (1 Attention)
+  invest <inst> <gold>           build up an institution you control (2 Attention)
   charter <inst>                 write its founding principles (slows drift; needs control)
   endow <inst> [gold|all]        give it gold to hold (the first 60 makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
-  policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (1 Attention):
+  policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (2 Attention):
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
   mentor <inst>                  commit Attention every turn for several turns
@@ -154,6 +155,7 @@ internal sealed class ConsoleGame
                 r = _sim.PayDown(pd, pts);
                 break;
             case "institutions": case "i": Institutions(); return true;
+            case "attend": r = _sim.Attend(arg); break;
             case "found": r = _sim.Found(arg); break;
             case "buy":
                 if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }

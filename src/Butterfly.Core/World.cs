@@ -170,6 +170,9 @@ namespace Butterfly.Core
         public double JoinedAt { get; set; }
         /// <summary>True if you failed to pay what you owed it at some point this year (no seniority this year).</summary>
         public bool MissedDuesThisYear { get; set; }
+        /// <summary>Turn you last attended its meetings, and how many you attended this year.</summary>
+        public int AttendedTurn { get; set; }
+        public int MeetingsThisYear { get; set; }
         /// <summary>An established institution's share of its domain at the start; rivals push back when it grows past this.</summary>
         public double BaselineShare { get; set; }
         public double Strength { get; set; }

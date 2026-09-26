@@ -1,5 +1,5 @@
 {
-  "_readme": "Templated projects (SYSTEMS §5), 2–3 per domain (PROTOTYPE_SCOPE). Costs and effects are PROPOSED P0-08; Attention costs tuned so demand ≥ 1.5× supply (DECIDED 2026-09-26). Tags are checked against SYSTEMS §14 hard constraints by ContentChecks.",
+  "_readme": "Templated projects (SYSTEMS §5), 3–5 per domain (PROTOTYPE_SCOPE; one more per domain DECIDED 2026-09-28 to give Attention more uses). Costs and effects are PROPOSED P0-08; Attention costs tuned so demand ≥ 1.5× supply (DECIDED 2026-09-26). Tags are checked against SYSTEMS §14 hard constraints by ContentChecks.",
   "projects": [
     {
       "id": "fountain",
@@ -66,6 +66,21 @@
       "completionText": "Ostia's harbor officials adopt your quarantine rules."
     },
     {
+      "id": "midwives",
+      "domain": "medicine",
+      "name": "Train midwives in the Subura",
+      "gold": 55,
+      "attentionPerTurn": 2,
+      "turns": 6,
+      "levelGain": 6,
+      "tags": [
+        "teaching",
+        "health"
+      ],
+      "description": "Teach a dozen women of the district to wash their hands, boil their knives and keep a mother warm.",
+      "completionText": "The Subura's midwives work with clean hands and boiled linen."
+    },
+    {
       "id": "patronage",
       "domain": "governance",
       "name": "Patronage for a senator",
@@ -121,6 +136,21 @@
       ],
       "description": "Count the households of the district, street by street.",
       "completionText": "For the first time, someone knows who lives in the district."
+    },
+    {
+      "id": "vigiles",
+      "domain": "governance",
+      "name": "Fund a night watch against fires",
+      "gold": 55,
+      "attentionPerTurn": 2,
+      "turns": 6,
+      "levelGain": 6,
+      "tags": [
+        "public-works",
+        "order"
+      ],
+      "description": "Pay and drill a district watch with buckets, hooks and a bell, and a magistrate who answers for it.",
+      "completionText": "The district's night watch answers the bell within minutes."
     },
     {
       "id": "workshop",
@@ -193,6 +223,21 @@
       ],
       "description": "Pay assayers to weigh and publish the silver in each new issue of coin.",
       "completionText": "The assayers publish their weights; merchants trust the new coin."
+    },
+    {
+      "id": "road",
+      "domain": "economy",
+      "name": "Pave the market road to the river docks",
+      "gold": 65,
+      "attentionPerTurn": 2,
+      "turns": 6,
+      "levelGain": 7,
+      "tags": [
+        "public-works",
+        "commerce"
+      ],
+      "description": "Lay stone on the rutted road between the Forum Boarium and the river docks, so carts move in every season.",
+      "completionText": "Carts roll to the docks in rain and dry alike."
     }
   ]
 }

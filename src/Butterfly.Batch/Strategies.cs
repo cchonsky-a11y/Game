@@ -83,6 +83,13 @@ namespace Butterfly.Batch
             }
         }
 
+        /// <summary>Spends leftover Attention attending meetings of institutions it belongs to but doesn't control.</summary>
+        protected static void AttendMeetings(Simulation sim)
+        {
+            foreach (var i in sim.Backed().Where(i => !i.Def.IsOwn && !sim.Controls(i)).ToList())
+                if (sim.World.Attention >= sim.T.GetInt("stakes.attendAttention")) sim.Attend(i.Key);
+        }
+
         /// <summary>The personal action: the best-paid work the remaining Attention allows.</summary>
         protected static void WorkBest(Simulation sim)
         {
@@ -163,6 +170,7 @@ namespace Butterfly.Batch
             if (_paydownShare > 0)
                 PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained), double.MaxValue, _paydownShare);
             WorkBest(sim);
+            AttendMeetings(sim);
         }
 
         public override void BeforeJump(Simulation sim)
