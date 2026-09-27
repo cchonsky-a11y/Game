@@ -212,7 +212,7 @@ namespace Butterfly.Core
                                                    : PromiseInstitution.Def.Leader + ", a Greek physician who treats the Subura's poor,";
             var e = Record("promise.offer", "promise", new[] { causeId }, new[] { PromiseInstitution.Def.Leader }, null,
                 who + " has watched you: " + motive + ", and the way you talk about fever as if you had seen it before. " +
-                "\"When the sickness comes, the rich will leave for their villas, and the famous physicians with them. " +
+                "\"You have heard what the letters from Seleucia say. If that sickness comes here, the rich will leave for their villas, and the famous physicians with them. " +
                 "Promise me you will stay and help until it has passed.\"");
             World.Promise.OfferEventId = e.Id;
             World.Promise.LastEventId = e.Id;

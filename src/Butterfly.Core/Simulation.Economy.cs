@@ -110,12 +110,43 @@ namespace Butterfly.Core
         public int ProjectGold(ProjectDef def) =>
             (int)Math.Round(def.Gold * World.PriceLevel * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0)));
 
+        private static readonly Domain[] PlagueAuthorityDomains = { Domain.Medicine, Domain.Governance };
+
+        private bool AnyInDomains(IEnumerable<Domain> domains, System.Func<Institution, bool> test) =>
+            World.Institutions.Where(i => domains.Contains(i.Def.Maintains)).Any(test);
+
+        /// <summary>
+        /// Who must back a public project (decided 2026-09-28): influence in an institution of its domain. Plague measures
+        /// need influence in a Medicine or Governance institution, or only membership once the first warning has come:
+        /// the signs prove your foreknowledge right. Null if you may start it.
+        /// </summary>
+        public string? ProjectAuthorityBlocker(ProjectDef def)
+        {
+            double stake = T.Get("authority.publicStake");
+            switch (def.Authority)
+            {
+                case null: return null;
+                case "public":
+                    return AnyInDomains(new[] { def.Domain }, i => i.Backed && i.Stake >= stake - 1e-9) ? null
+                        : def.Name + " is public business: you need " + F(stake * 100) + "% of an institution in " + def.Domain + " to push it through.";
+                case "plague":
+                    if (AnyInDomains(PlagueAuthorityDomains, i => i.Backed && i.Stake >= stake - 1e-9)) return null;
+                    bool warned = World.Plague.Stage >= 1 && T.Get("authority.plagueMemberAfterWarning") > 0;
+                    if (warned && AnyInDomains(PlagueAuthorityDomains, i => i.Backed)) return null;
+                    return def.Name + " needs the harbor officials to listen: " + F(stake * 100) + "% of a Medicine or Governance institution" +
+                           (warned ? ", or membership in one." : "; once the first signs of pestilence prove you right, membership in one will do.");
+                default: throw new InvalidOperationException("Unknown project authority: " + def.Authority);
+            }
+        }
+
         public CommandResult StartProject(string id)
         {
             var def = Data.Content.Project(id);
             if (def == null) return CommandResult.Fail("No project called '" + id + "'.");
             if (World.CompletedProjects.Contains(id)) return CommandResult.Fail(def.Name + " is already done.");
             if (World.ActiveProjects.Any(a => a.Def.Id == id)) return CommandResult.Fail(def.Name + " is already under way.");
+            var authority = ProjectAuthorityBlocker(def);
+            if (authority != null) return CommandResult.Fail(authority);
             if (World.Gold < ProjectGold(def)) return CommandResult.Fail(def.Name + " costs " + ProjectGold(def) + " gold; you have " + F(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;

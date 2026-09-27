@@ -49,7 +49,7 @@ namespace Butterfly.Core
         /// </summary>
         public bool AffordableInvestment()
         {
-            if (AvailableProjects().Any(p => ProjectGold(p) <= World.Gold && p.AttentionPerTurn <= World.Attention)) return true;
+            if (AvailableProjects().Any(p => ProjectAuthorityBlocker(p) == null && ProjectGold(p) <= World.Gold && p.AttentionPerTurn <= World.Attention)) return true;
             if (!MachineAssessed && !World.ActiveMachineSteps.Any(a => a.Def == MachineAssessment) && MachineAssessment!.AttentionPerTurn <= World.Attention) return true;
             foreach (var system in MachineSystems)
             {

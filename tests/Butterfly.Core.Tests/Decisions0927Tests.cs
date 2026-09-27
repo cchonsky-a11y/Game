@@ -144,6 +144,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), 42);
             sim.World.Gold = 1000;
+            sim.GrantStake("bank", 0.10);               // public business needs backing (decided 2026-09-28)
             Assert.True(sim.StartProject("market").Ok); // a Rome-wide reform (the workshop is only local)
             double gain = sim.Data.Content.Project("market")!.LevelGain;
             for (int i = 0; i < 2 * 12 / sim.MonthsPerTurn; i++) sim.EndTurn();

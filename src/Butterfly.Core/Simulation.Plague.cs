@@ -70,14 +70,25 @@ namespace Butterfly.Core
 
         public bool OutbreakAwaitingResponse => World.Plague.Stage == PlagueState.Outbreak && World.Plague.Response == null;
 
+        /// <summary>
+        /// Standing to direct a response (SYSTEMS §7: a voice; decided 2026-09-28: the warnings, having proved you right,
+        /// lower it to influence in a Medicine or Governance institution). Without it, Rome responds as history did.
+        /// </summary>
+        public bool CanDirectPlagueResponse() =>
+            World.Institutions.Any(i => (i.Def.Maintains == Domain.Medicine || i.Def.Maintains == Domain.Governance) && i.Backed &&
+                                        i.Stake >= T.Get("authority.responseStake") - 1e-9 && i.Strength >= T.Get("institutions.dissolvedBelow"));
+
         public IEnumerable<string> AvailablePlagueResponses() =>
-            PlagueResponses.Where(r => r != "hospice" || HospiceAvailable());
+            PlagueResponses.Where(r => r == "none" || (CanDirectPlagueResponse() && (r != "hospice" || HospiceAvailable())));
 
         /// <summary>Player decision when the outbreak begins (the plague's branch point).</summary>
         public CommandResult RespondToPlague(string response)
         {
             if (!OutbreakAwaitingResponse) return CommandResult.Fail("There is no outbreak to respond to.");
-            if (!AvailablePlagueResponses().Contains(response)) return CommandResult.Fail("You can't choose '" + response + "' now.");
+            if (!AvailablePlagueResponses().Contains(response))
+                return CommandResult.Fail(!CanDirectPlagueResponse() && response != "hospice"
+                    ? "No one will take orders from you: you need " + F(T.Get("authority.responseStake") * 100) + "% of a Medicine or Governance institution. Rome will respond as it did in history (respond none)."
+                    : "You can't choose '" + response + "' now.");
             double cost = T.Get("plague.response." + response + ".gold");
             if (World.Gold < cost) return CommandResult.Fail("That response costs " + F(cost) + " gold.");
             var attention = CheckAttention(T.GetInt("plague.response." + response + ".attention"));

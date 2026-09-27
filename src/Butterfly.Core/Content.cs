@@ -29,6 +29,8 @@ namespace Butterfly.Core
         public int AttentionPerTurn { get; }
         public int Turns { get; }
         public double LevelGain { get; }
+        /// <summary>Who must back it (decided 2026-09-28): null for a private project, "public" or "plague".</summary>
+        public string? Authority { get; }
         public IReadOnlyList<ProjectExtra> Extras { get; }
         public IReadOnlyList<string> Tags { get; }
         public string Description { get; }
@@ -44,6 +46,7 @@ namespace Butterfly.Core
             AttentionPerTurn = (int)o.Num("attentionPerTurn");
             Turns = (int)o.Num("turns");
             LevelGain = o.Num("levelGain");
+            Authority = o.Has("authority") ? o.Str("authority") : null;
             Extras = o.Has("extras")
                 ? o.Arr("extras").Cast<JsonObject>().Select(x => new ProjectExtra(x.Str("type"), x.Num("value"), x.StrOr("institution", null))).ToList()
                 : new List<ProjectExtra>();

@@ -321,14 +321,19 @@ internal sealed class ConsoleGame
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
         if (_sim.OutbreakAwaitingResponse)
             Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()) +
-                              (_sim.AvailablePlagueResponses().Contains("hospice") ? "" : "   (a hospice needs a physicians' circle of strength 30+)"));
+                              (!_sim.CanDirectPlagueResponse() ? "   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)"
+                               : _sim.AvailablePlagueResponses().Contains("hospice") ? "" : "   (a hospice needs a physicians' circle of strength 30+)"));
         if (_sim.EraOver) Console.WriteLine("  ► The era's " + _sim.EraYears + " years are over. Jump when you're ready (you can also stay).");
     }
 
     private void Projects()
     {
         foreach (var p in _sim.AvailableProjects())
-            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (_sim.ProjectGold(p) + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name);
+        {
+            string? blocked = _sim.ProjectAuthorityBlocker(p);
+            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (_sim.ProjectGold(p) + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name +
+                              (blocked != null ? "\n                (" + blocked + ")" : p.Authority != null ? "   (public: you have the backing)" : ""));
+        }
         Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");
     }
 

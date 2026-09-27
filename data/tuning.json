@@ -1353,5 +1353,19 @@
       "value": 60,
       "ref": "DECIDED 2026-09-28 (Corey): all the gold you scavenged from the machine at the start (gold.start) goes back in before it can jump; fixed, since the machine's gold is not debased"
     }
+  },
+  "authority": {
+    "publicStake": {
+      "value": 0.1,
+      "ref": "DECIDED 2026-09-28 (Corey): a public project needs influence (10%) in an institution of its domain"
+    },
+    "plagueMemberAfterWarning": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey): once the first warning proves you right, membership in a Medicine or Governance institution is enough for plague measures (1 = on)"
+    },
+    "responseStake": {
+      "value": 0.1,
+      "ref": "SYSTEMS §7: a plague response needs a voice (25%); DECIDED 2026-09-28 (Corey): the warnings, having proved you right, lower it to influence (10%) in a Medicine or Governance institution"
+    }
   }
 }

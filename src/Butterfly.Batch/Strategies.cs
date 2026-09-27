@@ -182,7 +182,7 @@ namespace Butterfly.Batch
             // Invest in the weakest domain first.
             foreach (var d in DomainInfo.All.OrderBy(sim.SubScore))
             {
-                var project = sim.AvailableProjects().Where(p => p.Domain == d && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
+                var project = sim.AvailableProjects().Where(p => p.Domain == d && sim.ProjectAuthorityBlocker(p) == null && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
                 if (project != null && sim.StartProject(project.Id).Ok) break;
             }
             if (_paydownShare > 0)
@@ -230,7 +230,7 @@ namespace Butterfly.Batch
             // Build the school up past the point where it could fail, then keep growing its share.
             var school = sim.World.Institution("school");
             if (sim.Controls(school) && school.Strength < 60 && sim.World.Gold >= 30) sim.Invest("school", System.Math.Floor(sim.World.Gold / 2));
-            var project = sim.AvailableProjects().Where(p => p.Domain == Domain.Medicine && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
+            var project = sim.AvailableProjects().Where(p => p.Domain == Domain.Medicine && sim.ProjectAuthorityBlocker(p) == null && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
             if (project != null) sim.StartProject(project.Id);
             if (sim.Controls(school) && sim.CommitmentsEnabled && sim.World.Commitments.Count == 0) sim.Mentor("school");
             PayDownDebts(sim, new[] { Domain.Medicine });

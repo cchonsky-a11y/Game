@@ -1,5 +1,5 @@
 {
-  "_readme": "Templated projects (SYSTEMS §5), 3–5 per domain (PROTOTYPE_SCOPE; one more per domain DECIDED 2026-09-28 to give Attention more uses). Costs and effects are PROPOSED P0-08; Attention costs tuned so demand ≥ 1.5× supply (DECIDED 2026-09-26). Tags are checked against SYSTEMS §14 hard constraints by ContentChecks. Project gold raised ×1.5 on 2026-09-28 (Corey: projects cost more), except the hour-one fountain and workshop.",
+  "_readme": "Templated projects (SYSTEMS §5), 3–5 per domain (PROTOTYPE_SCOPE; one more per domain DECIDED 2026-09-28 to give Attention more uses). Costs and effects are PROPOSED P0-08; Attention costs tuned so demand ≥ 1.5× supply (DECIDED 2026-09-26). Tags are checked against SYSTEMS §14 hard constraints by ContentChecks. Project gold raised ×1.5 on 2026-09-28 (Corey: projects cost more), except the hour-one fountain and workshop. Authority (DECIDED 2026-09-28, Corey): public projects (authority 'public') need 10% influence in an institution of their domain; plague measures (authority 'plague') need 10% influence in a Medicine or Governance institution, or, once the plague's first warning has come and proved you right, only membership in one.",
   "projects": [
     {
       "id": "fountain",
@@ -63,7 +63,8 @@
         "medicine"
       ],
       "description": "Work with the harbor officials on rules for holding sick crews offshore.",
-      "completionText": "Ostia's harbor officials adopt your quarantine rules."
+      "completionText": "Ostia's harbor officials adopt your quarantine rules.",
+      "authority": "plague"
     },
     {
       "id": "midwives",
@@ -115,7 +116,8 @@
         "administration"
       ],
       "description": "Pay clerks and lamp oil so the district's disputes are actually heard.",
-      "completionText": "The district magistrates hear cases again, and people bring them."
+      "completionText": "The district magistrates hear cases again, and people bring them.",
+      "authority": "public"
     },
     {
       "id": "census",
@@ -135,7 +137,8 @@
         "administration"
       ],
       "description": "Count the households of the district, street by street.",
-      "completionText": "For the first time, someone knows who lives in the district."
+      "completionText": "For the first time, someone knows who lives in the district.",
+      "authority": "public"
     },
     {
       "id": "vigiles",
@@ -150,7 +153,8 @@
         "order"
       ],
       "description": "Pay and drill a district watch with buckets, hooks and a bell, and a magistrate who answers for it.",
-      "completionText": "The district's night watch answers the bell within minutes."
+      "completionText": "The district's night watch answers the bell within minutes.",
+      "authority": "public"
     },
     {
       "id": "workshop",
@@ -186,7 +190,8 @@
         "law"
       ],
       "description": "Certified weights at the cattle market, and an end to fixed prices: let buyers and sellers settle them.",
-      "completionText": "Honest weights hang in the Forum Boarium, and prices are set by the market."
+      "completionText": "Honest weights hang in the Forum Boarium, and prices are set by the market.",
+      "authority": "public"
     },
     {
       "id": "warehouses",
@@ -222,7 +227,8 @@
         "coinage"
       ],
       "description": "Pay assayers to weigh and publish the silver in each new issue of coin.",
-      "completionText": "The assayers publish their weights; merchants trust the new coin."
+      "completionText": "The assayers publish their weights; merchants trust the new coin.",
+      "authority": "public"
     },
     {
       "id": "road",
@@ -237,7 +243,8 @@
         "commerce"
       ],
       "description": "Lay stone on the rutted road between the Forum Boarium and the river docks, so carts move in every season.",
-      "completionText": "Carts roll to the docks in rain and dry alike."
+      "completionText": "Carts roll to the docks in rain and dry alike.",
+      "authority": "public"
     }
   ]
 }

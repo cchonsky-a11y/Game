@@ -155,3 +155,46 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Authority for public projects and plague measures (decided 2026-09-28).</summary>
+    public class AuthorityTests
+    {
+        [Fact]
+        public void PublicProjectsNeedBackingPrivateOnesDont()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            sim.World.Gold = 1000;
+            sim.World.Attention = 100;
+            Assert.False(sim.StartProject("census").Ok);
+            Assert.True(sim.StartProject("fountain").Ok);        // private: anyone may pay for it
+            sim.GrantStake("faction", 0.10);
+            Assert.True(sim.StartProject("census").Ok);
+        }
+
+        [Fact]
+        public void TheFirstSignsLowerTheBarForPlagueMeasures()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            sim.World.Gold = 10000;
+            sim.GrantStake("sanctuary", 0.01);                  // a member, no influence
+            Assert.False(sim.StartProject("quarantine").Ok);     // before the warnings, no one listens
+            while (sim.World.Plague.Stage < 1) sim.EndTurn();
+            sim.World.Attention = 100;
+            Assert.True(sim.StartProject("quarantine").Ok);      // the rumors from the East prove you right
+        }
+
+        [Fact]
+        public void DirectingTheOutbreakNeedsInfluence()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            while (!sim.OutbreakAwaitingResponse) sim.EndTurn();
+            Assert.Equal(new[] { "none" }, sim.AvailablePlagueResponses());
+            Assert.False(sim.RespondToPlague("quarantine").Ok);
+            sim.GrantStake("faction", 0.10);
+            sim.World.Gold = 1000;
+            Assert.Contains("quarantine", sim.AvailablePlagueResponses());
+        }
+    }
+}
