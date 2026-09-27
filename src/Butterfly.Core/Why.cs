@@ -133,6 +133,15 @@ namespace Butterfly.Core
                               sim.PlagueStageDate(PlagueState.Outbreak).Display + ", as in history. You can't change when, only how hard it hits.");
                 AppendPlagueOutlook(sim, sb);
             }
+            if (sim.OutbreakAwaitingResponse)
+            {
+                double rate = sim.T.Get("plague.deathRatePerSeverity");
+                sb.AppendLine("How many would die, by response (history: " + F(sim.HistoricalPlagueSeverity * rate * 100) + "%):");
+                foreach (var r in sim.AvailablePlagueResponses())
+                    sb.AppendLine("  respond " + r + ": about " + F(sim.PlagueSeverity(r) * rate * 100) + "% of Rome");
+                if (!sim.CanDirectPlagueResponse())
+                    sb.AppendLine("  No one will take orders from you, so Rome responds as it did in history.");
+            }
             if (p.Stage == PlagueState.Passed)
                 sb.AppendLine("It struck in AD " + p.OutbreakYear + ": severity " + F(p.Severity) + ", about " + F(p.Deaths) + " thousand dead; response: " + p.Response + ".");
             AppendRecent(sim, sb, new[] { "plague.stage", "plague.severity", "population" }, 4);

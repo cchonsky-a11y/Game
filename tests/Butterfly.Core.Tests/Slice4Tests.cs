@@ -198,3 +198,20 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class OutbreakWhyTests
+    {
+        [Fact]
+        public void WhyShowsTheTollByResponseAtTheOutbreak()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            sim.GrantStake("faction", 0.10);
+            while (!sim.OutbreakAwaitingResponse) sim.EndTurn();
+            string text = Why.Explain(sim, "plague");
+            Assert.Contains("respond quarantine: about", text);
+            Assert.Contains("respond none: about", text);
+        }
+    }
+}
