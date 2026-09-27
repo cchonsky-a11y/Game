@@ -55,15 +55,65 @@ namespace Butterfly.Core
         {
             var step = Data.Content.MachineUpgrades.FirstOrDefault(u => u.Id == (id ?? "").Trim().ToLowerInvariant());
             if (step == null) return CommandResult.Fail("Upgrade what? " + string.Join(", ", Data.Content.MachineUpgrades.Select(u => u.Id)) + ".");
+            var unknown = NotAssessed();
+            if (unknown != null) return unknown;
             if (World.MachineDone.Contains(step.Id)) return CommandResult.Fail(step.Name + " is done.");
             if (World.ActiveMachineSteps.Any(a => a.Def.Id == step.Id)) return CommandResult.Fail(step.Name + " is already under way.");
             return BeginMachineStep(step);
         }
-        public bool MachineReady => MachineStepsDone >= MachineStepsTotal;
+        /// <summary>Ready to jump: assessed, all 9 repairs done, and every piece of scavenged gold back in place.</summary>
+        public bool MachineReady => MachineStepsDone >= MachineStepsTotal && MachineGoldRestored >= MachineGoldNeeded;
+
+        // ---- assessment and the machine's gold (decided 2026-09-28) ----------------------------
+
+        public MachineStepDef? MachineAssessment => Data.Content.MachineAssessment;
+
+        /// <summary>You know what's wrong once the assessment is done (always, if the content has none).</summary>
+        public bool MachineAssessed => MachineAssessment == null || World.MachineDone.Contains(MachineAssessment.Id);
+
+        public double MachineGoldNeeded => T.Get("machine.restoreGold");
+        public double MachineGoldRestored => World.MachineGoldRestored;
+
+        /// <summary>Starts the full assessment of the machine: nothing can be repaired until you know what's wrong.</summary>
+        public CommandResult Assess()
+        {
+            if (MachineAssessed) return CommandResult.Fail("You have already assessed the machine; see 'machine'.");
+            if (World.ActiveMachineSteps.Any(a => a.Def.Id == MachineAssessment!.Id)) return CommandResult.Fail("You are already assessing the machine.");
+            return BeginMachineStep(MachineAssessment!);
+        }
+
+        /// <summary>Test setup: skip the assessment.</summary>
+        internal void MarkAssessedForTests()
+        {
+            if (MachineAssessment != null) World.MachineDone.Add(MachineAssessment.Id);
+        }
+
+        private CommandResult? NotAssessed() => MachineAssessed ? null
+            : CommandResult.Fail("You don't know yet what's wrong with the machine. Assess it first (assess: " + MachineAssessment!.AttentionPerTurn +
+                                 " Attention a turn for " + MachineAssessment.Turns + " turns).");
+
+        /// <summary>Puts gold back into the machine (no Attention). All the gold you scavenged must go back before it can jump.</summary>
+        public CommandResult RestoreGold(double amount)
+        {
+            double missing = MachineGoldNeeded - World.MachineGoldRestored;
+            if (missing <= 0) return CommandResult.Fail("All the machine's gold is back in place.");
+            if (amount <= 0) return CommandResult.Fail("Put back how much? " + F(missing) + " gold is still missing from the machine.");
+            amount = Math.Min(Math.Min(amount, missing), World.Gold);
+            if (amount <= 0) return CommandResult.Fail("You have no gold to put back.");
+            double goldBefore = World.Gold, restoredBefore = World.MachineGoldRestored;
+            SpendGold(amount);
+            World.MachineGoldRestored += amount;
+            Record("machine.gold", "machine", null, new[] { "player" },
+                new[] { new Effect(GoldKey, goldBefore, World.Gold), new Effect("machine.goldRestored", restoredBefore, World.MachineGoldRestored) },
+                "You beat " + F(amount) + " gold back into wire and leaf for the machine's contacts (" + F(World.MachineGoldRestored) + " of " +
+                F(MachineGoldNeeded) + " restored" + (MachineReady ? "; it can carry you now." : ")."));
+            return CommandResult.Success("Machine gold: " + F(World.MachineGoldRestored) + "/" + F(MachineGoldNeeded) + ".");
+        }
 
         /// <summary>The next step of a system that isn't done or under way, or null if the system is finished or busy.</summary>
         public MachineStepDef? NextMachineStep(string system)
         {
+            if (!MachineAssessed) return null;
             if (World.ActiveMachineSteps.Any(a => a.Def.System == system)) return null;
             return Data.Content.MachineSteps.FirstOrDefault(s => s.System == system && !World.MachineDone.Contains(s.Id));
         }
@@ -104,6 +154,8 @@ namespace Butterfly.Core
             string text = (systemText ?? "").Trim().ToLowerInvariant();
             string? system = MachineSystems.FirstOrDefault(x => text.Length >= 3 && x.StartsWith(text, StringComparison.Ordinal));
             if (system == null) return CommandResult.Fail("Repair what? coil, coolant or chronometer.");
+            var unknown = NotAssessed();
+            if (unknown != null) return unknown;
             if (World.ActiveMachineSteps.Any(a => a.Def.System == system)) return CommandResult.Fail("You are already working on the " + system + ".");
             var step = NextMachineStep(system);
             if (step == null) return CommandResult.Fail("The " + system + " is finished.");
@@ -136,12 +188,18 @@ namespace Butterfly.Core
                 World.ActiveMachineSteps.Remove(a);
                 World.MachineDone.Add(a.Def.Id);
                 bool upgrade = Data.Content.MachineUpgrades.Any(u => u.Id == a.Def.Id);
+                if (a.Def == MachineAssessment)
+                {
+                    Record("machine.assessed", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
+                        new[] { new Effect("machine.assessed", 0, 1) }, a.Def.Text);
+                    continue;
+                }
                 Record("machine.step", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
                     new[] { upgrade ? new Effect("machine.upgrades", MachineUpgradesDone - 1, MachineUpgradesDone)
                                     : new Effect("machine.steps", MachineStepsDone - 1, MachineStepsDone) },
                     (a.WithoutRome ? a.Def.AltDoneText : a.Def.Text) + (upgrade
                         ? " (Upgrade: the machine's range is now " + JumpRangeText() + ".)"
-                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : ".") + ")"));
+                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : MachineStepsDone >= MachineStepsTotal ? "; " + F(MachineGoldNeeded - MachineGoldRestored) + " gold still to put back." : ".") + ")"));
             }
         }
 
@@ -152,6 +210,16 @@ namespace Butterfly.Core
         /// <summary>What still stands between you and the jump.</summary>
         public IEnumerable<string> MachineStatus()
         {
+            if (!MachineAssessed)
+            {
+                var assessing = World.ActiveMachineSteps.FirstOrDefault(a => a.Def == MachineAssessment);
+                yield return assessing != null
+                    ? "Assessing the machine (" + assessing.TurnsRemaining + " turn(s) left): until then you don't know what's wrong."
+                    : "Not yet assessed: you don't know what's wrong. assess (" + MachineAssessment!.AttentionPerTurn + " Attention a turn for " + MachineAssessment.Turns + " turns).";
+                yield return GoldLine();
+                yield return "Jump range: " + JumpRangeText() + ".";
+                yield break;
+            }
             foreach (var system in MachineSystems)
             {
                 var steps = Data.Content.MachineSteps.Where(s => s.System == system).ToList();
@@ -176,7 +244,12 @@ namespace Butterfly.Core
                     : " — " + MachineStepGold(u) + " gold, " + u.AttentionPerTurn + " Attention a turn for " + u.Turns + " turns" +
                       (MachineRequirementMet(u) ? "" : "; with " + MachineRequirementText(u) + " it would cost " + u.Gold + " gold"));
             }
+            yield return GoldLine();
             yield return "Jump range: " + JumpRangeText() + ".";
         }
+
+        private string GoldLine() =>
+            "Gold: " + F(MachineGoldRestored) + " of the " + F(MachineGoldNeeded) + " you scavenged is back in the machine" +
+            (MachineGoldRestored >= MachineGoldNeeded ? " — done" : "; all of it must go back before it can jump (restore <gold>, no Attention).");
     }
 }

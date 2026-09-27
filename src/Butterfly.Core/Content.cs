@@ -207,13 +207,16 @@ namespace Butterfly.Core
         public IReadOnlyList<MachineStepDef> MachineSteps { get; }
         /// <summary>Optional machine upgrades: not needed to jump; each lengthens the jump.</summary>
         public IReadOnlyList<MachineStepDef> MachineUpgrades { get; }
+        /// <summary>The full assessment of the machine that must come before any repair (decided 2026-09-28).</summary>
+        public MachineStepDef? MachineAssessment { get; }
         public IReadOnlyList<InventionDef> Inventions { get; }
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
         private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyList<MachineStepDef> machine,
-            IReadOnlyList<MachineStepDef> upgrades, IReadOnlyList<InventionDef> inventions, IReadOnlyDictionary<string, string> text)
+            IReadOnlyList<MachineStepDef> upgrades, MachineStepDef? assessment, IReadOnlyList<InventionDef> inventions, IReadOnlyDictionary<string, string> text)
         {
+            MachineAssessment = assessment;
             MachineUpgrades = upgrades;
             Inventions = inventions;
             Projects = projects;
@@ -242,6 +245,7 @@ namespace Butterfly.Core
             var machine = machineObj.Arr("steps").Cast<JsonObject>().Select(o => new MachineStepDef(o)).ToList();
             var upgrades = machineObj.Has("upgrades")
                 ? machineObj.Arr("upgrades").Cast<JsonObject>().Select(o => new MachineStepDef(o)).ToList() : new List<MachineStepDef>();
+            var assessment = machineObj.Has("assessment") ? new MachineStepDef(machineObj.Obj("assessment")) : null;
             var inventions = Read(contentDirectory, "inventions.json").Arr("inventions").Cast<JsonObject>().Select(o => new InventionDef(o)).ToList();
             var textObj = Read(contentDirectory, "text.json");
             var text = new Dictionary<string, string>();
@@ -251,7 +255,7 @@ namespace Butterfly.Core
                 var obj = textObj.Obj(section);
                 foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
             }
-            return new Content(projects, institutions, machine, upgrades, inventions, text);
+            return new Content(projects, institutions, machine, upgrades, assessment, inventions, text);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

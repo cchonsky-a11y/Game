@@ -95,7 +95,8 @@ internal sealed class ConsoleGame
         Console.WriteLine("THE BUTTERFLY EFFECT — P0 Butterfly Test");
         Console.WriteLine("========================================");
         Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
-        Console.WriteLine("machine, what you know, and no one who owes you anything. Something is coming from the East in a few years.");
+        Console.WriteLine("machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.");
+        Console.WriteLine("You don't yet know what broke. Something is coming from the East within ten years.");
         Console.WriteLine("Once you repair it, the machine can carry you forward, " + _sim.T.GetInt("jump.range.baseMin") + " to " + _sim.T.GetInt("jump.range.maxYears") +
                           " years depending on how well you repair it. What you leave behind will go on without you.");
         Console.WriteLine();
@@ -140,6 +141,8 @@ internal sealed class ConsoleGame
   inventions                     things you can make from what you know, and what each needs from Rome
   invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
+  assess                         assess the machine to learn what's wrong (needed before any repair)
+  restore <gold>                 put scavenged gold back into the machine (all of it is needed to jump)
   repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
   upgrade <contacts|lens|flywheel>    optional: each upgrade lets the machine carry you further
   jump                           prepare to leave (then pay down, endow, audit, or 'jump' again)
@@ -178,9 +181,19 @@ internal sealed class ConsoleGame
                 break;
             case "institutions": case "i": Institutions(); return true;
             case "machine": case "m":
-                Console.WriteLine("Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps (all are needed to jump).");
+                Console.WriteLine("Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps and " + F(_sim.MachineGoldRestored) + "/" +
+                                  F(_sim.MachineGoldNeeded) + " gold restored (all are needed to jump).");
                 foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
                 return true;
+            case "assess": r = _sim.Assess(); break;
+            case "restore":
+                if (!double.TryParse(arg, NumberStyles.Float, CultureInfo.InvariantCulture, out var restore))
+                {
+                    Console.WriteLine("Usage: restore <gold>   (" + F(_sim.MachineGoldNeeded - _sim.MachineGoldRestored) + " gold still missing from the machine)");
+                    return false;
+                }
+                r = _sim.RestoreGold(restore);
+                break;
             case "repair": r = _sim.Repair(arg); break;
             case "upgrade": r = _sim.Upgrade(arg); break;
             case "inventions":
@@ -280,7 +293,8 @@ internal sealed class ConsoleGame
                               (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
         foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
-        Console.WriteLine("  Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" +
+        Console.WriteLine("  Machine: " + (_sim.MachineAssessed ? _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" : "not yet assessed") +
+                          ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) +
                           string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +
                           (_sim.MachineReady ? " — ready to jump" : "") + "   (machine)");
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");

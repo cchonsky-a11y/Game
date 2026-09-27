@@ -10,6 +10,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = new Simulation(TestData.Load(), seed);
             sim.World.Gold = 1000;
+            sim.MarkAssessedForTests();
             return sim;
         }
 
@@ -18,8 +19,54 @@ namespace Butterfly.Core.Tests
             for (int guard = 0; guard < 60 && !sim.MachineReady; guard++)
             {
                 foreach (var system in Simulation.MachineSystems) sim.Repair(system);
+                if (sim.MachineStepsDone >= sim.MachineStepsTotal) sim.RestoreGold(sim.MachineGoldNeeded);
                 sim.EndTurn();
             }
+        }
+
+        [Fact]
+        public void NothingCanBeRepairedBeforeTheMachineIsAssessed()
+        {
+            var sim = new Simulation(TestData.Load(), 7);
+            sim.World.Gold = 1000;
+            Assert.False(sim.MachineAssessed);
+            Assert.Null(sim.NextMachineStep("coil"));
+            Assert.False(sim.Repair("coil").Ok);
+            Assert.False(sim.Upgrade("lens").Ok);
+            Assert.Contains("Not yet assessed", sim.MachineStatus().First());
+            var a = sim.Data.Content.MachineAssessment!;
+            Assert.True(sim.Assess().Ok);
+            Assert.False(sim.Assess().Ok);                                   // already under way
+            for (int t = 0; t < a.Turns; t++) { Assert.False(sim.MachineAssessed); sim.EndTurn(); }
+            Assert.True(sim.MachineAssessed);
+            Assert.Contains(sim.Log.Events, e => e.Type == "machine.assessed" && e.ImmediateCauses.Count > 0);
+            Assert.Equal("bronze", sim.NextMachineStep("coil")!.Id);
+            Assert.True(sim.Repair("coil").Ok);
+            Assert.Equal(sim.MachineStepsTotal, sim.Data.Content.MachineSteps.Count);   // the assessment isn't a repair step
+        }
+
+        [Fact]
+        public void AllTheScavengedGoldMustGoBackAndItIsNotDebased()
+        {
+            var sim = Rich();
+            Assert.Equal(sim.T.Get("gold.start"), sim.MachineGoldNeeded, 9);
+            for (int guard = 0; guard < 60 && sim.MachineStepsDone < sim.MachineStepsTotal; guard++)
+            {
+                foreach (var system in Simulation.MachineSystems) sim.Repair(system);
+                sim.EndTurn();
+            }
+            Assert.False(sim.MachineReady);                                   // repaired, but the gold is still out
+            Assert.Throws<System.InvalidOperationException>(() => sim.Jump());
+            sim.World.PriceLevel = 2;                                         // prices don't change the machine's gold
+            double gold = sim.World.Gold;
+            Assert.True(sim.RestoreGold(25).Ok);
+            Assert.Equal(gold - 25, sim.World.Gold, 9);
+            Assert.False(sim.MachineReady);
+            Assert.True(sim.RestoreGold(1000).Ok);                            // only what's missing is taken
+            Assert.Equal(gold - sim.MachineGoldNeeded, sim.World.Gold, 9);
+            Assert.True(sim.MachineReady);
+            Assert.False(sim.RestoreGold(1).Ok);
+            Assert.Contains(sim.Log.Events, e => e.Type == "machine.gold");
         }
 
         [Fact]

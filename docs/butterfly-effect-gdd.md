@@ -870,7 +870,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Era length (P0) | 20 years (80 three-month turns, AD 155–175) |
 | Entry fee and dues (P0) | Entry fee 5–30 gold by institution; annual dues = base 1–5 gold + 0.1 per percent held |
 | Inventions (P0) | 5 inventions; income +2 to +10 a year, leader loyalty +10, +3% stake, small domain effects; each needs something from Rome |
-| Time machine (P0) | 9 repair steps in three systems, all required to jump; 3 optional upgrades; the jump is 25–60 years, drawn within a range set by repairs, time in the era and upgrades |
+| Time machine (P0) | A full assessment first (1 Attention a turn for 4 turns) reveals what is wrong; 9 repair steps in three systems, all required to jump; all 60 gold scavenged from the machine must go back in (fixed; the machine's gold is not debased); 3 optional upgrades; the jump is 25–60 years, drawn within a range set by repairs, time in the era and upgrades |
 | Joining benefits (P0) | +10% work pay per membership; a voice (25%) makes the institution pay a quarter of projects in its domain; project gold ×1.5 |
 | Prices (P0) | Price level +1.5%/yr as history, +4% debased, 0% sound (by sway); gold costs scale with it; pay catches up half as fast |
 | The coin (P0) | Near half of Rome's historical Economy decline (155–268) and a quarter of Governance's come from debasement, timed by the silver content (78% → 50% by 200 → 3% by 268); sound coin defended after departure spares that share, debasement adds half again |

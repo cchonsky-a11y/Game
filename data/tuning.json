@@ -1339,5 +1339,11 @@
       "value": 0.5,
       "ref": "DECIDED 2026-09-28 (Corey: with debasement, prices rise each year); rate PROPOSED P0-24: work pay rises by this share of the price rise"
     }
+  },
+  "machine": {
+    "restoreGold": {
+      "value": 60,
+      "ref": "DECIDED 2026-09-28 (Corey): all the gold you scavenged from the machine at the start (gold.start) goes back in before it can jump; fixed, since the machine's gold is not debased"
+    }
   }
 }

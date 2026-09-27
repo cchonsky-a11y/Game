@@ -31,7 +31,8 @@ namespace Butterfly.Core
         {
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
             if (!ignoreMachine && !MachineReady)
-                throw new InvalidOperationException("The machine isn't repaired (" + MachineStepsDone + "/" + MachineStepsTotal + " steps).");
+                throw new InvalidOperationException("The machine isn't ready (" + MachineStepsDone + "/" + MachineStepsTotal + " steps, " +
+                                                    F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " gold restored).");
             var arrival = new Arrival { DepartureYear = Now.Year };
             DepartureYear = Now.Year;
             _warningsBeforeDeparture = World.Plague.Stage >= 1;

@@ -57,6 +57,8 @@ namespace Butterfly.Core
         /// <summary>Time machine repair steps finished, and the ones under way (P0 repair track).</summary>
         public List<string> MachineDone { get; } = new List<string>();
         public List<ActiveMachineStep> ActiveMachineSteps { get; } = new List<ActiveMachineStep>();
+        /// <summary>Gold put back into the machine so far (decided 2026-09-28: all you scavenged must go back).</summary>
+        public double MachineGoldRestored { get; set; }
         /// <summary>Inventions finished and under way; what they pay you each year; the extra pay they add to consulting.</summary>
         public List<string> Invented { get; } = new List<string>();
         public List<ActiveInvention> ActiveInventions { get; } = new List<ActiveInvention>();

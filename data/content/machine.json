@@ -1,5 +1,14 @@
 {
-  "_readme": "The time machine repair track for P0 (DECIDED 2026-09-28, Corey): three systems, three small steps each; all 9 are required before the machine can jump. Each step needs something from Rome (a membership, a finished project) or, for the first step of a system, more gold instead. No fuel puzzle, repair tiers or malfunctions (out of P0 scope). Amounts PROPOSED P0-21. To be built out later. Slowed down 2026-09-28 (Corey: the repair should take a couple of years): steps take 2–6 turns; with Attention shared across systems, the full track takes about 3–4 years. Optional upgrades (DECIDED 2026-09-28, Corey): not needed to jump; each lengthens the jump. The jump's distance depends on the repairs, your time in the era and the upgrades (tuning jump.range).",
+  "_readme": "The time machine repair track for P0 (DECIDED 2026-09-28, Corey): three systems, three small steps each; all 9 are required before the machine can jump. Each step needs something from Rome (a membership, a finished project) or, for the first step of a system, more gold instead. No fuel puzzle, repair tiers or malfunctions (out of P0 scope). Amounts PROPOSED P0-21. To be built out later. Slowed down 2026-09-28 (Corey: the repair should take a couple of years): steps take 2–6 turns; with Attention shared across systems, the full track takes about 3–4 years. Optional upgrades (DECIDED 2026-09-28, Corey): not needed to jump; each lengthens the jump. The jump's distance depends on the repairs, your time in the era and the upgrades (tuning jump.range). Assessment (DECIDED 2026-09-28, Corey): before any repair or upgrade, one full assessment of the machine reveals what is wrong (1 Attention a turn for 4 turns). Gold (DECIDED 2026-09-28, Corey): the gold you scavenged from the machine at the start must all go back in before it can jump (tuning machine.restoreGold); the machine's gold is not debased, so the amount is fixed.",
+  "assessment": {
+    "id": "assess",
+    "system": "assessment",
+    "name": "Assess the machine",
+    "gold": 0,
+    "attentionPerTurn": 1,
+    "turns": 4,
+    "text": "You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)"
+  },
   "steps": [
     {
       "id": "bronze",

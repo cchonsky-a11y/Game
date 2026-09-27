@@ -15,12 +15,16 @@ namespace Butterfly.Batch
         public abstract void PlayTurn(Simulation sim);
 
         /// <summary>
-        /// Every strategy repairs the time machine (all 9 steps are needed to jump): it starts the next affordable step
-        /// of each system before its own turn.
+        /// Every strategy repairs the time machine (all 9 steps are needed to jump): it assesses the machine first, then
+        /// starts the next affordable step of each system before its own turn, and once the repairs are done puts the
+        /// scavenged gold back as it can.
         /// </summary>
         public static void RepairMachine(Simulation sim)
         {
             if (sim.Turn == 1) return; // the hour-one choice comes first
+            if (!sim.MachineAssessed) { sim.Assess(); return; }
+            if (sim.MachineStepsDone >= sim.MachineStepsTotal && sim.MachineGoldRestored < sim.MachineGoldNeeded && sim.World.Gold > 0)
+                sim.RestoreGold(sim.MachineGoldNeeded - sim.MachineGoldRestored);
             foreach (var system in Simulation.MachineSystems)
             {
                 var step = sim.NextMachineStep(system);
