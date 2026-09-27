@@ -308,10 +308,10 @@ namespace Butterfly.Core.Tests
     public class InventionTreeTests
     {
         [Fact]
-        public void ThreeBranchesOfThreeWithEachTierNeedingTheOneBefore()
+        public void FourBranchesOfThreeWithEachTierNeedingTheOneBefore()
         {
             var inventions = TestData.Load().Content.Inventions;
-            Assert.Equal(9, inventions.Count);
+            Assert.Equal(12, inventions.Count);
             foreach (var branch in Simulation.InventionBranches)
             {
                 var chain = inventions.Where(i => i.Branch == branch).ToList();
@@ -322,6 +322,40 @@ namespace Butterfly.Core.Tests
                 Assert.True(chain[2].Gold > chain[1].Gold && chain[1].Gold > chain[0].Gold);   // each tier costs more
             }
             Assert.Empty(ContentChecks.Check(TestData.Load().Content).Where(p => p.StartsWith("invention")));
+        }
+
+        [Fact]
+        public void EveryEstablishedInstitutionCanGainStandingAndStakesVary()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            var groups = new System.Collections.Generic.Dictionary<string, string[]>
+            {
+                { "trade", new[] { "guild", "bank" } }, { "medicine", new[] { "circle", "sanctuary" } }, { "faction", new[] { "faction", "junian" } },
+                { "guild", new[] { "guild" } }, { "junian", new[] { "junian" } }, { "bank", new[] { "bank" } },
+                { "circle", new[] { "circle" } }, { "sanctuary", new[] { "sanctuary" } },
+            };
+            var covered = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "stake").SelectMany(e => groups[e.Group!]).ToHashSet();
+            foreach (var id in new[] { "circle", "sanctuary", "faction", "junian", "guild", "bank" }) Assert.Contains(id, covered);
+            var stakes = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "stake").Select(e => e.Value).Distinct().Count();
+            var loyalties = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "loyalty").Select(e => e.Value).Distinct().Count();
+            Assert.True(stakes >= 4 && loyalties >= 4);   // standing varies by invention
+            Assert.Contains("stake", sim.InventionPayoffText(sim.InventionById("bills")!));
+        }
+
+        [Fact]
+        public void WorkshopInventionsRaiseTheWorkshopsIncomeModestly()
+        {
+            var sim = new Simulation(TestData.Load(), 9);
+            sim.World.Gold = 1000;
+            sim.World.Attention = 100;
+            sim.World.CompletedProjects.Add("workshop");
+            sim.World.IncomeBonus += sim.WorkshopRate();
+            double before = sim.OwnedIncome();
+            Assert.True(sim.Invent("lathe").Ok);
+            for (int t = 0; t < sim.InventionById("lathe")!.Turns; t++) sim.EndTurn();
+            Assert.Equal(before * 1.10, sim.OwnedIncome(), 6);
+            // All three together add less than half again to the workshop.
+            Assert.True(sim.Data.Content.Inventions.Where(i => i.Branch == "workshop").SelectMany(i => i.Effects).Where(e => e.Type == "workshop").Sum(e => e.Value) < 0.5);
         }
 
         [Fact]

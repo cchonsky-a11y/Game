@@ -1,5 +1,5 @@
 {
-  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22. The compound pulley crane was replaced by the padded horse collar on 2026-09-28 (Corey: Rome already had pulley cranes, and a crane doesn't follow from the wheelbarrow).",
+  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22. The compound pulley crane was replaced by the padded horse collar on 2026-09-28 (Corey: Rome already had pulley cranes, and a crane doesn't follow from the wheelbarrow). Workshop branch and varied patrons (DECIDED 2026-09-28, Corey): a fourth branch improves the workshop (treadle lathe → water-powered bellows → blast furnace; +10% / +15% / +20% of the workshop's income, kept modest); every invention names the institution(s) it wins standing in, with stake and loyalty that vary by invention, covering all six established institutions.",
   "inventions": [
     {
       "id": "wheelbarrow",
@@ -13,6 +13,16 @@
         {
           "type": "income",
           "value": 3
+        },
+        {
+          "type": "loyalty",
+          "group": "junian",
+          "value": 5
+        },
+        {
+          "type": "stake",
+          "group": "junian",
+          "value": 1
         }
       ],
       "description": "One wheel, two handles, a tray: a builder's laborer moves three times the load.",
@@ -61,23 +71,23 @@
           "value": 10
         },
         {
-          "type": "loyalty",
-          "group": "guild",
-          "value": 10
-        },
-        {
-          "type": "stake",
-          "group": "guild",
-          "value": 3
-        },
-        {
           "type": "level",
           "domain": "economy",
           "value": 2
+        },
+        {
+          "type": "loyalty",
+          "group": "bank",
+          "value": 12
+        },
+        {
+          "type": "stake",
+          "group": "bank",
+          "value": 4
         }
       ],
       "description": "A water wheel lifts a heavy hammer by a cam, day and night, for fulling cloth and beating iron.",
-      "completionText": "The trip hammer pounds beside the river; the guild's members queue to use it, and pay."
+      "completionText": "The trip hammer pounds beside the river; the banking house that lent against the mill takes a larger interest in you, and the guild's members queue to use it, and pay."
     },
     {
       "id": "bookkeeping",
@@ -126,17 +136,17 @@
         },
         {
           "type": "loyalty",
-          "group": "trade",
-          "value": 10
+          "group": "bank",
+          "value": 15
         },
         {
           "type": "stake",
-          "group": "trade",
-          "value": 3
+          "group": "bank",
+          "value": 5
         }
       ],
       "description": "A merchant in Ostia writes a note; his partner in Alexandria pays it. Gold stays home, and trade moves on paper.",
-      "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the house that honors them grows, and so does your share."
+      "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the banking house that honors them grows, and so does your share."
     },
     {
       "id": "audit",
@@ -156,12 +166,12 @@
         {
           "type": "loyalty",
           "group": "faction",
-          "value": 10
+          "value": 20
         },
         {
           "type": "stake",
           "group": "faction",
-          "value": 3
+          "value": 2
         }
       ],
       "description": "The city's accounts kept by double entry and read aloud each year: every tax farmer's sums checked against his receipts.",
@@ -215,7 +225,12 @@
         {
           "type": "loyalty",
           "group": "medicine",
-          "value": 10
+          "value": 12
+        },
+        {
+          "type": "stake",
+          "group": "medicine",
+          "value": 2
         },
         {
           "type": "level",
@@ -243,12 +258,12 @@
         {
           "type": "loyalty",
           "group": "medicine",
-          "value": 10
+          "value": 20
         },
         {
           "type": "stake",
           "group": "medicine",
-          "value": 3
+          "value": 4
         },
         {
           "type": "level",
@@ -262,6 +277,94 @@
       ],
       "description": "The sick kept apart, in clean beds, each with a written record of symptoms, treatment and outcome, so the physicians learn what works.",
       "completionText": "The fever ward opens with twelve beds and a ledger; within a year its physicians know which treatments save lives, and they say whose idea it was."
+    },
+    {
+      "id": "lathe",
+      "branch": "workshop",
+      "name": "The treadle lathe",
+      "gold": 35,
+      "attentionPerTurn": 2,
+      "turns": 3,
+      "requirement": "workshop",
+      "effects": [
+        {
+          "type": "workshop",
+          "value": 0.1
+        },
+        {
+          "type": "loyalty",
+          "group": "guild",
+          "value": 8
+        },
+        {
+          "type": "stake",
+          "group": "guild",
+          "value": 1
+        }
+      ],
+      "description": "A foot treadle and crank spin the work steadily, leaving both hands free: one smith turns true axles, spindles and handles alone.",
+      "completionText": "The smith's apprentices take turns at the treadle; the workshop turns out axles faster than the carters can buy them."
+    },
+    {
+      "id": "bellows",
+      "branch": "workshop",
+      "name": "Water-powered bellows",
+      "gold": 55,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "prerequisite": "lathe",
+      "requirement": "workshopAndTrade",
+      "effects": [
+        {
+          "type": "workshop",
+          "value": 0.15
+        },
+        {
+          "type": "loyalty",
+          "group": "trade",
+          "value": 6
+        },
+        {
+          "type": "stake",
+          "group": "trade",
+          "value": 2
+        }
+      ],
+      "description": "A water wheel works the bellows day and night: the forge runs hotter and steadier, and burns less charcoal.",
+      "completionText": "The forge breathes without a boy at the bellows; the workshop's iron comes out cleaner, and the guild's merchants buy all of it."
+    },
+    {
+      "id": "furnace",
+      "branch": "workshop",
+      "name": "A blast furnace",
+      "gold": 80,
+      "attentionPerTurn": 2,
+      "turns": 5,
+      "prerequisite": "bellows",
+      "requirement": "workshopAndGuild10",
+      "effects": [
+        {
+          "type": "workshop",
+          "value": 0.2
+        },
+        {
+          "type": "level",
+          "domain": "economy",
+          "value": 1
+        },
+        {
+          "type": "loyalty",
+          "group": "faction",
+          "value": 12
+        },
+        {
+          "type": "stake",
+          "group": "faction",
+          "value": 3
+        }
+      ],
+      "description": "A tall furnace fed by the water bellows runs hot enough to melt iron outright, so it can be poured into moulds instead of hammered.",
+      "completionText": "Molten iron runs into sand moulds by the Porta Trigemina; the senators with public works to build want cast iron, and they want to know you."
     }
   ]
 }

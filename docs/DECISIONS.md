@@ -236,3 +236,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-28 — Farming inventions wait for Agriculture (Corey)
 - **Decision:** farming equipment (for example a wheeled heavy plough after the horse collar, crop rotation, a seed drill) arrives with the Agriculture domain in a later milestone, not in P0, where Agriculture is out of scope. Not routed through the Economy in the meantime. Source: Corey.
+
+## 2026-09-28 — Workshop inventions; standing across institutions (Corey, from play)
+- **Decision:** a fourth invention branch improves your workshop: the treadle lathe → water-powered bellows → a blast furnace, raising the workshop's income by +10% / +15% / +20% (kept modest at Corey's request; all three together +45%). Every invention now names the institution(s) it wins standing in, with stake and loyalty that vary by invention (stake 1–5%, loyalty 5–20), covering all six established institutions (the wheelbarrow now the Junians, the trip hammer and bills of exchange the banking house); rewards apply where you are a member. `inventions` shows each payoff. PROTOTYPE_SCOPE, SYSTEMS §7, GDD Appendix A, P0-22. Source: Corey.

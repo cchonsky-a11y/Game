@@ -869,7 +869,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Seniority and newcomer premium (P0) | +1% stake a year of paid-up membership, up to 25%; newcomer price ×3 fading to ×1 over 5 years |
 | Era length (P0) | 20 years (80 three-month turns, AD 155–175) |
 | Entry fee and dues (P0) | Entry fee 5–30 gold by institution; annual dues = base 1–5 gold + 0.1 per percent held |
-| Inventions (P0) | An invention tree: 9 inventions in three branches of three tiers (mechanics: wheelbarrow → horse collar → trip hammer; accounts; hygiene); each needs its branch predecessor and something from Rome; pays income, leader loyalty, stake and some domain levels |
+| Inventions (P0) | An invention tree: 12 inventions in four branches of three tiers (mechanics: wheelbarrow → horse collar → trip hammer; accounts; hygiene; workshop: lathe → water bellows → blast furnace, +10/15/20% workshop income); varied stake and loyalty for all six established institutions; each needs its branch predecessor and something from Rome; pays income, leader loyalty, stake and some domain levels |
 | Time machine (P0) | A full assessment first (1 Attention a turn for 4 turns) reveals what is wrong; 9 repair steps in three systems, all required to jump; all 60 gold scavenged from the machine must go back in (fixed; the machine's gold is not debased); 3 optional upgrades; the jump is 25–60 years, drawn within a range set by repairs, time in the era and upgrades |
 | Joining benefits (P0) | +10% work pay per membership; a voice (25%) makes the institution pay a quarter of projects in its domain; project gold ×1.5 |
 | Prices (P0) | Price level +1.5%/yr as history, +4% debased, 0% sound (by sway); gold costs scale with it; pay catches up half as fast |

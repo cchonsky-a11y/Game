@@ -64,6 +64,8 @@ namespace Butterfly.Core
         public List<ActiveInvention> ActiveInventions { get; } = new List<ActiveInvention>();
         public double InventionIncome { get; set; }
         public double ConsultBonus { get; set; }
+        /// <summary>Workshop inventions: the workshop's income is this much higher (decided 2026-09-28).</summary>
+        public double WorkshopBonus { get; set; }
         public List<string> CompletedProjects { get; } = new List<string>();
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>

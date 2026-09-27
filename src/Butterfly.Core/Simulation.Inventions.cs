@@ -14,7 +14,38 @@ namespace Butterfly.Core
         public IEnumerable<InventionDef> AvailableInventions() =>
             Data.Content.Inventions.Where(i => !World.Invented.Contains(i.Id) && World.ActiveInventions.All(a => a.Def.Id != i.Id));
 
-        public static readonly string[] InventionBranches = { "mechanics", "accounts", "hygiene" };
+        public static readonly string[] InventionBranches = { "mechanics", "accounts", "hygiene", "workshop" };
+
+        private static readonly Dictionary<string, string> InventionGroupNames = new Dictionary<string, string>
+        {
+            { "trade", "the guild or the bank" }, { "medicine", "the Circle or the sanctuary" }, { "faction", "a senate faction" },
+            { "guild", "the guild" }, { "junian", "the Junian faction" }, { "bank", "the banking house" },
+            { "circle", "the Physicians' Circle" }, { "sanctuary", "the sanctuary" },
+        };
+
+        /// <summary>What an invention pays, in words: income, workshop, levels, and standing with its patrons (varies by invention).</summary>
+        public string InventionPayoffText(InventionDef def)
+        {
+            var parts = new List<string>();
+            foreach (var fx in def.Effects)
+                switch (fx.Type)
+                {
+                    case "income": parts.Add("+" + F(fx.Value) + " gold a year"); break;
+                    case "workshop": parts.Add("workshop income +" + F(fx.Value * 100) + "%"); break;
+                    case "consultBonus": parts.Add("consulting +" + F(fx.Value * 100) + "%"); break;
+                    case "level": parts.Add(fx.Domain + " " + Signed(fx.Value)); break;
+                    case "plagueResilience": parts.Add("plague resilience +" + F(fx.Value * 100) + "%"); break;
+                }
+            foreach (var g in def.Effects.Where(x => x.Group != null).Select(x => x.Group!).Distinct())
+            {
+                var loyalty = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "loyalty");
+                var stake = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "stake");
+                parts.Add(InventionGroupNames[g] + ": " + string.Join(", ", new[] {
+                    stake != null ? "+" + F(stake.Value) + "% stake" : null,
+                    loyalty != null ? "+" + F(loyalty.Value) + " loyalty" : null }.Where(x => x != null)) + " (if you're a member)");
+            }
+            return string.Join("; ", parts);
+        }
 
         /// <summary>The invention tree (decided 2026-09-28): an invention's branch predecessor must be made first.</summary>
         public bool InventionUnlocked(InventionDef def) => def.Prerequisite == null || World.Invented.Contains(def.Prerequisite);
@@ -36,6 +67,7 @@ namespace Butterfly.Core
         {
             { "trade", new[] { "guild", "bank" } }, { "medicine", new[] { "circle", "sanctuary" } },
             { "faction", new[] { "faction", "junian" } }, { "guild", new[] { "guild" } },
+            { "junian", new[] { "junian" } }, { "bank", new[] { "bank" } }, { "circle", new[] { "circle" } }, { "sanctuary", new[] { "sanctuary" } },
         };
 
         public int InventionGold(InventionDef def) => (int)Math.Round(def.Gold * World.PriceLevel);
@@ -162,6 +194,16 @@ namespace Butterfly.Core
                     if (fx.Domain.HasValue)
                         ChangeLevel(fx.Domain.Value, fx.Value, "invention.effect", new[] { causeId }, new[] { "player" }, def.Name + " spreads: " + fx.Domain.Value + " " + Signed(fx.Value) + ".");
                     break;
+                case "workshop":
+                {
+                    double before = World.WorkshopBonus;
+                    World.WorkshopBonus += fx.Value;
+                    Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
+                        new[] { new Effect("income.workshop", before, World.WorkshopBonus) },
+                        def.Name + " improves the workshop: its income is now " + F(World.WorkshopBonus * 100) + "% higher" +
+                        (World.CompletedProjects.Contains("workshop") ? "." : " (once you own a share of it)."));
+                    break;
+                }
                 case "plagueResilience":
                     World.PlagueResilienceBonus += fx.Value;
                     Record("plague.resilience", "plague", new[] { causeId }, new[] { "player" },

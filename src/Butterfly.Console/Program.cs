@@ -206,7 +206,11 @@ internal sealed class ConsoleGame
                         string state = _sim.InventionState(idea);
                         Console.WriteLine("    " + idea.Id.PadRight(12) + (_sim.InventionGold(idea) + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
                                           (state == "ready" ? "" : "   (" + state + ")"));
-                        if (state != "made") Console.WriteLine("                " + idea.Description);
+                        if (state != "made")
+                        {
+                            Console.WriteLine("                " + idea.Description);
+                            Console.WriteLine("                Pays: " + _sim.InventionPayoffText(idea));
+                        }
                     }
                 }
                 return true;
