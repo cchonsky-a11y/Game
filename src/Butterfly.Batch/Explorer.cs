@@ -366,7 +366,7 @@ namespace Butterfly.Batch
                     actions.Add((0.6, () => Do(sim, res, () => sim.Invent(inv.Id))));
             // Paying down debt.
             foreach (var d in w.Domains.Where(d => d.Debt >= 1).ToList())
-                if (r.Chance(p.PaydownRate))
+                if (!saving && r.Chance(p.PaydownRate))
                 {
                     double pts = Math.Floor(Math.Min(d.Debt, Math.Max(0, w.Gold - Reserve(sim)) / sim.PaydownCost(1)));
                     if (pts >= 1) actions.Add((1, () => Do(sim, res, () => sim.PayDown(d.Domain, pts))));
@@ -452,6 +452,8 @@ namespace Butterfly.Batch
             sb.AppendLine("- Economic busts while away: " + busty.Count + " runs, " + busty.Sum(x => x.BustsInAbsence) + " busts (up to " + (busty.Count > 0 ? busty.Max(x => x.BustsInAbsence) : 0) + " in one run); their mean second-arrival Index " + (busty.Count > 0 ? F(busty.Average(x => x.IndexArrival2)) : "-") + " vs " + F(ok.Where(x => x.BustsInAbsence == 0).Average(x => x.IndexArrival2)) + " without.");
             var dup = ok.Count(x => { var w = x.Beats1.Length > 1 ? x.Beats1[1] : ""; return w.Contains("copper washed in silver") && w.Contains("bronze washed thin"); });
             sb.AppendLine("- Wrongness beat describing the debased coin twice (\"copper washed in silver\" and \"bronze washed thin\"): " + dup + " first arrivals.");
+            foreach (var rich in results.Where(x => x.AureiAfter1 > 300).OrderByDescending(x => x.AureiAfter1).Take(3))
+                sb.AppendLine("- Large purse at the first arrival: run " + rich.Run + " holds " + F(rich.AureiAfter1, "0") + " aurei (" + rich.Persona.Describe() + ").");
             sb.AppendLine("- Determinism: " + (determinism.Count == 0 ? "10 runs replayed with identical log hashes." : string.Join("; ", determinism)));
             sb.AppendLine("- Refused commands: " + results.Sum(x => x.Refused) + " of " + results.Sum(x => x.Actions) + " (random players try things they can't do; not bugs by themselves).");
             sb.AppendLine();
