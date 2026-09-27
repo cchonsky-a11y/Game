@@ -84,7 +84,7 @@ namespace Butterfly.Core
             Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
             int members = Memberships();
             return CommandResult.Success("You earn " + Money(pay) + (members > 0 ? " (" + Money(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
-                                         " membership" + (members == 1 ? "" : "s") + ")" : "") + "; " + Money(tax) + " goes in tax, you keep " + Money(pay - tax) + ".");
+                                         " membership" + (members == 1 ? "" : "s") + ")" : "") + "; tax takes " + Money(tax) + ", you keep " + Money(pay - tax) + ".");
         }
 
         // ---- multi-turn commitments -----------------------------------------

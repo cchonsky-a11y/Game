@@ -86,7 +86,12 @@ namespace Butterfly.Core
                 }
                 case "forges": case "guild": case "workshop":
                 {
-                    if (first) { lines.Add(text.Template("walk.forges.start")); break; }
+                    if (first)
+                    {
+                        bool partner = World.SeededChoice == "workshop" || World.CompletedProjects.Contains("workshop");
+                        lines.Add(text.Template(partner ? "walk.forges.start.partner" : "walk.forges.start"));
+                        break;
+                    }
                     lines.Add(World.CompletedProjects.Contains("workshop") ? text.Template("walk.forges.workshop." + Band(Domain.Economy)) : text.Template("walk.forges.noWorkshop"));
                     var guild = World.Institution("guild");
                     if (HasInfluence(guild)) lines.Add(Cap(CurrentName(guild)) + ": " + OutcomeOf(guild).ToString().ToLowerInvariant() + ", strength " + R(guild.Strength, "0") + ".");
