@@ -237,7 +237,7 @@ internal sealed class ConsoleGame
                     foreach (var idea in _sim.Data.Content.Inventions.Where(x => x.Branch == branch))
                     {
                         string state = _sim.InventionState(idea);
-                        Console.WriteLine("    " + idea.Id.PadRight(12) + (_sim.InventionGold(idea) + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
+                        Console.WriteLine("    " + idea.Id.PadRight(12) + _sim.Money(_sim.InventionGold(idea)).PadLeft(14) + ", " + idea.AttentionPerTurn + " Attention a turn for " + idea.Turns + " turns  " + idea.Name +
                                           (state == "ready" ? "" : "   (" + state + ")"));
                         if (state != "made")
                         {
