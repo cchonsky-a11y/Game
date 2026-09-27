@@ -301,3 +301,48 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>The invention tree: three branches of three tiers (decided 2026-09-28).</summary>
+    public class InventionTreeTests
+    {
+        [Fact]
+        public void ThreeBranchesOfThreeWithEachTierNeedingTheOneBefore()
+        {
+            var inventions = TestData.Load().Content.Inventions;
+            Assert.Equal(9, inventions.Count);
+            foreach (var branch in Simulation.InventionBranches)
+            {
+                var chain = inventions.Where(i => i.Branch == branch).ToList();
+                Assert.Equal(3, chain.Count);
+                Assert.Null(chain[0].Prerequisite);
+                Assert.Equal(chain[0].Id, chain[1].Prerequisite);
+                Assert.Equal(chain[1].Id, chain[2].Prerequisite);
+                Assert.True(chain[2].Gold > chain[1].Gold && chain[1].Gold > chain[0].Gold);   // each tier costs more
+            }
+            Assert.Empty(ContentChecks.Check(TestData.Load().Content).Where(p => p.StartsWith("invention")));
+        }
+
+        [Fact]
+        public void ALockedInventionShowsWhatItNeedsAndCantBeStarted()
+        {
+            var sim = new Simulation(TestData.Load(), 9);
+            sim.World.Gold = 1000;
+            sim.World.Attention = 100;
+            sim.World.CompletedProjects.Add("fountain");
+            sim.GrantStake("sanctuary", 0.01);
+            var spirits = sim.InventionById("spirits")!;
+            Assert.StartsWith("locked: first make Soap", sim.InventionState(spirits));
+            Assert.False(sim.Invent("spirits").Ok);
+            Assert.Equal("ready", sim.InventionState(sim.InventionById("soap")!));
+            Assert.True(sim.Invent("soap").Ok);
+            for (int t = 0; t < sim.InventionById("soap")!.Turns; t++) sim.EndTurn();
+            sim.World.Attention = 100;
+            Assert.Equal("ready", sim.InventionState(spirits));
+            Assert.True(sim.Invent("spirits").Ok);
+            // The top tier needs both its predecessor and more from Rome (10% of a Medicine house).
+            Assert.StartsWith("locked", sim.InventionState(sim.InventionById("ward")!));
+        }
+    }
+}

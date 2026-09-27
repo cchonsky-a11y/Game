@@ -181,6 +181,9 @@ namespace Butterfly.Core
         public int AttentionPerTurn { get; }
         public int Turns { get; }
         public string Requirement { get; }
+        /// <summary>The invention tree (decided 2026-09-28): its branch, and the invention it needs first (null for a branch's first).</summary>
+        public string Branch { get; }
+        public string? Prerequisite { get; }
         public IReadOnlyList<InventionEffect> Effects { get; }
         public string Description { get; }
         public string CompletionText { get; }
@@ -193,6 +196,8 @@ namespace Butterfly.Core
             AttentionPerTurn = (int)o.Num("attentionPerTurn");
             Turns = (int)o.Num("turns");
             Requirement = o.Str("requirement");
+            Branch = o.Has("branch") ? o.Str("branch") : "";
+            Prerequisite = o.Has("prerequisite") ? o.Str("prerequisite") : null;
             Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new InventionEffect(x)).ToList();
             Description = o.Str("description");
             CompletionText = o.Str("completionText");

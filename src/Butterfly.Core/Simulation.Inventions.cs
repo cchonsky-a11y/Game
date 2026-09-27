@@ -14,6 +14,24 @@ namespace Butterfly.Core
         public IEnumerable<InventionDef> AvailableInventions() =>
             Data.Content.Inventions.Where(i => !World.Invented.Contains(i.Id) && World.ActiveInventions.All(a => a.Def.Id != i.Id));
 
+        public static readonly string[] InventionBranches = { "mechanics", "accounts", "hygiene" };
+
+        /// <summary>The invention tree (decided 2026-09-28): an invention's branch predecessor must be made first.</summary>
+        public bool InventionUnlocked(InventionDef def) => def.Prerequisite == null || World.Invented.Contains(def.Prerequisite);
+
+        public InventionDef? InventionById(string id) => Data.Content.Inventions.FirstOrDefault(i => i.Id == id);
+
+        /// <summary>Where an invention stands: made, under way, locked behind its predecessor, waiting on Rome, or ready.</summary>
+        public string InventionState(InventionDef def)
+        {
+            if (World.Invented.Contains(def.Id)) return "made";
+            var active = World.ActiveInventions.FirstOrDefault(a => a.Def.Id == def.Id);
+            if (active != null) return "under way (" + active.TurnsRemaining + " turn(s) left)";
+            if (!InventionUnlocked(def)) return "locked: first make " + InventionById(def.Prerequisite!)!.Name;
+            if (!InventionRequirementMet(def)) return "needs " + InventionRequirementText(def);
+            return "ready";
+        }
+
         private static readonly Dictionary<string, string[]> InventionGroups = new Dictionary<string, string[]>
         {
             { "trade", new[] { "guild", "bank" } }, { "medicine", new[] { "circle", "sanctuary" } },
@@ -34,6 +52,10 @@ namespace Butterfly.Core
                     return new[] { "fountain", "physician", "quarantine", "midwives" }.Any(World.CompletedProjects.Contains) || backed("circle", "sanctuary");
                 case "workshopAndFaction": return workshop && backed("faction", "junian");
                 case "workshopAndGuild10": return workshop && HasInfluence(World.Institution("guild"));
+                case "tradeInfluence": return HasInfluence(World.Institution("guild")) || World.Institution("bank").Backed;
+                case "factionInfluence": return HasInfluence(World.Institution("faction")) || HasInfluence(World.Institution("junian"));
+                case "medicineMember": return backed("circle", "sanctuary");
+                case "medicineInfluence": return HasInfluence(World.Institution("circle")) || HasInfluence(World.Institution("sanctuary"));
                 default: throw new InvalidOperationException("Unknown invention requirement: " + def.Requirement);
             }
         }
@@ -47,6 +69,10 @@ namespace Butterfly.Core
                 case "medicineWork": return "a finished Medicine project or membership in the Circle or the sanctuary (physicians to use it)";
                 case "workshopAndFaction": return "the workshop and membership in a senate faction (a public-works contract)";
                 case "workshopAndGuild10": return "the workshop and 10% of the guild (a mill site and the guild's backing)";
+                case "tradeInfluence": return "10% of the guild or membership in the bank (a house to honor the notes)";
+                case "factionInfluence": return "10% of a senate faction (senators to push it through)";
+                case "medicineMember": return "membership in the Circle or the sanctuary (surgeons to use it)";
+                case "medicineInfluence": return "10% of the Circle or the sanctuary (a house of healing to run it)";
                 default: return def.Requirement;
             }
         }
@@ -57,6 +83,8 @@ namespace Butterfly.Core
             if (def == null) return CommandResult.Fail("No invention called '" + id + "'. (inventions)");
             if (World.Invented.Contains(def.Id)) return CommandResult.Fail(def.Name + " is already made.");
             if (World.ActiveInventions.Any(a => a.Def.Id == def.Id)) return CommandResult.Fail(def.Name + " is already under way.");
+            if (!InventionUnlocked(def))
+                return CommandResult.Fail(def.Name + " builds on " + InventionById(def.Prerequisite!)!.Name + ": make that first.");
             if (!InventionRequirementMet(def))
                 return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
             int price = InventionGold(def);

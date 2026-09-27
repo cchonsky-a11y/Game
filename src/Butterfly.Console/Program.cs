@@ -138,7 +138,7 @@ internal sealed class ConsoleGame
   log [n]                        the last n events
   end                            end the turn (3 months)
   wait                           let turns pass until something needs you
-  inventions                     things you can make from what you know, and what each needs from Rome
+  inventions                     the invention tree: what you can make, what each needs first and from Rome
   invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
   assess                         assess the machine to learn what's wrong (needed before any repair)
@@ -197,11 +197,17 @@ internal sealed class ConsoleGame
             case "repair": r = _sim.Repair(arg); break;
             case "upgrade": r = _sim.Upgrade(arg); break;
             case "inventions":
-                foreach (var idea in _sim.AvailableInventions())
-                    Console.WriteLine("  " + idea.Id.PadRight(12) + (_sim.InventionGold(idea) + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
-                                      (_sim.InventionRequirementMet(idea) ? "" : "   (needs " + _sim.InventionRequirementText(idea) + ")") + "\n" +
-                                      "              " + idea.Description);
-                foreach (var a in _sim.World.ActiveInventions) Console.WriteLine("  Under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
+                foreach (var branch in Simulation.InventionBranches)
+                {
+                    Console.WriteLine("  " + char.ToUpperInvariant(branch[0]) + branch.Substring(1) + ":");
+                    foreach (var idea in _sim.Data.Content.Inventions.Where(x => x.Branch == branch))
+                    {
+                        string state = _sim.InventionState(idea);
+                        Console.WriteLine("    " + idea.Id.PadRight(12) + (_sim.InventionGold(idea) + "g").PadLeft(4) + "  " + idea.Turns + "t  " + idea.Name +
+                                          (state == "ready" ? "" : "   (" + state + ")"));
+                        if (state != "made") Console.WriteLine("                " + idea.Description);
+                    }
+                }
                 return true;
             case "invent": r = _sim.Invent(arg); break;
             case "attend": r = _sim.Attend(arg); break;

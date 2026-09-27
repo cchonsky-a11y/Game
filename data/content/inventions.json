@@ -1,25 +1,267 @@
 {
-  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Amounts PROPOSED P0-22.",
+  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22.",
   "inventions": [
-    { "id": "wheelbarrow", "name": "The wheelbarrow", "gold": 30, "attentionPerTurn": 2, "turns": 2, "requirement": "workshop",
-      "effects": [ { "type": "income", "value": 3 } ],
+    {
+      "id": "wheelbarrow",
+      "branch": "mechanics",
+      "name": "The wheelbarrow",
+      "gold": 30,
+      "attentionPerTurn": 2,
+      "turns": 2,
+      "requirement": "workshop",
+      "effects": [
+        {
+          "type": "income",
+          "value": 3
+        }
+      ],
       "description": "One wheel, two handles, a tray: a builder's laborer moves three times the load.",
-      "completionText": "The smith turns out wheelbarrows by the dozen, and every builder in the Subura knows whose idea they were." },
-    { "id": "bookkeeping", "name": "Double-entry bookkeeping", "gold": 40, "attentionPerTurn": 2, "turns": 3, "requirement": "tradeMember",
-      "effects": [ { "type": "consultBonus", "value": 0.2 }, { "type": "loyalty", "group": "trade", "value": 10 }, { "type": "stake", "group": "trade", "value": 3 } ],
-      "description": "Every sum written twice, once as a debit and once as a credit, so the books always balance.",
-      "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them give you a share in return." },
-    { "id": "soap", "name": "Soap and boiled linen", "gold": 35, "attentionPerTurn": 2, "turns": 3, "requirement": "medicineWork",
-      "effects": [ { "type": "income", "value": 2 }, { "type": "loyalty", "group": "medicine", "value": 10 }, { "type": "level", "domain": "medicine", "value": 2 }, { "type": "plagueResilience", "value": 0.03 } ],
-      "description": "Lye and tallow boiled into hard soap, and linen boiled before it touches a wound.",
-      "completionText": "The physicians wash with your soap and boil their linen; fewer wounds turn bad." },
-    { "id": "crane", "name": "The compound pulley crane", "gold": 60, "attentionPerTurn": 2, "turns": 4, "requirement": "workshopAndFaction",
-      "effects": [ { "type": "income", "value": 5 }, { "type": "loyalty", "group": "faction", "value": 10 }, { "type": "stake", "group": "faction", "value": 3 } ],
+      "completionText": "The smith turns out wheelbarrows by the dozen, and every builder in the Subura knows whose idea they were."
+    },
+    {
+      "id": "crane",
+      "branch": "mechanics",
+      "name": "The compound pulley crane",
+      "gold": 60,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "prerequisite": "wheelbarrow",
+      "requirement": "workshopAndFaction",
+      "effects": [
+        {
+          "type": "income",
+          "value": 5
+        },
+        {
+          "type": "loyalty",
+          "group": "faction",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "faction",
+          "value": 3
+        }
+      ],
       "description": "Five pulleys in two blocks: one man lifts what took five, and public works go up faster.",
-      "completionText": "Your crane lifts the new portico's columns; the senators who let the contract remember who built it." },
-    { "id": "triphammer", "name": "The water-driven trip hammer", "gold": 90, "attentionPerTurn": 2, "turns": 6, "requirement": "workshopAndGuild10",
-      "effects": [ { "type": "income", "value": 10 }, { "type": "loyalty", "group": "guild", "value": 10 }, { "type": "stake", "group": "guild", "value": 3 }, { "type": "level", "domain": "economy", "value": 2 } ],
+      "completionText": "Your crane lifts the new portico's columns; the senators who let the contract remember who built it."
+    },
+    {
+      "id": "triphammer",
+      "branch": "mechanics",
+      "name": "The water-driven trip hammer",
+      "gold": 90,
+      "attentionPerTurn": 2,
+      "turns": 6,
+      "prerequisite": "crane",
+      "requirement": "workshopAndGuild10",
+      "effects": [
+        {
+          "type": "income",
+          "value": 10
+        },
+        {
+          "type": "loyalty",
+          "group": "guild",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "guild",
+          "value": 3
+        },
+        {
+          "type": "level",
+          "domain": "economy",
+          "value": 2
+        }
+      ],
       "description": "A water wheel lifts a heavy hammer by a cam, day and night, for fulling cloth and beating iron.",
-      "completionText": "The trip hammer pounds beside the river; the guild's members queue to use it, and pay." }
+      "completionText": "The trip hammer pounds beside the river; the guild's members queue to use it, and pay."
+    },
+    {
+      "id": "bookkeeping",
+      "branch": "accounts",
+      "name": "Double-entry bookkeeping",
+      "gold": 40,
+      "attentionPerTurn": 2,
+      "turns": 3,
+      "requirement": "tradeMember",
+      "effects": [
+        {
+          "type": "consultBonus",
+          "value": 0.2
+        },
+        {
+          "type": "loyalty",
+          "group": "trade",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "trade",
+          "value": 3
+        }
+      ],
+      "description": "Every sum written twice, once as a debit and once as a credit, so the books always balance.",
+      "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them give you a share in return."
+    },
+    {
+      "id": "bills",
+      "branch": "accounts",
+      "name": "Bills of exchange",
+      "gold": 55,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "prerequisite": "bookkeeping",
+      "requirement": "tradeInfluence",
+      "effects": [
+        {
+          "type": "income",
+          "value": 4
+        },
+        {
+          "type": "consultBonus",
+          "value": 0.1
+        },
+        {
+          "type": "loyalty",
+          "group": "trade",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "trade",
+          "value": 3
+        }
+      ],
+      "description": "A merchant in Ostia writes a note; his partner in Alexandria pays it. Gold stays home, and trade moves on paper.",
+      "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the house that honors them grows, and so does your share."
+    },
+    {
+      "id": "audit",
+      "branch": "accounts",
+      "name": "A public accounts audit",
+      "gold": 80,
+      "attentionPerTurn": 2,
+      "turns": 5,
+      "prerequisite": "bills",
+      "requirement": "factionInfluence",
+      "effects": [
+        {
+          "type": "level",
+          "domain": "governance",
+          "value": 3
+        },
+        {
+          "type": "loyalty",
+          "group": "faction",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "faction",
+          "value": 3
+        }
+      ],
+      "description": "The city's accounts kept by double entry and read aloud each year: every tax farmer's sums checked against his receipts.",
+      "completionText": "The first public audit exposes two tax farmers and embarrasses a third; the senators who pushed it through owe you for the victory."
+    },
+    {
+      "id": "soap",
+      "branch": "hygiene",
+      "name": "Soap and boiled linen",
+      "gold": 35,
+      "attentionPerTurn": 2,
+      "turns": 3,
+      "requirement": "medicineWork",
+      "effects": [
+        {
+          "type": "income",
+          "value": 2
+        },
+        {
+          "type": "loyalty",
+          "group": "medicine",
+          "value": 10
+        },
+        {
+          "type": "level",
+          "domain": "medicine",
+          "value": 2
+        },
+        {
+          "type": "plagueResilience",
+          "value": 0.03
+        }
+      ],
+      "description": "Lye and tallow boiled into hard soap, and linen boiled before it touches a wound.",
+      "completionText": "The physicians wash with your soap and boil their linen; fewer wounds turn bad."
+    },
+    {
+      "id": "spirits",
+      "branch": "hygiene",
+      "name": "Distilled wine for wounds",
+      "gold": 55,
+      "attentionPerTurn": 2,
+      "turns": 4,
+      "prerequisite": "soap",
+      "requirement": "medicineMember",
+      "effects": [
+        {
+          "type": "income",
+          "value": 2
+        },
+        {
+          "type": "loyalty",
+          "group": "medicine",
+          "value": 10
+        },
+        {
+          "type": "level",
+          "domain": "medicine",
+          "value": 2
+        },
+        {
+          "type": "plagueResilience",
+          "value": 0.04
+        }
+      ],
+      "description": "Wine boiled in a still and its vapour caught cold: a spirit strong enough to clean a wound before it festers.",
+      "completionText": "Surgeons pour your spirit into wounds and swear at the sting; fewer of their patients die of fever afterward."
+    },
+    {
+      "id": "ward",
+      "branch": "hygiene",
+      "name": "A fever ward with case records",
+      "gold": 85,
+      "attentionPerTurn": 2,
+      "turns": 6,
+      "prerequisite": "spirits",
+      "requirement": "medicineInfluence",
+      "effects": [
+        {
+          "type": "loyalty",
+          "group": "medicine",
+          "value": 10
+        },
+        {
+          "type": "stake",
+          "group": "medicine",
+          "value": 3
+        },
+        {
+          "type": "level",
+          "domain": "medicine",
+          "value": 3
+        },
+        {
+          "type": "plagueResilience",
+          "value": 0.06
+        }
+      ],
+      "description": "The sick kept apart, in clean beds, each with a written record of symptoms, treatment and outcome, so the physicians learn what works.",
+      "completionText": "The fever ward opens with twelve beds and a ledger; within a year its physicians know which treatments save lives, and they say whose idea it was."
+    }
   ]
 }

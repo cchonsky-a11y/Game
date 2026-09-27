@@ -35,7 +35,14 @@ namespace Butterfly.Core
                 CheckVerb("institution " + i.Id, i.Tags, texts, problems);
             }
             foreach (var i in content.Inventions)
+            {
                 CheckVerb("invention " + i.Id, new string[0], new[] { i.Name, i.Description, i.CompletionText }, problems);
+                // The invention tree: a prerequisite must exist, sit in the same branch, and come earlier in the list.
+                if (i.Prerequisite == null) continue;
+                var pre = content.Inventions.FirstOrDefault(x => x.Id == i.Prerequisite);
+                if (pre == null || pre.Branch != i.Branch || content.Inventions.ToList().IndexOf(pre) > content.Inventions.ToList().IndexOf(i))
+                    problems.Add("invention " + i.Id + ": prerequisite '" + i.Prerequisite + "' is missing, in another branch, or later in the list");
+            }
             foreach (var m in content.MachineSteps)
                 CheckVerb("machine " + m.Id, new string[0], new[] { m.Name, m.Text }, problems);
             foreach (var kv in content.Text)
