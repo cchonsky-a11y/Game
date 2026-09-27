@@ -7,15 +7,13 @@ namespace Butterfly.Core.Tests
     public class DecisionTests
     {
         [Fact]
-        public void PlagueOddsUseMedicineDebtOnly()
+        public void MedicineDebtMakesThePlagueWorse()
         {
             var sim = new Simulation(TestData.Load(), 1);
-            double baseline = sim.PlagueAdvanceChance();
-            sim.World[Domain.Governance].Tier = DebtTier.Critical;
-            sim.World[Domain.Economy].Tier = DebtTier.Critical;
-            Assert.Equal(baseline, sim.PlagueAdvanceChance(), 9);
-            sim.World[Domain.Medicine].Tier = DebtTier.Critical;
-            Assert.True(sim.PlagueAdvanceChance() > baseline);
+            double baseline = sim.PlagueSeverity(null);
+            sim.World[Domain.Medicine].Debt = 20;
+            Assert.Equal(baseline * sim.PlagueHazard() / (sim.PlagueHazard() - 20 * sim.T.Get("plague.hazardPerMedicineDebt")), sim.PlagueSeverity(null), 6);
+            Assert.True(sim.PlagueSeverity(null) > baseline);
         }
 
         [Fact]

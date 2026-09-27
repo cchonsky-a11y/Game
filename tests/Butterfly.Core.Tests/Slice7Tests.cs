@@ -55,7 +55,7 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void LeavingBeforeThePlaguePassesBreaksTheAcceptedPromise()
         {
-            var sim = Play(3, "fountain", true, true, 163);
+            var sim = Play(3, "fountain", true, true, 166);
             Assert.True(sim.LeavingBreaksPromise);
             double loyalty = sim.World.Institution("circle").Loyalty;
             var arrival = sim.JumpForTests();

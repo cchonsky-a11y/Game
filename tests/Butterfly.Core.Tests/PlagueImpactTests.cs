@@ -19,7 +19,8 @@ namespace Butterfly.Core.Tests
         internal static GameData Harmless() => TestData.Load().WithTuning(new Dictionary<string, double>
         {
             { "plague.damage.medicine", 0 }, { "plague.damage.governance", 0 }, { "plague.damage.economy", 0 },
-            { "plague.deathRatePerSeverity", 0 }, { "plague.goldLossPerSeverity", 0 }, { "plague.debtRelease", 0 },
+            // Deaths stay (population is flavor, not in the Index); the death rate also sets the historical severity.
+            { "plague.goldLossPerSeverity", 0 }, { "plague.debtRelease", 0 },
         });
 
         [Fact]

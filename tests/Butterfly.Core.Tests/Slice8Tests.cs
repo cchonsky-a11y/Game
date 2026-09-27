@@ -73,7 +73,7 @@ namespace Butterfly.Core.Tests
                 Assert.DoesNotContain(".level", text); // no internal keys leak into explanations
                 Assert.DoesNotContain(".debt", text);
             }
-            Assert.Contains("Chance the next stage", Why.Explain(sim, "plague"));
+            Assert.Contains("The next stage comes in", Why.Explain(sim, "plague"));
         }
 
         [Fact]

@@ -5,9 +5,9 @@ using System.Linq;
 namespace Butterfly.Core
 {
     /// <summary>
-    /// The plague: the P0 crisis (SYSTEMS §6). It always passes through three visible warning stages,
-    /// at most one per year, before it can break out. Debt tiers speed it up; debt makes it worse;
-    /// Medicine, Governance and preparations make the region resilient. Outcomes branch.
+    /// The plague: the P0 crisis (SYSTEMS §6). It follows history (decided 2026-09-28): three visible warnings and
+    /// the outbreak come on their historical dates, and with nothing done it strikes as hard as it did. The player
+    /// changes only how hard it hits: Medicine, Governance, debt, clean water, preparations and the response.
     /// </summary>
     public sealed partial class Simulation
     {
@@ -15,33 +15,21 @@ namespace Butterfly.Core
 
         private void InitPlague()
         {
-            var p = World.Plague;
             World.Population = T.Get("plague.startPopulation");
-            p.FirstWarningYear = T.GetInt("plague.firstWarningYear") + Rng.NextInt(0, T.GetInt("plague.firstWarningJitterYears") + 1);
         }
 
-        /// <summary>Medicine's debt tier alone drives the plague's odds (decided 2026-09-26).</summary>
-        public DebtTier PlagueTier() => World[Domain.Medicine].Tier;
+        /// <summary>When plague stage 1–4 arrives (the historical dates).</summary>
+        public SimTime PlagueStageDate(int stage) =>
+            SimTime.FromYear((int)T.GetArray("plague.historical.stageYears")[stage - 1], (int)T.GetArray("plague.historical.stageMonths")[stage - 1]);
 
-        /// <summary>Chance per year that a visible warning stage advances (SYSTEMS §6: tiers raise crisis chance).</summary>
-        public double PlagueAdvanceChance()
-        {
-            double chance = T.Get("plague.advanceChance." + PlagueTier().ToString().ToLowerInvariant());
-            if (!World.CleanWater) chance += T.Get("plague.foulWaterAdvanceBonus");
-            if (Now.Year >= T.GetInt("plague.forceAdvanceFromYear")) chance = 1;
-            return Math.Min(1, chance);
-        }
+        public int HistoricalOutbreakYear => PlagueStageDate(PlagueState.Outbreak).Year;
 
-        private void PlagueYearTick()
+        /// <summary>Advances every plague stage whose historical date has come (turn starts, and each year of an absence).</summary>
+        private void AdvancePlagueToDate()
         {
             var p = World.Plague;
-            if (p.Stage == PlagueState.Quiet)
-            {
-                if (Now.Year >= p.FirstWarningYear) AdvancePlague();
-                return;
-            }
-            if (!p.IsWarning || p.StageEnteredYear >= Now.Year) return;
-            if (Rng.Chance(PlagueAdvanceChance())) AdvancePlague();
+            while (p.Stage < PlagueState.Outbreak && PlagueStageDate(p.Stage + 1).TotalMonths <= Now.TotalMonths)
+                AdvancePlague();
         }
 
         private void AdvancePlague()
@@ -50,8 +38,7 @@ namespace Butterfly.Core
             int before = p.Stage;
             p.Stage++;
             p.StageEnteredYear = Now.Year;
-            var causes = new List<int> { p.LastStageEventId, CauseOf(TierKey(Domain.Medicine)) };
-            if (!World.CleanWater) causes.Add(CauseOf("fountain.clean"));
+            var causes = new List<int> { p.LastStageEventId };
             string text = PlagueStageText(p.Stage);
             var e = Record(p.Stage == PlagueState.Outbreak ? "plague.outbreak" : "plague.warning", "plague", causes,
                 new[] { "world" }, new[] { new Effect("plague.stage", before, p.Stage) }, text);
@@ -60,7 +47,7 @@ namespace Butterfly.Core
             if (p.IsWarning) OfferPromise(e.Id);
             if (p.Stage == PlagueState.Outbreak)
             {
-                p.OutbreakYear = Now.Year;
+                p.OutbreakYear = PlagueStageDate(PlagueState.Outbreak).Year;
                 if (IsAway) ResolveOutbreak(AutomaticResponse(), new[] { "world" });
             }
         }
@@ -69,10 +56,10 @@ namespace Butterfly.Core
         {
             switch (stage)
             {
-                case 1: return "Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.";
-                case 2: return "Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.";
-                case 3: return "Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.";
-                case 4: return "Outbreak — the pestilence breaks out across Rome.";
+                case 1: return "Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.";
+                case 2: return "Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.";
+                case 3: return "Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.";
+                case 4: return "Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.";
                 default: return "The pestilence has passed.";
             }
         }
@@ -129,6 +116,9 @@ namespace Butterfly.Core
             ResolveOutbreakDamage();
         }
 
+        /// <summary>Medicine's debt tier: it sets the odds of a later recurrence during an absence.</summary>
+        public DebtTier PlagueTier() => World[Domain.Medicine].Tier;
+
         /// <summary>Hazard: base plus Medicine debt (severity scales with debt), plus foul water.</summary>
         public double PlagueHazard()
         {
@@ -153,9 +143,42 @@ namespace Butterfly.Core
             1 + T.Get("plague.severityPerTier." + World[Domain.Governance].Tier.ToString().ToLowerInvariant())
               + T.Get("plague.severityPerTier." + World[Domain.Economy].Tier.ToString().ToLowerInvariant());
 
-        /// <summary>Severity = Hazard × Exposure × (1 − Resilience) (the SYSTEMS §9 loss form), raised by Governance and Economy debt.</summary>
+        /// <summary>
+        /// Severity of the plague as history had it: the one that killed the historical share of Rome
+        /// (decided 2026-09-28: about 10% unless the player mitigates it).
+        /// </summary>
+        public double HistoricalPlagueSeverity => T.Get("plague.historical.deathShare") / T.Get("plague.deathRatePerSeverity");
+
+        /// <summary>Hazard in Rome as history had it: the district fountain still foul, no debt of your making.</summary>
+        public double HistoricalPlagueHazard =>
+            Math.Min(T.Get("plague.maxHazard"), T.Get("plague.baseHazard") + T.Get("plague.foulWaterHazard"));
+
+        /// <summary>Resilience as history had it: Medicine and Governance at their historical levels, no preparations, no response.</summary>
+        public double HistoricalPlagueResilience
+        {
+            get
+            {
+                int y = HistoricalOutbreakYear;
+                double r = Benchmark(Domain.Medicine, y) / 100.0 * T.Get("plague.resiliencePerMedicine")
+                         + Benchmark(Domain.Governance, y) / 100.0 * T.Get("plague.resiliencePerGovernance")
+                         + T.Get("plague.response.none.resilience");
+                return Math.Min(T.Get("plague.maxResilience"), r);
+            }
+        }
+
+        /// <summary>
+        /// Severity = the historical plague, scaled by how Rome's Hazard × (1 − Resilience) now compares with history's
+        /// (the SYSTEMS §9 loss form), raised by Governance and Economy debt. With nothing changed, exactly history.
+        /// </summary>
         public double PlagueSeverity(string? response) =>
-            PlagueHazard() * T.Get("plague.exposure") * (1 - PlagueResilience(response)) * PlagueSeverityMultiplier();
+            HistoricalPlagueSeverity * T.Get("plague.exposure")
+            * (PlagueHazard() / HistoricalPlagueHazard)
+            * ((1 - PlagueResilience(response)) / (1 - HistoricalPlagueResilience))
+            * PlagueSeverityMultiplier();
+
+        /// <summary>What the historical plague cost a domain: the history curve's step across the outbreak year.</summary>
+        public double HistoricalPlagueDrop(Domain d) =>
+            Math.Max(0, Benchmark(d, HistoricalOutbreakYear) - Benchmark(d, HistoricalOutbreakYear + 1));
 
         private void ResolveOutbreakDamage()
         {
@@ -205,7 +228,7 @@ namespace Butterfly.Core
                 "The pestilence is " + label + ": about " + F(Math.Round(deaths)) + " thousand dead, " + F(Math.Round(share * 100)) + "% of Rome.");
 
             foreach (var d in DomainInfo.All)
-                ChangeLevel(d, -sev * T.Get("plague.damage." + d.Key()), "plague.damage", new[] { toll.Id }, new[] { "world" },
+                ChangeLevel(d, -HistoricalPlagueDrop(d) * T.Get("plague.damage." + d.Key()) * sev / HistoricalPlagueSeverity, "plague.damage", new[] { toll.Id }, new[] { "world" },
                     "The pestilence strikes " + d + ".");
 
             // A crisis releases debt (SYSTEMS §6), violently, and resets what people expect.

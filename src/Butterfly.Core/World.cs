@@ -81,8 +81,6 @@ namespace Butterfly.Core
         public int Stage { get; set; }
         public int StageEnteredYear { get; set; }
         public int LastStageEventId { get; set; }
-        /// <summary>Year the first warning appears, drawn from the seeded generator at start.</summary>
-        public int FirstWarningYear { get; set; }
         public int OutbreakYear { get; set; }
         public double Severity { get; set; }
         public double Deaths { get; set; }

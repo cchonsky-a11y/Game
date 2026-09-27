@@ -97,8 +97,12 @@ namespace Butterfly.Core
             World.UpkeepTurnsThisYear = 0;
         }
 
-        /// <summary>How much Rome's real history moved this domain over the past year (decided 2026-09-27).</summary>
-        public double HistoricalTrend(Domain d) => Benchmark(d, Now.Year) - Benchmark(d, Now.Year - 1);
+        /// <summary>
+        /// How much Rome's real history moved this domain over the past year (decided 2026-09-27), leaving out the
+        /// historical plague's step: the plague itself strikes as an event, as hard as your Rome lets it (decided 2026-09-28).
+        /// </summary>
+        public double HistoricalTrend(Domain d) =>
+            Benchmark(d, Now.Year) - Benchmark(d, Now.Year - 1) + (Now.Year == HistoricalOutbreakYear + 1 ? HistoricalPlagueDrop(d) : 0);
 
         /// <summary>
         /// Your change against history from the domain's priority, scaled by your sway over the domain. None without

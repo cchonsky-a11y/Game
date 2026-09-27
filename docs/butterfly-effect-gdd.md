@@ -859,7 +859,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Economic policy (P0) | Austrian stance +1 Economy/yr each, backlash −8 faction loyalty and +8 Governance debt on adoption; interventionist +1.5/yr each and 8 malinvestment/yr; bust after 3 warnings from malinvestment 20 |
 | Playtime | ~2.5–3 hours per era; ~22 hours per campaign |
 | Debt compounding | 5% per year; during a jump, only for the first 30 years after departure |
-| Plague odds | Medicine debt only; Governance and Economy debt tiers raise severity |
+| Plague (P0) | On its historical dates (warnings AD 165–166, outbreak October 166); left alone it kills 10% of Rome and costs each domain its historical drop; player actions change only severity (Medicine debt raises hazard; Governance and Economy debt tiers raise severity); recurrence odds from Medicine debt |
+| History as baseline | Everything follows history unless the player directly or indirectly changes it |
 | Institution gold (30-year window after departure) | Grows 0–1.5% per year by Economy level; pays own-domain debt at 1.5× (loyal full, drifted partial, rogue none); frozen afterward in P0 |
 | Corruption (30-year window) | Chance per decade = 0.05 × exposure (×1 small, ×2 large) × (1 − audit 0.5) × (1 − integrity: honest 0.3, average 0, venal −0.3); Minor / Major / Total lose 25% / 50% / 100%; weights 40/40/20 unprotected, 70/25/5 audited |
 | Paying down debt | 1.5× the cost of prevention |

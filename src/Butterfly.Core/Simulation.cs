@@ -58,6 +58,7 @@ namespace Butterfly.Core
             Now = Now.AddMonths(MonthsPerTurn);
             Turn++;
             if (Now.Year != yearBefore) YearTick();
+            AdvancePlagueToDate();
             Log.Record(Now, "turn.start", "clock", null, new[] { "world" }, null,
                 "Turn " + Turn + " begins: " + Now.Display + ".");
             RefreshAttention();
@@ -68,7 +69,6 @@ namespace Butterfly.Core
             Log.Record(Now, "year.start", "clock", null, new[] { "world" }, null,
                 "The year AD " + Now.Year + " begins.");
             DomainsYearTick();
-            PlagueYearTick();
             PolicyYearTick();
             InstitutionsYearTick();
             SeededPayoffYearTick();

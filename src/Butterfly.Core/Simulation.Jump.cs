@@ -206,11 +206,11 @@ namespace Butterfly.Core
             // Institution gold acts only in the 30 years after departure (decided 2026-09-26).
             bool window = startYear - DepartureYear < T.GetInt("institutions.holdings.windowYears");
             if (window) foreach (var i in Influential()) HoldingsDecadeStart(i, arrival);
-            // The plague keeps its yearly rules while it is still on its way.
+            // The plague still comes on its historical dates while you are away.
             for (int y = 1; y <= _stepYears; y++)
             {
                 Now = SimTime.FromYear(startYear + y);
-                if (World.Plague.Stage != PlagueState.Passed) PlagueYearTick();
+                if (World.Plague.Stage != PlagueState.Passed) AdvancePlagueToDate();
             }
             if (!antoninePassed && World.Plague.Stage == PlagueState.Passed)
                 arrival.Crises.Add("AD " + World.Plague.OutbreakYear + ": the Antonine pestilence (" + World.Plague.SeverityLabel +

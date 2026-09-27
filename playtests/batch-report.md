@@ -1,6 +1,6 @@
 # P0 batch balance report
 
-100 seeded runs × 7 strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 160 or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's 80 turns end).
+100 seeded runs × 7 strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 166, during the plague warnings, or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's 80 turns end).
 A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).
 Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).
 
@@ -10,20 +10,20 @@ Attention (P0 pacing): demand 598 vs supply 320 = 1.9× (target ≥ 1.5×).
 
 | Timing | Strategy | Win rate (all) | Index at departure | Index at arrival (mean) | min–max | Plague severity | Crises in absence | Promise kept / broken | Player actions |
 |---|---|---|---|---|---|---|---|---|---|
-| Early | Balanced (Pay-down) | 2% | 101 | 81 | 18–103 | 29.8 | 0.2 | 0 / 100 | 35.0 |
-| Early | Specialized | 93% | 104 | 94 | 48–103 | 21.6 | 0.2 | 0 / 100 | 28.0 |
-| Early | Neglectful | 1% | 99 | 77 | 18–101 | 37.6 | 0.3 | 0 / 0 | 23.0 |
-| Early | Endow | 2% | 101 | 81 | 18–103 | 29.8 | 0.2 | 0 / 100 | 35.0 |
-| Early | Split | 2% | 101 | 81 | 18–103 | 29.8 | 0.2 | 0 / 100 | 35.0 |
-| Early | FreeMarket | 0% | 101 | 75 | 18–102 | 30.4 | 0.3 | 0 / 100 | 30.0 |
-| Early | Interventionist | 0% | 101 | 75 | 18–102 | 30.4 | 0.3 | 0 / 100 | 30.0 |
-| Late | Balanced (Pay-down) | 4% | 91 | 64 | 17–106 | 26.8 | 0.9 | 100 / 0 | 126.7 |
-| Late | Specialized | 81% | 109 | 99 | 44–112 | 13.1 | 0.6 | 100 / 0 | 47.4 |
-| Late | Neglectful | 1% | 72 | 52 | 15–99 | 38.3 | 1.2 | 0 / 0 | 24.0 |
-| Late | Endow | 4% | 92 | 54 | 17–107 | 26.8 | 1.2 | 100 / 0 | 94.1 |
-| Late | Split | 4% | 91 | 64 | 17–106 | 26.8 | 0.9 | 100 / 0 | 126.7 |
-| Late | FreeMarket | 7% | 91 | 63 | 19–110 | 27.9 | 1.2 | 100 / 0 | 126.4 |
-| Late | Interventionist | 0% | 75 | 37 | 10–68 | 27.9 | 1.0 | 100 / 0 | 126.2 |
+| Early | Balanced (Pay-down) | 0% | 102 | 105 | 97–107 | 25.7 | 0.1 | 0 / 100 | 57.0 |
+| Early | Specialized | 5% | 113 | 103 | 94–108 | 16.0 | 0.4 | 0 / 100 | 32.0 |
+| Early | Neglectful | 3% | 99 | 102 | 90–104 | 35.5 | 0.1 | 0 / 0 | 23.0 |
+| Early | Endow | 0% | 102 | 105 | 97–107 | 25.7 | 0.1 | 0 / 100 | 57.0 |
+| Early | Split | 0% | 102 | 105 | 97–107 | 25.7 | 0.1 | 0 / 100 | 57.0 |
+| Early | FreeMarket | 92% | 102 | 108 | 101–110 | 27.6 | 0.1 | 0 / 100 | 57.0 |
+| Early | Interventionist | 0% | 102 | 73 | 43–103 | 22.1 | 0.0 | 0 / 100 | 56.0 |
+| Late | Balanced (Pay-down) | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 94.0 |
+| Late | Specialized | 12% | 125 | 110 | 96–117 | 10.5 | 0.7 | 100 / 0 | 48.1 |
+| Late | Neglectful | 0% | 101 | 97 | 85–105 | 35.5 | 0.6 | 0 / 0 | 24.0 |
+| Late | Endow | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 93.0 |
+| Late | Split | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 94.0 |
+| Late | FreeMarket | 88% | 119 | 116 | 107–120 | 27.6 | 0.2 | 100 / 0 | 93.6 |
+| Late | Interventionist | 0% | 100 | 46 | 30–101 | 22.1 | 0.2 | 100 / 0 | 93.6 |
 
 ## Institution gold and corruption
 
@@ -31,18 +31,18 @@ Attention (P0 pacing): demand 598 vs supply 320 = 1.9× (target ≥ 1.5×).
 |---|---|---|---|---|---|---|---|---|
 | Early | Balanced (Pay-down) | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 | Early | Specialized | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Early | Neglectful | 3.2 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Early | Neglectful | 11.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 | Early | Endow | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 | Early | Split | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Early | FreeMarket | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Early | FreeMarket | 6.9 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 | Early | Interventionist | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | Balanced (Pay-down) | 69.6 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | Specialized | 76.9 | 0.4 | 1 | 0 | 0% | 2% | 1 / 0 / 1 |
-| Late | Neglectful | 617.2 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | Endow | 295.5 | 1.6 | 5 | 0 | 0% | 1% | 1 / 0 / 0 |
-| Late | Split | 72.8 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | FreeMarket | 92.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
-| Late | Interventionist | 103.2 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | Balanced (Pay-down) | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | Specialized | 0.0 | 8.2 | 24 | 0 | 0% | 5% | 3 / 2 / 0 |
+| Late | Neglectful | 14.6 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | Endow | 0.4 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | Split | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | FreeMarket | 0.0 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
+| Late | Interventionist | 24.6 | 0.0 | 0 | 0 | 0% | 0% | 0 / 0 / 0 |
 
 ## Institution outcomes on arrival
 
@@ -50,78 +50,80 @@ Institutions a strategy held a stake of 10%+ in (or founded) in any run. Stake: 
 
 | Timing | Strategy | Institution | Stake | Thriving | Drifted | Captured | Dissolved | Rogue | Not backed | Failed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Early | Balanced (Pay-down) | circle | 12% | 28 | 0 | 0 | 0 | 72 | 0 | 0 |
-| Early | Endow | circle | 12% | 28 | 0 | 0 | 0 | 72 | 0 | 0 |
-| Early | Split | circle | 12% | 28 | 0 | 0 | 0 | 72 | 0 | 0 |
-| Late | Balanced (Pay-down) | circle | 35% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Late | Specialized | school | 100% | 79 | 0 | 1 | 20 | 0 | 0 | 20 |
-| Late | Endow | circle | 49% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Late | Split | circle | 35% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Late | FreeMarket | faction | 26% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Late | Interventionist | faction | 26% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Early | Balanced (Pay-down) | circle | 31% | 72 | 0 | 0 | 0 | 28 | 0 | 0 |
+| Early | Endow | circle | 31% | 72 | 0 | 0 | 0 | 28 | 0 | 0 |
+| Early | Split | circle | 31% | 72 | 0 | 0 | 0 | 28 | 0 | 0 |
+| Early | FreeMarket | faction | 25% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Early | Interventionist | faction | 25% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Late | Balanced (Pay-down) | circle | 47% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Late | Specialized | school | 100% | 83 | 0 | 0 | 17 | 0 | 0 | 17 |
+| Late | Endow | circle | 47% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Late | Split | circle | 47% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Late | FreeMarket | faction | 40% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Late | Interventionist | faction | 37% | 100 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Pacing
 
-- First plague warning: AD 158–159; outbreak: AD 161–164 (mean 163.2).
-- Balanced (Pay-down): first debt tier change 8.0–11.8 years in (earliest–mean).
-- Specialized: first debt tier change 9.0–14.4 years in (earliest–mean).
-- Neglectful: first debt tier change 8.0–10.6 years in (earliest–mean).
-- Endow: first debt tier change 8.0–11.8 years in (earliest–mean).
-- Split: first debt tier change 8.0–11.8 years in (earliest–mean).
-- FreeMarket: first debt tier change 8.0–11.1 years in (earliest–mean).
-- Interventionist: first debt tier change 8.0–11.7 years in (earliest–mean).
+- First plague warning: AD 165–165; outbreak: AD 166–166 (mean 166.0).
+- Balanced (Pay-down): first debt tier change never.
+- Specialized: first debt tier change 20.0–20.0 years in (earliest–mean).
+- Neglectful: first debt tier change never.
+- Endow: first debt tier change never.
+- Split: first debt tier change never.
+- FreeMarket: first debt tier change never.
+- Interventionist: first debt tier change 19.0–19.5 years in (earliest–mean).
 
 ## Arrival spread
 
 | Timing | Strategy | Mean arrival Index | SD | 10th–90th percentile |
 |---|---|---|---|---|
-| Early | Balanced (Pay-down) | 81.4 | 35.3 | 18–103 |
-| Early | Specialized | 94.3 | 17.7 | 59–103 |
-| Early | Neglectful | 76.7 | 36.3 | 18–101 |
-| Early | Endow | 81.4 | 35.3 | 18–103 |
-| Early | Split | 81.4 | 35.3 | 18–103 |
-| Early | FreeMarket | 74.9 | 37.8 | 18–101 |
-| Early | Interventionist | 74.9 | 37.8 | 18–101 |
-| Late | Balanced (Pay-down) | 64.3 | 28.0 | 18–104 |
-| Late | Specialized | 98.6 | 13.9 | 81–111 |
-| Late | Neglectful | 51.7 | 24.9 | 15–74 |
-| Late | Endow | 54.2 | 26.4 | 17–82 |
-| Late | Split | 64.3 | 28.0 | 18–104 |
-| Late | FreeMarket | 62.9 | 26.9 | 20–90 |
-| Late | Interventionist | 37.2 | 10.6 | 26–49 |
+| Early | Balanced (Pay-down) | 105.0 | 2.5 | 100–107 |
+| Early | Specialized | 102.5 | 4.8 | 95–108 |
+| Early | Neglectful | 101.6 | 3.9 | 93–104 |
+| Early | Endow | 105.0 | 2.5 | 100–107 |
+| Early | Split | 105.0 | 2.5 | 100–107 |
+| Early | FreeMarket | 108.4 | 2.5 | 103–110 |
+| Early | Interventionist | 73.0 | 13.7 | 57–90 |
+| Late | Balanced (Pay-down) | 106.1 | 3.6 | 101–110 |
+| Late | Specialized | 110.5 | 5.1 | 103–116 |
+| Late | Neglectful | 96.6 | 7.0 | 87–104 |
+| Late | Endow | 106.1 | 3.7 | 101–110 |
+| Late | Split | 106.1 | 3.6 | 101–110 |
+| Late | FreeMarket | 116.2 | 3.4 | 110–119 |
+| Late | Interventionist | 46.1 | 12.3 | 37–58 |
 
-- All runs: SD of arrival Index 33.6; SD of the strategy means 16.1.
-- Investing (Balanced, Specialized, Endow, Split) minus Neglectful, mean arrival Index: all 8.3; Early 4.8; Late 11.8. Investing beats Neglectful on the same seed in 74% of seeds.
-- Wrongness beat: asHistory 39%, medicine.low 30%, economy.low 25%, medicine.high 6%, economy.high 0%.
+- All runs: SD of arrival Index 18.5; SD of the strategy means 17.5.
+- Investing (Balanced, Specialized, Endow, Split) minus Neglectful, mean arrival Index: all 0.1; Early -1.8; Late 1.9. Investing beats Neglectful on the same seed in 42% of seeds.
+- Wrongness beat: asHistory 38%, medicine.high 28%, economy.low 14%, governance.high 7%, economy.high 7%, medicine.low 5%.
 
 ## Economic policy
 
-- Early: FreeMarket arrival Index 74.9 (busts 0.0), Interventionist 74.9 (busts 0.0), Balanced with Rome's own policy 81.4. FreeMarket beats Interventionist on 0% of seeds.
-- Late: FreeMarket arrival Index 62.9 (busts 0.0), Interventionist 37.2 (busts 4.3), Balanced with Rome's own policy 64.3. FreeMarket beats Interventionist on 75% of seeds.
+- Early: FreeMarket arrival Index 108.4 (busts 0.0), Interventionist 73.0 (busts 2.4), Balanced with Rome's own policy 105.0. FreeMarket beats Interventionist on 100% of seeds.
+- Late: FreeMarket arrival Index 116.2 (busts 0.0), Interventionist 46.1 (busts 4.9), Balanced with Rome's own policy 106.1. FreeMarket beats Interventionist on 100% of seeds.
 
 ## Balance criteria
 
 **A. Balance vs. specialization (PROTOTYPE_SCOPE):** among Balanced, Specialized and Neglectful, within each timing no strategy wins more than 65% and Balanced and Specialized both win some.
-- Early: Balanced 6%, Specialized 93%, Neglectful 1% → **FAIL**
-- Late: Balanced 10%, Specialized 88%, Neglectful 2% → **FAIL**
+- Early: Balanced 54%, Specialized 43%, Neglectful 3% → **PASS**
+- Late: Balanced 9%, Specialized 87%, Neglectful 4% → **FAIL**
 
 **B. All strategies:** within each timing no strategy wins more than 65%.
-- Early: Balanced (Pay-down) 2%, Specialized 93%, Neglectful 1%, Endow 2%, Split 2%, FreeMarket 0%, Interventionist 0% → **FAIL**
-- Late: Balanced (Pay-down) 4%, Specialized 81%, Neglectful 1%, Endow 4%, Split 4%, FreeMarket 7%, Interventionist 0% → **FAIL**
+- Early: Balanced (Pay-down) 0%, Specialized 5%, Neglectful 3%, Endow 0%, Split 0%, FreeMarket 92%, Interventionist 0% → **FAIL**
+- Late: Balanced (Pay-down) 0%, Specialized 12%, Neglectful 0%, Endow 0%, Split 0%, FreeMarket 88%, Interventionist 0% → **FAIL**
 
 **C. Debt at departure:** among Pay-down (Balanced), Endow and Split, within each timing none wins more than 65%.
 - Early: Balanced (Pay-down) 33%, Endow 33%, Split 33% → **PASS**
-- Late: Balanced (Pay-down) 34%, Endow 32%, Split 34% → **PASS**
+- Late: Balanced (Pay-down) 41%, Endow 17%, Split 41% → **PASS**
 
 **D. Jump timing — NOT APPLICABLE TO P0 (deferred to P3, decided 2026-09-27):** staying longer has no cost until aging and machine-discovery risk exist. Reported for information only.
-- Early 66%, Late 34% → would fail (not counted)
-  - Balanced (Pay-down): Early 64%, Late 36%
-  - Specialized: Early 40%, Late 60%
-  - Neglectful: Early 79%, Late 21%
-  - Endow: Early 79%, Late 21%
-  - Split: Early 64%, Late 36%
-  - FreeMarket: Early 68%, Late 32%
-  - Interventionist: Early 69%, Late 31%
+- Early 40%, Late 60% → would pass (not counted)
+  - Balanced (Pay-down): Early 38%, Late 62%
+  - Specialized: Early 11%, Late 89%
+  - Neglectful: Early 62%, Late 38%
+  - Endow: Early 38%, Late 62%
+  - Split: Early 38%, Late 62%
+  - FreeMarket: Early 6%, Late 94%
+  - Interventionist: Early 88%, Late 12%
 
 **Audit charter check (flag, not a gate):** 0% of the best runs (top arrival Index per seed and timing) bought an audit charter → no flag (at or below 80%).
 
