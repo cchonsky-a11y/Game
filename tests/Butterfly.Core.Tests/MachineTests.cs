@@ -572,3 +572,33 @@ namespace Butterfly.Core.Tests
     }
 }
 
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Option A: one more jump from the arrival (decided 2026-09-28).</summary>
+    public class SecondJumpTests
+    {
+        [Fact]
+        public void YouCanJumpOnceMoreFromTheArrivalAndThenNoMore()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.ChooseSeeded("fountain");
+            while (sim.Now.Year < 168) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
+            var first = sim.JumpForTests();
+            Assert.True(sim.CanJumpAgain);
+            var (lo, hi) = sim.JumpRange();
+            Assert.Equal((25, 40), (lo, hi));                  // no time in the new era yet, no upgrades
+            string before = sim.Visit("market");
+            var second = sim.JumpForTests();
+            Assert.Equal(first.ArrivalYear, second.DepartureYear);
+            Assert.InRange(second.JumpYears, 25, 40);
+            Assert.Equal(second.DepartureYear + second.JumpYears, second.ArrivalYear);
+            Assert.Equal(4, second.Beats.Count);
+            Assert.All(second.Beats, b => Assert.DoesNotContain("{", b.Text));
+            Assert.Contains("when you left", sim.Visit("market"));
+            Assert.NotEqual(before, sim.Visit("market"));
+            Assert.False(sim.CanJumpAgain);
+            Assert.Throws<System.InvalidOperationException>(() => sim.JumpForTests());
+        }
+    }
+}

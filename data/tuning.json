@@ -892,6 +892,10 @@
         "value": 5,
         "ref": "DECIDED 2026-09-28 (Corey): the jump's distance varies with the repairs, time in the era and optional upgrades; amounts PROPOSED P0-23"
       }
+    },
+    "maxJumps": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey): the next test has two jumps; P0 option A: after the first arrival you may jump again at once (no second era to play)"
     }
   },
   "corruption": {

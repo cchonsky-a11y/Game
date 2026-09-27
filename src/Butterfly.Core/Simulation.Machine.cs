@@ -24,7 +24,7 @@ namespace Butterfly.Core
         /// </summary>
         public (int Min, int Max) JumpRange()
         {
-            double yearsInEra = Now.YearFraction - T.GetInt("time.startYear");
+            double yearsInEra = Now.YearFraction - (_eraStart ?? T.GetInt("time.startYear"));
             int time = (int)Math.Min(T.Get("jump.range.timeBonusMax"),
                 T.Get("jump.range.perFiveYears") * Math.Max(0, Math.Floor((yearsInEra - T.Get("jump.range.freeYears")) / 5)));
             int bonus = (int)(T.Get("jump.range.perUpgrade") * MachineUpgradesDone) + time;

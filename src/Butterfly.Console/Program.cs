@@ -101,7 +101,7 @@ internal sealed class ConsoleGame
         Console.WriteLine("Once you repair it, the machine can carry you forward, " + _sim.T.GetInt("jump.range.baseMin") + " to " + _sim.T.GetInt("jump.range.maxYears") +
                           " years depending on how well you repair it. What you leave behind will go on without you.");
         Console.WriteLine();
-        Console.WriteLine("This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.");
+        Console.WriteLine("This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.");
         Console.WriteLine();
         Console.WriteLine("First, a choice. You can afford only one:");
         Console.WriteLine("  choose fountain  — " + _sim.Data.Content.Project("fountain")!.Description);
@@ -437,7 +437,8 @@ internal sealed class ConsoleGame
             }
         }
         Console.WriteLine(_sim.Data.Content.Template("walk.intro"));
-        Console.WriteLine("Type 'learn more' for the Index and what became of your institutions, or 'quit'.");
+        Console.WriteLine("Type 'learn more' for the Index and what became of your institutions" +
+                          (_sim.CanJumpAgain ? ", 'jump' to go on another " + _sim.JumpRangeText().Split(' ')[0] + " years," : "") + " or 'quit'.");
     }
 
     private void Briefing()
@@ -451,8 +452,9 @@ internal sealed class ConsoleGame
     {
         if (cmd == "learn" || cmd == "more") Console.WriteLine(_sim.Arrival!.LearnMore());
         else if (cmd == "why") Console.WriteLine(Why.Explain(_sim, arg));
+        else if (cmd == "jump" && _sim.CanJumpAgain) Jump();
         else if (cmd == "visit" || cmd == "walk") Console.WriteLine(Wrap(cmd == "walk" && arg == "" ? _sim.Data.Content.Template("walk.intro") : _sim.Visit(arg)));
-        else Console.WriteLine("The era is over. 'visit <place>', 'learn more' or 'quit'.");
+        else Console.WriteLine(_sim.CanJumpAgain ? "'visit <place>', 'learn more', 'jump' to go on, or 'quit'." : "The test is over. 'visit <place>', 'learn more' or 'quit'.");
     }
 
     private static string Signed(double v) => (v >= 0 ? "+" : "") + v.ToString("0.#", CultureInfo.InvariantCulture);

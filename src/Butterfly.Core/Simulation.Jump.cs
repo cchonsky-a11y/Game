@@ -27,9 +27,21 @@ namespace Butterfly.Core
         /// <summary>True if the plague's warnings had begun before you left (so Demetria could have asked).</summary>
         private bool _warningsBeforeDeparture;
 
+        /// <summary>When the current era began for the jump range's time bonus: AD 155, or the year you last arrived.</summary>
+        private double? _eraStart;
+
+        public int JumpsMade { get; private set; }
+
+        /// <summary>
+        /// Option A (decided 2026-09-28): after an arrival you may jump again at once, without a second era to play, up to
+        /// the P0 limit. The machine stays repaired; the range starts over from the repairs and upgrades.
+        /// </summary>
+        public bool CanJumpAgain => Arrived && JumpsMade < T.GetInt("jump.maxJumps");
+
         private Arrival Jump(bool ignoreMachine)
         {
-            if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
+            if (IsAway || (Arrived && !CanJumpAgain)) throw new InvalidOperationException("Already jumped.");
+            Arrived = false;
             if (!ignoreMachine && !MachineReady)
                 throw new InvalidOperationException("The machine isn't ready (" + MachineStepsDone + "/" + MachineStepsTotal + " steps, " +
                                                     F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " aurei restored).");
@@ -76,6 +88,8 @@ namespace Butterfly.Core
             }
             IsAway = false;
             Arrived = true;
+            JumpsMade++;
+            _eraStart = Now.YearFraction;
             SavingsOnArrival(arrival);
 
             arrival.ArrivalYear = Now.Year;
