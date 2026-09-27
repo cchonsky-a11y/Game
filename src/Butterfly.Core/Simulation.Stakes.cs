@@ -187,11 +187,11 @@ namespace Butterfly.Core
                 int minFirst = inst.Def.JoinRequirement == "deposit" ? T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (points < minFirst)
                     return CommandResult.Fail(Cap(inst.Def.ShortName) + " takes new partners only with a deposit of at least " + minFirst + "% (" +
-                                              F(BuyCost(inst, minFirst)) + " gold): buy " + inst.Key + " " + minFirst + ".");
+                                              Money(BuyCost(inst, minFirst)) + "): buy " + inst.Key + " " + minFirst + ".");
             }
             double fee = inst.Stake <= 0 ? EntryFee(inst) : 0;
             double cost = BuyCost(inst, points);
-            if (World.Gold < cost) return CommandResult.Fail(points + "% of " + inst.Def.ShortName + " costs " + F(cost) + " gold; you have " + F(World.Gold) + ".");
+            if (World.Gold < cost) return CommandResult.Fail(points + "% of " + inst.Def.ShortName + " costs " + Money(cost) + "; you have " + Money(World.Gold) + ".");
             int att = T.GetInt("stakes.buyAttention");
             var attention = CheckAttention(att);
             if (attention != null) return attention;
@@ -209,11 +209,11 @@ namespace Butterfly.Core
             if (first) effects.Add(new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty));
             string crossed = Crossed(stake, inst.Stake);
             Record("institution.buy", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader }, effects,
-                (first ? inst.Def.FoundText + (fee > 0 ? " Entry fee: " + F(fee) + " gold." : "") + " " : "") + "You now hold " + (from + points) + "% of " + inst.Def.Name + "." + crossed);
-            return CommandResult.Success("You hold " + (from + points) + "% of " + inst.Def.ShortName + " (" + F(cost) + " gold" +
-                                         (fee > 0 ? ", including a " + F(fee) + "-gold entry fee" : "") + ", " + att + " Attention)." + crossed +
-                                         " Dues: " + F(AnnualDues(inst)) + " gold a year." +
-                                         (Controls(inst) ? "" : " Next 1% costs " + F(StakeCost(inst, 1)) + "."));
+                (first ? inst.Def.FoundText + (fee > 0 ? " Entry fee: " + Money(fee) + "." : "") + " " : "") + "You now hold " + (from + points) + "% of " + inst.Def.Name + "." + crossed);
+            return CommandResult.Success("You hold " + (from + points) + "% of " + inst.Def.ShortName + " (" + Money(cost) +
+                                         (fee > 0 ? ", including a " + Money(fee) + " entry fee" : "") + ", " + att + " Attention)." + crossed +
+                                         " Dues: " + Money(AnnualDues(inst)) + " a year." +
+                                         (Controls(inst) ? "" : " Next 1% costs " + Money(StakeCost(inst, 1)) + "."));
         }
 
         /// <summary>What joining an established institution asks of you, in words (decided 2026-09-28).</summary>
@@ -277,7 +277,7 @@ namespace Butterfly.Core
             if (inst.Exists) return CommandResult.Fail(Cap(inst.Def.Name) + " already exists.");
             if (inst.Collapsed) return CommandResult.Fail(Cap(inst.Def.Name) + " failed; you can't found it again this era.");
             double cost = FoundCost(inst.Def.Maintains);
-            if (World.Gold < cost) return CommandResult.Fail("Founding " + inst.Def.Name + " costs " + F(cost) + " gold.");
+            if (World.Gold < cost) return CommandResult.Fail("Founding " + inst.Def.Name + " costs " + Money(cost) + ".");
             int att = T.GetInt("founding.attention");
             var attention = CheckAttention(att);
             if (attention != null) return attention;
@@ -291,7 +291,7 @@ namespace Butterfly.Core
             Record("institution.found", inst.Key, null, new[] { "player", inst.Leader },
                 new[] { new Effect(StakeKey(inst), 0, 1), new Effect(StrengthKey(inst), 0, inst.Strength), new Effect(LoyaltyKey(inst), 0, inst.Loyalty), new Effect(GoldKey, gold, World.Gold) },
                 inst.Def.FoundText);
-            return CommandResult.Success("You founded " + inst.Def.Name + ", led by " + inst.Leader + " (" + F(cost) + " gold, " + att + " Attention). " +
+            return CommandResult.Success("You founded " + inst.Def.Name + ", led by " + inst.Leader + " (" + Money(cost) + ", " + att + " Attention). " +
                                          "It holds " + F(DomainShare(inst) * 100) + "% of " + inst.Def.Maintains + "; below strength " +
                                          F(T.Get("founding.fragileBelow")) + " it may fail.");
         }
@@ -303,7 +303,7 @@ namespace Butterfly.Core
             var fail = RequireControl(inst, id);
             if (fail != null) return fail;
             if (amount <= 0) return CommandResult.Fail("Invest how much?");
-            if (World.Gold < amount) return CommandResult.Fail("You have only " + F(World.Gold) + " gold.");
+            if (World.Gold < amount) return CommandResult.Fail("You have only " + Money(World.Gold) + ".");
             if (inst!.Strength >= 100) return CommandResult.Fail(Cap(inst.Def.ShortName) + " is as strong as it can be.");
             int att = T.GetInt("stakes.investAttention");
             var attention = CheckAttention(att);
@@ -314,7 +314,7 @@ namespace Butterfly.Core
             inst.Strength = Math.Min(100, inst.Strength + amount * T.Get("stakes.investStrengthPerGold"));
             Record("institution.invest", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(StrengthKey(inst), strength, inst.Strength), new Effect(GoldKey, gold, World.Gold) },
-                "You put " + F(amount) + " gold into " + inst.Def.Name + ": rooms, pay, members. Strength " + F(strength) + " → " + F(inst.Strength) + ".");
+                "You put " + Money(amount) + " into " + inst.Def.Name + ": rooms, pay, members. Strength " + F(strength) + " → " + F(inst.Strength) + ".");
             return CommandResult.Success(Cap(inst.Def.ShortName) + ": strength " + F(inst.Strength) + ", " + F(DomainShare(inst) * 100) + "% of " + inst.Def.Maintains + ".");
         }
 

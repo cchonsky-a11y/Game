@@ -97,17 +97,17 @@ namespace Butterfly.Core
         {
             double missing = MachineGoldNeeded - World.MachineGoldRestored;
             if (missing <= 0) return CommandResult.Fail("All the machine's gold is back in place.");
-            if (amount <= 0) return CommandResult.Fail("Put back how much? " + F(missing) + " gold is still missing from the machine.");
-            amount = Math.Min(Math.Min(amount, missing), World.Gold);
-            if (amount <= 0) return CommandResult.Fail("You have no gold to put back.");
-            double goldBefore = World.Gold, restoredBefore = World.MachineGoldRestored;
-            SpendGold(amount);
+            if (amount <= 0) return CommandResult.Fail("Put back how many aurei? " + AureiText(missing) + " are still missing from the machine.");
+            amount = Math.Floor(Math.Min(Math.Min(amount, missing), World.Aurei));
+            if (amount <= 0) return CommandResult.Fail("You have no gold aurei to put back (buy some at the money changers: exchange <denarii> denarii).");
+            double aureiBefore = World.Aurei, restoredBefore = World.MachineGoldRestored;
+            World.Aurei -= amount;
             World.MachineGoldRestored += amount;
             Record("machine.gold", "machine", null, new[] { "player" },
-                new[] { new Effect(GoldKey, goldBefore, World.Gold), new Effect("machine.goldRestored", restoredBefore, World.MachineGoldRestored) },
-                "You beat " + F(amount) + " gold back into wire and leaf for the machine's contacts (" + F(World.MachineGoldRestored) + " of " +
+                new[] { new Effect("aurei", aureiBefore, World.Aurei), new Effect("machine.goldRestored", restoredBefore, World.MachineGoldRestored) },
+                "You beat " + AureiText(amount) + " back into wire and leaf for the machine's contacts (" + F(World.MachineGoldRestored) + " of " +
                 F(MachineGoldNeeded) + " restored" + (MachineReady ? "; it can carry you now." : ")."));
-            return CommandResult.Success("Machine gold: " + F(World.MachineGoldRestored) + "/" + F(MachineGoldNeeded) + ".");
+            return CommandResult.Success("Machine gold: " + F(World.MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " aurei.");
         }
 
         /// <summary>The next step of a system that isn't done or under way, or null if the system is finished or busy.</summary>
@@ -165,7 +165,7 @@ namespace Butterfly.Core
         private CommandResult BeginMachineStep(MachineStepDef step)
         {
             int gold = MachineStepGold(step);
-            if (World.Gold < gold) return CommandResult.Fail(step.Name + " costs " + gold + " gold; you have " + F(World.Gold) + ".");
+            if (World.Gold < gold) return CommandResult.Fail(step.Name + " costs " + Money(gold) + "; you have " + Money(World.Gold) + ".");
             var attention = CheckAttention(step.AttentionPerTurn);
             if (attention != null) return attention;
             SpendAttention(step.AttentionPerTurn);
@@ -174,7 +174,7 @@ namespace Butterfly.Core
             bool viaRome = MachineRequirementMet(step);
             var e = Record("machine.start", step.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
                 "You begin: " + step.Name + (step.Requirement != null && !viaRome ? " (without help from Rome, you " + step.AltText + ")" : "") +
-                " (" + gold + " gold, " + step.Turns + " turn" + (step.Turns == 1 ? "" : "s") + ").");
+                " (" + Money(gold) + ", " + step.Turns + " turn" + (step.Turns == 1 ? "" : "s") + ").");
             World.ActiveMachineSteps.Add(new ActiveMachineStep(step, e.Id) { WithoutRome = !viaRome });
             return CommandResult.Success("Started: " + step.Name + ".");
         }
@@ -199,7 +199,7 @@ namespace Butterfly.Core
                                     : new Effect("machine.steps", MachineStepsDone - 1, MachineStepsDone) },
                     (a.WithoutRome ? a.Def.AltDoneText : a.Def.Text) + (upgrade
                         ? " (Upgrade: the machine's range is now " + JumpRangeText() + ".)"
-                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : MachineStepsDone >= MachineStepsTotal ? "; " + F(MachineGoldNeeded - MachineGoldRestored) + " gold still to put back." : ".") + ")"));
+                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : MachineStepsDone >= MachineStepsTotal ? "; " + F(MachineGoldNeeded - MachineGoldRestored) + " aurei still to put back." : ".") + ")"));
             }
         }
 
@@ -229,10 +229,10 @@ namespace Butterfly.Core
                 string line = Cap(system) + ": " + done + "/" + steps.Count;
                 if (active != null) line += " — under way: " + active.Def.Name + " (" + active.TurnsRemaining + " turn(s) left)";
                 else if (next != null)
-                    line += " — next: " + next.Name + " (" + MachineStepGold(next) + " gold, " + next.AttentionPerTurn + " Attention" +
+                    line += " — next: " + next.Name + " (" + Money(MachineStepGold(next)) + ", " + next.AttentionPerTurn + " Attention" +
                             (next.Turns > 1 ? " a turn for " + next.Turns + " turns" : "") + ")" +
                             (next.Requirement == null ? "" : MachineRequirementMet(next) ? "; Rome helps: you have " + MachineRequirementText(next)
-                                : "; with " + MachineRequirementText(next) + " it would cost " + next.Gold + " gold");
+                                : "; with " + MachineRequirementText(next) + " it would cost " + Money(next.Gold * World.PriceLevel));
                 else line += " — done";
                 yield return line;
             }
@@ -241,15 +241,15 @@ namespace Butterfly.Core
                 var active = World.ActiveMachineSteps.FirstOrDefault(a => a.Def.Id == u.Id);
                 yield return "Upgrade " + u.Id + ": " + u.Name + (World.MachineDone.Contains(u.Id) ? " — done"
                     : active != null ? " — under way (" + active.TurnsRemaining + " turn(s) left)"
-                    : " — " + MachineStepGold(u) + " gold, " + u.AttentionPerTurn + " Attention a turn for " + u.Turns + " turns" +
-                      (MachineRequirementMet(u) ? "" : "; with " + MachineRequirementText(u) + " it would cost " + u.Gold + " gold"));
+                    : " — " + Money(MachineStepGold(u)) + ", " + u.AttentionPerTurn + " Attention a turn for " + u.Turns + " turns" +
+                      (MachineRequirementMet(u) ? "" : "; with " + MachineRequirementText(u) + " it would cost " + Money(u.Gold * World.PriceLevel)));
             }
             yield return GoldLine();
             yield return "Jump range: " + JumpRangeText() + ".";
         }
 
         private string GoldLine() =>
-            "Gold: " + F(MachineGoldRestored) + " of the " + F(MachineGoldNeeded) + " you scavenged is back in the machine" +
-            (MachineGoldRestored >= MachineGoldNeeded ? " — done" : "; all of it must go back before it can jump (restore <gold>, no Attention).");
+            "Gold: " + F(MachineGoldRestored) + " of the " + F(MachineGoldNeeded) + " aurei you scavenged are back in the machine" +
+            (MachineGoldRestored >= MachineGoldNeeded ? " — done" : "; all must go back before it can jump (restore <aurei>, no Attention; you hold " + AureiText(World.Aurei) + ").");
     }
 }

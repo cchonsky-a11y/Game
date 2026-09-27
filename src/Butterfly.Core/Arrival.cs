@@ -86,6 +86,15 @@ namespace Butterfly.Core
         public string CoinKey { get; set; } = "";
         /// <summary>Economic policy left in place at departure, e.g. "coinage sound".</summary>
         public List<string> PolicyAtDeparture { get; } = new List<string>();
+        /// <summary>Gold across the jump (decided 2026-09-28): carried, deposited, buried, left; and what came back.</summary>
+        public double AureiCarried { get; set; }
+        public double AureiDeposited { get; set; }
+        public double AureiDepositReturned { get; set; }
+        public double AureiBuried { get; set; }
+        public double AureiHoardFound { get; set; }
+        public double AureiLeft { get; set; }
+        public double AureiOnArrival => AureiCarried + AureiDepositReturned + AureiHoardFound;
+        public double DenariiPerUnit { get; set; } = 25;
 
         /// <summary>
         /// Learn more: the Index before and after, institution outcomes and the crises that struck.
@@ -107,10 +116,13 @@ namespace Butterfly.Core
                 sb.AppendLine("  " + Simulation.Cap(i.Name) + ": " + i.Outcome + (i.NowCalled != i.Name && i.Outcome != InstitutionOutcome.Dissolved ? " — now " + i.NowCalled : "") +
                               " (left " + Label(i.Quality) + "; strength " + i.Strength.ToString("0", ci) + ", loyalty " + i.Loyalty.ToString("0", ci) + ")" +
                               (i.HoldingsAtDeparture > 0
-                                  ? "\n    Gold: left " + i.HoldingsAtDeparture.ToString("0", ci) + ", paid off " + i.DebtPaidAway.ToString("0", ci) + " debt, lost " +
-                                    i.GoldLostToCorruption.ToString("0", ci) + " to corruption" + (i.Corruption != CorruptionLevel.None ? " (" + i.Corruption + ")" : "") +
-                                    ", " + i.HoldingsNow.ToString("0", ci) + " left when the 30 years ended"
+                                  ? "\n    Money: left " + (i.HoldingsAtDeparture * DenariiPerUnit).ToString("#,0", ci) + " denarii, paid off " + i.DebtPaidAway.ToString("0", ci) + " debt, lost " +
+                                    (i.GoldLostToCorruption * DenariiPerUnit).ToString("#,0", ci) + " denarii to corruption" + (i.Corruption != CorruptionLevel.None ? " (" + i.Corruption + ")" : "") +
+                                    ", " + (i.HoldingsNow * DenariiPerUnit).ToString("#,0", ci) + " left when the 30 years ended"
                                   : ""));
+            sb.AppendLine("Your gold: carried " + AureiCarried.ToString("0", ci) + ", deposited " + AureiDeposited.ToString("0", ci) + " (" + AureiDepositReturned.ToString("0", ci) +
+                          " back), buried " + AureiBuried.ToString("0", ci) + " (" + AureiHoardFound.ToString("0", ci) + " recovered), left behind " + AureiLeft.ToString("0", ci) +
+                          "; you hold " + AureiOnArrival.ToString("0", ci) + " aurei now.");
             sb.AppendLine("Crises while you were away");
             if (Crises.Count == 0) sb.AppendLine("  None recorded.");
             foreach (var c in Crises) sb.AppendLine("  " + c);

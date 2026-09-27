@@ -32,8 +32,8 @@ namespace Butterfly.Core
             if (IsAway || Arrived) throw new InvalidOperationException("Already jumped.");
             if (!ignoreMachine && !MachineReady)
                 throw new InvalidOperationException("The machine isn't ready (" + MachineStepsDone + "/" + MachineStepsTotal + " steps, " +
-                                                    F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " gold restored).");
-            var arrival = new Arrival { DepartureYear = Now.Year };
+                                                    F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " aurei restored).");
+            var arrival = new Arrival { DepartureYear = Now.Year, DenariiPerUnit = DenariiPerUnit };
             DepartureYear = Now.Year;
             _warningsBeforeDeparture = World.Plague.Stage >= 1;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
@@ -44,6 +44,7 @@ namespace Butterfly.Core
             var depart = Record("jump.depart", "machine", null, new[] { "player" }, null,
                 "You start the machine and leave AD " + Now.Year + ".");
             SettlePromiseOnDeparture(depart.Id);
+            SavingsAtDeparture(arrival);
             TagEchoes(arrival, depart.Id);
             foreach (var i in Influential())
             {
@@ -74,6 +75,7 @@ namespace Butterfly.Core
             }
             IsAway = false;
             Arrived = true;
+            SavingsOnArrival(arrival);
 
             arrival.ArrivalYear = Now.Year;
             foreach (var d in DomainInfo.All) arrival.SubScoresAfter[d] = SubScore(d);
@@ -108,7 +110,7 @@ namespace Butterfly.Core
             foreach (var d in World.Domains.Where(x => x.Debt > 0))
                 yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year for " + cap + " years after you leave (about " +
                              F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, cap)) +
-                             " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + F(PaydownCost(d.Debt)) + " gold.";
+                             " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + Money(PaydownCost(d.Debt)) + ".";
             int window = T.GetInt("institutions.holdings.windowYears");
             foreach (var i in Influential())
             {
@@ -119,23 +121,23 @@ namespace Butterfly.Core
                              why + ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
                 if (i.Holdings <= 0)
                 {
-                    yield return "  It holds no gold, so it can't pay down " + i.Def.Maintains + " debt while you're away. (endow " + i.Key + " <gold>)";
+                    yield return "  It holds no money, so it can't pay down " + i.Def.Maintains + " debt while you're away. (endow " + i.Key + " <denarii>)";
                     continue;
                 }
                 var domain = World[i.Def.Maintains];
                 double share = PaymentShare(i);
                 double coverable = i.Holdings / PaydownCost(1);
-                yield return "  It holds " + F(i.Holdings) + " gold (" + (LargeHoldings(i) ? "large" : "small") + "), growing about " +
+                yield return "  It holds " + Money(i.Holdings) + " (" + (LargeHoldings(i) ? "large" : "small") + "), growing about " +
                              F(HoldingsGrowthRate() * 100) + "% a year with the economy for " + window + " years.";
                 yield return "  It would pay " + (share >= 1 ? "in full" : share > 0 ? "partially" : "nothing") + " toward " + i.Def.Maintains +
-                             " debt (now " + F(domain.Debt) + "); its gold covers about " + F(coverable) + " points at the 1.5× premium.";
+                             " debt (now " + F(domain.Debt) + "); its money covers about " + F(coverable) + " points at the 1.5× premium.";
                 var w = CorruptionWeights(i);
                 double sum = w[0] + w[1] + w[2];
                 yield return "  Corruption risk: " + CorruptionRiskBand(i) + " for " + window + " years (" +
                              (LargeHoldings(i) ? "large holdings" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
                              ", " + i.Leader + " is " + i.Def.LeaderIntegrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
                              F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." +
-                             (i.AuditCharter ? "" : " (audit " + i.Key + ": " + F(T.Get("institutions.auditGold")) + " gold)");
+                             (i.AuditCharter ? "" : " (audit " + i.Key + ": " + Money(T.Get("institutions.auditGold")) + ")");
             }
             if (!Influential().Any()) yield return "No institution you hold " + F(InfluenceAt * 100) + "%+ of will look after Rome while you're away.";
             yield return "The machine will carry you " + JumpRangeText() + "; exactly how far, you'll know when you arrive." +
@@ -147,7 +149,8 @@ namespace Butterfly.Core
             if (World.Promise.Status == PromiseStatus.Offered) yield return "Demetria asked you to stay until the sickness has passed. If you leave now, she will never have an answer.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
-            if (World.Gold >= 1) yield return "The " + F(Math.Floor(World.Gold)) + " gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.";
+            if (World.Gold >= 1) yield return "The " + Money(World.Gold) + " in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.";
+            foreach (var line in SavingsBriefing()) yield return line;
         }
 
         private void SettlePromiseOnDeparture(int departId)
@@ -226,6 +229,7 @@ namespace Butterfly.Core
             foreach (var i in Influential()) InstitutionDecadeStep(i, decade);
             if (window) foreach (var i in Influential()) HoldingsDecadeGrowth(i);
             FountainDecadeStep();
+            SavingsDecadeStep();
             if (antoninePassed) MaybeRecurrence(arrival);
             PolicyDecadeStep(arrival);
             // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).
@@ -403,6 +407,7 @@ namespace Butterfly.Core
                 parts.Add(text.Template("discovery.none", values));
                 keys.Add("none");
             }
+            parts.AddRange(SavingsLines(arrival, values));
             institution.AtArrival = string.Join(", ", keys);
             institution.Beat = "Discovery";
             arrival.Beats.Add(new ArrivalBeat("Discovery", string.Join(" ", parts)));

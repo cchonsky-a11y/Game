@@ -253,7 +253,7 @@
   "gold": {
     "start": {
       "value": 60,
-      "ref": "PROPOSED P0-07"
+      "ref": "PROPOSED P0-07; DECIDED 2026-09-28 (Corey): the start is a purse of gold aurei scavenged from the machine, not coin"
     }
   },
   "plague": {
@@ -1366,6 +1366,44 @@
     "responseStake": {
       "value": 0.1,
       "ref": "SYSTEMS §7: a plague response needs a voice (25%); DECIDED 2026-09-28 (Corey): the warnings, having proved you right, lower it to influence (10%) in a Medicine or Governance institution"
+    }
+  },
+  "currency": {
+    "_readme": "DECIDED 2026-09-28 (Corey): gold isn't debased; Rome's silver coin is. Everyday money is denarii (1 aureus = 25 denarii, the official rate in AD 155); gold aurei are a separate purse whose price in denarii rises with the price level (history's debasement unless your coinage policy changes it). Internally money is kept in units of AD 155 aurei, so every other tuning value keeps its scale; the console shows and takes denarii.",
+    "denariiPerUnit": {
+      "value": 25,
+      "ref": "DECIDED 2026-09-28 (Corey: historical): 1 aureus = 25 denarii in AD 155"
+    },
+    "exchangeFee": {
+      "value": 0.025,
+      "ref": "DECIDED 2026-09-28 (Corey: exchanging is an action); fee PROPOSED P0-26: the money changer's cut, each way"
+    },
+    "exchangeAttention": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey: exchanging is an action); PROPOSED P0-26: a trip to the money changers at the Forum"
+    }
+  },
+  "savings": {
+    "_readme": "DECIDED 2026-09-28 (Corey): gold across the jump. The machine carries a small purse; beyond it, gold can be deposited with the banking house (a little interest, with the risk that the house fails or its head embezzles) or buried (no interest, with the risk that someone else finds it). Anything else left in hand is lost. The arrival's Discovery beat reveals what became of it.",
+    "carryAurei": {
+      "value": 10,
+      "ref": "PROPOSED P0-27: aurei the machine can carry with you"
+    },
+    "depositInterestPerYear": {
+      "value": 0.02,
+      "ref": "PROPOSED P0-27: simple interest the banking house pays on a gold deposit, in gold"
+    },
+    "depositLossPerDecade": {
+      "value": 0.08,
+      "ref": "PROPOSED P0-27: chance a decade that the house fails or embezzles your deposit, × leader integrity (venal 1.3), halved if you hold 10% of the bank"
+    },
+    "hoardFoundPerDecade": {
+      "value": 0.06,
+      "ref": "PROPOSED P0-27: chance a decade that someone else finds your buried hoard"
+    },
+    "attention": {
+      "value": 1,
+      "ref": "PROPOSED P0-27: a trip to the bank, or a night with a spade"
     }
   }
 }

@@ -28,7 +28,7 @@ internal sealed class ConsoleGame
     /// <summary>End the turn by itself once a choice uses the last Attention (decided 2026-09-28). On for keyboard play;
     /// scripts turn it on with the line "@autoend on" so older scripts with explicit 'end's still replay the same.</summary>
     private bool _autoEnd;
-    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?" };
+    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore" };
 
     public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null)
     {
@@ -97,6 +97,7 @@ internal sealed class ConsoleGame
         Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
         Console.WriteLine("machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.");
         Console.WriteLine("You don't yet know what broke. Something is coming from the East within ten years.");
+        Console.WriteLine("Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.");
         Console.WriteLine("Once you repair it, the machine can carry you forward, " + _sim.T.GetInt("jump.range.baseMin") + " to " + _sim.T.GetInt("jump.range.maxYears") +
                           " years depending on how well you repair it. What you leave behind will go on without you.");
         Console.WriteLine();
@@ -121,9 +122,9 @@ internal sealed class ConsoleGame
                                    10% counts toward influence · 25% a voice (priorities, policy) · 50% control
   attend <inst>                  attend a meeting as a member (1 Attention; twice a year earns extra seniority)
   found <school|club|house>      found your own institution: you control it, but it starts small and may fail
-  invest <inst> <gold>           build up an institution you control (2 Attention)
+  invest <inst> <denarii>        build up an institution you control (2 Attention)
   charter <inst>                 write its founding principles (slows drift; needs control)
-  endow <inst> [gold|all]        give it gold to hold (the first 60 makes it endowed)
+  endow <inst> [denarii|all]     give it money to hold (the minimum endowment makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
   policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (2 Attention):
@@ -143,7 +144,9 @@ internal sealed class ConsoleGame
   invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
   assess                         assess the machine to learn what's wrong (needed before any repair)
-  restore <gold>                 put scavenged gold back into the machine (all of it is needed to jump)
+  restore <aurei>                put scavenged gold back into the machine (all of it is needed to jump)
+  exchange <n> aurei|denarii     change money at the money changers (1 Attention, a fee each way)
+  deposit <aurei> / bury <aurei> keep gold for your return: the machine carries only a small purse
   repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
   upgrade <contacts|lens|flywheel>    optional: each upgrade lets the machine carry you further
   jump                           prepare to leave (then pay down, endow, audit, or 'jump' again)
@@ -175,7 +178,7 @@ internal sealed class ConsoleGame
             case "paydown":
                 if (parts.Length < 3 || !DomainInfo.TryParseDomain(parts[1], out var pd) || !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var pts))
                 {
-                    Console.WriteLine("Usage: paydown <domain> <points>   (costs " + F(_sim.PaydownCost(1)) + " gold per point)");
+                    Console.WriteLine("Usage: paydown <domain> <points>   (costs " + _sim.Money(_sim.PaydownCost(1)) + " per point)");
                     return false;
                 }
                 r = _sim.PayDown(pd, pts);
@@ -183,17 +186,40 @@ internal sealed class ConsoleGame
             case "institutions": case "i": Institutions(); return true;
             case "machine": case "m":
                 Console.WriteLine("Machine: " + _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps and " + F(_sim.MachineGoldRestored) + "/" +
-                                  F(_sim.MachineGoldNeeded) + " gold restored (all are needed to jump).");
+                                  F(_sim.MachineGoldNeeded) + " aurei restored (all are needed to jump).");
                 foreach (var l in _sim.MachineStatus()) Console.WriteLine("  " + l);
                 return true;
             case "assess": r = _sim.Assess(); break;
             case "restore":
                 if (!double.TryParse(arg, NumberStyles.Float, CultureInfo.InvariantCulture, out var restore))
                 {
-                    Console.WriteLine("Usage: restore <gold>   (" + F(_sim.MachineGoldNeeded - _sim.MachineGoldRestored) + " gold still missing from the machine)");
+                    Console.WriteLine("Usage: restore <aurei>   (" + F(_sim.MachineGoldNeeded - _sim.MachineGoldRestored) + " aurei still missing from the machine; you hold " + _sim.AureiText(_sim.World.Aurei) + ")");
                     return false;
                 }
                 r = _sim.RestoreGold(restore);
+                break;
+            case "exchange":
+            {
+                double exn = 0;
+                string unit = parts.Length > 2 ? parts[2].ToLowerInvariant() : "";
+                if (parts.Length < 3 || !double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out exn) ||
+                    !(unit.StartsWith("aure") || unit.StartsWith("gold") || unit.StartsWith("den")))
+                {
+                    Console.WriteLine("Usage: exchange <n> aurei   (sell gold for denarii)   or   exchange <n> denarii   (buy gold with them)");
+                    Console.WriteLine("  An aureus is worth " + F(Math.Round(_sim.AureusInDenarii, 1)) + " denarii now; the changers take " +
+                                      F(_sim.T.Get("currency.exchangeFee") * 100) + "% each way, and a trip costs " + _sim.T.GetInt("currency.exchangeAttention") + " Attention.");
+                    return false;
+                }
+                r = unit.StartsWith("den") ? _sim.BuyAurei(Math.Floor(_sim.FromDenarii(exn) / _sim.AureiCost(1) + 1e-9)) : _sim.SellAurei(exn);
+                break;
+            }
+            case "deposit":
+                r = double.TryParse(arg, NumberStyles.Float, CultureInfo.InvariantCulture, out var dep) ? _sim.Deposit(dep)
+                    : CommandResult.Fail("Usage: deposit <aurei>   (with the banking house: a little interest in gold, and a risk it fails)");
+                break;
+            case "bury":
+                r = double.TryParse(arg, NumberStyles.Float, CultureInfo.InvariantCulture, out var bur) ? _sim.Bury(bur)
+                    : CommandResult.Fail("Usage: bury <aurei>   (a jar only you know about: no interest, and someone may find it)");
                 break;
             case "repair": r = _sim.Repair(arg); break;
             case "upgrade": r = _sim.Upgrade(arg); break;
@@ -229,7 +255,7 @@ internal sealed class ConsoleGame
                     Console.WriteLine("Usage: invest <institution> <gold>");
                     return false;
                 }
-                r = _sim.Invest(arg, inv);
+                r = _sim.Invest(arg, _sim.FromDenarii(inv));
                 break;
             case "charter": r = _sim.Charter(arg); break;
             case "endow":
@@ -237,7 +263,7 @@ internal sealed class ConsoleGame
                     r = _sim.Endow(arg, Math.Floor(_sim.World.Gold));
                 else
                     r = parts.Length > 2 && double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var amount)
-                        ? _sim.Endow(arg, amount) : _sim.Endow(arg);
+                        ? _sim.Endow(arg, _sim.FromDenarii(amount)) : _sim.Endow(arg);
                 break;
             case "audit": r = _sim.Audit(arg); break;
             case "policy":
@@ -270,7 +296,7 @@ internal sealed class ConsoleGame
         Console.WriteLine(r.Message + (r.Ok && _sim.World.Attention < attentionBefore
             ? "  [Attention left this turn: " + _sim.World.Attention + "/" + _sim.AttentionPerTurn + "]" : ""));
         // During jump preparation, show the updated briefing after each change.
-        if (_jumpArmed && r.Ok && (cmd == "paydown" || cmd == "endow" || cmd == "audit")) Briefing();
+        if (_jumpArmed && r.Ok && PrepCommands.Contains(cmd)) Briefing();
         return r.Ok;
     }
 
@@ -294,8 +320,9 @@ internal sealed class ConsoleGame
     {
         var w = _sim.World;
         Console.WriteLine();
-        Console.WriteLine("== Turn " + _sim.Turn + " · " + _sim.Now.Display + " ==  Gold " + F(w.Gold) + " (" + Signed((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn) +
-                          "/turn)   Attention " + w.Attention + "/" + _sim.AttentionPerTurn + "   Index " + F(_sim.SphereIndex()));
+        Console.WriteLine("== Turn " + _sim.Turn + " · " + _sim.Now.Display + " ==  " + _sim.Money(w.Gold) + " (" + (((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn) >= 0 ? "+" : "−") +
+                          _sim.Money(Math.Abs((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn)).Replace(" denarii", "") + "/turn) · " +
+                          _sim.AureiText(w.Aurei) + " (1 = " + F(Math.Round(_sim.AureusInDenarii, 1)) + " den.)   Attention " + w.Attention + "/" + _sim.AttentionPerTurn + "   Index " + F(_sim.SphereIndex()));
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
                               "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
@@ -309,11 +336,11 @@ internal sealed class ConsoleGame
             Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i) + ", strength " + F(i.Strength) +
                               " (" + F(_sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ")" + (_sim.Controls(i) ? ", loyalty " + F(i.Loyalty) : "") +
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
-                              (i.Holdings > 0 ? ", holds " + F(i.Holdings) + " gold" : ""));
+                              (i.Holdings > 0 ? ", holds " + _sim.Money(i.Holdings) : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
         foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
         Console.WriteLine("  Machine: " + (_sim.MachineAssessed ? _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" : "not yet assessed") +
-                          ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) +
+                          ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) + " aurei" +
                           string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +
                           (_sim.MachineReady ? " — ready to jump" : "") + "   (machine)");
         foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
@@ -331,7 +358,7 @@ internal sealed class ConsoleGame
         foreach (var p in _sim.AvailableProjects())
         {
             string? blocked = _sim.ProjectAuthorityBlocker(p);
-            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + (_sim.ProjectGold(p) + "g").PadLeft(4) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name +
+            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + _sim.Money(_sim.ProjectGold(p)).PadLeft(14) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name +
                               (blocked != null ? "\n                (" + blocked + ")" : p.Authority != null ? "   (public: you have the backing)" : ""));
         }
         Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");
@@ -349,7 +376,7 @@ internal sealed class ConsoleGame
             {
                 string line = "  " + i.Key.PadRight(10) + Simulation.Cap(i.Def.Name) + " — " + i.Leader + " (" + i.Def.LeaderIntegrity + ")";
                 if (!i.Exists)
-                    line += i.Collapsed ? ": failed" : ": yours to found for " + F(_sim.FoundCost(d)) + " gold, " + _sim.T.GetInt("founding.attention") +
+                    line += i.Collapsed ? ": failed" : ": yours to found for " + _sim.Money(_sim.FoundCost(d)) + ", " + _sim.T.GetInt("founding.attention") +
                                                        " Attention (starts at strength " + F(_sim.T.Get("founding.startStrength")) + ")";
                 else
                 {
@@ -359,9 +386,9 @@ internal sealed class ConsoleGame
                         line += "; to join: " + _sim.JoinRequirementText(i) + (_sim.JoinBlocker(i) == null ? " (you qualify)" : " (not yet)");
                     int next = _sim.NextThresholdPercent(i);
                     if (!i.Def.IsOwn && next > 0)
-                        line += "; next 1% " + F(_sim.BuyCost(i, 1)) + "g" + (i.Stake <= 0 && _sim.EntryFee(i) > 0 ? " incl. " + F(_sim.EntryFee(i)) + "g entry fee" : "") +
-                                ", to " + next + "% " + F(_sim.BuyCost(i, next - _sim.StakePercent(i))) + "g; dues " + F(_sim.T.Get("joining.duesBasePerYear." + i.Key)) + "g/yr + " +
-                                F(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";
+                        line += "; next 1% " + _sim.Money(_sim.BuyCost(i, 1)) + (i.Stake <= 0 && _sim.EntryFee(i) > 0 ? " incl. " + _sim.Money(_sim.EntryFee(i)) + " entry fee" : "") +
+                                ", to " + next + "% " + _sim.Money(_sim.BuyCost(i, next - _sim.StakePercent(i))) + "; dues " + _sim.Money(_sim.T.Get("joining.duesBasePerYear." + i.Key)) + "/yr + " +
+                                _sim.Money(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";
                 }
                 Console.WriteLine(line);
             }
@@ -409,9 +436,9 @@ internal sealed class ConsoleGame
 
     private void Briefing()
     {
-        Console.WriteLine("What you leave behind (" + F(_sim.World.Gold) + " gold in hand):");
+        Console.WriteLine("What you leave behind (" + _sim.Money(_sim.World.Gold) + " and " + _sim.AureiText(_sim.World.Aurei) + " in hand):");
         foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
-        Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.");
+        Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.");
     }
 
     private void AfterArrival(string cmd, string arg)

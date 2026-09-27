@@ -22,9 +22,16 @@ namespace Butterfly.Batch
         public static void RepairMachine(Simulation sim)
         {
             if (sim.Turn == 1) return; // the hour-one choice comes first
+            // Change the rest of the scavenged gold into denarii to live on (decided 2026-09-28: two currencies).
+            if (sim.World.Aurei >= 1 && sim.MachineGoldRestored < 1 && sim.MachineStepsDone < sim.MachineStepsTotal) sim.SellAurei(sim.World.Aurei);
             if (!sim.MachineAssessed) { sim.Assess(); return; }
-            if (sim.MachineStepsDone >= sim.MachineStepsTotal && sim.MachineGoldRestored < sim.MachineGoldNeeded && sim.World.Gold > 0)
-                sim.RestoreGold(sim.MachineGoldNeeded - sim.MachineGoldRestored);
+            if (sim.MachineStepsDone >= sim.MachineStepsTotal && sim.MachineGoldRestored < sim.MachineGoldNeeded)
+            {
+                // Buy back the machine's gold at today's rate, then put it back.
+                double missing = sim.MachineGoldNeeded - sim.MachineGoldRestored - sim.World.Aurei;
+                if (missing >= 1) sim.BuyAurei(Math.Min(missing, sim.AffordableAurei()));
+                if (sim.World.Aurei >= 1) sim.RestoreGold(sim.MachineGoldNeeded - sim.MachineGoldRestored);
+            }
             foreach (var system in Simulation.MachineSystems)
             {
                 var step = sim.NextMachineStep(system);

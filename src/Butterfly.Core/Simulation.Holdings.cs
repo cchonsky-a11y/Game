@@ -82,7 +82,7 @@ namespace Butterfly.Core
             if (level > i.Corruption) i.Corruption = level;
             var e = Record("institution.corruption", i.Key, CausesOf(HoldingsKey(i)), new[] { i.Leader },
                 new[] { new Effect(HoldingsKey(i), before, i.Holdings) },
-                (level == CorruptionLevel.Minor ? "Some of " + i.Def.Name + "'s gold goes missing."
+                (level == CorruptionLevel.Minor ? "Some of " + i.Def.Name + "'s money goes missing."
                  : level == CorruptionLevel.Major ? "Half of " + i.Def.Name + "'s treasury is embezzled; it stops paying the city's debts."
                  : i.Def.Name + "'s treasury is stolen outright.") + " (" + level + " corruption)");
 
@@ -99,7 +99,7 @@ namespace Butterfly.Core
                 Record("institution.captured", i.Key, new[] { e.Id }, new[] { i.Leader }, null,
                     Cap(i.Def.Name) + (i.ForcedOutcome == InstitutionOutcome.Rogue ? " goes rogue." : " is captured by those who robbed it."));
             }
-            arrival.Corruption.Add("AD " + Now.Year + ": " + level + " corruption in " + i.Def.Name + " (" + F(lost) + " gold lost)");
+            arrival.Corruption.Add("AD " + Now.Year + ": " + level + " corruption in " + i.Def.Name + " (" + Money(lost) + " lost)");
         }
 
         /// <summary>Loyal institutions pay in full, drifted ones partially, rogue ones not at all; major or total corruption stops payment.</summary>
@@ -126,7 +126,7 @@ namespace Butterfly.Core
             i.DebtPaidAway += points;
             Record("debt.paidByInstitution", d.Domain.Key(), CausesOf(DebtKey(d.Domain), HoldingsKey(i)), new[] { i.Leader },
                 new[] { new Effect(DebtKey(d.Domain), debtBefore, d.Debt), new Effect(HoldingsKey(i), holdingsBefore, i.Holdings) },
-                Cap(i.Def.ShortName) + " pays " + F(cost) + " gold to clear " + F(points) + " " + d.Domain + " debt.");
+                Cap(i.Def.ShortName) + " pays " + Money(cost) + " to clear " + F(points) + " " + d.Domain + " debt.");
             UpdateTier(d.Domain);
         }
     }

@@ -52,7 +52,7 @@ namespace Butterfly.Core
             if (fail != null) return fail;
             if (inst.Chartered) return CommandResult.Fail(Cap(inst.Def.ShortName) + " already has a charter.");
             double cost = T.Get("institutions.charterGold");
-            if (World.Gold < cost) return CommandResult.Fail("A charter costs " + F(cost) + " gold.");
+            if (World.Gold < cost) return CommandResult.Fail("A charter costs " + Money(cost) + ".");
             var attention = CheckAttention(T.GetInt("institutions.charterAttention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("institutions.charterAttention"));
@@ -79,7 +79,7 @@ namespace Butterfly.Core
             var fail = RequireControl(inst, id);
             if (fail != null) return fail;
             if (amount <= 0) return CommandResult.Fail("Endow how much?");
-            if (World.Gold < amount) return CommandResult.Fail("You have only " + F(World.Gold) + " gold.");
+            if (World.Gold < amount) return CommandResult.Fail("You have only " + Money(World.Gold) + ".");
             var attention = CheckAttention(T.GetInt("institutions.endowAttention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("institutions.endowAttention"));
@@ -91,9 +91,9 @@ namespace Butterfly.Core
             var effects = new List<Effect> { new Effect(HoldingsKey(inst), holdings, inst.Holdings), new Effect(GoldKey, gold, World.Gold) };
             if (nowEndowed) effects.Add(new Effect(inst.Key + ".endowed", 0, 1));
             Record("institution.endow", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player" }, effects,
-                "You give " + inst.Def.Name + " " + F(amount) + " gold to hold (now " + F(inst.Holdings) + ")." +
+                "You give " + inst.Def.Name + " " + Money(amount) + " to hold (now " + Money(inst.Holdings) + ")." +
                 (nowEndowed ? " It is endowed: it no longer needs your yearly upkeep." : ""));
-            return CommandResult.Success(Cap(inst.Def.ShortName) + " holds " + F(inst.Holdings) + " gold" +
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " holds " + Money(inst.Holdings) +
                 (inst.Endowed ? "." : " (" + F(T.Get("institutions.endowGold")) + " makes it endowed)."));
         }
 
@@ -105,7 +105,7 @@ namespace Butterfly.Core
             if (fail != null) return fail;
             if (inst.AuditCharter) return CommandResult.Fail(Cap(inst.Def.ShortName) + " already has an audit charter.");
             double cost = T.Get("institutions.auditGold");
-            if (World.Gold < cost) return CommandResult.Fail("An audit charter costs " + F(cost) + " gold.");
+            if (World.Gold < cost) return CommandResult.Fail("An audit charter costs " + Money(cost) + ".");
             var attention = CheckAttention(T.GetInt("institutions.auditAttention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("institutions.auditAttention"));
@@ -115,7 +115,7 @@ namespace Butterfly.Core
             Record("institution.audit", inst.Key, CausesOf(HoldingsKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(inst.Key + ".audit", 0, 1), new Effect(GoldKey, gold, World.Gold) },
                 "You found an audit charter for " + inst.Def.Name + ": outside auditors will open its books every year.");
-            return CommandResult.Success(Cap(inst.Def.ShortName) + " has an audit charter (" + F(cost) + " gold, " + T.GetInt("institutions.auditAttention") + " Attention).");
+            return CommandResult.Success(Cap(inst.Def.ShortName) + " has an audit charter (" + Money(cost) + ", " + T.GetInt("institutions.auditAttention") + " Attention).");
         }
 
         /// <summary>Overseeing in person: one Attention, raises loyalty (GDD §7). Once per turn per institution.</summary>

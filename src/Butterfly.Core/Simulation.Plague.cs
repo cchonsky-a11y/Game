@@ -90,7 +90,7 @@ namespace Butterfly.Core
                     ? "No one will take orders from you: you need " + F(T.Get("authority.responseStake") * 100) + "% of a Medicine or Governance institution. Rome will respond as it did in history (respond none)."
                     : "You can't choose '" + response + "' now.");
             double cost = T.Get("plague.response." + response + ".gold");
-            if (World.Gold < cost) return CommandResult.Fail("That response costs " + F(cost) + " gold.");
+            if (World.Gold < cost) return CommandResult.Fail("That response costs " + Money(cost) + ".");
             var attention = CheckAttention(T.GetInt("plague.response." + response + ".attention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("plague.response." + response + ".attention"));

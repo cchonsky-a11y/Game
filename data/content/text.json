@@ -28,6 +28,14 @@
     "historyDebased": "The coins are lighter and paler than you remember, barely half silver now. Prices have climbed with every cut, and soldiers grumble that their pay buys less each year.",
     "historyMild": "Coins pass a little lighter than you remember, a shade less silver in each, as Rome's mint has always done."
   },
+  "savings": {
+    "carried": "The {carried} aurei you carried are still in your purse, as good as the day you left.",
+    "depositKept": "At the banking house of Octavius a clerk finds your name in an old ledger. After some argument they honor it: {returned} aurei, with the interest of {years} years.",
+    "depositLost": "The banking house of Octavius is not what it was: {lostHow} Your deposit of {deposited} aurei is gone.",
+    "hoardKept": "You dig where you buried the jar. It is still there: {hoard} aurei, green with damp but gold underneath.",
+    "hoardLost": "Where you buried the jar there is a new wall and a bathhouse. Someone found your {hoard} aurei long before you came back.",
+    "left": "The {left} aurei you couldn't carry, and didn't hide or bank, are long gone."
+  },
   "personal": {
     "kept": "In {keeper} you find a line carved over a door, in Demetria's Greek: 'For the one who stayed.' They don't know it means you.",
     "broken": "In the oldest book of {keeper} there is a note in Demetria's hand: 'The foreigner promised to stay until the sickness passed. The sickness came in {outbreakYear}. The foreigner did not.'",

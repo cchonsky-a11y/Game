@@ -83,8 +83,8 @@ namespace Butterfly.Core
                         : "You advise a wealthy household on its baths and its books.";
             Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
             int members = Memberships();
-            return CommandResult.Success("You earn " + F(pay) + " gold" + (members > 0 ? " (" + F(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
-                                         " membership" + (members == 1 ? "" : "s") + ")" : "") + "; " + F(tax) + " goes in tax, you keep " + F(pay - tax) + ".");
+            return CommandResult.Success("You earn " + Money(pay) + (members > 0 ? " (" + Money(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
+                                         " membership" + (members == 1 ? "" : "s") + ")" : "") + "; " + Money(tax) + " goes in tax, you keep " + Money(pay - tax) + ".");
         }
 
         // ---- multi-turn commitments -----------------------------------------
@@ -135,9 +135,20 @@ namespace Butterfly.Core
             if (!SeededChoiceOpen) return CommandResult.Fail("That choice has already been made.");
             if (option != "fountain" && option != "workshop") return CommandResult.Fail("Choose 'fountain' or 'workshop'.");
             var def = Data.Content.Project(option)!;
-            if (World.Gold < ProjectGold(def)) return CommandResult.Fail("You can't afford it.");
+            // The smith and the fountain-menders take your gold as it is (decided 2026-09-28): no trip to the changers.
+            double aureiNeeded = Math.Ceiling(Math.Max(0, ProjectGold(def) - World.Gold) / AureusPrice - 1e-9);
+            if (aureiNeeded > World.Aurei + 1e-9) return CommandResult.Fail("You can't afford it.");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
+            if (aureiNeeded > 0)
+            {
+                double aureiBefore = World.Aurei, goldBefore = World.Gold;
+                World.Aurei -= aureiNeeded;
+                World.Gold += aureiNeeded * AureusPrice;
+                Record("currency.exchange", "aurei", null, new[] { "player" },
+                    new[] { new Effect("aurei", aureiBefore, World.Aurei), new Effect(GoldKey, goldBefore, World.Gold) },
+                    "You pay in gold from your purse: " + AureiText(aureiNeeded) + ".");
+            }
             World.SeededChoice = option;
             string other = option == "fountain" ? "the smith's workshop" : "the district fountain";
             var e = Record("seeded.choice", option, null, new[] { "player" }, new[] { new Effect("seeded.choice", 0, option == "fountain" ? 1 : 2) },

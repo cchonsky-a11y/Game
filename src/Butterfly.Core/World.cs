@@ -59,6 +59,11 @@ namespace Butterfly.Core
         public List<ActiveMachineStep> ActiveMachineSteps { get; } = new List<ActiveMachineStep>();
         /// <summary>Gold put back into the machine so far (decided 2026-09-28: all you scavenged must go back).</summary>
         public double MachineGoldRestored { get; set; }
+        /// <summary>Gold aurei in your purse (decided 2026-09-28): they hold their value; changing them costs a fee.</summary>
+        public double Aurei { get; set; }
+        /// <summary>Gold kept for the jump (decided 2026-09-28): deposited with the banking house, or buried.</summary>
+        public double DepositAurei { get; set; }
+        public double HoardAurei { get; set; }
         /// <summary>Inventions finished and under way; what they pay you each year; the extra pay they add to consulting.</summary>
         public List<string> Invented { get; } = new List<string>();
         public List<ActiveInvention> ActiveInventions { get; } = new List<ActiveInvention>();

@@ -38,7 +38,7 @@ namespace Butterfly.Core
             if (World.Promise.Status == PromiseStatus.Offered) reasons.Add("Demetria's request");
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
             if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this turn");
-            if (AffordableInvestment()) reasons.Add("gold to invest");
+            if (AffordableInvestment()) reasons.Add("money to invest");
             if (EraOver) reasons.Add("the era's " + EraYears + " years are over");
             return reasons;
         }

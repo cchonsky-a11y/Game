@@ -11,7 +11,9 @@ namespace Butterfly.Core
 
         private void InitEconomy(int startEventId)
         {
-            World.Gold = T.Get("gold.start");
+            // You arrive with a purse of gold scavenged from the machine, not with Roman coin (decided 2026-09-28).
+            World.Aurei = T.Get("gold.start");
+            World.Gold = 0;
             MarkChanged(GoldKey, startEventId);
         }
 
@@ -147,7 +149,7 @@ namespace Butterfly.Core
             if (World.ActiveProjects.Any(a => a.Def.Id == id)) return CommandResult.Fail(def.Name + " is already under way.");
             var authority = ProjectAuthorityBlocker(def);
             if (authority != null) return CommandResult.Fail(authority);
-            if (World.Gold < ProjectGold(def)) return CommandResult.Fail(def.Name + " costs " + ProjectGold(def) + " gold; you have " + F(World.Gold) + ".");
+            if (World.Gold < ProjectGold(def)) return CommandResult.Fail(def.Name + " costs " + Money(ProjectGold(def)) + "; you have " + Money(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
             return BeginProject(def, new[] { "player" }, null);
@@ -162,7 +164,7 @@ namespace Butterfly.Core
             SpendAttention(def.AttentionPerTurn);
             var e = Record("project.start", def.Id, causes, partner == null ? actors : actors.Concat(new[] { partner.Leader }),
                 new[] { new Effect(GoldKey, before, World.Gold) },
-                "Work begins: " + def.Name + " (" + gold + " gold" + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + (def.Gold - gold)) + ", " + def.Turns + " turn" + (def.Turns == 1 ? "" : "s") + ").");
+                "Work begins: " + def.Name + " (" + Money(gold) + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + Money(def.Gold * World.PriceLevel - gold)) + ", " + def.Turns + " turn" + (def.Turns == 1 ? "" : "s") + ").");
             var active = new ActiveProject(def, e.Id);
             World.ActiveProjects.Add(active);
             OnProjectStarted(active);
@@ -202,7 +204,7 @@ namespace Butterfly.Core
                     World.IncomeBonus += x.Value;
                     Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
                         new[] { new Effect("income.bonus", World.IncomeBonus - x.Value, World.IncomeBonus) },
-                        "You own a share of it: about " + F(x.Value * World[Domain.Economy].Level) + " gold a year, rising and falling with the Economy.");
+                        "You own a share of it: about " + Money(x.Value * World[Domain.Economy].Level) + " a year, rising and falling with the Economy.");
                     break;
                 case "plagueResilience":
                     World.PlagueResilienceBonus += x.Value;
@@ -236,7 +238,7 @@ namespace Butterfly.Core
             if (cost > World.Gold)
             {
                 points = Math.Floor(World.Gold / PaydownCost(1));
-                if (points <= 0) return CommandResult.Fail("Not enough gold to pay down any " + d + " debt.");
+                if (points <= 0) return CommandResult.Fail("Not enough money to pay down any " + d + " debt.");
                 cost = PaydownCost(points);
             }
             double goldBefore = World.Gold, debtBefore = s.Debt;
@@ -244,9 +246,9 @@ namespace Butterfly.Core
             s.Debt -= points;
             Record("debt.paydown", d.Key(), CausesOf(DebtKey(d)), new[] { "player" },
                 new[] { new Effect(DebtKey(d), debtBefore, s.Debt), new Effect(GoldKey, goldBefore, World.Gold) },
-                "You pay " + F(cost) + " gold to clear " + F(points) + " " + d + " debt (1.5× what prevention would have cost).");
+                "You pay " + Money(cost) + " to clear " + F(points) + " " + d + " debt (1.5× what prevention would have cost).");
             UpdateTier(d);
-            return CommandResult.Success("Paid " + F(cost) + " gold; " + d + " debt now " + F(s.Debt) + ".");
+            return CommandResult.Success("Paid " + Money(cost) + "; " + d + " debt now " + F(s.Debt) + ".");
         }
     }
 }

@@ -58,7 +58,7 @@ namespace Butterfly.Core
             if (s.Level < expectation)
                 sb.AppendLine("The shortfall of " + F(expectation - s.Level) + " adds that much debt each year.");
             sb.AppendLine("Debt " + F(s.Debt) + " (" + s.Tier + "). Debt grows 5% a year until paid down, which costs " +
-                          F(sim.PaydownCost(1)) + " gold per point." + TierNote(sim, d, s.Tier));
+                          sim.Money(sim.PaydownCost(1)) + " per point." + TierNote(sim, d, s.Tier));
             sb.AppendLine("Index sub-score " + F(sim.SubScore(d)) + " (100 = as in real history).");
             AppendRecent(sim, sb, new[] { Simulation.LevelKey(d), Simulation.DebtKey(d) }, 5);
             return sb.ToString().TrimEnd();
@@ -91,26 +91,26 @@ namespace Butterfly.Core
         {
             var t = sim.T;
             var sb = new StringBuilder();
-            sb.AppendLine("You have " + F(sim.World.Gold) + " gold.");
-            sb.AppendLine("Income " + F(sim.YearlyIncome()) + " a year" + (sim.YearlyIncome() <= 0
+            sb.AppendLine("You have " + sim.Money(sim.World.Gold) + " and " + sim.AureiText(sim.World.Aurei) + " (an aureus now costs " + F(Math.Round(sim.AureusInDenarii, 1)) + " denarii at the changers, before their fee).");
+            sb.AppendLine("Income " + sim.Money(sim.YearlyIncome()) + " a year" + (sim.YearlyIncome() <= 0
                 ? ": none. You earn by working (work odd / craft / consult); owned property and well-run institutions add income."
-                : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + F(sim.OwnedIncome()) : null }
-                      .Concat(sim.Backed().Where(i => sim.InstitutionNet(i) > 0).Select(i => "your " + sim.StakePercent(i) + "% of " + i.Def.ShortName + "'s surplus " + F(i.Stake * sim.InstitutionNet(i))))
+                : ": " + string.Join(", ", new[] { sim.OwnedIncome() > 0 ? "property you own " + sim.Money(sim.OwnedIncome()) : null }
+                      .Concat(sim.Backed().Where(i => sim.InstitutionNet(i) > 0).Select(i => "your " + sim.StakePercent(i) + "% of " + i.Def.ShortName + "'s surplus " + sim.Money(i.Stake * sim.InstitutionNet(i))))
                       .Where(x => x != null)) + "."));
             sb.AppendLine("Work is taxed at " + F(sim.WorkTaxRate() * 100) + "%. Domains: " +
                           string.Join(", ", DomainInfo.All.Select(x => sim.HasHold(x)
                               ? x + " paid for by " + sim.Maintainer(x)!.Def.ShortName + " (" + sim.World[x].Priority.Label() + ")"
                               : x + " runs without you")) + ".");
             foreach (var i in sim.Backed())
-                sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + " (you hold " + sim.StakePercent(i) + "%): earns " + F(sim.InstitutionIncome(i)) + " (grows with its strength), costs " +
-                              F(sim.InstitutionCosts(i)) + " (running " + F(i.Endowed ? 0 : t.Get("institutions.upkeepPerYear." + i.Key)) + " + " +
-                              i.Def.Maintains + " upkeep " + F(sim.PriorityUpkeep(i)) + ") → " +
-                              (sim.InstitutionNet(i) >= 0 ? "surplus " + F(sim.InstitutionNet(i)) + ", your share " + F(i.Stake * sim.InstitutionNet(i)) + "."
-                                                          : "short " + F(-sim.InstitutionNet(i)) + ", your share to cover " + F(i.Stake * -sim.InstitutionNet(i)) + "."));
+                sb.AppendLine("  " + Simulation.Cap(i.Def.ShortName) + " (you hold " + sim.StakePercent(i) + "%): earns " + sim.Money(sim.InstitutionIncome(i)) + " (grows with its strength), costs " +
+                              sim.Money(sim.InstitutionCosts(i)) + " (running " + sim.Money(i.Endowed ? 0 : t.Get("institutions.upkeepPerYear." + i.Key)) + " + " +
+                              i.Def.Maintains + " upkeep " + sim.Money(sim.PriorityUpkeep(i)) + ") → " +
+                              (sim.InstitutionNet(i) >= 0 ? "surplus " + sim.Money(sim.InstitutionNet(i)) + ", your share " + sim.Money(i.Stake * sim.InstitutionNet(i)) + "."
+                                                          : "short " + sim.Money(-sim.InstitutionNet(i)) + ", your share to cover " + sim.Money(i.Stake * -sim.InstitutionNet(i)) + "."));
             if (sim.AnnualDuesTotal() > 0)
-                sb.AppendLine("Dues " + F(sim.AnnualDuesTotal()) + " a year: " + string.Join(", ", sim.Backed().Where(i => sim.AnnualDues(i) > 0)
-                    .Select(i => i.Def.ShortName + " " + F(sim.AnnualDues(i)) + " (" + sim.StakePercent(i) + "%)")) + ". More stake, more dues.");
-            sb.AppendLine("Settled each turn: " + F((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
+                sb.AppendLine("Dues " + sim.Money(sim.AnnualDuesTotal()) + " a year: " + string.Join(", ", sim.Backed().Where(i => sim.AnnualDues(i) > 0)
+                    .Select(i => i.Def.ShortName + " " + sim.Money(sim.AnnualDues(i)) + " (" + sim.StakePercent(i) + "%)")) + ". More stake, more dues.");
+            sb.AppendLine("Settled each turn: " + sim.Money((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();
         }
@@ -154,8 +154,8 @@ namespace Butterfly.Core
             if (!i.Exists)
             {
                 sb.AppendLine(i.Collapsed ? Simulation.Cap(i.Def.Name) + " failed before it was established."
-                    : Simulation.Cap(i.Def.Name) + " doesn't exist yet. " + i.Def.Leader + " would lead it. (found " + i.Key + ": " + F(sim.FoundCost(i.Def.Maintains)) +
-                      " gold; you would control it, but it would start at strength " + F(sim.T.Get("founding.startStrength")) + " and may fail until it reaches " +
+                    : Simulation.Cap(i.Def.Name) + " doesn't exist yet. " + i.Def.Leader + " would lead it. (found " + i.Key + ": " + sim.Money(sim.FoundCost(i.Def.Maintains)) +
+                      "; you would control it, but it would start at strength " + F(sim.T.Get("founding.startStrength")) + " and may fail until it reaches " +
                       F(sim.T.Get("founding.fragileBelow")) + ")");
                 return sb.ToString().TrimEnd();
             }
@@ -179,16 +179,16 @@ namespace Butterfly.Core
 
         private static string StakeMeaning(Simulation sim, Institution i)
         {
-            string next = i.Def.IsOwn ? "" : " Next 1% costs " + F(sim.StakeCost(i, 1)) + " gold. Dues " + F(sim.AnnualDues(i)) + " gold a year.";
+            string next = i.Def.IsOwn ? "" : " Next 1% costs " + sim.Money(sim.StakeCost(i, 1)) + ". Dues " + sim.Money(sim.AnnualDues(i)) + " a year.";
             if (sim.Controls(i)) return "you control it (oversee, mentor, charter, endow, audit, invest)." + next;
             int to = sim.NextThresholdPercent(i);
-            string gap = " " + to + "% would cost " + F(sim.StakeCost(i, to - sim.StakePercent(i))) + " more gold.";
+            string gap = " " + to + "% would cost " + sim.Money(sim.StakeCost(i, to - sim.StakePercent(i))) + " more.";
             if (sim.HasVoice(i)) return "a voice (priorities in its domain" + (i.Def.Maintains == Core.Domain.Governance ? ", policy" : "") + "), no control." + gap;
             if (sim.HasInfluence(i)) return "it counts toward your influence over " + i.Def.Maintains + ", but gives you no say." + gap;
             if (i.Stake > 0) return "a member's share: a little of its surplus, no say." + gap;
             return "nothing yet. To join it asks for " + sim.JoinRequirementText(i) + (sim.JoinBlocker(i) == null ? " (you qualify)" : " (you don't yet)") +
-                   "; joining costs " + F(sim.BuyCost(i, 1)) + " gold (entry fee " + F(sim.EntryFee(i)) + " + the first 1%), then dues of " +
-                   F(sim.T.Get("joining.duesBasePerYear." + i.Key)) + " gold a year plus " + F(sim.T.Get("joining.duesPerStakePercentPerYear")) + " per percent you hold.";
+                   "; joining costs " + sim.Money(sim.BuyCost(i, 1)) + " (entry fee " + sim.Money(sim.EntryFee(i)) + " + the first 1%), then dues of " +
+                   sim.Money(sim.T.Get("joining.duesBasePerYear." + i.Key)) + " a year plus " + sim.Money(sim.T.Get("joining.duesPerStakePercentPerYear")) + " per percent you hold.";
         }
 
         private static string Policy(Simulation sim)

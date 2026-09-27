@@ -30,7 +30,7 @@ namespace Butterfly.Core
             foreach (var fx in def.Effects)
                 switch (fx.Type)
                 {
-                    case "income": parts.Add("+" + F(fx.Value) + " gold a year"); break;
+                    case "income": parts.Add("+" + Money(fx.Value) + " a year"); break;
                     case "workshop": parts.Add("workshop income +" + F(fx.Value * 100) + "%"); break;
                     case "consultBonus": parts.Add("consulting +" + F(fx.Value * 100) + "%"); break;
                     case "level": parts.Add(fx.Domain + " " + Signed(fx.Value)); break;
@@ -122,14 +122,14 @@ namespace Butterfly.Core
             if (!InventionRequirementMet(def))
                 return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
             int price = InventionGold(def);
-            if (World.Gold < price) return CommandResult.Fail(def.Name + " costs " + price + " gold; you have " + F(World.Gold) + ".");
+            if (World.Gold < price) return CommandResult.Fail(def.Name + " costs " + Money(price) + "; you have " + Money(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn);
             if (attention != null) return attention;
             SpendAttention(def.AttentionPerTurn);
             double before = World.Gold;
             SpendGold(price);
             var e = Record("invention.start", def.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
-                "You start work on " + def.Name + " (" + price + " gold, " + def.Turns + " turns).");
+                "You start work on " + def.Name + " (" + Money(price) + ", " + def.Turns + " turns).");
             World.ActiveInventions.Add(new ActiveInvention(def, e.Id));
             return CommandResult.Success("Started: " + def.Name + ".");
         }
@@ -165,7 +165,7 @@ namespace Butterfly.Core
                     double before = World.InventionIncome;
                     World.InventionIncome += fx.Value;
                     Record("income.bonus", GoldKey, new[] { causeId }, new[] { "player" },
-                        new[] { new Effect("income.inventions", before, World.InventionIncome) }, def.Name + " pays you " + F(fx.Value) + " gold a year.");
+                        new[] { new Effect("income.inventions", before, World.InventionIncome) }, def.Name + " pays you " + Money(fx.Value) + " a year.");
                     break;
                 }
                 case "consultBonus":

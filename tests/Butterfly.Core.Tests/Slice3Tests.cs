@@ -21,6 +21,7 @@ namespace Butterfly.Core.Tests
         public void ProjectCostsGoldAndRaisesDomainWithCause()
         {
             var sim = NewSim();
+            Assert.True(sim.SellAurei(sim.World.Aurei).Ok);        // Rome runs on denarii: change the gold first
             double gold = sim.World.Gold;
             double level = sim.World[Domain.Medicine].Level;
             var fountain = sim.Data.Content.Project("fountain")!;

@@ -860,6 +860,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Playtime | ~2.5–3 hours per era; ~22 hours per campaign |
 | Debt compounding | 5% per year; during a jump, only for the first 30 years after departure |
 | Authority (P0) | Public projects need 10% of an institution in their domain; plague measures 10% of a Medicine or Governance institution, or membership once the first warning has come; a plague response needs 10% (SYSTEMS §7 voice, lowered by the warnings) |
+| Money (P0) | Denarii for everyday use (1 aureus = 25 denarii in AD 155); gold aurei hold their value as the denarius is debased; exchange 1 Attention, 2.5% fee each way; start with 60 scavenged aurei; the machine takes aurei back |
+| Gold across the jump (P0) | Carry 10 aurei; deposit with the bank (2%/yr in gold; 8%/decade × integrity loss risk, halved at 10% of the bank) or bury (6%/decade found); the rest is lost; revealed on arrival |
 | Plague (P0) | On its historical dates (warnings AD 165–166, outbreak October 166); left alone it kills 10% of Rome and costs each domain its historical drop; player actions change only severity (Medicine debt raises hazard; Governance and Economy debt tiers raise severity); recurrence odds from Medicine debt |
 | History as baseline | Everything follows history unless the player directly or indirectly changes it |
 | Institution gold (30-year window after departure) | Grows 0–1.5% per year by Economy level; pays own-domain debt at 1.5× (loyal full, drifted partial, rogue none); frozen afterward in P0 |

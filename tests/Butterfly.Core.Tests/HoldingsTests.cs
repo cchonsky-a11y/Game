@@ -173,7 +173,7 @@ namespace Butterfly.Core.Tests
             var sim = WithCircle();
             sim.Endow("circle", 100);
             var lines = sim.DepartureBriefing().ToList();
-            Assert.Contains(lines, l => l.Contains("holds 100 gold"));
+            Assert.Contains(lines, l => l.Contains("holds 2,500 denarii"));
             Assert.Contains(lines, l => l.StartsWith("  Corruption risk: Low") && l.Contains("minor (50%)") && l.Contains("total (10%)"));
             Assert.DoesNotContain(lines, l => l.Contains("per decade")); // a band, never a number or an outcome
             Assert.Contains(lines, l => l.Contains("toward Medicine debt"));

@@ -57,13 +57,15 @@ namespace Butterfly.Core.Tests
             }
             Assert.False(sim.MachineReady);                                   // repaired, but the gold is still out
             Assert.Throws<System.InvalidOperationException>(() => sim.Jump());
+            sim.World.Aurei = 100;
             sim.World.PriceLevel = 2;                                         // prices don't change the machine's gold
-            double gold = sim.World.Gold;
+            double denarii = sim.World.Gold;
             Assert.True(sim.RestoreGold(25).Ok);
-            Assert.Equal(gold - 25, sim.World.Gold, 9);
+            Assert.Equal(75, sim.World.Aurei, 9);                             // it takes aurei, not denarii
+            Assert.Equal(denarii, sim.World.Gold, 9);
             Assert.False(sim.MachineReady);
             Assert.True(sim.RestoreGold(1000).Ok);                            // only what's missing is taken
-            Assert.Equal(gold - sim.MachineGoldNeeded, sim.World.Gold, 9);
+            Assert.Equal(100 - sim.MachineGoldNeeded, sim.World.Aurei, 9);
             Assert.True(sim.MachineReady);
             Assert.False(sim.RestoreGold(1).Ok);
             Assert.Contains(sim.Log.Events, e => e.Type == "machine.gold");
@@ -424,6 +426,105 @@ namespace Butterfly.Core.Tests
                 Assert.Equal(166, outbreak.Time.Year);
                 Assert.InRange(outbreak.Time.Month, 9 - months + 1, 9);
             }
+        }
+    }
+}
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Denarii and gold aurei (decided 2026-09-28).</summary>
+    public class CurrencyTests
+    {
+        [Fact]
+        public void YouArriveWithGoldAndMustChangeItToSpend()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            Assert.Equal(sim.T.Get("gold.start"), sim.World.Aurei, 9);
+            Assert.Equal(0, sim.World.Gold, 9);
+            Assert.False(sim.StartProject("fountain").Ok);                   // no denarii yet
+            Assert.True(sim.SellAurei(10).Ok);
+            Assert.Equal(10 * (1 - sim.T.Get("currency.exchangeFee")), sim.World.Gold, 9);
+            Assert.Equal(sim.AttentionPerTurn - sim.T.GetInt("currency.exchangeAttention"), sim.World.Attention);
+            Assert.Equal("250 denarii", sim.Money(10));                      // 1 aureus = 25 denarii in AD 155
+        }
+
+        [Fact]
+        public void GoldHoldsItsValueWhileTheDenariusIsDebased()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            double before = sim.AureusInDenarii;
+            while (sim.Now.Year < 165) sim.EndTurn();
+            Assert.True(sim.World.PriceLevel > 1);
+            Assert.Equal(before * sim.World.PriceLevel, sim.AureusInDenarii, 6);   // an aureus buys what it bought
+            sim.World.Gold = 1000;
+            sim.World.Attention = 4;
+            double aurei = sim.World.Aurei;
+            Assert.True(sim.BuyAurei(5).Ok);
+            Assert.Equal(aurei + 5, sim.World.Aurei, 9);
+            Assert.Equal(1000 - 5 * sim.World.PriceLevel * (1 + sim.T.Get("currency.exchangeFee")), sim.World.Gold, 6);
+        }
+
+        [Fact]
+        public void TheHourOneChoiceIsPaidInGold()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            Assert.True(sim.ChooseSeeded("workshop").Ok);
+            Assert.Equal(sim.T.Get("gold.start") - sim.ProjectGold(sim.Data.Content.Project("workshop")!), sim.World.Aurei, 9);
+        }
+    }
+}
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Gold across the jump (decided 2026-09-28).</summary>
+    public class SavingsTests
+    {
+        private static Simulation Ready(ulong seed)
+        {
+            var sim = new Simulation(TestData.Load(), seed);
+            sim.World.Aurei = 100;
+            sim.World.Attention = 4;
+            return sim;
+        }
+
+        [Fact]
+        public void TheMachineCarriesASmallPurseAndTheRestIsLost()
+        {
+            var sim = Ready(1);
+            var a = sim.JumpForTests();
+            Assert.Equal(sim.CarryAurei, a.AureiCarried, 9);
+            Assert.Equal(100 - sim.CarryAurei, a.AureiLeft, 9);
+            Assert.Equal(sim.CarryAurei, sim.World.Aurei, 9);
+            Assert.Contains("long gone", a.Beats.Single(b => b.Name == "Discovery").Text);
+        }
+
+        [Fact]
+        public void ADepositEarnsInterestUnlessTheHouseFailsAndAHoardMayBeFound()
+        {
+            int kept = 0, lost = 0, found = 0, missing = 0;
+            for (ulong seed = 1; seed <= 60; seed++)
+            {
+                var sim = Ready(seed);
+                Assert.True(sim.Deposit(40).Ok);
+                Assert.True(sim.Bury(40).Ok);
+                Assert.Equal(20, sim.World.Aurei, 9);
+                var a = sim.JumpForTests();
+                if (a.AureiDepositReturned > 0) { kept++; Assert.True(a.AureiDepositReturned > 40); } else lost++;
+                if (a.AureiHoardFound > 0) { found++; Assert.Equal(40, a.AureiHoardFound, 9); } else missing++;
+                Assert.Equal(a.AureiCarried + a.AureiDepositReturned + a.AureiHoardFound, sim.World.Aurei, 9);
+                Assert.DoesNotContain("{", a.Beats.Single(b => b.Name == "Discovery").Text);
+            }
+            Assert.True(kept > 0 && lost > 0 && found > 0 && missing > 0);   // both risks are real, and neither is certain
+        }
+
+        [Fact]
+        public void TheBriefingShowsRiskBandsNeverOutcomes()
+        {
+            var sim = Ready(2);
+            sim.Deposit(30);
+            var lines = sim.DepartureBriefing().ToList();
+            Assert.Contains(lines, l => l.StartsWith("Your gold: the machine can carry"));
+            Assert.Contains(lines, l => l.Contains("risk the house fails or embezzles: "));
         }
     }
 }
