@@ -230,8 +230,57 @@ namespace Butterfly.Core
         // ---- absence -----------------------------------------------------------
 
         /// <summary>While the faction survives, the stances you left keep shaping the Economy's target during the absence.</summary>
-        internal double PolicyTargetBonus() =>
-            PolicySway() * (AustrianCount() * T.Get("policy.absence.austrianTargetPerStance") + InterventionCount() * T.Get("policy.absence.interventionTargetPerStance"));
+        /// <summary>
+        /// Flat pull of the other three issues on the Economy's target during an absence. Coinage acts through
+        /// <see cref="CoinRelief"/> instead: it spares or hastens Rome's historical debasement (decided 2026-09-28).
+        /// </summary>
+        internal double PolicyTargetBonus()
+        {
+            var others = Issues.Where(i => i != PolicyIssue.Coinage).ToList();
+            return PolicySway() * (others.Count(i => Stance(i) > 0) * T.Get("policy.absence.austrianTargetPerStance")
+                                   + others.Count(i => Stance(i) < 0) * T.Get("policy.absence.interventionTargetPerStance"));
+        }
+
+        // ---- the coin: Rome's own debasement (decided 2026-09-28) --------------------------------
+
+        /// <summary>Silver share of Rome's everyday silver coin in a year, as history had it.</summary>
+        public double HistoricalSilver(double year) =>
+            Formulas.Interpolate(T.GetArray("history.coin.years"), T.GetArray("history.coin.silver"), year);
+
+        /// <summary>How far Rome's historical debasement has gone by a year: 0 in AD 155, 1 at the coin's low.</summary>
+        public double DebasementProgress(double year)
+        {
+            double start = HistoricalSilver(T.Get("time.startYear")), low = HistoricalSilver(T.Get("policy.coin.lowYear"));
+            return start > low ? Math.Max(0, Math.Min(1, (start - HistoricalSilver(year)) / (start - low))) : 0;
+        }
+
+        /// <summary>The coin's share of a domain's decline from AD 155 to the coin's low, leaving out the plague's step.</summary>
+        public double CoinDeclineSpan(Domain d)
+        {
+            double share = d == Domain.Economy ? T.Get("policy.coin.economyShare") : d == Domain.Governance ? T.Get("policy.coin.governanceShare") : 0;
+            double decline = Benchmark(d, T.Get("time.startYear")) - Benchmark(d, T.Get("policy.coin.lowYear")) - HistoricalPlagueDrop(d);
+            return share * Math.Max(0, decline);
+        }
+
+        /// <summary>How much of a domain's historical level the coin has cost by a year.</summary>
+        public double CoinDecline(Domain d, double year) => CoinDeclineSpan(d) * DebasementProgress(year);
+
+        /// <summary>
+        /// What the coinage policy does to Rome's debasement while it stands: sound coin spares it (by sway),
+        /// Rome's practice follows history, a debasement policy adds to it.
+        /// </summary>
+        public double CoinStanceFactor()
+        {
+            int coin = Stance(PolicyIssue.Coinage);
+            return coin > 0 ? PolicySway() : coin < 0 ? -PolicySway() * T.Get("policy.coin.debaseExtra") : 0;
+        }
+
+        /// <summary>
+        /// The coin's effect on a domain's target by a year of an absence: the historical debasement since you left,
+        /// spared or added to while the policy's institution stands. Once no one defends the coin, the relief is gone.
+        /// </summary>
+        public double CoinRelief(Domain d, double year) =>
+            CoinStanceFactor() * (CoinDecline(d, year) - CoinDecline(d, DepartureYear));
 
         internal void PolicyDecadeStep(Arrival arrival)
         {

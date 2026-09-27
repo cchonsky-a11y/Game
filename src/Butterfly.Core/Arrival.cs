@@ -82,6 +82,8 @@ namespace Butterfly.Core
         public List<double> IndexByDecade { get; } = new List<double>();
         /// <summary>Which Wrongness template was used (e.g. "medicine.low", "asHistory").</summary>
         public string WrongnessKey { get; set; } = "";
+        /// <summary>Which coin line joined the Wrongness beat ("sound", "debased", "historyDebased", "historyMild").</summary>
+        public string CoinKey { get; set; } = "";
         /// <summary>Economic policy left in place at departure, e.g. "coinage sound".</summary>
         public List<string> PolicyAtDeparture { get; } = new List<string>();
 

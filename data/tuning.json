@@ -119,6 +119,41 @@
         33
       ],
       "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history)"
+    },
+    "coin": {
+      "_readme": "Rome's own debasement (DECIDED 2026-09-28, Corey: debasement is one of the downfalls of Rome). Silver share of Rome's everyday silver coin (the denarius, from 215 the antoninianus), authored estimates: about 78% under Antoninus Pius, cut for the plague and the Marcomannic Wars, about 50% under Septimius Severus, a collapse to a few percent under Gallienus and Claudius II. It times the share of Rome's decline that the history curves owe to the coin.",
+      "years": {
+        "value": [
+          155,
+          165,
+          180,
+          194,
+          215,
+          238,
+          253,
+          260,
+          268,
+          300,
+          420
+        ],
+        "ref": "PROPOSED P0-25 (authored estimates, like P0-03)"
+      },
+      "silver": {
+        "value": [
+          0.78,
+          0.77,
+          0.75,
+          0.55,
+          0.5,
+          0.45,
+          0.35,
+          0.15,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "ref": "PROPOSED P0-25 (authored estimates, like P0-03)"
+      }
     }
   },
   "priorities": {
@@ -1036,6 +1071,29 @@
       "malinvestmentPerStancePerDecade": {
         "value": 40,
         "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      }
+    },
+    "coin": {
+      "_readme": "DECIDED 2026-09-28 (Corey): near half of Rome's economic decline comes from the coin, with ties to Governance (the army's pay, mutinies and usurpers). The coin's share of each domain's historical decline (AD 155 to the coin's low in 268, the plague's step left out) falls as the silver does. Sound coin kept by a surviving Governance institution spares Rome that share after you leave (scaled by sway); a debasement policy brings more of it.",
+      "economyShare": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-28 (Corey: near half)"
+      },
+      "governanceShare": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-28 (Corey: ties to Governance); amount PROPOSED P0-25"
+      },
+      "debaseExtra": {
+        "value": 0.5,
+        "ref": "PROPOSED P0-25: a debasement policy at full sway adds this share of the coin's decline on top of history's"
+      },
+      "lowYear": {
+        "value": 268,
+        "ref": "PROPOSED P0-25: the coin's low point (Claudius II)"
+      },
+      "debasedBelowSilver": {
+        "value": 0.6,
+        "ref": "PROPOSED P0-25: arrival text calls the coin debased below this silver share"
       }
     }
   },

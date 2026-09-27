@@ -16,14 +16,14 @@ Attention (P0 pacing): demand 598 vs supply 320 = 1.9× (target ≥ 1.5×).
 | Early | Endow | 0% | 102 | 105 | 97–107 | 25.7 | 0.1 | 0 / 100 | 57.0 |
 | Early | Split | 0% | 102 | 105 | 97–107 | 25.7 | 0.1 | 0 / 100 | 57.0 |
 | Early | FreeMarket | 92% | 102 | 108 | 101–110 | 27.6 | 0.1 | 0 / 100 | 57.0 |
-| Early | Interventionist | 0% | 102 | 73 | 43–103 | 22.1 | 0.0 | 0 / 100 | 56.0 |
+| Early | Interventionist | 0% | 102 | 71 | 43–102 | 22.1 | 0.0 | 0 / 100 | 56.0 |
 | Late | Balanced (Pay-down) | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 94.0 |
-| Late | Specialized | 12% | 125 | 110 | 96–117 | 10.5 | 0.7 | 100 / 0 | 48.1 |
+| Late | Specialized | 9% | 125 | 110 | 96–117 | 10.5 | 0.7 | 100 / 0 | 48.1 |
 | Late | Neglectful | 0% | 101 | 97 | 85–105 | 35.5 | 0.6 | 0 / 0 | 24.0 |
 | Late | Endow | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 93.0 |
 | Late | Split | 0% | 115 | 106 | 99–111 | 20.2 | 0.5 | 100 / 0 | 94.0 |
-| Late | FreeMarket | 88% | 119 | 116 | 107–120 | 27.6 | 0.2 | 100 / 0 | 93.6 |
-| Late | Interventionist | 0% | 100 | 46 | 30–101 | 22.1 | 0.2 | 100 / 0 | 93.6 |
+| Late | FreeMarket | 91% | 119 | 117 | 108–121 | 27.6 | 0.2 | 100 / 0 | 93.6 |
+| Late | Interventionist | 0% | 100 | 46 | 30–99 | 22.1 | 0.2 | 100 / 0 | 93.6 |
 
 ## Institution gold and corruption
 
@@ -82,24 +82,24 @@ Institutions a strategy held a stake of 10%+ in (or founded) in any run. Stake: 
 | Early | Neglectful | 101.6 | 3.9 | 93–104 |
 | Early | Endow | 105.0 | 2.5 | 100–107 |
 | Early | Split | 105.0 | 2.5 | 100–107 |
-| Early | FreeMarket | 108.4 | 2.5 | 103–110 |
-| Early | Interventionist | 73.0 | 13.7 | 57–90 |
+| Early | FreeMarket | 108.5 | 2.5 | 103–110 |
+| Early | Interventionist | 71.4 | 13.9 | 55–89 |
 | Late | Balanced (Pay-down) | 106.1 | 3.6 | 101–110 |
 | Late | Specialized | 110.5 | 5.1 | 103–116 |
 | Late | Neglectful | 96.6 | 7.0 | 87–104 |
 | Late | Endow | 106.1 | 3.7 | 101–110 |
 | Late | Split | 106.1 | 3.6 | 101–110 |
-| Late | FreeMarket | 116.2 | 3.4 | 110–119 |
-| Late | Interventionist | 46.1 | 12.3 | 37–58 |
+| Late | FreeMarket | 116.8 | 3.4 | 111–120 |
+| Late | Interventionist | 45.7 | 12.0 | 37–58 |
 
-- All runs: SD of arrival Index 18.5; SD of the strategy means 17.5.
-- Investing (Balanced, Specialized, Endow, Split) minus Neglectful, mean arrival Index: all 0.1; Early -1.8; Late 1.9. Investing beats Neglectful on the same seed in 42% of seeds.
+- All runs: SD of arrival Index 18.8; SD of the strategy means 17.8.
+- Investing (Balanced, Specialized, Endow, Split) minus Neglectful, mean arrival Index: all -0.0; Early -2.0; Late 2.0. Investing beats Neglectful on the same seed in 42% of seeds.
 - Wrongness beat: asHistory 38%, medicine.high 28%, economy.low 14%, governance.high 7%, economy.high 7%, medicine.low 5%.
 
 ## Economic policy
 
-- Early: FreeMarket arrival Index 108.4 (busts 0.0), Interventionist 73.0 (busts 2.4), Balanced with Rome's own policy 105.0. FreeMarket beats Interventionist on 100% of seeds.
-- Late: FreeMarket arrival Index 116.2 (busts 0.0), Interventionist 46.1 (busts 4.9), Balanced with Rome's own policy 106.1. FreeMarket beats Interventionist on 100% of seeds.
+- Early: FreeMarket arrival Index 108.5 (busts 0.0), Interventionist 71.4 (busts 2.4), Balanced with Rome's own policy 105.0. FreeMarket beats Interventionist on 100% of seeds.
+- Late: FreeMarket arrival Index 116.8 (busts 0.0), Interventionist 45.7 (busts 4.9), Balanced with Rome's own policy 106.1. FreeMarket beats Interventionist on 100% of seeds.
 
 ## Balance criteria
 
@@ -109,7 +109,7 @@ Institutions a strategy held a stake of 10%+ in (or founded) in any run. Stake: 
 
 **B. All strategies:** within each timing no strategy wins more than 65%.
 - Early: Balanced (Pay-down) 0%, Specialized 5%, Neglectful 3%, Endow 0%, Split 0%, FreeMarket 92%, Interventionist 0% → **FAIL**
-- Late: Balanced (Pay-down) 0%, Specialized 12%, Neglectful 0%, Endow 0%, Split 0%, FreeMarket 88%, Interventionist 0% → **FAIL**
+- Late: Balanced (Pay-down) 0%, Specialized 9%, Neglectful 0%, Endow 0%, Split 0%, FreeMarket 91%, Interventionist 0% → **FAIL**
 
 **C. Debt at departure:** among Pay-down (Balanced), Endow and Split, within each timing none wins more than 65%.
 - Early: Balanced (Pay-down) 33%, Endow 33%, Split 33% → **PASS**
@@ -122,8 +122,8 @@ Institutions a strategy held a stake of 10%+ in (or founded) in any run. Stake: 
   - Neglectful: Early 62%, Late 38%
   - Endow: Early 38%, Late 62%
   - Split: Early 38%, Late 62%
-  - FreeMarket: Early 6%, Late 94%
-  - Interventionist: Early 88%, Late 12%
+  - FreeMarket: Early 4%, Late 96%
+  - Interventionist: Early 87%, Late 13%
 
 **Audit charter check (flag, not a gate):** 0% of the best runs (top arrival Index per seed and timing) bought an audit charter → no flag (at or below 80%).
 

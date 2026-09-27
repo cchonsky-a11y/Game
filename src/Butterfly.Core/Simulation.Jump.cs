@@ -139,6 +139,10 @@ namespace Butterfly.Core
             if (!Influential().Any()) yield return "No institution you hold " + F(InfluenceAt * 100) + "%+ of will look after Rome while you're away.";
             yield return "The machine will carry you " + JumpRangeText() + "; exactly how far, you'll know when you arrive." +
                          (MachineUpgradesDone < Data.Content.MachineUpgrades.Count ? " Upgrades and more time here would lengthen it." : "");
+            if (CoinStanceFactor() > 0)
+                yield return "Sound coin: while " + PolicyInstitution!.Def.Name + " stands, Rome's mint won't cut the silver, sparing Rome part of the decline history had in store.";
+            else if (CoinStanceFactor() < 0)
+                yield return "Debased coin: while " + PolicyInstitution!.Def.Name + " stands, the mint keeps cutting the silver faster than Rome ever did.";
             if (World.Promise.Status == PromiseStatus.Offered) yield return "Demetria asked you to stay until the sickness has passed. If you leave now, she will never have an answer.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
@@ -280,7 +284,7 @@ namespace Butterfly.Core
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
             double baseline = Benchmark(d, decadeStartYear + _stepYears);
-            double policy = d == Domain.Economy ? PolicyTargetBonus() : 0;
+            double policy = (d == Domain.Economy ? PolicyTargetBonus() : 0) + CoinRelief(d, decadeStartYear + _stepYears);
             if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d) + policy;
             return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
         }
@@ -343,7 +347,11 @@ namespace Butterfly.Core
 
             // 2. Wrongness — the world is not the one history describes.
             arrival.WrongnessKey = WrongnessKey(arrival);
-            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template("wrongness." + arrival.WrongnessKey, values)));
+            // The coin in your hand: Rome's debasement, spared or hastened (decided 2026-09-28).
+            arrival.CoinKey = CoinKey();
+            values["coinHolder"] = PolicyInstitution?.Def.Name ?? "the Curia";
+            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template("wrongness." + arrival.WrongnessKey, values) + " " +
+                                                           text.Template("coin." + arrival.CoinKey, values)));
 
             // 3. Personal echo — the promise.
             var circle = World.Institution("circle");
@@ -421,6 +429,14 @@ namespace Butterfly.Core
             if (World.CompletedProjects.Contains("fountain")) secondKey = fountainRuns ? "unchosenFountain.laterRuns" : "unchosenFountain.laterDry";
             else secondKey = fountainRuns ? "unchosenFountain.fixed" : "unchosenFountain.foul";
             return economyHeld ? "workshop.thrives" : "workshop.gone";
+        }
+
+        private string CoinKey()
+        {
+            double factor = CoinStanceFactor();
+            if (factor > 0) return "sound";
+            if (factor < 0) return "debased";
+            return HistoricalSilver(Now.Year) < T.Get("policy.coin.debasedBelowSilver") ? "historyDebased" : "historyMild";
         }
 
         private string WrongnessKey(Arrival arrival)
