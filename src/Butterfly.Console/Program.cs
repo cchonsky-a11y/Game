@@ -106,7 +106,7 @@ internal sealed class ConsoleGame
         Console.WriteLine("First, a choice. You can afford only one:");
         Console.WriteLine("  choose fountain  — " + _sim.Data.Content.Project("fountain")!.Description);
         Console.WriteLine("  choose workshop  — " + _sim.Data.Content.Project("workshop")!.Description);
-        Console.WriteLine(_sim.Data.Content.Template("walk.intro"));
+        Console.WriteLine(_sim.Data.Content.Template("walk.intro.start"));
         Console.WriteLine("Type 'help' for commands.");
     }
 

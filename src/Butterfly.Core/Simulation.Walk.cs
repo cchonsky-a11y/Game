@@ -75,6 +75,7 @@ namespace Butterfly.Core
                 {
                     double silver = CoinSilverNow();
                     v["aureus"] = R(AureusInDenarii);
+                    if (first) { v["silver"] = R(silver * 100, "0"); lines.Add(text.Template("walk.changers.start", v)); break; }
                     v["aureusThen"] = first ? " (the official rate)" : " (" + R(Denarii(_leftRome!.PriceLevel)) + " when you left)";
                     v["silver"] = R(silver * 100, "0");
                     v["silverThen"] = first ? "" : " (" + R(_leftRome!.Silver * 100, "0") + "% when you left)";

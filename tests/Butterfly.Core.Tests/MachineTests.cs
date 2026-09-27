@@ -546,6 +546,7 @@ namespace Butterfly.Core.Tests
             }
             Assert.Contains("25 denarii", sim.Visit("changers"));
             Assert.Contains("78% silver", sim.Visit("changers"));
+            Assert.DoesNotContain("when you left", sim.Visit("market"));           // the first walk is about where you are, not what changed
             sim.ChooseSeeded("workshop");
             while (sim.Now.Year < 170) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
             sim.JumpForTests();
