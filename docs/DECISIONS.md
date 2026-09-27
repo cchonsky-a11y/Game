@@ -239,3 +239,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 
 ## 2026-09-28 — Workshop inventions; standing across institutions (Corey, from play)
 - **Decision:** a fourth invention branch improves your workshop: the treadle lathe → water-powered bellows → a blast furnace, raising the workshop's income by +10% / +15% / +20% (kept modest at Corey's request; all three together +45%). Every invention now names the institution(s) it wins standing in, with stake and loyalty that vary by invention (stake 1–5%, loyalty 5–20), covering all six established institutions (the wheelbarrow now the Junians, the trip hammer and bills of exchange the banking house); rewards apply where you are a member. `inventions` shows each payoff. PROTOTYPE_SCOPE, SYSTEMS §7, GDD Appendix A, P0-22. Source: Corey.
+
+## 2026-09-28 — Bug fix: the Index no longer anticipates history's plague
+- The Index compares against history by fractional year, and the history curve's plague step ran across all of AD 166, so real Rome appeared to decline months before its plague and a player's Index rose for no reason (seen in play: 108.5 → 109.9 in Martius 166). The curve now holds its 166 values until AD 166.75 and drops over the outbreak's months (October–December). Yearly trends and the plague's historical drop are unchanged. tuning `history.*` (P0-03). Source: phone playtest.

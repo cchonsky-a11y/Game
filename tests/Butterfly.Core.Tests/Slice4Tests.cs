@@ -138,3 +138,20 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class HistoricalStepTests
+    {
+        [Fact]
+        public void HistorysPlagueDropFallsOnlyInTheOutbreaksMonths()
+        {
+            var sim = new Simulation(TestData.Load(), 1);
+            foreach (var d in DomainInfo.All)
+            {
+                Assert.Equal(sim.Benchmark(d, 166), sim.Benchmark(d, 166.7), 9);   // no slide before the outbreak
+                Assert.True(sim.Benchmark(d, 167) <= sim.Benchmark(d, 166));
+            }
+        }
+    }
+}
