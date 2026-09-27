@@ -6,7 +6,9 @@ using Butterfly.Core;
 // The Butterfly Effect — P0 Butterfly Test, text console for human players.
 // Usage: dotnet run --project src/Butterfly.Console -- --seed 42
 // Scripted (automated playtests): add --inputs <file> [--checks <file>]; see playtests/ai/README.md.
+// Add --continue to keep playing from the keyboard once the script's lines run out (resume a saved inputs file).
 ulong seed = 42;
+bool resume = args.Contains("--continue");
 string? inputs = null, checks = null;
 for (int i = 0; i < args.Length - 1; i++)
 {
@@ -16,7 +18,7 @@ for (int i = 0; i < args.Length - 1; i++)
 }
 
 var sim = new Simulation(GameData.LoadDefault(), seed);
-var game = new ConsoleGame(sim, inputs == null ? null : new ScriptInput(inputs, sim), checks == null ? null : new Harness(sim, checks));
+var game = new ConsoleGame(sim, inputs == null ? null : new ScriptInput(inputs, sim), checks == null ? null : new Harness(sim, checks), resume);
 game.Run();
 
 internal sealed class ConsoleGame
@@ -30,8 +32,13 @@ internal sealed class ConsoleGame
     private bool _autoEnd;
     private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore", "visit", "walk" };
 
-    public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null)
+    /// <summary>After the script's last line, read from the keyboard (--continue).</summary>
+    private readonly bool _resume;
+    private bool _scriptDone;
+
+    public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null, bool resume = false)
     {
+        _resume = resume;
         _sim = sim;
         _script = script;
         _harness = harness;
@@ -41,9 +48,10 @@ internal sealed class ConsoleGame
     /// <summary>Next command: from the script (echoed so transcripts read like a session) or from the keyboard.</summary>
     private string? ReadCommand()
     {
-        if (_script == null) return Console.ReadLine();
+        if (_script == null || _scriptDone) return Console.ReadLine();
         string? line = _script.Next();
         if (line != null) Console.WriteLine(line);
+        else if (_resume) { _scriptDone = true; return Console.ReadLine(); }
         return line;
     }
 
