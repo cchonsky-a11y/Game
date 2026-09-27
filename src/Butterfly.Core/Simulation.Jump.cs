@@ -47,6 +47,7 @@ namespace Butterfly.Core
                                                     F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " aurei restored).");
             var arrival = new Arrival { DepartureYear = Now.Year, DenariiPerUnit = DenariiPerUnit };
             DepartureYear = Now.Year;
+            _absenceBusts = 0;
             _warningsBeforeDeparture = World.Plague.Stage >= 1;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
             foreach (var i in Issues.Where(i => Stance(i) != 0)) arrival.PolicyAtDeparture.Add(i.ToString().ToLowerInvariant() + " " + StanceWord(i, Stance(i)));
@@ -299,15 +300,15 @@ namespace Butterfly.Core
         private bool AfterWindow(int decadeStartYear) => decadeStartYear - DepartureYear >= T.GetInt("institutions.holdings.windowYears");
 
         /// <summary>
-        /// Where a domain heads this decade. In the 30-year window: the historical baseline plus what institutions
-        /// maintain. After it (decided 2026-09-27): the long-run target, baseline + k × (departure level − baseline
-        /// at departure), plus what surviving institutions maintain on top.
+        /// Where a domain heads this decade: the long-run target, baseline + k × (departure level − baseline at departure),
+        /// plus what surviving institutions maintain on top, plus the policy you left. The same target holds from the day
+        /// you leave (decided 2026-09-28, P0-30: the lasting mark; before, the first 30 years pulled toward the bare
+        /// baseline); only the speed differs, slower in the 30-year window.
         /// </summary>
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
             double baseline = Benchmark(d, decadeStartYear + _stepYears);
-            double policy = (d == Domain.Economy ? PolicyTargetBonus() : 0) + CoinRelief(d, decadeStartYear + _stepYears);
-            if (!AfterWindow(decadeStartYear)) return baseline + MaintainBonus(d) + policy;
+            double policy = (d == Domain.Economy ? PolicyTargetBonus(decadeStartYear + _stepYears) : 0) + CoinRelief(d, decadeStartYear + _stepYears);
             return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
         }
 

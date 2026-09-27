@@ -234,12 +234,18 @@ namespace Butterfly.Core
         /// Flat pull of the other three issues on the Economy's target during an absence. Coinage acts through
         /// <see cref="CoinRelief"/> instead: it spares or hastens Rome's historical debasement (decided 2026-09-28).
         /// </summary>
-        internal double PolicyTargetBonus()
+        internal double PolicyTargetBonus(double year)
         {
             var others = Issues.Where(i => i != PolicyIssue.Coinage).ToList();
-            return PolicySway() * (others.Count(i => Stance(i) > 0) * T.Get("policy.absence.austrianTargetPerStance")
+            // Austrian stances build on themselves (decided 2026-09-28, P0-30): their pull grows each decade the institution
+            // carrying them stands, instead of a flat offset.
+            double decades = Math.Max(1, (year - DepartureYear) / 10.0);
+            return PolicySway() * (others.Count(i => Stance(i) > 0) * T.Get("policy.absence.austrianTargetPerStance") * decades
                                    + others.Count(i => Stance(i) < 0) * T.Get("policy.absence.interventionTargetPerStance"));
         }
+
+        /// <summary>Busts so far in this absence: an interventionist policy left standing busts at most policy.absence.maxBusts times.</summary>
+        private int _absenceBusts;
 
         // ---- the coin: Rome's own debasement (decided 2026-09-28) --------------------------------
 
@@ -284,12 +290,15 @@ namespace Butterfly.Core
 
         internal void PolicyDecadeStep(Arrival arrival)
         {
+            // After the bust, the boom's backers are discredited: no new malinvestment for the rest of the absence (P0-30).
+            if (_absenceBusts >= T.GetInt("policy.absence.maxBusts")) return;
             if (PolicyHold() && InterventionCount() > 0) World.Malinvestment += StepFraction * PolicySway() * InterventionCount() * T.Get("policy.absence.malinvestmentPerStancePerDecade");
             if (World.Malinvestment >= T.Get("policy.bust.firstWarningAt") && Rng.Chance(Math.Min(0.9, World.Malinvestment * T.Get("policy.bust.advancePerMalinvestment"))))
             {
                 var e = Record("bust.outbreak", "economy", null, new[] { "world" }, null, "A boom built on intervention collapses.");
                 World.Bust.LastEventId = e.Id;
                 Bust(arrival);
+                _absenceBusts++;
             }
         }
 

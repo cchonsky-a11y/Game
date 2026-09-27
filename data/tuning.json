@@ -549,8 +549,8 @@
       "ref": "PROPOSED P0-11"
     },
     "driftThreshold": {
-      "value": 60,
-      "ref": "PROPOSED P0-11"
+      "value": 30,
+      "ref": "PROPOSED P0-30 (was 60, P0-11)"
     },
     "dissolvedBelow": {
       "value": 10,
@@ -803,12 +803,12 @@
   },
   "jump": {
     "convergencePerDecade": {
-      "value": 0.5,
-      "ref": "GDD §8 domains drift toward the historical baseline (rate PROPOSED P0-13)"
+      "value": 0.25,
+      "ref": "PROPOSED P0-30 (lasting mark; was 0.5)"
     },
     "maintainPerStrength": {
-      "value": 0.3,
-      "ref": "SYSTEMS §7 institutions maintain matching domains (amount PROPOSED P0-13)"
+      "value": 0.6,
+      "ref": "SYSTEMS §7 institutions maintain matching domains; PROPOSED P0-30 (was 0.3)"
     },
     "crisisChancePerYear": {
       "stable": {
@@ -850,8 +850,8 @@
     },
     "longRun": {
       "deviationShare": {
-        "value": 0.3,
-        "ref": "SYSTEMS §6/§8 long-run target = baseline + k × (departure level − baseline), k (DECIDED 2026-09-27)"
+        "value": 0.6,
+        "ref": "SYSTEMS §8 long-run target = baseline + k × (departure level − baseline), k; PROPOSED P0-30 (was 0.3)"
       },
       "driftPerDecade": {
         "value": 0.25,
@@ -1080,7 +1080,7 @@
     "absence": {
       "austrianTargetPerStance": {
         "value": 3,
-        "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17: while the faction survives"
+        "ref": "PROPOSED P0-17, P0-30: Economy target per Austrian stance per decade since departure, while the faction survives"
       },
       "interventionTargetPerStance": {
         "value": 2,
@@ -1089,6 +1089,10 @@
       "malinvestmentPerStancePerDecade": {
         "value": 40,
         "ref": "DECIDED 2026-09-27 (Corey: economic policy, Austrian stances better, backlash, boom-bust); amount PROPOSED P0-17"
+      },
+      "maxBusts": {
+        "value": 1,
+        "ref": "PROPOSED P0-30: an interventionist policy left standing busts at most this many times per absence"
       }
     },
     "coin": {

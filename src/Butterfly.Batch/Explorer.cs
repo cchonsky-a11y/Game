@@ -104,6 +104,8 @@ namespace Butterfly.Batch
         public string LogHash = "";
         public bool Stuck;
         public int BustsInAbsence;
+        public string PolicyInForce = "";
+        public int MaxStake;
         public bool BothFactions;
     }
 
@@ -148,6 +150,10 @@ namespace Butterfly.Batch
                 res.Promise = sim.World.Promise.Status;
                 res.Bust = sim.World.Bust.Busts > 0;
                 res.Jump1Year = sim.Now.Year;
+                int austrian = Simulation.Issues.Count(i => sim.Stance(i) > 0), interv = Simulation.Issues.Count(i => sim.Stance(i) < 0);
+                res.PolicyInForce = !sim.World.Institutions.Any(i => i.Def.Maintains == Domain.Governance && sim.HasVoice(i)) ? "no voice (history)" :
+                    austrian > 0 && interv == 0 ? "free market" : interv > 0 && austrian == 0 ? "interventionist" : austrian > 0 ? "mixed" : "voice, as history";
+                res.MaxStake = sim.World.Institutions.Select(i => sim.StakePercent(i)).DefaultIfEmpty(0).Max();
                 res.BothFactions = sim.StakePercent(sim.World.Institution("faction")) >= 10 && sim.StakePercent(sim.World.Institution("junian")) >= 10;
                 var a1 = sim.Jump();
                 res.IndexDeparture = a1.IndexBefore;
@@ -513,6 +519,8 @@ namespace Butterfly.Batch
             Group("Hour-one choice", x => x.Persona.Seeded);
             Group("Economic policy style", x => x.Persona.PolicyStyle);
             Group("Engagement (institutions joined or founded)", x => x.Persona.Engagement);
+            Group("Economic policy in force at departure", x => x.PolicyInForce);
+            Group("Highest stake held at departure", x => x.MaxStake == 0 ? "0 none" : x.MaxStake < 10 ? "1 under 10%" : x.MaxStake < 25 ? "2 10-24%" : x.MaxStake < 50 ? "3 25-49%" : "4 50%+");
             Group("Plague response actually made", x => x.PlagueResponse);
             Group("Promise to Demetria", x => x.Promise.ToString());
             Group("Founded an institution", x => x.Persona.Found ?? "none");
