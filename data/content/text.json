@@ -19,7 +19,7 @@
     "governance.high": "Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody seems afraid of the soldiers.",
     "governance.low": "Something is wrong. There are soldiers at every corner and they are not all the same army. People talk about emperors the way they talk about the weather.",
     "economy.high": "Something is wrong. The cattle market has spilled over its walls; you hear six languages haggling over bales from half the world.",
-    "economy.low": "Something is wrong. The markets are thin, bread costs a day's wage, and the silver coins are copper washed in silver.",
+    "economy.low": "Something is wrong. The markets are thin, the stalls half empty, and bread costs a day's wage.",
     "asHistory": "Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is Rome almost exactly as the history books describe AD {year}."
   },
   "coin": {

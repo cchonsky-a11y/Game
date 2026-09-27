@@ -7,6 +7,19 @@ namespace Butterfly.Core.Tests
     public class TextFixTests
     {
         [Fact]
+        public void WrongnessLeavesTheCoinToTheCoinLine()
+        {
+            // The coin line always follows the Wrongness text, so the Wrongness templates don't describe the coin themselves
+            // (found by the exploration runs: "copper washed in silver" then "bronze washed thin with silver").
+            var text = TestData.Load().Content.Text;
+            foreach (var kv in text.Where(kv => kv.Key.StartsWith("wrongness.")))
+            {
+                Assert.DoesNotContain("coin", kv.Value);
+                Assert.DoesNotContain("silver", kv.Value);
+            }
+        }
+
+        [Fact]
         public void UnansweredPromiseIsNotDescribedAsARefusal()
         {
             var sim = new Simulation(TestData.Load(), 106);

@@ -5,15 +5,38 @@ using Butterfly.Batch;
 using Butterfly.Core;
 
 // Automated strategy runner. Usage: dotnet run --project src/Butterfly.Batch -- --runs 100 [--out playtests/batch-report.md]
+// Exploration with randomized players through both jumps: --explore 100 [--out playtests/explore-report.md]
 int runs = 100;
+int explore = 0;
 string? outPath = null;
 for (int i = 0; i < args.Length - 1; i++)
 {
     if (args[i] == "--runs") runs = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
     if (args[i] == "--out") outPath = args[i + 1];
+    if (args[i] == "--explore") explore = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
 }
 
 var data = GameData.LoadDefault();
+int trace = 0;
+for (int i = 0; i < args.Length - 1; i++) if (args[i] == "--trace") trace = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
+if (trace > 0)
+{
+    // One exploration run, turn by turn (usage: --trace <run>).
+    Explorer.Trace = Console.WriteLine;
+    var one = Explorer.Play(data, trace, 1000UL + (ulong)trace);
+    Console.WriteLine(one.Persona.Describe());
+    foreach (var b in one.Bugs) Console.WriteLine("BUG " + b);
+    return;
+}
+if (explore > 0)
+{
+    // Randomized players through both jumps: bugs and how much choices matter (usage: --explore 100 [--out file]).
+    var explored = Explorer.RunAll(data, explore, out var determinism);
+    string text = Explorer.Report(explored, determinism);
+    Console.WriteLine(text);
+    if (outPath != null) { File.WriteAllText(outPath, text); Console.WriteLine("Saved to " + outPath); }
+    return;
+}
 var results = BatchRunner.RunAll(data, runs);
 string report = BatchRunner.Report(data, results, runs);
 Console.WriteLine(report);
