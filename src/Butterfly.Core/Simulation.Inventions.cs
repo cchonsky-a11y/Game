@@ -51,6 +51,7 @@ namespace Butterfly.Core
                 case "medicineWork":
                     return new[] { "fountain", "physician", "quarantine", "midwives" }.Any(World.CompletedProjects.Contains) || backed("circle", "sanctuary");
                 case "workshopAndFaction": return workshop && backed("faction", "junian");
+                case "workshopAndTrade": return workshop && backed("guild", "bank");
                 case "workshopAndGuild10": return workshop && HasInfluence(World.Institution("guild"));
                 case "tradeInfluence": return HasInfluence(World.Institution("guild")) || World.Institution("bank").Backed;
                 case "factionInfluence": return HasInfluence(World.Institution("faction")) || HasInfluence(World.Institution("junian"));
@@ -68,6 +69,7 @@ namespace Butterfly.Core
                 case "tradeMember": return "membership in the guild or the bank (traders to use it)";
                 case "medicineWork": return "a finished Medicine project or membership in the Circle or the sanctuary (physicians to use it)";
                 case "workshopAndFaction": return "the workshop and membership in a senate faction (a public-works contract)";
+                case "workshopAndTrade": return "the workshop and membership in the guild or the bank (a saddler and carters to use it)";
                 case "workshopAndGuild10": return "the workshop and 10% of the guild (a mill site and the guild's backing)";
                 case "tradeInfluence": return "10% of the guild or membership in the bank (a house to honor the notes)";
                 case "factionInfluence": return "10% of a senate faction (senators to push it through)";

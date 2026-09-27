@@ -1,5 +1,5 @@
 {
-  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22.",
+  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22. The compound pulley crane was replaced by the padded horse collar on 2026-09-28 (Corey: Rome already had pulley cranes, and a crane doesn't follow from the wheelbarrow).",
   "inventions": [
     {
       "id": "wheelbarrow",
@@ -19,14 +19,14 @@
       "completionText": "The smith turns out wheelbarrows by the dozen, and every builder in the Subura knows whose idea they were."
     },
     {
-      "id": "crane",
+      "id": "collar",
       "branch": "mechanics",
-      "name": "The compound pulley crane",
+      "name": "The padded horse collar",
       "gold": 60,
       "attentionPerTurn": 2,
       "turns": 4,
       "prerequisite": "wheelbarrow",
-      "requirement": "workshopAndFaction",
+      "requirement": "workshopAndTrade",
       "effects": [
         {
           "type": "income",
@@ -34,17 +34,17 @@
         },
         {
           "type": "loyalty",
-          "group": "faction",
+          "group": "trade",
           "value": 10
         },
         {
           "type": "stake",
-          "group": "faction",
+          "group": "trade",
           "value": 3
         }
       ],
-      "description": "Five pulleys in two blocks: one man lifts what took five, and public works go up faster.",
-      "completionText": "Your crane lifts the new portico's columns; the senators who let the contract remember who built it."
+      "description": "A stiff padded collar that rests on a horse's shoulders instead of a strap across its throat: the horse breathes, and pulls three or four times the load.",
+      "completionText": "The carters at the Ostia road try your collar on one horse, then on all of them; the guild's wagons carry more for less, and the guild remembers whose idea it was."
     },
     {
       "id": "triphammer",
@@ -53,7 +53,7 @@
       "gold": 90,
       "attentionPerTurn": 2,
       "turns": 6,
-      "prerequisite": "crane",
+      "prerequisite": "collar",
       "requirement": "workshopAndGuild10",
       "effects": [
         {
