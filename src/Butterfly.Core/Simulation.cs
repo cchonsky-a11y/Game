@@ -89,6 +89,8 @@ namespace Butterfly.Core
             DomainsYearTick();
             PolicyYearTick();
             InstitutionsYearTick();
+            CampsYearTick();
+            OfficesYearTick();
             SeededPayoffYearTick();
         }
 

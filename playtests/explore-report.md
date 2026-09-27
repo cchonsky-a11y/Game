@@ -5,36 +5,36 @@ Each run draws a random player (persona) and random choices each turn, with its 
 ## Bugs and anomalies
 None found.
 - Runs holding 10%+ of both Senate factions at departure (the rule says holding 10% of one shuts you out of the other): 0.
-- Economic busts while away: 13 runs, 25 busts (up to 2 in one run); their mean second-arrival Index 108.6 vs 122.5 without.
+- Economic busts while away: 13 runs, 25 busts (up to 2 in one run); their mean second-arrival Index 102.4 vs 119.7 without.
 - Wrongness beat describing the debased coin twice ("copper washed in silver" and "bronze washed thin"): 0 first arrivals.
 - Determinism: 10 runs replayed with identical log hashes.
-- Refused commands: 10405 of 26143 (random players try things they can't do; not bugs by themselves).
+- Refused commands: 9297 of 24461 (random players try things they can't do; not bugs by themselves).
 
 ## How far apart the outcomes end up
 | Stage | Mean | SD | Min | Median | Max |
 |---|---|---|---|---|---|
-| Index at departure | 109.1 | 16.3 | 66.9 | 107.8 | 159.0 |
-| Index at departure (no bust while away) | 108.7 | 15.5 | 66.9 | 107.0 | 141.9 |
-| Index at first arrival (no bust while away) | 119.2 | 15.9 | 73.3 | 117.9 | 164.5 |
-| Index at second arrival (no bust while away) | 122.5 | 19.6 | 74.2 | 120.8 | 171.6 |
-| Index at first arrival | 118.6 | 17.0 | 73.3 | 117.1 | 171.3 |
-| Index at second arrival | 120.7 | 21.5 | 57.2 | 120.2 | 171.6 |
-| Medicine at departure | 114.9 | 32.1 | 30.0 | 111.9 | 196.6 |
-| Medicine at first arrival | 119.3 | 29.2 | 45.2 | 116.5 | 213.0 |
-| Medicine at second arrival | 115.6 | 31.2 | 48.9 | 112.4 | 208.4 |
-| Governance at departure | 105.9 | 14.8 | 45.7 | 102.0 | 162.3 |
-| Governance at first arrival | 119.8 | 17.1 | 72.7 | 117.7 | 185.7 |
-| Governance at second arrival | 123.5 | 17.8 | 84.9 | 120.1 | 191.2 |
-| Economy at departure | 112.2 | 21.9 | 29.9 | 106.3 | 174.6 |
-| Economy at first arrival | 120.7 | 27.5 | 68.9 | 113.3 | 222.1 |
-| Economy at second arrival | 128.0 | 37.7 | 35.9 | 123.1 | 252.8 |
-| Plague dead (% of Rome) | 6.5 | 3.2 | 1.5 | 5.9 | 21.0 |
-| Coin silver at first arrival (%) | 49.8 | 4.1 | 41.9 | 48.7 | 64.9 |
-| Coin silver at second arrival (%) | 20.8 | 18.2 | 1.0 | 13.6 | 49.1 |
-| Aurei in hand at first arrival | 22.2 | 22.4 | 0.0 | 12.0 | 118.0 |
-| Departure year | 170.2 | 4.9 | 162.0 | 170.0 | 180.0 |
-| First arrival year | 218.6 | 12.6 | 189.0 | 221.0 | 239.0 |
-| Second arrival year | 260.3 | 17.1 | 219.0 | 264.0 | 289.0 |
+| Index at departure | 108.9 | 15.7 | 65.8 | 106.8 | 145.8 |
+| Index at departure (no bust while away) | 108.5 | 15.6 | 65.8 | 106.7 | 142.9 |
+| Index at first arrival (no bust while away) | 118.0 | 16.5 | 63.7 | 115.8 | 164.3 |
+| Index at second arrival (no bust while away) | 119.7 | 19.7 | 59.6 | 120.4 | 169.1 |
+| Index at first arrival | 117.4 | 17.0 | 63.7 | 115.7 | 164.3 |
+| Index at second arrival | 117.4 | 22.1 | 45.9 | 119.1 | 170.2 |
+| Medicine at departure | 113.8 | 28.3 | 30.0 | 110.5 | 178.7 |
+| Medicine at first arrival | 117.1 | 27.0 | 35.2 | 114.8 | 188.4 |
+| Medicine at second arrival | 112.2 | 28.6 | 40.4 | 110.7 | 172.8 |
+| Governance at departure | 104.5 | 13.4 | 35.2 | 101.5 | 153.2 |
+| Governance at first arrival | 117.9 | 15.2 | 56.5 | 116.4 | 184.4 |
+| Governance at second arrival | 120.4 | 16.8 | 68.4 | 117.6 | 183.6 |
+| Economy at departure | 113.4 | 22.9 | 29.7 | 107.3 | 186.7 |
+| Economy at first arrival | 120.6 | 27.0 | 71.9 | 112.6 | 220.5 |
+| Economy at second arrival | 125.0 | 36.9 | 10.0 | 119.5 | 250.0 |
+| Plague dead (% of Rome) | 6.7 | 3.5 | 1.6 | 6.1 | 26.1 |
+| Coin silver at first arrival (%) | 50.0 | 4.1 | 41.4 | 48.9 | 66.3 |
+| Coin silver at second arrival (%) | 23.6 | 18.3 | 1.0 | 27.5 | 48.5 |
+| Aurei in hand at first arrival | 26.2 | 35.9 | 0.0 | 12.0 | 198.0 |
+| Departure year | 170.3 | 4.9 | 162.0 | 170.0 | 180.0 |
+| First arrival year | 217.5 | 12.6 | 188.0 | 220.0 | 239.0 |
+| Second arrival year | 257.6 | 17.7 | 223.0 | 257.0 | 292.0 |
 
 ## Do big choices lead to different places?
 Mean Index (and SD) by group. **Effect** = the gap between the best and worst group means divided by the overall SD at that stage; below 0.3 the choice barely shows in the outcome.
@@ -43,229 +43,251 @@ Mean Index (and SD) by group. **Effect** = the gap between the best and worst gr
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| fountain | 46 | 111.3 (17.0) | 122.4 (16.5) | 126.4 (18.7) |
-| neither | 6 | 111.3 (9.9) | 123.8 (9.3) | 130.2 (12.1) |
-| workshop | 48 | 106.6 (16.1) | 114.3 (17.3) | 114.0 (23.1) |
-| **Effect** | | 0.29 | 0.56 | 0.76 |
-| Effect without busts | | 0.34 (gap 5.3) | 0.59 (gap 9.4) | 0.72 (gap 14.1) |
+| fountain | 46 | 111.4 (15.8) | 122.0 (15.4) | 123.9 (18.9) |
+| neither | 6 | 110.8 (8.9) | 122.0 (7.9) | 127.8 (6.8) |
+| workshop | 48 | 106.2 (16.1) | 112.4 (18.1) | 110.0 (23.9) |
+| **Effect** | | 0.33 | 0.56 | 0.80 |
+| Effect without busts | | 0.33 (gap 5.2) | 0.61 (gap 10.0) | 0.79 (gap 15.5) |
 
 **Economic policy style**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| freemarket | 30 | 110.4 (16.0) | 122.5 (17.8) | 127.3 (22.4) |
-| history | 28 | 108.6 (16.0) | 117.6 (15.7) | 120.4 (17.6) |
-| interventionist | 19 | 108.4 (13.8) | 114.6 (13.1) | 113.6 (21.7) |
-| mixed | 23 | 108.4 (19.5) | 118.1 (20.0) | 118.2 (23.2) |
-| **Effect** | | 0.13 | 0.46 | 0.64 |
-| Effect without busts | | 0.50 (gap 7.8) | 0.53 (gap 8.4) | 0.56 (gap 10.9) |
+| freemarket | 30 | 110.3 (16.1) | 120.5 (18.9) | 123.2 (22.7) |
+| history | 28 | 107.6 (16.0) | 117.3 (14.1) | 118.7 (17.2) |
+| interventionist | 19 | 109.3 (10.2) | 114.6 (12.1) | 108.4 (25.1) |
+| mixed | 23 | 108.3 (19.2) | 115.7 (20.9) | 115.8 (23.0) |
+| **Effect** | | 0.17 | 0.35 | 0.67 |
+| Effect without busts | | 0.38 (gap 5.9) | 0.42 (gap 7.0) | 0.41 (gap 8.1) |
 
 **Engagement (institutions joined or founded)**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| heavy | 60 | 107.6 (15.6) | 120.5 (16.6) | 123.8 (22.1) |
-| light | 33 | 109.5 (18.0) | 115.1 (18.7) | 116.0 (21.5) |
-| none | 7 | 119.0 (11.1) | 119.0 (9.0) | 115.9 (9.3) |
-| **Effect** | | 0.70 | 0.32 | 0.36 |
-| Effect without busts | | 0.80 (gap 12.5) | 0.14 (gap 2.3) | 0.46 (gap 8.9) |
+| heavy | 60 | 107.7 (15.4) | 119.2 (16.4) | 121.0 (19.3) |
+| light | 33 | 109.2 (16.8) | 114.2 (19.0) | 111.1 (27.4) |
+| none | 7 | 117.1 (12.8) | 116.8 (10.2) | 116.7 (8.6) |
+| **Effect** | | 0.60 | 0.30 | 0.44 |
+| Effect without busts | | 0.67 (gap 10.4) | 0.16 (gap 2.6) | 0.24 (gap 4.7) |
 
 **Economic policy in force at departure**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| free market | 5 | 118.9 (15.3) | 142.0 (18.8) | 147.6 (18.6) |
-| interventionist | 7 | 105.8 (19.3) | 104.4 (14.8) | 97.1 (22.4) |
-| mixed | 6 | 118.3 (23.5) | 127.1 (26.6) | 122.1 (32.9) |
-| no voice (history) | 74 | 107.1 (15.0) | 116.3 (13.9) | 119.2 (17.8) |
-| voice, as history | 8 | 116.4 (17.1) | 131.7 (15.9) | 136.4 (20.3) |
-| **Effect** | | 0.80 | 2.22 | 2.36 |
-| Effect without busts | | 0.76 (gap 11.8) | 1.62 (gap 25.8) | 1.45 (gap 28.4) |
+| free market | 4 | 126.5 (11.1) | 148.4 (10.7) | 152.1 (11.6) |
+| interventionist | 8 | 108.9 (14.2) | 108.5 (15.6) | 89.4 (26.5) |
+| mixed | 5 | 115.4 (22.2) | 121.0 (26.6) | 123.2 (29.0) |
+| no voice (history) | 77 | 107.6 (15.7) | 116.0 (15.7) | 117.3 (19.1) |
+| voice, as history | 6 | 107.6 (10.4) | 122.9 (6.2) | 128.1 (7.5) |
+| **Effect** | | 0.50 | 0.85 | 1.75 |
+| Effect without busts | | 0.01 (gap 0.1) | 0.42 (gap 6.9) | 0.55 (gap 10.8) |
+
+**Highest office held at departure**
+
+| Group | Runs | Departure | First arrival | Second arrival |
+|---|---|---|---|---|
+| 0 none | 12 | 115.8 (13.5) | 114.3 (12.8) | 112.7 (14.1) |
+| 1 member | 19 | 105.1 (6.7) | 113.3 (12.5) | 113.1 (18.3) |
+| 2 officer | 39 | 111.0 (15.2) | 121.9 (16.0) | 123.0 (22.0) |
+| 3 deputy | 25 | 104.5 (21.2) | 114.5 (22.6) | 114.1 (27.6) |
+| 4 head | 5 | 112.5 (12.0) | 119.2 (12.1) | 118.7 (19.3) |
+| **Effect** | | 0.72 | 0.51 | 0.46 |
+| Effect without busts | | 0.91 (gap 14.3) | 0.65 (gap 10.7) | 0.76 (gap 15.0) |
+
+**Strongest last orders**
+
+| Group | Runs | Departure | First arrival | Second arrival |
+|---|---|---|---|---|
+| 0 none | 54 | 107.8 (16.5) | 113.9 (18.0) | 113.8 (22.2) |
+| 1 little (<0.3) | 33 | 109.3 (12.5) | 119.2 (14.0) | 116.9 (21.5) |
+| 2 real (0.3-0.6) | 10 | 112.3 (22.8) | 127.3 (18.3) | 133.3 (19.3) |
+| 3 great (0.6+) | 3 | 113.3 (6.2) | 126.8 (4.1) | 135.9 (5.1) |
+| **Effect** | | 0.29 | 0.79 | 0.88 |
+| Effect without busts | | 0.08 (gap 1.3) | 0.53 (gap 8.8) | 0.71 (gap 14.0) |
 
 **Highest stake held at departure**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| 0 none | 11 | 118.2 (12.4) | 116.3 (13.0) | 111.8 (14.5) |
-| 1 under 10% | 2 | 100.7 (1.9) | 105.7 (2.2) | 90.4 (18.6) |
-| 2 10-24% | 17 | 103.3 (4.8) | 110.5 (8.2) | 110.8 (12.2) |
-| 3 25-49% | 68 | 108.8 (18.2) | 120.9 (18.7) | 125.1 (22.7) |
-| 4 50%+ | 2 | 124.8 (4.5) | 134.1 (5.8) | 134.3 (17.6) |
-| **Effect** | | 0.91 | 0.62 | 0.67 |
-| Effect without busts | | 0.96 (gap 14.9) | 0.76 (gap 12.0) | 0.92 (gap 18.1) |
+| 0 none | 12 | 115.8 (13.5) | 114.3 (12.8) | 112.7 (14.1) |
+| 1 under 10% | 1 | 99.4 (0.0) | 104.2 (0.0) | 77.3 (0.0) |
+| 2 10-24% | 22 | 106.4 (8.2) | 114.1 (11.1) | 114.9 (15.6) |
+| 3 25-49% | 65 | 108.6 (17.8) | 119.3 (19.2) | 119.8 (24.6) |
+| **Effect** | | 0.60 | 0.30 | 0.32 |
+| Effect without busts | | 0.60 (gap 9.4) | 0.40 (gap 6.6) | 0.58 (gap 11.4) |
 
 **Plague response actually made**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| hospice | 14 | 103.5 (21.5) | 119.2 (20.9) | 121.2 (27.0) |
-| none | 49 | 109.9 (15.6) | 116.2 (16.4) | 116.3 (19.2) |
-| quarantine | 37 | 110.1 (14.9) | 121.5 (16.1) | 126.2 (21.2) |
-| **Effect** | | 0.41 | 0.31 | 0.46 |
-| Effect without busts | | 0.64 (gap 10.0) | 0.54 (gap 8.7) | 0.84 (gap 16.5) |
+| hospice | 10 | 99.1 (13.1) | 111.3 (14.3) | 114.1 (16.7) |
+| none | 56 | 109.9 (14.9) | 115.6 (15.8) | 115.1 (21.2) |
+| quarantine | 34 | 110.2 (17.2) | 122.1 (18.9) | 122.2 (24.7) |
+| **Effect** | | 0.70 | 0.64 | 0.37 |
+| Effect without busts | | 0.73 (gap 11.3) | 0.78 (gap 12.8) | 0.71 (gap 14.0) |
 
 **Promise to Demetria**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| Active | 5 | 104.1 (2.9) | 116.2 (3.5) | 121.4 (7.6) |
-| Kept | 33 | 108.2 (22.6) | 120.2 (19.7) | 122.0 (26.3) |
-| NotOffered | 24 | 103.3 (4.9) | 107.8 (9.4) | 105.5 (13.5) |
-| Offered | 2 | 101.3 (0.9) | 114.0 (1.1) | 118.7 (4.3) |
-| Refused | 36 | 114.8 (14.2) | 124.9 (16.5) | 129.6 (17.4) |
-| **Effect** | | 0.71 | 1.01 | 1.12 |
-| Effect without busts | | 0.71 (gap 11.0) | 1.08 (gap 17.2) | 1.24 (gap 24.3) |
+| Active | 4 | 106.0 (4.4) | 117.0 (8.1) | 121.7 (9.3) |
+| Kept | 31 | 108.2 (22.1) | 118.3 (21.8) | 119.5 (26.8) |
+| NotOffered | 28 | 103.1 (6.1) | 107.9 (7.9) | 104.7 (13.5) |
+| Offered | 2 | 101.6 (0.5) | 113.6 (1.9) | 121.5 (3.0) |
+| Refused | 35 | 114.8 (13.8) | 124.5 (15.4) | 125.1 (21.0) |
+| **Effect** | | 0.74 | 0.98 | 0.92 |
+| Effect without busts | | 0.76 (gap 11.8) | 1.06 (gap 17.4) | 1.19 (gap 23.4) |
 
 **Founded an institution**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| club | 11 | 112.2 (17.2) | 116.8 (18.8) | 117.4 (24.1) |
-| house | 10 | 102.3 (18.7) | 117.7 (14.9) | 122.1 (18.1) |
-| none | 71 | 109.8 (16.0) | 119.0 (17.5) | 120.5 (22.4) |
-| school | 8 | 106.6 (14.6) | 118.9 (14.2) | 125.1 (14.2) |
-| **Effect** | | 0.61 | 0.13 | 0.36 |
-| Effect without busts | | 0.99 (gap 15.4) | 0.32 (gap 5.1) | 0.14 (gap 2.8) |
+| club | 11 | 115.4 (15.1) | 117.1 (19.6) | 112.6 (29.6) |
+| house | 10 | 102.9 (20.2) | 114.3 (18.8) | 117.2 (19.9) |
+| none | 71 | 109.2 (15.3) | 118.0 (17.3) | 117.9 (22.2) |
+| school | 8 | 104.6 (13.6) | 116.7 (8.9) | 120.6 (14.2) |
+| **Effect** | | 0.80 | 0.22 | 0.36 |
+| Effect without busts | | 0.93 (gap 14.5) | 0.35 (gap 5.8) | 0.28 (gap 5.6) |
 
 **First jump**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| before the plague (<167) | 29 | 102.2 (4.6) | 109.3 (9.0) | 108.6 (14.5) |
-| late (175+) | 23 | 114.9 (24.8) | 129.0 (23.9) | 132.6 (23.5) |
-| mid (167-174) | 48 | 110.4 (14.5) | 119.2 (13.5) | 122.3 (20.6) |
-| **Effect** | | 0.78 | 1.17 | 1.12 |
-| Effect without busts | | 0.68 (gap 10.5) | 1.11 (gap 17.6) | 1.17 (gap 23.0) |
+| before the plague (<167) | 28 | 102.2 (4.3) | 109.1 (7.9) | 108.8 (13.9) |
+| late (175+) | 23 | 112.8 (25.0) | 124.9 (25.6) | 125.6 (28.0) |
+| mid (167-174) | 49 | 110.8 (13.3) | 118.6 (13.9) | 118.6 (21.6) |
+| **Effect** | | 0.67 | 0.93 | 0.76 |
+| Effect without busts | | 0.64 (gap 9.9) | 0.82 (gap 13.5) | 0.84 (gap 16.6) |
 
 **Work style**
 
 | Group | Runs | Departure | First arrival | Second arrival |
 |---|---|---|---|---|
-| consult | 27 | 114.2 (20.0) | 125.4 (19.0) | 128.8 (23.3) |
-| craft | 26 | 110.2 (18.2) | 122.4 (15.5) | 124.9 (16.4) |
-| mixed | 21 | 108.8 (13.7) | 117.4 (16.4) | 118.5 (25.0) |
-| odd | 26 | 102.7 (8.9) | 108.7 (12.0) | 109.7 (16.6) |
-| **Effect** | | 0.71 | 0.99 | 0.89 |
-| Effect without busts | | 0.65 (gap 10.1) | 1.17 (gap 18.7) | 1.22 (gap 24.0) |
+| consult | 27 | 112.2 (20.5) | 122.7 (19.3) | 124.9 (21.6) |
+| craft | 26 | 109.6 (18.0) | 119.2 (18.5) | 120.6 (19.8) |
+| mixed | 21 | 111.3 (10.3) | 117.3 (15.7) | 113.5 (28.1) |
+| odd | 26 | 102.8 (8.9) | 110.2 (11.6) | 109.7 (16.9) |
+| **Effect** | | 0.60 | 0.73 | 0.69 |
+| Effect without busts | | 0.60 (gap 9.3) | 0.86 (gap 14.2) | 0.99 (gap 19.5) |
 
 ## Do the arrivals read differently?
 Distinct texts per beat (numbers blanked, so only different stories count) out of 100 runs.
 
 | Beat | First arrival | Second arrival | Most common first-arrival text (share) |
 |---|---|---|---|
-| Recognition | 6 | 8 | 38%: You climb out of the machine in AD # The Tiber smells the same. In the Subura, the distric… |
-| Wrongness | 14 | 15 | 35%: Something is wrong, and it takes you a moment to see it: children, everywhere. More than a… |
-| Personal echo | 10 | 8 | 36%: Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not p… |
-| Discovery | 82 | 55 | 3%: You ask at the guild halls and the Curia whether anyone remembers you. No one does: you ne… |
-| Walk (all five places) | 83 | 83 | |
-| Recognition: second arrival repeats the first word for word | 94% of runs | | |
-| Wrongness: second arrival repeats the first word for word | 77% of runs | | |
-| Personal echo: second arrival repeats the first word for word | 77% of runs | | |
-| Discovery: second arrival repeats the first word for word | 3% of runs | | |
-| Whole arrival (4 beats) | 100 | 97 | |
+| Recognition | 6 | 7 | 40%: You climb out of the machine in AD # The Tiber smells the same. In the Subura, the distric… |
+| Wrongness | 13 | 12 | 34%: Something is wrong, and it takes you a moment to see it: children, everywhere. More than a… |
+| Personal echo | 10 | 8 | 35%: Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not p… |
+| Discovery | 95 | 84 | 3%: You ask at the guild halls and the Curia whether anyone remembers you. No one does: you ne… |
+| Walk (all five places) | 86 | 80 | |
+| Recognition: second arrival repeats the first word for word | 95% of runs | | |
+| Wrongness: second arrival repeats the first word for word | 70% of runs | | |
+| Personal echo: second arrival repeats the first word for word | 80% of runs | | |
+| Discovery: second arrival repeats the first word for word | 2% of runs | | |
+| Whole arrival (4 beats) | 100 | 99 | |
 
-Institution outcomes (institutions held at 10%+): first arrival Thriving 76, Drifted 40, Captured 31, Rogue 12; second arrival Drifted 75, Captured 62, Rogue 17, Dissolved 5.
+Institution outcomes (institutions held at 10%+): first arrival Thriving 88, Drifted 32, Captured 26, Rogue 11; second arrival Drifted 89, Captured 48, Rogue 15, Dissolved 3, Thriving 2.
 
 ## Runs
 | Run | Seed | Persona | Left | Index dep → 1st → 2nd | Plague | Bugs |
 |---|---|---|---|---|---|---|
-| 1 | 1001 | workshop, joins bank/faction/guild (to 25%), policy interventionist, priorities Maintain/AcceptRisk/Maintain, plague none, promise yes, work odd, jump ~AD 162 | AD 164 → 189 → 219 | 99.4 → 105.4 → 90.0 | 10.1% severe | 0 |
-| 2 | 1002 | workshop, joins faction (to 50%), policy freemarket, priorities Protect/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 180 | AD 179 → 239 → 279 | 141.9 → 164.5 → 171.6 | 7.0% severe | 0 |
-| 3 | 1003 | neither, joins sanctuary/bank + founds house (to 1%), policy history, priorities AcceptRisk/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 166 | AD 167 → 207 → 242 | 105.5 → 113.4 → 120.8 | 6.5% severe | 0 |
-| 4 | 1004 | fountain, joins bank/faction/junian/sanctuary (to 1%), policy history, priorities Maintain/Protect/Maintain, plague hospice, promise no, work odd, jump ~AD 164 | AD 163 → 198 → 238 | 102.0 → 107.2 → 103.5 | 7.2% severe | 0 |
-| 5 | 1005 | fountain, joins sanctuary/junian/guild/circle (to 1%), policy history, priorities Maintain/Protect/AcceptRisk, plague hospice, promise no, work consult, jump ~AD 178 | AD 177 → 232 → 277 | 132.3 → 152.0 → 160.2 | 3.3% contained | 0 |
-| 6 | 1006 | fountain, joins bank/faction/sanctuary (to 25%), policy mixed, priorities Maintain/Protect/Protect, plague hospice, promise no, work consult, jump ~AD 179 | AD 179 → 234 → 289 | 159.0 → 171.3 → 165.7 | 1.5% contained | 0 |
-| 7 | 1007 | workshop, joins junian/sanctuary (to 1%), policy interventionist, priorities Maintain/Maintain/Protect, plague quarantine, promise yes, work odd, jump ~AD 171 | AD 171 → 221 → 266 | 107.0 → 122.8 → 137.2 | 4.8% severe | 0 |
-| 8 | 1008 | neither, joins guild/sanctuary + founds club (to 1%), policy freemarket, priorities Maintain/Maintain/Maintain, plague hospice, promise no, work craft, jump ~AD 168 | AD 168 → 228 → 273 | 117.2 → 124.9 → 134.5 | 3.9% severe | 0 |
-| 9 | 1009 | fountain, joins faction/circle/sanctuary + founds house (to 10%), policy history, priorities AcceptRisk/Protect/Protect, plague hospice, promise no, work craft, jump ~AD 176 | AD 176 → 231 → 276 | 82.1 → 107.2 → 115.2 | 7.8% severe | 0 |
-| 10 | 1010 | fountain, joins junian (to 10%), policy mixed, priorities Protect/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work craft, jump ~AD 166 | AD 166 → 206 → 251 | 103.1 → 113.9 → 112.9 | 4.8% severe | 0 |
-| 11 | 1011 | fountain, joins nothing + founds house (to 10%), policy interventionist, priorities Maintain/Protect/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 168 | AD 168 → 228 → 283 | 131.0 → 129.6 → 118.9 | 4.9% severe | 0 |
-| 12 | 1012 | fountain, joins circle + founds club (to 25%), policy freemarket, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 167 | AD 166 → 211 → 256 | 102.6 → 111.8 → 118.1 | 6.5% severe | 0 |
-| 13 | 1013 | fountain, joins bank/junian/sanctuary/circle (to 25%), policy interventionist, priorities Protect/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 170 | AD 170 → 225 → 280 | 112.1 → 123.2 → 128.3 | 5.2% severe | 0 |
-| 14 | 1014 | fountain, joins junian/sanctuary/faction/bank (to 50%), policy mixed, priorities Protect/Protect/Maintain, plague hospice, promise no, work mixed, jump ~AD 169 | AD 169 → 209 → 249 | 111.8 → 128.2 → 134.5 | 5.8% severe | 0 |
-| 15 | 1015 | fountain, joins guild/sanctuary/circle (to 50%), policy freemarket, priorities Protect/Maintain/Maintain, plague quarantine, promise yes, work odd, jump ~AD 170 | AD 172 → 217 → 242 | 112.4 → 123.2 → 130.2 | 4.6% severe | 0 |
-| 16 | 1016 | fountain, joins faction/sanctuary (to 50%), policy history, priorities Protect/Protect/Protect, plague hospice, promise yes, work craft, jump ~AD 175 | AD 175 → 230 → 280 | 125.1 → 133.8 → 131.5 | 3.4% contained | 0 |
-| 17 | 1017 | fountain, joins circle (to 50%), policy freemarket, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work craft, jump ~AD 163 | AD 163 → 208 → 248 | 100.7 → 109.0 → 107.7 | 7.3% severe | 0 |
-| 18 | 1018 | workshop, joins junian/faction (to 50%), policy interventionist, priorities Maintain/Protect/Protect, plague hospice, promise no, work mixed, jump ~AD 166 | AD 166 → 211 → 246 | 107.8 → 106.9 → 109.5 | 5.7% severe | 0 |
-| 19 | 1019 | fountain, joins nothing (to 1%), policy history, priorities Maintain/Protect/Protect, plague none, promise no, work odd, jump ~AD 166 | AD 167 → 202 → 232 | 110.8 → 112.8 → 115.3 | 7.0% severe | 0 |
-| 20 | 1020 | workshop, joins faction/circle/guild/junian + founds school (to 50%), policy history, priorities Maintain/AcceptRisk/Maintain, plague none, promise yes, work odd, jump ~AD 180 | AD 179 → 234 → 274 | 101.9 → 91.8 → 104.3 | 12.5% severe | 0 |
-| 21 | 1021 | fountain, joins junian/guild/circle/bank (to 25%), policy history, priorities Protect/AcceptRisk/Maintain, plague quarantine, promise yes, work consult, jump ~AD 180 | AD 180 → 225 → 265 | 122.3 → 145.1 → 156.8 | 2.0% contained | 0 |
+| 1 | 1001 | workshop, joins bank/faction/guild (to 25%), policy interventionist, priorities Maintain/AcceptRisk/Maintain, plague none, promise yes, work odd, jump ~AD 162 | AD 166 → 201 → 241 | 99.3 → 106.9 → 85.5 | 10.2% severe | 0 |
+| 2 | 1002 | workshop, joins faction (to 50%), policy freemarket, priorities Protect/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 180 | AD 179 → 239 → 279 | 142.9 → 164.3 → 169.1 | 6.0% severe | 0 |
+| 3 | 1003 | neither, joins sanctuary/bank + founds house (to 1%), policy history, priorities AcceptRisk/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 166 | AD 165 → 205 → 255 | 102.0 → 111.9 → 118.8 | 6.5% severe | 0 |
+| 4 | 1004 | fountain, joins bank/faction/junian/sanctuary (to 1%), policy history, priorities Maintain/Protect/Maintain, plague hospice, promise no, work odd, jump ~AD 164 | AD 164 → 204 → 234 | 102.0 → 110.3 → 114.2 | 6.7% severe | 0 |
+| 5 | 1005 | fountain, joins sanctuary/junian/guild/circle (to 1%), policy history, priorities Maintain/Protect/AcceptRisk, plague hospice, promise no, work consult, jump ~AD 178 | AD 177 → 232 → 277 | 142.2 → 157.0 → 158.3 | 1.6% contained | 0 |
+| 6 | 1006 | fountain, joins bank/faction/sanctuary (to 25%), policy mixed, priorities Maintain/Protect/Protect, plague hospice, promise no, work consult, jump ~AD 179 | AD 179 → 229 → 269 | 145.8 → 161.5 → 170.2 | 4.4% severe | 0 |
+| 7 | 1007 | workshop, joins junian/sanctuary (to 1%), policy interventionist, priorities Maintain/Maintain/Protect, plague quarantine, promise yes, work odd, jump ~AD 171 | AD 171 → 221 → 256 | 107.0 → 122.8 → 131.2 | 4.8% severe | 0 |
+| 8 | 1008 | neither, joins guild/sanctuary + founds club (to 1%), policy freemarket, priorities Maintain/Maintain/Maintain, plague hospice, promise no, work craft, jump ~AD 168 | AD 168 → 228 → 268 | 116.3 → 124.2 → 133.8 | 2.4% contained | 0 |
+| 9 | 1009 | fountain, joins faction/circle/sanctuary + founds house (to 10%), policy history, priorities AcceptRisk/Protect/Protect, plague hospice, promise no, work craft, jump ~AD 176 | AD 176 → 231 → 271 | 81.8 → 110.3 → 120.4 | 5.6% contained | 0 |
+| 10 | 1010 | fountain, joins junian (to 10%), policy mixed, priorities Protect/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work craft, jump ~AD 166 | AD 166 → 211 → 256 | 108.0 → 111.9 → 121.6 | 6.4% severe | 0 |
+| 11 | 1011 | fountain, joins nothing + founds house (to 10%), policy interventionist, priorities Maintain/Protect/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 168 | AD 168 → 223 → 273 | 131.0 → 129.4 → 125.2 | 5.0% severe | 0 |
+| 12 | 1012 | fountain, joins circle + founds club (to 25%), policy freemarket, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 167 | AD 166 → 216 → 266 | 102.8 → 111.2 → 118.7 | 6.5% severe | 0 |
+| 13 | 1013 | fountain, joins bank/junian/sanctuary/circle (to 25%), policy interventionist, priorities Protect/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 170 | AD 170 → 215 → 245 | 115.3 → 126.6 → 134.0 | 3.9% severe | 0 |
+| 14 | 1014 | fountain, joins junian/sanctuary/faction/bank (to 50%), policy mixed, priorities Protect/Protect/Maintain, plague hospice, promise no, work mixed, jump ~AD 169 | AD 169 → 204 → 229 | 117.3 → 121.0 → 122.0 | 6.0% severe | 0 |
+| 15 | 1015 | fountain, joins guild/sanctuary/circle (to 50%), policy freemarket, priorities Protect/Maintain/Maintain, plague quarantine, promise yes, work odd, jump ~AD 170 | AD 172 → 217 → 252 | 110.9 → 122.1 → 125.5 | 4.7% severe | 0 |
+| 16 | 1016 | fountain, joins faction/sanctuary (to 50%), policy history, priorities Protect/Protect/Protect, plague hospice, promise yes, work craft, jump ~AD 175 | AD 176 → 231 → 266 | 126.5 → 134.7 → 136.2 | 3.4% contained | 0 |
+| 17 | 1017 | fountain, joins circle (to 50%), policy freemarket, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work craft, jump ~AD 163 | AD 163 → 208 → 248 | 100.7 → 109.0 → 107.2 | 7.3% severe | 0 |
+| 18 | 1018 | workshop, joins junian/faction (to 50%), policy interventionist, priorities Maintain/Protect/Protect, plague hospice, promise no, work mixed, jump ~AD 166 | AD 168 → 203 → 233 | 109.6 → 103.9 → 45.9 | 6.2% severe | 0 |
+| 19 | 1019 | fountain, joins nothing (to 1%), policy history, priorities Maintain/Protect/Protect, plague none, promise no, work odd, jump ~AD 166 | AD 166 → 196 → 226 | 105.5 → 110.4 → 113.2 | 7.1% severe | 0 |
+| 20 | 1020 | workshop, joins faction/circle/guild/junian + founds school (to 50%), policy history, priorities Maintain/AcceptRisk/Maintain, plague none, promise yes, work odd, jump ~AD 180 | AD 180 → 230 → 265 | 101.8 → 103.4 → 95.8 | 11.2% severe | 0 |
+| 21 | 1021 | fountain, joins junian/guild/circle/bank (to 25%), policy history, priorities Protect/AcceptRisk/Maintain, plague quarantine, promise yes, work consult, jump ~AD 180 | AD 180 → 225 → 265 | 92.0 → 121.4 → 132.7 | 4.3% severe | 0 |
 | 22 | 1022 | workshop, joins circle/guild (to 1%), policy freemarket, priorities Maintain/Maintain/AcceptRisk, plague none, promise yes, work odd, jump ~AD 163 | AD 163 → 198 → 238 | 99.4 → 104.2 → 77.3 | 9.8% severe | 0 |
-| 23 | 1023 | workshop, joins junian/guild/bank/circle (to 50%), policy freemarket, priorities Protect/Maintain/Maintain, plague quarantine, promise yes, work mixed, jump ~AD 163 | AD 164 → 204 → 244 | 99.3 → 94.9 → 92.3 | 12.0% severe | 0 |
-| 24 | 1024 | fountain, joins circle/faction/junian (to 50%), policy mixed, priorities Maintain/Protect/Protect, plague hospice, promise no, work craft, jump ~AD 171 | AD 171 → 221 → 256 | 111.6 → 117.9 → 126.1 | 2.6% contained | 0 |
-| 25 | 1025 | fountain, joins bank/sanctuary/faction (to 10%), policy history, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise yes, work mixed, jump ~AD 174 | AD 173 → 223 → 278 | 87.4 → 108.0 → 97.6 | 6.8% severe | 0 |
-| 26 | 1026 | fountain, joins faction + founds club (to 25%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work mixed, jump ~AD 170 | AD 169 → 219 → 264 | 75.6 → 86.4 → 86.6 | 7.8% severe | 0 |
-| 27 | 1027 | workshop, joins faction/guild/circle/sanctuary (to 50%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague hospice, promise no, work odd, jump ~AD 164 | AD 166 → 201 → 236 | 87.9 → 88.6 → 81.6 | 11.2% severe | 0 |
-| 28 | 1028 | workshop, joins junian/sanctuary/bank/faction (to 50%), policy history, priorities Maintain/Maintain/AcceptRisk, plague hospice, promise yes, work odd, jump ~AD 163 | AD 164 → 199 → 234 | 99.3 → 109.5 → 96.5 | 8.7% severe | 0 |
-| 29 | 1029 | fountain, joins circle/sanctuary/faction + founds house (to 25%), policy freemarket, priorities Protect/AcceptRisk/AcceptRisk, plague hospice, promise yes, work mixed, jump ~AD 175 | AD 175 → 230 → 280 | 115.0 → 142.1 → 151.4 | 3.5% contained | 0 |
-| 30 | 1030 | workshop, joins sanctuary/bank/circle (to 50%), policy mixed, priorities Maintain/Maintain/Protect, plague quarantine, promise no, work consult, jump ~AD 175 | AD 175 → 235 → 280 | 123.6 → 143.9 → 150.7 | 6.6% severe | 0 |
-| 31 | 1031 | neither, joins faction/junian/sanctuary/bank + founds school (to 10%), policy mixed, priorities Maintain/Maintain/Maintain, plague hospice, promise no, work consult, jump ~AD 167 | AD 167 → 222 → 262 | 109.7 → 129.3 → 139.8 | 5.7% severe | 0 |
-| 32 | 1032 | fountain, joins circle (to 10%), policy history, priorities AcceptRisk/AcceptRisk/Maintain, plague quarantine, promise yes, work craft, jump ~AD 166 | AD 166 → 206 → 251 | 109.1 → 119.9 → 125.2 | 3.1% contained | 0 |
-| 33 | 1033 | workshop, joins faction/circle/guild (to 25%), policy interventionist, priorities AcceptRisk/AcceptRisk/Protect, plague quarantine, promise no, work consult, jump ~AD 169 | AD 170 → 215 → 240 | 110.9 → 118.3 → 125.0 | 4.9% severe | 0 |
-| 34 | 1034 | fountain, joins bank/faction/sanctuary (to 25%), policy history, priorities Maintain/AcceptRisk/AcceptRisk, plague quarantine, promise no, work odd, jump ~AD 164 | AD 170 → 215 → 250 | 106.3 → 116.2 → 126.0 | 5.1% severe | 0 |
-| 35 | 1035 | fountain, joins guild (to 50%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work consult, jump ~AD 176 | AD 175 → 235 → 275 | 139.8 → 142.2 → 141.9 | 5.9% severe | 0 |
-| 36 | 1036 | fountain, joins junian (to 50%), policy mixed, priorities Protect/Maintain/Maintain, plague hospice, promise no, work consult, jump ~AD 164 | AD 164 → 199 → 249 | 101.0 → 113.7 → 120.7 | 6.3% severe | 0 |
-| 37 | 1037 | workshop, joins guild/circle/junian + founds house (to 25%), policy history, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work odd, jump ~AD 174 | AD 174 → 229 → 274 | 104.0 → 99.7 → 96.2 | 11.4% severe | 0 |
-| 38 | 1038 | workshop, joins faction/guild/sanctuary (to 50%), policy mixed, priorities AcceptRisk/Maintain/Protect, plague hospice, promise yes, work craft, jump ~AD 172 | AD 171 → 226 → 271 | 69.3 → 101.5 → 113.6 | 13.9% severe | 0 |
-| 39 | 1039 | neither, joins bank/faction/sanctuary/junian (to 25%), policy interventionist, priorities Maintain/Maintain/Protect, plague quarantine, promise yes, work craft, jump ~AD 165 | AD 165 → 210 → 250 | 100.7 → 114.8 → 115.6 | 4.9% severe | 0 |
-| 40 | 1040 | workshop, joins circle/sanctuary/guild (to 50%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work odd, jump ~AD 165 | AD 166 → 211 → 246 | 101.9 → 115.9 → 119.3 | 5.4% severe | 0 |
-| 41 | 1041 | workshop, joins nothing (to 10%), policy history, priorities Maintain/Maintain/Maintain, plague quarantine, promise yes, work consult, jump ~AD 172 | AD 172 → 222 → 277 | 111.4 → 114.2 → 108.1 | 7.0% severe | 0 |
-| 42 | 1042 | workshop, joins bank/faction/sanctuary (to 50%), policy interventionist, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague hospice, promise yes, work consult, jump ~AD 170 | AD 169 → 214 → 264 | 86.0 → 91.8 → 57.2 | 9.0% severe | 0 |
-| 43 | 1043 | workshop, joins junian + founds club (to 25%), policy interventionist, priorities AcceptRisk/Maintain/Maintain, plague hospice, promise yes, work mixed, jump ~AD 173 | AD 172 → 227 → 267 | 106.3 → 108.4 → 98.7 | 7.0% severe | 0 |
-| 44 | 1044 | fountain, joins guild/sanctuary (to 25%), policy history, priorities Maintain/Protect/Protect, plague none, promise yes, work consult, jump ~AD 169 | AD 169 → 204 → 229 | 126.4 → 134.2 → 138.2 | 4.7% severe | 0 |
-| 45 | 1045 | workshop, joins faction/circle/sanctuary (to 10%), policy history, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work consult, jump ~AD 171 | AD 171 → 226 → 276 | 102.5 → 121.5 → 132.1 | 4.9% severe | 0 |
-| 46 | 1046 | workshop, joins junian + founds school (to 50%), policy mixed, priorities Maintain/Protect/Maintain, plague hospice, promise yes, work mixed, jump ~AD 170 | AD 170 → 205 → 240 | 122.4 → 124.0 → 111.3 | 5.6% severe | 0 |
-| 47 | 1047 | fountain, joins bank/junian/circle (to 1%), policy interventionist, priorities Protect/Protect/AcceptRisk, plague hospice, promise no, work craft, jump ~AD 171 | AD 171 → 231 → 271 | 121.6 → 128.1 → 140.6 | 3.0% contained | 0 |
-| 48 | 1048 | workshop, joins circle/junian (to 10%), policy history, priorities Protect/Maintain/Protect, plague none, promise no, work craft, jump ~AD 179 | AD 179 → 229 → 284 | 140.1 → 147.0 → 142.8 | 5.0% severe | 0 |
+| 23 | 1023 | workshop, joins junian/guild/bank/circle (to 50%), policy freemarket, priorities Protect/Maintain/Maintain, plague quarantine, promise yes, work mixed, jump ~AD 163 | AD 162 → 202 → 242 | 99.4 → 92.1 → 88.0 | 12.1% severe | 0 |
+| 24 | 1024 | fountain, joins circle/faction/junian (to 50%), policy mixed, priorities Maintain/Protect/Protect, plague hospice, promise no, work craft, jump ~AD 171 | AD 171 → 226 → 281 | 106.1 → 115.6 → 115.7 | 5.0% severe | 0 |
+| 25 | 1025 | fountain, joins bank/sanctuary/faction (to 10%), policy history, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise yes, work mixed, jump ~AD 174 | AD 173 → 233 → 283 | 103.0 → 123.4 → 124.2 | 3.4% contained | 0 |
+| 26 | 1026 | fountain, joins faction + founds club (to 25%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work mixed, jump ~AD 170 | AD 169 → 214 → 239 | 105.5 → 89.5 → 51.8 | 7.3% severe | 0 |
+| 27 | 1027 | workshop, joins faction/guild/circle/sanctuary (to 50%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague hospice, promise no, work odd, jump ~AD 164 | AD 165 → 195 → 230 | 92.1 → 106.0 → 107.3 | 8.0% severe | 0 |
+| 28 | 1028 | workshop, joins junian/sanctuary/bank/faction (to 50%), policy history, priorities Maintain/Maintain/AcceptRisk, plague hospice, promise yes, work odd, jump ~AD 163 | AD 164 → 199 → 234 | 99.3 → 109.8 → 97.3 | 8.7% severe | 0 |
+| 29 | 1029 | fountain, joins circle/sanctuary/faction + founds house (to 25%), policy freemarket, priorities Protect/AcceptRisk/AcceptRisk, plague hospice, promise yes, work mixed, jump ~AD 175 | AD 175 → 230 → 275 | 118.7 → 141.3 → 145.0 | 3.8% severe | 0 |
+| 30 | 1030 | workshop, joins sanctuary/bank/circle (to 50%), policy mixed, priorities Maintain/Maintain/Protect, plague quarantine, promise no, work consult, jump ~AD 175 | AD 175 → 225 → 255 | 127.6 → 143.4 → 142.6 | 5.4% severe | 0 |
+| 31 | 1031 | neither, joins faction/junian/sanctuary/bank + founds school (to 10%), policy mixed, priorities Maintain/Maintain/Maintain, plague hospice, promise no, work consult, jump ~AD 167 | AD 167 → 207 → 232 | 115.5 → 127.1 → 134.9 | 5.2% severe | 0 |
+| 32 | 1032 | fountain, joins circle (to 10%), policy history, priorities AcceptRisk/AcceptRisk/Maintain, plague quarantine, promise yes, work craft, jump ~AD 166 | AD 169 → 214 → 239 | 117.4 → 122.1 → 120.4 | 1.6% contained | 0 |
+| 33 | 1033 | workshop, joins faction/circle/guild (to 25%), policy interventionist, priorities AcceptRisk/AcceptRisk/Protect, plague quarantine, promise no, work consult, jump ~AD 169 | AD 169 → 209 → 239 | 105.8 → 115.6 → 110.7 | 7.6% severe | 0 |
+| 34 | 1034 | fountain, joins bank/faction/sanctuary (to 25%), policy history, priorities Maintain/AcceptRisk/AcceptRisk, plague quarantine, promise no, work odd, jump ~AD 164 | AD 170 → 215 → 250 | 106.3 → 115.8 → 123.9 | 5.1% severe | 0 |
+| 35 | 1035 | fountain, joins guild (to 50%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work consult, jump ~AD 176 | AD 175 → 230 → 265 | 132.6 → 135.0 → 134.3 | 5.8% severe | 0 |
+| 36 | 1036 | fountain, joins junian (to 50%), policy mixed, priorities Protect/Maintain/Maintain, plague hospice, promise no, work consult, jump ~AD 164 | AD 164 → 199 → 249 | 102.0 → 113.2 → 117.9 | 5.7% severe | 0 |
+| 37 | 1037 | workshop, joins guild/circle/junian + founds house (to 25%), policy history, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work odd, jump ~AD 174 | AD 174 → 229 → 269 | 106.8 → 104.0 → 100.0 | 11.9% severe | 0 |
+| 38 | 1038 | workshop, joins faction/guild/sanctuary (to 50%), policy mixed, priorities AcceptRisk/Maintain/Protect, plague hospice, promise yes, work craft, jump ~AD 172 | AD 171 → 231 → 266 | 67.4 → 79.1 → 76.4 | 13.8% severe | 0 |
+| 39 | 1039 | neither, joins bank/faction/sanctuary/junian (to 25%), policy interventionist, priorities Maintain/Maintain/Protect, plague quarantine, promise yes, work craft, jump ~AD 165 | AD 165 → 205 → 245 | 101.3 → 115.0 → 123.6 | 4.5% severe | 0 |
+| 40 | 1040 | workshop, joins circle/sanctuary/guild (to 50%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work odd, jump ~AD 165 | AD 167 → 202 → 247 | 106.3 → 114.9 → 123.9 | 7.9% severe | 0 |
+| 41 | 1041 | workshop, joins nothing (to 10%), policy history, priorities Maintain/Maintain/Maintain, plague quarantine, promise yes, work consult, jump ~AD 172 | AD 172 → 222 → 277 | 104.1 → 108.8 → 114.6 | 9.3% severe | 0 |
+| 42 | 1042 | workshop, joins bank/faction/sanctuary (to 50%), policy interventionist, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague hospice, promise yes, work consult, jump ~AD 170 | AD 169 → 214 → 249 | 95.5 → 98.9 → 103.8 | 5.0% contained | 0 |
+| 43 | 1043 | workshop, joins junian + founds club (to 25%), policy interventionist, priorities AcceptRisk/Maintain/Maintain, plague hospice, promise yes, work mixed, jump ~AD 173 | AD 172 → 227 → 267 | 95.2 → 100.0 → 89.6 | 6.9% severe | 0 |
+| 44 | 1044 | fountain, joins guild/sanctuary (to 25%), policy history, priorities Maintain/Protect/Protect, plague none, promise yes, work consult, jump ~AD 169 | AD 169 → 209 → 244 | 124.9 → 134.5 → 134.7 | 6.1% severe | 0 |
+| 45 | 1045 | workshop, joins faction/circle/sanctuary (to 10%), policy history, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work consult, jump ~AD 171 | AD 171 → 216 → 241 | 112.9 → 127.9 → 135.9 | 2.5% contained | 0 |
+| 46 | 1046 | workshop, joins junian + founds school (to 50%), policy mixed, priorities Maintain/Protect/Maintain, plague hospice, promise yes, work mixed, jump ~AD 170 | AD 170 → 205 → 235 | 120.7 → 122.7 → 122.3 | 7.7% severe | 0 |
+| 47 | 1047 | fountain, joins bank/junian/circle (to 1%), policy interventionist, priorities Protect/Protect/AcceptRisk, plague hospice, promise no, work craft, jump ~AD 171 | AD 171 → 231 → 286 | 123.6 → 133.8 → 129.4 | 2.5% contained | 0 |
+| 48 | 1048 | workshop, joins circle/junian (to 10%), policy history, priorities Protect/Maintain/Protect, plague none, promise no, work craft, jump ~AD 179 | AD 179 → 229 → 279 | 119.4 → 131.0 → 135.3 | 5.6% severe | 0 |
 | 49 | 1049 | workshop, joins nothing (to 10%), policy freemarket, priorities Protect/AcceptRisk/AcceptRisk, plague none, promise yes, work craft, jump ~AD 174 | AD 173 → 233 → 283 | 130.8 → 124.1 → 110.0 | 5.5% severe | 0 |
-| 50 | 1050 | workshop, joins sanctuary (to 50%), policy history, priorities AcceptRisk/Protect/Protect, plague quarantine, promise yes, work consult, jump ~AD 178 | AD 177 → 237 → 272 | 75.4 → 98.7 → 105.3 | 12.7% severe | 0 |
-| 51 | 1051 | workshop, joins guild + founds club (to 25%), policy freemarket, priorities AcceptRisk/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 167 | AD 171 → 221 → 246 | 105.6 → 113.8 → 113.3 | 9.3% severe | 0 |
-| 52 | 1052 | fountain, joins bank/sanctuary + founds house (to 50%), policy history, priorities Maintain/AcceptRisk/AcceptRisk, plague hospice, promise yes, work consult, jump ~AD 176 | AD 176 → 236 → 281 | 82.4 → 118.6 → 128.5 | 3.7% severe | 0 |
-| 53 | 1053 | fountain, joins circle/bank/guild/sanctuary (to 25%), policy history, priorities Protect/Maintain/AcceptRisk, plague none, promise no, work craft, jump ~AD 165 | AD 165 → 205 → 240 | 103.0 → 118.3 → 119.4 | 4.2% severe | 0 |
-| 54 | 1054 | workshop, joins faction/guild/bank + founds school (to 1%), policy mixed, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work consult, jump ~AD 172 | AD 171 → 221 → 266 | 124.7 → 138.3 → 140.6 | 5.9% severe | 0 |
-| 55 | 1055 | workshop, joins bank/junian/guild (to 1%), policy freemarket, priorities Protect/Protect/Protect, plague quarantine, promise no, work mixed, jump ~AD 170 | AD 169 → 224 → 269 | 115.1 → 131.4 → 148.4 | 5.7% severe | 0 |
-| 56 | 1056 | fountain, joins nothing (to 50%), policy mixed, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise no, work mixed, jump ~AD 175 | AD 175 → 225 → 265 | 130.9 → 129.5 → 119.0 | 5.3% severe | 0 |
-| 57 | 1057 | workshop, joins faction/circle/bank + founds school (to 1%), policy freemarket, priorities Protect/Protect/Maintain, plague quarantine, promise no, work odd, jump ~AD 177 | AD 177 → 232 → 282 | 106.7 → 117.0 → 120.2 | 6.8% severe | 0 |
-| 58 | 1058 | neither, joins bank/faction/sanctuary/junian (to 1%), policy interventionist, priorities Protect/Protect/Maintain, plague quarantine, promise no, work odd, jump ~AD 169 | AD 168 → 228 → 273 | 106.6 → 122.2 → 123.7 | 5.1% severe | 0 |
-| 59 | 1059 | workshop, joins nothing + founds club (to 50%), policy history, priorities Maintain/Maintain/AcceptRisk, plague quarantine, promise no, work craft, jump ~AD 171 | AD 170 → 230 → 285 | 129.8 → 121.4 → 118.6 | 6.3% severe | 0 |
-| 60 | 1060 | neither, joins faction/guild/sanctuary + founds club (to 50%), policy interventionist, priorities Protect/AcceptRisk/Maintain, plague hospice, promise yes, work craft, jump ~AD 180 | AD 179 → 234 → 274 | 128.0 → 138.2 → 146.7 | 3.6% severe | 0 |
+| 50 | 1050 | workshop, joins sanctuary (to 50%), policy history, priorities AcceptRisk/Protect/Protect, plague quarantine, promise yes, work consult, jump ~AD 178 | AD 177 → 232 → 272 | 69.5 → 84.4 → 75.2 | 7.8% contained | 0 |
+| 51 | 1051 | workshop, joins guild + founds club (to 25%), policy freemarket, priorities AcceptRisk/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 167 | AD 171 → 221 → 256 | 106.1 → 114.2 → 122.5 | 9.3% severe | 0 |
+| 52 | 1052 | fountain, joins bank/sanctuary + founds house (to 50%), policy history, priorities Maintain/AcceptRisk/AcceptRisk, plague hospice, promise yes, work consult, jump ~AD 176 | AD 176 → 226 → 276 | 80.2 → 105.1 → 117.0 | 6.0% severe | 0 |
+| 53 | 1053 | fountain, joins circle/bank/guild/sanctuary (to 25%), policy history, priorities Protect/Maintain/AcceptRisk, plague none, promise no, work craft, jump ~AD 165 | AD 165 → 205 → 240 | 101.9 → 117.1 → 115.5 | 4.4% severe | 0 |
+| 54 | 1054 | workshop, joins faction/guild/bank + founds school (to 1%), policy mixed, priorities Protect/AcceptRisk/Protect, plague none, promise yes, work consult, jump ~AD 172 | AD 171 → 221 → 266 | 113.6 → 126.7 → 141.3 | 6.7% severe | 0 |
+| 55 | 1055 | workshop, joins bank/junian/guild (to 1%), policy freemarket, priorities Protect/Protect/Protect, plague quarantine, promise no, work mixed, jump ~AD 170 | AD 169 → 214 → 249 | 111.6 → 126.4 → 136.1 | 5.4% severe | 0 |
+| 56 | 1056 | fountain, joins nothing (to 50%), policy mixed, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise no, work mixed, jump ~AD 175 | AD 175 → 225 → 265 | 130.7 → 129.4 → 118.9 | 5.5% severe | 0 |
+| 57 | 1057 | workshop, joins faction/circle/bank + founds school (to 1%), policy freemarket, priorities Protect/Protect/Maintain, plague quarantine, promise no, work odd, jump ~AD 177 | AD 177 → 232 → 282 | 106.7 → 116.7 → 118.6 | 6.8% severe | 0 |
+| 58 | 1058 | neither, joins bank/faction/sanctuary/junian (to 1%), policy interventionist, priorities Protect/Protect/Maintain, plague quarantine, promise no, work odd, jump ~AD 169 | AD 168 → 223 → 263 | 106.3 → 120.8 → 123.1 | 6.2% severe | 0 |
+| 59 | 1059 | workshop, joins nothing + founds club (to 50%), policy history, priorities Maintain/Maintain/AcceptRisk, plague quarantine, promise no, work craft, jump ~AD 171 | AD 170 → 230 → 285 | 130.5 → 121.9 → 119.1 | 5.5% severe | 0 |
+| 60 | 1060 | neither, joins faction/guild/sanctuary + founds club (to 50%), policy interventionist, priorities Protect/AcceptRisk/Maintain, plague hospice, promise yes, work craft, jump ~AD 180 | AD 179 → 234 → 279 | 123.1 → 133.3 → 132.4 | 5.0% severe | 0 |
 | 61 | 1061 | workshop, joins nothing (to 50%), policy freemarket, priorities Protect/Protect/Maintain, plague quarantine, promise no, work odd, jump ~AD 166 | AD 165 → 220 → 260 | 104.9 → 105.4 → 114.6 | 7.7% severe | 0 |
 | 62 | 1062 | fountain, joins bank/faction + founds house (to 10%), policy mixed, priorities AcceptRisk/AcceptRisk/Protect, plague none, promise no, work odd, jump ~AD 163 | AD 167 → 197 → 227 | 106.9 → 109.0 → 105.2 | 7.0% severe | 0 |
 | 63 | 1063 | workshop, joins circle + founds club (to 10%), policy freemarket, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague quarantine, promise no, work mixed, jump ~AD 163 | AD 163 → 203 → 243 | 99.3 → 86.3 → 75.4 | 12.0% severe | 0 |
-| 64 | 1064 | fountain, joins faction (to 10%), policy history, priorities Protect/Maintain/Protect, plague quarantine, promise no, work craft, jump ~AD 162 | AD 162 → 207 → 262 | 104.2 → 111.7 → 107.8 | 7.4% severe | 0 |
-| 65 | 1065 | workshop, joins faction/sanctuary/circle (to 1%), policy mixed, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague hospice, promise yes, work mixed, jump ~AD 163 | AD 162 → 202 → 252 | 102.6 → 111.3 → 118.7 | 6.0% severe | 0 |
-| 66 | 1066 | fountain, joins faction/bank (to 1%), policy history, priorities AcceptRisk/Maintain/Protect, plague hospice, promise no, work mixed, jump ~AD 171 | AD 171 → 221 → 276 | 126.0 → 137.5 → 145.3 | 2.4% contained | 0 |
-| 67 | 1067 | workshop, joins circle/guild/sanctuary/bank (to 10%), policy freemarket, priorities Protect/Protect/Maintain, plague quarantine, promise yes, work odd, jump ~AD 168 | AD 167 → 207 → 247 | 103.8 → 112.4 → 121.8 | 6.9% severe | 0 |
-| 68 | 1068 | fountain, joins faction/sanctuary (to 50%), policy freemarket, priorities Protect/Protect/AcceptRisk, plague quarantine, promise yes, work mixed, jump ~AD 166 | AD 166 → 221 → 266 | 103.7 → 119.2 → 132.5 | 3.8% contained | 0 |
-| 69 | 1069 | workshop, joins guild/bank/circle (to 50%), policy freemarket, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise yes, work consult, jump ~AD 177 | AD 177 → 237 → 277 | 111.4 → 126.1 → 128.5 | 5.5% contained | 0 |
-| 70 | 1070 | workshop, joins sanctuary (to 25%), policy mixed, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise yes, work odd, jump ~AD 177 | AD 177 → 237 → 282 | 66.9 → 73.3 → 74.2 | 19.0% severe | 0 |
-| 71 | 1071 | workshop, joins bank/circle/faction (to 25%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise yes, work mixed, jump ~AD 172 | AD 172 → 227 → 272 | 96.7 → 100.3 → 69.4 | 8.6% severe | 0 |
-| 72 | 1072 | workshop, joins sanctuary/faction/bank + founds house (to 25%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise yes, work craft, jump ~AD 179 | AD 179 → 234 → 279 | 69.7 → 97.8 → 104.0 | 21.0% catastrophic | 0 |
-| 73 | 1073 | workshop, joins bank (to 25%), policy mixed, priorities Protect/Protect/Protect, plague hospice, promise yes, work consult, jump ~AD 166 | AD 171 → 206 → 241 | 117.3 → 123.2 → 129.4 | 9.7% severe | 0 |
-| 74 | 1074 | fountain, joins circle (to 25%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 165 | AD 164 → 209 → 259 | 100.4 → 111.4 → 122.2 | 5.2% severe | 0 |
-| 75 | 1075 | fountain, joins faction (to 50%), policy mixed, priorities Maintain/AcceptRisk/AcceptRisk, plague hospice, promise no, work consult, jump ~AD 170 | AD 170 → 215 → 255 | 95.1 → 100.3 → 111.4 | 5.1% severe | 0 |
-| 76 | 1076 | fountain, joins circle/faction/sanctuary/bank (to 1%), policy freemarket, priorities AcceptRisk/Protect/Protect, plague none, promise no, work consult, jump ~AD 170 | AD 169 → 209 → 239 | 131.0 → 144.5 → 151.9 | 4.1% severe | 0 |
-| 77 | 1077 | workshop, joins bank/circle/junian/guild + founds house (to 50%), policy freemarket, priorities Maintain/AcceptRisk/Protect, plague hospice, promise yes, work consult, jump ~AD 167 | AD 167 → 202 → 237 | 109.1 → 125.4 → 136.4 | 4.9% severe | 0 |
-| 78 | 1078 | fountain, joins junian (to 25%), policy interventionist, priorities AcceptRisk/AcceptRisk/Protect, plague hospice, promise yes, work consult, jump ~AD 174 | AD 174 → 224 → 274 | 130.6 → 95.1 → 87.5 | 5.5% severe | 0 |
-| 79 | 1079 | fountain, joins faction/bank/junian (to 25%), policy freemarket, priorities Protect/Maintain/AcceptRisk, plague hospice, promise no, work craft, jump ~AD 179 | AD 179 → 239 → 284 | 124.3 → 151.7 → 153.4 | 5.2% severe | 0 |
-| 80 | 1080 | fountain, joins faction/circle/bank (to 25%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague none, promise no, work mixed, jump ~AD 165 | AD 165 → 205 → 245 | 100.7 → 111.1 → 106.2 | 7.3% severe | 0 |
-| 81 | 1081 | fountain, joins sanctuary/junian/bank + founds school (to 50%), policy freemarket, priorities Protect/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 174 | AD 173 → 228 → 273 | 77.2 → 108.5 → 126.2 | 4.3% severe | 0 |
-| 82 | 1082 | fountain, joins guild (to 10%), policy interventionist, priorities Protect/Maintain/AcceptRisk, plague quarantine, promise no, work mixed, jump ~AD 170 | AD 170 → 220 → 260 | 108.0 → 116.1 → 126.0 | 6.6% severe | 0 |
-| 83 | 1083 | workshop, joins nothing (to 10%), policy interventionist, priorities AcceptRisk/AcceptRisk/Maintain, plague quarantine, promise yes, work craft, jump ~AD 164 | AD 163 → 203 → 233 | 114.2 → 117.9 → 109.5 | 5.6% severe | 0 |
-| 84 | 1084 | fountain, joins guild/sanctuary/faction + founds school (to 25%), policy interventionist, priorities Maintain/AcceptRisk/Maintain, plague hospice, promise yes, work craft, jump ~AD 166 | AD 165 → 215 → 250 | 102.0 → 116.4 → 118.0 | 4.1% severe | 0 |
-| 85 | 1085 | workshop, joins guild/bank/junian (to 50%), policy history, priorities Maintain/AcceptRisk/Protect, plague hospice, promise no, work odd, jump ~AD 173 | AD 173 → 223 → 263 | 107.2 → 107.2 → 112.2 | 11.2% severe | 0 |
-| 86 | 1086 | fountain, joins sanctuary/faction/circle (to 1%), policy freemarket, priorities Maintain/Protect/Protect, plague quarantine, promise yes, work odd, jump ~AD 165 | AD 165 → 200 → 240 | 102.0 → 113.2 → 121.7 | 6.2% severe | 0 |
-| 87 | 1087 | workshop, joins nothing (to 50%), policy history, priorities Maintain/Protect/Maintain, plague hospice, promise yes, work mixed, jump ~AD 177 | AD 177 → 227 → 272 | 129.8 → 128.9 → 135.0 | 5.9% severe | 0 |
-| 88 | 1088 | fountain, joins guild/bank/sanctuary + founds house (to 1%), policy mixed, priorities Protect/Protect/Maintain, plague hospice, promise no, work mixed, jump ~AD 170 | AD 169 → 219 → 254 | 117.3 → 134.2 → 144.4 | 3.8% contained | 0 |
-| 89 | 1089 | workshop, joins junian (to 50%), policy history, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise no, work odd, jump ~AD 163 | AD 164 → 204 → 234 | 99.3 → 89.8 → 98.1 | 11.9% severe | 0 |
-| 90 | 1090 | workshop, joins sanctuary/bank/guild (to 50%), policy mixed, priorities Protect/AcceptRisk/AcceptRisk, plague hospice, promise yes, work odd, jump ~AD 163 | AD 165 → 200 → 225 | 99.3 → 110.3 → 102.3 | 8.6% severe | 0 |
-| 91 | 1091 | workshop, joins circle/faction/bank/junian (to 10%), policy freemarket, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise no, work craft, jump ~AD 174 | AD 173 → 233 → 278 | 112.3 → 138.2 → 141.0 | 5.1% severe | 0 |
-| 92 | 1092 | workshop, joins bank/faction + founds club (to 10%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise no, work consult, jump ~AD 179 | AD 179 → 239 → 279 | 121.6 → 130.0 → 121.9 | 6.8% severe | 0 |
-| 93 | 1093 | fountain, joins sanctuary/bank + founds club (to 10%), policy freemarket, priorities Protect/AcceptRisk/Maintain, plague quarantine, promise yes, work consult, jump ~AD 173 | AD 172 → 217 → 257 | 136.8 → 146.4 → 157.1 | 4.0% severe | 0 |
-| 94 | 1094 | fountain, joins circle/junian/sanctuary/faction (to 1%), policy freemarket, priorities Protect/Maintain/AcceptRisk, plague hospice, promise no, work mixed, jump ~AD 172 | AD 172 → 227 → 267 | 121.4 → 133.5 → 146.2 | 2.7% contained | 0 |
-| 95 | 1095 | workshop, joins circle/junian/faction/sanctuary (to 10%), policy freemarket, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work odd, jump ~AD 172 | AD 172 → 227 → 267 | 110.0 → 124.5 → 126.8 | 5.9% severe | 0 |
-| 96 | 1096 | workshop, joins junian/faction/guild (to 1%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work craft, jump ~AD 165 | AD 165 → 210 → 255 | 111.0 → 119.7 → 119.9 | 7.1% severe | 0 |
-| 97 | 1097 | workshop, joins faction/guild/bank/sanctuary + founds school (to 10%), policy freemarket, priorities AcceptRisk/AcceptRisk/Protect, plague hospice, promise yes, work mixed, jump ~AD 168 | AD 168 → 203 → 243 | 108.6 → 126.3 → 140.7 | 4.8% severe | 0 |
-| 98 | 1098 | fountain, joins faction/bank (to 10%), policy history, priorities Maintain/Maintain/Maintain, plague hospice, promise yes, work craft, jump ~AD 165 | AD 164 → 214 → 264 | 102.0 → 110.5 → 111.3 | 7.1% severe | 0 |
-| 99 | 1099 | fountain, joins faction + founds club (to 10%), policy history, priorities Protect/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 176 | AD 176 → 236 → 281 | 111.7 → 117.1 → 120.0 | 7.2% severe | 0 |
-| 100 | 1100 | workshop, joins circle/faction/bank/junian (to 50%), policy mixed, priorities Protect/Maintain/AcceptRisk, plague quarantine, promise no, work consult, jump ~AD 172 | AD 172 → 227 → 267 | 113.0 → 112.0 → 118.0 | 4.0% contained | 0 |
+| 64 | 1064 | fountain, joins faction (to 10%), policy history, priorities Protect/Maintain/Protect, plague quarantine, promise no, work craft, jump ~AD 162 | AD 162 → 197 → 227 | 102.0 → 107.2 → 110.5 | 7.1% severe | 0 |
+| 65 | 1065 | workshop, joins faction/sanctuary/circle (to 1%), policy mixed, priorities AcceptRisk/AcceptRisk/AcceptRisk, plague hospice, promise yes, work mixed, jump ~AD 163 | AD 163 → 188 → 228 | 106.9 → 112.5 → 116.8 | 7.3% severe | 0 |
+| 66 | 1066 | fountain, joins faction/bank (to 1%), policy history, priorities AcceptRisk/Maintain/Protect, plague hospice, promise no, work mixed, jump ~AD 171 | AD 171 → 216 → 246 | 124.1 → 134.3 → 141.8 | 6.6% severe | 0 |
+| 67 | 1067 | workshop, joins circle/guild/sanctuary/bank (to 10%), policy freemarket, priorities Protect/Protect/Maintain, plague quarantine, promise yes, work odd, jump ~AD 168 | AD 167 → 207 → 247 | 103.7 → 112.6 → 120.8 | 7.0% severe | 0 |
+| 68 | 1068 | fountain, joins faction/sanctuary (to 50%), policy freemarket, priorities Protect/Protect/AcceptRisk, plague quarantine, promise yes, work mixed, jump ~AD 166 | AD 166 → 226 → 276 | 111.3 → 128.6 → 134.3 | 2.8% contained | 0 |
+| 69 | 1069 | workshop, joins guild/bank/circle (to 50%), policy freemarket, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise yes, work consult, jump ~AD 177 | AD 177 → 227 → 277 | 115.3 → 128.7 → 128.4 | 5.5% contained | 0 |
+| 70 | 1070 | workshop, joins sanctuary (to 25%), policy mixed, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise yes, work odd, jump ~AD 177 | AD 177 → 237 → 292 | 65.8 → 63.7 → 59.6 | 26.1% severe | 0 |
+| 71 | 1071 | workshop, joins bank/circle/faction (to 25%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise yes, work mixed, jump ~AD 172 | AD 172 → 227 → 272 | 108.9 → 112.1 → 109.6 | 8.6% severe | 0 |
+| 72 | 1072 | workshop, joins sanctuary/faction/bank + founds house (to 25%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise yes, work craft, jump ~AD 179 | AD 179 → 234 → 284 | 67.9 → 76.4 → 76.3 | 23.1% severe | 0 |
+| 73 | 1073 | workshop, joins bank (to 25%), policy mixed, priorities Protect/Protect/Protect, plague hospice, promise yes, work consult, jump ~AD 166 | AD 168 → 198 → 223 | 115.1 → 120.4 → 124.4 | 9.8% severe | 0 |
+| 74 | 1074 | fountain, joins circle (to 25%), policy freemarket, priorities AcceptRisk/Protect/Maintain, plague hospice, promise yes, work craft, jump ~AD 165 | AD 164 → 214 → 254 | 98.0 → 109.5 → 118.3 | 5.2% severe | 0 |
+| 75 | 1075 | fountain, joins faction (to 50%), policy mixed, priorities Maintain/AcceptRisk/AcceptRisk, plague hospice, promise no, work consult, jump ~AD 170 | AD 170 → 205 → 245 | 84.2 → 87.7 → 91.9 | 6.6% severe | 0 |
+| 76 | 1076 | fountain, joins circle/faction/sanctuary/bank (to 1%), policy freemarket, priorities AcceptRisk/Protect/Protect, plague none, promise no, work consult, jump ~AD 170 | AD 170 → 220 → 265 | 128.1 → 141.6 → 151.7 | 5.3% severe | 0 |
+| 77 | 1077 | workshop, joins bank/circle/junian/guild + founds house (to 50%), policy freemarket, priorities Maintain/AcceptRisk/Protect, plague hospice, promise yes, work consult, jump ~AD 167 | AD 167 → 202 → 227 | 112.0 → 118.1 → 123.5 | 4.8% contained | 0 |
+| 78 | 1078 | fountain, joins junian (to 25%), policy interventionist, priorities AcceptRisk/AcceptRisk/Protect, plague hospice, promise yes, work consult, jump ~AD 174 | AD 174 → 229 → 279 | 124.7 → 121.1 → 107.2 | 6.8% severe | 0 |
+| 79 | 1079 | fountain, joins faction/bank/junian (to 25%), policy freemarket, priorities Protect/Maintain/AcceptRisk, plague hospice, promise no, work craft, jump ~AD 179 | AD 179 → 229 → 279 | 124.1 → 145.3 → 150.1 | 3.2% contained | 0 |
+| 80 | 1080 | fountain, joins faction/circle/bank (to 25%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague none, promise no, work mixed, jump ~AD 165 | AD 166 → 206 → 246 | 100.7 → 113.1 → 111.3 | 7.3% severe | 0 |
+| 81 | 1081 | fountain, joins sanctuary/junian/bank + founds school (to 50%), policy freemarket, priorities Protect/AcceptRisk/AcceptRisk, plague quarantine, promise yes, work consult, jump ~AD 174 | AD 173 → 223 → 258 | 76.5 → 105.5 → 113.8 | 5.6% severe | 0 |
+| 82 | 1082 | fountain, joins guild (to 10%), policy interventionist, priorities Protect/Maintain/AcceptRisk, plague quarantine, promise no, work mixed, jump ~AD 170 | AD 170 → 220 → 275 | 107.7 → 115.7 → 118.1 | 6.4% severe | 0 |
+| 83 | 1083 | workshop, joins nothing (to 10%), policy interventionist, priorities AcceptRisk/AcceptRisk/Maintain, plague quarantine, promise yes, work craft, jump ~AD 164 | AD 164 → 209 → 254 | 114.2 → 110.9 → 110.6 | 6.1% severe | 0 |
+| 84 | 1084 | fountain, joins guild/sanctuary/faction + founds school (to 25%), policy interventionist, priorities Maintain/AcceptRisk/Maintain, plague hospice, promise yes, work craft, jump ~AD 166 | AD 165 → 210 → 240 | 102.0 → 116.2 → 112.1 | 4.2% severe | 0 |
+| 85 | 1085 | workshop, joins guild/bank/junian (to 50%), policy history, priorities Maintain/AcceptRisk/Protect, plague hospice, promise no, work odd, jump ~AD 173 | AD 173 → 233 → 268 | 106.6 → 115.4 → 104.2 | 9.5% severe | 0 |
+| 86 | 1086 | fountain, joins sanctuary/faction/circle (to 1%), policy freemarket, priorities Maintain/Protect/Protect, plague quarantine, promise yes, work odd, jump ~AD 165 | AD 165 → 200 → 240 | 102.0 → 112.2 → 119.3 | 6.4% severe | 0 |
+| 87 | 1087 | workshop, joins nothing (to 50%), policy history, priorities Maintain/Protect/Maintain, plague hospice, promise yes, work mixed, jump ~AD 177 | AD 177 → 227 → 272 | 129.6 → 128.8 → 134.9 | 5.4% severe | 0 |
+| 88 | 1088 | fountain, joins guild/bank/sanctuary + founds house (to 1%), policy mixed, priorities Protect/Protect/Maintain, plague hospice, promise no, work mixed, jump ~AD 170 | AD 170 → 220 → 250 | 121.4 → 137.1 → 140.6 | 4.0% severe | 0 |
+| 89 | 1089 | workshop, joins junian (to 50%), policy history, priorities AcceptRisk/Maintain/Protect, plague quarantine, promise no, work odd, jump ~AD 163 | AD 166 → 216 → 261 | 99.3 → 98.0 → 94.7 | 11.2% severe | 0 |
+| 90 | 1090 | workshop, joins sanctuary/bank/guild (to 50%), policy mixed, priorities Protect/AcceptRisk/AcceptRisk, plague hospice, promise yes, work odd, jump ~AD 163 | AD 164 → 194 → 234 | 99.4 → 109.2 → 107.6 | 8.7% severe | 0 |
+| 91 | 1091 | workshop, joins circle/faction/bank/junian (to 10%), policy freemarket, priorities AcceptRisk/Protect/AcceptRisk, plague quarantine, promise no, work craft, jump ~AD 174 | AD 173 → 233 → 278 | 120.4 → 142.8 → 144.2 | 5.0% severe | 0 |
+| 92 | 1092 | workshop, joins bank/faction + founds club (to 10%), policy mixed, priorities AcceptRisk/Protect/Maintain, plague quarantine, promise no, work consult, jump ~AD 179 | AD 178 → 238 → 278 | 135.0 → 138.2 → 114.6 | 5.5% severe | 0 |
+| 93 | 1093 | fountain, joins sanctuary/bank + founds club (to 10%), policy freemarket, priorities Protect/AcceptRisk/Maintain, plague quarantine, promise yes, work consult, jump ~AD 173 | AD 172 → 217 → 257 | 139.6 → 148.8 → 157.6 | 4.4% severe | 0 |
+| 94 | 1094 | fountain, joins circle/junian/sanctuary/faction (to 1%), policy freemarket, priorities Protect/Maintain/AcceptRisk, plague hospice, promise no, work mixed, jump ~AD 172 | AD 172 → 227 → 282 | 116.8 → 129.6 → 130.8 | 3.5% contained | 0 |
+| 95 | 1095 | workshop, joins circle/junian/faction/sanctuary (to 10%), policy freemarket, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work odd, jump ~AD 172 | AD 172 → 227 → 267 | 109.7 → 124.8 → 124.4 | 6.0% severe | 0 |
+| 96 | 1096 | workshop, joins junian/faction/guild (to 1%), policy interventionist, priorities Protect/AcceptRisk/Protect, plague quarantine, promise no, work craft, jump ~AD 165 | AD 165 → 205 → 250 | 103.2 → 102.6 → 100.3 | 9.7% severe | 0 |
+| 97 | 1097 | workshop, joins faction/guild/bank/sanctuary + founds school (to 10%), policy freemarket, priorities AcceptRisk/AcceptRisk/Protect, plague hospice, promise yes, work mixed, jump ~AD 168 | AD 171 → 211 → 251 | 99.8 → 115.4 → 126.1 | 4.9% contained | 0 |
+| 98 | 1098 | fountain, joins faction/bank (to 10%), policy history, priorities Maintain/Maintain/Maintain, plague hospice, promise yes, work craft, jump ~AD 165 | AD 164 → 214 → 254 | 104.3 → 114.3 → 113.1 | 7.8% severe | 0 |
+| 99 | 1099 | fountain, joins faction + founds club (to 10%), policy history, priorities Protect/Protect/Protect, plague quarantine, promise no, work odd, jump ~AD 176 | AD 176 → 236 → 281 | 116.0 → 120.5 → 122.6 | 6.7% severe | 0 |
+| 100 | 1100 | workshop, joins circle/faction/bank/junian (to 50%), policy mixed, priorities Protect/Maintain/AcceptRisk, plague quarantine, promise no, work consult, jump ~AD 172 | AD 172 → 227 → 267 | 99.9 → 100.8 → 91.8 | 9.1% severe | 0 |

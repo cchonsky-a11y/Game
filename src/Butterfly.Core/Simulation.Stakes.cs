@@ -106,13 +106,17 @@ namespace Butterfly.Core
         /// Attention on): 1 Attention, once a turn per institution. The leader thinks better of you, and a member who
         /// attends at least twice a year earns an extra point of seniority that year.
         /// </summary>
-        public CommandResult Attend(string id)
+        public CommandResult Attend(string id, string? camp = null)
         {
             var inst = FindInstitution(id);
             if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
             if (inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.ShortName) + " is yours; oversee it instead.");
             if (!inst.Backed) return CommandResult.Fail("You aren't a member of " + inst.Def.ShortName + " (buy " + inst.Key + ").");
             if (inst.AttendedTurn == Turn) return CommandResult.Fail("You already attended " + inst.Def.ShortName + " this turn.");
+            // A meeting is a vote (P0-32): for the camp you name, or the one you usually back.
+            int? vote = camp != null && camp.Trim().Length > 0 ? FindCamp(inst, camp) : YourCamp(inst);
+            if (camp != null && camp.Trim().Length > 0 && vote == null)
+                return CommandResult.Fail("Back which camp? " + string.Join(" or ", inst.Def.DriftPaths.Select(p => p.Id + " (" + p.Name + ")")) + ".");
             int att = T.GetInt("stakes.attendAttention");
             var attention = CheckAttention(att);
             if (attention != null) return attention;
@@ -122,11 +126,15 @@ namespace Butterfly.Core
             double loyalty = inst.Loyalty;
             inst.Loyalty = Math.Min(100, inst.Loyalty + T.Get("stakes.attendLoyalty"));
             int needed = T.GetInt("stakes.activeMeetingsPerYear");
-            Record("institution.attend", inst.Key, CausesOf(StakeKey(inst)), new[] { "player", inst.Leader },
+            var met = Record("institution.attend", inst.Key, CausesOf(StakeKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty) },
                 "You sit through a meeting of " + inst.Def.Name + ", speak once, and are remembered for it.");
+            if (vote != null) Vote(inst, vote.Value, met.Id);
+            var lead = LeadingCamp(inst);
             return CommandResult.Success("Meetings this year: " + inst.MeetingsThisYear + (inst.MeetingsThisYear >= needed
-                ? " (an active member: extra seniority this year)." : " (" + needed + " make you an active member, for extra seniority)."));
+                ? " (an active member: extra seniority this year)." : " (" + needed + " make you an active member, for extra seniority).") +
+                (vote != null ? " You spoke for " + CampName(inst, vote.Value) + "." : " You didn't take a side (attend " + inst.Key + " " + string.Join("|", inst.Def.DriftPaths.Select(p => p.Id)) + ").") +
+                " " + (lead == null ? "Neither camp leads yet." : CampName(inst, lead.Value) + " lead" + (lead == YourCamp(inst) ? ", as you want." : ".")));
         }
 
         /// <summary>
@@ -208,6 +216,7 @@ namespace Butterfly.Core
             if (first)
             {
                 inst.Loyalty = Math.Max(0, Math.Min(100, T.Get("stakes.memberLoyalty") + inst.Regard));
+                inst.Rank = Member;
                 inst.Regard = 0;
                 inst.JoinedAt = Now.YearFraction;
             }
@@ -304,6 +313,7 @@ namespace Butterfly.Core
             SpendGold(cost);
             inst.Exists = true;
             inst.Stake = 1;
+            inst.Rank = Head;
             inst.Strength = T.Get("founding.startStrength");
             inst.Loyalty = T.Get("founding.startLoyalty");
             Record("institution.found", inst.Key, null, new[] { "player", inst.Leader },

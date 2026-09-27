@@ -60,6 +60,12 @@ namespace Butterfly.Core
             SettlePromiseOnDeparture(depart.Id);
             SavingsAtDeparture(arrival);
             TagEchoes(arrival, depart.Id);
+            // Last orders (P0-32): given once, when you first leave Rome; on a later jump they are older and weigh less.
+            if (JumpsMade == 0) ApplyLastOrders(depart.Id);
+            else foreach (var i in World.Institutions) i.OrderForce *= T.Get("offices.laterJumpOrderShare");
+            if (JumpsMade == 0)
+                foreach (var i in World.Institutions.Where(x => x.Rank >= Officer)) i.DepartureOffice = OfficeTitle(i, i.Rank);
+            foreach (var i in World.Institutions.Where(x => !x.Def.IsOwn && x.Rank > Member)) i.Rank = Member;   // your offices end when you go
             foreach (var i in Influential())
             {
                 i.Quality = QualityAtDeparture(i);
@@ -127,6 +133,17 @@ namespace Butterfly.Core
                 yield return d.Domain + " debt " + F(d.Debt) + " keeps growing 5% a year for " + cap + " years after you leave (about " +
                              F(d.Debt * Math.Pow(1 + rate, 10)) + " in a decade, " + F(d.Debt * Math.Pow(1 + rate, cap)) +
                              " after " + cap + " years) unless a crisis clears it. Paying it down now costs " + Money(PaydownCost(d.Debt)) + ".";
+            // Last orders (P0-32): what you will leave each institution you belong to.
+            if (JumpsMade == 0)
+                foreach (var i in World.Institutions.Where(x => x.Exists && x.Def.DriftPaths.Count >= 2 && (x.Def.IsOwn ? x.Stake > 0 : x.Backed)))
+                {
+                    var lead = LeadingCamp(i);
+                    yield return i.OrderCamp >= 0
+                        ? "Your last orders for " + i.Def.ShortName + ": back " + CampName(i, i.OrderCamp) + (i.OrderSuccessor >= 0 ? ", " + i.Def.Successors[i.OrderSuccessor].Name + " to lead it" : "") +
+                          " — " + OrdersBand(LastOrderForce(i)) + " weight (" + OrdersWhy(i) + ")."
+                        : "No last orders for " + i.Def.ShortName + " (" + (lead == null ? "neither camp leads" : CampName(i, lead.Value) + " lead") + "): orders " + i.Key + " " +
+                          string.Join("|", i.Def.DriftPaths.Select(p => p.Id)) + ((i.Def.IsOwn || i.Rank >= Head) && i.Def.Successors.Count > 0 ? " [1|2 to name who succeeds you: " + SuccessorList(i) + "]" : "") + ".";
+                }
             int window = T.GetInt("institutions.holdings.windowYears");
             foreach (var i in Influential())
             {
@@ -151,7 +168,7 @@ namespace Butterfly.Core
                 double sum = w[0] + w[1] + w[2];
                 yield return "  Corruption risk: " + CorruptionRiskBand(i) + " for " + window + " years (" +
                              (LargeHoldings(i) ? "large holdings" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
-                             ", " + i.Leader + " is " + i.Def.LeaderIntegrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
+                             ", " + i.Leader + " is " + i.Integrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
                              F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." +
                              (i.AuditCharter ? "" : " (audit " + i.Key + ": " + Money(T.Get("institutions.auditGold")) + ")");
             }
@@ -267,7 +284,8 @@ namespace Butterfly.Core
         /// </summary>
         public double MaintainBonus(Domain d) =>
             Influential().Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"))
-                         .Sum(i => ControlFactor(i) * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength"));
+                         .Sum(i => ControlFactor(i) * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength")
+                                   * (i.HasDrifted && i.DriftPath != null && i.Def.DriftPaths.Count > 1 && i.DriftPath == i.Def.DriftPaths[1] ? T.Get("offices.selfServingMaintenance") : 1));
 
         /// <summary>
         /// One decade for a domain: the level drifts toward the historical baseline (plus what institutions
@@ -415,6 +433,15 @@ namespace Butterfly.Core
                 // Institutions without their own templates use the generic ones.
                 string template = text.Text.ContainsKey("discovery." + key) ? "discovery." + key : "discovery.generic." + state;
                 parts.Add(Cap(text.Template(template, v)));
+                // Your office and your parting words (P0-32).
+                if (i.DepartureOffice.Length > 0 && !i.Def.IsOwn) parts.Add(text.Template("discovery.office", new Dictionary<string, string>(v) { { "office", i.DepartureOffice } }));
+                if (i.OrderCamp >= 0 && outcome != InstitutionOutcome.Dissolved)
+                {
+                    var ov = new Dictionary<string, string>(v) { { "camp", CampName(i, i.OrderCamp) }, { "short", i.Def.ShortName } };
+                    bool held = i.DriftPath == i.Def.DriftPaths[i.OrderCamp];
+                    string band = i.OrderForce >= T.Get("offices.textStrong") ? "strong" : i.OrderForce >= T.Get("offices.textSome") ? "some" : "weak";
+                    parts.Add(text.Template("discovery.orders." + band + (held ? ".held" : ".lost"), ov));
+                }
                 // The Discovery beat reveals any corruption and its level (decided 2026-09-26).
                 if (i.Corruption != CorruptionLevel.None && key != i.Key + ".dissolved")
                     parts.Add(text.Template("discovery.corruption." + i.Corruption.ToString().ToLowerInvariant(), v));

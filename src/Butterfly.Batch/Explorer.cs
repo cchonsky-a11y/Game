@@ -33,6 +33,9 @@ namespace Butterfly.Batch
         public double DepositShare, BuryShare;
         public bool EndowAtJump, AuditAtJump;
         public double TurnLengthChangeRate;
+        /// <summary>Camps, offices, last orders (P0-32): which camp it prefers, how keen it is on office, and whether it leaves orders.</summary>
+        public int CampLean;
+        public double OfficeAppetite, OrdersRate;
         public int MachineStartYear;
 
         public string Engagement => Join.Count + (Found != null ? 1 : 0) == 0 ? "none" : Join.Count + (Found != null ? 1 : 0) <= 2 ? "light" : "heavy";
@@ -71,6 +74,9 @@ namespace Butterfly.Batch
             p.AuditAtJump = r.Chance(0.5);
             p.TurnLengthChangeRate = r.Chance(0.3) ? 0.02 : 0;
             p.MachineStartYear = 155 + r.NextInt(0, 10);
+            p.CampLean = r.NextInt(0, 3);          // 0 the first camps, 1 the second, 2 mixed
+            p.OfficeAppetite = r.NextDouble();
+            p.OrdersRate = r.NextDouble();
             return p;
         }
 
@@ -106,6 +112,8 @@ namespace Butterfly.Batch
         public int BustsInAbsence;
         public string PolicyInForce = "";
         public int MaxStake;
+        public int MaxRank = -1;
+        public List<double> OrderForces = new List<double>();
         public bool BothFactions;
     }
 
@@ -283,6 +291,12 @@ namespace Butterfly.Batch
             // Live on the scavenged gold until the machine needs it back.
             if (w.Aurei >= 1 && sim.MachineGoldRestored < 1 && (w.Gold < 20 || r.Chance(0.3))) Do(sim, res, () => sim.SellAurei(w.Aurei));
 
+            // Offers of office: taken or declined by temperament (P0-32); an office that starves the player of Attention is given up.
+            foreach (var i in w.Institutions.Where(x => x.OfferedRank > 0).ToList())
+                Do(sim, res, () => sim.AnswerOffice(i.Key, r.Chance(p.OfficeAppetite)));
+            if (sim.OfficeDuties() >= 3)
+                foreach (var i in w.Institutions.Where(x => !x.Def.IsOwn && x.Rank >= Simulation.Officer).OrderBy(x => x.Rank).Take(1).ToList())
+                    Do(sim, res, () => sim.Resign(i.Key));
             var actions = new List<(double Weight, Func<bool> Act)>();
             // A player who means to leave saves for the machine as the planned jump nears.
             bool saving = !sim.MachineReady && sim.Now.YearFraction >= p.JumpYear - 2;
@@ -328,7 +342,11 @@ namespace Butterfly.Batch
                         while (pts > 1 && sim.BuyCost(i, pts) > w.Gold - Reserve(sim)) pts--;
                         actions.Add((1, () => Do(sim, res, () => sim.Buy(id, pts))));
                     }
-                    if (i.MeetingsThisYear < 2 && r.Chance(p.AttendRate)) actions.Add((1.5, () => Do(sim, res, () => sim.Attend(id))));
+                    if (i.MeetingsThisYear < 2 && r.Chance(p.AttendRate))
+                    {
+                        string camp = i.Def.DriftPaths[p.CampLean < 2 ? p.CampLean : r.NextInt(0, 2)].Id;
+                        actions.Add((1.5, () => Do(sim, res, () => sim.Attend(id, camp))));
+                    }
                 }
             }
             if (p.Found != null)
@@ -401,6 +419,16 @@ namespace Butterfly.Batch
         private static void BeforeJump(Simulation sim, Persona p, Rng r, ExploreResult res)
         {
             var w = sim.World;
+            // Last orders (P0-32).
+            foreach (var i in w.Institutions.Where(x => x.Exists && x.Def.DriftPaths.Count >= 2 && (x.Def.IsOwn ? x.Stake > 0 : x.Backed)).ToList())
+            {
+                res.MaxRank = Math.Max(res.MaxRank, i.Def.IsOwn ? 4 : i.Rank);
+                if (!r.Chance(p.OrdersRate)) continue;
+                string camp = i.Def.DriftPaths[p.CampLean < 2 ? p.CampLean : r.NextInt(0, 2)].Id;
+                bool canName = (i.Def.IsOwn || i.Rank >= Simulation.Head) && i.Def.Successors.Count > 0;
+                Do(sim, res, () => sim.Orders(i.Key, camp, canName ? r.NextInt(1, 3) : (int?)null));
+                res.OrderForces.Add(sim.LastOrderForce(i));
+            }
             if (p.PaydownRate > 0.25)
                 foreach (var d in w.Domains.Where(d => d.Debt >= 1).OrderByDescending(d => d.Debt).ToList())
                 {
@@ -522,6 +550,8 @@ namespace Butterfly.Batch
             Group("Economic policy style", x => x.Persona.PolicyStyle);
             Group("Engagement (institutions joined or founded)", x => x.Persona.Engagement);
             Group("Economic policy in force at departure", x => x.PolicyInForce);
+            Group("Highest office held at departure", x => x.MaxRank >= 4 ? "5 founder (head of your own)" : x.MaxRank == 3 ? "4 head" : x.MaxRank == 2 ? "3 deputy" : x.MaxRank == 1 ? "2 officer" : x.MaxRank == 0 ? "1 member" : "0 none");
+            Group("Strongest last orders", x => x.OrderForces.Count == 0 ? "0 none" : x.OrderForces.Max() >= 0.6 ? "3 great (0.6+)" : x.OrderForces.Max() >= 0.3 ? "2 real (0.3-0.6)" : "1 little (<0.3)");
             Group("Highest stake held at departure", x => x.MaxStake == 0 ? "0 none" : x.MaxStake < 10 ? "1 under 10%" : x.MaxStake < 25 ? "2 10-24%" : x.MaxStake < 50 ? "3 25-49%" : "4 50%+");
             Group("Plague response actually made", x => x.PlagueResponse);
             Group("Promise to Demetria", x => x.Promise.ToString());

@@ -19,7 +19,8 @@ namespace Butterfly.Core
             World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.Turns).Sum(p => p.Def.AttentionPerTurn)
             + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
             + ReservedMachineAttention()
-            + ReservedInventionAttention();
+            + ReservedInventionAttention()
+            + OfficeDuties();
 
         private void InitAttention()
         {

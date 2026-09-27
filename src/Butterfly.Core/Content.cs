@@ -77,6 +77,21 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>A candidate to lead an institution after you (P0-32).</summary>
+    public sealed class SuccessorDef
+    {
+        public string Name { get; }
+        public string Integrity { get; }
+        public string Note { get; }
+
+        public SuccessorDef(JsonObject o)
+        {
+            Name = o.Str("name");
+            Integrity = o.Str("integrity");
+            Note = o.Str("note");
+        }
+    }
+
     /// <summary>An institution template (SYSTEMS §7), authored in data/content/institutions.json.</summary>
     public sealed class InstitutionDef
     {
@@ -97,6 +112,11 @@ namespace Butterfly.Core
         /// <summary>Shown when you found it (own institutions) or first buy into it (established ones).</summary>
         public string FoundText { get; }
         public IReadOnlyList<DriftPathDef> DriftPaths { get; }
+        /// <summary>Office titles from member to head (P0-32), and the highest a foreigner can reach.</summary>
+        public IReadOnlyList<string> Offices { get; }
+        public int OfficeCeiling { get; }
+        /// <summary>Candidates you can name to succeed you, from the head's seat or in your own institution.</summary>
+        public IReadOnlyList<SuccessorDef> Successors { get; }
         /// <summary>What you must have done before your first purchase (decided 2026-09-28).</summary>
         public string JoinRequirement { get; }
         /// <summary>A rival that won't share a member with this one, if any.</summary>
@@ -120,6 +140,9 @@ namespace Butterfly.Core
             JoinRequirement = o.StrOr("joinRequirement", "none") ?? "none";
             ExclusiveWith = o.StrOr("exclusiveWith", null);
             DriftPaths = o.Arr("driftPaths").Cast<JsonObject>().Select(x => new DriftPathDef(x)).ToList();
+            Offices = o.Has("offices") ? o.Arr("offices").Cast<string>().ToList() : new List<string> { "member", "officer", "deputy", "head" };
+            OfficeCeiling = o.Has("officeCeiling") ? (int)o.Num("officeCeiling") : 3;
+            Successors = o.Has("successors") ? o.Arr("successors").Cast<JsonObject>().Select(x => new SuccessorDef(x)).ToList() : new List<SuccessorDef>();
         }
     }
 

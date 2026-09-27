@@ -283,6 +283,9 @@ namespace Butterfly.Core
         /// <summary>Picks which of the two pre-authored drift paths an institution will follow.</summary>
         internal DriftPathDef ChooseDriftPath(Institution i)
         {
+            // The camp that leads when you leave sets the path (P0-32); while neither leads, the old conditions decide.
+            var lead = LeadingCamp(i);
+            if (lead != null && i.Def.DriftPaths.Count > lead.Value) return i.Def.DriftPaths[lead.Value];
             foreach (var path in i.Def.DriftPaths)
                 if (DriftConditionHolds(path.Condition, i)) return path;
             return i.Def.DriftPaths[i.Def.DriftPaths.Count - 1];
@@ -319,6 +322,8 @@ namespace Butterfly.Core
             if (i.Quality == InstitutionQuality.Strong) baseDrift *= T.Get("institutions.driftPerDecade.strongMultiplier");
             // Money is power (P0-31): an endowed institution drifts faster toward its own interests.
             if (i.Holdings >= T.Get("institutions.endowGold")) baseDrift *= T.Get("tradeoffs.endowedDriftMultiplier");
+            // Your parting words hold it (P0-32).
+            baseDrift *= 1 - T.Get("offices.ordersDriftCut") * i.OrderForce;
             i.Drift += StepFraction * (baseDrift
                        + Rng.NextDouble() * T.Get("institutions.driftPerDecade.random")
                        + (i.Loyalty < T.Get("institutions.lowLoyalty") ? T.Get("institutions.driftPerDecade.lowLoyalty") : 0));

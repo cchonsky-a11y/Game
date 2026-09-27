@@ -30,7 +30,7 @@ internal sealed class ConsoleGame
     /// <summary>End the turn by itself once a choice uses the last Attention (decided 2026-09-28). On for keyboard play;
     /// scripts turn it on with the line "@autoend on" so older scripts with explicit 'end's still replay the same.</summary>
     private bool _autoEnd;
-    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore", "visit", "walk" };
+    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "orders", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore", "visit", "walk" };
 
     /// <summary>After the script's last line, read from the keyboard (--continue).</summary>
     private readonly bool _resume;
@@ -130,7 +130,10 @@ internal sealed class ConsoleGame
   institutions                   who holds each domain, your stakes, and what the next step costs
   buy <inst> [percent]           buy into an established institution (2 Attention; entry fee on joining, each 1% costs more):
                                    10% counts toward influence · 25% a voice (priorities, policy) · 50% control
-  attend <inst>                  attend a meeting as a member (1 Attention; twice a year earns extra seniority)
+  attend <inst> [camp]           attend a meeting and vote for one of its two camps (1 Attention; twice a year earns extra seniority)
+  office accept|decline <inst>   answer an offer of office (offices weigh more in votes and cost Attention in duties)
+  resign <inst>                  step down from an office
+  orders <inst> <camp> [1|2]     your last orders: the camp to back when you leave (and, from the head's seat, who succeeds you)
   found <school|club|house>      found your own institution: you control it, but it starts small and may fail
   invest <inst> <denarii>        build up an institution you control (2 Attention)
   charter <inst>                 write its founding principles (slows drift; needs control)
@@ -256,7 +259,17 @@ internal sealed class ConsoleGame
                 }
                 return true;
             case "invent": r = _sim.Invent(arg); break;
-            case "attend": r = _sim.Attend(arg); break;
+            case "attend": r = _sim.Attend(arg, parts.Length > 2 ? string.Join(" ", parts.Skip(2)) : null); break;
+            case "office":
+                r = parts.Length < 3 || !(arg == "accept" || arg == "decline")
+                    ? CommandResult.Fail("Usage: office accept <inst>  or  office decline <inst>")
+                    : _sim.AnswerOffice(parts[2], arg == "accept");
+                break;
+            case "resign": r = _sim.Resign(arg); break;
+            case "orders":
+                r = parts.Length < 3 ? CommandResult.Fail("Usage: orders <inst> <camp> [1|2]   (the camp to back when you leave; from the head's seat, the successor to name)")
+                    : _sim.Orders(arg, parts[2], parts.Length > 3 && int.TryParse(parts[3], out var succ) ? succ : (int?)null);
+                break;
             case "found": r = _sim.Found(arg); break;
             case "buy":
                 if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
@@ -391,7 +404,7 @@ internal sealed class ConsoleGame
             Console.WriteLine(d + ": your influence " + F(_sim.Influence(d) * 100) + "%, sway " + F(_sim.Sway(d) * 100) + "%");
             foreach (var i in _sim.World.Institutions.Where(x => x.Def.Maintains == d))
             {
-                string line = "  " + i.Key.PadRight(10) + Simulation.Cap(i.Def.Name) + " — " + i.Leader + " (" + i.Def.LeaderIntegrity + ")";
+                string line = "  " + i.Key.PadRight(10) + Simulation.Cap(i.Def.Name) + " — " + i.Leader + (i.Leader == "you" ? "" : " (" + i.Integrity + ")");
                 if (!i.Exists)
                     line += i.Collapsed ? ": failed" : ": yours to found for " + _sim.Money(_sim.FoundCost(d)) + ", " + _sim.T.GetInt("founding.attention") +
                                                        " Attention (starts at strength " + F(_sim.T.Get("founding.startStrength")) + ")";
@@ -408,6 +421,28 @@ internal sealed class ConsoleGame
                                 _sim.Money(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";
                 }
                 Console.WriteLine(line);
+                if (i.Exists && i.Def.DriftPaths.Count >= 2)
+                {
+                    // Camps and offices (P0-32).
+                    var lead = _sim.LeadingCamp(i);
+                    string camps = "            camps: " + string.Join(" vs ", i.Def.DriftPaths.Select(p => p.Id + " (" + p.Name + ")")) + " — " +
+                                   (lead == null ? "neither leads" : i.Def.DriftPaths[lead.Value].Id + " lead") +
+                                   (i.Votes[0] + i.Votes[1] > 0 ? "; your votes " + i.Votes[0] + "–" + i.Votes[1] : "");
+                    Console.WriteLine(camps);
+                    if (i.Stake > 0 || i.Def.IsOwn)
+                    {
+                        string office = "            " + (i.Def.IsOwn ? (i.Stake > 0 ? "you lead it as " + _sim.OfficeTitle(i, Simulation.Head) + " (duties " + _sim.DutyAttention(Simulation.Head, true) + " a turn)" : "")
+                            : "your office: " + _sim.OfficeTitle(i, i.Rank) + (i.Rank >= Simulation.Officer ? " (duties " + _sim.DutyAttention(i.Rank, false) + " a turn)" : ""));
+                        if (!i.Def.IsOwn)
+                        {
+                            int nextRank = Math.Max(Simulation.Member, i.Rank) + 1;
+                            if (i.OfferedRank > 0) office += "; OFFERED: " + _sim.OfficeTitle(i, i.OfferedRank) + " (office accept|decline " + i.Key + ")";
+                            else if (nextRank <= Simulation.Head) office += "; next: " + _sim.OfficeTitle(i, nextRank) + " — " + (_sim.OfficeBlocker(i, nextRank) ?? "you qualify; the offer comes at the new year");
+                        }
+                        if (i.OrderCamp >= 0) office += "; last orders: back " + i.Def.DriftPaths[i.OrderCamp].Id + " (" + Simulation.OrdersBand(_sim.LastOrderForce(i)) + " weight)";
+                        if (office.Trim().Length > 0) Console.WriteLine(office);
+                    }
+                }
             }
         }
     }

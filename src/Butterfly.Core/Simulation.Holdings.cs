@@ -16,7 +16,7 @@ namespace Butterfly.Core
         public double HoldingsGrowthRate() =>
             T.Get("institutions.holdings.growthMaxRatePerYear") * Math.Max(0, Math.Min(1, World[Domain.Economy].Level / T.Get("domains.maxLevel")));
 
-        public double IntegrityModifier(Institution i) => T.Get("corruption.integrity." + i.Def.LeaderIntegrity);
+        public double IntegrityModifier(Institution i) => T.Get("corruption.integrity." + i.Integrity);
 
         public bool LargeHoldings(Institution i) => i.Holdings >= T.Get("institutions.holdings.largeHoldings");
 
@@ -43,8 +43,8 @@ namespace Butterfly.Core
             double major = T.Get("corruption.weights." + set + ".major");
             double total = T.Get("corruption.weights." + set + ".total");
             double shift = T.Get("corruption.weights.integrityShift");
-            if (i.Def.LeaderIntegrity == "venal") { double m = Math.Min(minor, shift); minor -= m; total += m; }
-            if (i.Def.LeaderIntegrity == "honest") { double m = Math.Min(total, shift); total -= m; minor += m; }
+            if (i.Integrity == "venal") { double m = Math.Min(minor, shift); minor -= m; total += m; }
+            if (i.Integrity == "honest") { double m = Math.Min(total, shift); total -= m; minor += m; }
             return new[] { minor, major, total };
         }
 

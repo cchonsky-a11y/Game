@@ -57,7 +57,7 @@ namespace Butterfly.Core
         public double DepositLossChance()
         {
             var bank = World.Institution("bank");
-            double integrity = T.Get("corruption.integrity." + bank.Def.LeaderIntegrity);
+            double integrity = T.Get("corruption.integrity." + bank.Integrity);
             // A large deposit tempts the banker more (P0-35).
             double chance = T.Get("savings.depositLossPerDecade") * (1 - integrity) * (1 + T.Get("savings.depositRiskPerHundredAurei") * World.DepositAurei / 100);
             if (HasInfluence(bank)) chance *= 0.5;
@@ -116,7 +116,7 @@ namespace Butterfly.Core
             {
                 { "carried", F(arrival.AureiCarried) }, { "returned", F(arrival.AureiDepositReturned) }, { "deposited", F(arrival.AureiDeposited) },
                 { "years", F(Math.Round(Now.YearFraction - _depositSince)) }, { "hoard", F(arrival.AureiBuried) }, { "left", F(arrival.AureiLeft) },
-                { "lostHow", World.Institution("bank").Def.LeaderIntegrity == "venal" ? "its head fled with the depositors' gold a generation ago." : "it failed in a bad year, and its depositors were paid nothing." },
+                { "lostHow", World.Institution("bank").Integrity == "venal" ? "its head fled with the depositors' gold a generation ago." : "it failed in a bad year, and its depositors were paid nothing." },
             };
             if (arrival.AureiCarried >= 1) yield return text.Template("savings.carried", v);
             if (arrival.AureiDeposited >= 1) yield return text.Template(arrival.AureiDepositReturned > 0 ? "savings.depositKept" : "savings.depositLost", v);

@@ -192,6 +192,21 @@ namespace Butterfly.Core
         public int MeetingsThisYear { get; set; }
         /// <summary>Grievances or goodwill toward you from before you joined (P0-31); added to your starting loyalty when you join.</summary>
         public double Regard { get; set; }
+        /// <summary>Which camp leads (P0-32): +1 its first drift path, −1 its second; 0 undecided.</summary>
+        public double Lean { get; set; }
+        /// <summary>Your office (P0-32): -1 none, 0 member, 1 officer, 2 deputy, 3 head.</summary>
+        public int Rank { get; set; } = -1;
+        /// <summary>An office you have been offered and not yet answered (0 = none).</summary>
+        public int OfferedRank { get; set; }
+        /// <summary>Your votes at meetings for each camp.</summary>
+        public int[] Votes { get; } = new int[2];
+        /// <summary>Your last orders: the camp you back (-1 none) and the successor you name (-1 none).</summary>
+        public int OrderCamp { get; set; } = -1;
+        public int OrderSuccessor { get; set; } = -1;
+        /// <summary>How much your last orders weigh, set at departure.</summary>
+        public double OrderForce { get; set; }
+        /// <summary>The office you held when you first left ("" if none).</summary>
+        public string DepartureOffice { get; set; } = "";
         /// <summary>An established institution's share of its domain at the start; rivals push back when it grows past this.</summary>
         public double BaselineShare { get; set; }
         public double Strength { get; set; }
@@ -224,7 +239,11 @@ namespace Butterfly.Core
         {
             Def = def;
             Leader = def.Leader;
+            Integrity = def.LeaderIntegrity;
         }
+
+        /// <summary>The current leader's integrity (honest, average, venal): the founding leader's, or a successor's (P0-32).</summary>
+        public string Integrity { get; set; }
 
         public string Key => Def.Id;
     }
