@@ -1405,5 +1405,24 @@
       "value": 1,
       "ref": "PROPOSED P0-27: a trip to the bank, or a night with a spade"
     }
+  },
+  "walk": {
+    "_readme": "DECIDED 2026-09-28 (Corey): walk around Rome at every arrival, including the first: a few places, each showing what is there now (and, after a jump, what changed since you left), in words and numbers. Present conditions only: no causal chains after a jump.",
+    "wheatModiusDenarii": {
+      "value": 4,
+      "ref": "PROPOSED P0-28: a modius of wheat in AD 155 (authored estimate; rises with the price level)"
+    },
+    "laborerDayDenarii": {
+      "value": 1,
+      "ref": "PROPOSED P0-28: a laborer's day's wage in AD 155 (authored estimate; rises with pay, which lags prices)"
+    },
+    "asHistoryBand": {
+      "value": 5,
+      "ref": "PROPOSED P0-28: within this many points of history (sub-score 100), a place looks as history had it"
+    },
+    "kgPerModius": {
+      "value": 6.5,
+      "ref": "PROPOSED P0-28: kilograms of wheat in a modius (about 8.7 litres)"
+    }
   }
 }

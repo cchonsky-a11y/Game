@@ -28,7 +28,7 @@ internal sealed class ConsoleGame
     /// <summary>End the turn by itself once a choice uses the last Attention (decided 2026-09-28). On for keyboard play;
     /// scripts turn it on with the line "@autoend on" so older scripts with explicit 'end's still replay the same.</summary>
     private bool _autoEnd;
-    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore" };
+    private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore", "visit", "walk" };
 
     public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null)
     {
@@ -106,6 +106,7 @@ internal sealed class ConsoleGame
         Console.WriteLine("First, a choice. You can afford only one:");
         Console.WriteLine("  choose fountain  — " + _sim.Data.Content.Project("fountain")!.Description);
         Console.WriteLine("  choose workshop  — " + _sim.Data.Content.Project("workshop")!.Description);
+        Console.WriteLine(_sim.Data.Content.Template("walk.intro"));
         Console.WriteLine("Type 'help' for commands.");
     }
 
@@ -146,6 +147,7 @@ internal sealed class ConsoleGame
   assess                         assess the machine to learn what's wrong (needed before any repair)
   restore <aurei>                put scavenged gold back into the machine (all of it is needed to jump)
   exchange <n> aurei|denarii     change money at the money changers (1 Attention, a fee each way)
+  visit <place>                  walk around Rome: market, changers, forges, curia, subura (no Attention)
   deposit <aurei> / bury <aurei> keep gold for your return: the machine carries only a small purse
   repair <coil|coolant|chronometer>   start the next repair step (all 9 steps are needed to jump)
   upgrade <contacts|lens|flywheel>    optional: each upgrade lets the machine carry you further
@@ -198,6 +200,9 @@ internal sealed class ConsoleGame
                 }
                 r = _sim.RestoreGold(restore);
                 break;
+            case "visit": case "walk":
+                Console.WriteLine(Wrap(cmd == "walk" && arg == "" ? _sim.Data.Content.Template("walk.intro") : _sim.Visit(arg)));
+                return true;
             case "exchange":
             {
                 double exn = 0;
@@ -431,6 +436,7 @@ internal sealed class ConsoleGame
                 Console.ReadLine();
             }
         }
+        Console.WriteLine(_sim.Data.Content.Template("walk.intro"));
         Console.WriteLine("Type 'learn more' for the Index and what became of your institutions, or 'quit'.");
     }
 
@@ -445,7 +451,8 @@ internal sealed class ConsoleGame
     {
         if (cmd == "learn" || cmd == "more") Console.WriteLine(_sim.Arrival!.LearnMore());
         else if (cmd == "why") Console.WriteLine(Why.Explain(_sim, arg));
-        else Console.WriteLine("The era is over. 'learn more' or 'quit'.");
+        else if (cmd == "visit" || cmd == "walk") Console.WriteLine(Wrap(cmd == "walk" && arg == "" ? _sim.Data.Content.Template("walk.intro") : _sim.Visit(arg)));
+        else Console.WriteLine("The era is over. 'visit <place>', 'learn more' or 'quit'.");
     }
 
     private static string Signed(double v) => (v >= 0 ? "+" : "") + v.ToString("0.#", CultureInfo.InvariantCulture);

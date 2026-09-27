@@ -43,6 +43,7 @@ namespace Butterfly.Core
 
             var depart = Record("jump.depart", "machine", null, new[] { "player" }, null,
                 "You start the machine and leave AD " + Now.Year + ".");
+            _leftRome = TakeSnapshot();
             SettlePromiseOnDeparture(depart.Id);
             SavingsAtDeparture(arrival);
             TagEchoes(arrival, depart.Id);
@@ -230,6 +231,8 @@ namespace Butterfly.Core
             if (window) foreach (var i in Influential()) HoldingsDecadeGrowth(i);
             FountainDecadeStep();
             SavingsDecadeStep();
+            // Prices keep rising with the coin's debasement while you're away (history's, or your policy's while it stands).
+            World.PriceLevel *= Math.Pow(1 + InflationRate(), _stepYears);
             if (antoninePassed) MaybeRecurrence(arrival);
             PolicyDecadeStep(arrival);
             // Population recovers toward its old size as Medicine allows (flavor only; not in the Index).

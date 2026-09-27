@@ -528,3 +528,47 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Walking around Rome at every arrival, including the first (decided 2026-09-28).</summary>
+    public class WalkTests
+    {
+        [Fact]
+        public void EveryPlaceCanBeVisitedAtTheStartAndAfterAJump()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            foreach (var p in Simulation.WalkPlaces)
+            {
+                string text = sim.Visit(p);
+                Assert.False(string.IsNullOrWhiteSpace(text));
+                Assert.DoesNotContain("{", text);
+            }
+            Assert.Contains("25 denarii", sim.Visit("changers"));
+            Assert.Contains("78% silver", sim.Visit("changers"));
+            sim.ChooseSeeded("workshop");
+            while (sim.Now.Year < 170) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
+            sim.JumpForTests();
+            foreach (var p in Simulation.WalkPlaces)
+            {
+                string text = sim.Visit(p);
+                Assert.DoesNotContain("{", text);
+            }
+            Assert.Contains("when you left", sim.Visit("market"));
+            Assert.Contains("when you left", sim.Visit("changers"));
+            Assert.Contains("workshop you funded", sim.Visit("forges"));
+            Assert.StartsWith("Visit where?", sim.Visit("moon"));
+        }
+
+        [Fact]
+        public void PricesKeepRisingWhileYouAreAway()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            double before = sim.World.PriceLevel;
+            var a = sim.JumpForTests();
+            Assert.Equal(before * System.Math.Pow(1 + sim.T.Get("prices.inflationAsHistory"), a.JumpYears), sim.World.PriceLevel, 6);
+            Assert.True(sim.CoinSilverNow() < 0.78);   // the coin followed history's debasement
+        }
+    }
+}
+
