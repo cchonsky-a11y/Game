@@ -190,6 +190,8 @@ namespace Butterfly.Core
         /// <summary>Turn you last attended its meetings, and how many you attended this year.</summary>
         public int AttendedTurn { get; set; }
         public int MeetingsThisYear { get; set; }
+        /// <summary>Grievances or goodwill toward you from before you joined (P0-31); added to your starting loyalty when you join.</summary>
+        public double Regard { get; set; }
         /// <summary>An established institution's share of its domain at the start; rivals push back when it grows past this.</summary>
         public double BaselineShare { get; set; }
         public double Strength { get; set; }

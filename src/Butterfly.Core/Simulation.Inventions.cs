@@ -35,6 +35,8 @@ namespace Butterfly.Core
                     case "consultBonus": parts.Add("consulting +" + F(fx.Value * 100) + "%"); break;
                     case "level": parts.Add(fx.Domain + " " + Signed(fx.Value)); break;
                     case "plagueResilience": parts.Add("plague resilience +" + F(fx.Value * 100) + "%"); break;
+                    case "unrest": parts.Add("but Governance debt +" + F(fx.Value) + " (laborers out of work)"); break;
+                    case "grievance": parts.Add("and " + World.Institution(fx.Group!).Def.ShortName + " " + Signed(fx.Value) + " loyalty (it takes their work)"); break;
                 }
             foreach (var g in def.Effects.Where(x => x.Group != null).Select(x => x.Group!).Distinct())
             {
@@ -185,7 +187,8 @@ namespace Butterfly.Core
                     var i = InventionTarget(fx);
                     if (i == null) break;
                     double before = i.Stake;
-                    i.Stake = Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0);
+                    i.Stake = Math.Min(ExclusiveCapPercent(i) / 100.0, Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0));
+                    if (i.Stake < before) i.Stake = before;
                     Record("institution.stake", i.Key, new[] { causeId }, new[] { "player", i.Leader }, new[] { new Effect(StakeKey(i), before, i.Stake) },
                         "In return for " + def.Name + ", " + i.Def.Name + " gives you a larger share: " + StakePercent(i) + "%." + Crossed(before, i.Stake));
                     break;
@@ -209,6 +212,20 @@ namespace Butterfly.Core
                     Record("plague.resilience", "plague", new[] { causeId }, new[] { "player" },
                         new[] { new Effect("plague.resilience", World.PlagueResilienceBonus - fx.Value, World.PlagueResilienceBonus) }, def.Name + " will blunt any epidemic.");
                     break;
+                case "unrest":
+                    // Labor-saving inventions put people out of work (P0-31): Governance debt from the unrest.
+                    AddDebt(Domain.Governance, fx.Value, "invention.unrest", causeId,
+                        def.Name + " puts laborers out of work; the street grumbles (Governance debt +" + F(fx.Value) + ").");
+                    break;
+                case "grievance":
+                {
+                    // The trades it undercuts resent it, member or not (P0-31).
+                    var i = fx.Group == null ? null : World.Institution(fx.Group);
+                    if (i != null && i.Exists)
+                        Grieve(i, fx.Value, "institution.loyalty", new[] { causeId }, new[] { i.Leader },
+                            i.Leader + " of " + i.Def.ShortName + " resents " + def.Name + ": it takes work from its members.");
+                    break;
+                }
                 default: throw new InvalidOperationException("Unknown invention effect: " + fx.Type);
             }
         }

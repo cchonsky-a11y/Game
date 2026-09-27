@@ -145,7 +145,8 @@ namespace Butterfly.Core
                 if (!eligible) continue;
                 double before = i.Stake;
                 int points = T.GetInt("stakes.seniorityPercentPerYear") + (active ? T.GetInt("stakes.activeSeniorityBonus") : 0);
-                i.Stake = Math.Min(cap, (StakePercent(i) + points) / 100.0);
+                i.Stake = Math.Min(Math.Min(cap, ExclusiveCapPercent(i) / 100.0), (StakePercent(i) + points) / 100.0);
+                if (i.Stake <= before + 1e-9) { i.Stake = before; continue; }
                 Record("institution.seniority", i.Key, CausesOf(StakeKey(i)), new[] { i.Leader },
                     new[] { new Effect(StakeKey(i), before, i.Stake) },
                     "Another year as " + (active ? "an active" : "a") + " member of " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
@@ -189,6 +190,10 @@ namespace Butterfly.Core
                     return CommandResult.Fail(Cap(inst.Def.ShortName) + " takes new partners only with a deposit of at least " + minFirst + "% (" +
                                               Money(BuyCost(inst, minFirst)) + "): buy " + inst.Key + " " + minFirst + ".");
             }
+            int capPct = ExclusiveCapPercent(inst);
+            if (from + points > capPct)
+                return CommandResult.Fail(Cap(inst.Def.ShortName) + " won't let a man of " + World.Institution(inst.Def.ExclusiveWith!).Def.ShortName + " hold " +
+                                          (capPct + 1) + "% or more of it (you can hold up to " + capPct + "%).");
             double fee = inst.Stake <= 0 ? EntryFee(inst) : 0;
             double cost = BuyCost(inst, points);
             if (World.Gold < cost) return CommandResult.Fail(points + "% of " + inst.Def.ShortName + " costs " + Money(cost) + "; you have " + Money(World.Gold) + ".");
@@ -202,7 +207,8 @@ namespace Butterfly.Core
             inst.Stake = (from + points) / 100.0;
             if (first)
             {
-                inst.Loyalty = T.Get("stakes.memberLoyalty");
+                inst.Loyalty = Math.Max(0, Math.Min(100, T.Get("stakes.memberLoyalty") + inst.Regard));
+                inst.Regard = 0;
                 inst.JoinedAt = Now.YearFraction;
             }
             var effects = new List<Effect> { new Effect(StakeKey(inst), stake, inst.Stake), new Effect(GoldKey, gold, World.Gold) };
@@ -235,6 +241,18 @@ namespace Butterfly.Core
         }
 
         /// <summary>Why you can't join this institution yet, or null if you can (the deposit is checked at purchase).</summary>
+        /// <summary>
+        /// The two factions won't share a member (P0-31): once you hold the lock-out stake (10%) of one, you can't hold that much
+        /// of the other, by purchase, seniority or reward. Returns the highest stake percent the institution may reach.
+        /// </summary>
+        public int ExclusiveCapPercent(Institution i)
+        {
+            if (i.Def.ExclusiveWith == null) return 100;
+            var rival = World.Institution(i.Def.ExclusiveWith);
+            int lockAt = (int)Math.Round(T.Get("joining.exclusiveAtStake") * 100);
+            return rival.Stake >= T.Get("joining.exclusiveAtStake") - 1e-9 ? lockAt - 1 : 100;
+        }
+
         public string? JoinBlocker(Institution i)
         {
             if (i.Def.ExclusiveWith != null)

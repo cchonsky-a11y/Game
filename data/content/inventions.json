@@ -23,6 +23,15 @@
           "type": "stake",
           "group": "junian",
           "value": 1
+        },
+        {
+          "type": "unrest",
+          "value": 3
+        },
+        {
+          "type": "grievance",
+          "group": "guild",
+          "value": -5
         }
       ],
       "description": "One wheel, two handles, a tray: a builder's laborer moves three times the load.",
@@ -51,6 +60,15 @@
           "type": "stake",
           "group": "trade",
           "value": 3
+        },
+        {
+          "type": "unrest",
+          "value": 3
+        },
+        {
+          "type": "grievance",
+          "group": "guild",
+          "value": -5
         }
       ],
       "description": "A stiff padded collar that rests on a horse's shoulders instead of a strap across its throat: the horse breathes, and pulls three or four times the load.",
@@ -84,6 +102,15 @@
           "type": "stake",
           "group": "bank",
           "value": 4
+        },
+        {
+          "type": "unrest",
+          "value": 3
+        },
+        {
+          "type": "grievance",
+          "group": "guild",
+          "value": -5
         }
       ],
       "description": "A water wheel lifts a heavy hammer by a cam, day and night, for fulling cloth and beating iron.",

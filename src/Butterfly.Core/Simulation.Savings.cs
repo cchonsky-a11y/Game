@@ -29,6 +29,13 @@ namespace Butterfly.Core
             aurei = Math.Floor(aurei);
             if (aurei < 1) return CommandResult.Fail((deposit ? "Deposit" : "Bury") + " how many aurei? You have " + AureiText(World.Aurei) + ".");
             if (aurei > World.Aurei + 1e-9) return CommandResult.Fail("You have only " + AureiText(World.Aurei) + ".");
+            // Caps (decided 2026-09-28, P0-35): the bank refuses huge deposits, and a jar holds only so much.
+            double cap = T.Get(deposit ? "savings.depositCapAurei" : "savings.hoardCapAurei");
+            double held = deposit ? World.DepositAurei : World.HoardAurei;
+            if (held + aurei > cap + 1e-9)
+                return CommandResult.Fail(deposit
+                    ? "The banking house won't take more than " + AureiText(cap) + " from one depositor" + (held > 0 ? " (it holds " + AureiText(held) + " of yours)" : "") + ": too much gold draws attention it doesn't want."
+                    : "One jar holds " + AureiText(cap) + " at most" + (held > 0 ? " (it already holds " + AureiText(held) + ")" : "") + "; a bigger hoard can't be hidden.");
             var attention = CheckAttention(T.GetInt("savings.attention"));
             if (attention != null) return attention;
             SpendAttention(T.GetInt("savings.attention"));
@@ -51,10 +58,15 @@ namespace Butterfly.Core
         {
             var bank = World.Institution("bank");
             double integrity = T.Get("corruption.integrity." + bank.Def.LeaderIntegrity);
-            double chance = T.Get("savings.depositLossPerDecade") * (1 - integrity);
+            // A large deposit tempts the banker more (P0-35).
+            double chance = T.Get("savings.depositLossPerDecade") * (1 - integrity) * (1 + T.Get("savings.depositRiskPerHundredAurei") * World.DepositAurei / 100);
             if (HasInfluence(bank)) chance *= 0.5;
             return Math.Min(1, chance);
         }
+
+        /// <summary>Chance a decade that someone finds your jar: the bigger the hoard, the likelier (P0-35).</summary>
+        public double HoardFoundChance() =>
+            Math.Min(1, T.Get("savings.hoardFoundPerDecade") * (1 + T.Get("savings.hoardRiskPerFiftyAurei") * World.HoardAurei / 50));
 
         public static string RiskBand(double perDecade) => perDecade < 0.05 ? "Low" : perDecade < 0.1 ? "Medium" : "High";
 
@@ -67,7 +79,7 @@ namespace Butterfly.Core
                 Record("savings.deposit.lost", "aurei", null, new[] { World.Institution("bank").Leader }, null,
                     "The banking house of Octavius loses its depositors' gold.");
             }
-            if (World.HoardAurei > 0 && !_hoardLost && Rng.Chance(1 - Math.Pow(1 - T.Get("savings.hoardFoundPerDecade"), StepFraction)))
+            if (World.HoardAurei > 0 && !_hoardLost && Rng.Chance(1 - Math.Pow(1 - HoardFoundChance(), StepFraction)))
             {
                 _hoardLost = true;
                 Record("savings.hoard.lost", "aurei", null, new[] { "world" }, null, "Someone digs up a jar of gold.");
@@ -117,7 +129,7 @@ namespace Butterfly.Core
         {
             double carried = Math.Min(World.Aurei, CarryAurei), left = World.Aurei - carried;
             yield return "Your gold: the machine can carry " + AureiText(CarryAurei) + "; you hold " + AureiText(World.Aurei) +
-                         (left >= 1 ? ", so " + AureiText(left) + " would be left behind and lost (deposit <n> or bury <n>, 1 Attention each)." : ".");
+                         (left >= 1 ? ", so " + AureiText(left) + " would be left behind and lost (deposit <n> or bury <n>, 1 Attention each; the bank takes up to " + AureiText(T.Get("savings.depositCapAurei")) + ", a jar holds " + AureiText(T.Get("savings.hoardCapAurei")) + ")." : ".");
             if (World.DepositAurei >= 1)
                 yield return "  With the banking house: " + AureiText(World.DepositAurei) + ", earning " + F(T.Get("savings.depositInterestPerYear") * 100) +
                              "% a year in gold; risk the house fails or embezzles: " + RiskBand(DepositLossChance()) + ".";

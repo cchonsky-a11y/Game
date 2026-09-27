@@ -56,13 +56,23 @@
         {
           "type": "plagueResilience",
           "value": 0.15
+        },
+        {
+          "type": "levelCost",
+          "institution": "economy",
+          "value": -3
+        },
+        {
+          "type": "grievance",
+          "institution": "guild",
+          "value": -10
         }
       ],
       "tags": [
         "law",
         "medicine"
       ],
-      "description": "Work with the harbor officials on rules for holding sick crews offshore.",
+      "description": "Work with the harbor officials on rules for holding sick crews offshore. Ships held offshore mean trade held too: the guild won't thank you.",
       "completionText": "Ostia's harbor officials adopt your quarantine rules.",
       "authority": "plague"
     },

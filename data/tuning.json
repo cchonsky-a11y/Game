@@ -1412,6 +1412,22 @@
     "attention": {
       "value": 1,
       "ref": "PROPOSED P0-27: a trip to the bank, or a night with a spade"
+    },
+    "depositCapAurei": {
+      "value": 100,
+      "ref": "DECIDED 2026-09-28 (Corey: cap the bank and the jar, and make large sums riskier); amount PROPOSED P0-35"
+    },
+    "hoardCapAurei": {
+      "value": 50,
+      "ref": "DECIDED 2026-09-28 (Corey); amount PROPOSED P0-35: what one jar holds"
+    },
+    "depositRiskPerHundredAurei": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey); amount PROPOSED P0-35: loss chance × (1 + this × deposit ÷ 100)"
+    },
+    "hoardRiskPerFiftyAurei": {
+      "value": 1,
+      "ref": "DECIDED 2026-09-28 (Corey); amount PROPOSED P0-35: found chance × (1 + this × hoard ÷ 50)"
     }
   },
   "walk": {
@@ -1437,6 +1453,21 @@
     "localEveryMonths": {
       "value": 4,
       "ref": "PROPOSED P0-29"
+    }
+  },
+  "tradeoffs": {
+    "_readme": "Tradeoffs on existing actions (decided 2026-09-28, P0-31). Project and invention costs live in data/content (projects.json extras, inventions.json effects).",
+    "rivalFactionProjectMarkup": {
+      "value": 0.5,
+      "ref": "PROPOSED P0-31: holding 10%+ of one faction makes the other obstruct your Governance projects (+50% cost)"
+    },
+    "consultCircleRegard": {
+      "value": -2,
+      "ref": "PROPOSED P0-31: each consulting job costs this much loyalty with the Physicians' Circle (Demetria and the poor)"
+    },
+    "endowedDriftMultiplier": {
+      "value": 1.5,
+      "ref": "PROPOSED P0-31: drift per decade while holdings reach the minimum endowment"
     }
   }
 }

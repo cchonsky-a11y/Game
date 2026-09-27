@@ -81,7 +81,15 @@ namespace Butterfly.Core
             string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
                         : "You advise a wealthy household on its baths and its books.";
-            Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
+            var workEvent = Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
+            if (kind == "consult")
+            {
+                // Consulting ties you to the rich (P0-31): the physicians of the poor think less of you.
+                var circle = World.Institution("circle");
+                if (circle.Exists)
+                    Grieve(circle, T.Get("tradeoffs.consultCircleRegard"), "institution.loyalty", new[] { workEvent.Id }, new[] { circle.Leader },
+                        circle.Leader + " notes whose baths you tend.");
+            }
             int members = Memberships();
             return CommandResult.Success("You earn " + Money(pay) + (members > 0 ? " (" + Money(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
                                          " membership" + (members == 1 ? "" : "s") + ")" : "") + "; tax takes " + Money(tax) + ", you keep " + Money(pay - tax) + ".");

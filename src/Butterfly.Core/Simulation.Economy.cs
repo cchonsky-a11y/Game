@@ -110,7 +110,20 @@ namespace Butterfly.Core
         /// quarter of it (decided 2026-09-28: a voice unlocks a little more).
         /// </summary>
         public int ProjectGold(ProjectDef def) =>
-            (int)Math.Round(def.Gold * World.PriceLevel * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0)));
+            (int)Math.Round(def.Gold * World.PriceLevel * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0))
+                            * (def.Domain == Domain.Governance && RivalFactionObstructs() != null ? 1 + T.Get("tradeoffs.rivalFactionProjectMarkup") : 1));
+
+        /// <summary>The faction that obstructs your Governance projects because you hold 10%+ of its rival (P0-31), or null.</summary>
+        public Institution? RivalFactionObstructs()
+        {
+            foreach (var i in World.Institutions.Where(x => x.Def.ExclusiveWith != null && x.Exists))
+                if (i.Stake >= T.Get("joining.exclusiveAtStake") - 1e-9)
+                {
+                    var rival = World.Institution(i.Def.ExclusiveWith!);
+                    if (rival.Exists && !rival.Collapsed) return rival;
+                }
+            return null;
+        }
 
         private static readonly Domain[] PlagueAuthorityDomains = { Domain.Medicine, Domain.Governance };
 
@@ -218,6 +231,20 @@ namespace Butterfly.Core
                     Record("water.clean", "fountain", new[] { causeId }, new[] { "player" },
                         new[] { new Effect("fountain.clean", 0, 1) }, "The district drinks clean water.");
                     break;
+                case "levelCost":
+                {
+                    // A measure's cost elsewhere (P0-31), e.g. quarantine halting trade at Ostia.
+                    if (x.Institution != null && DomainInfo.TryParseDomain(x.Institution, out var d))
+                        ChangeLevel(d, x.Value, "project.cost", new[] { causeId }, new[] { "world" }, def.Name + " has a cost: " + d + " " + Signed(x.Value) + ".");
+                    break;
+                }
+                case "grievance":
+                {
+                    var i = x.Institution == null ? null : FindInstitution(x.Institution);
+                    if (i != null && i.Exists)
+                        Grieve(i, x.Value, "institution.loyalty", new[] { causeId }, new[] { i.Leader }, i.Leader + " of " + i.Def.ShortName + " resents " + def.Name + ".");
+                    break;
+                }
                 default:
                     ApplyInstitutionExtra(def, x, causeId);
                     break;

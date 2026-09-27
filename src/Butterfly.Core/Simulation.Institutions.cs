@@ -163,6 +163,18 @@ namespace Butterfly.Core
                     def.Name + " strengthens " + inst.Def.Name + ".");
         }
 
+        /// <summary>
+        /// A grievance (or goodwill) from an institution (P0-31): a member's loyalty changes now; otherwise it is remembered
+        /// and counts toward the loyalty you start with if you join.
+        /// </summary>
+        internal void Grieve(Institution i, double delta, string type, IEnumerable<int>? causes, IEnumerable<string> actors, string text)
+        {
+            if (i.Backed) { ChangeLoyalty(i, delta, type, causes, actors, text); return; }
+            double before = i.Regard;
+            i.Regard += delta;
+            Record(type, i.Key, causes, actors, new[] { new Effect(i.Key + ".regard", before, i.Regard) }, text + " (It will remember if you join.)");
+        }
+
         internal void ChangeLoyalty(Institution i, double delta, string type, IEnumerable<int>? causes, IEnumerable<string> actors, string text)
         {
             double before = i.Loyalty;
@@ -305,6 +317,8 @@ namespace Butterfly.Core
             double baseDrift = T.Get("institutions.driftPerDecade.base");
             if (i.Chartered) baseDrift *= T.Get("institutions.driftPerDecade.charterMultiplier");
             if (i.Quality == InstitutionQuality.Strong) baseDrift *= T.Get("institutions.driftPerDecade.strongMultiplier");
+            // Money is power (P0-31): an endowed institution drifts faster toward its own interests.
+            if (i.Holdings >= T.Get("institutions.endowGold")) baseDrift *= T.Get("tradeoffs.endowedDriftMultiplier");
             i.Drift += StepFraction * (baseDrift
                        + Rng.NextDouble() * T.Get("institutions.driftPerDecade.random")
                        + (i.Loyalty < T.Get("institutions.lowLoyalty") ? T.Get("institutions.driftPerDecade.lowLoyalty") : 0));
