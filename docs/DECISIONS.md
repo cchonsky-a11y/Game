@@ -233,3 +233,6 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 ## 2026-09-28 — The horse collar replaces the pulley crane (Corey, from play)
 - **Problem:** the compound pulley crane didn't follow from the wheelbarrow, and Rome already had pulley and treadwheel cranes (the polyspastos), so it wasn't future knowledge.
 - **Decision:** the mechanics branch is now wheelbarrow → the padded horse collar → the water-driven trip hammer. The collar (medieval, genuinely new to Rome) lets a horse pull three or four times the load; it needs the workshop and guild or bank membership, costs 60 gold and 4 turns, and pays 5 gold a year, trade loyalty +10 and stake +3. PROTOTYPE_SCOPE, GDD Appendix A, P0-22, data/content/inventions.json. Source: Corey.
+
+## 2026-09-28 — Farming inventions wait for Agriculture (Corey)
+- **Decision:** farming equipment (for example a wheeled heavy plough after the horse collar, crop rotation, a seed drill) arrives with the Agriculture domain in a later milestone, not in P0, where Agriculture is out of scope. Not routed through the Economy in the meantime. Source: Corey.
