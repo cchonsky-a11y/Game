@@ -94,7 +94,7 @@ internal sealed class ConsoleGame
     {
         Console.WriteLine("THE BUTTERFLY EFFECT — P0 Butterfly Test");
         Console.WriteLine("========================================");
-        Console.WriteLine("Rome, AD 155. Your time machine failed and left you here. You have a pouch of gold you scavenged from the");
+        Console.WriteLine("Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the");
         Console.WriteLine("machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.");
         Console.WriteLine("You don't yet know what broke. Something is coming from the East within ten years.");
         Console.WriteLine("Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.");
