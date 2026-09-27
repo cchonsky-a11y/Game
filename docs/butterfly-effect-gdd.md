@@ -855,7 +855,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Years per era | ~10 standard; ~7 good; ~5 or skip excellent |
 | Healthy years by medicine | ~70 / ~85 / ~95 |
 | Attention | 4 per turn |
-| Turns per standard era | 51 (P0 prototype only: 3-month turns, 40 per era) |
+| Turns per standard era | 51 (P0 prototype only: 2-month turns, 120 per 20-year era; the player may shorten or restore turns up to 3 months) |
 | Economic policy (P0) | Austrian stance +1 Economy/yr each, backlash −8 faction loyalty and +8 Governance debt on adoption; interventionist +1.5/yr each and 8 malinvestment/yr; bust after 3 warnings from malinvestment 20 |
 | Playtime | ~2.5–3 hours per era; ~22 hours per campaign |
 | Debt compounding | 5% per year; during a jump, only for the first 30 years after departure |
