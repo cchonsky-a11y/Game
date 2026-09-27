@@ -115,6 +115,7 @@ internal sealed class ConsoleGame
         Console.WriteLine(@"Commands
   status                         where things stand
   projects                       projects you can start
+  news                           what's going on in Rome: the talk of the Forum and the market (no Attention)
   start <project>                start a project (costs gold and Attention)
   priority <domain> <protect|maintain|accept>   (needs a 25% voice in an institution of that domain)
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
@@ -132,7 +133,7 @@ internal sealed class ConsoleGame
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
   mentor <inst>                  commit Attention every turn for several turns
-  work [odd|craft|consult]       your one personal action: earn 5 / 12 / 20 gold for 1 / 2 / 3 Attention
+  work [odd|craft|consult]       your one personal action: earn about 125 / 300 / 500 denarii for 1 / 2 / 3 Attention
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
@@ -166,6 +167,7 @@ internal sealed class ConsoleGame
             case "status": case "s": Status(); return true;
             case "projects": case "p": Projects(); return true;
             case "why": Console.WriteLine(Why.Explain(_sim, arg)); return true;
+            case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "start": r = _sim.StartProject(arg.ToLowerInvariant()); break;
             case "choose": r = _sim.ChooseSeeded(arg.ToLowerInvariant()); break;
@@ -337,6 +339,7 @@ internal sealed class ConsoleGame
         if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
+        foreach (var n in _sim.HistoryNewsThisTurn()) Console.WriteLine("  News: " + n.Text + "   (news)");
         foreach (var i in _sim.Backed())
             Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i) + ", strength " + F(i.Strength) +
                               " (" + F(_sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ")" + (_sim.Controls(i) ? ", loyalty " + F(i.Loyalty) : "") +

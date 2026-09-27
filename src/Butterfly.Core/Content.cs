@@ -207,6 +207,23 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>A dated piece of Rome's news (data/content/news.json): what history had happening; text only.</summary>
+    public sealed class NewsDef
+    {
+        public int Year { get; }
+        /// <summary>1-12.</summary>
+        public int Month { get; }
+        public string Text { get; }
+        public SimTime Time => SimTime.FromYear(Year, Month - 1);
+
+        public NewsDef(JsonObject o)
+        {
+            Year = (int)o.Num("year");
+            Month = (int)o.Num("month");
+            Text = o.Str("text");
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
@@ -218,12 +235,15 @@ namespace Butterfly.Core
         /// <summary>The full assessment of the machine that must come before any repair (decided 2026-09-28).</summary>
         public MachineStepDef? MachineAssessment { get; }
         public IReadOnlyList<InventionDef> Inventions { get; }
+        /// <summary>Rome's news, in date order (optional file).</summary>
+        public IReadOnlyList<NewsDef> News { get; }
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
         private Content(IReadOnlyList<ProjectDef> projects, IReadOnlyList<InstitutionDef> institutions, IReadOnlyList<MachineStepDef> machine,
-            IReadOnlyList<MachineStepDef> upgrades, MachineStepDef? assessment, IReadOnlyList<InventionDef> inventions, IReadOnlyDictionary<string, string> text)
+            IReadOnlyList<MachineStepDef> upgrades, MachineStepDef? assessment, IReadOnlyList<InventionDef> inventions, IReadOnlyList<NewsDef> news, IReadOnlyDictionary<string, string> text)
         {
+            News = news;
             MachineAssessment = assessment;
             MachineUpgrades = upgrades;
             Inventions = inventions;
@@ -255,6 +275,9 @@ namespace Butterfly.Core
                 ? machineObj.Arr("upgrades").Cast<JsonObject>().Select(o => new MachineStepDef(o)).ToList() : new List<MachineStepDef>();
             var assessment = machineObj.Has("assessment") ? new MachineStepDef(machineObj.Obj("assessment")) : null;
             var inventions = Read(contentDirectory, "inventions.json").Arr("inventions").Cast<JsonObject>().Select(o => new InventionDef(o)).ToList();
+            var news = File.Exists(Path.Combine(contentDirectory, "news.json"))
+                ? Read(contentDirectory, "news.json").Arr("news").Cast<JsonObject>().Select(o => new NewsDef(o)).OrderBy(n => n.Time.TotalMonths).ToList()
+                : new List<NewsDef>();
             var textObj = Read(contentDirectory, "text.json");
             var text = new Dictionary<string, string>();
             foreach (var section in textObj.Keys)
@@ -263,7 +286,7 @@ namespace Butterfly.Core
                 var obj = textObj.Obj(section);
                 foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
             }
-            return new Content(projects, institutions, machine, upgrades, assessment, inventions, text);
+            return new Content(projects, institutions, machine, upgrades, assessment, inventions, news, text);
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

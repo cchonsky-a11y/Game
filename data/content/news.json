@@ -1,0 +1,28 @@
+{
+  "_comment": "The news of Rome (decided 2026-09-28): what history had happening in and around Rome, AD 155-175, heard as talk in the Forum. Text only: it changes nothing in the simulation, and the player meets these people only indirectly. The plague and the bust are not here: the simulation reports them. month is 1-12. Dates are the best-attested ones; where scholars differ, the text keeps to what is agreed.",
+  "news": [
+    { "year": 155, "month": 1, "text": "Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember." },
+    { "year": 155, "month": 3, "text": "Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games." },
+    { "year": 160, "month": 9, "text": "Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted." },
+    { "year": 161, "month": 3, "text": "Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time." },
+    { "year": 161, "month": 4, "text": "The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin." },
+    { "year": 161, "month": 8, "text": "The empress Faustina gives birth to twin boys, Commodus and Antoninus." },
+    { "year": 161, "month": 10, "text": "The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves." },
+    { "year": 161, "month": 12, "text": "Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia." },
+    { "year": 162, "month": 5, "text": "Lucius Verus leaves Rome to take command against Parthia." },
+    { "year": 162, "month": 8, "text": "A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle." },
+    { "year": 163, "month": 9, "text": "Statius Priscus takes Artaxata, the capital of Armenia." },
+    { "year": 164, "month": 6, "text": "Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus." },
+    { "year": 165, "month": 12, "text": "Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia." },
+    { "year": 166, "month": 8, "text": "Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness." },
+    { "year": 166, "month": 10, "text": "Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected." },
+    { "year": 167, "month": 9, "text": "Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy." },
+    { "year": 168, "month": 4, "text": "Both emperors leave for Aquileia and the northern frontier." },
+    { "year": 169, "month": 1, "text": "Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone." },
+    { "year": 169, "month": 3, "text": "Galen is back in Rome at the emperor's command, to look after young Commodus." },
+    { "year": 169, "month": 6, "text": "Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months." },
+    { "year": 170, "month": 7, "text": "The Marcomanni and Quadi have broken through the Alps: Opitergium is burned and Aquileia besieged. It's the first enemy army in Italy in centuries." },
+    { "year": 172, "month": 5, "text": "Herdsmen of the Nile delta rise in revolt. Grain merchants at Ostia watch for the Alexandrian fleet, and Avidius Cassius is sent to put it down." },
+    { "year": 174, "month": 6, "text": "Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front." }
+  ]
+}

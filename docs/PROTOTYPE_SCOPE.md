@@ -46,6 +46,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Echoes | **3 specific elements** (e.g., the fountain, the physicians' circle, the broken or kept promise). The seeded choice is always one of them |
 | Arrival | Text version of the four beats: recognition, wrongness, personal echo, discovery. **Walk around Rome** at every arrival, including the first (decided 2026-09-28): `visit market | changers | forges | curia | subura` shows what is there now and, after a jump, what changed since you left, in words and numbers (prices and wages, the aureus and the coin's silver, the workshop and your inventions in use, the Curia, the fountain and the population); present conditions only. Optional `learn more` shows the Index and institution outcomes. **No causal chains after the jump** |
 | Index | Geometric mean over the 3 domains, before and after the jump |
+| News (P0) | A free `news` command (decided 2026-09-28): the talk of the Forum (history's dated news of Rome, AD 155–175: the emperors, Galen, the Parthian and Danube wars, Marcus's auction; hand-written, text only, changes nothing), what befell Rome in the past year (world events from the log, never the player's own), and the market (the aureus, prices, the coin's silver). A new item shows as a headline on the turn that covers its date. Historical figures appear only in the news, never as people to talk to. History's news stops after a jump |
 | Text | Hand-written templates only |
 
 ## Out of scope (do not build)

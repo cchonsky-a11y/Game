@@ -602,4 +602,67 @@ namespace Butterfly.Core.Tests
             Assert.Throws<System.InvalidOperationException>(() => sim.JumpForTests());
         }
     }
+
+    public class NewsTests
+    {
+        [Fact]
+        public void NewsIsDatedInsideTheEraAndInOrder()
+        {
+            var data = TestData.Load();
+            var news = data.Content.News;
+            Assert.True(news.Count >= 15);
+            for (int k = 0; k < news.Count; k++)
+            {
+                Assert.InRange(news[k].Month, 1, 12);
+                Assert.InRange(news[k].Year, 155, 174);   // the era runs AD 155-175
+                Assert.False(string.IsNullOrWhiteSpace(news[k].Text));
+                if (k > 0) Assert.True(news[k - 1].Time.TotalMonths <= news[k].Time.TotalMonths);
+            }
+        }
+
+        [Fact]
+        public void ReadingTheNewsIsFreeAndChangesNothing()
+        {
+            var a = new Simulation(TestData.Load(), 7);
+            var b = new Simulation(TestData.Load(), 7);
+            a.ChooseSeeded("workshop");
+            b.ChooseSeeded("workshop");
+            for (int t = 0; t < 40; t++)
+            {
+                int attention = a.World.Attention;
+                Assert.NotEmpty(a.News());
+                Assert.Equal(attention, a.World.Attention);
+                if (a.OutbreakAwaitingResponse) { a.RespondToPlague("none"); b.RespondToPlague("none"); }
+                a.EndTurn();
+                b.EndTurn();
+            }
+            Assert.Equal(b.Log.Hash(), a.Log.Hash());
+        }
+
+        [Fact]
+        public void HistoryArrivesOnTheTurnThatCoversItsDate()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            sim.ChooseSeeded("workshop");
+            Assert.Contains(sim.HistoryNewsThisTurn(), n => n.Text.Contains("Antoninus Pius has ruled"));
+            while (sim.Now.TotalMonths + sim.MonthsPerTurn < SimTime.FromYear(161, 2).TotalMonths) sim.EndTurn();
+            Assert.DoesNotContain(sim.HistoryNewsSoFar(), n => n.Text.Contains("dead at his villa"));
+            sim.EndTurn();
+            Assert.Contains(sim.HistoryNewsThisTurn(), n => n.Text.Contains("dead at his villa"));
+            Assert.Contains(sim.News(), l => l.Contains("dead at his villa"));
+        }
+
+        [Fact]
+        public void TheMarketLineShowsTheCoinAndAfterAJumpHistoryIsSilent()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            Assert.Contains(sim.News(), l => l.StartsWith("At the market") && l.Contains("25 denarii") && l.Contains("78% silver"));
+            sim.ChooseSeeded("workshop");
+            while (sim.Now.Year < 168) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
+            Assert.Contains(sim.News(), l => l.Contains("pestilence", System.StringComparison.OrdinalIgnoreCase) || l.Contains("sickness", System.StringComparison.OrdinalIgnoreCase));
+            sim.JumpForTests();
+            Assert.Empty(sim.HistoryNewsSoFar());
+            Assert.Contains(sim.News(), l => l.StartsWith("At the market"));
+        }
+    }
 }
