@@ -18,8 +18,8 @@ namespace Butterfly.Core.Tests
         [InlineData("institutions.decayPerDecade.chartered", 0.03)] // SYSTEMS §7
         [InlineData("institutions.decayPerDecade.strong", 0.01)]    // SYSTEMS §7
         [InlineData("attention.perTurn", 4)]             // SYSTEMS §3
-        [InlineData("time.monthsPerTurn", 3)]            // P0-only pacing, PROTOTYPE_SCOPE (decided 2026-09-26)
-        [InlineData("time.eraTurns", 80)]                // P0-only pacing, PROTOTYPE_SCOPE: 20-year eras
+        [InlineData("time.eraYears", 20)]                // PROTOTYPE_SCOPE: 20-year eras
+        [InlineData("time.monthsPerTurn", 2)]            // P0 pacing: 2-month turns (decided 2026-09-28)
         [InlineData("time.startYear", 155)]              // VISION premise
         [InlineData("jump.range.baseMin", 25)]           // the first jump: 25–60 years by repairs, time and upgrades
         [InlineData("jump.range.maxYears", 60)]

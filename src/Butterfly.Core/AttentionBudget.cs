@@ -12,13 +12,16 @@ namespace Butterfly.Core
     public static class AttentionBudget
     {
         public static double Supply(GameData data) =>
-            data.Tuning.Get("time.eraTurns") * data.Tuning.Get("attention.perTurn");
+            EraTurns(data) * data.Tuning.Get("attention.perTurn");
+
+        /// <summary>Turns in an era at the default turn length.</summary>
+        public static double EraTurns(GameData data) => data.Tuning.Get("time.eraYears") * 12 / data.Tuning.Get("time.monthsPerTurn");
 
         public static double Demand(GameData data)
         {
             var t = data.Tuning;
-            double turns = t.Get("time.eraTurns");
-            double years = turns * t.Get("time.monthsPerTurn") / 12.0;
+            double turns = EraTurns(data);
+            double years = t.Get("time.eraYears");
             double demand = data.Content.Projects.Sum(p => p.AttentionPerTurn * p.Turns);
             // One institution per domain taken to control: founding it (or the buys to 10%, 25% and 50%), then
             // charter, audit, endowment and one investment.

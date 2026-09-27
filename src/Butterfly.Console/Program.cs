@@ -136,7 +136,8 @@ internal sealed class ConsoleGame
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   log [n]                        the last n events
-  end                            end the turn (3 months)
+  end                            end the turn (2 months unless you change it)
+  turns <1|2|3>                  set how many months a turn lasts (Attention stays 4 a turn)
   wait                           let turns pass until something needs you
   inventions                     the invention tree: what you can make, what each needs first and from Rome
   invent <invention>             start work on an invention (income, standing and influence)
@@ -249,6 +250,14 @@ internal sealed class ConsoleGame
             case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
+            case "turns":
+                if (!int.TryParse(arg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var months))
+                {
+                    Console.WriteLine("Usage: turns <1|2|3>   (now " + _sim.MonthsPerTurn + " months a turn)");
+                    return false;
+                }
+                r = _sim.SetTurnLength(months);
+                break;
             case "end": case "e": EndTurn(wait: false); return true;
             case "wait": case "w": EndTurn(wait: true); return true;
             case "jump": Jump(); return true;
@@ -309,7 +318,7 @@ internal sealed class ConsoleGame
         if (_sim.OutbreakAwaitingResponse)
             Console.WriteLine("  ► Waiting: respond " + string.Join(" / respond ", _sim.AvailablePlagueResponses()) +
                               (_sim.AvailablePlagueResponses().Contains("hospice") ? "" : "   (a hospice needs a physicians' circle of strength 30+)"));
-        if (_sim.EraOver) Console.WriteLine("  ► The era's " + _sim.EraTurns + " turns are over. Jump when you're ready (you can also stay).");
+        if (_sim.EraOver) Console.WriteLine("  ► The era's " + _sim.EraYears + " years are over. Jump when you're ready (you can also stay).");
     }
 
     private void Projects()

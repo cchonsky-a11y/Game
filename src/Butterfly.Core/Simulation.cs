@@ -18,7 +18,8 @@ namespace Butterfly.Core
         public World World { get; } = new World();
         public SimTime Now { get; private set; }
         public int Turn { get; private set; } = 1;
-        public int MonthsPerTurn { get; }
+        /// <summary>Months per turn: the P0 default, shortened or restored by the player (SYSTEMS §2), never above the stage cap.</summary>
+        public int MonthsPerTurn { get; private set; }
 
         /// <summary>Latest event that changed each state key, used as immediate causes.</summary>
         private readonly Dictionary<string, int> _lastChange = new Dictionary<string, int>();
@@ -37,6 +38,22 @@ namespace Butterfly.Core
             InitPlague();
             InitInstitutions();
             InitAttention();
+        }
+
+        /// <summary>
+        /// Changes the turn length from the next turn on (SYSTEMS §2: the player may shorten turns at any time, never
+        /// lengthen them beyond the stage cap). Attention stays 4 a turn and multi-turn work keeps its turn counts.
+        /// </summary>
+        public CommandResult SetTurnLength(int months)
+        {
+            int cap = T.GetInt("time.maxMonthsPerTurn");
+            if (months < 1 || months > cap) return CommandResult.Fail("Turns can be 1 to " + cap + " months long.");
+            if (months == MonthsPerTurn) return CommandResult.Fail("Turns are already " + months + " month" + (months == 1 ? "" : "s") + " long.");
+            int before = MonthsPerTurn;
+            MonthsPerTurn = months;
+            Record("time.turnLength", "clock", null, new[] { "player" }, new[] { new Effect("time.monthsPerTurn", before, months) },
+                "Turns now last " + months + " month" + (months == 1 ? "" : "s") + " (were " + before + ").");
+            return CommandResult.Success("Turns now last " + months + " month" + (months == 1 ? "" : "s") + ".");
         }
 
         /// <summary>Fraction of a year covered by one turn.</summary>

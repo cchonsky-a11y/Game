@@ -10,12 +10,16 @@
       "ref": "PROPOSED P0-01"
     },
     "monthsPerTurn": {
-      "value": 3,
-      "ref": "DECIDED 2026-09-27 (Corey): P0-only 3-month turns, recorded in PROTOTYPE_SCOPE.md"
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey): P0 turns are 2 months (was 3); the player can shorten or restore them with `turns` (SYSTEMS §2), up to the Stage 3 cap"
     },
-    "eraTurns": {
-      "value": 80,
-      "ref": "DECIDED 2026-09-28 (Corey): each era is 20 years (P0-only 3-month turns: 80 turns, AD 155–175)"
+    "eraYears": {
+      "value": 20,
+      "ref": "DECIDED 2026-09-28 (Corey): each era is 20 years (AD 155–175); with 2-month turns, 120 turns"
+    },
+    "maxMonthsPerTurn": {
+      "value": 3,
+      "ref": "SYSTEMS §2: turn length by stage; P0 uses a fixed Stage 3 setup (3 months)"
     }
   },
   "domains": {
@@ -695,8 +699,8 @@
       "ref": "SYSTEMS §3"
     },
     "demandTarget": {
-      "value": 1.5,
-      "ref": "DECIDED 2026-09-26: total Attention demand at least 1.5× supply"
+      "value": 1.4,
+      "ref": "DECIDED 2026-09-26: total Attention demand at least 1.5× supply; lowered to 1.4× on 2026-09-28 (Corey: with 2-month turns, accept the looser budget; now about 1.48×)"
     }
   },
   "personal": {

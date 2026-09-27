@@ -24,11 +24,15 @@ namespace Butterfly.Core
 
         public int HistoricalOutbreakYear => PlagueStageDate(PlagueState.Outbreak).Year;
 
-        /// <summary>Advances every plague stage whose historical date has come (turn starts, and each year of an absence).</summary>
+        /// <summary>
+        /// Advances every plague stage whose historical date falls by the end of the turn now starting (turn starts, and
+        /// each year of an absence), so a stage shows on the turn that covers its date whatever the turn length.
+        /// </summary>
         private void AdvancePlagueToDate()
         {
             var p = World.Plague;
-            while (p.Stage < PlagueState.Outbreak && PlagueStageDate(p.Stage + 1).TotalMonths <= Now.TotalMonths)
+            int horizon = Now.TotalMonths + (IsAway ? 0 : MonthsPerTurn - 1);
+            while (p.Stage < PlagueState.Outbreak && PlagueStageDate(p.Stage + 1).TotalMonths <= horizon)
                 AdvancePlague();
         }
 

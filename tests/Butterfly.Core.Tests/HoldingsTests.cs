@@ -186,7 +186,7 @@ namespace Butterfly.Core.Tests
         public void TwentySixMonthTurnsMakeATenYearEra()
         {
             var t = TestData.Load().Tuning;
-            Assert.Equal(20, t.GetInt("time.eraTurns") * t.GetInt("time.monthsPerTurn") / 12);
+            Assert.Equal(20, t.GetInt("time.eraYears"));
         }
 
         [Fact]
@@ -220,8 +220,8 @@ namespace Butterfly.Core.Tests
                 if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
                 sim.AdvanceUntilDecision();
             }
-            Assert.Equal(sim.EraTurns + 1, sim.Turn);
-            Assert.Contains(sim.PendingDecisions(), r => r.Contains("turns are over"));
+            Assert.Equal(sim.EraYears * 12 / sim.MonthsPerTurn + 1, sim.Turn);
+            Assert.Contains(sim.PendingDecisions(), r => r.Contains("years are over"));
         }
     }
 }

@@ -234,7 +234,7 @@ namespace Butterfly.Batch
             var sb = new StringBuilder();
             sb.AppendLine("# P0 batch balance report");
             sb.AppendLine();
-            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 166, during the plague warnings, or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraTurns") + " turns end).");
+            sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 166, during the plague warnings, or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraYears") + " years end; " + data.Tuning.GetInt("time.monthsPerTurn") + "-month turns).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).");
             sb.AppendLine("Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).");
             sb.AppendLine();

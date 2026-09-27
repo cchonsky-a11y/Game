@@ -346,3 +346,50 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    /// <summary>Turn length: 2-month turns by default, and the player may change it (decided 2026-09-28; SYSTEMS §2).</summary>
+    public class TurnLengthTests
+    {
+        [Fact]
+        public void TurnsAreTwoMonthsAndThePlayerCanChangeThemUpToTheCap()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            Assert.Equal(2, sim.MonthsPerTurn);
+            sim.EndTurn();
+            Assert.Equal(2, sim.Now.Month);
+            Assert.False(sim.SetTurnLength(4).Ok);            // never beyond the Stage 3 cap
+            Assert.False(sim.SetTurnLength(0).Ok);
+            Assert.True(sim.SetTurnLength(3).Ok);
+            Assert.Contains(sim.Log.Events, e => e.Type == "time.turnLength");
+            sim.EndTurn();
+            Assert.Equal(5, sim.Now.Month);
+            Assert.True(sim.SetTurnLength(1).Ok);
+            sim.EndTurn();
+            Assert.Equal(6, sim.Now.Month);
+            Assert.Equal(4, sim.World.Attention);             // Attention stays 4 a turn
+        }
+
+        [Fact]
+        public void TheEraEndsByTheCalendarAndThePlagueByItsDatesWhateverTheTurnLength()
+        {
+            foreach (int months in new[] { 1, 2, 3 })
+            {
+                var sim = new Simulation(TestData.Load(), 3);
+                if (months != sim.MonthsPerTurn) Assert.True(sim.SetTurnLength(months).Ok);
+                while (!sim.EraOver)
+                {
+                    if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
+                    sim.EndTurn();
+                }
+                Assert.Equal(175, sim.Now.Year);
+                Assert.Equal(0, sim.Now.Month);
+                var outbreak = sim.Log.Events.Single(e => e.Type == "plague.outbreak");
+                // The outbreak shows on the turn that covers October 166.
+                Assert.Equal(166, outbreak.Time.Year);
+                Assert.InRange(outbreak.Time.Month, 9 - months + 1, 9);
+            }
+        }
+    }
+}

@@ -20,9 +20,11 @@ namespace Butterfly.Core
 
         private int _turnEventStart = 1;
 
-        public int EraTurns => T.GetInt("time.eraTurns");
+        public int EraYears => T.GetInt("time.eraYears");
+        /// <summary>The era ends by the calendar (decided 2026-09-28: 20 years), whatever the turn length.</summary>
+        public SimTime EraEnd => SimTime.FromYear(T.GetInt("time.startYear") + EraYears, T.GetInt("time.startMonth"));
 
-        public bool EraOver => Turn > EraTurns;
+        public bool EraOver => Now.TotalMonths >= EraEnd.TotalMonths;
 
         /// <summary>
         /// Why the player is needed this turn: an open prompt, something notable just happened, a new
@@ -37,7 +39,7 @@ namespace Butterfly.Core
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
             if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this turn");
             if (AffordableInvestment()) reasons.Add("gold to invest");
-            if (EraOver) reasons.Add("the era's " + EraTurns + " turns are over");
+            if (EraOver) reasons.Add("the era's " + EraYears + " years are over");
             return reasons;
         }
 

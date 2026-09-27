@@ -140,10 +140,10 @@ internal sealed class Harness
                 }
             }
         }
-        // SYSTEMS §2 / P0 pacing: every turn is the same length.
+        // SYSTEMS §2: turns may be shortened, never longer than the stage cap.
         var turns = _sim.Log.Events.Where(e => e.Type == "turn.start").Select(e => e.Time.TotalMonths).ToList();
         for (int i = 1; i < turns.Count; i++)
-            if (turns[i] - turns[i - 1] != _sim.MonthsPerTurn) { Add("SYSTEMS", "turn length " + (turns[i] - turns[i - 1]) + " months"); break; }
+            if (turns[i] - turns[i - 1] > _sim.T.GetInt("time.maxMonthsPerTurn") || turns[i] - turns[i - 1] < 1) { Add("SYSTEMS", "turn length " + (turns[i] - turns[i - 1]) + " months"); break; }
         // PROTOTYPE_SCOPE: three warnings, each in its own year, before any outbreak.
         var warnings = _sim.Log.Events.Where(e => e.Type == "plague.warning").ToList();
         var outbreak = _sim.Log.Events.FirstOrDefault(e => e.Type == "plague.outbreak");

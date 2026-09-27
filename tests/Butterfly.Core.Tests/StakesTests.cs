@@ -170,7 +170,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(data, 3);
             sim.World.Gold = 1000;
             sim.Found("house");
-            for (int t = 0; t < 4; t++) sim.EndTurn();
+            while (sim.Now.Year < 156) sim.EndTurn();
             var e = sim.Log.Events.Single(x => x.Type == "institution.collapse");
             Assert.NotEmpty(e.ImmediateCauses);
             Assert.Equal(InstitutionOutcome.Dissolved, sim.OutcomeOf(sim.World.Institution("house")));
@@ -223,7 +223,7 @@ namespace Butterfly.Core.Tests
             var guild = sim.World.Institution("guild");
             guild.Strength = 90; // far past its starting share of the Economy
             guild.Loyalty = 100;
-            for (int t = 0; t < 4; t++) sim.EndTurn();
+            while (sim.Now.Year < 156) sim.EndTurn();
             var strikes = sim.Log.Events.Where(x => x.Type == "rivalry.strike").ToList();
             Assert.NotEmpty(strikes); // the bank is the only rival (the house was never founded)
             Assert.All(strikes, x => Assert.Contains(sim.World.Institution("bank").Def.Leader, x.Actors));
