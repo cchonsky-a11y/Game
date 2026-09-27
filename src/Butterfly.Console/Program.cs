@@ -340,6 +340,7 @@ internal sealed class ConsoleGame
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         foreach (var n in _sim.HistoryNewsThisTurn()) Console.WriteLine("  News: " + n.Text + "   (news)");
+        foreach (var n in _sim.LocalNewsThisTurn()) Console.WriteLine("  On your street: " + n + "   (news)");
         foreach (var i in _sim.Backed())
             Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i) + ", strength " + F(i.Strength) +
                               " (" + F(_sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ")" + (_sim.Controls(i) ? ", loyalty " + F(i.Loyalty) : "") +

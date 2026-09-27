@@ -79,6 +79,7 @@ namespace Butterfly.Core
             Log.Record(Now, "turn.start", "clock", null, new[] { "world" }, null,
                 "Turn " + Turn + " begins: " + Now.Display + ".");
             RefreshAttention();
+            AdvanceLocalNews();
         }
 
         private void YearTick()

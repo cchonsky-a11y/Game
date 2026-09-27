@@ -1428,5 +1428,11 @@
       "value": 6.5,
       "ref": "PROPOSED P0-28: kilograms of wheat in a modius (about 8.7 litres)"
     }
+  },
+  "news": {
+    "localEveryMonths": {
+      "value": 4,
+      "ref": "PROPOSED P0-29"
+    }
   }
 }

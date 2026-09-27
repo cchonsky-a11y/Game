@@ -653,6 +653,50 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void LocalTalkComesOnCadenceTiedToYourWorldFirstAndEachOnce()
+        {
+            var data = TestData.Load();
+            var ids = data.Content.Institutions.Select(i => i.Id).ToHashSet();
+            foreach (var n in data.Content.LocalNews)
+                foreach (System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(n.Text, "\\{leader:([a-z]+)\\}"))
+                    Assert.Contains(m.Groups[1].Value, ids);
+
+            var sim = new Simulation(data, 5);
+            sim.ChooseSeeded("workshop");
+            var heard = new List<string>();
+            while (!sim.EraOver)
+            {
+                heard.AddRange(sim.LocalNewsThisTurn());
+                if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
+                sim.EndTurn();
+            }
+            Assert.Equal(heard.Count, heard.Distinct().Count());                       // each heard once
+            Assert.Contains(heard, h => h.Contains("odd new partner"));                  // the workshop you chose
+            Assert.DoesNotContain(heard, h => h.Contains("fixed the district fountain"));
+            Assert.DoesNotContain(heard, h => h.Contains("{"));
+            Assert.DoesNotContain(heard, h => h.Contains("Sabinus"));                   // never joined the guild
+            Assert.Contains(heard, h => h.StartsWith("Carts go through the Subura"));    // the plague reached the street
+            Assert.True(heard.IndexOf(heard.First(h => h.Contains("odd new partner"))) < 3);
+            Assert.Contains(sim.News(), l => l == "On your street:");
+        }
+
+        [Fact]
+        public void FestivalsComeInTheirMonth()
+        {
+            var sim = new Simulation(TestData.Load(), 5);
+            sim.ChooseSeeded("workshop");
+            while (sim.Now.Year < 156)
+            {
+                foreach (var h in sim.LocalNewsThisTurn())
+                {
+                    if (h.StartsWith("The Saturnalia")) Assert.Contains(sim.Now.Month, new[] { 10, 11 });
+                    if (h.StartsWith("The Ludi Romani")) Assert.Contains(sim.Now.Month, new[] { 7, 8 });
+                }
+                sim.EndTurn();
+            }
+        }
+
+        [Fact]
         public void TheMarketLineShowsTheCoinAndAfterAJumpHistoryIsSilent()
         {
             var sim = new Simulation(TestData.Load(), 3);

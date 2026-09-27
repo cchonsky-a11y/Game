@@ -1,28 +1,296 @@
 {
   "_comment": "The news of Rome (decided 2026-09-28): what history had happening in and around Rome, AD 155-175, heard as talk in the Forum. Text only: it changes nothing in the simulation, and the player meets these people only indirectly. The plague and the bust are not here: the simulation reports them. month is 1-12. Dates are the best-attested ones; where scholars differ, the text keeps to what is agreed.",
   "news": [
-    { "year": 155, "month": 1, "text": "Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember." },
-    { "year": 155, "month": 3, "text": "Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games." },
-    { "year": 160, "month": 9, "text": "Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted." },
-    { "year": 161, "month": 3, "text": "Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time." },
-    { "year": 161, "month": 4, "text": "The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin." },
-    { "year": 161, "month": 8, "text": "The empress Faustina gives birth to twin boys, Commodus and Antoninus." },
-    { "year": 161, "month": 10, "text": "The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves." },
-    { "year": 161, "month": 12, "text": "Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia." },
-    { "year": 162, "month": 5, "text": "Lucius Verus leaves Rome to take command against Parthia." },
-    { "year": 162, "month": 8, "text": "A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle." },
-    { "year": 163, "month": 9, "text": "Statius Priscus takes Artaxata, the capital of Armenia." },
-    { "year": 164, "month": 6, "text": "Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus." },
-    { "year": 165, "month": 12, "text": "Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia." },
-    { "year": 166, "month": 8, "text": "Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness." },
-    { "year": 166, "month": 10, "text": "Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected." },
-    { "year": 167, "month": 9, "text": "Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy." },
-    { "year": 168, "month": 4, "text": "Both emperors leave for Aquileia and the northern frontier." },
-    { "year": 169, "month": 1, "text": "Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone." },
-    { "year": 169, "month": 3, "text": "Galen is back in Rome at the emperor's command, to look after young Commodus." },
-    { "year": 169, "month": 6, "text": "Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months." },
-    { "year": 170, "month": 7, "text": "The Marcomanni and Quadi have broken through the Alps: Opitergium is burned and Aquileia besieged. It's the first enemy army in Italy in centuries." },
-    { "year": 172, "month": 5, "text": "Herdsmen of the Nile delta rise in revolt. Grain merchants at Ostia watch for the Alexandrian fleet, and Avidius Cassius is sent to put it down." },
-    { "year": 174, "month": 6, "text": "Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front." }
+    {
+      "year": 155,
+      "month": 1,
+      "text": "Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember."
+    },
+    {
+      "year": 155,
+      "month": 3,
+      "text": "Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games."
+    },
+    {
+      "year": 160,
+      "month": 9,
+      "text": "Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted."
+    },
+    {
+      "year": 161,
+      "month": 3,
+      "text": "Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time."
+    },
+    {
+      "year": 161,
+      "month": 4,
+      "text": "The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin."
+    },
+    {
+      "year": 161,
+      "month": 8,
+      "text": "The empress Faustina gives birth to twin boys, Commodus and Antoninus."
+    },
+    {
+      "year": 161,
+      "month": 10,
+      "text": "The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves."
+    },
+    {
+      "year": 161,
+      "month": 12,
+      "text": "Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia."
+    },
+    {
+      "year": 162,
+      "month": 5,
+      "text": "Lucius Verus leaves Rome to take command against Parthia."
+    },
+    {
+      "year": 162,
+      "month": 8,
+      "text": "A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle."
+    },
+    {
+      "year": 163,
+      "month": 9,
+      "text": "Statius Priscus takes Artaxata, the capital of Armenia."
+    },
+    {
+      "year": 164,
+      "month": 6,
+      "text": "Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus."
+    },
+    {
+      "year": 165,
+      "month": 12,
+      "text": "Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia."
+    },
+    {
+      "year": 166,
+      "month": 8,
+      "text": "Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness."
+    },
+    {
+      "year": 166,
+      "month": 10,
+      "text": "Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected."
+    },
+    {
+      "year": 167,
+      "month": 9,
+      "text": "Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy."
+    },
+    {
+      "year": 168,
+      "month": 4,
+      "text": "Both emperors leave for Aquileia and the northern frontier."
+    },
+    {
+      "year": 169,
+      "month": 1,
+      "text": "Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone."
+    },
+    {
+      "year": 169,
+      "month": 3,
+      "text": "Galen is back in Rome at the emperor's command, to look after young Commodus."
+    },
+    {
+      "year": 169,
+      "month": 6,
+      "text": "Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months."
+    },
+    {
+      "year": 170,
+      "month": 7,
+      "text": "The Marcomanni and Quadi have broken through the Alps: Opitergium is burned and Aquileia besieged. It's the first enemy army in Italy in centuries."
+    },
+    {
+      "year": 172,
+      "month": 5,
+      "text": "Herdsmen of the Nile delta rise in revolt. Grain merchants at Ostia watch for the Alexandrian fleet, and Avidius Cassius is sent to put it down."
+    },
+    {
+      "year": 174,
+      "month": 6,
+      "text": "Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front."
+    }
+  ],
+  "_localComment": "Local news (decided 2026-09-28): invented street-level talk, one item every news.localEveryMonths. Items tied to the player's world (when) come first; the rest follow in order; each is heard once. when: always (default), fountain, workshop, member:<institution id>, plague:warning, plague:outbreak, plague:passed, bust:warning, prices:<percent up since AD 155>. from / until: years. month (1-12): a festival, heard on the turn that covers that month, whatever the cadence. {leader:<id>} is that institution's leader now. Text only: changes nothing.",
+  "local": [
+    {
+      "text": "People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.",
+      "when": "fountain"
+    },
+    {
+      "text": "The smith at the forges tells anyone who'll listen about his odd new partner, who draws machines on wax tablets and never says where he learned it.",
+      "when": "workshop"
+    },
+    {
+      "text": "{leader:guild} complains at the baths that the grain ships from Alexandria are late again, and that the guild's warehouses at Ostia are half empty.",
+      "when": "member:guild"
+    },
+    {
+      "text": "The guild's feast for its patron god runs late into the night. {leader:guild} makes a long speech about honest weights; half the room is laughing.",
+      "when": "member:guild"
+    },
+    {
+      "text": "{leader:faction} has a new client at his morning greeting: a young lawyer from Africa who talks too fast. The faction's regulars are wary.",
+      "when": "member:faction"
+    },
+    {
+      "text": "{leader:faction} is pushing a young client for the praetorship. The Senate chooses, but a crowd cheering outside the Curia doesn't hurt, and the faction is paying for the wine.",
+      "when": "member:faction"
+    },
+    {
+      "text": "{leader:circle} tells her students she knew Galen's father, an architect in Pergamum, and that the son was always this insufferable.",
+      "when": "member:circle",
+      "from": 163
+    },
+    {
+      "text": "The healers of the Tiber Island sanctuary have a new crop of thank-offerings: clay feet, eyes and ears, left by people who got better.",
+      "when": "member:sanctuary"
+    },
+    {
+      "text": "{leader:bank} has moved his counting tables closer to the Temple of Castor. Depositors say it makes them feel safer; he says it's the light.",
+      "when": "member:bank"
+    },
+    {
+      "text": "{leader:junian} gives a dinner for three hundred. The Caecilians did not come.",
+      "when": "member:junian"
+    },
+    {
+      "text": "A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.",
+      "when": "plague:warning"
+    },
+    {
+      "text": "Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.",
+      "when": "plague:warning"
+    },
+    {
+      "text": "Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.",
+      "when": "plague:outbreak"
+    },
+    {
+      "text": "The baker who shouted every morning on the corner is gone; his wife bakes alone and says nothing. The queue is shorter than it was.",
+      "when": "plague:outbreak"
+    },
+    {
+      "text": "Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.",
+      "when": "plague:passed"
+    },
+    {
+      "text": "The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.",
+      "when": "prices:6"
+    },
+    {
+      "text": "Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.",
+      "when": "prices:12"
+    },
+    {
+      "text": "Shopkeepers are buying up stock with borrowed money; everyone says prices can only go up.",
+      "when": "bust:warning"
+    },
+    {
+      "text": "A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord."
+    },
+    {
+      "text": "Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it."
+    },
+    {
+      "text": "The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at."
+    },
+    {
+      "text": "The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious."
+    },
+    {
+      "text": "A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days."
+    },
+    {
+      "text": "Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'"
+    },
+    {
+      "text": "The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus."
+    },
+    {
+      "text": "The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them."
+    },
+    {
+      "text": "A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block."
+    },
+    {
+      "text": "Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own."
+    },
+    {
+      "text": "A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis."
+    },
+    {
+      "text": "The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.",
+      "month": 12
+    },
+    {
+      "text": "The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.",
+      "month": 1
+    },
+    {
+      "text": "The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.",
+      "month": 5
+    },
+    {
+      "text": "The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.",
+      "month": 9
+    },
+    {
+      "text": "The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway."
+    },
+    {
+      "text": "A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel."
+    },
+    {
+      "text": "A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward."
+    },
+    {
+      "text": "The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once."
+    },
+    {
+      "text": "A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs."
+    },
+    {
+      "text": "A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit."
+    },
+    {
+      "text": "A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters."
+    },
+    {
+      "text": "A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate."
+    },
+    {
+      "text": "The wine merchants say this year's Falernian is the best in a decade. They said the same last year."
+    },
+    {
+      "text": "A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor."
+    },
+    {
+      "text": "A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder."
+    },
+    {
+      "text": "A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen."
+    },
+    {
+      "text": "The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month."
+    },
+    {
+      "text": "A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine."
+    },
+    {
+      "text": "Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families."
+    },
+    {
+      "text": "A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame."
+    },
+    {
+      "text": "A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band."
+    }
   ]
 }
