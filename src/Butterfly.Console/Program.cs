@@ -554,6 +554,9 @@ internal sealed partial class ConsoleGame
             return;
         }
         var arrival = _sim.Jump();
+        // The jump is spent: a 'jump' at the arrival starts a new preparation, never a second jump at once
+        // (testers 2 and 6 jumped twice with one extra 'jump' and never saw their first arrival).
+        _jumpArmed = false;
         Console.WriteLine("\nThe machine shudders. Decades pass in the dark... It carries you " + arrival.JumpYears + " years.\n");
         foreach (var beat in arrival.Beats)
         {
@@ -575,7 +578,11 @@ internal sealed partial class ConsoleGame
     {
         Console.WriteLine("What you leave behind (" + _sim.Money(_sim.World.Gold) + " and " + _sim.AureiText(_sim.World.Aurei) + " in hand):");
         foreach (var line in _sim.DepartureBriefing()) Console.WriteLine("  • " + line);
-        Console.WriteLine("Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.");
+        // After an arrival there is no era to act in: only your gold can still be put away (tester 7 was offered paydown,
+        // endow, audit and exchange there, and 'bury' was refused).
+        Console.WriteLine(_sim.Arrived
+            ? "Prepare: deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay."
+            : "Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.");
     }
 
     private void AfterArrival(string cmd, string arg)
@@ -583,8 +590,15 @@ internal sealed partial class ConsoleGame
         if (cmd == "learn" || cmd == "more") Console.WriteLine(_sim.Arrival!.LearnMore());
         else if (cmd == "why") Console.WriteLine(Why.Explain(_sim, arg));
         else if (cmd == "jump" && _sim.CanJumpAgain) Jump();
+        else if ((cmd == "deposit" || cmd == "bury") && _sim.CanJumpAgain)
+        {
+            if (!double.TryParse(arg, NumberStyles.Float, CultureInfo.InvariantCulture, out var n)) { Console.WriteLine("Usage: " + cmd + " <aurei>"); return; }
+            var r = cmd == "deposit" ? _sim.Deposit(n) : _sim.Bury(n);
+            Console.WriteLine(r.Message);
+            if (_jumpArmed && r.Ok) Briefing();
+        }
         else if (cmd == "visit" || cmd == "walk") Console.WriteLine(Wrap(cmd == "walk" && arg == "" ? _sim.Data.Content.Template("walk.intro") : _sim.Visit(arg)));
-        else Console.WriteLine(_sim.CanJumpAgain ? "'visit <place>', 'learn more', 'jump' to go on, or 'quit'." : "The test is over. 'visit <place>', 'learn more' or 'quit'.");
+        else Console.WriteLine(_sim.CanJumpAgain ? "'visit <place>', 'learn more', 'jump' to go on (then 'deposit' or 'bury' gold you can't carry), or 'quit'." : "The test is over. 'visit <place>', 'learn more' or 'quit'.");
     }
 
     private static string Signed(double v) => (v >= 0 ? "+" : "") + v.ToString("0.#", CultureInfo.InvariantCulture);

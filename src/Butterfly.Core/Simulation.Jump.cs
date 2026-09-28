@@ -129,6 +129,13 @@ namespace Butterfly.Core
         /// </summary>
         public IEnumerable<string> DepartureBriefing()
         {
+            // After an arrival nothing in Rome can be changed any more: show only what the player can still act on.
+            if (Arrived)
+            {
+                yield return "The machine will carry you " + JumpRangeText() + "; exactly how far, you'll know when you arrive.";
+                foreach (var line in SavingsBriefing()) yield return line;
+                yield break;
+            }
             double rate = T.Get("debt.compoundRate");
             int cap = T.GetInt("debt.compoundingCapYearsAfterDeparture");
             foreach (var d in World.Domains.Where(x => x.Debt > 0))

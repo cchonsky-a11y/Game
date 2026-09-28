@@ -36,9 +36,13 @@ namespace Butterfly.Core
                 return CommandResult.Fail(deposit
                     ? "The banking house won't take more than " + AureiText(cap) + " from one depositor" + (held > 0 ? " (it holds " + AureiText(held) + " of yours)" : "") + ": too much gold draws attention it doesn't want."
                     : "One jar holds " + AureiText(cap) + " at most" + (held > 0 ? " (it already holds " + AureiText(held) + ")" : "") + "; a bigger hoard can't be hidden.");
-            var attention = CheckAttention(T.GetInt("savings.attention"));
-            if (attention != null) return attention;
-            SpendAttention(T.GetInt("savings.attention"));
+            // After an arrival there are no turns, so putting gold away before the next jump costs no Attention.
+            if (!Arrived)
+            {
+                var attention = CheckAttention(T.GetInt("savings.attention"));
+                if (attention != null) return attention;
+                SpendAttention(T.GetInt("savings.attention"));
+            }
             double before = World.Aurei;
             World.Aurei -= aurei;
             string key = deposit ? "savings.deposit" : "savings.hoard";
@@ -89,6 +93,9 @@ namespace Butterfly.Core
         /// <summary>At departure: the machine takes what it can carry; the rest in hand is lost.</summary>
         private void SavingsAtDeparture(Arrival arrival)
         {
+            // A new absence: what befell the gold on the last one doesn't carry over to what you put away now.
+            _depositLost = _hoardLost = false;
+            _depositReturned = 0;
             arrival.AureiCarried = Math.Min(World.Aurei, CarryAurei);
             arrival.AureiLeft = World.Aurei - arrival.AureiCarried;
             arrival.AureiDeposited = World.DepositAurei;
@@ -129,13 +136,13 @@ namespace Butterfly.Core
         {
             double carried = Math.Min(World.Aurei, CarryAurei), left = World.Aurei - carried;
             yield return "Your gold: the machine can carry " + AureiText(CarryAurei) + "; you hold " + AureiText(World.Aurei) +
-                         (left >= 1 ? ", so " + AureiText(left) + " would be left behind and lost (deposit <n> or bury <n>, 1 Attention each; the bank takes up to " + AureiText(T.Get("savings.depositCapAurei")) + ", a jar holds " + AureiText(T.Get("savings.hoardCapAurei")) + ")." : ".");
+                         (left >= 1 ? ", so " + AureiText(left) + " would be left behind and lost (deposit <n> or bury <n>" + (Arrived ? "" : ", 1 Attention each") + "; the bank takes up to " + AureiText(T.Get("savings.depositCapAurei")) + ", a jar holds " + AureiText(T.Get("savings.hoardCapAurei")) + ")." : ".");
             if (World.DepositAurei >= 1)
                 yield return "  With the banking house: " + AureiText(World.DepositAurei) + ", earning " + F(T.Get("savings.depositInterestPerYear") * 100) +
                              "% a year in gold; risk the house fails or embezzles: " + RiskBand(DepositLossChance()) + ".";
             if (World.HoardAurei >= 1)
                 yield return "  Buried: " + AureiText(World.HoardAurei) + "; risk someone finds it: " + RiskBand(T.Get("savings.hoardFoundPerDecade")) + " (more the longer you're gone).";
-            if (World.Gold >= 1) yield return "  Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).";
+            if (World.Gold >= 1 && !Arrived) yield return "  Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).";
         }
     }
 }

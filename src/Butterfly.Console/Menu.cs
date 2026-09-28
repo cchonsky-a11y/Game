@@ -62,7 +62,16 @@ internal sealed partial class ConsoleGame
         foreach (var place in new[] { "market", "changers", "forges", "curia", "subura" }) walk.Item2.Add((place, "visit " + place));
         var more = Group("Then");
         more.Item2.Add(("learn more (the Index and your institutions)", "learn more"));
-        if (_sim.CanJumpAgain) more.Item2.Add(("jump again", "jump"));
+        if (_sim.CanJumpAgain)
+        {
+            double over = Math.Floor(_sim.World.Aurei - _sim.CarryAurei);
+            if (_jumpArmed && over >= 1)
+            {
+                more.Item2.Add(("deposit " + _sim.AureiText(over) + " with the bank", "deposit " + F(over)));
+                more.Item2.Add(("bury " + _sim.AureiText(over), "bury " + F(over)));
+            }
+            more.Item2.Add((_jumpArmed ? "jump (go now)" : "jump again", "jump"));
+        }
         more.Item2.Add(("quit", "quit"));
         return new List<(string, List<(string, string)>)> { walk, more };
     }
