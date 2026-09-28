@@ -268,6 +268,63 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>One effect of a decision event's option (data/content/events.json).</summary>
+    public sealed class EventEffect
+    {
+        public string Type { get; }
+        public double Value { get; }
+        public string? Domain { get; }
+        public string? Institution { get; }
+
+        public EventEffect(JsonObject o)
+        {
+            Type = o.Str("type");
+            Value = o.Num("value");
+            Domain = o.StrOr("domain", null);
+            Institution = o.StrOr("institution", null);
+        }
+    }
+
+    public sealed class EventOptionDef
+    {
+        public string Id { get; }
+        public string Label { get; }
+        public string Text { get; }
+        public IReadOnlyList<EventEffect> Effects { get; }
+
+        public EventOptionDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Label = o.Str("label");
+            Text = o.Str("text");
+            Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new EventEffect(x)).ToList();
+        }
+    }
+
+    /// <summary>A dated decision (P0-33) or a leader's request (P0-32): a choice with costs, on its date if its requirement holds.</summary>
+    public sealed class EventDef
+    {
+        public string Id { get; }
+        public int Year { get; }
+        public int Month { get; }
+        public string Requires { get; }
+        public string Title { get; }
+        public string Text { get; }
+        public IReadOnlyList<EventOptionDef> Options { get; }
+        public SimTime Time => SimTime.FromYear(Year, Month - 1);
+
+        public EventDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Year = (int)o.Num("year");
+            Month = (int)o.Num("month");
+            Requires = o.StrOr("requires", "any") ?? "any";
+            Title = o.Str("title");
+            Text = o.Str("text");
+            Options = o.Arr("options").Cast<JsonObject>().Select(x => new EventOptionDef(x)).ToList();
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
@@ -283,6 +340,8 @@ namespace Butterfly.Core
         public IReadOnlyList<NewsDef> News { get; }
         /// <summary>Local talk, in authored order (optional).</summary>
         public IReadOnlyList<LocalNewsDef> LocalNews { get; }
+        /// <summary>Decision events and leaders' requests, in date order (optional file).</summary>
+        public IReadOnlyList<EventDef> Events { get; private set; } = new List<EventDef>();
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
@@ -337,7 +396,10 @@ namespace Butterfly.Core
                 var obj = textObj.Obj(section);
                 foreach (var key in obj.Keys) text[section + "." + key] = obj.Str(key);
             }
-            return new Content(projects, institutions, machine, upgrades, assessment, inventions, news, local, text);
+            var content = new Content(projects, institutions, machine, upgrades, assessment, inventions, news, local, text);
+            if (File.Exists(Path.Combine(contentDirectory, "events.json")))
+                content.Events = Read(contentDirectory, "events.json").Arr("events").Cast<JsonObject>().Select(o => new EventDef(o)).OrderBy(e => e.Time.TotalMonths).ToList();
+            return content;
         }
 
         public ProjectDef? Project(string id) => Projects.FirstOrDefault(p => p.Id == id);

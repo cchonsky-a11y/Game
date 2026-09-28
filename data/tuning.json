@@ -1628,5 +1628,11 @@
       ],
       "ref": "DECIDED 2026-09-28 (Corey: make ordinary membership pay a little more); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by membership or office (the better of this and a voice's 25%)"
     }
+  },
+  "events": {
+    "lapseTurns": {
+      "value": 3,
+      "ref": "DECIDED 2026-09-28 (Corey: decision events, P0-33); amount PROPOSED P0-33: turns a choice waits before it passes you by (its last option)"
+    }
   }
 }

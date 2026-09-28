@@ -36,6 +36,8 @@ namespace Butterfly.Batch
         /// <summary>Camps, offices, last orders (P0-32): which camp it prefers, how keen it is on office, and whether it leaves orders.</summary>
         public int CampLean;
         public double OfficeAppetite, OrdersRate;
+        /// <summary>How it answers Rome's choices (P0-33): generous (first option), profit (second), random, or ignores them.</summary>
+        public string EventStyle = "";
         public int MachineStartYear;
 
         public string Engagement => Join.Count + (Found != null ? 1 : 0) == 0 ? "none" : Join.Count + (Found != null ? 1 : 0) <= 2 ? "light" : "heavy";
@@ -77,6 +79,7 @@ namespace Butterfly.Batch
             p.CampLean = r.NextInt(0, 3);          // 0 the first camps, 1 the second, 2 mixed
             p.OfficeAppetite = r.NextDouble();
             p.OrdersRate = r.NextDouble();
+            p.EventStyle = new[] { "generous", "profit", "random", "ignore" }[r.NextInt(0, 4)];
             return p;
         }
 
@@ -334,6 +337,12 @@ namespace Butterfly.Batch
             // Live on the scavenged gold until the machine needs it back.
             if (w.Aurei >= 1 && sim.MachineGoldRestored < 1 && (w.Gold < 20 || r.Chance(0.3))) Do(sim, res, () => sim.SellAurei(w.Aurei));
 
+            // Rome's choices (P0-33): answered by temperament; one it can't afford falls back to the last option.
+            if (sim.PendingEvent is EventDef ev && p.EventStyle != "ignore")
+            {
+                int pick = p.EventStyle == "generous" ? 0 : p.EventStyle == "profit" ? Math.Min(1, ev.Options.Count - 1) : r.NextInt(0, ev.Options.Count);
+                if (!Do(sim, res, () => sim.Decide(ev.Options[pick].Id))) Do(sim, res, () => sim.Decide(ev.Options[ev.Options.Count - 1].Id));
+            }
             // Offers of office: taken or declined by temperament (P0-32); an office that starves the player of Attention is given up.
             foreach (var i in w.Institutions.Where(x => x.OfferedRank > 0).ToList())
                 Do(sim, res, () => sim.AnswerOffice(i.Key, r.Chance(p.OfficeAppetite)));
@@ -612,6 +621,7 @@ namespace Butterfly.Batch
             Group("Founded an institution", x => x.Persona.Found ?? "none");
             Group("First jump", x => x.Jump1Year < 167 ? "before the plague (<167)" : x.Jump1Year < 175 ? "mid (167-174)" : "late (175+)");
             Group("Work style", x => x.Persona.WorkStyle);
+            Group("Answers to Rome's choices", x => x.Persona.EventStyle);
 
             var founders = results.Where(x => x.FoundedYear > 0).ToList();
             if (founders.Count > 0)

@@ -15,7 +15,7 @@ namespace Butterfly.Core
         {
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
             "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",
-            "bust.warning", "bust.outbreak", "bust.toll", "machine.step", "machine.assessed", "invention.complete", "office.offer"
+            "bust.warning", "bust.outbreak", "bust.toll", "machine.step", "machine.assessed", "invention.complete", "office.offer", "event.offer"
         };
 
         private int _turnEventStart = 1;
@@ -37,6 +37,7 @@ namespace Butterfly.Core
             if (SeededChoiceOpen) reasons.Add("the first choice: fountain or workshop");
             if (World.Promise.Status == PromiseStatus.Offered) reasons.Add("Demetria's request");
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
+            if (PendingEvent != null) reasons.Add(PendingEvent.Title.ToLowerInvariant());
             if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this turn");
             if (AffordableInvestment()) reasons.Add("money to invest");
             if (EraOver) reasons.Add("the era's " + EraYears + " years are over");

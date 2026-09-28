@@ -61,6 +61,7 @@ namespace Butterfly.Core
             SavingsAtDeparture(arrival);
             TagEchoes(arrival, depart.Id);
             // Last orders (P0-32): given once, when you first leave Rome; on a later jump they are older and weigh less.
+            LapsePendingEvent();
             if (JumpsMade == 0) ApplyLastOrders(depart.Id);
             else foreach (var i in World.Institutions) i.OrderForce *= T.Get("offices.laterJumpOrderShare");
             if (JumpsMade == 0)

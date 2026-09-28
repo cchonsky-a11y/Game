@@ -133,6 +133,7 @@ internal sealed class ConsoleGame
   attend <inst> [camp]           attend a meeting and vote for one of its two camps (1 Attention; twice a year earns extra seniority)
   office accept|decline <inst>   answer an offer of office (offices weigh more in votes and cost Attention in duties)
   resign <inst>                  step down from an office
+  decide <option>                answer a choice Rome puts to you (it passes you by after a few turns)
   orders <inst> <camp> [1|2]     your last orders: the camp to back when you leave (and, from the head's seat, who succeeds you)
   found <school|club|house>      found your own institution: you control it, but it starts small and may fail
   invest <inst> <denarii>        build up an institution you control (2 Attention)
@@ -266,6 +267,7 @@ internal sealed class ConsoleGame
                     : _sim.AnswerOffice(parts[2], arg == "accept");
                 break;
             case "resign": r = _sim.Resign(arg); break;
+            case "decide": r = _sim.Decide(arg); break;
             case "orders":
                 r = parts.Length < 3 ? CommandResult.Fail("Usage: orders <inst> <camp> [1|2]   (the camp to back when you leave; from the head's seat, the successor to name)")
                     : _sim.Orders(arg, parts[2], parts.Length > 3 && int.TryParse(parts[3], out var succ) ? succ : (int?)null);
@@ -361,6 +363,13 @@ internal sealed class ConsoleGame
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         foreach (var n in _sim.HistoryNewsThisTurn()) Console.WriteLine("  News: " + n.Text + "   (news)");
+        if (_sim.PendingEvent is EventDef ev)
+        {
+            // A decision event or a leader's request (P0-33, P0-32).
+            Console.WriteLine("  ► " + ev.Title + ". " + ev.Text);
+            foreach (var o in ev.Options)
+                Console.WriteLine("      decide " + o.Id.PadRight(8) + " " + o.Label + (_sim.EventCost(o) > 0 ? " (" + _sim.Money(_sim.EventCost(o)) + ")" : ""));
+        }
         foreach (var n in _sim.LocalNewsThisTurn()) Console.WriteLine("  On your street: " + n + "   (news)");
         foreach (var i in _sim.Backed())
             Console.WriteLine("  " + Simulation.Cap(i.Def.ShortName) + " (" + i.Leader + "): you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i) + ", strength " + F(i.Strength) +

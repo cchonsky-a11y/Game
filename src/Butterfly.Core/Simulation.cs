@@ -80,6 +80,7 @@ namespace Butterfly.Core
                 "Turn " + Turn + " begins: " + Now.Display + ".");
             RefreshAttention();
             AdvanceLocalNews();
+            AdvanceEvents();
         }
 
         private void YearTick()

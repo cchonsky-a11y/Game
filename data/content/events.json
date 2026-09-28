@@ -1,0 +1,141 @@
+{
+  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32, moved to step 4). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins), plagueResilience. Amounts are PROPOSED P0-33.",
+  "events": [
+    {
+      "id": "flood",
+      "year": 161, "month": 10,
+      "requires": "any",
+      "title": "The Tiber floods",
+      "text": "The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.",
+      "options": [
+        { "id": "relief", "label": "pay for relief in the Subura", "text": "You buy dry bread and pay for boats; the Subura remembers who came.",
+          "effects": [ { "type": "gold", "value": -30 }, { "type": "level", "domain": "governance", "value": 2 }, { "type": "level", "domain": "medicine", "value": 1 }, { "type": "loyalty", "institution": "circle", "value": 6 } ] },
+        { "id": "profit", "label": "buy the spoiled grain cheap and sell it dear", "text": "You buy soaked grain for nothing, dry it at the forges and sell it at flood prices.",
+          "effects": [ { "type": "gold", "value": 40 }, { "type": "debt", "domain": "governance", "value": 4 }, { "type": "loyalty", "institution": "circle", "value": -8 } ] },
+        { "id": "none", "label": "stay out of it", "text": "The water goes down in a week. The emperors pay for the relief themselves.", "effects": [] }
+      ]
+    },
+    {
+      "id": "galen",
+      "year": 162, "month": 8,
+      "requires": "any",
+      "title": "Galen comes to Rome",
+      "text": "A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.",
+      "options": [
+        { "id": "sponsor", "label": "sponsor his demonstrations", "text": "You pay for the hall and the animals. Galen is grateful for a week and insufferable ever after, but half the young physicians of Rome now know where the nerves run.",
+          "effects": [ { "type": "gold", "value": -20 }, { "type": "level", "domain": "medicine", "value": 3 }, { "type": "loyalty", "institution": "circle", "value": -10 }, { "type": "loyalty", "institution": "sanctuary", "value": 3 } ] },
+        { "id": "circle", "label": "side with the Circle against him", "text": "You tell anyone who asks that the Circle's physicians treat patients, not pigs. Demetria is pleased.",
+          "effects": [ { "type": "loyalty", "institution": "circle", "value": 8 }, { "type": "level", "domain": "medicine", "value": -1 } ] },
+        { "id": "none", "label": "stay out of it", "text": "Galen finds other patrons.", "effects": [] }
+      ]
+    },
+    {
+      "id": "levy",
+      "year": 162, "month": 6,
+      "requires": "member",
+      "title": "A levy for the Parthian war",
+      "text": "Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.",
+      "options": [
+        { "id": "pay", "label": "pay your share of the levy", "text": "You pay; your name is read out with the others.",
+          "effects": [ { "type": "gold", "value": -20 }, { "type": "loyalty", "institution": "members", "value": 5 } ] },
+        { "id": "duck", "label": "find a reason not to", "text": "You plead poverty. Nobody believes you.",
+          "effects": [ { "type": "loyalty", "institution": "members", "value": -6 } ] }
+      ]
+    },
+    {
+      "id": "auction",
+      "year": 169, "month": 6,
+      "requires": "any",
+      "title": "Marcus auctions the palace treasures",
+      "text": "Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.",
+      "options": [
+        { "id": "buy", "label": "buy a gold cup at a bargain", "text": "You come home with a cup of solid gold, bought below its weight. The faction approves of anyone who helps the emperor.",
+          "effects": [ { "type": "gold", "value": -40 }, { "type": "aurei", "value": 45 }, { "type": "loyalty", "institution": "faction", "value": 4 } ] },
+        { "id": "relief", "label": "fund bread and physicians for the poor instead", "text": "While the rich bid for crystal, you pay for bread in the Subura and a physician at the Tiber Island.",
+          "effects": [ { "type": "gold", "value": -30 }, { "type": "level", "domain": "medicine", "value": 1 }, { "type": "level", "domain": "governance", "value": 2 }, { "type": "loyalty", "institution": "sanctuary", "value": 5 } ] },
+        { "id": "none", "label": "stay out of it", "text": "The sale runs for two months without you.", "effects": [] }
+      ]
+    },
+    {
+      "id": "invasion",
+      "year": 170, "month": 7,
+      "requires": "any",
+      "title": "The invasion scare",
+      "text": "Word comes that the Marcomanni have crossed the Alps. At Ostia merchants are dumping stock for whatever they can get and hiding their silver.",
+      "options": [
+        { "id": "hold", "label": "hold firm and buy what the others are dumping", "text": "You buy warehouse shares at panic prices. When the scare passes, they pay.",
+          "effects": [ { "type": "gold", "value": -30 }, { "type": "income", "value": 3 }, { "type": "level", "domain": "economy", "value": 1 }, { "type": "loyalty", "institution": "guild", "value": 3 } ] },
+        { "id": "sell", "label": "sell out while you still can", "text": "You sell early and well. The panic is worse for it.",
+          "effects": [ { "type": "gold", "value": 25 }, { "type": "level", "domain": "economy", "value": -2 }, { "type": "loyalty", "institution": "guild", "value": -5 } ] },
+        { "id": "none", "label": "wait it out", "text": "The army holds Aquileia. The panic passes.", "effects": [] }
+      ]
+    },
+    {
+      "id": "fleet",
+      "year": 172, "month": 5,
+      "requires": "any",
+      "title": "The grain fleet is late",
+      "text": "The herdsmen of the Nile delta are in revolt and the Alexandrian fleet hasn't come. Bread is dear and getting dearer.",
+      "options": [
+        { "id": "share", "label": "open your stores and fund the dole", "text": "You sell at last year's price and pay for bread for the poorest streets.",
+          "effects": [ { "type": "gold", "value": -25 }, { "type": "level", "domain": "governance", "value": 2 }, { "type": "level", "domain": "medicine", "value": 1 }, { "type": "loyalty", "institution": "circle", "value": 5 } ] },
+        { "id": "hoard", "label": "hold your grain and sell at the top", "text": "You sell when bread is dearest. You make a great deal of money and no friends.",
+          "effects": [ { "type": "gold", "value": 35 }, { "type": "debt", "domain": "governance", "value": 5 }, { "type": "loyalty", "institution": "circle", "value": -8 }, { "type": "loyalty", "institution": "junian", "value": -5 } ] },
+        { "id": "none", "label": "stay out of it", "text": "The fleet arrives in the autumn.", "effects": [] }
+      ]
+    },
+    {
+      "id": "praetor",
+      "year": 158, "month": 3,
+      "requires": "member:faction",
+      "title": "Varro's client for praetor",
+      "text": "Senator Varro wants a young client of his made praetor. The Senate decides, but a crowd and a little money help. He asks what you'll give.",
+      "options": [
+        { "id": "back", "label": "back his client with money and a crowd", "text": "Your man is made praetor. Varro remembers; so do the Junians.",
+          "effects": [ { "type": "gold", "value": -20 }, { "type": "loyalty", "institution": "faction", "value": 10 }, { "type": "loyalty", "institution": "junian", "value": -10 }, { "type": "lean", "institution": "faction", "value": -0.1 } ] },
+        { "id": "refuse", "label": "refuse: the office should go on merit", "text": "Varro smiles thinly. The reformers in his faction are glad someone said it.",
+          "effects": [ { "type": "loyalty", "institution": "faction", "value": -6 }, { "type": "lean", "institution": "faction", "value": 0.15 } ] }
+      ]
+    },
+    {
+      "id": "sanctuaryWing",
+      "year": 160, "month": 9,
+      "requires": "member:sanctuary",
+      "title": "A new wing for the Tiber Island",
+      "text": "Herennius Asper asks the sanctuary's donors for a new building. The priests want a temple wing for the god; the healers want a clinic with beds.",
+      "options": [
+        { "id": "temple", "label": "pay for the temple wing", "text": "The priests hang your name on a bronze plaque by the altar.",
+          "effects": [ { "type": "gold", "value": -20 }, { "type": "loyalty", "institution": "sanctuary", "value": 8 }, { "type": "lean", "institution": "sanctuary", "value": -0.2 } ] },
+        { "id": "clinic", "label": "pay for the clinic", "text": "Twelve beds, a cistern and a room for boiling linen. The priests are cool about it; the sick aren't.",
+          "effects": [ { "type": "gold", "value": -20 }, { "type": "level", "domain": "medicine", "value": 2 }, { "type": "lean", "institution": "sanctuary", "value": 0.2 } ] },
+        { "id": "none", "label": "give nothing this time", "text": "The donors build a smaller wing without you.", "effects": [ { "type": "loyalty", "institution": "sanctuary", "value": -3 } ] }
+      ]
+    },
+    {
+      "id": "cartel",
+      "year": 164, "month": 5,
+      "requires": "member:guild",
+      "title": "Sabinus's grain arrangement",
+      "text": "Sabinus proposes that the guild's big houses agree on a price for Alexandrian grain at Ostia, and asks you to sign. It would make you money.",
+      "options": [
+        { "id": "join", "label": "sign the arrangement", "text": "The price is fixed; your share comes in every quarter. Bread costs a little more in Rome.",
+          "effects": [ { "type": "income", "value": 4 }, { "type": "level", "domain": "economy", "value": -2 }, { "type": "loyalty", "institution": "guild", "value": 8 }, { "type": "lean", "institution": "guild", "value": -0.25 } ] },
+        { "id": "refuse", "label": "refuse, and speak for open prices", "text": "You say in the guild hall that a free market fed Rome for two hundred years. Sabinus doesn't forgive it; the free traders cheer.",
+          "effects": [ { "type": "loyalty", "institution": "guild", "value": -8 }, { "type": "lean", "institution": "guild", "value": 0.2 }, { "type": "level", "domain": "economy", "value": 1 } ] }
+      ]
+    },
+    {
+      "id": "treasuryLoan",
+      "year": 167, "month": 3,
+      "requires": "member:bank",
+      "title": "A loan to the treasury",
+      "text": "With the plague and the war, the treasury needs money. Octavius Crispus will lend it at a handsome rate if respectable depositors vouch for the house.",
+      "options": [
+        { "id": "vouch", "label": "vouch for the loan", "text": "The house lends; the interest is good. The bank's clerks begin to talk like officials.",
+          "effects": [ { "type": "income", "value": 3 }, { "type": "loyalty", "institution": "bank", "value": 8 }, { "type": "lean", "institution": "bank", "value": -0.25 } ] },
+        { "id": "refuse", "label": "refuse: a bank that lends to the state answers to it", "text": "Crispus lends anyway, a little less. The partners who want an honest counting house take note of you.",
+          "effects": [ { "type": "loyalty", "institution": "bank", "value": -6 }, { "type": "lean", "institution": "bank", "value": 0.2 } ] }
+      ]
+    }
+  ]
+}
