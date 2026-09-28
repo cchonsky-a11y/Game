@@ -135,7 +135,7 @@ namespace Butterfly.Core
             return CommandResult.Success("Meetings this year: " + inst.MeetingsThisYear + (inst.MeetingsThisYear >= needed
                 ? " (an active member: extra seniority this year)." : " (" + needed + " make you an active member, for extra seniority).") +
                 (vote != null ? " You spoke for " + CampName(inst, vote.Value) + "." : " You didn't take a side (attend " + inst.Key + " " + string.Join("|", inst.Def.DriftPaths.Select(p => p.Id)) + ").") +
-                " " + (lead == null ? "Neither camp leads yet." : CampName(inst, lead.Value) + " lead" + (lead == YourCamp(inst) ? ", as you want." : ".")));
+                " " + (lead == null ? "Neither camp leads yet." : "Leading now: " + CampName(inst, lead.Value) + (lead == (vote ?? YourCamp(inst)) ? ", as you want." : ".")));
         }
 
         /// <summary>

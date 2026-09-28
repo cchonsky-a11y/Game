@@ -150,7 +150,7 @@ namespace Butterfly.Core
                     yield return i.OrderCamp >= 0
                         ? "Your last orders for " + i.Def.ShortName + ": back " + CampName(i, i.OrderCamp) + (i.OrderSuccessor >= 0 ? ", " + i.Def.Successors[i.OrderSuccessor].Name + " to lead it" : "") +
                           " — " + OrdersBand(LastOrderForce(i)) + " weight (" + OrdersWhy(i) + ")."
-                        : "No last orders for " + i.Def.ShortName + " (" + (lead == null ? "neither camp leads" : CampName(i, lead.Value) + " lead") + "): orders " + i.Key + " " +
+                        : "No last orders for " + i.Def.ShortName + " (" + (lead == null ? "neither camp leads" : "leading now: " + CampName(i, lead.Value)) + "): orders " + i.Key + " " +
                           string.Join("|", i.Def.DriftPaths.Select(p => p.Id)) + ((i.Def.IsOwn || i.Rank >= Head) && i.Def.Successors.Count > 0 ? " [1|2 to name who succeeds you: " + SuccessorList(i) + "]" : "") + ".";
                 }
             int window = T.GetInt("institutions.holdings.windowYears");

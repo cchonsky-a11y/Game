@@ -132,5 +132,25 @@ namespace Butterfly.Core.Tests
             Assert.DoesNotContain("1 aurei", text);
             Assert.Equal("0 aurei", Simulation.Aurei(0));
         }
+    
+        [Fact]
+        public void TheCampSentenceStartsWithACapitalAndFollowsYourVote()
+        {
+            // Tester 7: "You spoke for the Infirmary of the Island. the Keepers of the Island Shrine lead."
+            // Tester 6: voting for the Free Traders was answered "the Ostia Grain Cartel lead, as you want."
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.World.Gold = 5000;
+            Assert.True(sim.Buy("sanctuary", 1).Ok);
+            var inst = sim.World.Institution("sanctuary");
+            string msg = "";
+            for (int k = 0; k < 6; k++)
+            {
+                msg = sim.Attend("sanctuary", inst.Def.DriftPaths[k < 5 ? 0 : 1].Id).Message;
+                sim.EndTurn();
+            }
+            Assert.DoesNotMatch(@"\. [a-z]", msg);
+            Assert.Contains("Leading now: ", msg);
+            Assert.DoesNotContain("as you want", msg);   // this vote went to the other camp
+        }
     }
 }
