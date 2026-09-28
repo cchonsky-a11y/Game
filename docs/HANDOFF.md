@@ -23,7 +23,7 @@ A turn-based historical strategy game about a stranded time traveler: Rome, AD 1
 ## 3. Commands
 ```
 dotnet build
-dotnet test                                                                 # ~290 tests incl. determinism + snapshot
+dotnet test                                                                 # ~300 tests incl. determinism, snapshot, console
 dotnet run --project src/Butterfly.Console -- --seed 42                     # play; numbered menu; 'help'
 dotnet run --project src/Butterfly.Console -- --seed 42 --inputs f.txt --checks c.txt   # scripted run + harness checks
 dotnet run --project src/Butterfly.Batch -- --runs 100 --out playtests/batch-report.md # 7 strategies × early/late gate
@@ -62,25 +62,26 @@ python3 playtests/ai/live/play.py setup                                     # li
 ## 6. Live blind AI playtesters
 Advisory only: they find bugs and unclear text; they are not gate evidence. The setup, the prompt and the ten personas are in `playtests/ai/live/tester-prompt.md`. Reports go in `playtests/ai/live/reports/<date>/`.
 
-**2026-09-28 round (seeds 611–620):** only tester 7 finished (the impatient early jumper, 5/10; report in `reports/2026-09-28/t7.md`). The other nine were interrupted by usage limits around AD 160–163 and resumed in the original session. If their reports never landed in the repo, rerun that round with new seeds.
+**2026-09-28 round (seeds 611–620):** three testers finished: t2 (history buff, 8/10), t6 (profit-seeker, 7/10) and t7 (early jumper, 5/10). Their reports are in `reports/2026-09-28/`. The other seven were stopped by usage limits partway through the era; rerun them with new seeds.
 
-## 7. Open work queue (ordered; check DECISIONS.md for anything newer)
-**Bugs and text** (fix freely, add a test, note in `playtests/ai/bugs.md`). All from tester 7:
-1. The menu label `join sanctuary` is not a command: typing it gives "Unknown command". Either accept `join <inst>` as an alias of `buy` or relabel the menu.
-2. The two arrival descriptions of the workshop contradict each other: Recognition says "It is a stable now" while `visit forges` says "shrunk to a single cold forge". A second arrival says "fallen in" while forges repeats "single cold forge". One fate should drive both texts.
-3. "1 aurei" should be "1 aureus" (Discovery beat, buried-gold lines). The jump screen already gets it right.
-4. At the second jump, the prep line offers `bury`, `deposit`, `paydown`, `endow` and `exchange`, but after an arrival only `visit`, `learn more`, `jump` and `quit` work, so gold is lost. Either allow bury/deposit there or stop offering them.
-5. The second jump screen shows large domain debts and paydown costs when the player has no denarii and no actions. Hide them, or explain why they're shown.
-6. The lowercase "the" in "You spoke for the Infirmary of the Island. the Keepers of the Island Shrine lead."
-7. The second arrival's Personal echo mentions Demetria ("Demetria's list…") to a player who never met her. Introduce her, or pick another echo.
-8. The fountain wording "you repaired later" / "you repaired late" reads oddly.
-9. The first arrival can land in AD 189, during that year's plague recurrence, but only `learn more` mentions it. The arrival beats and `visit subura` should show a city mid-epidemic.
+**Next round (proposed):** 50 testers, seeds 701–750, in five cohorts of 10: optimization, casual/onboarding, roleplay, systems specialists, and adversarial/edge cases. Run it only after the open bugs below are fixed and CI is green. Report:
+- completion rate and first-jump year;
+- how many met the plague and Demetria;
+- participation in institutions, policy, workshop and inventions;
+- common confusion, and unsupported commands players tried;
+- remembered Echoes, and what players believe they caused;
+- ratings, and whether they want another jump.
 
-**Design observations** (report to Corey; don't change without his decision):
-- **Leaving early is very easy.** The machine's 60 aurei were back by turn 6 through consulting. The 9 repair steps run in parallel, and one sanctuary membership made several free. The player left in AD 159 and skipped the plague, the promise and Rome's choices.
-- **The fountain feels weak:** +1 Medicine for 900 denarii.
-- **The Curia's text is identical on both arrivals** ("as it ever was").
-- **Older G-items** in `playtests/ai/bugs.md` may be stale; check each against the current code before acting.
+Keep bugs apart from design notes.
+
+## 7. Open work queue (ordered; check DECISIONS.md and `playtests/ai/bugs.md` for anything newer)
+**Done 2026-09-28:** A1–A10 from the first live round, plus a crash on `jump` `jump` with an unready machine (see `playtests/ai/bugs.md`, "Live blind testers").
+
+**Bugs and text** (fix freely, one per commit, each with a test): **L1–L18** in `playtests/ai/bugs.md`. Start with L1–L4; they cost players turns or loyalty without warning.
+
+**Stale scripts:** the 24 scripts in `playtests/ai/scripts/` predate the rule that the machine must be repaired before a jump, so none reaches an arrival. Rewrite them to assess, repair and restore the gold. Their saved transcripts are older still.
+
+**Design observations** (report to Corey; don't change without his decision): listed at the end of the "Live blind testers" section of `playtests/ai/bugs.md`. They cover leaving early, consulting's dominance, the middle-years grind, repeated office offers, the fountain's value, the Curia text, and a question about deposits after an arrival.
 
 **Waiting on Corey:** the human playtest results. After them come the gate review, DECISIONS entries and a rewrite of PROTOTYPE_SCOPE for P2.
 
