@@ -11,8 +11,15 @@
 - Promise to Demetria (accepted / refused / unanswered) and why:
 - Did they use `why`? For what? Did the explanation make sense to them?
 - Did they avoid improving a domain to keep expectations low? (quote)
-- When did they jump (year)? Did they read the pre-jump briefing? Did they pay down, endow or audit?
-- Reaction to each arrival beat:
+- When did they jump (year)? Did they read the pre-jump briefing? Did they pay down, endow or audit? Did they leave last orders?
+- Did they found an institution? Which, and when? Did they join others, rise to an office?
+- Policy: did they find `policy` or `advocate`? Which stances, and why?
+- Workshop (if they had it): orders vs odd work, apprentices, expanding; what they said about Tertius's requests.
+- Rome's choices (flood, Galen, the levy, the auction, the invasion scare, the grain fleet, leaders' requests): what they chose and why.
+- Menu: numbers or typed commands?
+- Reaction to each arrival beat (first arrival):
+- Did they walk around (`visit`)? Which places, and what did they notice?
+- Second jump: did they take it? Reaction to the second arrival:
   - Recognition:
   - Wrongness:
   - Personal echo:

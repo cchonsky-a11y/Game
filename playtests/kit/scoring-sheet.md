@@ -15,7 +15,8 @@ Automated criteria (copy from `../batch-report.md` and `dotnet test`):
 | Criterion | Result |
 |---|---|
 | Determinism | |
-| Balance A–D | |
+| Balance A–D (FreeMarket exempt; early-jump founding left to testers, decided 2026-09-28) | |
+| Snapshot (reference playthrough unchanged) | |
 | Debt pacing (accepted risk → Strained in 2–3 years; warnings before outbreak) | |
 | Institution decay (≈6 / 37 / 62 after 250 years) | |
 
