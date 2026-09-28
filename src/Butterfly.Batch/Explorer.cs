@@ -133,6 +133,9 @@ namespace Butterfly.Batch
         public int MaxRank = -1;
         /// <summary>The workshop at departure and on arrival (P0-34); "" if the player never owned one.</summary>
         public int Apprentices, OrdersTaken, WorkshopSize;
+        /// <summary>For the foundry diagnosis: had the water-powered bellows at departure; gold then (AD 155 aurei).</summary>
+        public bool HadBellows;
+        public double GoldAtDeparture;
         public string WorkshopFate1 = "";
         /// <summary>Founding diagnostics: founded (year or 0), collapsed (year or 0), rival strikes taken, gold invested, strength at departure or collapse, years it lasted.</summary>
         public int FoundedYear, CollapsedYear, RivalStrikes, Invests;
@@ -209,6 +212,8 @@ namespace Butterfly.Batch
                 res.Memberships = sim.World.Institutions.Count(i => i.Backed && !i.Def.IsOwn);
                 res.Answers = sim.EventAnswers.ToList();
                 res.WorkshopSize = sim.WorkshopSize;
+                res.HadBellows = sim.World.Invented.Contains("bellows");
+                res.GoldAtDeparture = sim.World.Gold;
                 var a1 = sim.Jump();
                 if (sim.OwnsWorkshop) res.WorkshopFate1 = sim.WorkshopFate();
                 res.IndexDeparture = a1.IndexBefore;
@@ -691,6 +696,10 @@ namespace Butterfly.Batch
             }
             Cross("Policy style meant → policy in force at departure", x => x.Persona.PolicyStyle, x => x.PolicyInForce);
             Cross("Meant to found → founded (and kept to departure)", x => x.Persona.Found ?? "none", x => x.FoundedYear == 0 ? "never founded" : x.FoundedAlive ? "founded, kept" : "founded, failed");
+            Cross("Aimed at the workshop size → where it stopped", x => "aimed at size " + x.Persona.SizeTarget,
+                x => x.WorkshopFate1 == "" ? "0 no workshop" : x.WorkshopSize >= 4 ? "4 foundry" : x.WorkshopSize == 3 && x.HadBellows ? "3 works + bellows" : x.WorkshopSize == 3 ? "3 works, no bellows" : x.HadBellows ? "1-2 with bellows" : "1-2 no bellows");
+            Cross("Aimed at a foundry and joined the guild or bank → where it stopped", x => x.Persona.SizeTarget < 4 ? "not aiming" : x.Persona.Join.Contains("guild") || x.Persona.Join.Contains("bank") ? "aimed, joins guild/bank" : "aimed, doesn't join them",
+                x => x.WorkshopFate1 == "" ? "0 no workshop" : x.WorkshopSize >= 4 ? "4 foundry" : x.WorkshopSize == 3 ? "3 works" : x.WorkshopSize == 2 ? "2 yard" : "1 smithy");
             Cross("Memberships at departure → highest stake", x => x.Memberships.ToString(CultureInfo.InvariantCulture), x => x.MaxStake == 0 ? "0 none" : x.MaxStake < 10 ? "1 under 10%" : x.MaxStake < 25 ? "2 10-24%" : x.MaxStake < 50 ? "3 25-49%" : "4 50%+");
             // Each answer to each of Rome's choices, against not being asked or letting it pass.
             sb.AppendLine("**Each answer to Rome's choices** (mean Index at the first arrival; 'passed' = not asked or let it lapse)");

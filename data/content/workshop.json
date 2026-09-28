@@ -1,12 +1,12 @@
 {
-  "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34. Sizes (decided 2026-09-28, Corey: upgrade the workshop, a ladder of sizes): each step up costs gold (AD 155 aurei, scaled by prices), Attention once, and turns to build, needs something from Rome, and adds yearly upkeep; an upkeep you can't pay shrinks the workshop one size. requires: 'member:a|b' (a member of either), 'influence:<domain>' (10% of an institution in that domain), 'invented:<id>'. Orders with minSize come only to a workshop that big.",
+  "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34. Sizes (decided 2026-09-28, Corey: upgrade the workshop, a ladder of sizes): each step up costs gold (AD 155 aurei, scaled by prices), Attention once, and turns to build, needs something from Rome, and adds yearly upkeep; an upkeep you can't pay shrinks the workshop one size. requires: 'member:a|b' (a member of either), 'influence:<domain>' (10% of an institution in that domain), 'invented:<id>'. Orders with minSize come only to a workshop that big. Trimmed 2026-09-28 (Corey): size output +7/+20/+33% (was +10/+30/+50); orders take more Attention (2, ironwork and contracts 3) and pay a little more, so per Attention they pay less than odd work but bring standing and effects. requires may list alternatives separated by '||'; 'stake:<id>' means 10% of that institution.",
   "smith": "Tertius",
   "orders": [
     {
       "id": "fittings",
       "name": "ship fittings for the guild",
-      "attention": 1,
-      "pay": 5,
+      "attention": 2,
+      "pay": 8,
       "text": "Tertius forges cleats, chain and rudder pins for a guild ship at Ostia.",
       "effects": [
         {
@@ -19,8 +19,8 @@
     {
       "id": "tools",
       "name": "tools and barrows for the builders",
-      "attention": 1,
-      "pay": 4,
+      "attention": 2,
+      "pay": 6.5,
       "text": "Picks, trowels and barrow wheels go out to the builders of the Subura.",
       "effects": [
         {
@@ -33,8 +33,8 @@
     {
       "id": "instruments",
       "name": "instruments for the physicians",
-      "attention": 1,
-      "pay": 4,
+      "attention": 2,
+      "pay": 6.5,
       "text": "Probes, scalpels and a bone saw, polished bright, for the physicians.",
       "effects": [
         {
@@ -52,8 +52,8 @@
     {
       "id": "ironwork",
       "name": "ironwork for a senator's villa",
-      "attention": 2,
-      "pay": 12,
+      "attention": 3,
+      "pay": 16,
       "text": "Gates, lamp brackets and a bronze-capped railing for a senator's villa on the Esquiline. It pays very well and does nobody else any good.",
       "effects": [
         {
@@ -72,8 +72,8 @@
       "id": "contract",
       "name": "iron for the public works",
       "minSize": 4,
-      "attention": 2,
-      "pay": 30,
+      "attention": 3,
+      "pay": 36,
       "text": "Cast pipe for an aqueduct branch and cramps for a bridge: the Curia pays late, but it pays.",
       "effects": [
         {
@@ -120,7 +120,7 @@
       "offered": 3,
       "perSeason": 2,
       "apprenticeMax": 6,
-      "output": 0.1
+      "output": 0.07
     },
     {
       "size": 3,
@@ -128,16 +128,16 @@
       "name": "the works on the river",
       "description": "A yard on the river with a third forge and a water wheel to work the bellows.",
       "buildText": "The wheel turns in the race and the bellows breathe on their own; the works on the river is lit.",
-      "cost": 80,
+      "cost": 60,
       "attention": 3,
       "turns": 3,
-      "requires": "influence:governance",
-      "requiresText": "10% of a Senate faction or your club (a water right from the Curia)",
+      "requires": "influence:governance||stake:guild",
+      "requiresText": "a water right: 10% of a Senate faction or your club, or 10% of the guild (Ostia's river trade)",
       "upkeep": 3,
       "offered": 3,
       "perSeason": 2,
       "apprenticeMax": 6,
-      "output": 0.3
+      "output": 0.2
     },
     {
       "size": 4,
@@ -145,16 +145,16 @@
       "name": "the foundry",
       "description": "A furnace hall that casts iron, big enough for public works.",
       "buildText": "The first iron runs from the furnace hall in a white stream. The works is a foundry now.",
-      "cost": 100,
+      "cost": 70,
       "attention": 3,
-      "turns": 4,
+      "turns": 3,
       "requires": "invented:bellows",
       "requiresText": "the water-powered bellows (invention)",
       "upkeep": 5,
       "offered": 4,
       "perSeason": 3,
       "apprenticeMax": 8,
-      "output": 0.5
+      "output": 0.33
     }
   ]
 }

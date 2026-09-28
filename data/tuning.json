@@ -1802,8 +1802,8 @@
         "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each workshop or mechanics invention adds this to what an apprentice carries"
       },
       "sizeWeight": {
-        "value": 0.25,
-        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy raises what the apprentices carry by this share"
+        "value": 0.17,
+        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy raises what the apprentices carry by this share; trimmed 2026-09-28 (Corey; was 0.25)"
       },
       "years": {
         "value": 50,
@@ -1816,8 +1816,8 @@
         "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the workshop's fate on arrival: each technique counts this much (apprentices count 1)"
       },
       "sizeWeight": {
-        "value": 0.75,
-        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy adds this to the workshop's fate score"
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy adds this to the workshop's fate score; trimmed 2026-09-28 (Corey; was 0.75)"
       },
       "regardPer": {
         "value": 25,

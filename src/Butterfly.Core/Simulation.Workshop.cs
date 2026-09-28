@@ -47,7 +47,13 @@ namespace Butterfly.Core
 
         public bool WorkshopRequirementHolds(string requires)
         {
+            if (requires.Contains("||")) return requires.Split(new[] { "||" }, StringSplitOptions.RemoveEmptyEntries).Any(r => WorkshopRequirementHolds(r.Trim()));
             if (requires == "none") return true;
+            if (requires.StartsWith("stake:", StringComparison.Ordinal))
+            {
+                var parts = requires.Substring(6).Split(':');
+                return HasInfluence(World.Institution(parts[0]));
+            }
             if (requires.StartsWith("member:", StringComparison.Ordinal))
                 return requires.Substring(7).Split('|').Any(id => World.Institution(id).Backed);
             if (requires.StartsWith("influence:", StringComparison.Ordinal) && DomainInfo.TryParseDomain(requires.Substring(10), out var d))
