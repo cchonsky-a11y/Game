@@ -14,6 +14,9 @@ namespace Butterfly.Core
     {
         private readonly HashSet<string> _eventsSeen = new HashSet<string>();
         private string? _pendingEvent;
+        /// <summary>The choices you made yourself (not lapsed), in the order made: what Rome may remember at arrival.</summary>
+        private readonly List<(EventDef Event, EventOptionDef Option)> _eventChoices = new List<(EventDef, EventOptionDef)>();
+        private readonly HashSet<string> _marksShown = new HashSet<string>();
         private int _pendingSinceTurn;
 
         public EventDef? PendingEvent => _pendingEvent == null ? null : Data.Content.Events.First(e => e.Id == _pendingEvent);
@@ -75,6 +78,7 @@ namespace Butterfly.Core
         private void Resolve(EventDef e, EventOptionDef o, bool lapsed)
         {
             _pendingEvent = null;
+            if (!lapsed) _eventChoices.Add((e, o));
             var ev = Record("event.decide", e.Id, null, new[] { lapsed ? "world" : "player" }, null,
                 e.Title + ": " + (lapsed ? "you let it pass (" + o.Label + "). " : "you chose to " + o.Label + ". ") + o.Text);
             var causes = new[] { ev.Id };
@@ -130,6 +134,38 @@ namespace Butterfly.Core
                     default: throw new InvalidOperationException("Unknown event effect: " + fx.Type);
                 }
             }
+        }
+
+        /// <summary>
+        /// What your answers left in Rome (P0-33, revised 2026-09-28): up to events.marksPerArrival lines for the Personal echo,
+        /// present conditions only. A later arrival shows the choices not yet shown first, in their aged form.
+        /// </summary>
+        private List<string> EventMarks(bool later)
+        {
+            var lines = new List<string>();
+            var candidates = _eventChoices.Where(c => c.Option.Mark != null)
+                .OrderBy(c => later && _marksShown.Contains(c.Event.Id) ? 1 : 0).ToList();
+            foreach (var (e, o) in candidates)
+            {
+                if (lines.Count >= T.GetInt("events.marksPerArrival")) break;
+                string? line;
+                if (o.MarkInstitution != null)
+                {
+                    var i = World.Institution(o.MarkInstitution);
+                    bool standing = i.Exists && !i.Collapsed && OutcomeOf(i) != InstitutionOutcome.Dissolved;
+                    line = standing ? (later ? o.Mark2 ?? o.Mark : o.Mark) : (later ? o.MarkGone2 ?? o.MarkGone : o.MarkGone);
+                    if (line != null && standing)
+                    {
+                        string name = CurrentName(i);
+                        line = line.Replace("{inst}", name).Replace("{Inst}", Cap(name));
+                    }
+                }
+                else line = later ? o.Mark2 ?? o.Mark : o.Mark;
+                if (line == null) continue;
+                _marksShown.Add(e.Id);
+                lines.Add(line);
+            }
+            return lines;
         }
 
         private IEnumerable<Institution> EventInstitutions(string? id) =>

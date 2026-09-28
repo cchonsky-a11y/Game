@@ -1630,6 +1630,10 @@
     }
   },
   "events": {
+    "marksPerArrival": {
+      "value": 2,
+      "ref": "DECIDED 2026-09-28 (Corey: tie the answers to the arrival); amount PROPOSED P0-33: how many of your answers to Rome's choices the Personal echo shows at one arrival"
+    },
     "lapseTurns": {
       "value": 3,
       "ref": "DECIDED 2026-09-28 (Corey: decision events, P0-33); amount PROPOSED P0-33: turns a choice waits before it passes you by (its last option)"

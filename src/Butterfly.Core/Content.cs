@@ -291,6 +291,13 @@ namespace Butterfly.Core
         public string Label { get; }
         public string Text { get; }
         public IReadOnlyList<EventEffect> Effects { get; }
+        /// <summary>What this choice leaves in Rome, shown at the first and a later arrival (P0-33); null leaves no mark.</summary>
+        public string? Mark { get; }
+        public string? Mark2 { get; }
+        /// <summary>The institution the mark lives in: it shows only while that institution stands, else MarkGone.</summary>
+        public string? MarkInstitution { get; }
+        public string? MarkGone { get; }
+        public string? MarkGone2 { get; }
 
         public EventOptionDef(JsonObject o)
         {
@@ -298,6 +305,11 @@ namespace Butterfly.Core
             Label = o.Str("label");
             Text = o.Str("text");
             Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new EventEffect(x)).ToList();
+            Mark = o.StrOr("mark", null);
+            Mark2 = o.StrOr("mark2", null);
+            MarkInstitution = o.StrOr("markInstitution", null);
+            MarkGone = o.StrOr("markGone", null);
+            MarkGone2 = o.StrOr("markGone2", null);
         }
     }
 

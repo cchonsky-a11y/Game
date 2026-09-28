@@ -88,5 +88,77 @@ namespace Butterfly.Core.Tests
                 Assert.InRange(e.Year, 155, 175);
             }
         }
-    }
+    
+        private static Simulation AtFlood()
+        {
+            var sim = Until(161, 10);
+            if (sim.PendingEvent?.Id != "flood") sim.EndTurn();
+            Assert.Equal("flood", sim.PendingEvent!.Id);
+            return sim;
+        }
+
+        private static string Personal(Arrival a) => a.Beats.First(b => b.Name == "Personal echo").Text;
+
+        [Fact]
+        public void RomeRemembersYourAnswerAtArrival()
+        {
+            var sim = AtFlood();
+            sim.World.Gold = 1000;
+            Assert.True(sim.Decide("relief").Ok);
+            var first = Personal(sim.JumpForTests());
+            Assert.Contains("hospes", first);
+            var second = Personal(sim.JumpForTests());
+            Assert.Contains("walked on the water", second);           // the same choice, aged
+            Assert.DoesNotContain("hospes", second);
+        }
+
+        [Fact]
+        public void AChoiceYouLetPassLeavesNoMark()
+        {
+            var sim = AtFlood();
+            for (int t = 0; t < sim.T.GetInt("events.lapseTurns"); t++) sim.EndTurn();
+            var personal = Personal(sim.JumpForTests());
+            Assert.DoesNotContain("hospes", personal);
+            Assert.DoesNotContain("drying his grain", personal);
+        }
+
+        [Fact]
+        public void AMarkInAnInstitutionShowsItsPresentNameOrThatItIsGone()
+        {
+            foreach (bool gone in new[] { false, true })
+            {
+                var sim = Until(160, 9, 53);
+                var sanctuary = sim.World.Institution("sanctuary");
+                sanctuary.Stake = 0.05; sanctuary.Rank = Simulation.Member; sanctuary.Loyalty = 60;
+                while (sim.PendingEvent?.Id != "sanctuaryWing" && sim.Now.Year < 161) { if (sim.PendingEvent != null) sim.Decide(sim.PendingEvent.Options.Last().Id); sim.EndTurn(); }
+                Assert.Equal("sanctuaryWing", sim.PendingEvent!.Id);
+                sim.World.Gold = 1000;
+                Assert.True(sim.Decide("clinic").Ok);
+                if (gone) sanctuary.Collapsed = true;
+                var personal = Personal(sim.JumpForTests());
+                Assert.Contains(gone ? "stands empty" : "twenty beds", personal);
+                Assert.DoesNotContain("{", personal);
+            }
+        }
+
+        [Fact]
+        public void AtMostTheSetNumberOfMarksPerArrival()
+        {
+            var sim = new Simulation(TestData.Load(), 54);
+            sim.ChooseSeeded("workshop");
+            sim.World.Institution("sanctuary").Stake = 0.05;
+            sim.World.Institution("sanctuary").Rank = Simulation.Member;
+            while (sim.Now.Year < 173)
+            {
+                if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
+                sim.World.Gold = 5000;
+                if (sim.PendingEvent != null) sim.Decide(sim.PendingEvent.Options.First().Id);
+                sim.EndTurn();
+            }
+            var marks = sim.Data.Content.Events.SelectMany(e => e.Options).Where(o => o.Mark != null).Select(o => o.Mark!.Substring(0, 20)).ToList();
+            var personal = Personal(sim.JumpForTests());
+            int shown = marks.Count(m => personal.Contains(m));
+            Assert.InRange(shown, 1, sim.T.GetInt("events.marksPerArrival"));
+        }
+}
 }

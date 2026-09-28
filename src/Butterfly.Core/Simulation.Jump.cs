@@ -436,6 +436,8 @@ namespace Butterfly.Core
                 string name = standing ? CurrentName(founded) : founded.Def.Name;
                 personal += " " + text.Template(Key("personal", standing ? "founder" : "founderGone"), new Dictionary<string, string>(values) { { "founded", name }, { "Founded", Cap(name) } });
             }
+            // What your answers to Rome's choices left behind (P0-33).
+            foreach (var mark in EventMarks(later)) personal += " " + mark;
             arrival.Beats.Add(new ArrivalBeat("Personal echo", personal));
 
             // 4. Discovery — what the institutions became.
