@@ -44,6 +44,8 @@ namespace Butterfly.Batch
         public int ApprenticeTarget;
         /// <summary>How big it means to grow the workshop (1 smithy .. 4 foundry).</summary>
         public int SizeTarget;
+        /// <summary>How readily it argues for its policy without a voice (advocacy, decided 2026-09-28).</summary>
+        public double AdvocacyRate;
 
         public string Engagement => Join.Count + (Found != null ? 1 : 0) == 0 ? "none" : Join.Count + (Found != null ? 1 : 0) <= 2 ? "light" : "heavy";
 
@@ -85,9 +87,11 @@ namespace Butterfly.Batch
             p.OfficeAppetite = r.NextDouble();
             p.OrdersRate = r.NextDouble();
             p.EventStyle = new[] { "generous", "profit", "random", "ignore" }[r.NextInt(0, 4)];
+            if (p.EventStyle == "random" && r.Chance(0.5)) p.EventStyle = r.Chance(0.5) ? "principled" : "loyal";
             p.OrderRate = r.Chance(0.25) ? 0 : r.NextDouble();
             p.ApprenticeTarget = r.NextInt(0, 5);
             p.SizeTarget = r.NextInt(1, 5);
+            p.AdvocacyRate = r.Chance(0.4) ? 0 : r.NextDouble();
             return p;
         }
 
@@ -195,7 +199,8 @@ namespace Butterfly.Batch
                 res.Bust = sim.World.Bust.Busts > 0;
                 res.Jump1Year = sim.Now.Year;
                 int austrian = Simulation.Issues.Count(i => sim.Stance(i) > 0), interv = Simulation.Issues.Count(i => sim.Stance(i) < 0);
-                res.PolicyInForce = !sim.World.Institutions.Any(i => i.Def.Maintains == Domain.Governance && sim.HasVoice(i)) ? "no voice (history)" :
+                res.PolicyInForce = !sim.World.Institutions.Any(i => i.Def.Maintains == Domain.Governance && sim.HasVoice(i))
+                    ? (sim.World.Advocating && (austrian > 0 || interv > 0) ? "advocacy only (" + (interv == 0 ? "free market" : austrian == 0 ? "interventionist" : "mixed") + ")" : "no voice (history)") :
                     austrian > 0 && interv == 0 ? "free market" : interv > 0 && austrian == 0 ? "interventionist" : austrian > 0 ? "mixed" : "voice, as history";
                 res.MaxStake = sim.World.Institutions.Select(i => sim.StakePercent(i)).DefaultIfEmpty(0).Max();
                 res.BothFactions = sim.StakePercent(sim.World.Institution("faction")) >= 10 && sim.StakePercent(sim.World.Institution("junian")) >= 10;
@@ -360,7 +365,9 @@ namespace Butterfly.Batch
             // Rome's choices (P0-33): answered by temperament; one it can't afford falls back to the last option.
             if (sim.PendingEvent is EventDef ev && p.EventStyle != "ignore")
             {
-                int pick = p.EventStyle == "generous" ? 0 : p.EventStyle == "profit" ? Math.Min(1, ev.Options.Count - 1) : r.NextInt(0, ev.Options.Count);
+                // Answer by temperament, using each option's style (generous, profit, principled, loyal); none of that kind: stay out.
+                int pick = p.EventStyle == "random" ? r.NextInt(0, ev.Options.Count) : ev.Options.ToList().FindIndex(o => o.Style == p.EventStyle);
+                if (pick < 0) pick = ev.Options.Count - 1;
                 if (!Do(sim, res, () => sim.Decide(ev.Options[pick].Id))) Do(sim, res, () => sim.Decide(ev.Options[ev.Options.Count - 1].Id));
             }
             // Offers of office: taken or declined by temperament (P0-32); an office that starves the player of Attention is given up.
@@ -453,7 +460,12 @@ namespace Butterfly.Batch
             {
                 var issue = Simulation.Issues[k];
                 int stance = p.Stances[k];
-                if (sim.Stance(issue) != stance && r.Chance(0.5)) actions.Add((1.5, () => Do(sim, res, () => sim.SetPolicy(issue, stance))));
+                if (sim.Stance(issue) != stance && r.Chance(0.5))
+                {
+                    if (sim.PolicyHold()) actions.Add((1.5, () => Do(sim, res, () => sim.SetPolicy(issue, stance))));
+                    // Without a voice, argue for it (decided 2026-09-28): some players do, some wait for a voice.
+                    else if (r.Chance(p.AdvocacyRate) && sim.AdvocacyCost() <= w.Gold - Reserve(sim)) actions.Add((1, () => Do(sim, res, () => sim.Advocate(issue, stance))));
+                }
             }
             for (int d = 0; d < 3; d++)
             {

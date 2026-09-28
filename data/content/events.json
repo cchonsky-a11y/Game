@@ -1,236 +1,1019 @@
 {
-  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Amounts are PROPOSED P0-33.",
+  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Styles and stacking (decided 2026-09-28, Corey): each option has a style (generous, profit, principled, loyal, aloof); an option can set flags (sets) that later effects check (if: a flag, not:<flag>, or own:<id> for an institution you founded that stands); stake effects give members of the institution percentage points of stake, resilience adds to plague resilience. Profiteer twice and the street turns against you; give generously three times and it seeks you out (tuning events.street). Amounts are PROPOSED P0-33 and P0-36.",
   "events": [
     {
       "id": "designs",
-      "year": 163, "month": 4,
+      "year": 163,
+      "month": 4,
       "requires": "workshop",
       "title": "Tertius wants to sell your designs",
       "text": "The guild's shipwrights have seen what comes out of your workshop, and they'll pay well for the patterns. Tertius wants to sell. 'We'd still make them,' he says. 'Just not only us.'",
       "options": [
-        { "id": "sell", "label": "let him sell the designs to the guild", "text": "The guild pays in gold and gratitude. Within a year every forge at Ostia turns out what only yours could.",
-          "effects": [ { "type": "gold", "value": 45 }, { "type": "loyalty", "institution": "guild", "value": 6 }, { "type": "workshop", "value": -0.15 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+        {
+          "id": "sell",
+          "label": "let him sell the designs to the guild",
+          "style": "profit",
+          "text": "The guild pays in gold and gratitude. Within a year every forge at Ostia turns out what only yours could.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": 45
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 6
+            },
+            {
+              "type": "workshop",
+              "value": -0.15
+            },
+            {
+              "type": "smith",
+              "value": 10
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1.5
+            },
+            {
+              "type": "stake",
+              "institution": "guild",
+              "value": 2
+            }
+          ],
           "mark": "Every forge at Ostia still makes the ship fittings you once drew on wax. The shipwrights call them 'Tertian' after the smith; nobody has heard your name.",
-          "mark2": "Ship fittings of the old Tertian pattern are made from Ostia to Carthage now. The pattern has a guild of its own." },
-        { "id": "keep", "label": "keep the designs in the workshop", "text": "Tertius takes it badly. 'You want to be rich, or you want to be the only one?' He locks the patterns away all the same.",
-          "effects": [ { "type": "smith", "value": -12 } ] }
+          "mark2": "Ship fittings of the old Tertian pattern are made from Ostia to Carthage now. The pattern has a guild of its own."
+        },
+        {
+          "id": "keep",
+          "label": "keep the designs in the workshop",
+          "style": "loyal",
+          "text": "Tertius takes it badly. 'You want to be rich, or you want to be the only one?' He locks the patterns away all the same.",
+          "effects": [
+            {
+              "type": "smith",
+              "value": -12
+            }
+          ]
+        }
       ]
     },
     {
       "id": "riverForge",
-      "year": 168, "month": 4,
+      "year": 168,
+      "month": 4,
       "requires": "workshopBelow:3",
       "title": "Tertius wants a forge on the river",
       "text": "Tertius has found a yard on the river with room for a third forge and a water wheel to work the bellows. He can't afford it alone. The guild would lend, for a say in the business.",
       "options": [
-        { "id": "fund", "label": "pay for the river forge yourself", "text": "You pay; a third fire is lit by the river, the wheel works the bellows, and the workshop is half as big again and still yours.",
-          "effects": [ { "type": "gold", "value": -45 }, { "type": "workshopSize", "value": 3 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1 } ],
+        {
+          "id": "fund",
+          "label": "pay for the river forge yourself",
+          "style": "loyal",
+          "text": "You pay; a third fire is lit by the river, the wheel works the bellows, and the workshop is half as big again and still yours.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -45
+            },
+            {
+              "type": "workshopSize",
+              "value": 3
+            },
+            {
+              "type": "smith",
+              "value": 10
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1
+            }
+          ],
           "mark": "Down by the river the forge you paid for still turns its water wheel. The yard has your old workshop's sign over the gate: three fires.",
-          "mark2": "The river forge has become a works: six hearths, a wheel on each race. The sign over the gate still shows three fires." },
-        { "id": "guild", "label": "let him borrow from the guild", "text": "The guild lends; its men sit in on the workshop's accounts now and take their cut. It grows, but it answers to Ostia as much as to you.",
-          "effects": [ { "type": "workshopSize", "value": 3 }, { "type": "workshop", "value": -0.15 }, { "type": "smith", "value": 5 }, { "type": "loyalty", "institution": "guild", "value": 4 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+          "mark2": "The river forge has become a works: six hearths, a wheel on each race. The sign over the gate still shows three fires."
+        },
+        {
+          "id": "guild",
+          "label": "let him borrow from the guild",
+          "style": "profit",
+          "text": "The guild lends; its men sit in on the workshop's accounts now and take their cut. It grows, but it answers to Ostia as much as to you.",
+          "effects": [
+            {
+              "type": "workshopSize",
+              "value": 3
+            },
+            {
+              "type": "workshop",
+              "value": -0.15
+            },
+            {
+              "type": "smith",
+              "value": 5
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 4
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1.5
+            },
+            {
+              "type": "stake",
+              "institution": "guild",
+              "value": 2
+            }
+          ],
           "mark": "The forge by the river flies the guild's pennant. Its foreman has never heard of the partner who drew machines on wax.",
-          "mark2": "The river forge belongs to the guild outright now, one of a dozen." },
-        { "id": "refuse", "label": "tell him no", "text": "Tertius stays where he is. He doesn't mention it again, and he doesn't forget it. (You could still build the works yourself, with a water right from the Curia.)",
-          "effects": [ { "type": "smith", "value": -10 } ] }
+          "mark2": "The river forge belongs to the guild outright now, one of a dozen."
+        },
+        {
+          "id": "refuse",
+          "label": "tell him no",
+          "style": "aloof",
+          "text": "Tertius stays where he is. He doesn't mention it again, and he doesn't forget it. (You could still build the works yourself, with a water right from the Curia.)",
+          "effects": [
+            {
+              "type": "smith",
+              "value": -10
+            }
+          ]
+        }
       ]
     },
     {
       "id": "flood",
-      "year": 161, "month": 10,
+      "year": 161,
+      "month": 10,
       "requires": "any",
       "title": "The Tiber floods",
       "text": "The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.",
       "options": [
-        { "id": "relief", "label": "pay for relief in the Subura", "text": "You buy dry bread and pay for boats; the Subura remembers who came.",
-          "effects": [ { "type": "gold", "value": -40 }, { "type": "level", "domain": "governance", "value": 3 }, { "type": "level", "domain": "medicine", "value": 1.5 }, { "type": "loyalty", "institution": "circle", "value": 8 } ],
+        {
+          "id": "relief",
+          "label": "pay for relief in the Subura",
+          "style": "generous",
+          "text": "You buy dry bread and pay for boats; the Subura remembers who came.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -40
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 3
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": 1.5
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": 8
+            },
+            {
+              "type": "stake",
+              "institution": "circle",
+              "value": 2
+            },
+            {
+              "type": "loyalty",
+              "institution": "sanctuary",
+              "value": 4
+            },
+            {
+              "type": "stake",
+              "institution": "sanctuary",
+              "value": 1
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": 4
+            }
+          ],
           "mark": "In the Subura the flood line of AD 161 is still painted on a wall at the height of a man's chest, and beside it someone has scratched a boat and a word you can just read: hospes, the stranger.",
-          "mark2": "The flood line in the Subura is plastered over. A girl playing by the wall tells you about a stranger who came with boats when the river rose; in her version he walked on the water." },
-        { "id": "profit", "label": "buy the spoiled grain cheap and sell it dear", "text": "You buy soaked grain for nothing, dry it at the forges and sell it at flood prices.",
-          "effects": [ { "type": "gold", "value": 60 }, { "type": "debt", "domain": "governance", "value": 6 }, { "type": "loyalty", "institution": "circle", "value": -10 } ],
+          "mark2": "The flood line in the Subura is plastered over. A girl playing by the wall tells you about a stranger who came with boats when the river rose; in her version he walked on the water.",
+          "sets": [
+            "suburaTrust"
+          ]
+        },
+        {
+          "id": "profit",
+          "label": "buy the spoiled grain cheap and sell it dear",
+          "style": "profit",
+          "text": "You buy soaked grain for nothing, dry it at the forges and sell it at flood prices.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": 60
+            },
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 6
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": -10
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 3
+            }
+          ],
           "mark": "When bread is dear in the Subura, people say someone is 'drying his grain at the forges'. You hear it twice before noon.",
-          "mark2": "'Drying grain at the forges' is still a curse in the Subura. Nobody you ask knows where it comes from." },
-        { "id": "none", "label": "stay out of it", "text": "The water goes down in a week. The emperors pay for the relief themselves.", "effects": [] }
+          "mark2": "'Drying grain at the forges' is still a curse in the Subura. Nobody you ask knows where it comes from."
+        },
+        {
+          "id": "none",
+          "label": "stay out of it",
+          "style": "aloof",
+          "text": "The water goes down in a week. The emperors pay for the relief themselves.",
+          "effects": []
+        }
       ]
     },
     {
       "id": "galen",
-      "year": 162, "month": 8,
+      "year": 162,
+      "month": 8,
       "requires": "any",
       "title": "Galen comes to Rome",
       "text": "A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.",
       "options": [
-        { "id": "sponsor", "label": "sponsor his demonstrations", "text": "You pay for the hall and the animals. Galen is grateful for a week and insufferable ever after, but half the young physicians of Rome now know where the nerves run.",
-          "effects": [ { "type": "gold", "value": -25 }, { "type": "level", "domain": "medicine", "value": 4.5 }, { "type": "loyalty", "institution": "circle", "value": -12 }, { "type": "loyalty", "institution": "sanctuary", "value": 4 } ],
+        {
+          "id": "sponsor",
+          "label": "sponsor his demonstrations",
+          "style": "principled",
+          "text": "You pay for the hall and the animals. Galen is grateful for a week and insufferable ever after, but half the young physicians of Rome now know where the nerves run.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -25
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": 4.5
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": -12
+            },
+            {
+              "type": "loyalty",
+              "institution": "sanctuary",
+              "value": 4
+            },
+            {
+              "type": "stake",
+              "institution": "sanctuary",
+              "value": 2
+            },
+            {
+              "type": "resilience",
+              "value": 0.04
+            }
+          ],
           "mark": "On the Tiber Island a physician draws the nerves of the arm on a wax tablet for his students. Behind him, on the wall, is a painted notice of a demonstration in a hall you once paid for; nobody has taken it down.",
-          "mark2": "The physicians of Rome all teach from the same drawings of the nerves now, copied so often the lines have gone soft. Nobody remembers who paid for the first hall." },
-        { "id": "circle", "label": "side with the Circle against him", "text": "You tell anyone who asks that the Circle's physicians treat patients, not pigs. Demetria is pleased.",
-          "effects": [ { "type": "loyalty", "institution": "circle", "value": 10 }, { "type": "level", "domain": "medicine", "value": -1.5 } ],
+          "mark2": "The physicians of Rome all teach from the same drawings of the nerves now, copied so often the lines have gone soft. Nobody remembers who paid for the first hall.",
+          "sets": [
+            "galen"
+          ]
+        },
+        {
+          "id": "circle",
+          "label": "side with the Circle against him",
+          "style": "loyal",
+          "text": "You tell anyone who asks that the Circle's physicians treat patients, not pigs. Demetria is pleased.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": 10
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": -1.5
+            },
+            {
+              "type": "stake",
+              "institution": "circle",
+              "value": 3
+            }
+          ],
           "markInstitution": "circle",
           "mark": "At {inst} the physicians still boast that none of them ever cut open a pig to learn medicine. They say it as if someone important once agreed with them.",
           "mark2": "At {inst} they still won't cut. A young physician tells you, lowering his voice, that across the river they learn from the dead and lose fewer patients.",
           "markGone": "The Physicians' Circle that scorned the man from Pergamum is gone. His books are in every physician's house.",
-          "markGone2": "Nobody in Rome remembers there was ever a Circle of physicians who wouldn't cut." },
-        { "id": "none", "label": "stay out of it", "text": "Galen finds other patrons.", "effects": [] }
+          "markGone2": "Nobody in Rome remembers there was ever a Circle of physicians who wouldn't cut."
+        },
+        {
+          "id": "none",
+          "label": "stay out of it",
+          "style": "aloof",
+          "text": "Galen finds other patrons.",
+          "effects": []
+        }
       ]
     },
     {
       "id": "levy",
-      "year": 162, "month": 6,
+      "year": 162,
+      "month": 6,
       "requires": "member",
       "title": "A levy for the Parthian war",
       "text": "Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.",
       "options": [
-        { "id": "pay", "label": "pay your share of the levy", "text": "You pay; your name is read out with the others.",
-          "effects": [ { "type": "gold", "value": -25 }, { "type": "loyalty", "institution": "members", "value": 6 } ],
+        {
+          "id": "pay",
+          "label": "pay your share of the levy",
+          "style": "loyal",
+          "text": "You pay; your name is read out with the others.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -25
+            },
+            {
+              "type": "loyalty",
+              "institution": "members",
+              "value": 6
+            },
+            {
+              "type": "stake",
+              "institution": "members",
+              "value": 1
+            }
+          ],
           "mark": "On a bronze tablet in the Forum, among those who gave for the Parthian war, is a name spelled wrong: yours.",
-          "mark2": "The bronze tablet of the Parthian war's givers is gone from the Forum; someone tells you it was melted for coin." },
-        { "id": "duck", "label": "find a reason not to", "text": "You plead poverty. Nobody believes you.",
-          "effects": [ { "type": "loyalty", "institution": "members", "value": -8 } ] }
+          "mark2": "The bronze tablet of the Parthian war's givers is gone from the Forum; someone tells you it was melted for coin."
+        },
+        {
+          "id": "duck",
+          "label": "find a reason not to",
+          "style": "aloof",
+          "text": "You plead poverty. Nobody believes you.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "members",
+              "value": -8
+            }
+          ]
+        }
       ]
     },
     {
       "id": "auction",
-      "year": 169, "month": 6,
+      "year": 169,
+      "month": 6,
       "requires": "any",
       "title": "Marcus auctions the palace treasures",
       "text": "Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.",
       "options": [
-        { "id": "buy", "label": "buy a gold cup at a bargain", "text": "You come home with a cup of solid gold, bought below its weight. The faction approves of anyone who helps the emperor.",
-          "effects": [ { "type": "gold", "value": -50 }, { "type": "aurei", "value": 56 }, { "type": "loyalty", "institution": "faction", "value": 5 } ],
+        {
+          "id": "buy",
+          "label": "buy a gold cup at a bargain",
+          "style": "profit",
+          "text": "You come home with a cup of solid gold, bought below its weight. The faction approves of anyone who helps the emperor.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -50
+            },
+            {
+              "type": "aurei",
+              "value": 56
+            },
+            {
+              "type": "loyalty",
+              "institution": "faction",
+              "value": 5
+            },
+            {
+              "type": "stake",
+              "institution": "faction",
+              "value": 1
+            },
+            {
+              "type": "loyalty",
+              "institution": "bank",
+              "value": 3
+            }
+          ],
           "mark": "In a shop on the Via Sacra stands a gold cup like the one you bought at Marcus's sale. The dealer swears it came from the palace. They all do.",
-          "mark2": "Cups 'from Marcus's sale' are sold on every street of dealers now, far more than the palace ever held. One of them might even be yours." },
-        { "id": "relief", "label": "fund bread and physicians for the poor instead", "text": "While the rich bid for crystal, you pay for bread in the Subura and a physician at the Tiber Island.",
-          "effects": [ { "type": "gold", "value": -40 }, { "type": "level", "domain": "medicine", "value": 1.5 }, { "type": "level", "domain": "governance", "value": 3 }, { "type": "loyalty", "institution": "sanctuary", "value": 6 } ],
+          "mark2": "Cups 'from Marcus's sale' are sold on every street of dealers now, far more than the palace ever held. One of them might even be yours."
+        },
+        {
+          "id": "relief",
+          "label": "fund bread and physicians for the poor instead",
+          "style": "generous",
+          "text": "While the rich bid for crystal, you pay for bread in the Subura and a physician at the Tiber Island.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -40
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": 1.5
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 3
+            },
+            {
+              "type": "loyalty",
+              "institution": "sanctuary",
+              "value": 6
+            },
+            {
+              "type": "stake",
+              "institution": "sanctuary",
+              "value": 2
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": 5
+            }
+          ],
           "mark": "On the Tiber Island an old list of benefactors hangs by the door. For the year Marcus sold the palace gold, one line has no family name, only: the foreigner, for bread.",
-          "mark2": "The benefactors' list on the Tiber Island has been copied onto marble. The copyist gave 'the foreigner' a family name; it isn't yours." },
-        { "id": "none", "label": "stay out of it", "text": "The sale runs for two months without you.", "effects": [] }
+          "mark2": "The benefactors' list on the Tiber Island has been copied onto marble. The copyist gave 'the foreigner' a family name; it isn't yours."
+        },
+        {
+          "id": "none",
+          "label": "stay out of it",
+          "style": "aloof",
+          "text": "The sale runs for two months without you.",
+          "effects": []
+        }
       ]
     },
     {
       "id": "invasion",
-      "year": 170, "month": 7,
+      "year": 170,
+      "month": 7,
       "requires": "any",
       "title": "The invasion scare",
       "text": "Word comes that the Marcomanni have crossed the Alps. At Ostia merchants are dumping stock for whatever they can get and hiding their silver.",
       "options": [
-        { "id": "hold", "label": "hold firm and buy what the others are dumping", "text": "You buy warehouse shares at panic prices. When the scare passes, they pay.",
-          "effects": [ { "type": "gold", "value": -40 }, { "type": "income", "value": 4 }, { "type": "level", "domain": "economy", "value": 1.5 }, { "type": "loyalty", "institution": "guild", "value": 4 } ],
+        {
+          "id": "hold",
+          "label": "hold firm and buy what the others are dumping",
+          "style": "principled",
+          "text": "You buy warehouse shares at panic prices. When the scare passes, they pay.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -40
+            },
+            {
+              "type": "income",
+              "value": 4
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1.5
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 4
+            },
+            {
+              "type": "stake",
+              "institution": "guild",
+              "value": 2
+            },
+            {
+              "type": "loyalty",
+              "institution": "bank",
+              "value": 4
+            },
+            {
+              "type": "stake",
+              "institution": "bank",
+              "value": 1
+            }
+          ],
           "mark": "At Ostia the warehouses by the river mouth still carry the painted date they changed hands, the year of the Marcomanni scare. One of them was yours; it's full of Spanish oil.",
-          "mark2": "The warehouses at Ostia have been rebuilt in brick. Over one door, kept from the old building, is a painted date from the year of the scare." },
-        { "id": "sell", "label": "sell out while you still can", "text": "You sell early and well. The panic is worse for it.",
-          "effects": [ { "type": "gold", "value": 40 }, { "type": "level", "domain": "economy", "value": -3 }, { "type": "loyalty", "institution": "guild", "value": -6 } ],
+          "mark2": "The warehouses at Ostia have been rebuilt in brick. Over one door, kept from the old building, is a painted date from the year of the scare."
+        },
+        {
+          "id": "sell",
+          "label": "sell out while you still can",
+          "style": "profit",
+          "text": "You sell early and well. The panic is worse for it.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": 40
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": -3
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": -6
+            }
+          ],
           "mark": "At Ostia the older merchants still talk about the Marcomanni scare and the men who sold first. Your name comes up. They don't know you're standing there.",
-          "mark2": "At Ostia, 'selling before the Marcomanni' means running at the first rumour. A merchant says it of his own son." },
-        { "id": "none", "label": "wait it out", "text": "The army holds Aquileia. The panic passes.", "effects": [] }
+          "mark2": "At Ostia, 'selling before the Marcomanni' means running at the first rumour. A merchant says it of his own son."
+        },
+        {
+          "id": "none",
+          "label": "wait it out",
+          "style": "aloof",
+          "text": "The army holds Aquileia. The panic passes.",
+          "effects": []
+        }
       ]
     },
     {
       "id": "fleet",
-      "year": 172, "month": 5,
+      "year": 172,
+      "month": 5,
       "requires": "any",
       "title": "The grain fleet is late",
       "text": "The herdsmen of the Nile delta are in revolt and the Alexandrian fleet hasn't come. Bread is dear and getting dearer.",
       "options": [
-        { "id": "share", "label": "open your stores and fund the dole", "text": "You sell at last year's price and pay for bread for the poorest streets.",
-          "effects": [ { "type": "gold", "value": -35 }, { "type": "level", "domain": "governance", "value": 3 }, { "type": "level", "domain": "medicine", "value": 1.5 }, { "type": "loyalty", "institution": "circle", "value": 6 } ],
+        {
+          "id": "share",
+          "label": "open your stores and fund the dole",
+          "style": "generous",
+          "text": "You sell at last year's price and pay for bread for the poorest streets.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -35
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 3
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": 1.5
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": 6
+            },
+            {
+              "type": "stake",
+              "institution": "circle",
+              "value": 1
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": 6
+            },
+            {
+              "type": "stake",
+              "institution": "junian",
+              "value": 2
+            },
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 4,
+              "if": "cartel"
+            },
+            {
+              "type": "gold",
+              "value": 20,
+              "if": "own:house"
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 1.5,
+              "if": "own:house"
+            }
+          ],
           "mark": "In the Subura an old woman sells bread under a painted sign: pretium antiquum, the old price. She says it has been the custom on her street since the year the fleet was late.",
-          "mark2": "'The old price' is painted over half the bread stalls in the Subura now. It isn't the old price anywhere." },
-        { "id": "hoard", "label": "hold your grain and sell at the top", "text": "You sell when bread is dearest. You make a great deal of money and no friends.",
-          "effects": [ { "type": "gold", "value": 60 }, { "type": "debt", "domain": "governance", "value": 7 }, { "type": "loyalty", "institution": "circle", "value": -10 }, { "type": "loyalty", "institution": "junian", "value": -6 } ],
+          "mark2": "'The old price' is painted over half the bread stalls in the Subura now. It isn't the old price anywhere."
+        },
+        {
+          "id": "hoard",
+          "label": "hold your grain and sell at the top",
+          "style": "profit",
+          "text": "You sell when bread is dearest. You make a great deal of money and no friends.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": 60
+            },
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 7
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": -10
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": -6
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 4
+            },
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 4,
+              "if": "cartel"
+            },
+            {
+              "type": "gold",
+              "value": 20,
+              "if": "cartel"
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 1.5,
+              "if": "own:house"
+            }
+          ],
           "mark": "Over an oven in the Subura the bakers keep a lead curse tablet, nailed up the year the fleet was late. It curses a grain seller by name. The name is yours.",
-          "mark2": "The bakers' curse tablet still hangs over the oven, black with soot. The name on it can't be read any more; they curse him anyway." },
-        { "id": "none", "label": "stay out of it", "text": "The fleet arrives in the autumn.", "effects": [] }
+          "mark2": "The bakers' curse tablet still hangs over the oven, black with soot. The name on it can't be read any more; they curse him anyway."
+        },
+        {
+          "id": "none",
+          "label": "stay out of it",
+          "style": "aloof",
+          "text": "The fleet arrives in the autumn.",
+          "effects": [
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 4,
+              "if": "cartel"
+            },
+            {
+              "type": "level",
+              "domain": "governance",
+              "value": 1.5,
+              "if": "own:house"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "praetor",
-      "year": 158, "month": 3,
+      "year": 158,
+      "month": 3,
       "requires": "member:faction",
       "title": "Varro's client for praetor",
       "text": "Senator Varro wants a young client of his made praetor. The Senate decides, but a crowd and a little money help. He asks what you'll give.",
       "options": [
-        { "id": "back", "label": "back his client with money and a crowd", "text": "Your man is made praetor. Varro remembers; so do the Junians.",
-          "effects": [ { "type": "gold", "value": -25 }, { "type": "loyalty", "institution": "faction", "value": 12 }, { "type": "loyalty", "institution": "junian", "value": -12 }, { "type": "lean", "institution": "faction", "value": -0.15 } ],
+        {
+          "id": "back",
+          "label": "back his client with money and a crowd",
+          "style": "loyal",
+          "text": "Your man is made praetor. Varro remembers; so do the Junians.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -25
+            },
+            {
+              "type": "loyalty",
+              "institution": "faction",
+              "value": 12
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": -12
+            },
+            {
+              "type": "lean",
+              "institution": "faction",
+              "value": -0.15
+            },
+            {
+              "type": "stake",
+              "institution": "faction",
+              "value": 3
+            }
+          ],
           "markInstitution": "faction",
           "mark": "In {inst}'s corner of the Curia stands the bust of an old consular: Varro's client, the praetor you paid a crowd to cheer. He did well.",
           "mark2": "{Inst} is led by the grandsons of the praetor you once bought a crowd for. They have his nose.",
           "markGone": "Varro's client, the praetor you paid a crowd for, is a name on a tomb by the Appian Way. His faction is gone.",
-          "markGone2": "The tomb of Varro's praetor on the Appian Way has lost its inscription." },
-        { "id": "refuse", "label": "refuse: the office should go on merit", "text": "Varro smiles thinly. The reformers in his faction are glad someone said it.",
-          "effects": [ { "type": "loyalty", "institution": "faction", "value": -8 }, { "type": "lean", "institution": "faction", "value": 0.2 } ],
+          "markGone2": "The tomb of Varro's praetor on the Appian Way has lost its inscription."
+        },
+        {
+          "id": "refuse",
+          "label": "refuse: the office should go on merit",
+          "style": "principled",
+          "text": "Varro smiles thinly. The reformers in his faction are glad someone said it.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "faction",
+              "value": -8
+            },
+            {
+              "type": "lean",
+              "institution": "faction",
+              "value": 0.2
+            },
+            {
+              "type": "loyalty",
+              "institution": "junian",
+              "value": 6
+            }
+          ],
           "markInstitution": "faction",
           "mark": "The younger men of {inst} still quote a line about offices going on merit. They think a senator said it.",
           "mark2": "'Offices on merit' is carved over the door of {inst}'s meeting house. Nobody there has ever had to live by it.",
           "markGone": "Nobody is left to quote your line about offices going on merit; the faction you said it to is gone.",
-          "markGone2": "The faction you once told that offices should go on merit is not even a name now." }
+          "markGone2": "The faction you once told that offices should go on merit is not even a name now."
+        }
       ]
     },
     {
       "id": "sanctuaryWing",
-      "year": 160, "month": 9,
+      "year": 160,
+      "month": 9,
       "requires": "member:sanctuary",
       "title": "A new wing for the Tiber Island",
       "text": "Herennius Asper asks the sanctuary's donors for a new building. The priests want a temple wing for the god; the healers want a clinic with beds.",
       "options": [
-        { "id": "temple", "label": "pay for the temple wing", "text": "The priests hang your name on a bronze plaque by the altar.",
-          "effects": [ { "type": "gold", "value": -25 }, { "type": "loyalty", "institution": "sanctuary", "value": 10 }, { "type": "lean", "institution": "sanctuary", "value": -0.25 } ],
+        {
+          "id": "temple",
+          "label": "pay for the temple wing",
+          "style": "loyal",
+          "text": "The priests hang your name on a bronze plaque by the altar.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -25
+            },
+            {
+              "type": "loyalty",
+              "institution": "sanctuary",
+              "value": 10
+            },
+            {
+              "type": "lean",
+              "institution": "sanctuary",
+              "value": -0.25
+            },
+            {
+              "type": "stake",
+              "institution": "sanctuary",
+              "value": 3
+            }
+          ],
           "markInstitution": "sanctuary",
           "mark": "At {inst} a bronze plaque by the altar carries your name, green with age. Incense smoke has blackened the ceiling of the wing you paid for.",
           "mark2": "The plaque with your name is still by the altar at {inst}, polished bright where the pilgrims touch it for luck.",
           "markGone": "Where the Tiber Island's temple wing stood there is a warehouse. The plaque with your name is gone.",
-          "markGone2": "Not a stone of the temple wing is left on the Tiber Island." },
-        { "id": "clinic", "label": "pay for the clinic", "text": "Twelve beds, a cistern and a room for boiling linen. The priests are cool about it; the sick aren't.",
-          "effects": [ { "type": "gold", "value": -25 }, { "type": "level", "domain": "medicine", "value": 3 }, { "type": "lean", "institution": "sanctuary", "value": 0.25 } ],
+          "markGone2": "Not a stone of the temple wing is left on the Tiber Island."
+        },
+        {
+          "id": "clinic",
+          "label": "pay for the clinic",
+          "style": "generous",
+          "text": "Twelve beds, a cistern and a room for boiling linen. The priests are cool about it; the sick aren't.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -25
+            },
+            {
+              "type": "level",
+              "domain": "medicine",
+              "value": 3
+            },
+            {
+              "type": "lean",
+              "institution": "sanctuary",
+              "value": 0.25
+            },
+            {
+              "type": "stake",
+              "institution": "sanctuary",
+              "value": 1
+            },
+            {
+              "type": "loyalty",
+              "institution": "circle",
+              "value": 4
+            },
+            {
+              "type": "resilience",
+              "value": 0.03
+            }
+          ],
           "markInstitution": "sanctuary",
           "mark": "{Inst} still keeps the clinic wing you paid for. It has twenty beds now, and the room for boiling linen has a queue.",
           "mark2": "The clinic on the Tiber Island has outgrown its wing and taken the one beside it. The old cistern still has your mason's mark.",
           "markGone": "The clinic wing on the Tiber Island stands empty, its cistern dry.",
-          "markGone2": "The empty clinic on the Tiber Island has been let to a fuller; the room for boiling linen boils cloth." },
-        { "id": "none", "label": "give nothing this time", "text": "The donors build a smaller wing without you.", "effects": [ { "type": "loyalty", "institution": "sanctuary", "value": -4 } ] }
+          "markGone2": "The empty clinic on the Tiber Island has been let to a fuller; the room for boiling linen boils cloth.",
+          "sets": [
+            "clinic"
+          ]
+        },
+        {
+          "id": "none",
+          "label": "give nothing this time",
+          "style": "aloof",
+          "text": "The donors build a smaller wing without you.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "sanctuary",
+              "value": -4
+            }
+          ]
+        }
       ]
     },
     {
       "id": "cartel",
-      "year": 164, "month": 5,
+      "year": 164,
+      "month": 5,
       "requires": "member:guild",
       "title": "Sabinus's grain arrangement",
       "text": "Sabinus proposes that the guild's big houses agree on a price for Alexandrian grain at Ostia, and asks you to sign. It would make you money.",
       "options": [
-        { "id": "join", "label": "sign the arrangement", "text": "The price is fixed; your share comes in every quarter. Bread costs a little more in Rome.",
-          "effects": [ { "type": "income", "value": 5 }, { "type": "level", "domain": "economy", "value": -3 }, { "type": "loyalty", "institution": "guild", "value": 10 }, { "type": "lean", "institution": "guild", "value": -0.3 } ],
+        {
+          "id": "join",
+          "label": "sign the arrangement",
+          "style": "profit",
+          "text": "The price is fixed; your share comes in every quarter. Bread costs a little more in Rome.",
+          "effects": [
+            {
+              "type": "income",
+              "value": 5
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": -3
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 10
+            },
+            {
+              "type": "lean",
+              "institution": "guild",
+              "value": -0.3
+            },
+            {
+              "type": "stake",
+              "institution": "guild",
+              "value": 3
+            }
+          ],
           "markInstitution": "guild",
           "mark": "At Ostia, {inst} still fixes the price of Alexandrian grain each spring. The houses that sign it are listed on a board; the first name is yours, with no heirs after it.",
           "mark2": "The grain price at Ostia is still fixed each spring by {inst}. Nobody even pretends it isn't.",
           "markGone": "The grain ring at Ostia died with the guild; grain is sold at whatever the ship's master can get.",
-          "markGone2": "At Ostia nobody remembers that grain was ever sold at a fixed price." },
-        { "id": "refuse", "label": "refuse, and speak for open prices", "text": "You say in the guild hall that a free market fed Rome for two hundred years. Sabinus doesn't forgive it; the free traders cheer.",
-          "effects": [ { "type": "loyalty", "institution": "guild", "value": -10 }, { "type": "lean", "institution": "guild", "value": 0.25 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+          "markGone2": "At Ostia nobody remembers that grain was ever sold at a fixed price.",
+          "sets": [
+            "cartel"
+          ]
+        },
+        {
+          "id": "refuse",
+          "label": "refuse, and speak for open prices",
+          "style": "principled",
+          "text": "You say in the guild hall that a free market fed Rome for two hundred years. Sabinus doesn't forgive it; the free traders cheer.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": -10
+            },
+            {
+              "type": "lean",
+              "institution": "guild",
+              "value": 0.25
+            },
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1.5
+            },
+            {
+              "type": "loyalty",
+              "institution": "bank",
+              "value": 4
+            }
+          ],
           "mark": "At Ostia grain is sold in the open, by auction on the quay, and the auctioneer opens each day with a line about a free market feeding Rome for two hundred years.",
-          "mark2": "The quay auction at Ostia still opens with the same line about a free market, though it's four hundred years now, the auctioneer says." }
+          "mark2": "The quay auction at Ostia still opens with the same line about a free market, though it's four hundred years now, the auctioneer says."
+        }
       ]
     },
     {
       "id": "treasuryLoan",
-      "year": 167, "month": 3,
+      "year": 167,
+      "month": 3,
       "requires": "member:bank",
       "title": "A loan to the treasury",
       "text": "With the plague and the war, the treasury needs money. Octavius Crispus will lend it at a handsome rate if respectable depositors vouch for the house.",
       "options": [
-        { "id": "vouch", "label": "vouch for the loan", "text": "The house lends; the interest is good. The bank's clerks begin to talk like officials.",
-          "effects": [ { "type": "income", "value": 4 }, { "type": "loyalty", "institution": "bank", "value": 10 }, { "type": "lean", "institution": "bank", "value": -0.3 } ],
+        {
+          "id": "vouch",
+          "label": "vouch for the loan",
+          "style": "loyal",
+          "text": "The house lends; the interest is good. The bank's clerks begin to talk like officials.",
+          "effects": [
+            {
+              "type": "income",
+              "value": 4
+            },
+            {
+              "type": "loyalty",
+              "institution": "bank",
+              "value": 10
+            },
+            {
+              "type": "lean",
+              "institution": "bank",
+              "value": -0.3
+            },
+            {
+              "type": "stake",
+              "institution": "bank",
+              "value": 3
+            },
+            {
+              "type": "loyalty",
+              "institution": "faction",
+              "value": 4
+            }
+          ],
           "markInstitution": "bank",
           "mark": "{Inst} lends to the treasury as a matter of course now. Its clerks wear the look of officials, and one of them asks for your papers.",
           "mark2": "{Inst} keeps an office inside the treasury itself. You can't tell any more where the bank ends and the state begins.",
           "markGone": "The house of Octavius is gone. The treasury, people say, never paid back what it borrowed.",
-          "markGone2": "Nobody lends to the treasury now; they remember what happened to the last house that did." },
-        { "id": "refuse", "label": "refuse: a bank that lends to the state answers to it", "text": "Crispus lends anyway, a little less. The partners who want an honest counting house take note of you.",
-          "effects": [ { "type": "loyalty", "institution": "bank", "value": -8 }, { "type": "lean", "institution": "bank", "value": 0.25 } ],
+          "markGone2": "Nobody lends to the treasury now; they remember what happened to the last house that did."
+        },
+        {
+          "id": "refuse",
+          "label": "refuse: a bank that lends to the state answers to it",
+          "style": "principled",
+          "text": "Crispus lends anyway, a little less. The partners who want an honest counting house take note of you.",
+          "effects": [
+            {
+              "type": "loyalty",
+              "institution": "bank",
+              "value": -8
+            },
+            {
+              "type": "lean",
+              "institution": "bank",
+              "value": 0.25
+            }
+          ],
           "markInstitution": "bank",
           "mark": "New partners at {inst} are still shown an old ledger with a refused loan to the treasury, and a note in the margin: we answer to our depositors.",
           "mark2": "'We answer to our depositors' is written over the counting tables at {inst}. The ledger it came from has been lost.",
           "markGone": "The honest counting house you spoke for is gone; its ledgers were sold for scrap papyrus.",
-          "markGone2": "No one in Rome remembers the house of Octavius, honest or otherwise." }
+          "markGone2": "No one in Rome remembers the house of Octavius, honest or otherwise."
+        }
       ]
     }
   ]

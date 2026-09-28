@@ -285,8 +285,9 @@ namespace Butterfly.Core
         /// (full at half the domain, decided 2026-09-27).
         /// </summary>
         public double MaintainBonus(Domain d) =>
-            Influential().Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"))
-                         .Sum(i => ControlFactor(i) * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength")
+            World.Institutions.Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow") && (HasInfluence(i) || i.Backed && !i.Def.IsOwn))
+                         .Sum(i => (HasInfluence(i) ? ControlFactor(i) : T.Get("joining.smallMemberUpkeepFactor"))
+                                   * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength")
                                    * CampUpkeepFactor(i));
 
         /// <summary>
@@ -332,7 +333,9 @@ namespace Butterfly.Core
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
             double baseline = Benchmark(d, decadeStartYear + _stepYears);
-            double policy = (d == Domain.Economy ? PolicyTargetBonus(decadeStartYear + _stepYears) + WorkshopCarry(decadeStartYear) : 0) + CoinRelief(d, decadeStartYear + _stepYears);
+            double policy = (d == Domain.Economy ? PolicyTargetBonus(decadeStartYear + _stepYears) + WorkshopCarry(decadeStartYear) + OwnPower("house") * T.Get("founding.house.economyCarry") : 0)
+                          + (d == Domain.Medicine ? OwnPower("school") * T.Get("founding.school.medicineCarry") : 0)
+                          + CoinRelief(d, decadeStartYear + _stepYears);
             return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
         }
 

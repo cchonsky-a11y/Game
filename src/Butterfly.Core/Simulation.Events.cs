@@ -87,6 +87,44 @@ namespace Butterfly.Core
             var ev = Record("event.decide", e.Id, null, new[] { lapsed ? "world" : "player" }, null,
                 e.Title + ": " + (lapsed ? "you let it pass (" + o.Label + "). " : "you chose to " + o.Label + ". ") + o.Text);
             ApplyEffects(e.Title, o.Effects, new[] { ev.Id });
+            if (lapsed) return;
+            foreach (var flag in o.Sets) World.Flags.Add(flag);
+            StreetYearCheck(ev.Id);
+        }
+
+        /// <summary>How many of your answers were of a kind (generous, profit, ...).</summary>
+        public int AnswersOfStyle(string style) => _eventChoices.Count(c => c.Option.Style == style);
+
+        /// <summary>
+        /// The street keeps count (P0-33, answers stack): profiteer twice and the Subura turns against you (Governance debt, work
+        /// pays less); give generously three times and people seek you out (work pays more).
+        /// </summary>
+        private void StreetYearCheck(int causeId)
+        {
+            if (!World.Flags.Contains("streetAgainst") && AnswersOfStyle("profit") >= T.GetInt("events.street.profitsToTurn"))
+            {
+                World.Flags.Add("streetAgainst");
+                AddDebt(Domain.Governance, T.Get("events.street.governanceDebt"), "event.street", causeId,
+                    "The Subura has seen you profit from its bad years twice. Children throw mud at your door; buyers find other sellers.");
+            }
+            if (!World.Flags.Contains("streetFor") && AnswersOfStyle("generous") >= T.GetInt("events.street.generousToWin"))
+            {
+                World.Flags.Add("streetFor");
+                Record("event.street", "street", new[] { causeId }, new[] { "world" }, null,
+                    "The Subura knows your name now, and says it kindly: people come looking for the foreigner who helps.");
+            }
+        }
+
+        /// <summary>What the street's memory does to your pay: +/- events.street.workPay.</summary>
+        public double StreetWorkFactor() =>
+            1 + (World.Flags.Contains("streetFor") ? T.Get("events.street.workPay") : 0) - (World.Flags.Contains("streetAgainst") ? T.Get("events.street.workPay") : 0);
+
+        private bool EffectConditionHolds(string? cond)
+        {
+            if (cond == null) return true;
+            if (cond.StartsWith("own:", StringComparison.Ordinal)) return OwnStands(World.Institution(cond.Substring(4)));
+            if (cond.StartsWith("not:", StringComparison.Ordinal)) return !World.Flags.Contains(cond.Substring(4));
+            return World.Flags.Contains(cond);
         }
 
         /// <summary>Applies authored effects (decision events, workshop orders): gold, aurei, levels, debt, loyalty, lean, income, the workshop, the smith.</summary>
@@ -94,6 +132,7 @@ namespace Butterfly.Core
         {
             foreach (var fx in effects)
             {
+                if (!EffectConditionHolds(fx.If)) continue;
                 switch (fx.Type)
                 {
                     case "gold":
@@ -147,6 +186,25 @@ namespace Butterfly.Core
                         World.WorkshopBonus += fx.Value;
                         Record("workshop.output", "workshop", causes, new[] { "player" }, new[] { new Effect("income.workshop", before, World.WorkshopBonus) },
                             title + ": the workshop's income " + (fx.Value >= 0 ? "rises " : "falls ") + F(Math.Abs(fx.Value) * 100) + "%.");
+                        break;
+                    }
+                    case "stake":
+                        // Favor turns into standing (P0-33): members of the institution gain stake, as inventions give it.
+                        foreach (var i in EventInstitutions(fx.Institution).Where(x => x.Backed && !x.Def.IsOwn))
+                        {
+                            double before = i.Stake;
+                            i.Stake = Math.Max(before, Math.Min(ExclusiveCapPercent(i) / 100.0, Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0)));
+                            if (i.Stake > before)
+                                Record("institution.stake", i.Key, causes, new[] { "player", i.Leader }, new[] { new Effect(StakeKey(i), before, i.Stake) },
+                                    title + ": " + i.Leader + " gives you a larger say in " + i.Def.ShortName + ": " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                        }
+                        break;
+                    case "resilience":
+                    {
+                        double before = World.PlagueResilienceBonus;
+                        World.PlagueResilienceBonus += fx.Value;
+                        Record("plague.preparation", "plague", causes, new[] { "player" }, new[] { new Effect("plague.resilience", before, World.PlagueResilienceBonus) },
+                            title + ": Rome is a little better prepared for a pestilence.");
                         break;
                     }
                     case "workshopSize":

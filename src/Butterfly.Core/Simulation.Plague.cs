@@ -148,7 +148,10 @@ namespace Butterfly.Core
             double r = World[Domain.Medicine].Level / 100.0 * T.Get("plague.resiliencePerMedicine")
                      + World[Domain.Governance].Level / 100.0 * T.Get("plague.resiliencePerGovernance")
                      + World.PlagueResilienceBonus
-                     + InstitutionPlagueResilience();
+                     + InstitutionPlagueResilience()
+                     // The School of the Fountain's physicians (decided 2026-09-28), and your institutions turning out together.
+                     + OwnPower("school") * T.Get("founding.school.plagueResilience")
+                     + Math.Min(T.Get("network.plagueResilienceMax"), Memberships() * T.Get("network.plagueResiliencePerMembership"));
             if (response != null) r += T.Get("plague.response." + response + ".resilience");
             return Math.Min(T.Get("plague.maxResilience"), r);
         }

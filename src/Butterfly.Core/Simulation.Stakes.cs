@@ -97,7 +97,8 @@ namespace Butterfly.Core
         /// plus a little more for every percent you hold, so more influence costs more. None for your own.
         /// </summary>
         public double AnnualDues(Institution i) =>
-            !i.Backed || i.Def.IsOwn ? 0 : Priced(T.Get("joining.duesBasePerYear." + i.Key) + T.Get("joining.duesPerStakePercentPerYear") * StakePercent(i));
+            !i.Backed || i.Def.IsOwn ? 0 : Priced((T.Get("joining.duesBasePerYear." + i.Key) + T.Get("joining.duesPerStakePercentPerYear") * StakePercent(i))
+                                                  * (HasInfluence(i) ? 1 : T.Get("joining.smallStakeDuesShare")));
 
         public double AnnualDuesTotal() => Backed().Sum(AnnualDues);
 
@@ -143,21 +144,23 @@ namespace Butterfly.Core
         /// </summary>
         private void SeniorityYearTick()
         {
-            double cap = T.Get("stakes.seniorityCap");
             foreach (var i in Backed().Where(x => !x.Def.IsOwn).ToList())
             {
+                // An office lets your standing keep growing (decided 2026-09-28: 10% opens leadership; from there more influence and control).
+                int rank = Math.Max(Member, Math.Min(Head, i.Rank));
+                double cap = Math.Max(T.Get("stakes.seniorityCap"), T.GetArray("offices.seniorityCap")[rank]);
                 bool eligible = YearsAsMember(i) >= 1 - 1e-9 && !i.MissedDuesThisYear && i.Stake < cap - 1e-9;
                 bool active = i.MeetingsThisYear >= T.GetInt("stakes.activeMeetingsPerYear");
                 i.MissedDuesThisYear = false;
                 i.MeetingsThisYear = 0;
                 if (!eligible) continue;
                 double before = i.Stake;
-                int points = T.GetInt("stakes.seniorityPercentPerYear") + (active ? T.GetInt("stakes.activeSeniorityBonus") : 0);
+                int points = T.GetInt("stakes.seniorityPercentPerYear") + (active ? T.GetInt("stakes.activeSeniorityBonus") : 0) + (int)T.GetArray("offices.extraSeniority")[rank];
                 i.Stake = Math.Min(Math.Min(cap, ExclusiveCapPercent(i) / 100.0), (StakePercent(i) + points) / 100.0);
                 if (i.Stake <= before + 1e-9) { i.Stake = before; continue; }
                 Record("institution.seniority", i.Key, CausesOf(StakeKey(i)), new[] { i.Leader },
                     new[] { new Effect(StakeKey(i), before, i.Stake) },
-                    "Another year as " + (active ? "an active" : "a") + " member of " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                    "Another year as " + (rank >= Officer ? OfficeTitle(i, rank) + " of" : active ? "an active member of" : "a member of") + " " + i.Def.Name + ": your seniority raises your stake to " + StakePercent(i) + "%." + Crossed(before, i.Stake));
             }
         }
 
@@ -173,6 +176,16 @@ namespace Butterfly.Core
         }
 
         /// <summary>Founding your own institution costs about 65% of buying control of an established one in the same domain.</summary>
+        /// <summary>An institution you founded that still stands (for its power, decided 2026-09-28).</summary>
+        public bool OwnStands(Institution i) => i.Def.IsOwn && i.Exists && !i.Collapsed && (!IsAway && !Arrived || OutcomeOf(i) != InstitutionOutcome.Dissolved);
+
+        /// <summary>How far an institution you founded has grown into its power: strength ÷ founding.powerFullAt, at most 1.</summary>
+        public double OwnPower(string id)
+        {
+            var i = World.Institution(id);
+            return OwnStands(i) ? Math.Min(1, i.Strength / T.Get("founding.powerFullAt")) : 0;
+        }
+
         public double FoundCost(Domain d) => Math.Round(T.Get("founding.costShareOfControl") * ControlCost(d));
 
         /// <summary>

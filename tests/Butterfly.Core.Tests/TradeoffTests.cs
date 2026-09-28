@@ -48,7 +48,7 @@ namespace Butterfly.Core.Tests
             Hold(sim, "faction", 0.10);
             Assert.Equal("junian", sim.RivalFactionObstructs()!.Key);
             double memberShare = sim.T.GetArray("offices.projectShare")[0];            // a member's discount applies too
-            Assert.Equal(System.Math.Round(before * (1 - memberShare) * (1 + sim.T.Get("tradeoffs.rivalFactionProjectMarkup"))), sim.ProjectGold(census), 0);
+            Assert.Equal(System.Math.Round(before * (1 - memberShare) * (1 + sim.T.Get("tradeoffs.rivalFactionProjectMarkup")) * (1 - sim.NetworkDiscount())), sim.ProjectGold(census), 0);
             Assert.Equal(sim.ProjectGold(sim.Data.Content.Project("market")!), sim.ProjectGold(sim.Data.Content.Project("market")!)); // other domains unaffected
         }
 

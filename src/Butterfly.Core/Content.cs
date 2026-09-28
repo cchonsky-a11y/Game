@@ -275,9 +275,12 @@ namespace Butterfly.Core
         public double Value { get; }
         public string? Domain { get; }
         public string? Institution { get; }
+        /// <summary>Only when this holds (P0-33, answers that stack): a flag set by an earlier answer, or "own:&lt;id&gt;" for an institution you founded that stands.</summary>
+        public string? If { get; }
 
         public EventEffect(JsonObject o)
         {
+            If = o.StrOr("if", null);
             Type = o.Str("type");
             Value = o.Num("value");
             Domain = o.StrOr("domain", null);
@@ -298,9 +301,14 @@ namespace Butterfly.Core
         public string? MarkInstitution { get; }
         public string? MarkGone { get; }
         public string? MarkGone2 { get; }
+        /// <summary>What kind of answer this is (generous, profit, principled, loyal, aloof), and the flags it leaves for later choices.</summary>
+        public string Style { get; }
+        public IReadOnlyList<string> Sets { get; }
 
         public EventOptionDef(JsonObject o)
         {
+            Style = o.StrOr("style", "aloof") ?? "aloof";
+            Sets = o.Has("sets") ? o.Arr("sets").Cast<object>().Select(x => x.ToString()!).ToList() : new List<string>();
             Id = o.Str("id");
             Label = o.Str("label");
             Text = o.Str("text");

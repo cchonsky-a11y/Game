@@ -189,7 +189,7 @@ namespace Butterfly.Core.Tests
             var market = sim.Data.Content.Project("market")!;
             Assert.Equal(market.Gold, sim.ProjectGold(market));
             sim.GrantStake("guild", 0.25);
-            Assert.Equal((int)System.Math.Round(market.Gold * (1 - sim.T.Get("stakes.voiceProjectShare"))), sim.ProjectGold(market));
+            Assert.Equal((int)System.Math.Round(market.Gold * (1 - sim.T.Get("stakes.voiceProjectShare")) * (1 - sim.NetworkDiscount())), sim.ProjectGold(market));
             double gold = sim.World.Gold;
             Assert.True(sim.StartProject("market").Ok);
             Assert.Equal(sim.ProjectGold(market), gold - sim.World.Gold, 6);

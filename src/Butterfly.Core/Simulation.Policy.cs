@@ -53,7 +53,46 @@ namespace Butterfly.Core
         public Institution? PolicyInstitution => VoiceIn(Domain.Governance);
 
         /// <summary>How much of your policy Rome actually adopts: your sway over Governance (decided 2026-09-27).</summary>
-        public double PolicySway() => PolicyHold() ? Sway(Domain.Governance) : 0;
+        public double PolicySway() =>
+            PolicyHold() ? Math.Max(Sway(Domain.Governance), OwnStands(World.Institution("club")) ? T.Get("founding.club.policySway") : 0)
+            : World.Advocating ? AdvocacySway() : 0;
+
+        /// <summary>
+        /// Advocacy (decided 2026-09-28): without a voice you can still push a stance, by pamphlets, dinners and friends in the
+        /// Curia, at a small sway: a base, more for each membership and for an office in a Governance institution. It lasts only
+        /// while you are in Rome; once you leave, no one carries it.
+        /// </summary>
+        public double AdvocacySway()
+        {
+            if (IsAway || Arrived) return 0;
+            int office = World.Institutions.Where(i => i.Def.Maintains == Domain.Governance && !i.Def.IsOwn && i.Backed).Select(i => Math.Max(0, i.Rank)).DefaultIfEmpty(0).Max();
+            return Math.Min(T.Get("policy.advocacy.maxSway"),
+                T.Get("policy.advocacy.baseSway") + Memberships() * T.Get("policy.advocacy.swayPerMembership") + office * T.Get("policy.advocacy.swayPerOfficeRank"));
+        }
+
+        public double AdvocacyCost() => T.Get("policy.advocacy.gold") * World.PriceLevel;
+
+        public CommandResult Advocate(PolicyIssue issue, int stance)
+        {
+            if (PolicyHold()) return CommandResult.Fail("You have a voice in the Curia: set the policy itself (policy " + issue.ToString().ToLowerInvariant() + " ...).");
+            if (Stance(issue) == stance && World.Advocating) return CommandResult.Fail("You are already arguing for " + StanceWord(issue, stance) + " " + issue.ToString().ToLowerInvariant() + ".");
+            if (World.Gold < AdvocacyCost()) return CommandResult.Fail("Pamphlets, dinners and copyists cost " + Money(AdvocacyCost()) + "; you have " + Money(World.Gold) + ".");
+            int att = T.GetInt("policy.advocacy.attention");
+            var attention = CheckAttention(att);
+            if (attention != null) return attention;
+            SpendAttention(att);
+            double gold = World.Gold;
+            World.Gold -= AdvocacyCost();
+            int before = Stance(issue);
+            World.Policy[(int)issue] = stance;
+            World.Advocating = true;
+            var e = Record("policy.advocate", issue.ToString().ToLowerInvariant(), null, new[] { "player" },
+                new[] { new Effect("policy." + issue.ToString().ToLowerInvariant(), before, stance), new Effect(GoldKey, gold, World.Gold) },
+                "You argue for " + StanceWord(issue, stance) + " " + issue.ToString().ToLowerInvariant() + " in pamphlets, at dinners and to anyone in the Curia who will listen " +
+                "(sway " + F(AdvocacySway() * 100) + "%; it lasts only while you are here to press it).");
+            if (stance > 0) Backlash(issue, e.Id);
+            return CommandResult.Success("You argue for " + StanceWord(issue, stance) + " " + issue.ToString().ToLowerInvariant() + ": Rome moves " + F(AdvocacySway() * 100) + "% of the way.");
+        }
 
         public CommandResult SetPolicy(PolicyIssue issue, int stance)
         {
@@ -77,13 +116,14 @@ namespace Butterfly.Core
         /// <summary>Those who profited from intervention push back when an Austrian stance is adopted.</summary>
         private void Backlash(PolicyIssue issue, int causeId)
         {
-            var faction = PolicyInstitution!;
+            var faction = PolicyInstitution;
             string who = issue == PolicyIssue.Coinage ? "Mint officials and the creditors of the treasury"
                        : issue == PolicyIssue.Prices ? "Grain dealers who lived off fixed prices"
                        : issue == PolicyIssue.Property ? "Insiders who were used to favors and seizures"
                        : "Contractors paid from the levies";
-            ChangeLoyalty(faction, -T.Get("policy.backlash.factionLoyalty"), "policy.backlash", new[] { causeId }, new[] { faction.Leader },
-                who + " lean on the senators of " + faction.Def.ShortName + ".");
+            if (faction != null)
+                ChangeLoyalty(faction, -T.Get("policy.backlash.factionLoyalty"), "policy.backlash", new[] { causeId }, new[] { faction.Leader },
+                    who + " lean on the senators of " + faction.Def.ShortName + ".");
             AddDebt(Domain.Governance, T.Get("policy.backlash.governanceDebt") * PolicySway(), "policy.backlash", causeId, who + " stir up trouble in the Forum.");
         }
 

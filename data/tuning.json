@@ -1121,6 +1121,33 @@
         "value": 0.6,
         "ref": "PROPOSED P0-25: arrival text calls the coin debased below this silver share"
       }
+    },
+    "advocacy": {
+      "_readme": "Advocacy (decided 2026-09-28, Corey): push one policy stance without a voice, while you're in Rome. PROPOSED P0-36.",
+      "gold": {
+        "value": 12,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: cost of a campaign (AD 155 aurei, scaled by prices)"
+      },
+      "attention": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Attention for a campaign"
+      },
+      "baseSway": {
+        "value": 0.15,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: sway of advocacy alone"
+      },
+      "swayPerMembership": {
+        "value": 0.03,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: more for each membership"
+      },
+      "swayPerOfficeRank": {
+        "value": 0.05,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: more for each rank of office in a Senate faction"
+      },
+      "maxSway": {
+        "value": 0.35,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: at most this"
+      }
     }
   },
   "stakes": {
@@ -1219,16 +1246,16 @@
   "founding": {
     "_readme": "Founding your own institution (DECIDED 2026-09-27, Corey): costs about 65% of buying 0→50% of an established institution in the same domain; you control it from the start, but it starts weak, holds little of its domain, and may fail.",
     "costShareOfControl": {
-      "value": 0.4,
-      "ref": "DECIDED 2026-09-28 (Corey: make founding a little easier; founding was rarely affordable, not failing); was 0.65 (PROPOSED P0-18)"
+      "value": 0.15,
+      "ref": "DECIDED 2026-09-28 (Corey: found small, then grow it; was 0.4, before that 0.65); amount PROPOSED P0-36: founding costs this share of buying 0 to 50% of an established institution (SYSTEMS §7)"
     },
     "attention": {
       "value": 3,
       "ref": "DECIDED 2026-09-28 (Corey: raise Attention costs); amount PROPOSED P0-20"
     },
     "startStrength": {
-      "value": 15,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "value": 10,
+      "ref": "DECIDED 2026-09-28 (Corey: found small); amount PROPOSED P0-36: strength of a newly founded institution (was 15)"
     },
     "startLoyalty": {
       "value": 70,
@@ -1241,6 +1268,36 @@
     "collapseChancePerYear": {
       "value": 0.07,
       "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18, lowered 2026-09-28 (P0-32 revision: founded institutions rarely survived; was 0.15)"
+    },
+    "powerFullAt": {
+      "value": 40,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: a founded institution's power is full at this strength (scaled below it)"
+    },
+    "school": {
+      "plagueResilience": {
+        "value": 0.06,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: the School of the Fountain adds this to plague resilience at full power"
+      },
+      "medicineCarry": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Medicine target points during an absence while the School stands, at full power"
+      }
+    },
+    "club": {
+      "policySway": {
+        "value": 0.75,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: while the Club of the Aventine stands, your policy's sway is at least this, also after you leave"
+      }
+    },
+    "house": {
+      "dividendPerYear": {
+        "value": 4,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Menodora's house pays its founder this much a year (AD 155 aurei) at full power, scaled by Economy against its start"
+      },
+      "economyCarry": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Economy target points during an absence while the house stands, at full power"
+      }
     }
   },
   "rivalry": {
@@ -1339,6 +1396,14 @@
     "workBonusPerMembership": {
       "value": 0.1,
       "ref": "DECIDED 2026-09-28 (Corey: benefits to joining; voice unlocks a little more); amount PROPOSED P0-21: each membership brings customers and patrons, raising pay for your work"
+    },
+    "smallStakeDuesShare": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: members below 10% pay this share of the dues"
+    },
+    "smallMemberUpkeepFactor": {
+      "value": 0.05,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: during an absence, an institution you belong to below 10% counts this as its control factor in its upkeep of Rome"
     }
   },
   "prices": {
@@ -1627,37 +1692,112 @@
         0.4
       ],
       "ref": "DECIDED 2026-09-28 (Corey: make ordinary membership pay a little more); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by membership or office (the better of this and a voice's 25%)"
+    },
+    "seniorityCap": {
+      "value": [
+        0.25,
+        0.3,
+        0.4,
+        0.55
+      ],
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: seniority can raise your stake up to this, by office: member, officer, deputy, head (10% opens leadership; office grows influence toward control)"
+    },
+    "extraSeniority": {
+      "value": [
+        0,
+        1,
+        2,
+        2
+      ],
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: extra stake points a year from an office, by rank"
     }
   },
   "workshop": {
     "orders": {
-      "everyMonths": { "value": 4, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: a new season's orders every this many months" },
-      "extraAtApprentices": { "value": 2, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: with this many apprentices it can take one more a season" }
+      "everyMonths": {
+        "value": 4,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: a new season's orders every this many months"
+      },
+      "extraAtApprentices": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: with this many apprentices it can take one more a season"
+      }
     },
     "apprentices": {
-      "hireAttention": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Attention to take on an apprentice" },
-      "wagePerYear": { "value": 3, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: an apprentice's wage a year (AD 155 aurei, rising with wages)" },
-      "outputEach": { "value": 0.1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each apprentice raises the workshop's output (income and order pay) by this share" }
+      "hireAttention": {
+        "value": 1,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Attention to take on an apprentice"
+      },
+      "wagePerYear": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: an apprentice's wage a year (AD 155 aurei, rising with wages)"
+      },
+      "outputEach": {
+        "value": 0.1,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each apprentice raises the workshop's output (income and order pay) by this share"
+      }
     },
     "smith": {
-      "startRegard": { "value": 50, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard for you at the start (0-100)" },
-      "regardPerOrder": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each order taken" },
-      "regardLostOnShrink": { "value": 5, "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: regard lost when an unpaid upkeep shrinks the workshop" },
-      "regardPerApprentice": { "value": 3, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each apprentice taken on (lost when one goes)" }
+      "startRegard": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard for you at the start (0-100)"
+      },
+      "regardPerOrder": {
+        "value": 1,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each order taken"
+      },
+      "regardLostOnShrink": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: regard lost when an unpaid upkeep shrinks the workshop"
+      },
+      "regardPerApprentice": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each apprentice taken on (lost when one goes)"
+      }
     },
     "carry": {
-      "perApprentice": { "value": 0.25, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy target points during an absence per apprentice, times (1 + techniques x weight)" },
-      "techniqueWeight": { "value": 0.5, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each workshop or mechanics invention adds this to what an apprentice carries" },
-      "sizeWeight": { "value": 0.25, "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy raises what the apprentices carry by this share" },
-      "years": { "value": 50, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the apprentices' techniques count for this many years after your first departure" }
+      "perApprentice": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy target points during an absence per apprentice, times (1 + techniques x weight)"
+      },
+      "techniqueWeight": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each workshop or mechanics invention adds this to what an apprentice carries"
+      },
+      "sizeWeight": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy raises what the apprentices carry by this share"
+      },
+      "years": {
+        "value": 50,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the apprentices' techniques count for this many years after your first departure"
+      }
     },
     "fate": {
-      "techniqueWeight": { "value": 0.5, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the workshop's fate on arrival: each technique counts this much (apprentices count 1)" },
-      "sizeWeight": { "value": 0.75, "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy adds this to the workshop's fate score" },
-      "regardPer": { "value": 25, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard above or below the start counts 1 per this many points" },
-      "economy": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy above history adds this, below takes it away" },
-      "streetAt": { "value": 4, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a street of forges" },
-      "workingAt": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a workshop still working; below, it is gone" }
+      "techniqueWeight": {
+        "value": 0.5,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the workshop's fate on arrival: each technique counts this much (apprentices count 1)"
+      },
+      "sizeWeight": {
+        "value": 0.75,
+        "ref": "DECIDED 2026-09-28 (Corey: upgrade the workshop, a ladder of sizes); amount PROPOSED P0-34: each size above the smithy adds this to the workshop's fate score"
+      },
+      "regardPer": {
+        "value": 25,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard above or below the start counts 1 per this many points"
+      },
+      "economy": {
+        "value": 1,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy above history adds this, below takes it away"
+      },
+      "streetAt": {
+        "value": 4,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a street of forges"
+      },
+      "workingAt": {
+        "value": 1,
+        "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a workshop still working; below, it is gone"
+      }
     }
   },
   "events": {
@@ -1668,6 +1808,47 @@
     "lapseTurns": {
       "value": 3,
       "ref": "DECIDED 2026-09-28 (Corey: decision events, P0-33); amount PROPOSED P0-33: turns a choice waits before it passes you by (its last option)"
+    },
+    "street": {
+      "profitsToTurn": {
+        "value": 2,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: profiteering answers before the Subura turns against you"
+      },
+      "generousToWin": {
+        "value": 3,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: generous answers before the Subura seeks you out"
+      },
+      "governanceDebt": {
+        "value": 5,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Governance debt when the street turns against you"
+      },
+      "workPay": {
+        "value": 0.1,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: work pays this much more (or less) with the street for (or against) you"
+      }
+    },
+    "suburaTrustQuarantineDiscount": {
+      "value": 0.3,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: quarantine rules cost this much less once the Subura trusts you (flood relief)"
+    }
+  },
+  "network": {
+    "_readme": "Friends in several houses (decided 2026-09-28, Corey): a bonus for belonging to several established institutions. PROPOSED P0-36.",
+    "projectDiscountPerMembership": {
+      "value": 0.04,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: each membership takes this share off your projects"
+    },
+    "projectDiscountMax": {
+      "value": 0.16,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: at most this much"
+    },
+    "plagueResiliencePerMembership": {
+      "value": 0.01,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: each membership adds this to plague resilience (your institutions turn out together)"
+    },
+    "plagueResilienceMax": {
+      "value": 0.04,
+      "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: at most this much"
     }
   }
 }

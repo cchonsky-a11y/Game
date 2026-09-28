@@ -56,7 +56,7 @@ namespace Butterfly.Core
 
         /// <summary>Pay for work before tax: each membership raises it 10% (decided 2026-09-28: benefits to joining).</summary>
         public double WorkPay(string kind) =>
-            WorkGold(kind) * WageLevel() * (1 + T.Get("joining.workBonusPerMembership") * Memberships() + (kind == "consult" ? World.ConsultBonus : 0));
+            WorkGold(kind) * WageLevel() * (1 + T.Get("joining.workBonusPerMembership") * Memberships() + (kind == "consult" ? World.ConsultBonus : 0)) * StreetWorkFactor();
 
         /// <summary>Pay catches up with prices only partly (decided 2026-09-28).</summary>
         public double WageLevel() => 1 + (World.PriceLevel - 1) * T.Get("prices.wageCatchUp");

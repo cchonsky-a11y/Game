@@ -25,7 +25,10 @@ namespace Butterfly.Core
         public double YearlyIncome() => OwnedIncome() + Backed().Sum(i => i.Stake * Math.Max(0, InstitutionNet(i)));
 
         /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level; the workshop's inventions and apprentices raise its part.</summary>
-        public double OwnedIncome() => (World.IncomeBonus + WorkshopRate() * (WorkshopOutput() - 1)) * World[Domain.Economy].Level + World.InventionIncome;
+        public double OwnedIncome() => (World.IncomeBonus + WorkshopRate() * (WorkshopOutput() - 1)) * World[Domain.Economy].Level + World.InventionIncome + HouseDividend();
+
+        /// <summary>Menodora's trading house pays its founder a dividend (decided 2026-09-28): a year's rate × Economy ÷ its start, × its power.</summary>
+        public double HouseDividend() => OwnPower("house") * T.Get("founding.house.dividendPerYear") * World[Domain.Economy].Level / T.Get("domains.startLevel.economy");
 
         /// <summary>The workshop share's income rate (per Economy point), if you own it; workshop inventions raise it by a percentage.</summary>
         public double WorkshopRate() =>
@@ -111,7 +114,13 @@ namespace Butterfly.Core
         /// </summary>
         public int ProjectGold(ProjectDef def) =>
             (int)Math.Round(def.Gold * World.PriceLevel * (1 - Math.Max(HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0, OfficeProjectShare(def.Domain)))
-                            * (def.Domain == Domain.Governance && RivalFactionObstructs() != null ? 1 + T.Get("tradeoffs.rivalFactionProjectMarkup") : 1));
+                            * (def.Domain == Domain.Governance && RivalFactionObstructs() != null ? 1 + T.Get("tradeoffs.rivalFactionProjectMarkup") : 1)
+                            // Friends in several houses (decided 2026-09-28): each membership takes a little off; the Subura's trust makes quarantine cheaper.
+                            * (1 - NetworkDiscount())
+                            * (def.Id == "quarantine" && World.Flags.Contains("suburaTrust") ? 1 - T.Get("events.suburaTrustQuarantineDiscount") : 1));
+
+        /// <summary>The network bonus: each established institution you belong to takes network.projectDiscountPerMembership off projects, up to a cap.</summary>
+        public double NetworkDiscount() => Math.Min(T.Get("network.projectDiscountMax"), Memberships() * T.Get("network.projectDiscountPerMembership"));
 
         /// <summary>The faction that obstructs your Governance projects because you hold 10%+ of its rival (P0-31), or null.</summary>
         public Institution? RivalFactionObstructs()

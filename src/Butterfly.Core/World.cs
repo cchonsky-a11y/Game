@@ -80,6 +80,10 @@ namespace Butterfly.Core
         public int WorkshopBuildingTo { get; set; }
         public int WorkshopBuildTurns { get; set; }
         public List<string> CompletedProjects { get; } = new List<string>();
+        /// <summary>What your answers to Rome's choices left for later ones (P0-33: answers stack), e.g. "suburaTrust", "cartel".</summary>
+        public HashSet<string> Flags { get; } = new HashSet<string>();
+        /// <summary>Advocacy (decided 2026-09-28): stances you pushed without a voice, carried only while you're in Rome.</summary>
+        public bool Advocating { get; set; }
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>
         public double[] UpkeepPaidThisYear { get; } = new double[3];

@@ -54,8 +54,8 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             DomainInfo.TryParseDomain(domain, out var d);
-            Assert.Equal(0.4, sim.T.Get("founding.costShareOfControl"), 6);   // decided 2026-09-28 (was 0.65)
-            Assert.Equal(System.Math.Round(0.4 * sim.ControlCost(d)), sim.FoundCost(d), 6);
+            Assert.Equal(0.15, sim.T.Get("founding.costShareOfControl"), 6);   // decided 2026-09-28: found small (was 0.4, before that 0.65)
+            Assert.Equal(System.Math.Round(0.15 * sim.ControlCost(d)), sim.FoundCost(d), 6);
         }
 
         [Fact]
@@ -361,7 +361,8 @@ namespace Butterfly.Core.Tests
             Assert.Equal(0, sim.AnnualDues(guild), 6);
             sim.GrantStake("guild", 0.01);
             double member = sim.AnnualDues(guild);
-            Assert.Equal(sim.T.Get("joining.duesBasePerYear.guild") + sim.T.Get("joining.duesPerStakePercentPerYear"), member, 6);
+            // Below 10% a member pays only part of the dues (decided 2026-09-28).
+            Assert.Equal((sim.T.Get("joining.duesBasePerYear.guild") + sim.T.Get("joining.duesPerStakePercentPerYear")) * sim.T.Get("joining.smallStakeDuesShare"), member, 1);
             sim.GrantStake("guild", 0.5);
             Assert.True(sim.AnnualDues(guild) > member);
         }

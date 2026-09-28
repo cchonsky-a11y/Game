@@ -146,6 +146,8 @@ internal sealed class ConsoleGame
   endow <inst> [denarii|all]     give it money to hold (the minimum endowment makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
   oversee <inst>                 spend a season with its leader (1 Attention)
+  advocate <issue> <stance>      without a voice: argue for a stance in pamphlets and at dinners (gold, 2 Attention; small sway,
+                                   more with memberships and a faction office; lasts only while you're in Rome)
   policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (2 Attention):
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
@@ -318,6 +320,15 @@ internal sealed class ConsoleGame
                 }
                 r = _sim.SetPolicy(issue, stance);
                 break;
+            case "advocate":
+                if (parts.Length < 3 || !Simulation.TryParsePolicy(parts[1], parts[2], out var aIssue, out var aStance))
+                {
+                    Console.WriteLine("Usage: advocate <issue> <stance>, e.g. advocate coinage sound (without a voice; " + _sim.Money(_sim.AdvocacyCost()) +
+                                      ", " + _sim.T.GetInt("policy.advocacy.attention") + " Attention; sway " + Math.Round(_sim.AdvocacySway() * 100) + "% while you're in Rome)");
+                    return false;
+                }
+                r = _sim.Advocate(aIssue, aStance);
+                break;
             case "oversee": r = _sim.Oversee(arg); break;
             case "mentor": r = _sim.Mentor(arg); break;
             case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
@@ -371,7 +382,8 @@ internal sealed class ConsoleGame
                               "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
         if (w.PriceLevel > 1.0001) Console.WriteLine("  Prices: +" + F((w.PriceLevel - 1) * 100) + "% since AD 155 (" + F(_sim.InflationRate() * 100) + "% a year)");
         if (Simulation.Issues.Any(i => _sim.Stance(i) != 0))
-            Console.WriteLine("  Policy: " + string.Join(", ", Simulation.Issues.Select(i => i.ToString().ToLowerInvariant() + " " + Simulation.StanceWord(i, _sim.Stance(i)))));
+            Console.WriteLine("  Policy: " + string.Join(", ", Simulation.Issues.Select(i => i.ToString().ToLowerInvariant() + " " + Simulation.StanceWord(i, _sim.Stance(i)))) +
+                              (!_sim.PolicyHold() && w.Advocating ? "   (your advocacy: sway " + F(_sim.AdvocacySway() * 100) + "%, only while you're here)" : ""));
         if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
