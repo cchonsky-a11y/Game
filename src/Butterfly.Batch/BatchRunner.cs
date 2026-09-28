@@ -60,8 +60,12 @@ namespace Butterfly.Batch
 
         public static string Label(string strategy) => strategy == "Balanced" ? "Balanced (Pay-down)" : strategy;
 
+        /// <summary>The jump year of the run being played (strategies that save for their endowments look at it).</summary>
+        [System.ThreadStatic] public static int CurrentJumpYear;
+
         public static RunResult Play(GameData data, Strategy strategy, ulong seed, string timing, int jumpYear)
         {
+            CurrentJumpYear = jumpYear;
             var sim = new Simulation(data, seed);
             // Leave at the timing's year, or as soon after as the machine is repaired (at most 10 years later).
             while ((sim.Now.Year < jumpYear || !sim.MachineReady) && sim.Now.Year < jumpYear + 10)
@@ -178,8 +182,16 @@ namespace Butterfly.Batch
             return CapHolds(results, ScopeStrategies, timing) && rates[(timing, "Balanced")] > 0 && rates[(timing, "Specialized")] > 0;
         }
 
+        /// <summary>
+        /// Free-market policy is meant to be better (SYSTEMS §9; decided 2026-09-28, Corey: keep the free-market idea), so it is
+        /// exempt from the 65% rule: gate B compares the other strategies among themselves, and FreeMarket is reported alongside.
+        /// </summary>
+        public static readonly string[] GateExempt = { "FreeMarket" };
+
+        public static IEnumerable<string> GatedStrategies() => Strategies().Select(s => s.Name).Where(n => !GateExempt.Contains(n));
+
         public static bool AllStrategiesGatePasses(List<RunResult> results, string timing) =>
-            CapHolds(results, Strategies().Select(s => s.Name), timing);
+            CapHolds(results, GatedStrategies(), timing);
 
         public static bool DebtGatePasses(List<RunResult> results, string timing) => CapHolds(results, DebtStrategies, timing);
 
@@ -337,9 +349,11 @@ namespace Butterfly.Batch
             foreach (var t in Timings.Select(x => x.Name))
                 sb.AppendLine("- " + t + ": " + string.Join(", ", ScopeStrategies.Select(s => s + " " + Pct(scope[(t, s)]))) + " → " + Verdict(ScopeGatePasses(results, t)));
             sb.AppendLine();
-            sb.AppendLine("**B. All strategies:** within each timing no strategy wins more than 65%.");
+            sb.AppendLine("**B. All strategies but FreeMarket:** within each timing no strategy wins more than 65%. FreeMarket is exempt (decided 2026-09-28, Corey: free-market policy is meant to be better); its rate among all seven is shown for information.");
+            var gated = WinRates(results, GatedStrategies());
             foreach (var t in Timings.Select(x => x.Name))
-                sb.AppendLine("- " + t + ": " + string.Join(", ", names.Select(s => Label(s) + " " + Pct(rates[(t, s)]))) + " → " + Verdict(AllStrategiesGatePasses(results, t)));
+                sb.AppendLine("- " + t + ": " + string.Join(", ", GatedStrategies().Select(s => Label(s) + " " + Pct(gated[(t, s)]))) + " → " + Verdict(AllStrategiesGatePasses(results, t)) +
+                              "   (among all seven: " + string.Join(", ", names.Select(s => Label(s) + " " + Pct(rates[(t, s)]))) + ")");
             sb.AppendLine();
             sb.AppendLine("**C. Debt at departure:** among Pay-down (Balanced), Endow and Split, within each timing none wins more than 65%.");
             foreach (var t in Timings.Select(x => x.Name))

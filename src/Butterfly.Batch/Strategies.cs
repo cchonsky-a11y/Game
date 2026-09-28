@@ -108,11 +108,42 @@ namespace Butterfly.Batch
             }
         }
 
-        /// <summary>Spends leftover Attention attending meetings of institutions it belongs to but doesn't control.</summary>
+        /// <summary>Spends leftover Attention attending meetings of institutions it belongs to but doesn't control, voting for their first camp.</summary>
         protected static void AttendMeetings(Simulation sim)
         {
-            foreach (var i in sim.Backed().Where(i => !i.Def.IsOwn && !sim.Controls(i)).ToList())
-                if (sim.World.Attention >= sim.T.GetInt("stakes.attendAttention")) sim.Attend(i.Key);
+            foreach (var i in sim.Backed().Where(i => !i.Def.IsOwn && !sim.Controls(i) && i.MeetingsThisYear < 2).ToList())
+                if (sim.World.Attention >= sim.T.GetInt("stakes.attendAttention")) sim.Attend(i.Key, i.Def.DriftPaths[0].Id);
+        }
+
+        /// <summary>
+        /// Rome's choices and leaders' requests (P0-33, P0-36): answered in the strategy's style (generous, profit, principled,
+        /// loyal); an option it can't afford, or none of its style, falls back to staying out.
+        /// </summary>
+        protected static void AnswerEvent(Simulation sim, string style)
+        {
+            if (!(sim.PendingEvent is EventDef ev)) return;
+            var o = ev.Options.FirstOrDefault(x => x.Style == style && sim.EventCost(x) <= sim.World.Gold) ?? ev.Options.Last();
+            if (!sim.Decide(o.Id).Ok) sim.Decide(ev.Options.Last().Id);
+        }
+
+        /// <summary>Offers of office (P0-32): accepted while the duties leave room to work; the lowest office is given up if they don't.</summary>
+        protected static void AnswerOffices(Simulation sim)
+        {
+            foreach (var i in sim.World.Institutions.Where(x => x.OfferedRank > 0).ToList()) sim.AnswerOffice(i.Key, sim.OfficeDuties() < 2);
+            if (sim.OfficeDuties() >= 3)
+                foreach (var i in sim.World.Institutions.Where(x => !x.Def.IsOwn && x.Rank >= Simulation.Officer).OrderBy(x => x.Rank).Take(1).ToList()) sim.Resign(i.Key);
+        }
+
+        /// <summary>The workshop (P0-34): one order a season when Attention allows, and up to two apprentices while gold is plentiful.</summary>
+        protected static void RunWorkshop(Simulation sim, double reserve)
+        {
+            if (!sim.OwnsWorkshop) return;
+            if (sim.OrdersLeftThisSeason > 0)
+            {
+                var o = sim.OrderBoard().Where(x => x.Attention <= sim.World.Attention - 1).OrderByDescending(sim.OrderPay).FirstOrDefault();
+                if (o != null) sim.TakeOrder(o.Id);
+            }
+            if (sim.World.Apprentices < 2 && sim.World.Gold > reserve + 4 * sim.ApprenticeWage()) sim.HireApprentice();
         }
 
         /// <summary>The personal action: the best-paid work the remaining Attention allows.</summary>
@@ -162,9 +193,18 @@ namespace Butterfly.Batch
         /// <summary>0: leave Rome's policy as history; +1 Austrian; −1 interventionist.</summary>
         protected virtual int PolicyStance => 0;
 
+        /// <summary>How it answers Rome's choices.</summary>
+        protected virtual string EventStyle => "generous";
+
+        /// <summary>Endow and Split save for their endowments in the era's last years instead of spending it all.</summary>
+        private double Reserve(Simulation sim) =>
+            _paydownShare < 1 && sim.Now.YearFraction >= BatchRunner.CurrentJumpYear - 2 ? sim.World.Gold * (1 - _paydownShare) : 0;
+
         public override void PlayTurn(Simulation sim)
         {
             if (sim.Turn == 1) sim.ChooseSeeded("fountain");
+            AnswerEvent(sim, EventStyle);
+            AnswerOffices(sim);
             if (PolicyStance != 0)
             {
                 // Policy strategies take control of the faction first (policy), then a voice in the guild (Economy), then the Circle.
@@ -184,16 +224,17 @@ namespace Butterfly.Batch
             OverseeIfNeeded(sim, "faction", 65);
             // Take control of the circle (then charter and endow it) before buying into the faction.
             var circle = sim.World.Institution("circle");
-            if (PolicyStance == 0 || Controls(sim, "faction")) TryInstitution(sim, "circle", 0);
-            if (circle.Chartered && circle.Endowed) TryInstitution(sim, "faction", 0);
+            if (PolicyStance == 0 || Controls(sim, "faction")) TryInstitution(sim, "circle", Reserve(sim));
+            if (circle.Chartered && circle.Endowed) TryInstitution(sim, "faction", Reserve(sim));
             // Invest in the weakest domain first.
             foreach (var d in DomainInfo.All.OrderBy(sim.SubScore))
             {
-                var project = sim.AvailableProjects().Where(p => p.Domain == d && sim.ProjectAuthorityBlocker(p) == null && sim.ProjectGold(p) <= sim.World.Gold).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
+                var project = sim.AvailableProjects().Where(p => p.Domain == d && sim.ProjectAuthorityBlocker(p) == null && sim.ProjectGold(p) <= sim.World.Gold - Reserve(sim)).OrderBy(p => sim.ProjectGold(p)).FirstOrDefault();
                 if (project != null && sim.StartProject(project.Id).Ok) break;
             }
             if (_paydownShare > 0)
-                PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained), double.MaxValue, _paydownShare);
+                PayDownDebts(sim, DomainInfo.All.Where(d => sim.World[d].Tier >= DebtTier.Strained), System.Math.Max(0, sim.World.Gold - Reserve(sim)), _paydownShare);
+            RunWorkshop(sim, Reserve(sim));
             WorkBest(sim);
             AttendMeetings(sim);
         }
@@ -229,6 +270,7 @@ namespace Butterfly.Batch
             {
                 sim.ChooseSeeded("fountain");
             }
+            AnswerEvent(sim, "principled");
             // Foreknowledge of the plague matches its chosen focus: Protect Medicine once the school gives it a voice.
             if (sim.World[Domain.Medicine].Priority != Priority.Protect) sim.SetPriority(Domain.Medicine, Priority.Protect);
             AnswerPending(sim, true, "hospice", "quarantine");
@@ -280,6 +322,7 @@ namespace Butterfly.Batch
                 sim.SetPriority(Domain.Economy, Priority.AcceptRisk);
             }
             AnswerPending(sim, false, "none");
+            AnswerEvent(sim, "aloof");
             WorkBest(sim);
         }
     }

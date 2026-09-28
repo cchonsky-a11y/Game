@@ -80,7 +80,7 @@ Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roug
 | Test | Pass |
 |---|---|
 | Determinism | Identical results for identical seed and inputs |
-| Balance vs. specialization | Both viable; within **each** jump timing (early, late), no strategy wins more than 65% of automated runs |
+| Balance vs. specialization | Both viable; within **each** jump timing (early, late), no strategy wins more than 65% of automated runs. **FreeMarket is exempt** (decided 2026-09-28, Corey: free-market policy is meant to be better, SYSTEMS §9); the others are compared among themselves and FreeMarket's rate is reported |
 | Jump timing | **Not applicable to P0; deferred to P3.** Staying longer has no cost until aging and machine-discovery risk exist. Reported in the batch report for information only |
 | Debt at departure | Within each timing, none of Pay-down (Balanced), Endow, and Split wins more than 65% of runs; the batch report flags it if more than ~80% of the best runs bought an audit charter |
 | Debt pacing | 2–3 years of accepted risk → Strained; plague warning stages visible before the outbreak |
