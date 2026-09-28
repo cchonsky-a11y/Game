@@ -152,5 +152,18 @@ namespace Butterfly.Core.Tests
             Assert.Contains("Leading now: ", msg);
             Assert.DoesNotContain("as you want", msg);   // this vote went to the other camp
         }
+    
+        [Fact]
+        public void LeavingBeforeTheWarningsNeverNamesDemetriaOnEitherArrival()
+        {
+            // Tester 7 left in AD 159, never met Demetria, and on the second arrival read "Demetria's list of those who stayed".
+            var sim = new Simulation(TestData.Load(), 42);
+            var first = sim.JumpForTests();
+            Assert.Equal("notOffered", first.Echoes.Single(e => e.Id == "promise").AtArrival);
+            Assert.DoesNotContain("Demetria", first.Beats[2].Text);
+            var second = sim.JumpForTests();
+            Assert.Equal("notOffered", second.Echoes.Single(e => e.Id == "promise").AtArrival);
+            Assert.DoesNotContain("Demetria", second.Beats[2].Text);
+        }
     }
 }

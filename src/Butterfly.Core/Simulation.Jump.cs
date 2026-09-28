@@ -49,7 +49,9 @@ namespace Butterfly.Core
             DepartureYear = Now.Year;
             NoteFirstDeparture();
             _absenceBusts = 0;
-            _warningsBeforeDeparture = World.Plague.Stage >= 1;
+            // Whether Demetria could have asked is settled when you first leave Rome; by a later jump the plague has come
+            // and gone without you (tester 7 left in AD 159 and was told on the second arrival that she never asked).
+            if (JumpsMade == 0) _warningsBeforeDeparture = World.Plague.Stage >= 1;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
             foreach (var i in Issues.Where(i => Stance(i) != 0)) arrival.PolicyAtDeparture.Add(i.ToString().ToLowerInvariant() + " " + StanceWord(i, Stance(i)));
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);

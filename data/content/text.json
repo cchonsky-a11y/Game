@@ -43,7 +43,7 @@
     "brokenNoKeeper": "In a tomb inscription on the Via Latina you find Demetria's name, and a line she chose herself: 'I kept my promises.' You did not keep yours.",
     "refused": "Demetria's letters survive in a library copy. One mentions you: 'The foreigner would not promise to stay. At least it was honest.'",
     "notOffered": "You left before the first rumors came from the East. In the city's records, the pestilence of {outbreakYear} fills page after page: about {deaths} thousand dead in Rome. You aren't in any of them.",
-    "notOfferedNoOutbreak": "You left before the first rumors came from the East. You never learned whether Demetria would have asked you to stay.",
+    "notOfferedNoOutbreak": "You left before the first rumors came from the East, before anyone in Rome had reason to ask you to stay.",
     "unanswered": "Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until the sickness passed. I never had an answer.'",
     "neverAsked": "Demetria's letters survive in a library copy. They name everyone who stayed to help the sick in {outbreakYear}. You are not among them; she never thought to ask you.",
     "office": "In the hall of {officeHall} you find the roll of its officers. Between two names you don't know is a third, spelled wrong: yours, as {office}.",
