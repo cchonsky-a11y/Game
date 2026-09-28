@@ -123,6 +123,7 @@ namespace Butterfly.Core
                     v["population"] = R(Math.Round(World.Population) * 1000, "#,0");
                     if (first) { lines.Add(text.Template("walk.subura.start", v)); break; }
                     v["populationThen"] = R(Math.Round(_leftRome!.Population) * 1000, "#,0");
+                    if (EpidemicYear > 0) lines.Add(text.Template("walk.subura.epidemic"));
                     lines.Add(text.Template("walk.subura." + Band(Domain.Medicine)));
                     bool runs = World.CleanWater && World.FountainCondition >= T.Get("jump.fountainRunsAt");
                     lines.Add(text.Template("walk.subura.fountain." + (runs ? "runs" : World.CleanWater ? "dry" : "foul")));

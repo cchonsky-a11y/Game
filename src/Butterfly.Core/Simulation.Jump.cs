@@ -418,7 +418,9 @@ namespace Butterfly.Core
             // The coin in your hand: Rome's debasement, spared or hastened (decided 2026-09-28).
             arrival.CoinKey = CoinKey();
             values["coinHolder"] = PolicyInstitution?.Def.Name ?? "the Curia";
-            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template(Key("wrongness", arrival.WrongnessKey), values) + " " +
+            // Arriving in the year of a recurrence, you step into a sick city (tester 7 arrived in AD 189 and only 'learn more' said so).
+            string epidemic = EpidemicYear > 0 ? text.Template("recurrence.now." + EpidemicYear) + " " : "";
+            arrival.Beats.Add(new ArrivalBeat("Wrongness", epidemic + text.Template(Key("wrongness", arrival.WrongnessKey), values) + " " +
                                                            text.Template(Key("coin", arrival.CoinKey), values)));
 
             // 3. Personal echo — the promise.

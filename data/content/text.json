@@ -114,6 +114,7 @@
     "curia.asHistory": "The Curia is as it ever was: factions, favors, and petitions that wait.",
     "curia.low": "The Curia is half deserted; the magistrates' notices are torn down, and men settle disputes with their fists.",
     "curia.policy": "The line you left is still spoken of: {policy}.",
+    "subura.epidemic": "Half the doors in the street are shut, and chalk marks the houses where the sickness is. A boy runs for water with a cloth over his mouth.",
     "subura.start": "You came down in the Subura: crowded, loud and poor, one corner of a city of about {population} people. The district fountain runs brown, and a mother pulls her child away from it. Somewhere behind you, in the rubble of a storeroom, is everything you have left of your own century.",
     "subura.high": "The Subura is still crowded, but cleaner than you remember; fewer children look sick.",
     "subura.asHistory": "The Subura is crowded and poor, much as you left it.",
@@ -184,6 +185,8 @@
   },
   "recurrence": {
     "189": "the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is {label}: about {deaths} thousand dead, {share}% of Rome.",
+    "now.189": "You have come back into a sick city. The pestilence has returned this year; people speak through cloth, and at night the carts of the dead go out by the gates.",
+    "now.251": "You have come back into a sick city. A new sickness of the eyes, the bowels and the throat is in every district this year, and at night the carts of the dead go out by the gates.",
     "251": "the Plague of Cyprian reaches Rome, a sickness of the eyes, the bowels and the throat that comes back year after year. At its worst five thousand die in a day. It is {label}: about {deaths} thousand dead, {share}% of Rome."
   }
 }

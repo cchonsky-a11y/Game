@@ -16,6 +16,9 @@ namespace Butterfly.Core
     {
         private readonly HashSet<int> _recurrencesStruck = new HashSet<int>();
 
+        /// <summary>The year of a historical recurrence that is raging now (you arrived in its year), or 0.</summary>
+        public int EpidemicYear => _recurrencesStruck.Contains(Now.Year) ? Now.Year : 0;
+
         /// <summary>How a recurrence in <paramref name="year"/> compares with history: hazard × (1 − resilience) against history's, raised by debt tiers.</summary>
         public double RecurrenceRatio(int year, string response)
         {

@@ -51,5 +51,30 @@ namespace Butterfly.Core.Tests
             sim.World[Domain.Medicine].Debt = 200;
             Assert.True(sim.RecurrenceRatio(189, "none") > 0);
         }
+    
+        [Fact]
+        public void ArrivingInAPlagueYearYouSeeASickCity()
+        {
+            // Tester 7 arrived in AD 189, the year the pestilence returned, and only 'learn more' mentioned it.
+            Arrival? arrival = null;
+            Simulation? sim = null;
+            for (ulong seed = 1; seed < 80 && arrival?.ArrivalYear != 189; seed++)
+            {
+                sim = new Simulation(TestData.Load(), seed);
+                while (sim.Now.Year < 164) sim.EndTurn();
+                arrival = sim.JumpForTests();
+            }
+            Assert.Equal(189, arrival!.ArrivalYear);
+            Assert.Equal(189, sim!.EpidemicYear);
+            Assert.Contains("sick city", arrival.Beats.Single(b => b.Name == "Wrongness").Text);
+            Assert.Contains("chalk marks the houses", sim.Visit("subura"));
+
+            // Arriving in another year, the city isn't sick.
+            var calm = new Simulation(TestData.Load(), 42);
+            var a = calm.JumpForTests();
+            Assert.NotEqual(189, a.ArrivalYear);
+            Assert.Equal(0, calm.EpidemicYear);
+            Assert.DoesNotContain("sick city", a.Beats.Single(b => b.Name == "Wrongness").Text);
+        }
     }
 }
