@@ -122,7 +122,7 @@ namespace Butterfly.Core
                                   : ""));
             sb.AppendLine("Your gold: carried " + AureiCarried.ToString("0", ci) + ", deposited " + AureiDeposited.ToString("0", ci) + " (" + AureiDepositReturned.ToString("0", ci) +
                           " back), buried " + AureiBuried.ToString("0", ci) + " (" + AureiHoardFound.ToString("0", ci) + " recovered), left behind " + AureiLeft.ToString("0", ci) +
-                          "; you hold " + AureiOnArrival.ToString("0", ci) + " aurei now.");
+                          "; you hold " + Simulation.Aurei(System.Math.Round(AureiOnArrival)) + " now.");
             sb.AppendLine("Crises while you were away");
             if (Crises.Count == 0) sb.AppendLine("  None recorded.");
             foreach (var c in Crises) sb.AppendLine("  " + c);

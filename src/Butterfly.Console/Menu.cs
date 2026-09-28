@@ -127,17 +127,17 @@ internal sealed partial class ConsoleGame
         double missing = _sim.MachineGoldNeeded - _sim.MachineGoldRestored;
         if (missing >= 1)
         {
-            if (w.Aurei >= 1 && _sim.MachineAssessed) machine.Item2.Add(("put " + F(Math.Min(Math.Floor(w.Aurei), Math.Ceiling(missing))) + " aurei back in", "restore " + F(Math.Min(Math.Floor(w.Aurei), Math.Ceiling(missing)))));
+            if (w.Aurei >= 1 && _sim.MachineAssessed) machine.Item2.Add(("put " + _sim.AureiText(Math.Min(Math.Floor(w.Aurei), Math.Ceiling(missing))) + " back in", "restore " + F(Math.Min(Math.Floor(w.Aurei), Math.Ceiling(missing)))));
             double buy = Math.Ceiling(missing - w.Aurei);
             if (att && buy >= 1 && _sim.AureiCost(buy) <= w.Gold)
-                machine.Item2.Add(("buy the " + F(buy) + " aurei it still needs (" + M(_sim.AureiCost(buy)) + ")", "exchange " + F(Math.Ceiling(_sim.Denarii(_sim.AureiCost(buy)))) + " denarii"));
+                machine.Item2.Add(("buy the " + _sim.AureiText(buy) + " it still needs (" + M(_sim.AureiCost(buy)) + ")", "exchange " + F(Math.Ceiling(_sim.Denarii(_sim.AureiCost(buy)))) + " denarii"));
         }
 
         var money = Group("Money changers");
         if (att && w.Aurei >= 1 && missing < 1 || att && w.Aurei >= 1 && _sim.MachineStepsDone < _sim.MachineStepsTotal)
         {
             if (w.Aurei >= 10) money.Item2.Add(("change 10 aurei", "exchange 10 aurei"));
-            money.Item2.Add(("change all " + F(Math.Floor(w.Aurei)) + " aurei", "exchange " + F(Math.Floor(w.Aurei)) + " aurei"));
+            money.Item2.Add(("change all " + _sim.AureiText(Math.Floor(w.Aurei)), "exchange " + F(Math.Floor(w.Aurei)) + " aurei"));
         }
 
         var projects = Group("Projects");
@@ -203,8 +203,8 @@ internal sealed partial class ConsoleGame
         var leave = Group("Before you leave");
         if (_sim.MachineReady)
         {
-            if (w.Aurei >= 1) leave.Item2.Add(("deposit " + F(Math.Floor(w.Aurei)) + " aurei with the bank", "deposit " + F(Math.Floor(w.Aurei))));
-            if (w.Aurei >= 1) leave.Item2.Add(("bury " + F(Math.Floor(w.Aurei)) + " aurei", "bury " + F(Math.Floor(w.Aurei))));
+            if (w.Aurei >= 1) leave.Item2.Add(("deposit " + _sim.AureiText(Math.Floor(w.Aurei)) + " with the bank", "deposit " + F(Math.Floor(w.Aurei))));
+            if (w.Aurei >= 1) leave.Item2.Add(("bury " + _sim.AureiText(Math.Floor(w.Aurei)), "bury " + F(Math.Floor(w.Aurei))));
             leave.Item2.Add(("jump", "jump"));
         }
 

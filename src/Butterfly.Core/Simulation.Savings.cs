@@ -114,8 +114,8 @@ namespace Butterfly.Core
             var text = Data.Content;
             var v = new Dictionary<string, string>(values)
             {
-                { "carried", F(arrival.AureiCarried) }, { "returned", F(arrival.AureiDepositReturned) }, { "deposited", F(arrival.AureiDeposited) },
-                { "years", F(Math.Round(Now.YearFraction - _depositSince)) }, { "hoard", F(arrival.AureiBuried) }, { "left", F(arrival.AureiLeft) },
+                { "carried", AureiText(arrival.AureiCarried) }, { "returned", AureiText(arrival.AureiDepositReturned) }, { "deposited", AureiText(arrival.AureiDeposited) },
+                { "years", F(Math.Round(Now.YearFraction - _depositSince)) }, { "hoard", AureiText(arrival.AureiBuried) }, { "left", AureiText(arrival.AureiLeft) },
                 { "lostHow", World.Institution("bank").Integrity == "venal" ? "its head fled with the depositors' gold a generation ago." : "it failed in a bad year, and its depositors were paid nothing." },
             };
             if (arrival.AureiCarried >= 1) yield return text.Template("savings.carried", v);

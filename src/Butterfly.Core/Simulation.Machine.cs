@@ -199,7 +199,7 @@ namespace Butterfly.Core
                                     : new Effect("machine.steps", MachineStepsDone - 1, MachineStepsDone) },
                     (a.WithoutRome ? a.Def.AltDoneText : a.Def.Text) + (upgrade
                         ? " (Upgrade: the machine's range is now " + JumpRangeText() + ".)"
-                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : MachineStepsDone >= MachineStepsTotal ? "; " + F(MachineGoldNeeded - MachineGoldRestored) + " aurei still to put back." : ".") + ")"));
+                        : " (Machine: " + MachineStepsDone + "/" + MachineStepsTotal + " steps" + (MachineReady ? "; it can carry you now." : MachineStepsDone >= MachineStepsTotal ? "; " + AureiText(MachineGoldNeeded - MachineGoldRestored) + " still to put back." : ".") + ")"));
             }
         }
 

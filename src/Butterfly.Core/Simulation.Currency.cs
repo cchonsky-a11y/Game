@@ -27,7 +27,10 @@ namespace Butterfly.Core
 
         public double AureusInDenarii => Denarii(AureusPrice);
 
-        public string AureiText(double aurei) =>
+        public string AureiText(double aurei) => Aurei(aurei);
+
+        /// <summary>"1 aureus", "2 aurei": every amount of gold shown to the player goes through here.</summary>
+        public static string Aurei(double aurei) =>
             aurei.ToString("#,0.#", CultureInfo.InvariantCulture) + (Math.Abs(aurei - 1) < 1e-9 ? " aureus" : " aurei");
 
         /// <summary>Sells aurei to the money changers for denarii, less their fee.</summary>

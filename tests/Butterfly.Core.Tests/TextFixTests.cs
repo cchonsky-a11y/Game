@@ -115,5 +115,22 @@ namespace Butterfly.Core.Tests
             while (sim.World.Promise.Status == PromiseStatus.NotOffered) sim.EndTurn();
             Assert.Contains(sim.DepartureBriefing(), l => l.Contains("never have an answer"));
         }
+    
+        [Theory]
+        [InlineData(1, "1 aureus")]
+        [InlineData(2, "2 aurei")]
+        public void GoldOnArrivalAgreesWithItsNumber(int extra, string expected)
+        {
+            // Tester 7: "It is still there: 1 aurei" and "The 1 aurei you couldn't carry".
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.World.Aurei = sim.CarryAurei + extra + extra;
+            Assert.True(sim.Bury(extra).Ok);
+            var a = sim.JumpForTests();
+            string text = string.Join(" ", a.Beats.Select(b => b.Text)) + a.LearnMore();
+            Assert.True(text.Contains("still there: " + expected) || text.Contains("found your " + expected), text);   // the jar may have been found
+            Assert.Contains("(" + expected + ")", text);
+            Assert.DoesNotContain("1 aurei", text);
+            Assert.Equal("0 aurei", Simulation.Aurei(0));
+        }
     }
 }
