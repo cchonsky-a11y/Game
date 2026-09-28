@@ -16,6 +16,8 @@ namespace Butterfly.Core
         private string? _pendingEvent;
         /// <summary>The choices you made yourself (not lapsed), in the order made: what Rome may remember at arrival.</summary>
         private readonly List<(EventDef Event, EventOptionDef Option)> _eventChoices = new List<(EventDef, EventOptionDef)>();
+        /// <summary>The answers you gave yourself, as "event:option", in the order given.</summary>
+        public IEnumerable<string> EventAnswers => _eventChoices.Select(c => c.Event.Id + ":" + c.Option.Id);
         private readonly HashSet<string> _marksShown = new HashSet<string>();
         private int _pendingSinceTurn;
 

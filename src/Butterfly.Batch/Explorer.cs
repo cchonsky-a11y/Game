@@ -122,6 +122,9 @@ namespace Butterfly.Batch
         public bool Stuck;
         public int BustsInAbsence;
         public string PolicyInForce = "";
+        /// <summary>For the "why doesn't it show" cross-tabs: memberships at departure, the answers given.</summary>
+        public int Memberships;
+        public List<string> Answers = new List<string>();
         public int MaxStake;
         public int MaxRank = -1;
         /// <summary>The workshop at departure and on arrival (P0-34); "" if the player never owned one.</summary>
@@ -198,6 +201,8 @@ namespace Butterfly.Batch
                 res.BothFactions = sim.StakePercent(sim.World.Institution("faction")) >= 10 && sim.StakePercent(sim.World.Institution("junian")) >= 10;
                 res.Apprentices = sim.World.Apprentices;
                 res.OrdersTaken = sim.World.OrdersTaken;
+                res.Memberships = sim.World.Institutions.Count(i => i.Backed && !i.Def.IsOwn);
+                res.Answers = sim.EventAnswers.ToList();
                 res.WorkshopSize = sim.WorkshopSize;
                 var a1 = sim.Jump();
                 if (sim.OwnsWorkshop) res.WorkshopFate1 = sim.WorkshopFate();
@@ -656,6 +661,41 @@ namespace Butterfly.Batch
             Group("Workshop: orders taken", x => x.WorkshopFate1 == "" ? "no workshop" : x.OrdersTaken == 0 ? "0 none" : x.OrdersTaken < 10 ? "1 some (1-9)" : x.OrdersTaken < 25 ? "2 many (10-24)" : "3 most (25+)");
             Group("Workshop: size at departure", x => x.WorkshopFate1 == "" ? "no workshop" : x.WorkshopSize == 1 ? "1 smithy" : x.WorkshopSize == 2 ? "2 yard" : x.WorkshopSize == 3 ? "3 works on the river" : "4 foundry");
             Group("Workshop: its fate at the first arrival", x => x.WorkshopFate1 == "" ? "no workshop" : x.WorkshopFate1);
+
+            // Why some choices barely show: what the persona meant against what it managed.
+            sb.AppendLine("## Intent against result");
+            sb.AppendLine();
+            void Cross(string title, Func<ExploreResult, string> rowKey, Func<ExploreResult, string> colKey)
+            {
+                var cols = ok.Select(colKey).Distinct().OrderBy(c => c).ToList();
+                sb.AppendLine("**" + title + "** (runs, and mean Index at the first arrival)");
+                sb.AppendLine();
+                sb.AppendLine("| | " + string.Join(" | ", cols) + " |");
+                sb.AppendLine("|---|" + string.Join("", cols.Select(_ => "---|")));
+                foreach (var g in ok.GroupBy(rowKey).OrderBy(g => g.Key))
+                    sb.AppendLine("| " + g.Key + " | " + string.Join(" | ", cols.Select(c => { var xs = g.Where(x => colKey(x) == c).ToList(); return xs.Count == 0 ? "" : xs.Count + " (" + F(xs.Average(x => x.IndexArrival1)) + ")"; })) + " |");
+                sb.AppendLine();
+            }
+            Cross("Policy style meant → policy in force at departure", x => x.Persona.PolicyStyle, x => x.PolicyInForce);
+            Cross("Meant to found → founded (and kept to departure)", x => x.Persona.Found ?? "none", x => x.FoundedYear == 0 ? "never founded" : x.FoundedAlive ? "founded, kept" : "founded, failed");
+            Cross("Memberships at departure → highest stake", x => x.Memberships.ToString(CultureInfo.InvariantCulture), x => x.MaxStake == 0 ? "0 none" : x.MaxStake < 10 ? "1 under 10%" : x.MaxStake < 25 ? "2 10-24%" : x.MaxStake < 50 ? "3 25-49%" : "4 50%+");
+            // Each answer to each of Rome's choices, against not being asked or letting it pass.
+            sb.AppendLine("**Each answer to Rome's choices** (mean Index at the first arrival; 'passed' = not asked or let it lapse)");
+            sb.AppendLine();
+            sb.AppendLine("| Event | Answer | Runs | First arrival | Gap to 'passed' |");
+            sb.AppendLine("|---|---|---|---|---|");
+            foreach (var ev in results.SelectMany(x => x.Answers).Select(a => a.Split(':')[0]).Distinct().OrderBy(e => e))
+            {
+                var passed = ok.Where(x => !x.Answers.Any(a => a.StartsWith(ev + ":", StringComparison.Ordinal))).ToList();
+                double basis = passed.Count > 0 ? passed.Average(x => x.IndexArrival1) : double.NaN;
+                sb.AppendLine("| " + ev + " | passed | " + passed.Count + " | " + F(basis) + " | |");
+                foreach (var g in ok.SelectMany(x => x.Answers.Where(a => a.StartsWith(ev + ":", StringComparison.Ordinal)).Select(a => (a, x))).GroupBy(t => t.a).OrderBy(g => g.Key))
+                {
+                    double m = g.Average(t => t.x.IndexArrival1);
+                    sb.AppendLine("| " + ev + " | " + g.Key.Split(':')[1] + " | " + g.Count() + " | " + F(m) + " | " + (m - basis >= 0 ? "+" : "") + F(m - basis) + " |");
+                }
+            }
+            sb.AppendLine();
 
             var founders = results.Where(x => x.FoundedYear > 0).ToList();
             if (founders.Count > 0)

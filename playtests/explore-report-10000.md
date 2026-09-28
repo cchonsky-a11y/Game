@@ -235,6 +235,84 @@ Mean Index (and SD) by group. **Effect** = the gap between the best and worst gr
 | **Effect** | | 0.95 | 1.14 | 1.16 |
 | Effect without busts | | 1.02 (gap 19.4) | 1.13 (gap 16.6) | 1.09 (gap 14.7) |
 
+## Intent against result
+
+**Policy style meant → policy in force at departure** (runs, and mean Index at the first arrival)
+
+| | free market | interventionist | mixed | no voice (history) | voice, as history |
+|---|---|---|---|---|---|
+| freemarket | 456 (134.7) |  |  | 2094 (117.3) | 34 (126.3) |
+| history |  |  |  | 1947 (117.9) | 494 (123.1) |
+| interventionist |  | 446 (111.0) |  | 2066 (117.5) | 49 (122.7) |
+| mixed | 96 (126.8) | 94 (111.5) | 211 (119.1) | 1950 (117.7) | 63 (126.5) |
+
+**Meant to found → founded (and kept to departure)** (runs, and mean Index at the first arrival)
+
+| | founded, failed | founded, kept | never founded |
+|---|---|---|---|
+| club | 3 (115.6) | 62 (135.8) | 975 (116.9) |
+| house | 6 (116.2) | 82 (132.9) | 904 (117.8) |
+| none |  |  | 6987 (118.5) |
+| school | 15 (126.7) | 82 (132.3) | 884 (117.0) |
+
+**Memberships at departure → highest stake** (runs, and mean Index at the first arrival)
+
+| | 0 none | 1 under 10% | 2 10-24% | 3 25-49% | 4 50%+ |
+|---|---|---|---|---|---|
+| 0 | 1178 (118.4) |  |  |  | 148 (131.2) |
+| 1 |  | 98 (107.2) | 894 (112.9) | 2246 (116.2) | 91 (133.9) |
+| 2 |  | 22 (106.1) | 719 (114.3) | 2063 (117.9) | 23 (134.1) |
+| 3 |  | 10 (105.8) | 513 (118.4) | 1330 (123.3) | 8 (128.4) |
+| 4 |  | 3 (103.9) | 189 (124.8) | 461 (128.6) | 4 (167.3) |
+
+**Each answer to Rome's choices** (mean Index at the first arrival; 'passed' = not asked or let it lapse)
+
+| Event | Answer | Runs | First arrival | Gap to 'passed' |
+|---|---|---|---|---|
+| auction | passed | 5259 | 115.1 | |
+| auction | buy | 806 | 129.4 | +14.3 |
+| auction | none | 2839 | 118.5 | +3.4 |
+| auction | relief | 1096 | 127.1 | +12.1 |
+| cartel | passed | 7887 | 118.1 | |
+| cartel | join | 1050 | 118.6 | +0.5 |
+| cartel | refuse | 1063 | 121.1 | +2.9 |
+| designs | passed | 4157 | 115.6 | |
+| designs | keep | 2958 | 120.1 | +4.5 |
+| designs | sell | 2885 | 121.0 | +5.4 |
+| fleet | passed | 6726 | 115.9 | |
+| fleet | hoard | 1439 | 123.3 | +7.3 |
+| fleet | none | 900 | 119.1 | +3.1 |
+| fleet | share | 935 | 129.2 | +13.3 |
+| flood | passed | 2592 | 117.5 | |
+| flood | none | 2483 | 116.1 | -1.4 |
+| flood | profit | 3246 | 118.5 | +1.0 |
+| flood | relief | 1679 | 123.6 | +6.1 |
+| galen | passed | 2659 | 117.2 | |
+| galen | circle | 3268 | 118.5 | +1.4 |
+| galen | none | 2053 | 116.7 | -0.4 |
+| galen | sponsor | 2020 | 122.1 | +4.9 |
+| invasion | passed | 5846 | 115.4 | |
+| invasion | hold | 1011 | 128.2 | +12.8 |
+| invasion | none | 1318 | 119.8 | +4.4 |
+| invasion | sell | 1825 | 122.1 | +6.7 |
+| levy | passed | 3770 | 118.3 | |
+| levy | duck | 3904 | 117.8 | -0.5 |
+| levy | pay | 2326 | 120.0 | +1.7 |
+| praetor | passed | 9007 | 118.1 | |
+| praetor | back | 417 | 122.4 | +4.3 |
+| praetor | refuse | 576 | 121.9 | +3.7 |
+| riverForge | passed | 5513 | 114.6 | |
+| riverForge | fund | 879 | 128.7 | +14.1 |
+| riverForge | guild | 1966 | 123.2 | +8.6 |
+| riverForge | refuse | 1642 | 120.5 | +5.9 |
+| sanctuaryWing | passed | 7333 | 118.2 | |
+| sanctuaryWing | clinic | 918 | 121.4 | +3.1 |
+| sanctuaryWing | none | 848 | 116.4 | -1.9 |
+| sanctuaryWing | temple | 901 | 119.8 | +1.6 |
+| treasuryLoan | passed | 8659 | 117.7 | |
+| treasuryLoan | refuse | 731 | 123.1 | +5.5 |
+| treasuryLoan | vouch | 610 | 124.6 | +7.0 |
+
 ## Founded institutions
 - Founded: 250; failed before departure: 24 (10%).
 - Failed ones: median years it lasted 3; strength when it failed: median 19.0; took rival strikes: 25% (median 0); the player invested in it: 42%.
