@@ -95,7 +95,8 @@ namespace Butterfly.Core
                     if (OwnsWorkshop)
                     {
                         string fate = WorkshopFate();
-                        lines.Add(text.Template("walk.forges.workshop." + (fate == "street" ? "high" : fate == "working" ? "asHistory" : "low")));
+                        // The same fate as the Recognition beat, in the same words (tester 7 saw "a stable" there and "a single cold forge" here).
+                        lines.Add(text.Template("walk.forges.workshop." + (fate == "street" ? "high" : fate == "working" ? "asHistory" : JumpsMade >= 2 ? "gone2" : "gone")));
                         if (fate != "gone" && WorkshopSize >= 2) lines.Add(text.Template("walk.forges.size." + WorkshopSize));
                         else if (fate == "gone" && WorkshopSize >= 3) lines.Add(text.Template("walk.forges.ruin"));
                         if (World.Apprentices > 0 && fate != "gone") lines.Add(text.Template("walk.forges.apprentices"));

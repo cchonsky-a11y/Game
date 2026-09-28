@@ -243,5 +243,30 @@ namespace Butterfly.Core.Tests
             Assert.Equal("street", sim.WorkshopFate());
             Assert.Contains("water wheel you paid for", sim.Visit("forges"));
         }
-}
+
+        [Fact]
+        public void TheForgesAndTheRecognitionBeatTellTheSameFate()
+        {
+            // Tester 7: Recognition said "a stable now" while 'visit forges' said "a single cold forge".
+            var sim = WithWorkshop();
+            sim.World.SmithRegard = 0;
+            var a = sim.JumpForTests();
+            Assert.Equal("gone", sim.WorkshopFate());
+            Assert.Contains("stable", a.Beats[0].Text);
+            Assert.Contains("stable", sim.Visit("forges"));
+            Assert.DoesNotContain("single cold forge", sim.Visit("forges"));
+            var b = sim.JumpForTests();
+            Assert.Equal("gone", sim.WorkshopFate());
+            Assert.Contains("fallen in", b.Beats[0].Text);
+            Assert.Contains("fallen in", sim.Visit("forges"));
+
+            var many = WithWorkshop();
+            many.World.Apprentices = 4;
+            many.World.SmithRegard = 80;
+            var c = many.JumpForTests();
+            Assert.Equal("street", many.WorkshopFate());
+            Assert.Contains("street of forges", c.Beats[0].Text);
+            Assert.Contains("street of forges", many.Visit("forges"));
+        }
+    }
 }
