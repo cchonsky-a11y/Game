@@ -2,6 +2,40 @@
   "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Amounts are PROPOSED P0-33.",
   "events": [
     {
+      "id": "designs",
+      "year": 163, "month": 4,
+      "requires": "workshop",
+      "title": "Tertius wants to sell your designs",
+      "text": "The guild's shipwrights have seen what comes out of your workshop, and they'll pay well for the patterns. Tertius wants to sell. 'We'd still make them,' he says. 'Just not only us.'",
+      "options": [
+        { "id": "sell", "label": "let him sell the designs to the guild", "text": "The guild pays in gold and gratitude. Within a year every forge at Ostia turns out what only yours could.",
+          "effects": [ { "type": "gold", "value": 45 }, { "type": "loyalty", "institution": "guild", "value": 6 }, { "type": "workshop", "value": -0.15 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+          "mark": "Every forge at Ostia still makes the ship fittings you once drew on wax. The shipwrights call them 'Tertian' after the smith; nobody has heard your name.",
+          "mark2": "Ship fittings of the old Tertian pattern are made from Ostia to Carthage now. The pattern has a guild of its own." },
+        { "id": "keep", "label": "keep the designs in the workshop", "text": "Tertius takes it badly. 'You want to be rich, or you want to be the only one?' He locks the patterns away all the same.",
+          "effects": [ { "type": "smith", "value": -12 } ] }
+      ]
+    },
+    {
+      "id": "secondForge",
+      "year": 168, "month": 4,
+      "requires": "workshop",
+      "title": "Tertius wants a second forge",
+      "text": "Tertius has found a yard on the river with room for a second forge and a water wheel. He can't afford it alone. The guild would lend, for a say in the business.",
+      "options": [
+        { "id": "fund", "label": "pay for the second forge yourself", "text": "You pay; the second fire is lit by the river, and the workshop is twice the size and still yours.",
+          "effects": [ { "type": "gold", "value": -45 }, { "type": "workshop", "value": 0.3 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1 } ],
+          "mark": "Down by the river the second forge you paid for still turns its water wheel. The yard has your old workshop's sign over the gate: two fires.",
+          "mark2": "The river forge has become a works: six hearths, a wheel on each race. The sign over the gate still shows two fires." },
+        { "id": "guild", "label": "let him borrow from the guild", "text": "The guild lends; its men sit in on the workshop's accounts now. It grows, but it answers to Ostia as much as to you.",
+          "effects": [ { "type": "workshop", "value": 0.1 }, { "type": "smith", "value": 5 }, { "type": "loyalty", "institution": "guild", "value": 4 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+          "mark": "The forge by the river flies the guild's pennant. Its foreman has never heard of the partner who drew machines on wax.",
+          "mark2": "The river forge belongs to the guild outright now, one of a dozen." },
+        { "id": "refuse", "label": "tell him no", "text": "Tertius stays with one forge. He doesn't mention it again, and he doesn't forget it.",
+          "effects": [ { "type": "smith", "value": -10 } ] }
+      ]
+    },
+    {
       "id": "flood",
       "year": 161, "month": 10,
       "requires": "any",

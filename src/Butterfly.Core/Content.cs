@@ -337,6 +337,27 @@ namespace Butterfly.Core
         }
     }
 
+    /// <summary>A kind of workshop order (P0-34): pay, Attention and effects in the decision events' terms.</summary>
+    public sealed class OrderDef
+    {
+        public string Id { get; }
+        public string Name { get; }
+        public string Text { get; }
+        public int Attention { get; }
+        public double Pay { get; }
+        public IReadOnlyList<EventEffect> Effects { get; }
+
+        public OrderDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Name = o.Str("name");
+            Text = o.Str("text");
+            Attention = (int)o.Num("attention");
+            Pay = o.Num("pay");
+            Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new EventEffect(x)).ToList();
+        }
+    }
+
     /// <summary>All authored content from data/content/.</summary>
     public sealed class Content
     {
@@ -354,6 +375,9 @@ namespace Butterfly.Core
         public IReadOnlyList<LocalNewsDef> LocalNews { get; }
         /// <summary>Decision events and leaders' requests, in date order (optional file).</summary>
         public IReadOnlyList<EventDef> Events { get; private set; } = new List<EventDef>();
+        /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
+        public string Smith { get; private set; } = "the smith";
+        public IReadOnlyList<OrderDef> Orders { get; private set; } = new List<OrderDef>();
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
@@ -411,6 +435,12 @@ namespace Butterfly.Core
             var content = new Content(projects, institutions, machine, upgrades, assessment, inventions, news, local, text);
             if (File.Exists(Path.Combine(contentDirectory, "events.json")))
                 content.Events = Read(contentDirectory, "events.json").Arr("events").Cast<JsonObject>().Select(o => new EventDef(o)).OrderBy(e => e.Time.TotalMonths).ToList();
+            if (File.Exists(Path.Combine(contentDirectory, "workshop.json")))
+            {
+                var w = Read(contentDirectory, "workshop.json");
+                content.Smith = w.Str("smith");
+                content.Orders = w.Arr("orders").Cast<JsonObject>().Select(o => new OrderDef(o)).ToList();
+            }
             return content;
         }
 

@@ -1629,6 +1629,37 @@
       "ref": "DECIDED 2026-09-28 (Corey: make ordinary membership pay a little more); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by membership or office (the better of this and a voice's 25%)"
     }
   },
+  "workshop": {
+    "orders": {
+      "everyMonths": { "value": 4, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: a new season's orders every this many months" },
+      "offered": { "value": 2, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: orders offered each season, drawn from the four kinds" },
+      "perSeason": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: orders the workshop can take a season" },
+      "extraAtApprentices": { "value": 2, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: with this many apprentices it can take one more a season" }
+    },
+    "apprentices": {
+      "max": { "value": 4, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: most apprentices the workshop can use" },
+      "hireAttention": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Attention to take on an apprentice" },
+      "wagePerYear": { "value": 3, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: an apprentice's wage a year (AD 155 aurei, rising with wages)" },
+      "outputEach": { "value": 0.1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each apprentice raises the workshop's output (income and order pay) by this share" }
+    },
+    "smith": {
+      "startRegard": { "value": 50, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard for you at the start (0-100)" },
+      "regardPerOrder": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each order taken" },
+      "regardPerApprentice": { "value": 3, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: regard for each apprentice taken on (lost when one goes)" }
+    },
+    "carry": {
+      "perApprentice": { "value": 0.25, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy target points during an absence per apprentice, times (1 + techniques x weight)" },
+      "techniqueWeight": { "value": 0.5, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: each workshop or mechanics invention adds this to what an apprentice carries" },
+      "years": { "value": 50, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the apprentices' techniques count for this many years after your first departure" }
+    },
+    "fate": {
+      "techniqueWeight": { "value": 0.5, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the workshop's fate on arrival: each technique counts this much (apprentices count 1)" },
+      "regardPer": { "value": 25, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: the smith's regard above or below the start counts 1 per this many points" },
+      "economy": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: Economy above history adds this, below takes it away" },
+      "streetAt": { "value": 4, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a street of forges" },
+      "workingAt": { "value": 1, "ref": "DECIDED 2026-09-28 (Corey: the workshop, step 5); amount PROPOSED P0-34: score for a workshop still working; below, it is gone" }
+    }
+  },
   "events": {
     "marksPerArrival": {
       "value": 2,

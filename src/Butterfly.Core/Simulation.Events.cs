@@ -28,6 +28,7 @@ namespace Butterfly.Core
         private bool EventRequirementHolds(EventDef e)
         {
             if (e.Requires == "any") return true;
+            if (e.Requires == "workshop") return OwnsWorkshop;
             if (e.Requires == "member") return World.Institutions.Any(i => i.Backed && !i.Def.IsOwn);
             if (e.Requires.StartsWith("member:", StringComparison.Ordinal)) return World.Institution(e.Requires.Substring(7)).Backed;
             throw new InvalidOperationException("Unknown event requirement: " + e.Requires);
@@ -81,8 +82,13 @@ namespace Butterfly.Core
             if (!lapsed) _eventChoices.Add((e, o));
             var ev = Record("event.decide", e.Id, null, new[] { lapsed ? "world" : "player" }, null,
                 e.Title + ": " + (lapsed ? "you let it pass (" + o.Label + "). " : "you chose to " + o.Label + ". ") + o.Text);
-            var causes = new[] { ev.Id };
-            foreach (var fx in o.Effects)
+            ApplyEffects(e.Title, o.Effects, new[] { ev.Id });
+        }
+
+        /// <summary>Applies authored effects (decision events, workshop orders): gold, aurei, levels, debt, loyalty, lean, income, the workshop, the smith.</summary>
+        internal void ApplyEffects(string title, IEnumerable<EventEffect> effects, int[] causes)
+        {
+            foreach (var fx in effects)
             {
                 switch (fx.Type)
                 {
@@ -91,28 +97,28 @@ namespace Butterfly.Core
                         double before = World.Gold, amount = fx.Value * World.PriceLevel;
                         World.Gold = Math.Max(0, World.Gold + amount);
                         Record("event.gold", GoldKey, causes, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
-                            e.Title + ": " + (amount >= 0 ? "you gain " : "it costs you ") + Money(Math.Abs(amount)) + ".");
+                            title + ": " + (amount >= 0 ? "you gain " : "it costs you ") + Money(Math.Abs(amount)) + ".");
                         break;
                     }
                     case "aurei":
                     {
                         double before = World.Aurei;
                         World.Aurei += fx.Value;
-                        Record("event.aurei", "aurei", causes, new[] { "player" }, new[] { new Effect("aurei", before, World.Aurei) }, e.Title + ": " + AureiText(fx.Value) + " in gold.");
+                        Record("event.aurei", "aurei", causes, new[] { "player" }, new[] { new Effect("aurei", before, World.Aurei) }, title + ": " + AureiText(fx.Value) + " in gold.");
                         break;
                     }
                     case "level":
                         if (DomainInfo.TryParseDomain(fx.Domain ?? "", out var d))
-                            ChangeLevel(d, fx.Value, "event.effect", causes, new[] { "player" }, e.Title + ": " + d + " " + Signed(fx.Value) + ".");
+                            ChangeLevel(d, fx.Value, "event.effect", causes, new[] { "player" }, title + ": " + d + " " + Signed(fx.Value) + ".");
                         break;
                     case "debt":
                         if (DomainInfo.TryParseDomain(fx.Domain ?? "", out var dd))
-                            AddDebt(dd, fx.Value, "event.effect", ev.Id, e.Title + ": " + dd + " debt +" + F(fx.Value) + ".");
+                            AddDebt(dd, fx.Value, "event.effect", causes[0], title + ": " + dd + " debt +" + F(fx.Value) + ".");
                         break;
                     case "loyalty":
                         foreach (var i in EventInstitutions(fx.Institution))
                             Grieve(i, fx.Value, "institution.loyalty", causes, new[] { i.Leader },
-                                e.Title + ": " + i.Leader + " of " + i.Def.ShortName + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+                                title + ": " + i.Leader + " of " + i.Def.ShortName + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
                         break;
                     case "lean":
                         foreach (var i in EventInstitutions(fx.Institution))
@@ -120,7 +126,7 @@ namespace Butterfly.Core
                             double before = i.Lean;
                             i.Lean = Math.Max(-1, Math.Min(1, i.Lean + fx.Value));
                             Record("institution.lean", i.Key, causes, new[] { "player" }, new[] { new Effect(i.Key + ".lean", before, i.Lean) },
-                                e.Title + ": " + CampName(i, fx.Value > 0 ? 0 : 1) + " gain ground in " + i.Def.ShortName + ".");
+                                title + ": " + CampName(i, fx.Value > 0 ? 0 : 1) + " gain ground in " + i.Def.ShortName + ".");
                         }
                         break;
                     case "income":
@@ -128,9 +134,20 @@ namespace Butterfly.Core
                         double before = World.InventionIncome;
                         World.InventionIncome += fx.Value;
                         Record("income.bonus", GoldKey, causes, new[] { "player" }, new[] { new Effect("income.inventions", before, World.InventionIncome) },
-                            e.Title + ": it pays you " + Money(fx.Value) + " a year.");
+                            title + ": it pays you " + Money(fx.Value) + " a year.");
                         break;
                     }
+                    case "workshop":
+                    {
+                        double before = World.WorkshopBonus;
+                        World.WorkshopBonus += fx.Value;
+                        Record("workshop.output", "workshop", causes, new[] { "player" }, new[] { new Effect("income.workshop", before, World.WorkshopBonus) },
+                            title + ": the workshop's income " + (fx.Value >= 0 ? "rises " : "falls ") + F(Math.Abs(fx.Value) * 100) + "%.");
+                        break;
+                    }
+                    case "smith":
+                        ChangeSmithRegard(fx.Value, causes, title + ": " + Data.Content.Smith + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+                        break;
                     default: throw new InvalidOperationException("Unknown event effect: " + fx.Type);
                 }
             }

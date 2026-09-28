@@ -39,6 +39,9 @@ namespace Butterfly.Batch
         /// <summary>How it answers Rome's choices (P0-33): generous (first option), profit (second), random, or ignores them.</summary>
         public string EventStyle = "";
         public int MachineStartYear;
+        /// <summary>The workshop (P0-34): how keen it is on orders, and how many apprentices it means to keep.</summary>
+        public double OrderRate;
+        public int ApprenticeTarget;
 
         public string Engagement => Join.Count + (Found != null ? 1 : 0) == 0 ? "none" : Join.Count + (Found != null ? 1 : 0) <= 2 ? "light" : "heavy";
 
@@ -80,6 +83,8 @@ namespace Butterfly.Batch
             p.OfficeAppetite = r.NextDouble();
             p.OrdersRate = r.NextDouble();
             p.EventStyle = new[] { "generous", "profit", "random", "ignore" }[r.NextInt(0, 4)];
+            p.OrderRate = r.Chance(0.25) ? 0 : r.NextDouble();
+            p.ApprenticeTarget = r.NextInt(0, 5);
             return p;
         }
 
@@ -116,6 +121,9 @@ namespace Butterfly.Batch
         public string PolicyInForce = "";
         public int MaxStake;
         public int MaxRank = -1;
+        /// <summary>The workshop at departure and on arrival (P0-34); "" if the player never owned one.</summary>
+        public int Apprentices, OrdersTaken;
+        public string WorkshopFate1 = "";
         /// <summary>Founding diagnostics: founded (year or 0), collapsed (year or 0), rival strikes taken, gold invested, strength at departure or collapse, years it lasted.</summary>
         public int FoundedYear, CollapsedYear, RivalStrikes, Invests;
         public double FoundedStrengthEnd;
@@ -185,7 +193,10 @@ namespace Butterfly.Batch
                     austrian > 0 && interv == 0 ? "free market" : interv > 0 && austrian == 0 ? "interventionist" : austrian > 0 ? "mixed" : "voice, as history";
                 res.MaxStake = sim.World.Institutions.Select(i => sim.StakePercent(i)).DefaultIfEmpty(0).Max();
                 res.BothFactions = sim.StakePercent(sim.World.Institution("faction")) >= 10 && sim.StakePercent(sim.World.Institution("junian")) >= 10;
+                res.Apprentices = sim.World.Apprentices;
+                res.OrdersTaken = sim.World.OrdersTaken;
                 var a1 = sim.Jump();
+                if (sim.OwnsWorkshop) res.WorkshopFate1 = sim.WorkshopFate();
                 res.IndexDeparture = a1.IndexBefore;
                 res.IndexArrival1 = a1.IndexAfter;
                 res.Arrival1Year = a1.ArrivalYear;
@@ -350,6 +361,18 @@ namespace Butterfly.Batch
                 foreach (var i in w.Institutions.Where(x => !x.Def.IsOwn && x.Rank >= Simulation.Officer).OrderBy(x => x.Rank).Take(1).ToList())
                     Do(sim, res, () => sim.Resign(i.Key));
             var actions = new List<(double Weight, Func<bool> Act)>();
+            // The workshop (P0-34): orders by temperament, apprentices up to a target while it can pay them.
+            if (sim.OwnsWorkshop)
+            {
+                var board = sim.OrderBoard().ToList();
+                if (board.Count > 0 && sim.OrdersLeftThisSeason > 0 && r.Chance(p.OrderRate))
+                {
+                    var o = board[r.NextInt(0, board.Count)];
+                    actions.Add((1.5, () => Do(sim, res, () => sim.TakeOrder(o.Id))));
+                }
+                if (w.Apprentices < p.ApprenticeTarget && !(!sim.MachineReady && sim.Now.YearFraction >= p.JumpYear - 2) && w.Gold > Reserve(sim) + 3 * sim.ApprenticeWage() * (w.Apprentices + 1))
+                    actions.Add((1, () => Do(sim, res, sim.HireApprentice)));
+            }
             // A player who means to leave saves for the machine as the planned jump nears.
             bool saving = !sim.MachineReady && sim.Now.YearFraction >= p.JumpYear - 2;
             // The machine.
@@ -622,6 +645,9 @@ namespace Butterfly.Batch
             Group("First jump", x => x.Jump1Year < 167 ? "before the plague (<167)" : x.Jump1Year < 175 ? "mid (167-174)" : "late (175+)");
             Group("Work style", x => x.Persona.WorkStyle);
             Group("Answers to Rome's choices", x => x.Persona.EventStyle);
+            Group("Workshop: apprentices at departure", x => x.WorkshopFate1 == "" ? "no workshop" : x.Apprentices.ToString(CultureInfo.InvariantCulture));
+            Group("Workshop: orders taken", x => x.WorkshopFate1 == "" ? "no workshop" : x.OrdersTaken == 0 ? "0 none" : x.OrdersTaken < 10 ? "1 some (1-9)" : x.OrdersTaken < 25 ? "2 many (10-24)" : "3 most (25+)");
+            Group("Workshop: its fate at the first arrival", x => x.WorkshopFate1 == "" ? "no workshop" : x.WorkshopFate1);
 
             var founders = results.Where(x => x.FoundedYear > 0).ToList();
             if (founders.Count > 0)

@@ -38,6 +38,7 @@ namespace Butterfly.Core
             InitPlague();
             InitInstitutions();
             InitAttention();
+            World.SmithRegard = T.Get("workshop.smith.startRegard");
         }
 
         /// <summary>
@@ -81,6 +82,7 @@ namespace Butterfly.Core
             RefreshAttention();
             AdvanceLocalNews();
             AdvanceEvents();
+            AdvanceWorkshop();
         }
 
         private void YearTick()
@@ -94,6 +96,7 @@ namespace Butterfly.Core
             OfficeWorkYearTick();
             OfficesYearTick();
             SeededPayoffYearTick();
+            WorkshopYearTick();
         }
 
         // ---- cause tracking -------------------------------------------------

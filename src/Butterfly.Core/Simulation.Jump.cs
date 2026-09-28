@@ -47,6 +47,7 @@ namespace Butterfly.Core
                                                     F(MachineGoldRestored) + "/" + F(MachineGoldNeeded) + " aurei restored).");
             var arrival = new Arrival { DepartureYear = Now.Year, DenariiPerUnit = DenariiPerUnit };
             DepartureYear = Now.Year;
+            NoteFirstDeparture();
             _absenceBusts = 0;
             _warningsBeforeDeparture = World.Plague.Stage >= 1;
             foreach (var d in DomainInfo.All) World.DepartureDeviation[(int)d] = World[d].Level - Benchmark(d, Now.Year);
@@ -331,7 +332,7 @@ namespace Butterfly.Core
         public double DecadeTarget(Domain d, int decadeStartYear)
         {
             double baseline = Benchmark(d, decadeStartYear + _stepYears);
-            double policy = (d == Domain.Economy ? PolicyTargetBonus(decadeStartYear + _stepYears) : 0) + CoinRelief(d, decadeStartYear + _stepYears);
+            double policy = (d == Domain.Economy ? PolicyTargetBonus(decadeStartYear + _stepYears) + WorkshopCarry(decadeStartYear) : 0) + CoinRelief(d, decadeStartYear + _stepYears);
             return baseline + T.Get("jump.longRun.deviationShare") * World.DepartureDeviation[(int)d] + MaintainBonus(d) + policy;
         }
 
@@ -491,7 +492,6 @@ namespace Butterfly.Core
             string choice = World.SeededChoice ?? "neither";
             bool fountainRuns = World.CleanWater && World.FountainCondition >= T.Get("jump.fountainRunsAt");
             bool workshopDone = World.CompletedProjects.Contains("workshop");
-            bool economyHeld = SubScore(Domain.Economy) >= 100;
             if (choice == "neither")
             {
                 if (World.CleanWater) choice = "fountain";
@@ -506,7 +506,8 @@ namespace Butterfly.Core
             // The fountain you didn't choose at first, but repaired later yourself.
             if (World.CompletedProjects.Contains("fountain")) secondKey = fountainRuns ? "unchosenFountain.laterRuns" : "unchosenFountain.laterDry";
             else secondKey = fountainRuns ? "unchosenFountain.fixed" : "unchosenFountain.foul";
-            return economyHeld ? "workshop.thrives" : "workshop.gone";
+            // What the apprentices carried, the smith's regard and the Economy decide the workshop's fate (P0-34).
+            return "workshop." + WorkshopFate();
         }
 
         private string CoinKey()

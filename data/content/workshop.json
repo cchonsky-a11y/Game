@@ -1,0 +1,18 @@
+{
+  "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34.",
+  "smith": "Tertius",
+  "orders": [
+    { "id": "fittings", "name": "ship fittings for the guild", "attention": 1, "pay": 5,
+      "text": "Tertius forges cleats, chain and rudder pins for a guild ship at Ostia.",
+      "effects": [ { "type": "loyalty", "institution": "guild", "value": 3 } ] },
+    { "id": "tools", "name": "tools and barrows for the builders", "attention": 1, "pay": 4,
+      "text": "Picks, trowels and barrow wheels go out to the builders of the Subura.",
+      "effects": [ { "type": "level", "domain": "economy", "value": 0.4 } ] },
+    { "id": "instruments", "name": "instruments for the physicians", "attention": 1, "pay": 4,
+      "text": "Probes, scalpels and a bone saw, polished bright, for the physicians.",
+      "effects": [ { "type": "level", "domain": "medicine", "value": 0.4 }, { "type": "loyalty", "institution": "circle", "value": 2 } ] },
+    { "id": "ironwork", "name": "ironwork for a senator's villa", "attention": 2, "pay": 12,
+      "text": "Gates, lamp brackets and a bronze-capped railing for a senator's villa on the Esquiline. It pays very well and does nobody else any good.",
+      "effects": [ { "type": "loyalty", "institution": "faction", "value": 3 }, { "type": "loyalty", "institution": "junian", "value": -2 } ] }
+  ]
+}

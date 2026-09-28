@@ -24,8 +24,8 @@ namespace Butterfly.Core
         /// </summary>
         public double YearlyIncome() => OwnedIncome() + Backed().Sum(i => i.Stake * Math.Max(0, InstitutionNet(i)));
 
-        /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level.</summary>
-        public double OwnedIncome() => (World.IncomeBonus + WorkshopRate() * World.WorkshopBonus) * World[Domain.Economy].Level + World.InventionIncome;
+        /// <summary>Income from property you funded (the workshop, the warehouses): rate × Economy level; the workshop's inventions and apprentices raise its part.</summary>
+        public double OwnedIncome() => (World.IncomeBonus + WorkshopRate() * (WorkshopOutput() - 1)) * World[Domain.Economy].Level + World.InventionIncome;
 
         /// <summary>The workshop share's income rate (per Economy point), if you own it; workshop inventions raise it by a percentage.</summary>
         public double WorkshopRate() =>

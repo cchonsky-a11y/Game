@@ -71,6 +71,10 @@ namespace Butterfly.Core
         public double ConsultBonus { get; set; }
         /// <summary>Workshop inventions: the workshop's income is this much higher (decided 2026-09-28).</summary>
         public double WorkshopBonus { get; set; }
+        /// <summary>The workshop (P0-34): free, paid apprentices; the smith's regard for you (0-100); orders taken.</summary>
+        public int Apprentices { get; set; }
+        public double SmithRegard { get; set; }
+        public int OrdersTaken { get; set; }
         public List<string> CompletedProjects { get; } = new List<string>();
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>

@@ -92,7 +92,13 @@ namespace Butterfly.Core
                         lines.Add(text.Template(partner ? "walk.forges.start.partner" : "walk.forges.start"));
                         break;
                     }
-                    lines.Add(World.CompletedProjects.Contains("workshop") ? text.Template("walk.forges.workshop." + Band(Domain.Economy)) : text.Template("walk.forges.noWorkshop"));
+                    if (OwnsWorkshop)
+                    {
+                        string fate = WorkshopFate();
+                        lines.Add(text.Template("walk.forges.workshop." + (fate == "street" ? "high" : fate == "working" ? "asHistory" : "low")));
+                        if (World.Apprentices > 0 && fate != "gone") lines.Add(text.Template("walk.forges.apprentices"));
+                    }
+                    else lines.Add(text.Template("walk.forges.noWorkshop"));
                     var guild = World.Institution("guild");
                     if (HasInfluence(guild)) lines.Add(Cap(CurrentName(guild)) + ": " + OutcomeOf(guild).ToString().ToLowerInvariant() + ", strength " + R(guild.Strength, "0") + ".");
                     var inUse = WorkshopInventions.Where(World.Invented.Contains).Select(id => text.Template("walk.use." + id)).ToList();

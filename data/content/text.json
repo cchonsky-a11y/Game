@@ -3,7 +3,8 @@
   "recognition": {
     "fountain.runs": "You climb out of the machine in AD {year}. The Tiber smells the same. In the Subura, the district fountain you repaired still runs: the basin is worn smooth, and someone has cut two words into its rim: AQUA PURA.",
     "fountain.dry": "You climb out of the machine in AD {year}. The Tiber smells the same. You find the district fountain you repaired by the shape of the street, but the basin is cracked and dry, full of leaves.",
-    "workshop.thrives": "You climb out of the machine in AD {year}. The Tiber smells the same. Near the Porta Trigemina you hear hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest door hangs a painted sign with two fires.",
+    "workshop.working": "You climb out of the machine in AD {year}. The Tiber smells the same. Near the Porta Trigemina you hear a single hammer: the smith's workshop you funded is still working, sooty and a little larger, with a boy asleep by the bellows.",
+    "workshop.street": "You climb out of the machine in AD {year}. The Tiber smells the same. Near the Porta Trigemina you hear hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest door hangs a painted sign with two fires.",
     "workshop.gone": "You climb out of the machine in AD {year}. The Tiber smells the same. Near the Porta Trigemina you find the smith's workshop you funded by its soot-black wall. It is a stable now.",
     "neither": "You climb out of the machine in AD {year}. The Tiber smells the same. You pass the corner where the smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.",
     "unchosenFountain.fixed": "Down the street, the fountain you didn't choose was repaired after all. Someone else did it.",
@@ -99,6 +100,7 @@
     "forges.start": "Down by the Porta Trigemina a smith is swearing at a cracked bellows: one forge, one apprentice, too much work. He looks at your strange boots, then at your purse, and says he could use a partner. Out at Ostia, people say, the Merchants' Guild runs the harbor under a man called Publius Aelius Sabinus.",
     "forges.workshop.high": "By the Porta Trigemina the smith's workshop you funded has become a whole street of forges.",
     "forges.workshop.asHistory": "By the Porta Trigemina the smith's workshop you funded is still working, a little larger than you left it.",
+    "forges.apprentices": "The masters here learned from men who learned from your apprentices. They still work the way you showed the first of them, and swear it's the only way.",
     "forges.workshop.low": "By the Porta Trigemina the smith's workshop you funded has shrunk to a single cold forge.",
     "forges.noWorkshop": "By the Porta Trigemina the smiths work as they always have.",
     "forges.inUse": "You see your ideas in use: {inventions}.",
@@ -136,7 +138,8 @@
   "recognition2": {
     "fountain.runs": "You climb out again in AD {year}, {gap} years after your last visit and a minute after it for you. The fountain in the Subura still runs. Its basin has been replaced; the new one has a lion's-head spout, and the children still fight over it.",
     "fountain.dry": "You climb out again in AD {year}, {gap} years after your last visit. The fountain in the Subura is dry; a cobbler has built his stall against the basin and keeps his lasts in it.",
-    "workshop.thrives": "You climb out again in AD {year}, {gap} years after your last visit. The street of forges near the Porta Trigemina has spread down to the river. No one there remembers the first smith, but they still turn axles the way he did.",
+    "workshop.working": "You climb out again in AD {year}, {gap} years after your last visit. The forge by the Porta Trigemina still smokes; the family who run it now have never heard of a partner who drew machines on wax.",
+    "workshop.street": "You climb out again in AD {year}, {gap} years after your last visit. The street of forges near the Porta Trigemina has spread down to the river. No one there remembers the first smith, but they still turn axles the way he did.",
     "workshop.gone": "You climb out again in AD {year}, {gap} years after your last visit. Near the Porta Trigemina the old forge has fallen in; weeds grow through the hearth where your smith worked.",
     "neither": "You climb out again in AD {year}, {gap} years after your last visit. The corner where the smith worked and the fountain ran foul is a tavern now. It has no idea it could have been anything else.",
     "unchosenFountain.fixed": "The fountain down the street still runs; the plaque on it names a magistrate you never met.",
