@@ -183,5 +183,32 @@ namespace Butterfly.Core.Tests
             sim.GrantStake("guild", 0.02);
             Assert.True(sim.MaintainBonus(Domain.Economy) > bare);
         }
-    }
+    
+        /// <summary>
+        /// Free markets come only from the player (Corey, 2026-09-28): left alone, Rome keeps history's policy, history's
+        /// inflation and history's economy; advocacy lasts only while the inventor is there to press it.
+        /// </summary>
+        [Fact]
+        public void RomeFreesItsMarketsOnlyIfYouDriveIt()
+        {
+            var sim = new Simulation(TestData.Load(), 91);
+            sim.ChooseSeeded("fountain");
+            while (sim.Now.Year < 172)
+            {
+                if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
+                if (sim.PendingEvent != null) sim.Decide(sim.PendingEvent.Options.Last().Id);
+                sim.EndTurn();
+            }
+            foreach (var issue in Simulation.Issues) Assert.Equal(0, sim.Stance(issue));
+            Assert.Equal(sim.T.Get("prices.inflationAsHistory"), sim.InflationRate(), 9);
+            Assert.Equal(0, sim.PolicyTargetBonus(200), 9);
+
+            var pushed = Rich(92);
+            pushed.Advocate(PolicyIssue.Prices, 1);
+            Assert.True(pushed.PolicySway() > 0);
+            pushed.JumpForTests();
+            Assert.Equal(0, pushed.PolicySway());                                         // no one presses it once you're gone
+            Assert.Equal(pushed.T.Get("prices.inflationAsHistory"), pushed.InflationRate(), 9);
+        }
+}
 }
