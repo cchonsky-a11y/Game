@@ -99,5 +99,15 @@ namespace Butterfly.Core.Tests
             Assert.Equal(15, sim.Arrival!.AureiBuried);
             Assert.Equal(0, sim.Arrival.AureiLeft);
         }
+    
+        [Fact]
+        public void JumpingTwiceWithAnUnreadyMachineDoesNotCrash()
+        {
+            // Found by the scripted playtests: 'jump', 'jump' before the repairs threw and ended the game.
+            var sim = new Simulation(TestData.Load(), 42);
+            string output = Play(sim, "jump", "jump", "status");
+            Assert.False(sim.Arrived);
+            Assert.Equal(2, System.Text.RegularExpressions.Regex.Matches(output, "The machine isn't ready").Count);
+        }
     }
 }

@@ -538,9 +538,10 @@ internal sealed partial class ConsoleGame
 
     private void Jump()
     {
-        if (!_jumpArmed)
+        // Armed only when the machine can go: a second 'jump' on an unready machine crashed the game.
+        if (!_jumpArmed || !_sim.MachineReady)
         {
-            _jumpArmed = true;
+            _jumpArmed = _sim.MachineReady;
             if (!_sim.MachineReady)
             {
                 Console.WriteLine("The machine isn't ready: " + _sim.MachineStepsDone + " of " + _sim.MachineStepsTotal + " repair steps done.");
