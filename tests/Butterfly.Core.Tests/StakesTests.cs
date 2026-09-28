@@ -50,11 +50,12 @@ namespace Butterfly.Core.Tests
         [InlineData("medicine")]
         [InlineData("governance")]
         [InlineData("economy")]
-        public void FoundingCostsAbout65PercentOfControl(string domain)
+        public void FoundingCostsAShareOfControl(string domain)
         {
             var sim = Rich();
             DomainInfo.TryParseDomain(domain, out var d);
-            Assert.Equal(System.Math.Round(0.65 * sim.ControlCost(d)), sim.FoundCost(d), 6);
+            Assert.Equal(0.4, sim.T.Get("founding.costShareOfControl"), 6);   // decided 2026-09-28 (was 0.65)
+            Assert.Equal(System.Math.Round(0.4 * sim.ControlCost(d)), sim.FoundCost(d), 6);
         }
 
         [Fact]
