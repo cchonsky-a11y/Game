@@ -180,5 +180,9 @@
     "debased": "The coins are worse than when you last came: bronze with a wash of silver that rubs off in your purse.",
     "historyDebased": "The coins are worse again: grey, light, barely silver at all. Prices are quoted in bundles of coins now, not single ones.",
     "historyMild": "The coins are a shade lighter again, as Rome's mint has always done."
+  },
+  "recurrence": {
+    "189": "the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is {label}: about {deaths} thousand dead, {share}% of Rome.",
+    "251": "the Plague of Cyprian reaches Rome, a sickness of the eyes, the bowels and the throat that comes back year after year. At its worst five thousand die in a day. It is {label}: about {deaths} thousand dead, {share}% of Rome."
   }
 }

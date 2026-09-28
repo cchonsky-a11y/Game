@@ -163,8 +163,8 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.Expand().Ok);
             Finish(sim);
             Assert.Equal(3, sim.WorkshopSize);
-            Assert.False(sim.Expand().Ok);                                      // the foundry needs the blast furnace
-            sim.World.Invented.Add("furnace");
+            Assert.False(sim.Expand().Ok);                                      // the foundry needs the water-powered bellows
+            sim.World.Invented.Add("bellows");
             Assert.True(sim.Expand().Ok);
             Finish(sim);
             Assert.Equal(4, sim.WorkshopSize);

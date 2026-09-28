@@ -98,6 +98,7 @@ namespace Butterfly.Core
             OfficesYearTick();
             SeededPayoffYearTick();
             WorkshopYearTick();
+            HistoricalRecurrences(null);
         }
 
         // ---- cause tracking -------------------------------------------------

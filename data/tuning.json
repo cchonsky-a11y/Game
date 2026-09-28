@@ -56,9 +56,13 @@
         166.75,
         167,
         170,
+        189.75,
+        190,
         193,
         235,
         250,
+        251.75,
+        252,
         270,
         284,
         300,
@@ -66,7 +70,7 @@
         405,
         420
       ],
-      "ref": "PROPOSED P0-03; 166/167 added so the historical plague is one step (DECIDED 2026-09-28); 166.75 added 2026-09-28 so the historical plague's drop falls in the outbreak's months (October–December 166), not across all of 166"
+      "ref": "PROPOSED P0-03; 166/167 added so the historical plague is one step (DECIDED 2026-09-28); 166.75 added 2026-09-28 so the historical plague's drop falls in the outbreak's months (October–December 166), not across all of 166; 189.75/190 and 251.75/252 added 2026-09-28 (Corey: build the historical recurrences now) so the plague of AD 189 and the Plague of Cyprian are steps in history"
     },
     "medicine": {
       "value": [
@@ -76,9 +80,13 @@
         50,
         44,
         44,
+        45.72,
+        43.94,
         46,
         44,
         40,
+        40.17,
+        35.4,
         42,
         43,
         44,
@@ -86,7 +94,7 @@
         40,
         40
       ],
-      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history)"
+      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history); the recurrences of AD 189 (3% of Rome) and AD 251 (the Plague of Cyprian, 8%) are steps of 0.3 and 0.8 x the Antonine drop (DECIDED 2026-09-28; sizes PROPOSED P0-37)"
     },
     "governance": {
       "value": [
@@ -96,9 +104,13 @@
         55,
         53,
         53,
+        46.99,
+        46.31,
         46,
         40,
         38,
+        37.65,
+        36.0,
         34,
         35,
         45,
@@ -106,7 +118,7 @@
         32,
         30
       ],
-      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history)"
+      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history); the recurrences of AD 189 (3% of Rome) and AD 251 (the Plague of Cyprian, 8%) are steps of 0.3 and 0.8 x the Antonine drop (DECIDED 2026-09-28; sizes PROPOSED P0-37)"
     },
     "economy": {
       "value": [
@@ -116,9 +128,13 @@
         54,
         50,
         50,
+        48.28,
+        47.06,
         48,
         42,
         38,
+        37.3,
+        34.0,
         30,
         34,
         38,
@@ -126,7 +142,7 @@
         35,
         33
       ],
-      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history)"
+      "ref": "PROPOSED P0-03; the Antonine plague is a one-year step from AD 166 to 167 (DECIDED 2026-09-28: the plague follows history); the recurrences of AD 189 (3% of Rome) and AD 251 (the Plague of Cyprian, 8%) are steps of 0.3 and 0.8 x the Antonine drop (DECIDED 2026-09-28; sizes PROPOSED P0-37)"
     },
     "coin": {
       "_readme": "Rome's own debasement (DECIDED 2026-09-28, Corey: debasement is one of the downfalls of Rome). Silver share of Rome's everyday silver coin (the denarius, from 215 the antoninianus), authored estimates: about 78% under Antoninus Pius, cut for the plague and the Marcomannic Wars, about 50% under Septimius Severus, a collapse to a few percent under Gallienus and Claudius II. It times the share of Rome's decline that the history curves owe to the coin.",
@@ -436,7 +452,28 @@
     },
     "immunityYears": {
       "value": 30,
-      "ref": "SYSTEMS §6 no new plague outbreak for 30 years after any outbreak (DECIDED 2026-09-27)"
+      "ref": "SYSTEMS §6 no new plague outbreak for 30 years after any outbreak (DECIDED 2026-09-27); applies to outbreaks on no historical date; the historical recurrences (AD 189, AD 251) come on their dates (DECIDED 2026-09-28)"
+    },
+    "recurrences": {
+      "_readme": "Historical recurrences of the pestilence (SYSTEMS §6): they come on their dates whatever the player does; the player changes how hard they hit. Left alone they strike as history had it (their drops are in the history curve); the difference in hazard and resilience from history is the player's mark.",
+      "years": {
+        "value": [
+          189,
+          251
+        ],
+        "ref": "DECIDED 2026-09-28 (Corey: build the historical recurrences now); amounts PROPOSED P0-37: the plague in Rome under Commodus (AD 189) and the Plague of Cyprian at its height in Rome (about AD 251)"
+      },
+      "deathShare": {
+        "value": [
+          0.03,
+          0.08
+        ],
+        "ref": "DECIDED 2026-09-28 (Corey: build the historical recurrences now); amounts PROPOSED P0-37: share of Rome that died as history had it"
+      },
+      "maxDeathShare": {
+        "value": 0.25,
+        "ref": "DECIDED 2026-09-28 (Corey: build the historical recurrences now); amounts PROPOSED P0-37: at most this share of Rome dies in a recurrence"
+      }
     }
   },
   "institutions": {
@@ -1246,8 +1283,8 @@
   "founding": {
     "_readme": "Founding your own institution (DECIDED 2026-09-27, Corey): costs about 65% of buying 0→50% of an established institution in the same domain; you control it from the start, but it starts weak, holds little of its domain, and may fail.",
     "costShareOfControl": {
-      "value": 0.15,
-      "ref": "DECIDED 2026-09-28 (Corey: found small, then grow it; was 0.4, before that 0.65); amount PROPOSED P0-36: founding costs this share of buying 0 to 50% of an established institution (SYSTEMS §7)"
+      "value": 0.18,
+      "ref": "DECIDED 2026-09-28 (Corey: found small, then grow it; was 0.4, before that 0.65); amount PROPOSED P0-36: founding costs this share of buying 0 to 50% of an established institution (SYSTEMS §7); toned down a little 2026-09-28 (Corey) (was 0.15)"
     },
     "attention": {
       "value": 3,
@@ -1275,28 +1312,28 @@
     },
     "school": {
       "plagueResilience": {
-        "value": 0.06,
-        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: the School of the Fountain adds this to plague resilience at full power"
+        "value": 0.05,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: the School of the Fountain adds this to plague resilience at full power; toned down a little 2026-09-28 (Corey) (was 0.06)"
       },
       "medicineCarry": {
-        "value": 3,
-        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Medicine target points during an absence while the School stands, at full power"
+        "value": 2.5,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Medicine target points during an absence while the School stands, at full power; toned down a little 2026-09-28 (Corey) (was 3)"
       }
     },
     "club": {
       "policySway": {
-        "value": 0.75,
-        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: while the Club of the Aventine stands, your policy's sway is at least this, also after you leave"
+        "value": 0.65,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: while the Club of the Aventine stands, your policy's sway is at least this, also after you leave; toned down a little 2026-09-28 (Corey) (was 0.75)"
       }
     },
     "house": {
       "dividendPerYear": {
-        "value": 4,
-        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Menodora's house pays its founder this much a year (AD 155 aurei) at full power, scaled by Economy against its start"
+        "value": 3.5,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Menodora's house pays its founder this much a year (AD 155 aurei) at full power, scaled by Economy against its start; toned down a little 2026-09-28 (Corey) (was 4)"
       },
       "economyCarry": {
-        "value": 2,
-        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Economy target points during an absence while the house stands, at full power"
+        "value": 1.5,
+        "ref": "DECIDED 2026-09-28 (Corey: bigger impact for Rome's choices, memberships, founding and policy); amount PROPOSED P0-36: Economy target points during an absence while the house stands, at full power; toned down a little 2026-09-28 (Corey) (was 2)"
       }
     }
   },

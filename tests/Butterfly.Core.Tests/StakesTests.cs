@@ -54,8 +54,8 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             DomainInfo.TryParseDomain(domain, out var d);
-            Assert.Equal(0.15, sim.T.Get("founding.costShareOfControl"), 6);   // decided 2026-09-28: found small (was 0.4, before that 0.65)
-            Assert.Equal(System.Math.Round(0.15 * sim.ControlCost(d)), sim.FoundCost(d), 6);
+            Assert.Equal(0.18, sim.T.Get("founding.costShareOfControl"), 6);   // decided 2026-09-28: found small, toned down a little (was 0.4, before that 0.65)
+            Assert.Equal(System.Math.Round(0.18 * sim.ControlCost(d)), sim.FoundCost(d), 6);
         }
 
         [Fact]

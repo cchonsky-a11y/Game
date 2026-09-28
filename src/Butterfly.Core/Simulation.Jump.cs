@@ -254,6 +254,7 @@ namespace Butterfly.Core
             {
                 Now = SimTime.FromYear(startYear + y);
                 if (World.Plague.Stage != PlagueState.Passed) AdvancePlagueToDate();
+                HistoricalRecurrences(arrival);
             }
             if (!antoninePassed && World.Plague.Stage == PlagueState.Passed)
                 arrival.Crises.Add("AD " + World.Plague.OutbreakYear + ": the Antonine pestilence (" + World.Plague.SeverityLabel +

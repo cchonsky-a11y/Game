@@ -480,7 +480,8 @@ namespace Butterfly.Batch
             // Inventions.
             if (!saving && r.Chance(p.InventRate) && w.ActiveInventions.Count == 0)
                 foreach (var inv in sim.Data.Content.Inventions.Where(x => sim.InventionState(x) == "ready" && sim.InventionGold(x) <= w.Gold - Reserve(sim)).ToList())
-                    actions.Add((0.6, () => Do(sim, res, () => sim.Invent(inv.Id))));
+                    // A player set on a foundry favors the workshop's own inventions (the bellows opens the foundry).
+                    actions.Add((p.SizeTarget >= 4 && inv.Branch == "workshop" ? 2.4 : 0.6, () => Do(sim, res, () => sim.Invent(inv.Id))));
             // Paying down debt.
             foreach (var d in w.Domains.Where(d => d.Debt >= 1).ToList())
                 if (!saving && r.Chance(p.PaydownRate))
