@@ -47,7 +47,8 @@ namespace Butterfly.Core.Tests
             int before = sim.ProjectGold(census);
             Hold(sim, "faction", 0.10);
             Assert.Equal("junian", sim.RivalFactionObstructs()!.Key);
-            Assert.Equal(before * (1 + sim.T.Get("tradeoffs.rivalFactionProjectMarkup")), sim.ProjectGold(census), 0);
+            double memberShare = sim.T.GetArray("offices.projectShare")[0];            // a member's discount applies too
+            Assert.Equal(System.Math.Round(before * (1 - memberShare) * (1 + sim.T.Get("tradeoffs.rivalFactionProjectMarkup"))), sim.ProjectGold(census), 0);
             Assert.Equal(sim.ProjectGold(sim.Data.Content.Project("market")!), sim.ProjectGold(sim.Data.Content.Project("market")!)); // other domains unaffected
         }
 

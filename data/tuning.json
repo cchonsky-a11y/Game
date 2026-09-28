@@ -1612,21 +1612,21 @@
     },
     "upkeepPerYear": {
       "value": [
-        0,
+        0.2,
         0.4,
         0.8,
         1.2
       ],
-      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: domain level a year from the work of your office (member, officer, deputy, head; a founder counts as head), × the camp factor"
+      "ref": "DECIDED 2026-09-28 (Corey: make ordinary membership pay a little more); amount PROPOSED P0-32: domain level a year from your membership or office (member, officer, deputy, head; a founder counts as head), × the camp factor"
     },
     "projectShare": {
       "value": [
-        0,
+        0.1,
         0.15,
         0.25,
         0.4
       ],
-      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by your office (the better of this and a voice's 25%)"
+      "ref": "DECIDED 2026-09-28 (Corey: make ordinary membership pay a little more); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by membership or office (the better of this and a voice's 25%)"
     }
   }
 }

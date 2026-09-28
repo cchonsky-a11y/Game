@@ -223,13 +223,13 @@ namespace Butterfly.Core
         /// </summary>
         private void OfficeWorkYearTick()
         {
-            foreach (var i in World.Institutions.Where(x => x.Exists && (x.Def.IsOwn ? x.Stake > 0 && x.Rank >= Head : x.Backed && x.Rank >= Officer)).ToList())
+            foreach (var i in World.Institutions.Where(x => x.Exists && (x.Def.IsOwn ? x.Stake > 0 && x.Rank >= Head : x.Backed && x.Rank >= Member)).ToList())
             {
                 double amount = T.GetArray("offices.upkeepPerYear")[Math.Min(Head, i.Rank)] * CampUpkeepFactor(i);
                 if (amount <= 1e-9) continue;
                 var d = i.Def.Maintains;
                 ChangeLevel(d, amount, "office.work", CausesOf(i.Key + ".rank"), new[] { "player" },
-                    "Your work as " + OfficeTitle(i, i.Rank) + " of " + i.Def.ShortName + " keeps " + d + " up (" + Signed(amount) + ").");
+                    (i.Rank >= Officer ? "Your work as " + OfficeTitle(i, i.Rank) + " of " + i.Def.ShortName : "Your dues and your voice in " + i.Def.ShortName) + " keep " + d + " up (" + Signed(amount) + ").");
             }
         }
 
