@@ -7,12 +7,27 @@ namespace Butterfly.Core.Tests
     public class TextFixTests
     {
         [Fact]
+        public void TheSecondArrivalReadsAsAReturn()
+        {
+            var sim = new Simulation(TestData.Load(), 41);
+            sim.ChooseSeeded("fountain");
+            while (sim.Now.Year < 170) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
+            var first = sim.JumpForTests();
+            var second = sim.JumpForTests();
+            string r1 = first.Beats.First(b => b.Name == "Recognition").Text, r2 = second.Beats.First(b => b.Name == "Recognition").Text;
+            Assert.DoesNotContain("again", r1);
+            Assert.Contains("again", r2);
+            Assert.NotEqual(first.Beats.First(b => b.Name == "Personal echo").Text, second.Beats.First(b => b.Name == "Personal echo").Text);
+            foreach (var b in second.Beats) Assert.DoesNotContain("{", b.Text);
+        }
+
+        [Fact]
         public void WrongnessLeavesTheCoinToTheCoinLine()
         {
             // The coin line always follows the Wrongness text, so the Wrongness templates don't describe the coin themselves
             // (found by the exploration runs: "copper washed in silver" then "bronze washed thin with silver").
             var text = TestData.Load().Content.Text;
-            foreach (var kv in text.Where(kv => kv.Key.StartsWith("wrongness.")))
+            foreach (var kv in text.Where(kv => kv.Key.StartsWith("wrongness.") || kv.Key.StartsWith("wrongness2.")))
             {
                 Assert.DoesNotContain("coin", kv.Value);
                 Assert.DoesNotContain("silver", kv.Value);

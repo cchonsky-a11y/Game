@@ -385,10 +385,15 @@ namespace Butterfly.Core
             var institution = arrival.Echoes.First(e => e.Id == "institution");
             var promise = arrival.Echoes.First(e => e.Id == "promise");
 
+            // A later arrival reads as a return, not a first sight (decided 2026-09-28): its own Recognition and Personal echo.
+            bool later = JumpsMade >= 2;
+            values["gap"] = (Now.Year - DepartureYear).ToString(System.Globalization.CultureInfo.InvariantCulture);
+            string Key(string section, string k) => later && text.Text.ContainsKey(section + "2." + k) ? section + "2." + k : section + "." + k;
+
             // 1. Recognition — the hour-one choice.
             string recognitionKey = RecognitionKey(out string? secondKey);
-            string recognition = text.Template("recognition." + recognitionKey, values);
-            if (secondKey != null) recognition += " " + text.Template("recognition." + secondKey, values);
+            string recognition = text.Template(Key("recognition", recognitionKey), values);
+            if (secondKey != null) recognition += " " + text.Template(Key("recognition", secondKey), values);
             seeded.AtArrival = recognitionKey;
             seeded.Beat = "Recognition";
             arrival.Beats.Add(new ArrivalBeat("Recognition", recognition));
@@ -398,8 +403,8 @@ namespace Butterfly.Core
             // The coin in your hand: Rome's debasement, spared or hastened (decided 2026-09-28).
             arrival.CoinKey = CoinKey();
             values["coinHolder"] = PolicyInstitution?.Def.Name ?? "the Curia";
-            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template("wrongness." + arrival.WrongnessKey, values) + " " +
-                                                           text.Template("coin." + arrival.CoinKey, values)));
+            arrival.Beats.Add(new ArrivalBeat("Wrongness", text.Template(Key("wrongness", arrival.WrongnessKey), values) + " " +
+                                                           text.Template(Key("coin", arrival.CoinKey), values)));
 
             // 3. Personal echo — the promise.
             var circle = World.Institution("circle");
@@ -418,7 +423,19 @@ namespace Butterfly.Core
             }
             promise.AtArrival = personalKey;
             promise.Beat = "Personal echo";
-            arrival.Beats.Add(new ArrivalBeat("Personal echo", text.Template("personal." + personalKey, values)));
+            string personal = text.Template(Key("personal", personalKey), values);
+            // Your place in Rome (P0-32): the highest office you held, and the institution you founded.
+            var office = World.Institutions.Where(i => !i.Def.IsOwn && i.DepartureOffice.Length > 0).OrderByDescending(i => Array.IndexOf(i.Def.Offices.ToArray(), i.DepartureOffice)).FirstOrDefault();
+            if (office != null)
+                personal += " " + text.Template(Key("personal", "office"), new Dictionary<string, string>(values) { { "office", office.DepartureOffice }, { "officeHall", CurrentName(office) } });
+            var founded = World.Institutions.FirstOrDefault(i => i.Def.IsOwn && (i.Stake > 0 || i.Collapsed));
+            if (founded != null)
+            {
+                bool standing = founded.Exists && !founded.Collapsed && OutcomeOf(founded) != InstitutionOutcome.Dissolved;
+                string name = standing ? CurrentName(founded) : founded.Def.Name;
+                personal += " " + text.Template(Key("personal", standing ? "founder" : "founderGone"), new Dictionary<string, string>(values) { { "founded", name }, { "Founded", Cap(name) } });
+            }
+            arrival.Beats.Add(new ArrivalBeat("Personal echo", personal));
 
             // 4. Discovery — what the institutions became.
             var parts = new List<string>();

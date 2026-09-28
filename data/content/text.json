@@ -44,7 +44,10 @@
     "notOffered": "You left before the first rumors came from the East. In the city's records, the pestilence of {outbreakYear} fills page after page: about {deaths} thousand dead in Rome. You aren't in any of them.",
     "notOfferedNoOutbreak": "You left before the first rumors came from the East. You never learned whether Demetria would have asked you to stay.",
     "unanswered": "Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until the sickness passed. I never had an answer.'",
-    "neverAsked": "Demetria's letters survive in a library copy. They name everyone who stayed to help the sick in {outbreakYear}. You are not among them; she never thought to ask you."
+    "neverAsked": "Demetria's letters survive in a library copy. They name everyone who stayed to help the sick in {outbreakYear}. You are not among them; she never thought to ask you.",
+    "office": "In the hall of {officeHall} you find the roll of its officers. Between two names you don't know is a third, spelled wrong: yours, as {office}.",
+    "founder": "Over the door of {founded} someone has painted its beginning in red letters: 'Begun by a stranger from the East.'",
+    "founderGone": "Where {founded} stood there is a bathhouse now. The attendant has never heard of it."
   },
   "discovery": {
     "circle.thriving": "The Physicians' Circle of the Subura still meets by the fountain. They teach, argue about remedies, and keep a copy of your charter under glass. Its head is {leader}.",
@@ -129,5 +132,46 @@
     "intro.start": "Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).",
     "changers.start": "At a table a man weighs coins on a little balance and bites them. You show him an aureus from your purse, and his eyebrows go up: {aureus} denarii, he says, the official rate, less his cut. The silver coins in his tray are about {silver}% silver, and he takes them without a second look. You're going to be doing this a lot.",
     "forges.start.partner": "Down by the Porta Trigemina the smith you've just paid is clearing space for a second forge, still swearing at his cracked bellows. He calls you 'partner' as if testing the word. Out at Ostia, people say, the Merchants' Guild runs the harbor under a man called Publius Aelius Sabinus."
+  },
+  "recognition2": {
+    "fountain.runs": "You climb out again in AD {year}, {gap} years after your last visit and a minute after it for you. The fountain in the Subura still runs. Its basin has been replaced; the new one has a lion's-head spout, and the children still fight over it.",
+    "fountain.dry": "You climb out again in AD {year}, {gap} years after your last visit. The fountain in the Subura is dry; a cobbler has built his stall against the basin and keeps his lasts in it.",
+    "workshop.thrives": "You climb out again in AD {year}, {gap} years after your last visit. The street of forges near the Porta Trigemina has spread down to the river. No one there remembers the first smith, but they still turn axles the way he did.",
+    "workshop.gone": "You climb out again in AD {year}, {gap} years after your last visit. Near the Porta Trigemina the old forge has fallen in; weeds grow through the hearth where your smith worked.",
+    "neither": "You climb out again in AD {year}, {gap} years after your last visit. The corner where the smith worked and the fountain ran foul is a tavern now. It has no idea it could have been anything else.",
+    "unchosenFountain.fixed": "The fountain down the street still runs; the plaque on it names a magistrate you never met.",
+    "unchosenFountain.foul": "'Fever corner' is still what they call the spot where the fountain was.",
+    "unchosenWorkshop.later": "The forge you funded later has a grandson's name over its door now.",
+    "unchosenWorkshop.gone": "Of the smith there is still no trace.",
+    "unchosenFountain.laterRuns": "The fountain you repaired late still runs, patched with newer stone.",
+    "unchosenFountain.laterDry": "The fountain you repaired late is dry again."
+  },
+  "personal2": {
+    "kept": "The house with 'For the one who stayed' over its door has been rebuilt and the line is gone. But the street association still holds a supper each autumn it calls the stayer's supper, and no one can tell you why.",
+    "broken": "Demetria's note about the foreigner who didn't stay has become a saying in {keeper}: 'to promise like the foreigner'. It means to mean well and leave.",
+    "brokenNoKeeper": "Demetria's tomb on the Via Latina has lost its inscription to the weather. You are the only one left who knows what it said.",
+    "refused": "Demetria's letters are still copied in the libraries. Scholars argue about the foreigner who wouldn't promise to stay; most think she made you up.",
+    "notOffered": "The pestilence of {outbreakYear} is an old story now, told to frighten children. Your name was never part of it.",
+    "notOfferedNoOutbreak": "No one remembers the Greek physician of the Subura. You never met her; you left too soon.",
+    "unanswered": "A scholar has found Demetria's letter about the foreigner who never answered her. He thinks it's a riddle. It isn't.",
+    "neverAsked": "Demetria's list of those who stayed in {outbreakYear} is carved on a wall now, in a portico by the Tiber. You read it twice. You are not on it.",
+    "office": "Your name is still on the roll of {officeHall}'s officers, worn almost smooth where people touch it for luck.",
+    "founder": "{Founded} keeps the day of its beginning as a feast. They pour a cup for the stranger who began it, and leave it full.",
+    "founderGone": "No one you ask has heard of {founded}."
+  },
+  "wrongness2": {
+    "medicine.high": "The streets are louder than you left them: children again, everywhere, and old people too, more of them than any Roman street should hold.",
+    "medicine.low": "The city is thinner than you left it. Doors are chalked with the marks of sickness, and the burial clubs have queues.",
+    "governance.high": "The Forum is still orderly. Rulings are posted and read, and when soldiers pass, people step aside without hurrying.",
+    "governance.low": "The Forum has changed hands again; you can tell from the fresh names chiselled over old ones. The soldiers at the corners wear three different badges.",
+    "economy.high": "The markets have grown past anything you left: new warehouses along the river, and moneychangers who quote rates for cities you've never heard of.",
+    "economy.low": "The markets have shrunk since you left. Half the stalls are shuttered, and the rest trade in kind as often as for money.",
+    "asHistory": "You look for what has changed since your last visit and find almost nothing you didn't expect: Rome in AD {year} is the Rome of the history books."
+  },
+  "coin2": {
+    "sound": "The denarius still rings true. It's become a point of pride: shopkeepers bite coins in front of foreigners to show there's nothing to hide.",
+    "debased": "The coins are worse than when you last came: bronze with a wash of silver that rubs off in your purse.",
+    "historyDebased": "The coins are worse again: grey, light, barely silver at all. Prices are quoted in bundles of coins now, not single ones.",
+    "historyMild": "The coins are a shade lighter again, as Rome's mint has always done."
   }
 }
