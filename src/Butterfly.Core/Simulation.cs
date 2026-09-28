@@ -90,6 +90,7 @@ namespace Butterfly.Core
             PolicyYearTick();
             InstitutionsYearTick();
             CampsYearTick();
+            OfficeWorkYearTick();
             OfficesYearTick();
             SeededPayoffYearTick();
         }

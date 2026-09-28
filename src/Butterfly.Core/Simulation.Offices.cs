@@ -206,6 +206,38 @@ namespace Butterfly.Core
 
         public static string OrdersBand(double force) => force >= 0.6 ? "great" : force >= 0.3 ? "real" : force >= 0.1 ? "little" : "almost no";
 
+        /// <summary>
+        /// While you are away, the camp that leads shapes what the institution does for its domain (P0-32, revised 2026-09-28):
+        /// its first camp keeps it up more, its second (self-serving) camp less; once it has drifted, fully so.
+        /// </summary>
+        public double CampUpkeepFactor(Institution i)
+        {
+            if (i.Def.DriftPaths.Count < 2) return 1;
+            double lean = i.HasDrifted && i.DriftPath != null ? (i.DriftPath == i.Def.DriftPaths[0] ? 1 : -1) : i.Lean;
+            return Math.Max(0, 1 + T.Get("offices.campUpkeepEffect") * lean);
+        }
+
+        /// <summary>
+        /// Offices pay off while you hold them (P0-32, revised 2026-09-28): the work of the office keeps the institution's domain
+        /// up a little each year, more from a higher office, and the institution pays a larger share of your projects in it.
+        /// </summary>
+        private void OfficeWorkYearTick()
+        {
+            foreach (var i in World.Institutions.Where(x => x.Exists && (x.Def.IsOwn ? x.Stake > 0 && x.Rank >= Head : x.Backed && x.Rank >= Officer)).ToList())
+            {
+                double amount = T.GetArray("offices.upkeepPerYear")[Math.Min(Head, i.Rank)] * CampUpkeepFactor(i);
+                if (amount <= 1e-9) continue;
+                var d = i.Def.Maintains;
+                ChangeLevel(d, amount, "office.work", CausesOf(i.Key + ".rank"), new[] { "player" },
+                    "Your work as " + OfficeTitle(i, i.Rank) + " of " + i.Def.ShortName + " keeps " + d + " up (" + Signed(amount) + ").");
+            }
+        }
+
+        /// <summary>The share of your projects in a domain that an institution you serve pays (the best of voice and office).</summary>
+        public double OfficeProjectShare(Domain d) =>
+            World.Institutions.Where(i => i.Exists && i.Def.Maintains == d && (i.Def.IsOwn ? i.Stake > 0 : i.Backed))
+                .Select(i => T.GetArray("offices.projectShare")[Math.Max(0, Math.Min(Head, i.Rank))]).DefaultIfEmpty(0).Max();
+
         /// <summary>At departure: last orders move the institution toward your camp and seat your successor.</summary>
         private void ApplyLastOrders(int departId)
         {

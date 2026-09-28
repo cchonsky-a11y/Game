@@ -360,6 +360,9 @@ namespace Butterfly.Core
             if (i.ForcedOutcome.HasValue) return i.ForcedOutcome.Value;
             if (i.Loyalty < T.Get("institutions.rogueBelowLoyalty")) return InstitutionOutcome.Rogue;
             if (i.HasDrifted && i.DriftPath != null && i.DriftPath.Identity == "politically powerful") return InstitutionOutcome.Captured;
+            // It became what you asked of it, with weight behind your words (P0-32, revised 2026-09-28): that is thriving, not drift.
+            if (i.HasDrifted && i.DriftPath != null && i.OrderCamp >= 0 && i.DriftPath == i.Def.DriftPaths[i.OrderCamp]
+                && i.OrderForce >= T.Get("offices.textSome")) return InstitutionOutcome.Thriving;
             if (i.HasDrifted) return InstitutionOutcome.Drifted;
             return InstitutionOutcome.Thriving;
         }

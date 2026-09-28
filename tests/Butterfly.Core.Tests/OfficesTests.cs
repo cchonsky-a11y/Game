@@ -161,5 +161,50 @@ namespace Butterfly.Core.Tests
             }
             Assert.True(Drift(true) < Drift(false));
         }
-    }
+    
+        [Fact]
+        public void TheLeadingCampShapesUpkeepWhileYouAreAway()
+        {
+            var sim = Setup();
+            var guild = Member(sim, "guild", 0.30, 6);
+            double effect = sim.T.Get("offices.campUpkeepEffect");
+            guild.Lean = 1;
+            Assert.Equal(1 + effect, sim.CampUpkeepFactor(guild), 6);
+            guild.Lean = -1;
+            Assert.Equal(1 - effect, sim.CampUpkeepFactor(guild), 6);
+        }
+
+        [Fact]
+        public void AnOfficeHelpsItsDomainAndPaysPartOfYourProjects()
+        {
+            Simulation Run(bool officer)
+            {
+                var sim = Setup(23);
+                var guild = Member(sim, "guild", 0.12, 3);
+                if (officer) guild.Rank = Simulation.Officer;
+                NextYear(sim);
+                return sim;
+            }
+            var withOffice = Run(true);
+            var without = Run(false);
+            Assert.Contains(withOffice.Log.Events, e => e.Type == "office.work");
+            Assert.True(withOffice.World[Domain.Economy].Level > without.World[Domain.Economy].Level);
+            var mint = withOffice.Data.Content.Project("mint")!;
+            Assert.True(withOffice.ProjectGold(mint) < without.ProjectGold(mint));
+        }
+
+        [Fact]
+        public void AnInstitutionThatBecameWhatYouAskedComesBackThriving()
+        {
+            var sim = Setup();
+            var guild = Member(sim, "guild", 0.60, 8, 100);
+            guild.Rank = Simulation.Head;
+            guild.Leader = "you";
+            guild.Votes[0] = 6;
+            sim.Orders("guild", "freetraders", 1);
+            sim.JumpForTests();
+            guild.HasDrifted = true;                                  // even if it has fully become the free traders
+            Assert.Equal(InstitutionOutcome.Thriving, sim.OutcomeOf(guild));
+        }
+}
 }

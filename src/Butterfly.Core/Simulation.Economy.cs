@@ -110,7 +110,7 @@ namespace Butterfly.Core
         /// quarter of it (decided 2026-09-28: a voice unlocks a little more).
         /// </summary>
         public int ProjectGold(ProjectDef def) =>
-            (int)Math.Round(def.Gold * World.PriceLevel * (1 - (HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0))
+            (int)Math.Round(def.Gold * World.PriceLevel * (1 - Math.Max(HasHold(def.Domain) ? T.Get("stakes.voiceProjectShare") : 0, OfficeProjectShare(def.Domain)))
                             * (def.Domain == Domain.Governance && RivalFactionObstructs() != null ? 1 + T.Get("tradeoffs.rivalFactionProjectMarkup") : 1));
 
         /// <summary>The faction that obstructs your Governance projects because you hold 10%+ of its rival (P0-31), or null.</summary>

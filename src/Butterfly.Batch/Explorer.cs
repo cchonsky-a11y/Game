@@ -124,6 +124,13 @@ namespace Butterfly.Batch
         /// <summary>Text with its numbers blanked, so two arrivals that differ only in figures count as the same story.</summary>
         public static string Shape(string text) => Digits.Replace(text, "#");
 
+        /// <summary>A short, stable fingerprint of a text's shape (numbers blanked), to count distinct walks without keeping them.</summary>
+        private static string Compact(string text)
+        {
+            using (var sha = System.Security.Cryptography.SHA1.Create())
+                return string.Intern(BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(Shape(text))), 0, 8));
+        }
+
         /// <summary>When set, each turn's state is written here (--trace).</summary>
         public static Action<string>? Trace;
 
@@ -168,8 +175,8 @@ namespace Butterfly.Batch
                 res.IndexArrival1 = a1.IndexAfter;
                 res.Arrival1Year = a1.ArrivalYear;
                 for (int d = 0; d < 3; d++) res.Sub1[d] = a1.SubScoresAfter[DomainInfo.All[d]];
-                res.Beats1 = Beats(a1, res, "arrival 1");
-                res.Walk1 = Walk(sim, res, "arrival 1");
+                res.Beats1 = Beats(a1, res, "arrival 1").Select(b => string.Intern(Shape(b))).ToArray();
+                res.Walk1 = Compact(Walk(sim, res, "arrival 1"));
                 res.SilverArrival1 = sim.CoinSilverNow();
                 res.AureiAfter1 = sim.World.Aurei;
                 foreach (var i in a1.Institutions) res.Outcomes1[i.Name] = i.Outcome.ToString();
@@ -187,8 +194,8 @@ namespace Butterfly.Batch
                     res.IndexArrival2 = a2.IndexAfter;
                     res.Arrival2Year = a2.ArrivalYear;
                     for (int d = 0; d < 3; d++) res.Sub2[d] = a2.SubScoresAfter[DomainInfo.All[d]];
-                    res.Beats2 = Beats(a2, res, "arrival 2");
-                    res.Walk2 = Walk(sim, res, "arrival 2");
+                    res.Beats2 = Beats(a2, res, "arrival 2").Select(b => string.Intern(Shape(b))).ToArray();
+                    res.Walk2 = Compact(Walk(sim, res, "arrival 2"));
                     res.SilverArrival2 = sim.CoinSilverNow();
                     res.AureiAfter2 = sim.World.Aurei;
                     Texts(res, "learn more 2", a2.LearnMore());
@@ -487,10 +494,18 @@ namespace Butterfly.Batch
             sb.AppendLine();
 
             sb.AppendLine("## How far apart the outcomes end up");
-            sb.AppendLine("| Stage | Mean | SD | Min | Median | Max |");
-            sb.AppendLine("|---|---|---|---|---|---|");
-            void Row(string name, IEnumerable<double> v) { var s = Stats(v); sb.AppendLine("| " + name + " | " + F(s.Mean) + " | " + F(s.Sd) + " | " + F(s.Min) + " | " + F(s.Median) + " | " + F(s.Max) + " |"); }
+            sb.AppendLine("| Stage | Mean | SD | Min | Bottom 10% | Median | Top 10% | Max |");
+            sb.AppendLine("|---|---|---|---|---|---|---|---|");
+            void Row(string name, IEnumerable<double> v)
+            {
+                var list = v.OrderBy(x => x).ToList();
+                var s = Stats(list);
+                double P(double q) => list.Count == 0 ? 0 : list[(int)(q * (list.Count - 1))];
+                sb.AppendLine("| " + name + " | " + F(s.Mean) + " | " + F(s.Sd) + " | " + F(s.Min) + " | " + F(P(0.1)) + " | " + F(s.Median) + " | " + F(P(0.9)) + " | " + F(s.Max) + " |");
+            }
             Row("Index at departure", ok.Select(x => x.IndexDeparture));
+            Row("Index at first arrival (all)", ok.Select(x => x.IndexArrival1));
+            Row("Index at second arrival (all)", ok.Select(x => x.IndexArrival2));
             var noBust = ok.Where(x => x.BustsInAbsence == 0).ToList();
             Row("Index at departure (no bust while away)", noBust.Select(x => x.IndexDeparture));
             Row("Index at first arrival (no bust while away)", noBust.Select(x => x.IndexArrival1));
@@ -512,6 +527,9 @@ namespace Butterfly.Batch
             Row("Second arrival year", ok.Select(x => (double)x.Arrival2Year));
             sb.AppendLine();
 
+            sb.AppendLine("Players keep their place: rank correlation departure → first arrival " + F(Spearman(ok.Select(x => x.IndexDeparture).ToList(), ok.Select(x => x.IndexArrival1).ToList()), "0.00") +
+                          ", first → second arrival " + F(Spearman(ok.Select(x => x.IndexArrival1).ToList(), ok.Select(x => x.IndexArrival2).ToList()), "0.00") + " (1 = the same order).");
+            sb.AppendLine();
             sb.AppendLine("## Do big choices lead to different places?");
             sb.AppendLine("Mean Index (and SD) by group. **Effect** = the gap between the best and worst group means divided by the overall SD at that stage; below 0.3 the choice barely shows in the outcome.");
             sb.AppendLine();
@@ -567,16 +585,16 @@ namespace Butterfly.Batch
             string[] names = { "Recognition", "Wrongness", "Personal echo", "Discovery" };
             for (int k = 0; k < 4; k++)
             {
-                var s1 = ok.Select(x => Shape(x.Beats1[k])).ToList();
-                var s2 = ok.Select(x => Shape(x.Beats2[k])).ToList();
+                var s1 = ok.Select(x => x.Beats1[k]).ToList();
+                var s2 = ok.Select(x => x.Beats2[k]).ToList();
                 var top = s1.GroupBy(s => s).OrderByDescending(g => g.Count()).First();
                 string sample = top.Key.Length > 90 ? top.Key.Substring(0, 90) + "…" : top.Key;
                 sb.AppendLine("| " + names[k] + " | " + s1.Distinct().Count() + " | " + s2.Distinct().Count() + " | " + F(100.0 * top.Count() / ok.Count, "0") + "%: " + sample.Replace("|", "/") + " |");
             }
-            sb.AppendLine("| Walk (all five places) | " + ok.Select(x => Shape(x.Walk1)).Distinct().Count() + " | " + ok.Select(x => Shape(x.Walk2)).Distinct().Count() + " | |");
+            sb.AppendLine("| Walk (all five places) | " + ok.Select(x => x.Walk1).Distinct().Count() + " | " + ok.Select(x => x.Walk2).Distinct().Count() + " | |");
             for (int k = 0; k < 4; k++)
-                sb.AppendLine("| " + names[k] + ": second arrival repeats the first word for word | " + F(100.0 * ok.Count(x => Shape(x.Beats1[k]) == Shape(x.Beats2[k])) / ok.Count, "0") + "% of runs | | |");
-            sb.AppendLine("| Whole arrival (4 beats) | " + ok.Select(x => string.Join("|", x.Beats1.Select(Shape))).Distinct().Count() + " | " + ok.Select(x => string.Join("|", x.Beats2.Select(Shape))).Distinct().Count() + " | |");
+                sb.AppendLine("| " + names[k] + ": second arrival repeats the first word for word | " + F(100.0 * ok.Count(x => x.Beats1[k] == x.Beats2[k]) / ok.Count, "0") + "% of runs | | |");
+            sb.AppendLine("| Whole arrival (4 beats) | " + ok.Select(x => string.Join("|", x.Beats1)).Distinct().Count() + " | " + ok.Select(x => string.Join("|", x.Beats2)).Distinct().Count() + " | |");
             sb.AppendLine();
             sb.AppendLine("Institution outcomes (institutions held at 10%+): first arrival " +
                           string.Join(", ", ok.SelectMany(x => x.Outcomes1.Values).GroupBy(v => v).OrderByDescending(g => g.Count()).Select(g => g.Key + " " + g.Count())) +
@@ -586,10 +604,26 @@ namespace Butterfly.Batch
             sb.AppendLine("## Runs");
             sb.AppendLine("| Run | Seed | Persona | Left | Index dep → 1st → 2nd | Plague | Bugs |");
             sb.AppendLine("|---|---|---|---|---|---|---|");
-            foreach (var x in results)
+            if (results.Count > 1000) sb.AppendLine("(The first 1,000 of " + results.Count.ToString("#,0", CultureInfo.InvariantCulture) + " runs.)");
+            foreach (var x in results.Take(1000))
                 sb.AppendLine("| " + x.Run + " | " + x.Seed + " | " + x.Persona.Describe() + " | AD " + x.Jump1Year + " → " + x.Arrival1Year + " → " + x.Arrival2Year + " | " +
                               F(x.IndexDeparture) + " → " + F(x.IndexArrival1) + " → " + F(x.IndexArrival2) + " | " + F(x.PlagueDeadShare * 100) + "% " + x.PlagueLabel + " | " + x.Bugs.Count + " |");
             return sb.ToString();
+        }
+
+        private static double Spearman(List<double> a, List<double> b)
+        {
+            double[] Ranks(List<double> v)
+            {
+                var order = Enumerable.Range(0, v.Count).OrderBy(i => v[i]).ToList();
+                var r = new double[v.Count];
+                for (int k = 0; k < order.Count; k++) r[order[k]] = k;
+                return r;
+            }
+            var ra = Ranks(a); var rb = Ranks(b);
+            double n = a.Count, d2 = 0;
+            for (int k = 0; k < a.Count; k++) d2 += (ra[k] - rb[k]) * (ra[k] - rb[k]);
+            return n < 2 ? 1 : 1 - 6 * d2 / (n * (n * n - 1));
         }
 
         public static List<ExploreResult> RunAll(GameData data, int runs, out List<string> determinism)

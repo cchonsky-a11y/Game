@@ -285,7 +285,7 @@ namespace Butterfly.Core
         public double MaintainBonus(Domain d) =>
             Influential().Where(i => i.Def.Maintains == d && i.Strength >= T.Get("institutions.dissolvedBelow"))
                          .Sum(i => ControlFactor(i) * Math.Min(1, T.Get("stakes.swayPerInfluence") * DomainShare(i)) * i.Strength * T.Get("jump.maintainPerStrength")
-                                   * (i.HasDrifted && i.DriftPath != null && i.Def.DriftPaths.Count > 1 && i.DriftPath == i.Def.DriftPaths[1] ? T.Get("offices.selfServingMaintenance") : 1));
+                                   * CampUpkeepFactor(i));
 
         /// <summary>
         /// One decade for a domain: the level drifts toward the historical baseline (plus what institutions

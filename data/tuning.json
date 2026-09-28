@@ -1235,8 +1235,8 @@
       "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
     },
     "collapseChancePerYear": {
-      "value": 0.15,
-      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18"
+      "value": 0.07,
+      "ref": "DECIDED 2026-09-27 (Corey: stakes, influence and rivals); amount PROPOSED P0-18, lowered 2026-09-28 (P0-32 revision: founded institutions rarely survived; was 0.15)"
     }
   },
   "rivalry": {
@@ -1587,16 +1587,12 @@
       "ref": "DECIDED 2026-09-28 (Corey: camps, offices with period titles, last orders weighted by standing); amount PROPOSED P0-32: a successor you name starts at least this loyal"
     },
     "ordersDriftCut": {
-      "value": 0.6,
-      "ref": "DECIDED 2026-09-28 (Corey: camps, offices with period titles, last orders weighted by standing); amount PROPOSED P0-32: drift slowed by up to this share at full force"
+      "value": 0.9,
+      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: drift slowed by up to this share at full force (was 0.6)"
     },
     "laterJumpOrderShare": {
       "value": 0.5,
       "ref": "DECIDED 2026-09-28 (Corey: camps, offices with period titles, last orders weighted by standing); amount PROPOSED P0-32: your orders' force on a later jump"
-    },
-    "selfServingMaintenance": {
-      "value": 0.5,
-      "ref": "DECIDED 2026-09-28 (Corey: camps, offices with period titles, last orders weighted by standing); amount PROPOSED P0-32: an institution that drifted to its second (self-serving) camp maintains its domain at this share"
     },
     "textStrong": {
       "value": 0.5,
@@ -1605,6 +1601,28 @@
     "textSome": {
       "value": 0.2,
       "ref": "DECIDED 2026-09-28 (Corey); PROPOSED P0-32"
+    },
+    "campUpkeepEffect": {
+      "value": 0.5,
+      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: while you are away an institution's upkeep of its domain × (1 + this × lean): its first camp +, its second −"
+    },
+    "upkeepPerYear": {
+      "value": [
+        0,
+        0.4,
+        0.8,
+        1.2
+      ],
+      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: domain level a year from the work of your office (member, officer, deputy, head; a founder counts as head), × the camp factor"
+    },
+    "projectShare": {
+      "value": [
+        0,
+        0.15,
+        0.25,
+        0.4
+      ],
+      "ref": "DECIDED 2026-09-28 (Corey: make camps and offices change the world, then run 100000 games); amount PROPOSED P0-32: share of your projects in its domain the institution pays, by your office (the better of this and a voice's 25%)"
     }
   }
 }
