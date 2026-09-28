@@ -7,8 +7,10 @@ using Butterfly.Core;
 // Usage: dotnet run --project src/Butterfly.Console -- --seed 42
 // Scripted (automated playtests): add --inputs <file> [--checks <file>]; see playtests/ai/README.md.
 // Add --continue to keep playing from the keyboard once the script's lines run out (resume a saved inputs file).
+// The numbered action menu is on when you play from the keyboard; --menu turns it on for a script, --no-menu off.
 ulong seed = 42;
 bool resume = args.Contains("--continue");
+bool? menu = args.Contains("--no-menu") ? false : args.Contains("--menu") ? true : (bool?)null;
 string? inputs = null, checks = null;
 for (int i = 0; i < args.Length - 1; i++)
 {
@@ -18,10 +20,10 @@ for (int i = 0; i < args.Length - 1; i++)
 }
 
 var sim = new Simulation(GameData.LoadDefault(), seed);
-var game = new ConsoleGame(sim, inputs == null ? null : new ScriptInput(inputs, sim), checks == null ? null : new Harness(sim, checks), resume);
+var game = new ConsoleGame(sim, inputs == null ? null : new ScriptInput(inputs, sim), checks == null ? null : new Harness(sim, checks), resume, menu);
 game.Run();
 
-internal sealed class ConsoleGame
+internal sealed partial class ConsoleGame
 {
     private readonly Simulation _sim;
     private readonly ScriptInput? _script;
@@ -36,8 +38,9 @@ internal sealed class ConsoleGame
     private readonly bool _resume;
     private bool _scriptDone;
 
-    public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null, bool resume = false)
+    public ConsoleGame(Simulation sim, ScriptInput? script = null, Harness? harness = null, bool resume = false, bool? menu = null)
     {
+        _menuOn = menu ?? (script == null || resume);
         _resume = resume;
         _sim = sim;
         _script = script;
@@ -61,41 +64,81 @@ internal sealed class ConsoleGame
     {
         Intro();
         Status();
+        if (_menuOn) ShowMenu();
         while (true)
         {
             Console.Write(_sim.Arrived ? "\n(after arrival) > " : "\n> ");
             string? line = ReadCommand();
             if (line == null) break;
-            var parts = line.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length == 0) continue;
-            string cmd = parts[0].ToLowerInvariant();
-            string arg = parts.Length > 1 ? parts[1] : "";
-            if (cmd == "quit" || cmd == "exit") break;
-            // Jump preparation: these commands keep the jump armed.
-            if (cmd != "jump" && !(_jumpArmed && PrepCommands.Contains(cmd))) _jumpArmed = false;
-            if (_sim.Arrived)
+            // Numbers pick from the menu (decided 2026-09-28): each stands for an ordinary command, run in order.
+            var picked = MenuCommands(line);
+            if (picked == null) { if (!ProcessLine(line)) break; }
+            else
             {
-                AfterArrival(cmd, arg);
-                _harness?.AfterCommand(line, true);
-                continue;
-            }
-            if (cmd == "@autoend") { _autoEnd = arg != "off"; continue; }
-            int attentionBefore = _sim.World.Attention;
-            bool ok = Handle(cmd, arg, parts);
-            _harness?.AfterCommand(line, ok);
-            if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && (attentionBefore > 0 || cmd == "paydown"))
-            {
-                if (_sim.ShouldAutoEnd())
+                int turn = _sim.Turn;
+                bool arrived = _sim.Arrived, quit = false;
+                for (int k = 0; k < picked.Count; k++)
                 {
-                    Console.WriteLine("  (No Attention left: the turn ends.)");
-                    EndTurn(wait: false);
+                    if (k > 0 && (_sim.Turn != turn || _sim.Arrived != arrived))
+                    {
+                        Console.WriteLine("  (The turn moved on, so the rest of those numbers were skipped. Pick again from the new menu.)");
+                        break;
+                    }
+                    Console.WriteLine("  → " + picked[k]);
+                    if (!ProcessLine(picked[k], showMenu: k == picked.Count - 1)) { quit = true; break; }
                 }
-                else if (_sim.NoActionPossible())
-                    Console.WriteLine("  (No Attention left. You can still pay down debt; type 'end' when you're done.)");
+                if (quit) break;
             }
         }
         Console.WriteLine("\nRun fingerprint (seed " + _sim.Seed + "): " + _sim.Log.Hash().Substring(0, 16));
         _harness?.Finish(_script);
+    }
+
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+
+    /// <summary>One command line. False means quit.</summary>
+    private bool ProcessLine(string line, bool showMenu = true)
+    {
+        var parts = line.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length == 0) return true;
+        string cmd = parts[0].ToLowerInvariant();
+        string arg = parts.Length > 1 ? parts[1] : "";
+        if (cmd == "quit" || cmd == "exit") return false;
+        if (cmd == "menu")
+        {
+            if (arg == "off") { _menuOn = false; Console.WriteLine("  Menu off: type commands, or 'menu' to see it once."); }
+            else { if (arg == "on") _menuOn = true; ShowMenu(); }
+            return true;
+        }
+        // Jump preparation: these commands keep the jump armed.
+        if (cmd != "jump" && !(_jumpArmed && PrepCommands.Contains(cmd))) _jumpArmed = false;
+        if (_sim.Arrived)
+        {
+            AfterArrival(cmd, arg);
+            _harness?.AfterCommand(line, true);
+            if (showMenu && _menuOn) ShowMenu();
+            return true;
+        }
+        if (cmd == "@autoend") { _autoEnd = arg != "off"; return true; }
+        int attentionBefore = _sim.World.Attention;
+        bool ok = Handle(cmd, arg, parts);
+        _harness?.AfterCommand(line, ok);
+        if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && (attentionBefore > 0 || cmd == "paydown"))
+        {
+            if (_sim.ShouldAutoEnd())
+            {
+                Console.WriteLine("  (No Attention left: the turn ends.)");
+                EndTurn(wait: false);
+            }
+            else if (_sim.NoActionPossible())
+                Console.WriteLine("  (No Attention left. You can still pay down debt; type 'end' when you're done.)");
+        }
+        if (showMenu && _menuOn)
+        {
+            if (LookCommands.Contains(cmd)) Console.WriteLine("  (Pick a number from the menu above, or type 'menu' to see it again.)");
+            else ShowMenu();
+        }
+        return true;
     }
 
     private void Intro()
@@ -121,6 +164,8 @@ internal sealed class ConsoleGame
     private void Help()
     {
         Console.WriteLine(@"Commands
+  <number> [number ...]          do what the numbered menu lists (e.g. 3, or 3 7 1 to do several in order)
+  menu | menu on | menu off      show the numbered menu, or turn it on or off (on when you play from the keyboard)
   status                         where things stand
   projects                       projects you can start
   news                           what's going on in Rome: the talk of the Forum and the market (no Attention)
