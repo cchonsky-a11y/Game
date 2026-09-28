@@ -14,6 +14,7 @@ for (int i = 0; i < args.Length - 1; i++)
     if (args[i] == "--runs") runs = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
     if (args[i] == "--out") outPath = args[i + 1];
     if (args[i] == "--explore") explore = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
+    if (args[i] == "--idle") { explore = int.Parse(args[i + 1], CultureInfo.InvariantCulture); Explorer.Idle = true; }
 }
 
 var data = GameData.LoadDefault();
@@ -23,6 +24,7 @@ if (trace > 0)
 {
     // One exploration run, turn by turn (usage: --trace <run>).
     Explorer.Trace = Console.WriteLine;
+    for (int i = 0; i < args.Length; i++) if (args[i] == "--idle") Explorer.Idle = true;
     var one = Explorer.Play(data, trace, 1000UL + (ulong)trace);
     Console.WriteLine(one.Persona.Describe());
     foreach (var b in one.Bugs) Console.WriteLine("BUG " + b);

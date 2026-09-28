@@ -896,6 +896,10 @@
     "maxJumps": {
       "value": 2,
       "ref": "DECIDED 2026-09-28 (Corey): the next test has two jumps; P0 option A: after the first arrival you may jump again at once (no second era to play)"
+    },
+    "randomRecurrences": {
+      "value": false,
+      "ref": "DECIDED 2026-09-28 (Corey: a player who does little should track history almost exactly): random plague recurrences during an absence are off; historical recurrences (AD 189, the 250s) to be added on their dates"
     }
   },
   "corruption": {
@@ -1215,8 +1219,8 @@
   "founding": {
     "_readme": "Founding your own institution (DECIDED 2026-09-27, Corey): costs about 65% of buying 0→50% of an established institution in the same domain; you control it from the start, but it starts weak, holds little of its domain, and may fail.",
     "costShareOfControl": {
-      "value": 0.65,
-      "ref": "DECIDED 2026-09-27 (Corey: about 65% of the cost of 50% control)"
+      "value": 0.4,
+      "ref": "DECIDED 2026-09-28 (Corey: make founding a little easier; founding was rarely affordable, not failing); was 0.65 (PROPOSED P0-18)"
     },
     "attention": {
       "value": 3,

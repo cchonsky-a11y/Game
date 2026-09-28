@@ -295,8 +295,12 @@ namespace Butterfly.Core
         {
             var s = World[d];
             double levelBefore = s.Level, debtBefore = s.Debt;
-            s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"),
-                Math.Min(T.Get("domains.maxLevel"), s.Level + (DecadeTarget(d, startYear) - s.Level) * ScaleShare(DecadeDrift(startYear))));
+            // Rome follows history's own ups and downs through the decade; only your mark (the gap from history) moves toward
+            // its target (decided 2026-09-28: a player who left no mark tracks history, rather than lagging behind its swings).
+            double baseStart = Benchmark(d, startYear), baseEnd = Benchmark(d, startYear + _stepYears);
+            double gap = s.Level - baseStart, targetGap = DecadeTarget(d, startYear) - baseEnd;
+            gap += (targetGap - gap) * ScaleShare(DecadeDrift(startYear));
+            s.Level = Math.Max(Benchmark(d, Now.Year) * T.Get("domains.minLevelFraction"), Math.Min(T.Get("domains.maxLevel"), baseEnd + gap));
             bool maintained = MaintainBonus(d) > 0;
             for (int y = 1; y <= _stepYears; y++)
             {
@@ -336,6 +340,9 @@ namespace Butterfly.Core
         /// <summary>After the Antonine plague, the same crisis can recur; the chance per decade follows the region's tier.</summary>
         private void MaybeRecurrence(Arrival arrival)
         {
+            // Off by default (decided 2026-09-28): random recurrences on no historical date broke "history is the baseline".
+            // The historical ones (AD 189, the Plague of Cyprian in the 250s) are to come back on their dates, with their drops in the history curve.
+            if (!T.GetBool("jump.randomRecurrences")) return;
             // No new outbreak within 30 years of the last one (decided 2026-09-27).
             if (World.LastOutbreakYear > 0 && Now.Year - World.LastOutbreakYear < T.GetInt("plague.immunityYears")) return;
             double yearly = T.Get("jump.crisisChancePerYear." + PlagueTier().ToString().ToLowerInvariant());

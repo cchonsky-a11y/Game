@@ -113,6 +113,10 @@ namespace Butterfly.Batch
         public string PolicyInForce = "";
         public int MaxStake;
         public int MaxRank = -1;
+        /// <summary>Founding diagnostics: founded (year or 0), collapsed (year or 0), rival strikes taken, gold invested, strength at departure or collapse, years it lasted.</summary>
+        public int FoundedYear, CollapsedYear, RivalStrikes, Invests;
+        public double FoundedStrengthEnd;
+        public bool FoundedAlive;
         public List<double> OrderForces = new List<double>();
         public bool BothFactions;
     }
@@ -133,12 +137,20 @@ namespace Butterfly.Batch
 
         /// <summary>When set, each turn's state is written here (--trace).</summary>
         public static Action<string>? Trace;
+        /// <summary>When set, every persona does as little as it can: works, repairs the machine and jumps (--idle).</summary>
+        public static bool Idle;
 
         public static ExploreResult Play(GameData data, int run, ulong seed)
         {
             var res = new ExploreResult { Run = run, Seed = seed };
             var r = new Rng(seed * 7919UL + 104729UL);
             var p = Persona.Draw(r);
+            if (Idle)
+            {
+                p.Join.Clear(); p.Found = null; p.ProjectRate = 0; p.InventRate = 0; p.PaydownRate = 0; p.AttendRate = 0;
+                p.TurnLengthChangeRate = 0; p.PlagueResponse = new[] { "none" }; p.Promise = false; p.OrdersRate = 0;
+                p.PolicyStyle = "history"; p.Stances = new int[4]; p.EndowAtJump = false; p.AuditAtJump = false;
+            }
             res.Persona = p;
             var sim = new Simulation(data, seed);
             try
@@ -185,6 +197,12 @@ namespace Butterfly.Batch
                 res.PlagueLabel = sim.World.Plague.SeverityLabel;
                 res.PlagueResponse = sim.World.Plague.Response ?? "none";
                 Texts(res, "learn more 1", a1.LearnMore());
+                if (Trace != null)
+                {
+                    int dep = sim.Log.Events.First(e => e.Type == "jump.depart").Id;
+                    foreach (var e in sim.Log.Events.Where(e => e.Id >= dep && e.Type != "gold.settle" && e.Type != "institution.decade" && e.Type != "holdings.grow"))
+                        Trace("  " + e.Time.Stamp + " " + e.Type + " " + e.Target + " " + string.Join(",", e.Effects.Select(f => f.Key + " " + F(f.Before) + "→" + F(f.After))) + " | " + e.Text);
+                }
                 Trace?.Invoke("ARRIVAL 1\n" + string.Join("\n", a1.Beats.Select(b => b.Name + ": " + b.Text)) + "\n" + a1.LearnMore());
                 foreach (var t in Why.Topics) Texts(res, "why " + t, Why.Explain(sim, t));
                 if (!sim.CanJumpAgain) res.Bugs.Add("Can't jump a second time after the first arrival");
@@ -215,6 +233,24 @@ namespace Butterfly.Batch
 
         private static ExploreResult Finish(Simulation sim, ExploreResult res)
         {
+            var own = res.Persona.Found;
+            if (own != null)
+            {
+                var found = sim.Log.Events.FirstOrDefault(e => e.Type == "institution.found" && e.Target == own);
+                if (found != null)
+                {
+                    res.FoundedYear = found.Time.Year;
+                    var collapse = sim.Log.Events.FirstOrDefault(e => e.Type == "institution.collapse" && e.Target == own);
+                    res.CollapsedYear = collapse?.Time.Year ?? 0;
+                    int until = res.CollapsedYear > 0 ? collapse!.Id : (res.Jump1Year > 0 ? sim.Log.Events.First(e => e.Type == "jump.depart").Id : int.MaxValue);
+                    res.RivalStrikes = sim.Log.Events.Count(e => e.Type == "rivalry.strike" && e.Target == own && e.Id < until);
+                    res.Invests = sim.Log.Events.Count(e => e.Type == "institution.invest" && e.Target == own && e.Id < until);
+                    var i = sim.World.Institution(own);
+                    res.FoundedAlive = res.CollapsedYear == 0;
+                    var last = sim.Log.Events.LastOrDefault(e => e.Id < until && e.Effects.Any(f => f.Key == own + ".strength"));
+                    res.FoundedStrengthEnd = last?.Effects.Last(f => f.Key == own + ".strength").After ?? i.Strength;
+                }
+            }
             res.LogHash = sim.Log.Hash();
             foreach (var e in sim.Log.Events) if (e.Text.Contains("{") || e.Text.Contains("}")) { res.Bugs.Add("Unfilled placeholder in log: " + e.Text); break; }
             return res;
@@ -577,6 +613,25 @@ namespace Butterfly.Batch
             Group("First jump", x => x.Jump1Year < 167 ? "before the plague (<167)" : x.Jump1Year < 175 ? "mid (167-174)" : "late (175+)");
             Group("Work style", x => x.Persona.WorkStyle);
 
+            var founders = results.Where(x => x.FoundedYear > 0).ToList();
+            if (founders.Count > 0)
+            {
+                sb.AppendLine("## Founded institutions");
+                var dead = founders.Where(x => !x.FoundedAlive).ToList();
+                sb.AppendLine("- Founded: " + founders.Count + "; failed before departure: " + dead.Count + " (" + F(100.0 * dead.Count / founders.Count, "0") + "%).");
+                if (dead.Count > 0)
+                {
+                    sb.AppendLine("- Failed ones: median years it lasted " + F(Stats(dead.Select(x => (double)(x.CollapsedYear - x.FoundedYear))).Median, "0") +
+                                  "; strength when it failed: median " + F(Stats(dead.Select(x => x.FoundedStrengthEnd)).Median) +
+                                  "; took rival strikes: " + F(100.0 * dead.Count(x => x.RivalStrikes > 0) / dead.Count, "0") + "% (median " + F(Stats(dead.Select(x => (double)x.RivalStrikes)).Median, "0") + ")" +
+                                  "; the player invested in it: " + F(100.0 * dead.Count(x => x.Invests > 0) / dead.Count, "0") + "%.");
+                }
+                var alive = founders.Where(x => x.FoundedAlive).ToList();
+                if (alive.Count > 0)
+                    sb.AppendLine("- Survivors: strength at departure median " + F(Stats(alive.Select(x => x.FoundedStrengthEnd)).Median) + "; invested in: " + F(100.0 * alive.Count(x => x.Invests > 0) / alive.Count, "0") +
+                                  "%; took rival strikes: " + F(100.0 * alive.Count(x => x.RivalStrikes > 0) / alive.Count, "0") + "%.");
+                sb.AppendLine();
+            }
             sb.AppendLine("## Do the arrivals read differently?");
             sb.AppendLine("Distinct texts per beat (numbers blanked, so only different stories count) out of " + ok.Count + " runs.");
             sb.AppendLine();

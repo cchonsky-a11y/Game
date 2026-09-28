@@ -180,3 +180,20 @@ namespace Butterfly.Core.Tests
         }
     }
 }
+
+namespace Butterfly.Core.Tests
+{
+    public class TracksHistoryTests
+    {
+        [Fact]
+        public void APlayerWhoLeftNoMarkComesBackToHistory()
+        {
+            // Decided 2026-09-28 (Corey): doing little shouldn't be punished, but it should track history almost exactly.
+            var sim = new Simulation(TestData.Load(), 31);
+            while (sim.Now.Year < 172) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
+            foreach (var d in DomainInfo.All) { sim.World[d].Level = sim.Benchmark(d, sim.Now.YearFraction); sim.World[d].Debt = 0; }
+            sim.JumpForTests();
+            foreach (var d in DomainInfo.All) Assert.InRange(sim.SubScore(d), 98, 102);
+        }
+    }
+}

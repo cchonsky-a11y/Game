@@ -884,8 +884,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | The coin (P0) | Near half of Rome's historical Economy decline (155–268) and a quarter of Governance's come from debasement, timed by the silver content (78% → 50% by 200 → 3% by 268); sound coin defended after departure spares that share, debasement adds half again |
 | Jump range | Starts short (first jump about 25–50 years) and grows as technology and knowledge advance (rule to be defined) |
 | Institution decay per decade | 10% bare; 3% chartered and endowed; 1% strong |
-| Lasting mark (P0) | During an absence each domain moves 25% a decade toward history + 0.6 × its departure lead or deficit, from the day you leave; surviving institutions add their maintenance (0.6 per strength point, scaled); drift shows at 30 points; Austrian stances pull the Economy target up 3 a decade more for each decade their institution stands; an interventionist policy busts at most once per absence |
-| Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/4); founding your own ≈ 65% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |
+| Lasting mark (P0) | During an absence Rome follows history's swings and only the gap from history moves, 25% a decade toward 0.6 × the departure lead or deficit, from the day you leave; random plague recurrences off; surviving institutions add their maintenance (0.6 per strength point, scaled); drift shows at 30 points; Austrian stances pull the Economy target up 3 a decade more for each decade their institution stands; an interventionist policy busts at most once per absence |
+| Institution stakes (P0) | First buy 1%; 10% influence, 25% voice, 50% control; each 1% costs domain base × (1 + stake%/4); founding your own ≈ 40% of the cost of 50% control, starts weak and may fail; sway = min(1, 2 × influence) |
 | Jump landing thresholds | Sphere Index ≥ 110 (Full), ≥ 130 (Superior) |
 | Malfunction chance | 15% Partial (5% of those lethal); 5% Standard (1% lethal) |
 | Sim Mode | 1 Attention per scene; up to 3 actions |
