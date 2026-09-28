@@ -158,7 +158,7 @@ internal sealed partial class ConsoleGame
                 if (!i.Backed)
                 {
                     int first = i.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
-                    if (_sim.JoinBlocker(i) == null && _sim.BuyCost(i, first) <= w.Gold) inst.Item2.Add(("join " + i.Key + " (" + M(_sim.BuyCost(i, first)) + ")", "buy " + i.Key + " " + first));
+                    if (_sim.JoinBlocker(i) == null && _sim.BuyCost(i, first) <= w.Gold) inst.Item2.Add(("buy into " + i.Key + ", " + first + "% (" + M(_sim.BuyCost(i, first)) + ")", "buy " + i.Key + " " + first));
                     continue;
                 }
                 if (_sim.BuyCost(i, 1) <= w.Gold) inst.Item2.Add((i.Key + " +1% (" + M(_sim.BuyCost(i, 1)) + ")", "buy " + i.Key + " 1"));
