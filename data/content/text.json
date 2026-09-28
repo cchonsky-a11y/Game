@@ -11,8 +11,8 @@
     "unchosenFountain.foul": "Down the street, the fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.",
     "unchosenWorkshop.later": "The smith's forge, which you funded later, still smokes a few doors down.",
     "unchosenWorkshop.gone": "Of the smith you didn't choose, there is no trace.",
-    "unchosenFountain.laterRuns": "Down the street, the fountain you repaired later still runs.",
-    "unchosenFountain.laterDry": "Down the street, the fountain you repaired later has gone dry again; no one kept it up after you left."
+    "unchosenFountain.laterRuns": "Down the street, the fountain you later repaired still runs.",
+    "unchosenFountain.laterDry": "Down the street, the fountain you later repaired has gone dry again; no one kept it up after you left."
   },
   "wrongness": {
     "medicine.high": "Something is wrong, and it takes you a moment to see it: children, everywhere. More than any Roman street you remember, and fewer small graves along the Via Appia.",
@@ -151,8 +151,8 @@
     "unchosenFountain.foul": "'Fever corner' is still what they call the spot where the fountain was.",
     "unchosenWorkshop.later": "The forge you funded later has a grandson's name over its door now.",
     "unchosenWorkshop.gone": "Of the smith there is still no trace.",
-    "unchosenFountain.laterRuns": "The fountain you repaired late still runs, patched with newer stone.",
-    "unchosenFountain.laterDry": "The fountain you repaired late is dry again."
+    "unchosenFountain.laterRuns": "The fountain you later repaired still runs, patched with newer stone.",
+    "unchosenFountain.laterDry": "The fountain you later repaired is dry again."
   },
   "personal2": {
     "kept": "The house with 'For the one who stayed' over its door has been rebuilt and the line is gone. But the street association still holds a supper each autumn it calls the stayer's supper, and no one can tell you why.",

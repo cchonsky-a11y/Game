@@ -96,7 +96,7 @@ namespace Butterfly.Core.Tests
             var arrival = sim.JumpForTests();
             var recognition = arrival.Beats.First(b => b.Name == "Recognition").Text;
             Assert.DoesNotContain("filled in long ago", recognition);
-            Assert.Contains("you repaired later", recognition);
+            Assert.Contains("you later repaired", recognition);
         }
 
         [Fact]
@@ -164,6 +164,19 @@ namespace Butterfly.Core.Tests
             var second = sim.JumpForTests();
             Assert.Equal("notOffered", second.Echoes.Single(e => e.Id == "promise").AtArrival);
             Assert.DoesNotContain("Demetria", second.Beats[2].Text);
+        }
+    
+        [Fact]
+        public void TheFountainRepairedAfterwardsReadsAsChronologyNotWorkmanship()
+        {
+            // Tester 7: "the fountain you repaired later" / "you repaired late" read oddly.
+            var text = TestData.Load().Content;
+            foreach (var key in new[] { "recognition.unchosenFountain.laterRuns", "recognition.unchosenFountain.laterDry", "recognition2.unchosenFountain.laterRuns", "recognition2.unchosenFountain.laterDry" })
+            {
+                string t = text.Template(key);
+                Assert.Contains("fountain you later repaired", t);
+                Assert.DoesNotContain("repaired late", t);
+            }
         }
     }
 }
