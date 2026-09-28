@@ -96,6 +96,8 @@ namespace Butterfly.Core
                     {
                         string fate = WorkshopFate();
                         lines.Add(text.Template("walk.forges.workshop." + (fate == "street" ? "high" : fate == "working" ? "asHistory" : "low")));
+                        if (fate != "gone" && WorkshopSize >= 2) lines.Add(text.Template("walk.forges.size." + WorkshopSize));
+                        else if (fate == "gone" && WorkshopSize >= 3) lines.Add(text.Template("walk.forges.ruin"));
                         if (World.Apprentices > 0 && fate != "gone") lines.Add(text.Template("walk.forges.apprentices"));
                     }
                     else lines.Add(text.Template("walk.forges.noWorkshop"));

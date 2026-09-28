@@ -19,19 +19,19 @@
     {
       "id": "riverForge",
       "year": 168, "month": 4,
-      "requires": "workshop",
+      "requires": "workshopBelow:3",
       "title": "Tertius wants a forge on the river",
       "text": "Tertius has found a yard on the river with room for a third forge and a water wheel to work the bellows. He can't afford it alone. The guild would lend, for a say in the business.",
       "options": [
         { "id": "fund", "label": "pay for the river forge yourself", "text": "You pay; a third fire is lit by the river, the wheel works the bellows, and the workshop is half as big again and still yours.",
-          "effects": [ { "type": "gold", "value": -45 }, { "type": "workshop", "value": 0.3 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1 } ],
+          "effects": [ { "type": "gold", "value": -45 }, { "type": "workshopSize", "value": 3 }, { "type": "smith", "value": 10 }, { "type": "level", "domain": "economy", "value": 1 } ],
           "mark": "Down by the river the forge you paid for still turns its water wheel. The yard has your old workshop's sign over the gate: three fires.",
           "mark2": "The river forge has become a works: six hearths, a wheel on each race. The sign over the gate still shows three fires." },
-        { "id": "guild", "label": "let him borrow from the guild", "text": "The guild lends; its men sit in on the workshop's accounts now. It grows, but it answers to Ostia as much as to you.",
-          "effects": [ { "type": "workshop", "value": 0.1 }, { "type": "smith", "value": 5 }, { "type": "loyalty", "institution": "guild", "value": 4 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
+        { "id": "guild", "label": "let him borrow from the guild", "text": "The guild lends; its men sit in on the workshop's accounts now and take their cut. It grows, but it answers to Ostia as much as to you.",
+          "effects": [ { "type": "workshopSize", "value": 3 }, { "type": "workshop", "value": -0.15 }, { "type": "smith", "value": 5 }, { "type": "loyalty", "institution": "guild", "value": 4 }, { "type": "level", "domain": "economy", "value": 1.5 } ],
           "mark": "The forge by the river flies the guild's pennant. Its foreman has never heard of the partner who drew machines on wax.",
           "mark2": "The river forge belongs to the guild outright now, one of a dozen." },
-        { "id": "refuse", "label": "tell him no", "text": "Tertius stays with one forge. He doesn't mention it again, and he doesn't forget it.",
+        { "id": "refuse", "label": "tell him no", "text": "Tertius stays where he is. He doesn't mention it again, and he doesn't forget it. (You could still build the works yourself, with a water right from the Curia.)",
           "effects": [ { "type": "smith", "value": -10 } ] }
       ]
     },

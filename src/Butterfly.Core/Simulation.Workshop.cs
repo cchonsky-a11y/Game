@@ -26,12 +26,90 @@ namespace Butterfly.Core
 
         /// <summary>How many orders the workshop can take this season: one, two once it has enough apprentices.</summary>
         public int OrdersPerSeason() =>
-            T.GetInt("workshop.orders.perSeason") + (World.Apprentices >= T.GetInt("workshop.orders.extraAtApprentices") ? 1 : 0);
+            Math.Min(CurrentSize.Offered, CurrentSize.PerSeason + (World.Apprentices >= T.GetInt("workshop.orders.extraAtApprentices") ? 1 : 0));
+
+        // ---- the workshop's size (decided 2026-09-28, Corey: a ladder of sizes) ----
+
+        private int _expandEventId;
+
+        /// <summary>The workshop's size: 1 the smithy .. 4 the foundry; 0 if you don't own it.</summary>
+        public int WorkshopSize => OwnsWorkshop ? Math.Max(1, World.WorkshopSize) : 0;
+
+        public WorkshopSizeDef CurrentSize => Data.Content.WorkshopSizes.First(s => s.Size == Math.Max(1, WorkshopSize));
+
+        public WorkshopSizeDef? NextSize => Data.Content.WorkshopSizes.FirstOrDefault(s => s.Size == Math.Max(1, WorkshopSize) + 1);
+
+        /// <summary>What a size costs now (prices scale it).</summary>
+        public double ExpandCost(WorkshopSizeDef s) => s.Cost * World.PriceLevel;
+
+        /// <summary>The workshop's yearly upkeep now.</summary>
+        public double WorkshopUpkeep() => CurrentSize.Upkeep * World.PriceLevel;
+
+        public bool WorkshopRequirementHolds(string requires)
+        {
+            if (requires == "none") return true;
+            if (requires.StartsWith("member:", StringComparison.Ordinal))
+                return requires.Substring(7).Split('|').Any(id => World.Institution(id).Backed);
+            if (requires.StartsWith("influence:", StringComparison.Ordinal) && DomainInfo.TryParseDomain(requires.Substring(10), out var d))
+                return World.Institutions.Any(i => i.Def.Maintains == d && HasInfluence(i));
+            if (requires.StartsWith("invented:", StringComparison.Ordinal)) return World.Invented.Contains(requires.Substring(9));
+            throw new InvalidOperationException("Unknown workshop requirement: " + requires);
+        }
+
+        /// <summary>Why the workshop can't grow now, or null.</summary>
+        public string? ExpandBlocker()
+        {
+            if (!OwnsWorkshop) return "You have no workshop to enlarge.";
+            if (World.WorkshopBuildTurns > 0) return "The workshop is already being enlarged (" + World.WorkshopBuildTurns + " turn(s) left).";
+            var next = NextSize;
+            if (next == null) return "The foundry is as big as the workshop gets.";
+            if (!WorkshopRequirementHolds(next.Requires)) return Cap(next.Name) + " needs " + next.RequiresText + ".";
+            if (ExpandCost(next) > World.Gold + 1e-9) return Cap(next.Name) + " costs " + Money(ExpandCost(next)) + "; you have " + Money(World.Gold) + ".";
+            return null;
+        }
+
+        /// <summary>Enlarge the workshop to its next size: gold and Attention now, done after a few turns.</summary>
+        public CommandResult Expand()
+        {
+            var blocker = ExpandBlocker();
+            if (blocker != null) return CommandResult.Fail(blocker);
+            var next = NextSize!;
+            var attention = CheckAttention(next.Attention);
+            if (attention != null) return attention;
+            SpendAttention(next.Attention);
+            double before = World.Gold, cost = ExpandCost(next);
+            World.Gold -= cost;
+            World.WorkshopBuildingTo = next.Size;
+            World.WorkshopBuildTurns = next.Turns;
+            _expandEventId = Record("workshop.expand", "workshop", null, new[] { "player", Data.Content.Smith }, new[] { new Effect(GoldKey, before, World.Gold) },
+                "You pay " + Money(cost) + " to make the workshop " + next.Name + ": " + next.Description + " Ready in " + next.Turns + " turn(s).").Id;
+            return CommandResult.Success("Work begins on " + next.Name + " (" + Money(cost) + "; ready in " + next.Turns + " turn(s)). Upkeep will be " +
+                                         Money(next.Upkeep * World.PriceLevel) + " a year.");
+        }
+
+        /// <summary>Each turn: building work on the workshop goes on.</summary>
+        private void ProgressWorkshop()
+        {
+            if (World.WorkshopBuildTurns <= 0) return;
+            if (--World.WorkshopBuildTurns > 0) return;
+            SetWorkshopSize(World.WorkshopBuildingTo, new[] { _expandEventId }, null);
+        }
+
+        private void SetWorkshopSize(int size, IEnumerable<int>? causes, string? text)
+        {
+            int before = WorkshopSize;
+            World.WorkshopSize = size;
+            if (World.WorkshopBuildingTo <= size) { World.WorkshopBuildingTo = 0; World.WorkshopBuildTurns = 0; }
+            var def = CurrentSize;
+            Record("workshop.size", "workshop", causes, new[] { "player", Data.Content.Smith }, new[] { new Effect("workshop.size", before, size) },
+                (text ?? def.BuildText) + " The workshop is " + def.Name + ": " + def.Offered + " orders offered a season, " + def.PerSeason + " taken, up to " +
+                def.ApprenticeMax + " apprentices, output +" + F(def.Output * 100) + "%, upkeep " + Money(WorkshopUpkeep()) + " a year.");
+        }
 
         public int OrdersLeftThisSeason => Math.Max(0, OrdersPerSeason() - _ordersTakenThisSeason);
 
         /// <summary>The workshop's output multiplier: its inventions and its apprentices.</summary>
-        public double WorkshopOutput() => 1 + World.WorkshopBonus + World.Apprentices * T.Get("workshop.apprentices.outputEach");
+        public double WorkshopOutput() => 1 + World.WorkshopBonus + (OwnsWorkshop ? CurrentSize.Output : 0) + World.Apprentices * T.Get("workshop.apprentices.outputEach");
 
         /// <summary>What an order pays before tax, at today's prices.</summary>
         public double OrderPay(OrderDef o) => o.Pay * WorkshopOutput() * World.PriceLevel;
@@ -49,8 +127,8 @@ namespace Butterfly.Core
             _orderSlot = slot;
             _ordersTakenThisSeason = 0;
             _orderBoard.Clear();
-            var pool = Data.Content.Orders.Select(o => o.Id).ToList();
-            int offered = Math.Min(pool.Count, T.GetInt("workshop.orders.offered"));
+            var pool = Data.Content.Orders.Where(o => o.MinSize <= WorkshopSize).Select(o => o.Id).ToList();
+            int offered = Math.Min(pool.Count, CurrentSize.Offered);
             for (int k = 0; k < offered; k++)
             {
                 int pick = Rng.NextInt(0, pool.Count);
@@ -59,7 +137,7 @@ namespace Butterfly.Core
             }
             Record("workshop.orders", "workshop", null, new[] { "world" }, null,
                 "Orders come in at the workshop: " + string.Join("; ", OrderBoard().Select(o => o.Name + " (order " + o.Id + ")")) + ". " +
-                Data.Content.Smith + " can take " + (OrdersPerSeason() == 1 ? "one" : "two") + ".");
+                Data.Content.Smith + " can take " + OrdersPerSeason() + ".");
         }
 
         public CommandResult TakeOrder(string id)
@@ -68,7 +146,7 @@ namespace Butterfly.Core
             var o = OrderBoard().FirstOrDefault(x => x.Id.StartsWith((id ?? "").Trim().ToLowerInvariant(), StringComparison.Ordinal) && (id ?? "").Trim().Length > 0);
             if (o == null)
                 return CommandResult.Fail(_orderBoard.Count == 0 ? "No orders are waiting this season." : "Take one of: " + string.Join(", ", OrderBoard().Select(x => x.Id)) + ".");
-            if (OrdersLeftThisSeason <= 0) return CommandResult.Fail("The workshop has taken all it can this season; more apprentices would let it take two.");
+            if (OrdersLeftThisSeason <= 0) return CommandResult.Fail("The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.");
             var attention = CheckAttention(o.Attention);
             if (attention != null) return attention;
             SpendAttention(o.Attention);
@@ -87,7 +165,8 @@ namespace Butterfly.Core
         public CommandResult HireApprentice()
         {
             if (!OwnsWorkshop) return CommandResult.Fail("You have no workshop to take apprentices.");
-            if (World.Apprentices >= T.GetInt("workshop.apprentices.max")) return CommandResult.Fail("The workshop has all the apprentices it can use.");
+            if (World.Apprentices >= CurrentSize.ApprenticeMax)
+                return CommandResult.Fail("The workshop has all the apprentices it can use" + (NextSize != null ? "; " + NextSize.Name + " would have room for more." : "."));
             int cost = T.GetInt("workshop.apprentices.hireAttention");
             var attention = CheckAttention(cost);
             if (attention != null) return attention;
@@ -123,6 +202,7 @@ namespace Butterfly.Core
         /// <summary>Each new year: the apprentices' wages. One you can't pay leaves.</summary>
         private void WorkshopYearTick()
         {
+            WorkshopUpkeepYearTick();
             if (World.Apprentices <= 0) return;
             double wages = World.Apprentices * ApprenticeWage();
             double before = World.Gold;
@@ -142,6 +222,31 @@ namespace Butterfly.Core
             ChangeSmithRegard(-T.Get("workshop.smith.regardPerApprentice") * (apprentices - kept), new[] { ev.Id }, Data.Content.Smith + " is angry about the unpaid apprentices.");
         }
 
+        /// <summary>The bigger workshop's upkeep each year; one you can't pay shrinks it a size (and apprentices it has no room for leave).</summary>
+        private void WorkshopUpkeepYearTick()
+        {
+            if (!OwnsWorkshop || CurrentSize.Upkeep <= 0) return;
+            double upkeep = WorkshopUpkeep(), before = World.Gold;
+            if (World.Gold >= upkeep)
+            {
+                World.Gold -= upkeep;
+                Record("workshop.upkeep", GoldKey, CausesOf("workshop.size"), new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
+                    "You pay " + Money(upkeep) + " for the upkeep of " + CurrentSize.Name + ".");
+                return;
+            }
+            string was = CurrentSize.Name;
+            var causes = CausesOf("workshop.size", GoldKey).ToList();
+            SetWorkshopSize(WorkshopSize - 1, causes, "You can't pay the upkeep of " + was + " (" + Money(upkeep) + "): the landlord takes back the lease.");
+            if (World.Apprentices > CurrentSize.ApprenticeMax)
+            {
+                int apprentices = World.Apprentices;
+                World.Apprentices = CurrentSize.ApprenticeMax;
+                Record("workshop.apprentice", "workshop", causes, new[] { "world" }, new[] { new Effect("workshop.apprentices", apprentices, World.Apprentices) },
+                    (apprentices - World.Apprentices) + " apprentice(s) leave: there's no room for them now.");
+            }
+            ChangeSmithRegard(-T.Get("workshop.smith.regardLostOnShrink"), causes, Data.Content.Smith + " watches the lease go and blames you.");
+        }
+
         /// <summary>The techniques the workshop's people know from you: workshop and mechanics inventions.</summary>
         public int WorkshopTechniques() =>
             Data.Content.Inventions.Count(i => (i.Branch == "workshop" || i.Branch == "mechanics") && World.Invented.Contains(i.Id));
@@ -154,7 +259,8 @@ namespace Butterfly.Core
         {
             if (!OwnsWorkshop || World.Apprentices <= 0 || _firstDepartureYear == 0) return 0;
             if (year - _firstDepartureYear >= T.GetInt("workshop.carry.years")) return 0;
-            return World.Apprentices * (1 + WorkshopTechniques() * T.Get("workshop.carry.techniqueWeight")) * T.Get("workshop.carry.perApprentice");
+            return World.Apprentices * (1 + WorkshopTechniques() * T.Get("workshop.carry.techniqueWeight")) * T.Get("workshop.carry.perApprentice")
+                   * (1 + (WorkshopSize - 1) * T.Get("workshop.carry.sizeWeight"));
         }
 
         /// <summary>
@@ -163,7 +269,7 @@ namespace Butterfly.Core
         /// </summary>
         public string WorkshopFate()
         {
-            double score = World.Apprentices + WorkshopTechniques() * T.Get("workshop.fate.techniqueWeight")
+            double score = World.Apprentices + WorkshopTechniques() * T.Get("workshop.fate.techniqueWeight") + (WorkshopSize - 1) * T.Get("workshop.fate.sizeWeight")
                          + (World.SmithRegard - T.Get("workshop.smith.startRegard")) / T.Get("workshop.fate.regardPer")
                          + (SubScore(Domain.Economy) >= 100 ? 1 : -1) * T.Get("workshop.fate.economy");
             return score >= T.Get("workshop.fate.streetAt") ? "street" : score >= T.Get("workshop.fate.workingAt") ? "working" : "gone";
@@ -183,14 +289,22 @@ namespace Butterfly.Core
                 lines.Add("You have no share in a workshop. (The hour-one choice, or the project to buy into the smith's workshop.)");
                 return lines;
             }
-            lines.Add("The smith's workshop by the Porta Trigemina, with " + Data.Content.Smith + ". Output ×" + R(WorkshopOutput(), "0.00") +
-                      " (inventions +" + R(World.WorkshopBonus * 100, "0") + "%, apprentices +" + R(World.Apprentices * T.Get("workshop.apprentices.outputEach") * 100, "0") + "%).");
+            lines.Add(Cap(CurrentSize.Name) + " by the Porta Trigemina, with " + Data.Content.Smith + " (size " + WorkshopSize + " of " + Data.Content.WorkshopSizes.Count + "). Output ×" + R(WorkshopOutput(), "0.00") +
+                      " (size +" + R(CurrentSize.Output * 100, "0") + "%, inventions " + (World.WorkshopBonus >= 0 ? "+" : "") + R(World.WorkshopBonus * 100, "0") + "%, apprentices +" +
+                      R(World.Apprentices * T.Get("workshop.apprentices.outputEach") * 100, "0") + "%)" + (CurrentSize.Upkeep > 0 ? "; upkeep " + Money(WorkshopUpkeep()) + " a year." : "."));
+            if (World.WorkshopBuildTurns > 0)
+                lines.Add("Being enlarged: " + Data.Content.WorkshopSizes.First(s => s.Size == World.WorkshopBuildingTo).Name + " (" + World.WorkshopBuildTurns + " turn(s) left).");
+            else if (NextSize is WorkshopSizeDef next)
+                lines.Add("expand: " + next.Name + " — " + next.Description + " " + Money(ExpandCost(next)) + ", " + next.Attention + " Attention, " + next.Turns +
+                          " turns; needs " + (next.RequiresText.Length > 0 ? next.RequiresText : "nothing") + (WorkshopRequirementHolds(next.Requires) ? " (you have it)" : " (not yet)") +
+                          ". Then " + next.Offered + " orders offered, " + next.PerSeason + " taken a season, " + next.ApprenticeMax + " apprentices, output +" + R(next.Output * 100, "0") +
+                          "%, upkeep " + Money(next.Upkeep * World.PriceLevel) + " a year.");
             lines.Add("Orders this season (" + OrdersLeftThisSeason + " more can be taken):" + (_orderBoard.Count == 0 ? " none waiting." : ""));
             foreach (var o in OrderBoard())
                 lines.Add("  take " + o.Id + ": " + o.Name + " — " + Money(OrderPay(o)) + " before tax, " + o.Attention + " Attention" + OrderEffectsText(o));
-            lines.Add("Apprentices: " + World.Apprentices + " of " + T.GetInt("workshop.apprentices.max") + ", free and paid, " + Money(ApprenticeWage()) + " a year each " +
+            lines.Add("Apprentices: " + World.Apprentices + " of " + CurrentSize.ApprenticeMax + ", free and paid, " + Money(ApprenticeWage()) + " a year each " +
                       "(apprentice hire | apprentice dismiss). Each raises output " + R(T.Get("workshop.apprentices.outputEach") * 100, "0") + "%; with " +
-                      T.GetInt("workshop.orders.extraAtApprentices") + " the workshop can take two orders a season. They carry your techniques after you leave.");
+                      T.GetInt("workshop.orders.extraAtApprentices") + " the workshop can take one more order a season. They carry your techniques after you leave.");
             lines.Add(Data.Content.Smith + "'s regard for you: " + R(World.SmithRegard, "0") + ". Orders taken: " + World.OrdersTaken + ". Techniques the workshop knows from you: " + WorkshopTechniques() + ".");
             return lines;
         }

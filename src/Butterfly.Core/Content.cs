@@ -345,16 +345,58 @@ namespace Butterfly.Core
         public string Text { get; }
         public int Attention { get; }
         public double Pay { get; }
+        /// <summary>The smallest workshop that gets this order (1 = any).</summary>
+        public int MinSize { get; }
         public IReadOnlyList<EventEffect> Effects { get; }
 
         public OrderDef(JsonObject o)
         {
+            MinSize = o.Has("minSize") ? (int)o.Num("minSize") : 1;
             Id = o.Str("id");
             Name = o.Str("name");
             Text = o.Str("text");
             Attention = (int)o.Num("attention");
             Pay = o.Num("pay");
             Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new EventEffect(x)).ToList();
+        }
+    }
+
+    /// <summary>A size of the workshop (decided 2026-09-28, Corey: upgrade the workshop, a ladder of sizes).</summary>
+    public sealed class WorkshopSizeDef
+    {
+        public int Size { get; }
+        public string Id { get; }
+        public string Name { get; }
+        public string Description { get; }
+        public string BuildText { get; }
+        public double Cost { get; }
+        public int Attention { get; }
+        public int Turns { get; }
+        public string Requires { get; }
+        public string RequiresText { get; }
+        public double Upkeep { get; }
+        public int Offered { get; }
+        public int PerSeason { get; }
+        public int ApprenticeMax { get; }
+        public double Output { get; }
+
+        public WorkshopSizeDef(JsonObject o)
+        {
+            Size = (int)o.Num("size");
+            Id = o.Str("id");
+            Name = o.Str("name");
+            Description = o.Str("description");
+            BuildText = o.StrOr("buildText", "") ?? "";
+            Cost = o.Num("cost");
+            Attention = (int)o.Num("attention");
+            Turns = (int)o.Num("turns");
+            Requires = o.Str("requires");
+            RequiresText = o.StrOr("requiresText", "") ?? "";
+            Upkeep = o.Num("upkeep");
+            Offered = (int)o.Num("offered");
+            PerSeason = (int)o.Num("perSeason");
+            ApprenticeMax = (int)o.Num("apprenticeMax");
+            Output = o.Num("output");
         }
     }
 
@@ -378,6 +420,7 @@ namespace Butterfly.Core
         /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
         public string Smith { get; private set; } = "the smith";
         public IReadOnlyList<OrderDef> Orders { get; private set; } = new List<OrderDef>();
+        public IReadOnlyList<WorkshopSizeDef> WorkshopSizes { get; private set; } = new List<WorkshopSizeDef>();
         /// <summary>Text templates keyed "section.key", e.g. "recognition.fountain.runs".</summary>
         public IReadOnlyDictionary<string, string> Text { get; }
 
@@ -440,6 +483,7 @@ namespace Butterfly.Core
                 var w = Read(contentDirectory, "workshop.json");
                 content.Smith = w.Str("smith");
                 content.Orders = w.Arr("orders").Cast<JsonObject>().Select(o => new OrderDef(o)).ToList();
+                content.WorkshopSizes = w.Arr("sizes").Cast<JsonObject>().Select(o => new WorkshopSizeDef(o)).OrderBy(x => x.Size).ToList();
             }
             return content;
         }

@@ -137,6 +137,8 @@ internal sealed class ConsoleGame
   workshop                       your workshop: this season's orders, apprentices, the smith (no Attention)
   take <order>                   take an order at the workshop (1-2 Attention; one a season, two with 2+ apprentices)
   apprentice hire|dismiss        take on or let go a free, paid apprentice (1 Attention to hire; wages each year)
+  expand                         enlarge the workshop to its next size: smithy → yard → works on the river → foundry
+                                   (gold, Attention, a few turns; each needs something from Rome and costs upkeep a year)
   orders <inst> <camp> [1|2]     your last orders: the camp to back when you leave (and, from the head's seat, who succeeds you)
   found <school|club|house>      found your own institution: you control it, but it starts small and may fail
   invest <inst> <denarii>        build up an institution you control (2 Attention)
@@ -273,6 +275,7 @@ internal sealed class ConsoleGame
             case "decide": r = _sim.Decide(arg); break;
             case "workshop": foreach (var l in _sim.WorkshopLines()) Console.WriteLine(l); return true;
             case "take": r = _sim.TakeOrder(arg); break;
+            case "expand": r = _sim.Expand(); break;
             case "apprentice":
                 r = arg.StartsWith("h", StringComparison.OrdinalIgnoreCase) ? _sim.HireApprentice()
                   : arg.StartsWith("d", StringComparison.OrdinalIgnoreCase) ? _sim.DismissApprentice()
@@ -391,6 +394,7 @@ internal sealed class ConsoleGame
                               (i.Holdings > 0 ? ", holds " + _sim.Money(i.Holdings) : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
         foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
+        if (w.WorkshopBuildTurns > 0) Console.WriteLine("  Enlarging the workshop (" + w.WorkshopBuildTurns + " turn(s) left)   (workshop)");
         Console.WriteLine("  Machine: " + (_sim.MachineAssessed ? _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" : "not yet assessed") +
                           ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) + " aurei" +
                           string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +

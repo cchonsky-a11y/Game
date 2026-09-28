@@ -1,18 +1,160 @@
 {
-  "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34.",
+  "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34. Sizes (decided 2026-09-28, Corey: upgrade the workshop, a ladder of sizes): each step up costs gold (AD 155 aurei, scaled by prices), Attention once, and turns to build, needs something from Rome, and adds yearly upkeep; an upkeep you can't pay shrinks the workshop one size. requires: 'member:a|b' (a member of either), 'influence:<domain>' (10% of an institution in that domain), 'invented:<id>'. Orders with minSize come only to a workshop that big.",
   "smith": "Tertius",
   "orders": [
-    { "id": "fittings", "name": "ship fittings for the guild", "attention": 1, "pay": 5,
+    {
+      "id": "fittings",
+      "name": "ship fittings for the guild",
+      "attention": 1,
+      "pay": 5,
       "text": "Tertius forges cleats, chain and rudder pins for a guild ship at Ostia.",
-      "effects": [ { "type": "loyalty", "institution": "guild", "value": 3 } ] },
-    { "id": "tools", "name": "tools and barrows for the builders", "attention": 1, "pay": 4,
+      "effects": [
+        {
+          "type": "loyalty",
+          "institution": "guild",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "tools and barrows for the builders",
+      "attention": 1,
+      "pay": 4,
       "text": "Picks, trowels and barrow wheels go out to the builders of the Subura.",
-      "effects": [ { "type": "level", "domain": "economy", "value": 0.4 } ] },
-    { "id": "instruments", "name": "instruments for the physicians", "attention": 1, "pay": 4,
+      "effects": [
+        {
+          "type": "level",
+          "domain": "economy",
+          "value": 0.4
+        }
+      ]
+    },
+    {
+      "id": "instruments",
+      "name": "instruments for the physicians",
+      "attention": 1,
+      "pay": 4,
       "text": "Probes, scalpels and a bone saw, polished bright, for the physicians.",
-      "effects": [ { "type": "level", "domain": "medicine", "value": 0.4 }, { "type": "loyalty", "institution": "circle", "value": 2 } ] },
-    { "id": "ironwork", "name": "ironwork for a senator's villa", "attention": 2, "pay": 12,
+      "effects": [
+        {
+          "type": "level",
+          "domain": "medicine",
+          "value": 0.4
+        },
+        {
+          "type": "loyalty",
+          "institution": "circle",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "ironwork",
+      "name": "ironwork for a senator's villa",
+      "attention": 2,
+      "pay": 12,
       "text": "Gates, lamp brackets and a bronze-capped railing for a senator's villa on the Esquiline. It pays very well and does nobody else any good.",
-      "effects": [ { "type": "loyalty", "institution": "faction", "value": 3 }, { "type": "loyalty", "institution": "junian", "value": -2 } ] }
+      "effects": [
+        {
+          "type": "loyalty",
+          "institution": "faction",
+          "value": 3
+        },
+        {
+          "type": "loyalty",
+          "institution": "junian",
+          "value": -2
+        }
+      ]
+    },
+    {
+      "id": "contract",
+      "name": "iron for the public works",
+      "minSize": 4,
+      "attention": 2,
+      "pay": 30,
+      "text": "Cast pipe for an aqueduct branch and cramps for a bridge: the Curia pays late, but it pays.",
+      "effects": [
+        {
+          "type": "level",
+          "domain": "governance",
+          "value": 0.5
+        },
+        {
+          "type": "level",
+          "domain": "economy",
+          "value": 0.5
+        }
+      ]
+    }
+  ],
+  "sizes": [
+    {
+      "size": 1,
+      "id": "smithy",
+      "name": "the smithy",
+      "description": "Two forges by the Porta Trigemina.",
+      "cost": 0,
+      "attention": 0,
+      "turns": 0,
+      "requires": "none",
+      "upkeep": 0,
+      "offered": 2,
+      "perSeason": 1,
+      "apprenticeMax": 4,
+      "output": 0
+    },
+    {
+      "size": 2,
+      "id": "yard",
+      "name": "the workshop with a yard",
+      "description": "Rent the yard behind the smithy for a second anvil, a quench trough and a loft for apprentices.",
+      "buildText": "The yard is paved, the second anvil set on its oak stump, and the loft smells of new timber.",
+      "cost": 40,
+      "attention": 2,
+      "turns": 2,
+      "requires": "member:guild|bank",
+      "requiresText": "membership in the guild or the bank (a lease the landlord will sign)",
+      "upkeep": 1,
+      "offered": 3,
+      "perSeason": 2,
+      "apprenticeMax": 6,
+      "output": 0.1
+    },
+    {
+      "size": 3,
+      "id": "works",
+      "name": "the works on the river",
+      "description": "A yard on the river with a third forge and a water wheel to work the bellows.",
+      "buildText": "The wheel turns in the race and the bellows breathe on their own; the works on the river is lit.",
+      "cost": 80,
+      "attention": 3,
+      "turns": 3,
+      "requires": "influence:governance",
+      "requiresText": "10% of a Senate faction or your club (a water right from the Curia)",
+      "upkeep": 3,
+      "offered": 3,
+      "perSeason": 2,
+      "apprenticeMax": 6,
+      "output": 0.3
+    },
+    {
+      "size": 4,
+      "id": "foundry",
+      "name": "the foundry",
+      "description": "A furnace hall that casts iron, big enough for public works.",
+      "buildText": "The first iron runs from the furnace hall in a white stream. The works is a foundry now.",
+      "cost": 150,
+      "attention": 3,
+      "turns": 4,
+      "requires": "invented:furnace",
+      "requiresText": "the blast furnace (invention)",
+      "upkeep": 6,
+      "offered": 4,
+      "perSeason": 3,
+      "apprenticeMax": 8,
+      "output": 0.5
+    }
   ]
 }

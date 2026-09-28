@@ -42,6 +42,8 @@ namespace Butterfly.Batch
         /// <summary>The workshop (P0-34): how keen it is on orders, and how many apprentices it means to keep.</summary>
         public double OrderRate;
         public int ApprenticeTarget;
+        /// <summary>How big it means to grow the workshop (1 smithy .. 4 foundry).</summary>
+        public int SizeTarget;
 
         public string Engagement => Join.Count + (Found != null ? 1 : 0) == 0 ? "none" : Join.Count + (Found != null ? 1 : 0) <= 2 ? "light" : "heavy";
 
@@ -85,6 +87,7 @@ namespace Butterfly.Batch
             p.EventStyle = new[] { "generous", "profit", "random", "ignore" }[r.NextInt(0, 4)];
             p.OrderRate = r.Chance(0.25) ? 0 : r.NextDouble();
             p.ApprenticeTarget = r.NextInt(0, 5);
+            p.SizeTarget = r.NextInt(1, 5);
             return p;
         }
 
@@ -122,7 +125,7 @@ namespace Butterfly.Batch
         public int MaxStake;
         public int MaxRank = -1;
         /// <summary>The workshop at departure and on arrival (P0-34); "" if the player never owned one.</summary>
-        public int Apprentices, OrdersTaken;
+        public int Apprentices, OrdersTaken, WorkshopSize;
         public string WorkshopFate1 = "";
         /// <summary>Founding diagnostics: founded (year or 0), collapsed (year or 0), rival strikes taken, gold invested, strength at departure or collapse, years it lasted.</summary>
         public int FoundedYear, CollapsedYear, RivalStrikes, Invests;
@@ -195,6 +198,7 @@ namespace Butterfly.Batch
                 res.BothFactions = sim.StakePercent(sim.World.Institution("faction")) >= 10 && sim.StakePercent(sim.World.Institution("junian")) >= 10;
                 res.Apprentices = sim.World.Apprentices;
                 res.OrdersTaken = sim.World.OrdersTaken;
+                res.WorkshopSize = sim.WorkshopSize;
                 var a1 = sim.Jump();
                 if (sim.OwnsWorkshop) res.WorkshopFate1 = sim.WorkshopFate();
                 res.IndexDeparture = a1.IndexBefore;
@@ -370,6 +374,9 @@ namespace Butterfly.Batch
                     var o = board[r.NextInt(0, board.Count)];
                     actions.Add((1.5, () => Do(sim, res, () => sim.TakeOrder(o.Id))));
                 }
+                if (sim.WorkshopSize < p.SizeTarget && sim.ExpandBlocker() == null && sim.NextSize != null && sim.NextSize.Attention <= w.Attention &&
+                    w.Gold - sim.ExpandCost(sim.NextSize) > Reserve(sim) + 3 * sim.NextSize.Upkeep * w.PriceLevel && !(!sim.MachineReady && sim.Now.YearFraction >= p.JumpYear - 2))
+                    actions.Add((1, () => Do(sim, res, sim.Expand)));
                 if (w.Apprentices < p.ApprenticeTarget && !(!sim.MachineReady && sim.Now.YearFraction >= p.JumpYear - 2) && w.Gold > Reserve(sim) + 3 * sim.ApprenticeWage() * (w.Apprentices + 1))
                     actions.Add((1, () => Do(sim, res, sim.HireApprentice)));
             }
@@ -647,6 +654,7 @@ namespace Butterfly.Batch
             Group("Answers to Rome's choices", x => x.Persona.EventStyle);
             Group("Workshop: apprentices at departure", x => x.WorkshopFate1 == "" ? "no workshop" : x.Apprentices.ToString(CultureInfo.InvariantCulture));
             Group("Workshop: orders taken", x => x.WorkshopFate1 == "" ? "no workshop" : x.OrdersTaken == 0 ? "0 none" : x.OrdersTaken < 10 ? "1 some (1-9)" : x.OrdersTaken < 25 ? "2 many (10-24)" : "3 most (25+)");
+            Group("Workshop: size at departure", x => x.WorkshopFate1 == "" ? "no workshop" : x.WorkshopSize == 1 ? "1 smithy" : x.WorkshopSize == 2 ? "2 yard" : x.WorkshopSize == 3 ? "3 works on the river" : "4 foundry");
             Group("Workshop: its fate at the first arrival", x => x.WorkshopFate1 == "" ? "no workshop" : x.WorkshopFate1);
 
             var founders = results.Where(x => x.FoundedYear > 0).ToList();

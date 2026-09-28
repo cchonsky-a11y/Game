@@ -75,6 +75,10 @@ namespace Butterfly.Core
         public int Apprentices { get; set; }
         public double SmithRegard { get; set; }
         public int OrdersTaken { get; set; }
+        /// <summary>The workshop's size (1 smithy .. 4 foundry; 0 before you own it) and a step up under way.</summary>
+        public int WorkshopSize { get; set; }
+        public int WorkshopBuildingTo { get; set; }
+        public int WorkshopBuildTurns { get; set; }
         public List<string> CompletedProjects { get; } = new List<string>();
 
         /// <summary>Per-domain fraction of this year's upkeep actually paid (summed per turn).</summary>

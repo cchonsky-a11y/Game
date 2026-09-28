@@ -68,6 +68,7 @@ namespace Butterfly.Core
             ProgressProjects();
             ProgressMachine();
             ProgressInventions();
+            ProgressWorkshop();
             ProgressCommitments();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();

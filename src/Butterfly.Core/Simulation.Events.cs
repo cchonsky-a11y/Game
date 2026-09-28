@@ -29,6 +29,8 @@ namespace Butterfly.Core
         {
             if (e.Requires == "any") return true;
             if (e.Requires == "workshop") return OwnsWorkshop;
+            if (e.Requires.StartsWith("workshopBelow:", StringComparison.Ordinal))
+                return OwnsWorkshop && Math.Max(WorkshopSize, World.WorkshopBuildingTo) < int.Parse(e.Requires.Substring(14), System.Globalization.CultureInfo.InvariantCulture);
             if (e.Requires == "member") return World.Institutions.Any(i => i.Backed && !i.Def.IsOwn);
             if (e.Requires.StartsWith("member:", StringComparison.Ordinal)) return World.Institution(e.Requires.Substring(7)).Backed;
             throw new InvalidOperationException("Unknown event requirement: " + e.Requires);
@@ -145,6 +147,9 @@ namespace Butterfly.Core
                             title + ": the workshop's income " + (fx.Value >= 0 ? "rises " : "falls ") + F(Math.Abs(fx.Value) * 100) + "%.");
                         break;
                     }
+                    case "workshopSize":
+                        if (OwnsWorkshop && WorkshopSize < (int)fx.Value) SetWorkshopSize((int)fx.Value, causes, title + ".");
+                        break;
                     case "smith":
                         ChangeSmithRegard(fx.Value, causes, title + ": " + Data.Content.Smith + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
                         break;
