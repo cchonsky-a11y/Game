@@ -137,7 +137,7 @@ namespace Butterfly.Core.Tests
                 if (sim.PendingEvent != null) sim.Decide(sim.PendingEvent.Options.Last().Id);
                 sim.EndTurn();
             }
-            Assert.DoesNotContain(sim.Log.Events, e => e.Type == "event.offer" && (e.Target == "designs" || e.Target == "secondForge"));
+            Assert.DoesNotContain(sim.Log.Events, e => e.Type == "event.offer" && (e.Target == "designs" || e.Target == "riverForge"));
         }
     }
 }

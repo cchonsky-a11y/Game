@@ -187,7 +187,7 @@ namespace Butterfly.Core
                       " (inventions +" + R(World.WorkshopBonus * 100, "0") + "%, apprentices +" + R(World.Apprentices * T.Get("workshop.apprentices.outputEach") * 100, "0") + "%).");
             lines.Add("Orders this season (" + OrdersLeftThisSeason + " more can be taken):" + (_orderBoard.Count == 0 ? " none waiting." : ""));
             foreach (var o in OrderBoard())
-                lines.Add("  order " + o.Id + ": " + o.Name + " — " + Money(OrderPay(o)) + " before tax, " + o.Attention + " Attention" + OrderEffectsText(o));
+                lines.Add("  take " + o.Id + ": " + o.Name + " — " + Money(OrderPay(o)) + " before tax, " + o.Attention + " Attention" + OrderEffectsText(o));
             lines.Add("Apprentices: " + World.Apprentices + " of " + T.GetInt("workshop.apprentices.max") + ", free and paid, " + Money(ApprenticeWage()) + " a year each " +
                       "(apprentice hire | apprentice dismiss). Each raises output " + R(T.Get("workshop.apprentices.outputEach") * 100, "0") + "%; with " +
                       T.GetInt("workshop.orders.extraAtApprentices") + " the workshop can take two orders a season. They carry your techniques after you leave.");
