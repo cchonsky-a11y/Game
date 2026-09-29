@@ -22,6 +22,17 @@ namespace Butterfly.Core
             + ReservedInventionAttention()
             + OfficeDuties();
 
+        /// <summary>
+        /// Attention already pledged for next turn: work that is still running then, and office duties. When it takes all of
+        /// it, next turn has nothing free and passes on its own (L3: the console warns the moment that happens).
+        /// </summary>
+        public int AttentionCommittedNextTurn() =>
+            World.ActiveProjects.Where(p => p.TurnsRemaining > 1).Sum(p => p.Def.AttentionPerTurn)
+            + World.Commitments.Where(c => c.TurnsRemaining > 1).Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
+            + World.ActiveMachineSteps.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
+            + World.ActiveInventions.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
+            + OfficeDuties();
+
         private void InitAttention()
         {
             World.Attention = AttentionPerTurn;

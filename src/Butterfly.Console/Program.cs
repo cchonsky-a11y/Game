@@ -120,9 +120,12 @@ internal sealed partial class ConsoleGame
             return true;
         }
         if (cmd == "@autoend") { _autoEnd = arg != "off"; return true; }
-        int attentionBefore = _sim.World.Attention;
+        int attentionBefore = _sim.World.Attention, committedBefore = _sim.AttentionCommittedNextTurn();
         bool ok = Handle(cmd, arg, parts);
         _harness?.AfterCommand(line, ok);
+        // L3 (tester 2): say so the moment all of next turn's Attention is pledged, before turns start passing on their own.
+        if (ok && !_sim.Arrived && committedBefore < _sim.AttentionPerTurn && _sim.AttentionCommittedNextTurn() >= _sim.AttentionPerTurn)
+            Console.WriteLine("  (All your Attention is pledged for the turns ahead: they will pass on their own until work finishes or something needs you.)");
         // Only a choice that uses the last Attention ends the turn. Paying down debt uses none, so at 0 Attention it never
         // ends the turn by itself (testers 2 and 6: it did, and their next 'end' skipped a whole turn).
         if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore == 0 && cmd == "paydown")

@@ -124,5 +124,25 @@ namespace Butterfly.Core.Tests
             Assert.Equal(0, sim.World[Domain.Economy].Debt, 6);
             Assert.Contains("type 'end' when you're done", output);
         }
+    
+        [Fact]
+        public void PledgingAllOfNextTurnsAttentionIsAnnounced()
+        {
+            // L3 (tester 2): a commitment that took all Attention passed four turns at once, with no word beforehand.
+            var sim = new Simulation(TestData.Load(), 3);
+            sim.World.Gold = 5000;
+            sim.ChooseSeeded("fountain");
+            sim.GrantStake("circle", 0.5);
+            string output = Play(sim, "start warehouses", "mentor circle");
+            Assert.Contains("All your Attention is pledged for the turns ahead", output);
+            Assert.True(sim.AttentionCommittedNextTurn() >= sim.AttentionPerTurn);
+            sim.EndTurn();
+            Assert.Equal(0, sim.World.Attention);                     // the prediction holds
+
+            var light = new Simulation(TestData.Load(), 3);
+            light.World.Gold = 5000;
+            light.ChooseSeeded("fountain");
+            Assert.DoesNotContain("pledged for the turns ahead", Play(light, "work craft"));   // work is this turn only
+        }
     }
 }
