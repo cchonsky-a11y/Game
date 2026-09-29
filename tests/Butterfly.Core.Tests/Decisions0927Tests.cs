@@ -32,6 +32,33 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void FullyCommittedTurnsStopWhenOneOfRomesChoicesOpens()
+        {
+            // L1 (tester 6): a treasury loan opened and lapsed while committed turns passed on their own.
+            Simulation Setup()
+            {
+                var s = new Simulation(TestData.Load(), 3);
+                s.World.Gold = 5000;
+                s.ChooseSeeded("fountain");
+                s.GrantStake("circle", 0.5);
+                return s;
+            }
+            var probe = Setup();
+            while (probe.PendingEvent == null) probe.EndTurn();
+            int opens = probe.Turn;
+
+            var sim = Setup();
+            while (sim.Turn < opens - 1) sim.EndTurn();
+            Assert.True(sim.StartProject("warehouses").Ok);
+            Assert.True(sim.Mentor("circle").Ok);
+            Assert.Equal(0, sim.World.Attention);
+            sim.EndTurnAndSkipIdle();
+            Assert.Equal(opens, sim.Turn);                  // it stops on the turn the choice opens
+            Assert.NotNull(sim.PendingEvent);
+            Assert.False(sim.NoActionPossible());
+        }
+
+        [Fact]
         public void TheTurnEndsByItselfWhenAttentionRunsOutUnlessDebtCanBePaid()
         {
             var sim = new Simulation(TestData.Load(), 3);
