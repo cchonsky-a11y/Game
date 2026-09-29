@@ -342,7 +342,9 @@ internal sealed partial class ConsoleGame
             case "found": r = _sim.Found(arg); break;
             case "buy":
                 if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
-                int pct = 1;
+                // L8 (tester 6): with no percent, a first purchase buys what joining takes (the bank's first is 5%, not 1%).
+                var target = _sim.FindInstitution(arg);
+                int pct = target != null && !target.Backed && target.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 r = _sim.Buy(arg, pct);
                 break;

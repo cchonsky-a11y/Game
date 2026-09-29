@@ -159,5 +159,23 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.World.Apprentices < 3);
             Assert.Contains("• You can't pay all the apprentices' wages", output);
         }
+    
+        [Fact]
+        public void BuyingIntoTheBankWithoutAPercentBuysTheFirstPurchaseItRequires()
+        {
+            // L8 (tester 6): 'buy bank' failed, because the bank's first purchase is 5% and the default was 1%.
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop");
+            sim.World.Gold = 20000;
+            Play(sim, "buy bank");
+            Assert.Equal(sim.T.GetInt("joining.bankMinFirstPercent"), sim.StakePercent(sim.World.Institution("bank")));
+
+            var small = new Simulation(TestData.Load(), 42);
+            small.ChooseSeeded("workshop");
+            small.World.Gold = 20000;
+            string output = Play(small, "buy bank 1");
+            Assert.Equal(0, small.StakePercent(small.World.Institution("bank")));   // an explicit 1% is still refused, with the reason
+            Assert.Contains("5%", output);
+        }
     }
 }
