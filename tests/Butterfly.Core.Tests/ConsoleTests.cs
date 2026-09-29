@@ -109,5 +109,20 @@ namespace Butterfly.Core.Tests
             Assert.False(sim.Arrived);
             Assert.Equal(2, System.Text.RegularExpressions.Regex.Matches(output, "The machine isn't ready").Count);
         }
+    
+        [Fact]
+        public void PayingDownDebtWithNoAttentionLeftDoesNotEndTheTurn()
+        {
+            // L2 (testers 2 and 6): paying down at 0 Attention ended the turn, so their next 'end' skipped a whole turn.
+            var sim = new Simulation(TestData.Load(), 3);
+            sim.ChooseSeeded("workshop");
+            sim.World[Domain.Economy].Debt = 10;
+            sim.World.Gold = 5000;
+            string output = Play(sim, "@autoend on", "work craft", "work craft", "paydown economy 10");
+            Assert.Contains("You can still pay down debt", output);   // the last Attention didn't end the turn: debt was payable
+            Assert.Equal(1, sim.Turn);                                  // and paying it didn't end it either
+            Assert.Equal(0, sim.World[Domain.Economy].Debt, 6);
+            Assert.Contains("type 'end' when you're done", output);
+        }
     }
 }

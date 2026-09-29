@@ -123,7 +123,11 @@ internal sealed partial class ConsoleGame
         int attentionBefore = _sim.World.Attention;
         bool ok = Handle(cmd, arg, parts);
         _harness?.AfterCommand(line, ok);
-        if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && (attentionBefore > 0 || cmd == "paydown"))
+        // Only a choice that uses the last Attention ends the turn. Paying down debt uses none, so at 0 Attention it never
+        // ends the turn by itself (testers 2 and 6: it did, and their next 'end' skipped a whole turn).
+        if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore == 0 && cmd == "paydown")
+            Console.WriteLine("  (No Attention left: type 'end' when you're done.)");
+        else if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore > 0)
         {
             if (_sim.ShouldAutoEnd())
             {
