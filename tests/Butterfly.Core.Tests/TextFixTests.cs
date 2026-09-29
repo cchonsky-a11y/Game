@@ -252,5 +252,21 @@ namespace Butterfly.Core.Tests
             });
             Assert.Equal(chartered, text.Contains("charter"));
         }
+    
+        [Fact]
+        public void InventionPayoffsHaveNoEmptyClauses()
+        {
+            // L7 (testers 2, 6): "the guild:  (if you're a member)".
+            var sim = new Simulation(TestData.Load(), 42);
+            foreach (var inv in sim.Data.Content.Inventions)
+            {
+                string t = sim.InventionPayoffText(inv);
+                Assert.DoesNotContain(":  (", t);
+                Assert.DoesNotContain(";;", t);
+                Assert.DoesNotContain("; ;", t);
+                Assert.DoesNotContain(",,", t);
+                Assert.False(string.IsNullOrWhiteSpace(t), inv.Id);
+            }
+        }
     }
 }

@@ -42,6 +42,8 @@ namespace Butterfly.Core
             {
                 var loyalty = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "loyalty");
                 var stake = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "stake");
+                // L7 (testers 2, 6): a group touched only by a grievance has no reward to list ("the guild:  (if you're a member)").
+                if (stake == null && loyalty == null) continue;
                 parts.Add(InventionGroupNames[g] + ": " + string.Join(", ", new[] {
                     stake != null ? "+" + F(stake.Value) + "% stake" : null,
                     loyalty != null ? "+" + F(loyalty.Value) + " loyalty" : null }.Where(x => x != null)) + " (if you're a member)");
