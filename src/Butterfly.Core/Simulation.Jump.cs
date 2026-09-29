@@ -179,7 +179,7 @@ namespace Butterfly.Core
                 double sum = w[0] + w[1] + w[2];
                 yield return "  Corruption risk: " + CorruptionRiskBand(i) + " for " + window + " years (" +
                              (LargeHoldings(i) ? "large holdings" : "small holdings") + ", " + (i.AuditCharter ? "audit charter" : "no audit charter") +
-                             ", " + i.Leader + " is " + i.Integrity + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
+                             ", " + (YouLead(i) ? "you lead it" : i.Leader + " is " + i.Integrity) + "). If it happens, it could be minor (" + F(w[0] / sum * 100) + "%), major (" +
                              F(w[1] / sum * 100) + "%) or total (" + F(w[2] / sum * 100) + "%)." +
                              (i.AuditCharter ? "" : " (audit " + i.Key + ": " + Money(T.Get("institutions.auditGold")) + ")");
             }

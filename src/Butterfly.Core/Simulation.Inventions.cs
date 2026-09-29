@@ -223,7 +223,7 @@ namespace Butterfly.Core
                     var i = fx.Group == null ? null : World.Institution(fx.Group);
                     if (i != null && i.Exists)
                         Grieve(i, fx.Value, "institution.loyalty", new[] { causeId }, new[] { i.Leader },
-                            i.Leader + " of " + i.Def.ShortName + " resents " + def.Name + ": it takes work from its members.");
+                            YouLead(i) ? "The members of " + i.Def.ShortName + " resent " + def.Name + ": it takes work from them." : i.Leader + " of " + i.Def.ShortName + " resents " + def.Name + ": it takes work from its members.");
                     break;
                 }
                 default: throw new InvalidOperationException("Unknown invention effect: " + fx.Type);

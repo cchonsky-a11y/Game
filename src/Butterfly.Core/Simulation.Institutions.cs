@@ -202,7 +202,9 @@ namespace Butterfly.Core
             foreach (var i in Controlled().ToList())
             {
                 ChangeLoyalty(i, -T.Get("institutions.loyaltyFadePerYear"), "institution.loyalty", CausesOf(LoyaltyKey(i)), new[] { i.Leader },
-                    "Without your presence, " + i.Leader + " follows their own judgment more.");
+                    // L15: not "without your presence" (the inventor may be in Rome), and L5: not "you follows" when you lead it.
+                    YouLead(i) ? "Without your direct oversight, the members of " + i.Def.ShortName + " go more their own way."
+                               : "Without your direct oversight, " + i.Leader + " relies more on personal judgment.");
                 double growth = i.Loyalty >= T.Get("institutions.growthLoyaltyThreshold")
                     ? T.Get("institutions.growthPerYear") : -T.Get("institutions.witherPerYear");
                 ChangeStrength(i, growth, "institution.strength", CausesOf(LoyaltyKey(i)), new[] { i.Leader },

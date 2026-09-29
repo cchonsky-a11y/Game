@@ -161,7 +161,8 @@ namespace Butterfly.Core
                     case "loyalty":
                         foreach (var i in EventInstitutions(fx.Institution))
                             Grieve(i, fx.Value, "institution.loyalty", causes, new[] { i.Leader },
-                                title + ": " + i.Leader + " of " + i.Def.ShortName + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+                                title + ": " + (YouLead(i) ? "the members of " + i.Def.ShortName + (fx.Value >= 0 ? " think better of you." : " think less of you.")
+                                                                     : i.Leader + " of " + i.Def.ShortName + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you.")));
                         break;
                     case "lean":
                         foreach (var i in EventInstitutions(fx.Institution))
@@ -196,7 +197,7 @@ namespace Butterfly.Core
                             i.Stake = Math.Max(before, Math.Min(ExclusiveCapPercent(i) / 100.0, Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0)));
                             if (i.Stake > before)
                                 Record("institution.stake", i.Key, causes, new[] { "player", i.Leader }, new[] { new Effect(StakeKey(i), before, i.Stake) },
-                                    title + ": " + i.Leader + " gives you a larger say in " + i.Def.ShortName + ": " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                                    title + ": " + (YouLead(i) ? "your say in " + i.Def.ShortName + " grows" : i.Leader + " gives you a larger say in " + i.Def.ShortName) + ": " + StakePercent(i) + "%." + Crossed(before, i.Stake));
                         }
                         break;
                     case "resilience":

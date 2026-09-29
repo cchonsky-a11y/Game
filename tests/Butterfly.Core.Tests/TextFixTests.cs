@@ -178,5 +178,33 @@ namespace Butterfly.Core.Tests
                 Assert.DoesNotContain("repaired late", t);
             }
         }
+    
+        [Fact]
+        public void WhenYouLeadAnInstitutionItsLinesNeverCallYouInTheThirdPerson()
+        {
+            // L5 (tester 6): "you of the Guild thinks better of you", "you gives you a larger say".
+            var sim = new Simulation(TestData.Load(), 616);
+            sim.ChooseSeeded("workshop");
+            sim.GrantStake("guild", 0.6);
+            sim.GrantStake("faction", 0.3);
+            foreach (var key in new[] { "guild", "faction" })
+            {
+                var inst = sim.World.Institution(key);
+                inst.Rank = Simulation.Head;
+                inst.Leader = "you";
+            }
+            while (sim.Now.Year < 174)
+            {
+                sim.World.Gold = 20000;
+                if (sim.PendingEvent != null) sim.Decide(sim.PendingEvent.Options[0].Id);
+                foreach (var inv in sim.Data.Content.Inventions) sim.Invent(inv.Id);
+                sim.EndTurn();
+            }
+            var bad = new System.Text.RegularExpressions.Regex(@"\byou (of|thinks|gives|resents|carries|is |follows|notes|relies)\b");
+            var offenders = sim.Log.Events.Where(e => bad.IsMatch(e.Text)).Select(e => e.Text).ToList();
+            Assert.True(offenders.Count == 0, string.Join("\n", offenders));
+            Assert.Contains(sim.Log.Events, e => e.Text.IndexOf("members of the guild", StringComparison.OrdinalIgnoreCase) >= 0
+                                               || e.Text.IndexOf("your say in the guild", StringComparison.OrdinalIgnoreCase) >= 0);
+        }
     }
 }

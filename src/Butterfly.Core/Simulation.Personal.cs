@@ -100,7 +100,7 @@ namespace Butterfly.Core
                 var circle = World.Institution("circle");
                 if (circle.Exists)
                     Grieve(circle, T.Get("tradeoffs.consultCircleRegard"), "institution.loyalty", new[] { workEvent.Id }, new[] { circle.Leader },
-                        circle.Leader + " notes whose baths you tend.");
+                        (YouLead(circle) ? "The physicians of the Circle note" : circle.Leader + " notes") + " whose baths you tend.");
             }
             int members = Memberships();
             return CommandResult.Success("You earn " + Money(pay) + (members > 0 ? " (" + Money(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
@@ -141,7 +141,7 @@ namespace Butterfly.Core
                 ChangeStrength(inst, T.Get("commitments.mentor.strength"), "commitment.complete", new[] { c.StartEventId }, new[] { "player", inst.Leader },
                     "Your season of mentoring pays off: " + inst.Def.ShortName + " has members who can teach others.");
                 ChangeLoyalty(inst, T.Get("commitments.mentor.loyalty"), "commitment.complete", new[] { c.StartEventId }, new[] { "player", inst.Leader },
-                    inst.Leader + " is grateful.");
+                    YouLead(inst) ? "The members of " + inst.Def.ShortName + " are grateful." : inst.Leader + " is grateful.");
             }
         }
 

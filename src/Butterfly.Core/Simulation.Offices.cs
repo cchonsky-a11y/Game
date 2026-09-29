@@ -20,6 +20,9 @@ namespace Butterfly.Core
 
         public string CampName(Institution i, int camp) => i.Def.DriftPaths[camp].Name;
 
+        /// <summary>True when the inventor heads this institution (its leader is then "you", so third-person lines about its leader must be rephrased).</summary>
+        public static bool YouLead(Institution i) => i.Leader == "you";
+
         /// <summary>A camp by its id or part of its name ("freetraders", "free traders", "cartel").</summary>
         public int? FindCamp(Institution i, string text)
         {

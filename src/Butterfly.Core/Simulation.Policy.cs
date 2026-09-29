@@ -107,7 +107,7 @@ namespace Butterfly.Core
             var faction = PolicyInstitution!;
             var e = Record("policy.set", issue.ToString().ToLowerInvariant(), null, new[] { "player", faction.Leader },
                 new[] { new Effect("policy." + issue.ToString().ToLowerInvariant(), before, stance) },
-                faction.Leader + " carries your line in the Curia: " + issue + " becomes " + StanceWord(issue, stance) +
+                (YouLead(faction) ? "You carry your line in the Curia yourself: " : faction.Leader + " carries your line in the Curia: ") + issue + " becomes " + StanceWord(issue, stance) +
                 " (your sway over Governance: " + F(PolicySway() * 100) + "%).");
             if (stance > 0) Backlash(issue, e.Id);
             return CommandResult.Success(issue + ": " + StanceWord(issue, stance) + ".");
