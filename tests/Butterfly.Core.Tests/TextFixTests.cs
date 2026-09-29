@@ -268,5 +268,29 @@ namespace Butterfly.Core.Tests
                 Assert.False(string.IsNullOrWhiteSpace(t), inv.Id);
             }
         }
+    
+        [Fact]
+        public void WalkingAroundLaterInTheEraShowsRomeAsItIsNow()
+        {
+            // L9 (tester 2): in AD 173 the fountain, fixed in 155, still "ran brown"; the smith still "cleared space".
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("fountain");
+            Assert.Contains("runs brown", sim.Visit("subura"));             // the first visit: the arrival-day scene
+            Assert.Contains("swearing at a cracked bellows", sim.Visit("forges"));
+            while (sim.Now.Year < 160) sim.EndTurn();
+            string subura = sim.Visit("subura");
+            Assert.DoesNotContain("runs brown", subura);
+            Assert.Contains("runs clean", subura);
+            Assert.DoesNotContain("You came down in the Subura", subura);
+            Assert.DoesNotContain("cracked bellows", sim.Visit("forges"));
+            Assert.DoesNotContain("cattle market", sim.Visit("market"));     // a first visit after the arrival day: Rome as it is now
+            Assert.DoesNotContain("So it is AD 155", sim.Visit("curia"));
+            foreach (var place in Simulation.WalkPlaces)
+            {
+                string t = sim.Visit(place);
+                Assert.DoesNotContain("{", t);
+                Assert.DoesNotContain("when you left", t);                   // no comparisons before any jump
+            }
+        }
     }
 }

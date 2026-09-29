@@ -53,7 +53,11 @@ namespace Butterfly.Core
         public string Visit(string place)
         {
             string p = (place ?? "").Trim().ToLowerInvariant();
-            bool first = !Arrived;
+            // L9 (tester 2): in AD 173 the Subura's fountain still "ran brown" (fixed in 155) and the smith was still "clearing
+            // space for a second forge". The arrival-day scenes ("So it is AD 155") are for the day you arrive; later in the
+            // era a visit shows the place as it is now.
+            bool first = !Arrived && Turn == 1;
+            bool inEra = !Arrived && !first;
             var text = Data.Content;
             var v = new Dictionary<string, string>();
             var lines = new List<string>();
@@ -65,6 +69,7 @@ namespace Butterfly.Core
                     double wheatNow = wheat * World.PriceLevel, wageNow = wage * WageLevel();
                     v["wheat"] = R(wheatNow); v["wage"] = Math.Abs(wageNow - 1) < 0.05 ? "1 denarius" : R(wageNow) + " denarii"; v["kg"] = R(wageNow / wheatNow * T.Get("walk.kgPerModius"));
                     if (first) { lines.Add(text.Template("walk.market.start", v)); break; }
+                    if (inEra) { lines.Add(text.Template("walk.market.era", v)); break; }
                     v["wheatThen"] = R(wheat * _leftRome!.PriceLevel);
                     v["kgThen"] = R(wage * _leftRome.WageLevel / (wheat * _leftRome.PriceLevel) * T.Get("walk.kgPerModius"));
                     lines.Add(text.Template("walk.market." + Band(Domain.Economy)));
@@ -76,9 +81,9 @@ namespace Butterfly.Core
                     double silver = CoinSilverNow();
                     v["aureus"] = R(AureusInDenarii);
                     if (first) { v["silver"] = R(silver * 100, "0"); lines.Add(text.Template("walk.changers.start", v)); break; }
-                    v["aureusThen"] = first ? " (the official rate)" : " (" + R(Denarii(_leftRome!.PriceLevel)) + " when you left)";
+                    v["aureusThen"] = inEra ? "" : " (" + R(Denarii(_leftRome!.PriceLevel)) + " when you left)";
                     v["silver"] = R(silver * 100, "0");
-                    v["silverThen"] = first ? "" : " (" + R(_leftRome!.Silver * 100, "0") + "% when you left)";
+                    v["silverThen"] = inEra ? "" : " (" + R(_leftRome!.Silver * 100, "0") + "% when you left)";
                     v["trust"] = text.Template("walk.changers.trust." + (silver >= 0.7 ? "good" : silver >= 0.5 ? "fair" : "poor"));
                     lines.Add(text.Template("walk.changers", v));
                     if (World.Invented.Contains("bills")) lines.Add(text.Template("walk.changers.bills"));
@@ -92,7 +97,14 @@ namespace Butterfly.Core
                         lines.Add(text.Template(partner ? "walk.forges.start.partner" : "walk.forges.start"));
                         break;
                     }
-                    if (OwnsWorkshop)
+                    if (inEra)
+                    {
+                        lines.Add(OwnsWorkshop
+                            ? text.Template("walk.forges.era.workshop", new Dictionary<string, string> { { "size", CurrentSize.Name }, { "smith", Data.Content.Smith },
+                                { "apprentices", World.Apprentices == 0 ? "no apprentices" : World.Apprentices == 1 ? "one apprentice" : World.Apprentices + " apprentices" } })
+                            : text.Template("walk.forges.noWorkshop"));
+                    }
+                    else if (OwnsWorkshop)
                     {
                         string fate = WorkshopFate();
                         // The same fate as the Recognition beat, in the same words (tester 7 saw "a stable" there and "a single cold forge" here).
@@ -111,23 +123,23 @@ namespace Butterfly.Core
                 case "curia": case "senate":
                 {
                     if (first) { lines.Add(text.Template("walk.curia.start")); break; }
-                    lines.Add(text.Template("walk.curia." + Band(Domain.Governance)));
+                    lines.Add(text.Template(inEra ? "walk.curia.era" : "walk.curia." + Band(Domain.Governance)));
                     foreach (var i in Influential().Where(i => i.Def.Maintains == Domain.Governance))
                         lines.Add(Cap(CurrentName(i)) + ": " + OutcomeOf(i).ToString().ToLowerInvariant() + ", strength " + R(i.Strength, "0") + ".");
                     var policy = Issues.Where(i => Stance(i) != 0 && PolicySway() > 0).Select(i => i.ToString().ToLowerInvariant() + " " + StanceWord(i, Stance(i))).ToList();
-                    if (policy.Count > 0) lines.Add(text.Template("walk.curia.policy", new Dictionary<string, string> { { "policy", string.Join(", ", policy) } }));
+                    if (policy.Count > 0) lines.Add(text.Template(inEra ? "walk.curia.era.policy" : "walk.curia.policy", new Dictionary<string, string> { { "policy", string.Join(", ", policy) } }));
                     break;
                 }
                 case "subura": case "fountain":
                 {
                     v["population"] = R(Math.Round(World.Population) * 1000, "#,0");
                     if (first) { lines.Add(text.Template("walk.subura.start", v)); break; }
-                    v["populationThen"] = R(Math.Round(_leftRome!.Population) * 1000, "#,0");
-                    if (EpidemicYear > 0) lines.Add(text.Template("walk.subura.epidemic"));
-                    lines.Add(text.Template("walk.subura." + Band(Domain.Medicine)));
+                    if (!inEra) v["populationThen"] = R(Math.Round(_leftRome!.Population) * 1000, "#,0");
+                    if (EpidemicYear > 0 || (inEra && World.Plague.OutbreakYear == Now.Year)) lines.Add(text.Template("walk.subura.epidemic"));
+                    lines.Add(text.Template(inEra ? "walk.subura.era" : "walk.subura." + Band(Domain.Medicine), v));
                     bool runs = World.CleanWater && World.FountainCondition >= T.Get("jump.fountainRunsAt");
                     lines.Add(text.Template("walk.subura.fountain." + (runs ? "runs" : World.CleanWater ? "dry" : "foul")));
-                    lines.Add(text.Template("walk.subura.population", v));
+                    if (!inEra) lines.Add(text.Template("walk.subura.population", v));
                     var inUse = HealingInventions.Where(World.Invented.Contains).Select(id => text.Template("walk.use." + id)).ToList();
                     if (inUse.Count > 0) lines.Add(text.Template("walk.subura.inUse", new Dictionary<string, string> { { "inventions", string.Join("; ", inUse) } }));
                     break;
