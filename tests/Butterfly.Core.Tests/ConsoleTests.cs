@@ -144,5 +144,20 @@ namespace Butterfly.Core.Tests
             light.ChooseSeeded("fountain");
             Assert.DoesNotContain("pledged for the turns ahead", Play(light, "work craft"));   // work is this turn only
         }
+    
+        [Fact]
+        public void ApprenticesLeavingOverUnpaidWagesAppearInTheTurnSummary()
+        {
+            // L4 (tester 2): "My apprentices vanished and nobody told me. I only found out in the log."
+            var sim = new Simulation(TestData.Load(), 61);
+            sim.ChooseSeeded("workshop");
+            while (!sim.OwnsWorkshop) sim.EndTurn();
+            sim.World.Apprentices = 3;
+            sim.World.Gold = 0;
+            var lines = Enumerable.Repeat("end", 8).ToArray();
+            string output = Play(sim, lines);
+            Assert.True(sim.World.Apprentices < 3);
+            Assert.Contains("• You can't pay all the apprentices' wages", output);
+        }
     }
 }
