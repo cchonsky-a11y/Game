@@ -292,5 +292,18 @@ namespace Butterfly.Core.Tests
                 Assert.DoesNotContain("when you left", t);                   // no comparisons before any jump
             }
         }
+    
+        [Theory]
+        [InlineData(0.3, false)]
+        [InlineData(0.6, true)]
+        public void TheBriefingSuggestsEndowingOnlyWhenYouCan(double stake, bool canEndow)
+        {
+            // L11 (tester 2): 'endow circle <denarii>' was suggested at 41%, and refused: endowing needs 50%.
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.GrantStake("circle", stake);
+            string briefing = string.Join("\n", sim.DepartureBriefing());
+            Assert.Equal(canEndow, briefing.Contains("endow circle"));
+            if (!canEndow) Assert.Contains("Only someone who controls it", briefing);
+        }
     }
 }

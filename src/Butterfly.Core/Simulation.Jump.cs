@@ -165,7 +165,9 @@ namespace Butterfly.Core
                              why + ", losing " + F(DecayRate(q) * 100) + "% of its strength each decade (now " + F(i.Strength) + ").";
                 if (i.Holdings <= 0)
                 {
-                    yield return "  It holds no money, so it can't pay down " + i.Def.Maintains + " debt while you're away. (endow " + i.Key + " <denarii>)";
+                    // L11 (tester 2): endowing needs control; don't suggest it to a player who can't.
+                    yield return "  It holds no money, so it can't pay down " + i.Def.Maintains + " debt while you're away. " +
+                                 (Controls(i) ? "(endow " + i.Key + " <denarii>)" : "(Only someone who controls it, with " + F(ControlAt * 100) + "%, can endow it.)");
                     continue;
                 }
                 var domain = World[i.Def.Maintains];
