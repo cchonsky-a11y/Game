@@ -23,7 +23,7 @@ A turn-based historical strategy game about a stranded time traveler: Rome, AD 1
 ## 3. Commands
 ```
 dotnet build
-dotnet test                                                                 # ~300 tests incl. determinism, snapshot, console
+dotnet test                                                                 # ~330 tests incl. determinism, snapshot, console, validator
 dotnet run --project src/Butterfly.Console -- --seed 42                     # play; numbered menu; 'help'
 dotnet run --project src/Butterfly.Console -- --seed 42 --inputs f.txt --checks c.txt   # scripted run + harness checks
 dotnet run --project src/Butterfly.Batch -- --runs 100 --out playtests/batch-report.md # 7 strategies × early/late gate
@@ -77,9 +77,8 @@ Keep bugs apart from design notes.
 ## 7. Open work queue (ordered; check DECISIONS.md and `playtests/ai/bugs.md` for anything newer)
 **Done 2026-09-28:** A1–A10 from the first live round, plus a crash on `jump` `jump` with an unready machine (see `playtests/ai/bugs.md`, "Live blind testers").
 
-**Bugs and text** (fix freely, one per commit, each with a test): **L1–L18** in `playtests/ai/bugs.md`. Start with L1–L4; they cost players turns or loyalty without warning.
+**Bugs and text** (fix freely, one per commit, each with a test): as of 2026-09-29, T1–T3 and L1–L11 (and L15) are done. **L12, L13, L14, L16, L17, L18** are open; see the status in `playtests/ai/bugs.md`. After them: full regression (tests, `playtests/ai/run.sh`, a batch run, 50 scripted seeds 701–750 with `--checks`), then the 50-tester blind round.
 
-**Stale scripts:** the 24 scripts in `playtests/ai/scripts/` predate the rule that the machine must be repaired before a jump, so none reaches an arrival. Rewrite them to assess, repair and restore the gold. Their saved transcripts are older still.
 
 **Design observations** (report to Corey; don't change without his decision): listed at the end of the "Live blind testers" section of `playtests/ai/bugs.md`. They cover leaving early, consulting's dominance, the middle-years grind, repeated office offers, the fountain's value, the Curia text, and a question about deposits after an arrival.
 

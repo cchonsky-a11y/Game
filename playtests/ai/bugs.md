@@ -57,6 +57,26 @@ Finished reports: t2 (history buff, 8/10), t6 (profit-seeker, 7/10), t7 (early j
 
 Note: the 24 scripts in `scripts/` predate the rule that the machine must be repaired before a jump, so none of them reaches an arrival any more (DEAD END in `run.sh`). Their saved transcripts are from before that rule. They need rewriting (assess, repair, restore the gold) before they check arrivals again.
 
+## Status 2026-09-29 (master handoff: test infrastructure first, then L1–L18)
+
+**Done, each with a regression test (tests fail without the fix):**
+- **T1:** the validator expected a 250-year absence; it now checks 25–60 years in 5-year steps, as drawn.
+- **T2:** warning order is checked by month, not year. Warnings resolved while away may share a date.
+- **T3:** the 24 scripts were refreshed for the machine-repair rule (`@until ready`), and the validator knows the half-decade decay step. 21 run clean; 14–16 end without an arrival by design.
+- **L1:** committed turns stop when one of Rome's choices opens.
+- **L2:** a paydown at 0 Attention no longer ends the turn.
+- **L3:** a warning appears when all of next turn's Attention is pledged.
+- **L4:** apprentices leaving, and the workshop's size changing, appear in the turn summary.
+- **L5 + L15:** lines about an institution you lead speak of its members or of you, and "without your direct oversight" replaces "without your presence".
+- **L6:** a thriving Cartel is described as the Cartel.
+- **L7:** no empty reward clauses in invention payoffs.
+- **L8:** `buy bank` buys the 5% the first purchase needs.
+- **L9:** walking around later in the era shows Rome as it is now; the arrival-day scenes are for turn 1.
+- **L10:** the Circle's charter is mentioned only if it has one.
+- **L11:** the briefing suggests `endow` only to a player with control.
+
+**Still open:** L12, L13, L14, L16, L17, L18 (below).
+
 ## Open: bugs and text (fix freely, with a test)
 
 | # | Bug | Found by |
