@@ -83,7 +83,21 @@ internal sealed class Harness
         // SYSTEMS §12: Index = geometric mean of sub-scores.
         double gm = Formulas.GeometricMean(DomainInfo.All.Select(d => a.SubScoresAfter[d]));
         if (Math.Abs(gm - a.IndexAfter) > 1e-6) Add("SYSTEMS", "arrival Index " + F(a.IndexAfter) + " is not the geometric mean " + F(gm));
-        if (a.ArrivalYear - a.DepartureYear != 250) Add("SYSTEMS", "absence lasted " + (a.ArrivalYear - a.DepartureYear) + " years, not 250");
+        var jump = JumpLengthFinding(a.ArrivalYear - a.DepartureYear, a.JumpYears, _sim.T);
+        if (jump != null) Add("SYSTEMS", jump);
+    }
+
+    /// <summary>
+    /// SYSTEMS §11 (decided 2026-09-28): a jump carries you 25–60 years, drawn in 5-year steps. (The check once expected
+    /// the old fixed 250-year absence.) Null if the absence is legal.
+    /// </summary>
+    internal static string? JumpLengthFinding(int absence, int drawn, Tuning t)
+    {
+        int min = t.GetInt("jump.range.baseMin"), max = t.GetInt("jump.range.maxYears"), step = t.GetInt("jump.range.stepYears");
+        if (absence != drawn) return "absence lasted " + absence + " years, but the machine drew " + drawn;
+        if (absence < min || absence > max) return "absence lasted " + absence + " years, outside the machine's " + min + "–" + max;
+        if ((absence - min) % step != 0) return "absence lasted " + absence + " years, not in " + step + "-year steps";
+        return null;
     }
 
     private void CheckLogAgainstSystems()
@@ -144,11 +158,27 @@ internal sealed class Harness
         var turns = _sim.Log.Events.Where(e => e.Type == "turn.start").Select(e => e.Time.TotalMonths).ToList();
         for (int i = 1; i < turns.Count; i++)
             if (turns[i] - turns[i - 1] > _sim.T.GetInt("time.maxMonthsPerTurn") || turns[i] - turns[i - 1] < 1) { Add("SYSTEMS", "turn length " + (turns[i] - turns[i - 1]) + " months"); break; }
-        // PROTOTYPE_SCOPE: three warnings, each in its own year, before any outbreak.
-        var warnings = _sim.Log.Events.Where(e => e.Type == "plague.warning").ToList();
-        var outbreak = _sim.Log.Events.FirstOrDefault(e => e.Type == "plague.outbreak");
-        if (outbreak != null && (warnings.Count != 3 || warnings.Any(w => w.Time.Year >= outbreak.Time.Year)))
-            Add("SYSTEMS", "outbreak without three earlier warnings");
+        var plague = WarningsFinding(_sim.Log.Events.Where(e => e.Type == "plague.warning").Select(e => e.Time).ToList(),
+                                     _sim.Log.Events.FirstOrDefault(e => e.Type == "plague.outbreak")?.Time);
+        if (plague != null) Add("SYSTEMS", plague);
+    }
+
+    /// <summary>
+    /// PROTOTYPE_SCOPE: three visible warnings, in order, before the outbreak. They fall on history's dates (AD 165, 166,
+    /// 166; the outbreak late in 166), so the last warning shares the outbreak's year: the order is by month, not by year.
+    /// Null if they are in order (or there was no outbreak).
+    /// </summary>
+    internal static string? WarningsFinding(IReadOnlyList<SimTime> warnings, SimTime? outbreak)
+    {
+        if (outbreak == null) return null;
+        if (warnings.Count != 3) return "outbreak after " + warnings.Count + " warnings, not 3";
+        for (int i = 0; i < warnings.Count; i++)
+        {
+            var next = i + 1 < warnings.Count ? warnings[i + 1] : outbreak.Value;
+            if (warnings[i].TotalMonths >= next.TotalMonths)
+                return "warning " + (i + 1) + " (" + warnings[i].Stamp + ") is not before " + (i + 1 < warnings.Count ? "warning " + (i + 2) : "the outbreak") + " (" + next.Stamp + ")";
+        }
+        return null;
     }
 
     /// <summary>A word repeated back to back ("the the"), ignoring case.</summary>

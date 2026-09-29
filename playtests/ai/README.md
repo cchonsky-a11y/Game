@@ -16,7 +16,7 @@ dotnet run --project src/Butterfly.Console -- --seed 101 --inputs playtests/ai/s
 - `--checks <file>` writes harness findings separately, so transcripts stay clean. It also writes `<file>.accepted.txt`, the commands the game accepted.
   - **Impossible states:** checked after every command. Negative gold, NaN or negative debt, levels outside 0–100, Attention outside 0–4, negative holdings, and strength or loyalty out of range.
   - **Arrival:** exactly 4 beats in order, 3 Echoes including the seeded choice, each surfaced in a beat.
-  - **SYSTEMS rules against the log:** paydown and institution payments cost 1.5× prevention; decay per decade matches quality; holdings grow 0–1.5% a year and only in the 30-year window; corruption only in the window; no debt compounding after 30 years; the Index is the geometric mean; the absence lasts 250 years; turn length is constant; three warnings precede the outbreak.
+  - **SYSTEMS rules against the log:** paydown and institution payments cost 1.5× prevention; decay per decade matches quality; holdings grow 0–1.5% a year and only in the 30-year window; corruption only in the window; no debt compounding after 30 years; the Index is the geometric mean; each jump lasts 25–60 years in 5-year steps, as drawn (SYSTEMS §11); turn length stays within the cap; three warnings precede the outbreak, in order by month (the third shares the outbreak's year, AD 166).
   - **Text:** unfilled `{placeholders}`, doubled spaces, repeated words ("the the"), empty text.
 
 ## Contents
