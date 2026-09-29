@@ -1,68 +1,316 @@
 choose workshop
+assess
 work
 end
 work
 end
-found faction
-oversee faction
 work
 end
-charter faction
-oversee faction
 work
 end
-oversee faction
 work
 end
-oversee faction
 work
 end
-oversee faction
+repair coil
 work
 end
-oversee faction
+repair chronometer
 work
 end
-promise no
-oversee faction
 work
 end
-oversee faction
 work
 end
-oversee faction
+repair chronometer
 work
 end
-oversee faction
 work
 end
-oversee faction
+repair coolant
 work
 end
-oversee faction
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+found club
+oversee club
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
 work
 end
 respond quarantine
-oversee faction
+oversee club
+end
+oversee club
 work
 end
-oversee faction
+oversee club
 work
 end
-oversee faction
+oversee club
 work
 end
-oversee faction
+oversee club
 work
 end
-oversee faction
+oversee club
 work
 end
-oversee faction
+oversee club
 work
+end
+charter club
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+exchange 1300 denarii
+restore 60
+end
+exchange 1300 denarii
+restore 60
 end
 jump
-endow faction all
+endow club all
 jump
 learn more
 why medicine

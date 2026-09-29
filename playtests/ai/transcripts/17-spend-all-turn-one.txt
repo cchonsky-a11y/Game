@@ -1,33 +1,50 @@
 THE BUTTERFLY EFFECT — P0 Butterfly Test
 ========================================
-Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
-and a small circle of people willing to listen. Something is coming from the East in a few years.
-When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
+machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
+You don't yet know what broke. Something is coming from the East within ten years.
+Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
+Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
 
-This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
 
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
-  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
-  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
 
 > choose fountain
 You chose the fountain.  [Attention left this turn: 2/4]
 
 > priority medicine protect
-Medicine set to Protect.
+You have no voice in Medicine yet. You need 25% of an institution that maintains it (buy into one, or found your own); until then Rome runs it without you.
 
 > priority governance protect
-Governance set to Protect.
+You have no voice in Governance yet. You need 25% of an institution that maintains it (buy into one, or found your own); until then Rome runs it without you.
 
 > priority economy protect
-Economy set to Protect.
+You have no voice in Economy yet. You need 25% of an institution that maintains it (buy into one, or found your own); until then Rome runs it without you.
+
+> assess
+Started: Assess the machine.  [Attention left this turn: 1/4]
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
 
 > promise yes
 No promise is waiting for an answer.
@@ -36,24 +53,38 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 20.
+Fund a physician for the district costs 2,250 denarii; you have 0 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 20.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 20.
+Patronage for a senator costs 1,875 denarii; you have 0 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 0/4]
 
 > end
-  • Clean water runs again in the district fountain. Medicine +8.
 
-== Turn 2 · Iulius, AD 155 ==  Gold 21.5 (-3.5/turn)   Attention 4/4   Index 105.1
-  Medicine      58  expect   58  Protect     debt     0 Stable
-  Governance    55  expect   55  Protect     debt     0 Stable
-  Economy       55  expect   55  Protect     debt     0 Stable
+== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 1/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Repair the district fountain (1 turn(s) left)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (5 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
 
 > promise yes
 No promise is waiting for an answer.
@@ -62,24 +93,199 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 21.5.
+Fund a physician for the district costs 2,250 denarii; you have 112 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 21.5.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 21.5.
+Patronage for a senator costs 1,875 denarii; you have 112 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 0/4]
 
 > end
+  • Clean water runs again in the district fountain. Medicine +1.
+
+== Turn 3 · Maius, AD 155 ==  225 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
+  On your street: People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.   (news)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (4 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,250 denarii; you have 225 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,875 denarii; you have 225 denarii.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 4 · Iulius, AD 155 ==  338 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (3 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,250 denarii; you have 338 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,875 denarii; you have 338 denarii.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 5 · September, AD 155 ==  450 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
+  On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (2 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,250 denarii; you have 450 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,875 denarii; you have 450 denarii.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 6 · November, AD 155 ==  562 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (1 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,250 denarii; you have 562 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,875 denarii; you have 562 denarii.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
   • The year AD 156 begins.
 
-== Turn 3 · Ianuarius, AD 156 ==  Gold 23 (-2.9/turn)   Attention 4/4   Index 108.9
-  Medicine      60  expect   60  Protect     debt     0 Stable
-  Governance    57  expect   57  Protect     debt     0 Stable
-  Economy       57  expect   57  Protect     debt     0 Stable
+== Turn 7 · Ianuarius, AD 156 ==  675 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
+  On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Source bronze for the coil housing.  [Attention left this turn: 3/4]
+
+> repair coolant
+Started: Borrow glassware and a still.  [Attention left this turn: 2/4]
+
+> repair chronometer
+Get into the state archives costs 375 denarii; you have 175 denarii.
 
 > promise yes
 No promise is waiting for an answer.
@@ -88,23 +294,37 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 23.
+Fund a physician for the district costs 2,275 denarii; you have 175 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 23.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 23.
+Patronage for a senator costs 1,900 denarii; you have 175 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 1/4]
 
 > end
 
-== Turn 4 · Iulius, AD 156 ==  Gold 25.1 (-2.9/turn)   Attention 4/4   Index 108.9
-  Medicine      60  expect   60  Protect     debt     0 Stable
-  Governance    57  expect   57  Protect     debt     0 Stable
-  Economy       57  expect   57  Protect     debt     0 Stable
+== Turn 8 · Martius, AD 156 ==  288 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 turn(s) left); under way: Borrow glassware and a still (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+Get into the state archives costs 375 denarii; you have 288 denarii.
 
 > promise yes
 No promise is waiting for an answer.
@@ -113,25 +333,201 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 25.1.
+Fund a physician for the district costs 2,275 denarii; you have 288 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 25.1.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 25.1.
+Patronage for a senator costs 1,900 denarii; you have 288 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 9 · Maius, AD 156 ==  402 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 turn(s) left); under way: Borrow glassware and a still (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+Started: Get into the state archives.  [Attention left this turn: 1/4]
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,275 denarii; you have 27 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,900 denarii; you have 27 denarii.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • You pay open-market prices for bronze of uncertain quality, and it will do. (Machine: 1/9 steps.)
+  • The physicians lend you flasks, a still and a pair of tongs. (Machine: 2/9 steps.)
+
+== Turn 10 · Iulius, AD 156 ==  140 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 140 denarii.
+
+> repair coolant
+Distil the coolant costs 375 denarii; you have 140 denarii.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,275 denarii; you have 140 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,900 denarii; you have 140 denarii.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 11 · September, AD 156 ==  253 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 253 denarii.
+
+> repair coolant
+Distil the coolant costs 375 denarii; you have 253 denarii.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,275 denarii; you have 253 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,900 denarii; you have 253 denarii.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • A clerk pockets your coins and lets you into the archives after dark. (Machine: 3/9 steps.)
+
+== Turn 12 · November, AD 156 ==  367 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: 3/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 367 denarii.
+
+> repair coolant
+Distil the coolant costs 375 denarii; you have 367 denarii.
+
+> repair chronometer
+Started: Copy the star tables.  [Attention left this turn: 3/4]
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,275 denarii; you have 367 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,900 denarii; you have 367 denarii.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
 
 > end
   • The year AD 157 begins.
-  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+  • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 27.2 (-3.5/turn)   Attention 4/4   Index 110.1
-  Medicine      62  expect   62  Protect     debt     0 Stable
-  Governance    59  expect   59  Protect     debt     0 Stable
-  Economy       55  expect   59  Protect     debt     0 Stable
+== Turn 13 · Ianuarius, AD 157 ==  480 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (8 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 480 denarii.
+
+> repair coolant
+Started: Distil the coolant.  [Attention left this turn: 1/4]
+
+> repair chronometer
+You are already working on the chronometer.
 
 > promise yes
 No promise is waiting for an answer.
@@ -140,23 +536,37 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 27.2.
+Fund a physician for the district costs 2,325 denarii; you have 105 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 27.2.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 27.2.
+Patronage for a senator costs 1,925 denarii; you have 105 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 28.7 (-3.5/turn)   Attention 4/4   Index 110.1
-  Medicine      62  expect   62  Protect     debt     0 Stable
-  Governance    59  expect   59  Protect     debt     0 Stable
-  Economy       55  expect   59  Protect     debt     0 Stable
+== Turn 14 · Martius, AD 157 ==  219 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (7 turn(s) left); under way: Distil the coolant (4 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 219 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
 
 > promise yes
 No promise is waiting for an answer.
@@ -165,28 +575,2032 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 28.7.
+Fund a physician for the district costs 2,325 denarii; you have 219 denarii.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 28.7.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 28.7.
+Patronage for a senator costs 1,925 denarii; you have 219 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 15 · Maius, AD 157 ==  333 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 turn(s) left); under way: Distil the coolant (3 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 333 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,325 denarii; you have 333 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,925 denarii; you have 333 denarii.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 16 · Iulius, AD 157 ==  448 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 turn(s) left); under way: Distil the coolant (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 448 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,325 denarii; you have 448 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,925 denarii; you have 448 denarii.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 17 · September, AD 157 ==  562 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 turn(s) left); under way: Distil the coolant (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 562 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,325 denarii; you have 562 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,925 denarii; you have 562 denarii.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 4/9 steps.)
+
+== Turn 18 · November, AD 157 ==  676 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 676 denarii.
+
+> repair coolant
+Started: Seal and test the coolant.  [Attention left this turn: 2/4]
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,325 denarii; you have 676 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,925 denarii; you have 676 denarii.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 1/4]
 
 > end
   • The year AD 158 begins.
-  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 30.2 (-2.9/turn)   Attention 4/4   Index 113.9
-  Medicine      64  expect   64  Protect     debt     0 Stable
-  Governance    61  expect   61  Protect     debt     0 Stable
-  Economy       57  expect   57  Protect     debt     2 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 19 · Ianuarius, AD 158 ==  790 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 turn(s) left); under way: Seal and test the coolant (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Commission the casting at Ostia.  [Attention left this turn: 1/4]
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 15 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 15 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 20 · Martius, AD 158 ==  130 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 turn(s) left); under way: Seal and test the coolant (1 turn(s) left); under way: Commission the casting at Ostia (5 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 130 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 130 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • You copy a season of star tables by lamplight, checking every column twice. (Machine: 5/9 steps.)
+  • The coolant holds its seal; the gauge needle settles. (Machine: 6/9 steps.)
+
+== Turn 21 · Maius, AD 158 ==  245 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (4 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+Recalibrate the chronometer costs 250 denarii; you have 245 denarii.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 245 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 245 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 22 · Iulius, AD 158 ==  360 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 3/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+Started: Recalibrate the chronometer.  [Attention left this turn: 1/4]
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 110 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 110 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 23 · September, AD 158 ==  226 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 turn(s) left); under way: Recalibrate the chronometer (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 226 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 226 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 24 · November, AD 158 ==  341 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 1/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 turn(s) left); under way: Recalibrate the chronometer (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,350 denarii; you have 341 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 1,950 denarii; you have 341 denarii.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • A founder at Ostia casts the housing to your drawing and asks no questions. (Machine: 7/9 steps.)
+  • The chronometer's dial agrees with the stars to the hour. (Machine: 8/9 steps.)
+  • The year AD 159 begins.
+
+== Turn 25 · Ianuarius, AD 159 ==  456 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  Machine: 8/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Fit and test the coil housing.  [Attention left this turn: 2/4]
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 456 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 456 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 26 · Martius, AD 159 ==  572 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 572 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 572 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 27 · Maius, AD 159 ==  688 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 688 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 688 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • The new housing seats cleanly; the coil hums when you close the circuit. (Machine: 9/9 steps; 60 aurei still to put back.)
+
+== Turn 28 · Iulius, AD 159 ==  804 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 804 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 804 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 29 · September, AD 159 ==  919 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 919 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 919 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 30 · November, AD 159 ==  1,035 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,400 denarii; you have 1,035 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,000 denarii; you have 1,035 denarii.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 160 begins.
+
+== Turn 31 · Ianuarius, AD 160 ==  1,151 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,151 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,151 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 32 · Martius, AD 160 ==  1,268 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,268 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,268 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 33 · Maius, AD 160 ==  1,385 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,385 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,385 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 34 · Iulius, AD 160 ==  1,502 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,502 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,502 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 35 · September, AD 160 ==  1,619 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
+  On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,619 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,619 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 36 · November, AD 160 ==  1,736 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,425 denarii; you have 1,736 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,025 denarii; you have 1,736 denarii.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 161 begins.
+
+== Turn 37 · Ianuarius, AD 161 ==  1,852 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 1,852 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,050 denarii; you have 1,852 denarii.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 38 · Martius, AD 161 ==  1,970 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 1,970 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator costs 2,050 denarii; you have 1,970 denarii.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 39 · Maius, AD 161 ==  2,088 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 2,088 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Started: Patronage for a senator.  [Attention left this turn: 2/4]
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 40 · Iulius, AD 161 ==  156 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  Under way: Patronage for a senator (3 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 156 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already under way.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 41 · September, AD 161 ==  273 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  Under way: Patronage for a senator (2 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 273 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already under way.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 42 · November, AD 161 ==  391 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 2/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Under way: Patronage for a senator (1 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,450 denarii; you have 391 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already under way.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • A senator now owes you favors. Governance +6.
+  • The year AD 162 begins.
+
+== Turn 43 · Ianuarius, AD 162 ==  509 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 509 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 44 · Martius, AD 162 ==  628 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 628 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 45 · Maius, AD 162 ==  746 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: Lucius Verus leaves Rome to take command against Parthia.   (news)
+  On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 746 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 46 · Iulius, AD 162 ==  865 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle.   (news)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 865 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 47 · September, AD 162 ==  984 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 984 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 48 · November, AD 162 ==  1,102 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 104.3
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,500 denarii; you have 1,102 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 163 begins.
+
+== Turn 49 · Ianuarius, AD 163 ==  1,221 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,221 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 50 · Martius, AD 163 ==  1,341 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,341 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 51 · Maius, AD 163 ==  1,460 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,460 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 52 · Iulius, AD 163 ==  1,580 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,580 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 53 · September, AD 163 ==  1,700 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
+  On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,700 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 54 · November, AD 163 ==  1,819 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 104.3
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,525 denarii; you have 1,819 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 164 begins.
+
+== Turn 55 · Ianuarius, AD 164 ==  1,939 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 1,939 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 56 · Martius, AD 164 ==  2,059 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 2,059 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 57 · Maius, AD 164 ==  2,180 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 2,180 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 58 · Iulius, AD 164 ==  2,300 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 2,300 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 59 · September, AD 164 ==  2,421 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 2,421 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 60 · November, AD 164 ==  2,542 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 104.3
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district costs 2,575 denarii; you have 2,542 denarii.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 165 begins.
+
+== Turn 61 · Ianuarius, AD 165 ==  2,662 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Started: Fund a physician for the district.  [Attention left this turn: 2/4]
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 62 · Martius, AD 165 ==  184 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 2/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Under way: Fund a physician for the district (3 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already under way.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 63 · Maius, AD 165 ==  305 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 2/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
+  Under way: Fund a physician for the district (2 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already under way.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, has watched you: the fountain you had cleaned, and the way you talk about fever as if you had seen it before. "You have heard what the letters from Seleucia say. If that sickness comes here, the rich will leave for their villas, and the famous physicians with them. Promise me you will stay and help until it has passed."
+
+== Turn 64 · Iulius, AD 165 ==  427 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 2/4   Index 104.2
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  Under way: Fund a physician for the district (1 turn(s) left)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 You gave your word.
@@ -195,24 +2609,40 @@ You gave your word.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 30.2.
+Fund a physician for the district is already under way.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 30.2.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 30.2.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 1/4]
 
 > end
+  • A physician now keeps open hours in the Subura. Medicine +10.
 
-== Turn 8 · Iulius, AD 158 ==  Gold 32.3 (-2.9/turn)   Attention 4/4   Index 114
-  Medicine      64  expect   64  Protect     debt     0 Stable
-  Governance    61  expect   61  Protect     debt     0 Stable
-  Economy       57  expect   57  Protect     debt     2 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 65 · September, AD 165 ==  548 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -221,25 +2651,39 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 32.3.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 32.3.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 32.3.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 159 begins.
 
-== Turn 9 · Ianuarius, AD 159 ==  Gold 34.4 (-2.3/turn)   Attention 4/4   Index 117.8
-  Medicine      66  expect   66  Protect     debt     0 Stable
-  Governance    63  expect   63  Protect     debt     0 Stable
-  Economy       59  expect   59  Protect     debt   2.1 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 66 · November, AD 165 ==  670 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -248,24 +2692,41 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 34.4.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 34.4.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 34.4.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
 
 > end
+  • The year AD 166 begins.
+  • Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
 
-== Turn 10 · Iulius, AD 159 ==  Gold 37.1 (-2.3/turn)   Attention 4/4   Index 117.8
-  Medicine      66  expect   66  Protect     debt     0 Stable
-  Governance    63  expect   63  Protect     debt     0 Stable
-  Economy       59  expect   59  Protect     debt   2.1 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 67 · Ianuarius, AD 166 ==  791 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -274,25 +2735,38 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 37.1.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 37.1.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 37.1.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 160 begins.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 39.8 (-1.7/turn)   Attention 4/4   Index 121.6
-  Medicine      68  expect   68  Protect     debt     0 Stable
-  Governance    65  expect   65  Protect     debt     0 Stable
-  Economy       61  expect   61  Protect     debt   2.2 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 68 · Martius, AD 166 ==  914 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -301,24 +2775,38 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 39.8.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 39.8.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 39.8.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 12 · Iulius, AD 160 ==  Gold 43.1 (-1.7/turn)   Attention 4/4   Index 121.7
-  Medicine      68  expect   68  Protect     debt     0 Stable
-  Governance    65  expect   65  Protect     debt     0 Stable
-  Economy       61  expect   61  Protect     debt   2.2 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 69 · Maius, AD 166 ==  1,036 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -327,25 +2815,40 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 43.1.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 43.1.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 43.1.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 161 begins.
+  • Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 46.4 (-1.1/turn)   Attention 4/4   Index 125.5
-  Medicine      70  expect   70  Protect     debt     0 Stable
-  Governance    67  expect   67  Protect     debt     0 Stable
-  Economy       63  expect   63  Protect     debt   2.3 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 70 · Iulius, AD 166 ==  1,159 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -354,163 +2857,42 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 46.4.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium costs 50 gold; you have 46.4.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 46.4.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
+  • Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
 
-== Turn 14 · Iulius, AD 161 ==  Gold 50.3 (-1.1/turn)   Attention 4/4   Index 125.5
-  Medicine      70  expect   70  Protect     debt     0 Stable
-  Governance    67  expect   67  Protect     debt     0 Stable
-  Economy       63  expect   63  Protect     debt   2.3 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 71 · September, AD 166 ==  1,281 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.6
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    61  expect   61  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
+  News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
+  On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+  ► Waiting: respond none   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)
 
-> promise yes
-No promise is waiting for an answer.
+> assess
+You have already assessed the machine; see 'machine'.
 
-> respond hospice
-There is no outbreak to respond to.
+> repair coil
+The coil is finished.
 
-> start physician
-Fund a physician for the district costs 60 gold; you have 50.3.
+> repair coolant
+The coolant is finished.
 
-> start market
-Started: Market regulation at the Forum Boarium.  [Attention left this turn: 2/4]
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 0.3.
-
-> work
-You earn 5 gold.  [Attention left this turn: 1/4]
-
-> end
-  • The year AD 162 begins.
-  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-
-== Turn 15 · Ianuarius, AD 162 ==  Gold 4.2 (-0.5/turn)   Attention 2/4   Index 129.3
-  Medicine      72  expect   72  Protect     debt     0 Stable
-  Governance    69  expect   69  Protect     debt     0 Stable
-  Economy       65  expect   65  Protect     debt   2.4 Stable
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-  Under way: Market regulation at the Forum Boarium (1 turn(s) left)
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> start physician
-Fund a physician for the district costs 60 gold; you have 4.2.
-
-> start market
-Market regulation at the Forum Boarium is already under way.
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 4.2.
-
-> work
-You earn 5 gold.  [Attention left this turn: 1/4]
-
-> end
-  • Honest weights now hang in the Forum Boarium. Economy +8.
-
-== Turn 16 · Iulius, AD 162 ==  Gold 11.1 (+1.9/turn)   Attention 4/4   Index 134.5
-  Medicine      72  expect   72  Protect     debt     0 Stable
-  Governance    69  expect   69  Protect     debt     0 Stable
-  Economy       73  expect   73  Protect     debt   2.4 Stable
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> start physician
-Fund a physician for the district costs 60 gold; you have 11.1.
-
-> start market
-Market regulation at the Forum Boarium is already done.
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 11.1.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 163 begins.
-  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-
-== Turn 17 · Ianuarius, AD 163 ==  Gold 18 (+2.5/turn)   Attention 4/4   Index 138.3
-  Medicine      74  expect   74  Protect     debt     0 Stable
-  Governance    71  expect   71  Protect     debt     0 Stable
-  Economy       75  expect   75  Protect     debt   2.6 Stable
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> start physician
-Fund a physician for the district costs 60 gold; you have 18.
-
-> start market
-Market regulation at the Forum Boarium is already done.
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 18.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-
-== Turn 18 · Iulius, AD 163 ==  Gold 25.5 (+2.5/turn)   Attention 4/4   Index 138.3
-  Medicine      74  expect   74  Protect     debt     0 Stable
-  Governance    71  expect   71  Protect     debt     0 Stable
-  Economy       75  expect   75  Protect     debt   2.6 Stable
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> start physician
-Fund a physician for the district costs 60 gold; you have 25.5.
-
-> start market
-Market regulation at the Forum Boarium is already done.
-
-> start patronage
-Patronage for a senator costs 50 gold; you have 25.5.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 164 begins.
-  • Outbreak — the pestilence breaks out across Rome.
-
-== Turn 19 · Ianuarius, AD 164 ==  Gold 33 (+3.1/turn)   Attention 4/4   Index 142.1
-  Medicine      76  expect   76  Protect     debt     0 Stable
-  Governance    73  expect   73  Protect     debt     0 Stable
-  Economy       77  expect   77  Protect     debt   2.7 Stable
-  Pestilence: Outbreak — the pestilence breaks out across Rome.
-  ► Waiting: respond quarantine / respond none   (a hospice needs a physicians' circle of strength 30+)
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -519,28 +2901,42 @@ No promise is waiting for an answer.
 You can't choose 'hospice' now.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 33.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium is already done.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 33.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The pestilence is severe: about 66 thousand dead, 7% of Rome.
-  • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
+  • The pestilence is severe: about 74 thousand dead, 7% of Rome.
+  • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
   • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Turn 20 · Iulius, AD 164 ==  Gold 18.8 (+2.7/turn)   Attention 4/4   Index 136.4
-  Medicine    70.5  expect 70.5  Protect     debt     0 Stable
-  Governance  70.8  expect 70.8  Protect     debt     0 Stable
-  Economy     75.5  expect 75.5  Protect     debt     0 Stable
+== Turn 72 · November, AD 166 ==  789 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 110.2
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > promise yes
 No promise is waiting for an answer.
@@ -549,70 +2945,2117 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > start physician
-Fund a physician for the district costs 60 gold; you have 18.8.
+Fund a physician for the district is already done.
 
 > start market
-Market regulation at the Forum Boarium is already done.
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
 
 > start patronage
-Patronage for a senator costs 50 gold; you have 18.8.
+Patronage for a senator is already done.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 165 begins.
+  • The year AD 167 begins.
 
-== Turn 21 · Ianuarius, AD 165 ==  Gold 26.4 (+3.3/turn)   Attention 4/4   Index 140.2
-  Medicine    72.5  expect 72.5  Protect     debt     0 Stable
-  Governance  72.8  expect 72.8  Protect     debt     0 Stable
-  Economy     77.5  expect 77.5  Protect     debt     0 Stable
+== Turn 73 · Ianuarius, AD 167 ==  911 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 74 · Martius, AD 167 ==  1,035 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 75 · Maius, AD 167 ==  1,158 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 76 · Iulius, AD 167 ==  1,282 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 77 · September, AD 167 ==  1,405 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 78 · November, AD 167 ==  1,529 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 168 begins.
+
+== Turn 79 · Ianuarius, AD 168 ==  1,652 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 80 · Martius, AD 168 ==  1,777 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Both emperors leave for Aquileia and the northern frontier.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 81 · Maius, AD 168 ==  1,901 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 82 · Iulius, AD 168 ==  2,026 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 83 · September, AD 168 ==  2,150 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 84 · November, AD 168 ==  2,275 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 169 begins.
+
+== Turn 85 · Ianuarius, AD 169 ==  2,399 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 86 · Martius, AD 169 ==  2,525 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 87 · Maius, AD 169 ==  2,650 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months.   (news)
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 88 · Iulius, AD 169 ==  2,776 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 89 · September, AD 169 ==  2,902 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 90 · November, AD 169 ==  3,027 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 170 begins.
+
+== Turn 91 · Ianuarius, AD 170 ==  3,153 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.4
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 92 · Martius, AD 170 ==  3,279 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.5
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 93 · Maius, AD 170 ==  3,406 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.5
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 94 · Iulius, AD 170 ==  3,532 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.5
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: The Marcomanni and Quadi have broken through the Alps: Opitergium is burned and Aquileia besieged. It's the first enemy army in Italy in centuries.   (news)
+  ► The invasion scare. Word comes that the Marcomanni have crossed the Alps. At Ostia merchants are dumping stock for whatever they can get and hiding their silver.
+      decide hold     hold firm and buy what the others are dumping (1,250 denarii)
+      decide sell     sell out while you still can
+      decide none     wait it out
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 95 · September, AD 170 ==  3,659 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.6
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► The invasion scare. Word comes that the Marcomanni have crossed the Alps. At Ostia merchants are dumping stock for whatever they can get and hiding their silver.
+      decide hold     hold firm and buy what the others are dumping (1,250 denarii)
+      decide sell     sell out while you still can
+      decide none     wait it out
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 96 · November, AD 170 ==  3,786 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 116.6
+  Medicine    60.6  expect 60.6  (no voice)  debt     0 Stable
+  Governance  59.5  expect 59.5  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► The invasion scare. Word comes that the Marcomanni have crossed the Alps. At Ostia merchants are dumping stock for whatever they can get and hiding their silver.
+      decide hold     hold firm and buy what the others are dumping (1,250 denarii)
+      decide sell     sell out while you still can
+      decide none     wait it out
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 171 begins.
+
+== Turn 97 · Ianuarius, AD 171 ==  3,912 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.4
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 98 · Martius, AD 171 ==  4,040 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.5
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 99 · Maius, AD 171 ==  4,167 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.5
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 100 · Iulius, AD 171 ==  4,295 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.5
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 101 · September, AD 171 ==  4,423 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.6
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 102 · November, AD 171 ==  4,550 denarii (+0/turn) · 20 aurei (1 = 31.7 den.)   Attention 4/4   Index 116.6
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  59.2  expect 59.2  (no voice)  debt     0 Stable
+  Economy       51  expect   51  (no voice)  debt     0 Stable
+  Prices: +26.9% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 172 begins.
+
+== Turn 103 · Ianuarius, AD 172 ==  4,678 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.4
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 104 · Martius, AD 172 ==  4,807 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.5
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 105 · Maius, AD 172 ==  4,935 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.5
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Herdsmen of the Nile delta rise in revolt. Grain merchants at Ostia watch for the Alexandrian fleet, and Avidius Cassius is sent to put it down.   (news)
+  ► The grain fleet is late. The herdsmen of the Nile delta are in revolt and the Alexandrian fleet hasn't come. Bread is dear and getting dearer.
+      decide share    open your stores and fund the dole (483 denarii)
+      decide hoard    hold your grain and sell at the top
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 106 · Iulius, AD 172 ==  5,064 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► The grain fleet is late. The herdsmen of the Nile delta are in revolt and the Alexandrian fleet hasn't come. Bread is dear and getting dearer.
+      decide share    open your stores and fund the dole (483 denarii)
+      decide hoard    hold your grain and sell at the top
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 107 · September, AD 172 ==  5,193 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► The grain fleet is late. The herdsmen of the Nile delta are in revolt and the Alexandrian fleet hasn't come. Bread is dear and getting dearer.
+      decide share    open your stores and fund the dole (483 denarii)
+      decide hoard    hold your grain and sell at the top
+      decide none     stay out of it
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 108 · November, AD 172 ==  5,321 denarii (+0/turn) · 20 aurei (1 = 32.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.7  expect 60.7  (no voice)  debt     0 Stable
+  Governance  58.9  expect 58.9  (no voice)  debt     0 Stable
+  Economy     50.9  expect 50.9  (no voice)  debt     0 Stable
+  Prices: +28.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 173 begins.
+
+== Turn 109 · Ianuarius, AD 173 ==  5,450 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.4
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 110 · Martius, AD 173 ==  5,580 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.5
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 111 · Maius, AD 173 ==  5,710 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.5
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 112 · Iulius, AD 173 ==  5,839 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.6
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 113 · September, AD 173 ==  5,969 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.6
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 114 · November, AD 173 ==  6,099 denarii (+0/turn) · 20 aurei (1 = 32.7 den.)   Attention 4/4   Index 116.6
+  Medicine    60.8  expect 60.8  (no voice)  debt     0 Stable
+  Governance  58.6  expect 58.6  (no voice)  debt     0 Stable
+  Economy     50.8  expect 50.8  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 174 begins.
+
+== Turn 115 · Ianuarius, AD 174 ==  6,229 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.5
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 116 · Martius, AD 174 ==  6,360 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.5
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 117 · Maius, AD 174 ==  6,491 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.5
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front.   (news)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 118 · Iulius, AD 174 ==  6,621 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 119 · September, AD 174 ==  6,752 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 120 · November, AD 174 ==  6,883 denarii (+0/turn) · 20 aurei (1 = 33.2 den.)   Attention 4/4   Index 116.6
+  Medicine    60.9  expect 60.9  (no voice)  debt     0 Stable
+  Governance  58.3  expect 58.3  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
+  Prices: +32.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start patronage
+Patronage for a senator is already done.
+
+> work
+You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 175 begins.
+
+== Turn 121 · Ianuarius, AD 175 ==  7,014 denarii (+0/turn) · 20 aurei (1 = 33.7 den.)   Attention 4/4   Index 116.5
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    58  expect   58  (no voice)  debt     0 Stable
+  Economy     50.6  expect 50.6  (no voice)  debt     0 Stable
+  Prices: +34.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+  ► The era's 20 years are over. Jump when you're ready (you can also stay).
+
+> exchange 1300 denarii
+You buy 37 aurei for 1,277 denarii.  [Attention left this turn: 3/4]
+
+> restore 60
+Machine gold: 57/60 aurei.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work consult
+You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 122 · Martius, AD 175 ==  6,265 denarii (+0/turn) · 0 aurei (1 = 33.7 den.)   Attention 4/4   Index 116.5
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    58  expect   58  (no voice)  debt     0 Stable
+  Economy     50.6  expect 50.6  (no voice)  debt     0 Stable
+  Prices: +34.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 57/60 aurei   (machine)
+  ► The era's 20 years are over. Jump when you're ready (you can also stay).
+
+> exchange 1300 denarii
+You buy 37 aurei for 1,277 denarii.  [Attention left this turn: 3/4]
+
+> restore 60
+Machine gold: 60/60 aurei.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work consult
+You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 123 · Maius, AD 175 ==  5,516 denarii (+0/turn) · 34 aurei (1 = 33.7 den.)   Attention 4/4   Index 116.5
+  Medicine      61  expect   61  (no voice)  debt     0 Stable
+  Governance    58  expect   58  (no voice)  debt     0 Stable
+  Economy     50.6  expect 50.6  (no voice)  debt     0 Stable
+  Prices: +34.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
+  ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
 > jump
-You will leave AD 165 for AD 415. You can't come back.
-What you leave behind (26.4 gold in hand):
-  • No institution will look after Rome while you're away.
-  • The 26 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
-Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+You will leave AD 175 and arrive somewhere between AD 210 and AD 225: the machine's range is 35–50 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
+What you leave behind (5,516 denarii and 34 aurei in hand):
+  • No institution you hold 10%+ of will look after Rome while you're away.
+  • The machine will carry you 35–50 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
+  • The 5,516 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
+  • Your gold: the machine can carry 10 aurei; you hold 34 aurei, so 24 aurei would be left behind and lost (deposit <n> or bury <n>, 1 Attention each; the bank takes up to 100 aurei, a jar holds 50 aurei).
+  •   Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).
+Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
 
 > jump
 
-The machine shudders. Decades pass in the dark...
+The machine shudders. Decades pass in the dark... It carries you 45 years.
 
 — Recognition —
-You climb out of the machine in AD 415. The Tiber smells the same. You find the district fountain you
-repaired by the shape of the street, but the basin is cracked and dry, full of leaves. Of the smith
-you didn't choose, there is no trace.
+You climb out of the machine in AD 220. The Tiber smells the same. In the Subura, the district
+fountain you repaired still runs: the basin is worn smooth, and someone has cut two words into its
+rim: AQUA PURA. Of the smith you didn't choose, there is no trace.
 
 — Wrongness —
-Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
-seems afraid of the soldiers.
+Something is wrong, and it takes you a moment to see it: children, everywhere. More than any Roman
+street you remember, and fewer small graves along the Via Appia. The coins are lighter and paler than
+you remember, barely half silver now. Prices have climbed with every cut, and soldiers grumble that
+their pay buys less each year.
 
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
 who stayed.' They don't know it means you.
 
 — Discovery —
-You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
-outlasted you.
+You ask at the guild halls and the Curia whether anyone remembers you. No one does: you never held
+enough of anything in Rome to leave your mark on it. In your purse: the 10 aurei you carried, as good
+as the day you left. The gold you couldn't carry, and didn't hide or bank (24 aurei), is long gone.
 
-Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+You can walk around Rome: visit market, changers, forges, curia or subura (no Attention).
+Type 'learn more' for the Index and what became of your institutions, 'jump' to go on another 25–40 years, or 'quit'.
 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 165: 140   Medicine 145  Governance 132  Economy 144
-  Arrival,   AD 415: 126   Medicine 120  Governance 131  Economy 128
+  Departure, AD 175: 117   Medicine 137  Governance 113  Economy 102
+  Arrival,   AD 220: 113   Medicine 127  Governance 111  Economy 102
 Institutions
-  None founded.
+  None you held 10% or more of.
+Your gold: carried 10, deposited 0 (0 back), buried 0 (0 recovered), left behind 24; you hold 10 aurei now.
 Crises while you were away
-  AD 195: pestilence returns (catastrophic, about 273 thousand dead)
+  AD 189: the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is contained: about 22 thousand dead, 2% of Rome.
 
 
 (after arrival) > why medicine
-You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+You have been away for 45 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
 
 (after arrival) > quit
 
-Run fingerprint (seed 117): 92d9b75142fa898e
+Run fingerprint (seed 117): c2543604d7bae6e0

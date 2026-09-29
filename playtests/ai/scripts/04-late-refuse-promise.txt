@@ -1,7 +1,9 @@
 # Refuses the promise, stays to era end, pays down
+# Refreshed 2026-09-29: assesses and repairs the machine and puts its 60 aurei back before jumping (required since 2026-09-28); the Circle and the faction became the School and the Club, which you found and control.
 # seed: 104
 choose fountain
-@until era-end: promise no; respond none; found faction; charter faction; start patronage; start courts; work; end
+@until era-end: assess; repair coil; repair coolant; repair chronometer; promise no; respond none; found club; charter club; start patronage; start vigiles; work; end
+@until ready: exchange 1300 denarii; restore 60; assess; repair coil; repair coolant; repair chronometer; work consult; end
 jump
 paydown medicine 9999
 paydown governance 9999

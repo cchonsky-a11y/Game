@@ -9,13 +9,7 @@ why faction
 why promise
 why index
 why attention
-work
-end
-work
-end
-found circle
-work
-end
+assess
 work
 end
 work
@@ -24,52 +18,261 @@ work
 end
 work
 end
+work
+end
+work
+end
+repair coil
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coil
 work
 end
 why plague
 why circle
 why promise
 why medicine
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
+repair coil
 work
 end
-respond hospice
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 work
 end
 why plague
 why gold
 why index
+exchange 1300 denarii
+restore 60
+work consult
+end
+exchange 1300 denarii
+restore 60
+work consult
+end
 jump
 jump
 learn more

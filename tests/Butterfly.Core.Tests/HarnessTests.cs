@@ -27,6 +27,15 @@ namespace Butterfly.Core.Tests
         public void AnAbsenceThatDiffersFromTheDrawIsReported() => Assert.NotNull(Harness.JumpLengthFinding(35, 30, T));
 
         [Fact]
+        public void DecayOverAFinalHalfDecadeIsItsShareOfTheDecadesRate()
+        {
+            Assert.True(Harness.DecayMatches(0.10, 0.10));
+            Assert.True(Harness.DecayMatches(1 - System.Math.Sqrt(0.9), 0.10));   // 5.13% over a half decade
+            Assert.True(Harness.DecayMatches(1 - System.Math.Sqrt(0.99), 0.01));
+            Assert.False(Harness.DecayMatches(0.05, 0.10));
+        }
+
+        [Fact]
         public void TheLastWarningMayShareTheOutbreaksYear()
         {
             // History's dates: AD 165, 166, 166 (month 6), outbreak AD 166 (month 9).
@@ -41,6 +50,14 @@ namespace Butterfly.Core.Tests
             Assert.NotNull(Harness.WarningsFinding(late, SimTime.FromYear(166, 9)));
             Assert.NotNull(Harness.WarningsFinding(new[] { SimTime.FromYear(165, 6), SimTime.FromYear(166, 0) }, SimTime.FromYear(166, 9)));
             Assert.Null(Harness.WarningsFinding(new SimTime[0], null));    // no outbreak, nothing to check
+        }
+
+        [Fact]
+        public void WarningsResolvedDuringAnAbsenceMayShareADate()
+        {
+            var warnings = new[] { SimTime.FromYear(166, 0), SimTime.FromYear(166, 0), SimTime.FromYear(166, 0) };
+            Assert.Null(Harness.WarningsFinding(warnings, SimTime.FromYear(166, 0), departed: SimTime.FromYear(160, 8)));
+            Assert.NotNull(Harness.WarningsFinding(warnings, SimTime.FromYear(166, 0)));   // lived through, they must be in order
         }
 
         [Fact]

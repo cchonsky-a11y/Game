@@ -1,4 +1,5 @@
 # Odd: invalid, repeated and out-of-order commands
+# Refreshed 2026-09-29: the machine is never repaired here, so every 'jump' is refused on purpose (no arrival).
 # seed: 116
 dance
 start
@@ -6,10 +7,10 @@ start nonsense
 priority medicine
 priority blah protect
 paydown medicine abc
-endow circle -5
-endow circle
-audit circle
-oversee circle
+endow school -5
+endow school
+audit school
+oversee school
 promise yes
 respond hospice
 choose fountain

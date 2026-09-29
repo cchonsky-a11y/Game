@@ -1,4 +1,5 @@
 # Odd: jumps on turn 1 without doing anything
+# Refreshed 2026-09-29: the machine is never repaired here, so every 'jump' is refused on purpose (no arrival).
 # seed: 115
 jump
 jump

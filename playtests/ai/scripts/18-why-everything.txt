@@ -1,4 +1,5 @@
 # Legibility pass: asks 'why' about everything at several points
+# Refreshed 2026-09-29: assesses and repairs the machine and puts its 60 aurei back before jumping (required since 2026-09-28); the Circle and the faction became the School and the Club, which you found and control.
 # seed: 118
 choose workshop
 why medicine
@@ -11,15 +12,16 @@ why faction
 why promise
 why index
 why attention
-@until 159: promise yes; found circle; work; end
+@until 159: assess; repair coil; repair coolant; repair chronometer; promise yes; found school; work; end
 why plague
 why circle
 why promise
 why medicine
-@until era-end: respond hospice; oversee circle; work; end
+@until era-end: assess; repair coil; repair coolant; repair chronometer; respond hospice; oversee school; work; end
 why plague
 why gold
 why index
+@until ready: exchange 1300 denarii; restore 60; assess; repair coil; repair coolant; repair chronometer; work consult; end
 jump
 jump
 learn more

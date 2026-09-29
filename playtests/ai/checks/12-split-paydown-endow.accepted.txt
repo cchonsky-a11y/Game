@@ -1,72 +1,304 @@
 choose fountain
+assess
 work
 end
 work
 end
-found circle
-oversee circle
 work
 end
-oversee circle
 work
 end
-charter circle
-oversee circle
 work
 end
-oversee circle
 work
 end
-promise yes
-oversee circle
+repair coil
+repair coolant
 work
 end
-oversee circle
-start market
 work
 end
-oversee circle
+repair chronometer
 work
 end
-oversee circle
 work
 end
-oversee circle
-start census
 work
 end
-oversee circle
+repair chronometer
 work
 end
-oversee circle
+repair coolant
 work
 end
-oversee circle
 work
 end
-oversee circle
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 start physician
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-respond hospice
-oversee circle
 work
 end
-oversee circle
 work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+promise yes
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+found school
+oversee school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+charter school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+exchange 1300 denarii
+restore 60
+end
+exchange 1300 denarii
+restore 60
 end
 jump
-paydown medicine 9999
-endow circle all
+endow school all
 jump
 learn more
 why medicine

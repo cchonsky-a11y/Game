@@ -1,216 +1,1052 @@
 THE BUTTERFLY EFFECT — P0 Butterfly Test
 ========================================
-Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
-and a small circle of people willing to listen. Something is coming from the East in a few years.
-When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
+machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
+You don't yet know what broke. Something is coming from the East within ten years.
+Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
+Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
 
-This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
 
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
-  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
-  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
 
 > choose workshop
 You chose the workshop.  [Attention left this turn: 2/4]
 
+> assess
+Started: Assess the machine.  [Attention left this turn: 1/4]
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
 > work
-You earn 5 gold.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 0/4]
 
 > end
-  • The smith's second forge is lit; his apprentices are paid. Economy +6.
-  • Fund the smith's workshop adds 6 gold a year.
 
-== Turn 2 · Iulius, AD 155 ==  Gold 44.3 (+19.3/turn)   Attention 4/4   Index 103.5
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       61  expect   61  Maintain    debt     0 Stable
+== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 1/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Buy into the smith's workshop (1 turn(s) left)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (5 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 0/4]
 
 > end
+  • The smith's second forge is lit, and part of the workshop is now yours.
+  • You own a share of it: about 138 denarii a year, rising and falling with the Economy.
+
+== Turn 3 · Maius, AD 155 ==  248 denarii (+23/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
+  On your street: The smith at the forges tells anyone who'll listen about his odd new partner, who draws machines on wax tablets and never says where he learned it.   (news)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (4 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 4 · Iulius, AD 155 ==  383 denarii (+23/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (3 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 5 · September, AD 155 ==  519 denarii (+23/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
+  On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (2 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 6 · November, AD 155 ==  654 denarii (+23/turn) · 20 aurei (1 = 25 den.)   Attention 3/4   Index 100.1
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (1 turn(s) left)   (machine)
+
+> assess
+You are already assessing the machine.
+
+> repair coil
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair coolant
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> repair chronometer
+You don't know yet what's wrong with the machine. Assess it first (assess: 1 Attention a turn for 6 turns).
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
   • The year AD 156 begins.
 
-== Turn 3 · Ianuarius, AD 156 ==  Gold 68.6 (+19/turn)   Attention 4/4   Index 101.7
-  Medicine      49  expect   50  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       60  expect   60  Maintain    debt     1 Stable
+== Turn 7 · Ianuarius, AD 156 ==  790 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
+  On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Source bronze for the coil housing.  [Attention left this turn: 3/4]
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 290 denarii.
+
+> repair chronometer
+Get into the state archives costs 375 denarii; you have 290 denarii.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
 
 > end
 
-== Turn 4 · Iulius, AD 156 ==  Gold 92.6 (+19/turn)   Attention 4/4   Index 101.7
-  Medicine      49  expect   50  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       60  expect   60  Maintain    debt     1 Stable
+== Turn 8 · Martius, AD 156 ==  426 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 3/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 426 denarii.
+
+> repair chronometer
+Started: Get into the state archives.  [Attention left this turn: 2/4]
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 9 · Maius, AD 156 ==  187 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 2/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 turn(s) left); under way: Get into the state archives (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 187 denarii.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • You pay open-market prices for bronze of uncertain quality, and it will do. (Machine: 1/9 steps.)
+
+== Turn 10 · Iulius, AD 156 ==  323 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 3/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Machine: 1/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 323 denarii.
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 323 denarii.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • A clerk pockets your coins and lets you into the archives after dark. (Machine: 2/9 steps.)
+
+== Turn 11 · September, AD 156 ==  459 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Machine: 2/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 459 denarii.
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 459 denarii.
+
+> repair chronometer
+Started: Copy the star tables.  [Attention left this turn: 3/4]
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 12 · November, AD 156 ==  596 denarii (+23/turn) · 20 aurei (1 = 25.4 den.)   Attention 3/4   Index 100.1
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (8 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 750 denarii; you have 596 denarii.
+
+> repair coolant
+Borrow glassware and a still costs 625 denarii; you have 596 denarii.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 2/4]
 
 > end
   • The year AD 157 begins.
   • Fever in the district: children who drink from the broken fountain fall sick. You remember choosing the workshop over the fountain.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 116.6 (+18.7/turn)   Attention 4/4   Index 96.3
-  Medicine      43  expect   50  Maintain    debt   3.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       59  expect   59  Maintain    debt   2.1 Stable
+== Turn 13 · Ianuarius, AD 157 ==  732 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 3/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (7 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 732 denarii.
+
+> repair coolant
+Started: Borrow glassware and a still.  [Attention left this turn: 2/4]
+
+> repair chronometer
+You are already working on the chronometer.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 1/4]
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 140.3 (+18.7/turn)   Attention 4/4   Index 96.3
-  Medicine      43  expect   50  Maintain    debt   3.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       59  expect   59  Maintain    debt   2.1 Stable
+== Turn 14 · Martius, AD 157 ==  219 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 turn(s) left); under way: Borrow glassware and a still (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 219 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 1/4]
+
+> end
+
+== Turn 15 · Maius, AD 157 ==  356 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 turn(s) left); under way: Borrow glassware and a still (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 356 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • A glassblower sells you flasks and a crude still at a stranger's price. (Machine: 3/9 steps.)
+
+== Turn 16 · Iulius, AD 157 ==  493 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 3/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 493 denarii.
+
+> repair coolant
+Started: Distil the coolant.  [Attention left this turn: 1/4]
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 17 · September, AD 157 ==  255 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 turn(s) left); under way: Distil the coolant (4 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 255 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 18 · November, AD 157 ==  392 denarii (+23/turn) · 20 aurei (1 = 25.8 den.)   Attention 1/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 turn(s) left); under way: Distil the coolant (3 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 392 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 0/4]
 
 > end
   • The year AD 158 begins.
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 164 (+18.4/turn)   Attention 4/4   Index 94.4
-  Medicine      42  expect   50  Maintain    debt  11.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       58  expect   58  Maintain    debt   3.2 Stable
+== Turn 19 · Ianuarius, AD 158 ==  529 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 1/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 turn(s) left); under way: Distil the coolant (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 529 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • You copy a season of star tables by lamplight, checking every column twice. (Machine: 4/9 steps.)
+
+== Turn 20 · Martius, AD 158 ==  667 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Distil the coolant (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 667 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+Started: Recalibrate the chronometer.  [Attention left this turn: 0/4]
+
+> work
+That needs 1 Attention; you have 0 left this turn.
+
+> end
+  • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 5/9 steps.)
+
+== Turn 21 · Maius, AD 158 ==  440 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 440 denarii.
+
+> repair coolant
+Started: Seal and test the coolant.  [Attention left this turn: 1/4]
+
+> repair chronometer
+You are already working on the chronometer.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
 
 > end
 
-== Turn 8 · Iulius, AD 158 ==  Gold 187.4 (+18.4/turn)   Attention 4/4   Index 94.5
-  Medicine      42  expect   50  Maintain    debt  11.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       58  expect   58  Maintain    debt   3.2 Stable
+== Turn 22 · Iulius, AD 158 ==  578 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 1/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (1 turn(s) left); under way: Seal and test the coolant (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 578 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 0/4]
+
+> end
+  • The chronometer's dial agrees with the stars to the hour. (Machine: 6/9 steps.)
+
+== Turn 23 · September, AD 158 ==  715 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 3/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Seal and test the coolant (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Commission the casting at Ostia costs 775 denarii; you have 715 denarii.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • The coolant holds its seal; the gauge needle settles. (Machine: 7/9 steps.)
+
+== Turn 24 · November, AD 158 ==  853 denarii (+23/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt     1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Commission the casting at Ostia.  [Attention left this turn: 3/4]
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 2/4]
 
 > end
   • The year AD 159 begins.
-  • Medicine moves from Stable to Strained.
-  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 9 · Ianuarius, AD 159 ==  Gold 210.8 (+18.1/turn)   Attention 4/4   Index 92.6
-  Medicine      41  expect   50  Maintain    debt  20.8 Strained
-  Governance    51  expect   55  Maintain    debt  10.5 Stable
-  Economy       57  expect   57  Maintain    debt   4.3 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+== Turn 25 · Ianuarius, AD 159 ==  216 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 3/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (5 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 2/4]
 
 > end
 
-== Turn 10 · Iulius, AD 159 ==  Gold 233.9 (+18.1/turn)   Attention 4/4   Index 92.6
-  Medicine      41  expect   50  Maintain    debt  20.8 Strained
-  Governance    51  expect   55  Maintain    debt  10.5 Stable
-  Economy       57  expect   57  Maintain    debt   4.3 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+== Turn 26 · Martius, AD 159 ==  355 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 3/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (4 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 27 · Maius, AD 159 ==  494 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 3/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 28 · Iulius, AD 159 ==  632 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 3/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 2/4]
+
+> end
+
+== Turn 29 · September, AD 159 ==  771 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 3/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  Machine: 7/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 2/4]
+
+> end
+  • A founder at Ostia casts the housing to your drawing and asks no questions. (Machine: 8/9 steps.)
+
+== Turn 30 · November, AD 159 ==  910 denarii (+23/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  Machine: 8/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+Started: Fit and test the coil housing.  [Attention left this turn: 2/4]
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 1/4]
 
 > end
   • The year AD 160 begins.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 257 (+17.8/turn)   Attention 4/4   Index 90.7
-  Medicine      40  expect   50  Maintain    debt  31.8 Strained
-  Governance    50  expect   55  Maintain    debt    16 Stable
-  Economy       56  expect   56  Maintain    debt   5.5 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+== Turn 31 · Ianuarius, AD 160 ==  1,048 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (2 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 1/4]
 
 > end
 
-== Turn 12 · Iulius, AD 160 ==  Gold 279.8 (+17.8/turn)   Attention 4/4   Index 90.8
-  Medicine      40  expect   50  Maintain    debt  31.8 Strained
-  Governance    50  expect   55  Maintain    debt    16 Stable
-  Economy       56  expect   56  Maintain    debt   5.5 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+== Turn 32 · Martius, AD 160 ==  1,188 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 2/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (1 turn(s) left)   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • The new housing seats cleanly; the coil hums when you close the circuit. (Machine: 9/9 steps; 60 aurei still to put back.)
+
+== Turn 33 · Maius, AD 160 ==  1,328 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 34 · Iulius, AD 160 ==  1,467 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 35 · September, AD 160 ==  1,607 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
+  On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 36 · November, AD 160 ==  1,746 denarii (+23/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 99.4
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 161 begins.
-  • Governance moves from Stable to Strained.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 302.6 (+17.5/turn)   Attention 4/4   Index 88.9
-  Medicine      39  expect   50  Maintain    debt  44.4 Strained
-  Governance    49  expect   55  Maintain    debt  22.8 Strained
-  Economy       55  expect   55  Maintain    debt   6.8 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
+== Turn 37 · Ianuarius, AD 161 ==  1,886 denarii (+23/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   4.3 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  Workshop orders: take ironwork (437 denarii, 3 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> exchange 1300 denarii
+You buy 46 aurei for 1,289 denarii.  [Attention left this turn: 3/4]
+
+> restore 60
+Machine gold: 60/60 aurei.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work consult
+You earn 523 denarii; tax takes 52 denarii, you keep 471 denarii.  [Attention left this turn: 0/4]
+
+> end
+
+== Turn 38 · Martius, AD 161 ==  1,091 denarii (+23/turn) · 6 aurei (1 = 27.3 den.)   Attention 4/4   Index 99.3
+  Medicine      49  expect   50  (no voice)  debt   4.3 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  Workshop orders: take ironwork (437 denarii, 3 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
+  Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
 
 > jump
-You will leave AD 161 for AD 411. You can't come back.
-What you leave behind (302.6 gold in hand):
-  • Medicine debt 44.4 keeps growing 5% a year for 30 years after you leave (about 72.3 in a decade, 191.9 after 30 years) unless a crisis clears it. Paying it down now costs 133.2 gold.
-  • Governance debt 22.8 keeps growing 5% a year for 30 years after you leave (about 37.2 in a decade, 98.7 after 30 years) unless a crisis clears it. Paying it down now costs 68.5 gold.
-  • Economy debt 6.8 keeps growing 5% a year for 30 years after you leave (about 11.1 in a decade, 29.4 after 30 years) unless a crisis clears it. Paying it down now costs 20.4 gold.
-  • No institution will look after Rome while you're away.
-  • The 302 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
-Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+You will leave AD 161 and arrive somewhere between AD 186 and AD 201: the machine's range is 25–40 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
+What you leave behind (1,091 denarii and 6 aurei in hand):
+  • Medicine debt 4.3 keeps growing 5% a year for 30 years after you leave (about 7 in a decade, 18.6 after 30 years) unless a crisis clears it. Paying it down now costs 323 denarii.
+  • No institution you hold 10%+ of will look after Rome while you're away.
+  • The machine will carry you 25–40 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
+  • The 1,091 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
+  • Your gold: the machine can carry 10 aurei; you hold 6 aurei.
+  •   Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).
+Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
 
 > jump
 
-The machine shudders. Decades pass in the dark...
+The machine shudders. Decades pass in the dark... It carries you 25 years.
 
 — Recognition —
-You climb out of the machine in AD 411. The Tiber smells the same. Near the Porta Trigemina you hear
-hammers: the smith's workshop you funded has become a whole street of forges, and over the oldest
-door hangs a painted sign with two fires. Down the street, the fountain you didn't choose was filled
-in long ago. An old woman calls the spot 'fever corner'.
+You climb out of the machine in AD 186. The Tiber smells the same. Near the Porta Trigemina you find
+the smith's workshop you funded by its soot-black wall. It is a stable now. Down the street, the
+fountain you didn't choose was filled in long ago. An old woman calls the spot 'fever corner'.
 
 — Wrongness —
-Something is wrong, and it takes you a while to name it: beyond the few things you recognize, this is
-Rome almost exactly as the history books describe AD 411.
+Something is wrong. Whole blocks of the Subura have fallen in, the streets are half-empty, and people
+cover their mouths when strangers pass. Coins pass a little lighter than you remember, a shade less
+silver in each, as Rome's mint has always done.
 
 — Personal echo —
-Demetria's letters survive in a library copy. One mentions you: 'I asked the foreigner to stay until
-the sickness passed. I never had an answer.'
+You left before the first rumors came from the East. In the city's records, the pestilence of 166
+fills page after page: about 103 thousand dead in Rome. You aren't in any of them.
 
 — Discovery —
-You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
-outlasted you.
+You ask at the guild halls and the Curia whether anyone remembers you. No one does: you never held
+enough of anything in Rome to leave your mark on it. In your purse: the 6 aurei you carried, as good
+as the day you left.
 
-Type 'learn more' for the Index and what became of your institutions, or 'quit'.
+You can walk around Rome: visit market, changers, forges, curia or subura (no Attention).
+Type 'learn more' for the Index and what became of your institutions, 'jump' to go on another 25–40 years, or 'quit'.
 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 161: 89   Medicine 78  Governance 89  Economy 101
-  Arrival,   AD 411: 103   Medicine 95  Governance 108  Economy 107
+  Departure, AD 161: 99   Medicine 98  Governance 100  Economy 100
+  Arrival,   AD 186: 96   Medicine 92  Governance 101  Economy 96
 Institutions
-  None founded.
+  None you held 10% or more of.
+Your gold: carried 6, deposited 0 (0 back), buried 0 (0 recovered), left behind 0; you hold 6 aurei now.
 Crises while you were away
-  AD 164: the Antonine pestilence (catastrophic, about 165 thousand dead; response: none)
-  AD 201: pestilence returns (catastrophic, about 297 thousand dead)
+  AD 166: the Antonine pestilence (severe, about 103 thousand dead; response: none)
 
 
 (after arrival) > why medicine
-You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+You have been away for 25 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
 
 (after arrival) > quit
 
-Run fingerprint (seed 123): c81cfdd3c01b01bf
+Run fingerprint (seed 123): 3004d6ddd242d969

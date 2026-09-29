@@ -88,6 +88,13 @@ internal sealed class Harness
     }
 
     /// <summary>
+    /// SYSTEMS §7 decay per decade, or its share for the final half-decade step of a jump that isn't a whole number of
+    /// decades (PROTOTYPE_SCOPE "Jump": decade steps, with a final half-decade step when needed): 1 − (1 − rate)^0.5.
+    /// </summary>
+    internal static bool DecayMatches(double observed, double perDecade) =>
+        Math.Abs(observed - perDecade) < 1e-9 || Math.Abs(observed - (1 - Math.Pow(1 - perDecade, 0.5))) < 1e-9;
+
+    /// <summary>
     /// SYSTEMS §11 (decided 2026-09-28): a jump carries you 25–60 years, drawn in 5-year steps. (The check once expected
     /// the old fixed 250-year absence.) Null if the absence is legal.
     /// </summary>
@@ -127,7 +134,7 @@ internal sealed class Harness
                     var s = e.Effects.First(fx => fx.Key.EndsWith(".strength", StringComparison.Ordinal));
                     if (s.Before <= 0) break;
                     double rate = 1 - s.After / s.Before;
-                    if (Math.Abs(rate - _sim.DecayRate(inst.Quality)) > 1e-9) Add("SYSTEMS", e.Target + " decayed " + F(rate * 100) + "% in a decade, expected " + F(_sim.DecayRate(inst.Quality) * 100) + "%");
+                    if (!DecayMatches(rate, _sim.DecayRate(inst.Quality))) Add("SYSTEMS", e.Target + " decayed " + F(rate * 100) + "% in a decade, expected " + F(_sim.DecayRate(inst.Quality) * 100) + "%");
                     break;
                 }
                 case "holdings.grow":
@@ -159,23 +166,26 @@ internal sealed class Harness
         for (int i = 1; i < turns.Count; i++)
             if (turns[i] - turns[i - 1] > _sim.T.GetInt("time.maxMonthsPerTurn") || turns[i] - turns[i - 1] < 1) { Add("SYSTEMS", "turn length " + (turns[i] - turns[i - 1]) + " months"); break; }
         var plague = WarningsFinding(_sim.Log.Events.Where(e => e.Type == "plague.warning").Select(e => e.Time).ToList(),
-                                     _sim.Log.Events.FirstOrDefault(e => e.Type == "plague.outbreak")?.Time);
+                                     _sim.Log.Events.FirstOrDefault(e => e.Type == "plague.outbreak")?.Time,
+                                     _sim.Log.Events.FirstOrDefault(e => e.Type == "jump.depart")?.Time);
         if (plague != null) Add("SYSTEMS", plague);
     }
 
     /// <summary>
     /// PROTOTYPE_SCOPE: three visible warnings, in order, before the outbreak. They fall on history's dates (AD 165, 166,
     /// 166; the outbreak late in 166), so the last warning shares the outbreak's year: the order is by month, not by year.
-    /// Null if they are in order (or there was no outbreak).
+    /// Null if they are in order (or there was no outbreak). Warnings that come while the inventor is away are resolved in
+    /// the absence's steps and may share a date; only those the player lives through must each come before the next.
     /// </summary>
-    internal static string? WarningsFinding(IReadOnlyList<SimTime> warnings, SimTime? outbreak)
+    internal static string? WarningsFinding(IReadOnlyList<SimTime> warnings, SimTime? outbreak, SimTime? departed = null)
     {
         if (outbreak == null) return null;
         if (warnings.Count != 3) return "outbreak after " + warnings.Count + " warnings, not 3";
         for (int i = 0; i < warnings.Count; i++)
         {
             var next = i + 1 < warnings.Count ? warnings[i + 1] : outbreak.Value;
-            if (warnings[i].TotalMonths >= next.TotalMonths)
+            bool away = departed != null && next.TotalMonths >= departed.Value.TotalMonths;
+            if (away ? warnings[i].TotalMonths > next.TotalMonths : warnings[i].TotalMonths >= next.TotalMonths)
                 return "warning " + (i + 1) + " (" + warnings[i].Stamp + ") is not before " + (i + 1 < warnings.Count ? "warning " + (i + 2) : "the outbreak") + " (" + next.Stamp + ")";
         }
         return null;

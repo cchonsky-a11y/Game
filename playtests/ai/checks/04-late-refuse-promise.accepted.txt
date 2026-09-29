@@ -1,19 +1,88 @@
 choose fountain
+assess
 work
 end
 work
 end
-found faction
 work
 end
 work
 end
-charter faction
 work
 end
 work
 end
-promise no
+repair coil
+repair coolant
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 work
 end
 start patronage
@@ -21,6 +90,53 @@ work
 end
 work
 end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+promise no
 work
 end
 work
@@ -44,8 +160,119 @@ work
 end
 work
 end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+found club
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+charter club
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+start vigiles
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+restore 60
+end
+work consult
+end
+work consult
+end
+exchange 1300 denarii
+restore 60
+end
+work consult
+end
+work consult
+end
+work consult
+end
+exchange 1300 denarii
+restore 60
+end
 jump
-paydown medicine 9999
 paydown governance 9999
 jump
 learn more

@@ -1,66 +1,51 @@
 THE BUTTERFLY EFFECT — P0 Butterfly Test
 ========================================
-Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
-and a small circle of people willing to listen. Something is coming from the East in a few years.
-When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
+machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
+You don't yet know what broke. Something is coming from the East within ten years.
+Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
+Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
 
-This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
 
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
-  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
-  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
 
 > jump
-You will leave AD 155 for AD 405. You can't come back.
-What you leave behind (60 gold in hand):
-  • No institution will look after Rome while you're away.
-  • The 60 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
-Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+The machine isn't ready: 0 of 9 repair steps done.
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 60 aurei).
+  Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
 > jump
+The machine isn't ready: 0 of 9 repair steps done.
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 60 aurei).
+  Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
-The machine shudders. Decades pass in the dark...
+> learn more
+Unknown command. Type 'help'.
 
-— Recognition —
-You climb out of the machine in AD 405. The Tiber smells the same. You pass the corner where the
-smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.
+> why medicine
+Medicine is at 50. You have no voice in it, so it follows Rome's real history (+0 last year). Only your projects and their consequences move it.
+Your influence over it: 0%, so your priorities and policy take 0% effect. Who holds it:
+  The healers of the Tiber Island sanctuary: strength 50, 62.5% of Medicine
+  The Physicians' Circle of the Subura: strength 30, 37.5% of Medicine
+People expect 50: what was normal in Rome in AD 155.
+Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
+Index sub-score 100 (100 = as in real history).
 
-— Wrongness —
-Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
-seems afraid of the soldiers.
+> quit
 
-— Personal echo —
-You left before the first rumors came from the East. In the city's records, the pestilence of 162
-fills page after page: about 110 thousand dead in Rome. You aren't in any of them.
-
-— Discovery —
-You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
-outlasted you.
-
-Type 'learn more' for the Index and what became of your institutions, or 'quit'.
-
-(after arrival) > learn more
-Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 155: 100   Medicine 100  Governance 100  Economy 100
-  Arrival,   AD 405: 106   Medicine 103  Governance 113  Economy 104
-Institutions
-  None founded.
-Crises while you were away
-  AD 162: the Antonine pestilence (severe, about 110 thousand dead; response: none)
-  AD 195: pestilence returns (catastrophic, about 264 thousand dead)
-  AD 305: pestilence returns (severe, about 110 thousand dead)
-
-
-(after arrival) > why medicine
-You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
-
-(after arrival) > quit
-
-Run fingerprint (seed 115): d211969622b5c62e
+Run fingerprint (seed 115): a919baa2dfbaffa8

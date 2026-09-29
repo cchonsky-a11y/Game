@@ -1,13 +1,123 @@
 choose workshop
-priority medicine accept
-priority governance accept
-priority economy accept
+assess
 work
 end
-start market
 work
 end
-start census
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+start patronage
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
 end
 work
 end
@@ -16,22 +126,28 @@ work
 end
 work
 end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 promise yes
-start patronage
-work
-end
-start quarantine
-end
-work
-end
-start magistrates
 work
 end
 work
 end
 work
 end
-start warehouses
+work
+end
+work
+end
+work
 end
 work
 end
@@ -47,6 +163,103 @@ end
 work
 end
 work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+start warehouses
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+exchange 1300 denarii
+restore 60
+work consult
+end
+exchange 1300 denarii
+restore 60
+work consult
 end
 jump
 jump

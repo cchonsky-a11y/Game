@@ -7,8 +7,8 @@ using Butterfly.Core;
 
 /// <summary>
 /// Scripted input for automated playtests (--inputs). One command per line; '#' starts a comment.
-/// Directive: "@until <year>|era-end: cmd; cmd; ..." repeats the commands (which should include 'end')
-/// until the year is reached or the era's turns are over. A test harness only; it changes no rules.
+/// Directive: "@until <year>|era-end|ready: cmd; cmd; ..." repeats the commands (which should include 'end')
+/// until the year is reached, the era's turns are over, or the machine is ready to jump. A test harness only; it changes no rules.
 /// </summary>
 internal sealed class ScriptInput
 {
@@ -20,6 +20,7 @@ internal sealed class ScriptInput
     private string[]? _loop;
     private int _untilYear;
     private bool _untilEraEnd;
+    private bool _untilReady;
     private int _cycles;
 
     /// <summary>Directives that hit the cycle cap without reaching their condition (possible dead ends).</summary>
@@ -38,10 +39,10 @@ internal sealed class ScriptInput
             if (_pending.Count > 0) return _pending.Dequeue();
             if (_loop != null)
             {
-                bool done = _sim.Arrived || (_untilEraEnd ? _sim.EraOver : _sim.Now.Year >= _untilYear);
+                bool done = _sim.Arrived || (_untilReady ? _sim.MachineReady : _untilEraEnd ? _sim.EraOver : _sim.Now.Year >= _untilYear);
                 if (!done && _cycles >= MaxCycles)
                 {
-                    StalledLoops.Add((_untilEraEnd ? "era-end" : _untilYear.ToString(CultureInfo.InvariantCulture)) + " after " + _cycles + " cycles");
+                    StalledLoops.Add((_untilReady ? "ready" : _untilEraEnd ? "era-end" : _untilYear.ToString(CultureInfo.InvariantCulture)) + " after " + _cycles + " cycles");
                     done = true;
                 }
                 if (!done)
@@ -58,7 +59,8 @@ internal sealed class ScriptInput
             int colon = line.IndexOf(':');
             string target = line.Substring(7, colon - 7).Trim();
             _untilEraEnd = target == "era-end";
-            _untilYear = _untilEraEnd ? 0 : int.Parse(target, CultureInfo.InvariantCulture);
+            _untilReady = target == "ready";
+            _untilYear = _untilEraEnd || _untilReady ? 0 : int.Parse(target, CultureInfo.InvariantCulture);
             _loop = line.Substring(colon + 1).Split(';').Select(c => c.Trim()).Where(c => c.Length > 0).ToArray();
             _cycles = 0;
         }

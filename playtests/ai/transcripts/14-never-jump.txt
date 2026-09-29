@@ -1,21 +1,26 @@
 THE BUTTERFLY EFFECT — P0 Butterfly Test
 ========================================
-Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
-and a small circle of people willing to listen. Something is coming from the East in a few years.
-When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
+machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
+You don't yet know what broke. Something is coming from the East within ten years.
+Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
+Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
 
-This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
 
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
-  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
-  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
 
 > choose fountain
 You chose the fountain.  [Attention left this turn: 2/4]
@@ -27,15 +32,17 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
 
 > end
-  • Clean water runs again in the district fountain. Medicine +8.
 
-== Turn 2 · Iulius, AD 155 ==  Gold 39.5 (+14.5/turn)   Attention 4/4   Index 105.1
-  Medicine      58  expect   58  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
+== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 2/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Repair the district fountain (1 turn(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -44,15 +51,93 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
+
+> end
+  • Clean water runs again in the district fountain. Medicine +1.
+
+== Turn 3 · Maius, AD 155 ==  225 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
+  On your street: People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 4 · Iulius, AD 155 ==  338 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 5 · September, AD 155 ==  450 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
+  On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 6 · November, AD 155 ==  562 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 156 begins.
 
-== Turn 3 · Ianuarius, AD 156 ==  Gold 59 (+14.2/turn)   Attention 4/4   Index 103.3
-  Medicine      57  expect   57  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       54  expect 54.9  Maintain    debt     1 Stable
+== Turn 7 · Ianuarius, AD 156 ==  675 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
+  On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -61,14 +146,16 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 4 · Iulius, AD 156 ==  Gold 78.2 (+14.2/turn)   Attention 4/4   Index 103.3
-  Medicine      57  expect   57  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       54  expect 54.9  Maintain    debt     1 Stable
+== Turn 8 · Martius, AD 156 ==  788 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -77,16 +164,93 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 9 · Maius, AD 156 ==  902 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 10 · Iulius, AD 156 ==  1,015 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 11 · September, AD 156 ==  1,128 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 12 · November, AD 156 ==  1,242 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 157 begins.
-  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+  • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 97.4 (+12.7/turn)   Attention 4/4   Index 98.8
-  Medicine      56  expect   56  Maintain    debt   2.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+== Turn 13 · Ianuarius, AD 157 ==  1,355 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -95,14 +259,16 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 115.1 (+12.7/turn)   Attention 4/4   Index 98.9
-  Medicine      56  expect   56  Maintain    debt   2.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+== Turn 14 · Martius, AD 157 ==  1,469 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -111,15 +277,92 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 15 · Maius, AD 157 ==  1,583 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 16 · Iulius, AD 157 ==  1,698 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 17 · September, AD 157 ==  1,812 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 18 · November, AD 157 ==  1,926 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 158 begins.
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 132.8 (+12.4/turn)   Attention 4/4   Index 97
-  Medicine      55  expect   55  Maintain    debt   3.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+== Turn 19 · Ianuarius, AD 158 ==  2,040 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -128,14 +371,16 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 8 · Iulius, AD 158 ==  Gold 150.2 (+12.4/turn)   Attention 4/4   Index 97
-  Medicine      55  expect   55  Maintain    debt   3.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+== Turn 20 · Martius, AD 158 ==  2,155 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -144,18 +389,856 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 21 · Maius, AD 158 ==  2,270 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 22 · Iulius, AD 158 ==  2,385 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 23 · September, AD 158 ==  2,501 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 24 · November, AD 158 ==  2,616 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 159 begins.
-  • Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
-  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, hears the rumors from the East and asks you: "Promise me you will stay until this sickness has passed through Rome."
 
-== Turn 9 · Ianuarius, AD 159 ==  Gold 167.6 (+12.1/turn)   Attention 4/4   Index 95.2
-  Medicine      54  expect   54  Maintain    debt   4.3 Stable
-  Governance    51  expect   55  Maintain    debt  10.5 Stable
-  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 25 · Ianuarius, AD 159 ==  2,731 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 26 · Martius, AD 159 ==  2,847 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 27 · Maius, AD 159 ==  2,963 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 28 · Iulius, AD 159 ==  3,079 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 29 · September, AD 159 ==  3,194 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 30 · November, AD 159 ==  3,310 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 160 begins.
+
+== Turn 31 · Ianuarius, AD 160 ==  3,426 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 32 · Martius, AD 160 ==  3,543 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 33 · Maius, AD 160 ==  3,660 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 34 · Iulius, AD 160 ==  3,777 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 35 · September, AD 160 ==  3,894 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
+  On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 36 · November, AD 160 ==  4,011 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 161 begins.
+
+== Turn 37 · Ianuarius, AD 161 ==  4,127 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 38 · Martius, AD 161 ==  4,245 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 39 · Maius, AD 161 ==  4,363 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 40 · Iulius, AD 161 ==  4,481 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 41 · September, AD 161 ==  4,598 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 42 · November, AD 161 ==  4,716 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 162 begins.
+
+== Turn 43 · Ianuarius, AD 162 ==  4,834 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 44 · Martius, AD 162 ==  4,953 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 45 · Maius, AD 162 ==  5,071 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: Lucius Verus leaves Rome to take command against Parthia.   (news)
+  On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 46 · Iulius, AD 162 ==  5,190 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle.   (news)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 47 · September, AD 162 ==  5,309 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 48 · November, AD 162 ==  5,427 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 163 begins.
+
+== Turn 49 · Ianuarius, AD 163 ==  5,546 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 50 · Martius, AD 163 ==  5,666 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 51 · Maius, AD 163 ==  5,785 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 52 · Iulius, AD 163 ==  5,905 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 53 · September, AD 163 ==  6,025 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
+  On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 54 · November, AD 163 ==  6,144 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 164 begins.
+
+== Turn 55 · Ianuarius, AD 164 ==  6,264 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 56 · Martius, AD 164 ==  6,384 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 57 · Maius, AD 164 ==  6,505 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 58 · Iulius, AD 164 ==  6,625 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 59 · September, AD 164 ==  6,746 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 60 · November, AD 164 ==  6,867 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • The year AD 165 begins.
+
+== Turn 61 · Ianuarius, AD 165 ==  6,987 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 62 · Martius, AD 165 ==  7,109 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 63 · Maius, AD 165 ==  7,230 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+
+> end
+  • Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  • Demetria of Pergamon, a Greek physician who treats the Subura's poor, has watched you: the fountain you had cleaned, and the way you talk about fever as if you had seen it before. "You have heard what the letters from Seleucia say. If that sickness comes here, the rich will leave for their villas, and the famous physicians with them. Promise me you will stay and help until it has passed."
+
+== Turn 64 · Iulius, AD 165 ==  7,352 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
 
 > promise yes
@@ -165,15 +1248,18 @@ You gave your word.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 10 · Iulius, AD 159 ==  Gold 184.7 (+12.1/turn)   Attention 4/4   Index 95.2
-  Medicine      54  expect   54  Maintain    debt   4.3 Stable
-  Governance    51  expect   55  Maintain    debt  10.5 Stable
-  Economy       47  expect 54.6  Maintain    debt  17.8 Stable
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 65 · September, AD 165 ==  7,473 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -182,17 +1268,18 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 160 begins.
-  • Economy moves from Stable to Strained.
 
-== Turn 11 · Ianuarius, AD 160 ==  Gold 201.8 (+11.8/turn)   Attention 4/4   Index 93.3
-  Medicine      53  expect   53  Maintain    debt   5.5 Stable
-  Governance    50  expect   55  Maintain    debt    16 Stable
-  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 66 · November, AD 165 ==  7,595 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -201,15 +1288,20 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
 
 > end
+  • The year AD 166 begins.
+  • Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
 
-== Turn 12 · Iulius, AD 160 ==  Gold 218.6 (+11.8/turn)   Attention 4/4   Index 93.4
-  Medicine      53  expect   53  Maintain    debt   5.5 Stable
-  Governance    50  expect   55  Maintain    debt    16 Stable
-  Economy       46  expect 54.5  Maintain    debt  27.2 Strained
-  Pestilence: Warning 1 of 3 — Rumors from the East: soldiers back from the Parthian war speak of a pestilence in Seleucia.
+== Turn 67 · Ianuarius, AD 166 ==  7,716 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -218,18 +1310,17 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 161 begins.
-  • Governance moves from Stable to Strained.
-  • Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
 
-== Turn 13 · Ianuarius, AD 161 ==  Gold 235.4 (+11.5/turn)   Attention 4/4   Index 91.5
-  Medicine      52  expect   52  Maintain    debt   6.8 Stable
-  Governance    49  expect   55  Maintain    debt  22.8 Strained
-  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+== Turn 68 · Martius, AD 166 ==  7,839 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -238,15 +1329,17 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 14 · Iulius, AD 161 ==  Gold 251.9 (+11.5/turn)   Attention 4/4   Index 91.5
-  Medicine      52  expect   52  Maintain    debt   6.8 Stable
-  Governance    49  expect   55  Maintain    debt  22.8 Strained
-  Economy       45  expect 54.4  Maintain    debt  37.9 Strained
-  Pestilence: Warning 2 of 3 — Fever at Ostia: dockworkers fall sick after the grain fleet comes in.
+== Turn 69 · Maius, AD 166 ==  7,961 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -255,17 +1348,19 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The year AD 162 begins.
-  • Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+  • Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 15 · Ianuarius, AD 162 ==  Gold 268.4 (+11.2/turn)   Attention 4/4   Index 89.7
-  Medicine      51  expect   51  Maintain    debt   8.1 Stable
-  Governance    48  expect   55  Maintain    debt    31 Strained
-  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
+== Turn 70 · Iulius, AD 166 ==  8,084 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -274,36 +1369,21 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
+  • Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
 
-== Turn 16 · Iulius, AD 162 ==  Gold 284.6 (+11.2/turn)   Attention 4/4   Index 89.7
-  Medicine      51  expect   51  Maintain    debt   8.1 Stable
-  Governance    48  expect   55  Maintain    debt    31 Strained
-  Economy       44  expect 54.3  Maintain    debt  50.1 Strained
-  Pestilence: Warning 3 of 3 — The sick fill the Subura: physicians report fever, rash and black stools among the poor.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 163 begins.
-  • Economy moves from Strained to Fragile.
-  • Outbreak — the pestilence breaks out across Rome.
-
-== Turn 17 · Ianuarius, AD 163 ==  Gold 300.8 (+10.9/turn)   Attention 4/4   Index 87.8
-  Medicine      50  expect   50  Maintain    debt   9.5 Stable
-  Governance    47  expect   55  Maintain    debt  40.5 Strained
-  Economy       43  expect 54.2  Maintain    debt  63.8 Fragile
-  Pestilence: Outbreak — the pestilence breaks out across Rome.
-  ► Waiting: respond quarantine / respond none   (a hospice needs a physicians' circle of strength 30+)
+== Turn 71 · September, AD 166 ==  8,206 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
+  News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
+  On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: respond none   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)
 
 > promise yes
 No promise is waiting for an answer.
@@ -312,21 +1392,21 @@ No promise is waiting for an answer.
 You can't choose 'hospice' now.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
-  • The pestilence is severe: about 130 thousand dead, 13% of Rome.
-  • Governance moves from Strained to Stable.
-  • Economy moves from Fragile to Stable.
-  • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
+  • The pestilence is severe: about 83 thousand dead, 8% of Rome.
+  • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
   • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Turn 18 · Iulius, AD 163 ==  Gold 270 (+7.6/turn)   Attention 4/4   Index 73.5
-  Medicine    43.1  expect   50  Maintain    debt     0 Stable
-  Governance  42.7  expect   55  Maintain    debt     0 Stable
-  Economy     32.1  expect 54.2  Maintain    debt     0 Stable
+== Turn 72 · November, AD 166 ==  7,640 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 99.3
+  Medicine      46  expect   50  (no voice)  debt     0 Stable
+  Governance  53.3  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -335,131 +1415,19 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 164 begins.
-  • Economy moves from Stable to Strained.
-
-== Turn 19 · Ianuarius, AD 164 ==  Gold 282.6 (+7.3/turn)   Attention 4/4   Index 71.6
-  Medicine    42.1  expect   50  Maintain    debt   7.9 Stable
-  Governance  41.7  expect   55  Maintain    debt  13.3 Stable
-  Economy     31.1  expect 54.1  Maintain    debt    23 Strained
-  Pestilence: The pestilence has passed.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-
-== Turn 20 · Iulius, AD 164 ==  Gold 295 (+7.3/turn)   Attention 4/4   Index 71.6
-  Medicine    42.1  expect   50  Maintain    debt   7.9 Stable
-  Governance  41.7  expect   55  Maintain    debt  13.3 Stable
-  Economy     31.1  expect 54.1  Maintain    debt    23 Strained
-  Pestilence: The pestilence has passed.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 165 begins.
-  • Governance moves from Stable to Strained.
-
-== Turn 21 · Ianuarius, AD 165 ==  Gold 307.3 (+7/turn)   Attention 4/4   Index 69.7
-  Medicine    41.1  expect   50  Maintain    debt  17.1 Stable
-  Governance  40.7  expect   55  Maintain    debt  28.4 Strained
-  Economy     30.1  expect   54  Maintain    debt    48 Strained
-  Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-
-== Turn 22 · Iulius, AD 165 ==  Gold 319.3 (+7/turn)   Attention 4/4   Index 70.3
-  Medicine    41.1  expect   50  Maintain    debt  17.1 Stable
-  Governance  40.7  expect   55  Maintain    debt  28.4 Strained
-  Economy     30.1  expect   54  Maintain    debt    48 Strained
-  Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-  • The year AD 166 begins.
-  • Medicine moves from Stable to Strained.
-  • Economy moves from Strained to Fragile.
-
-== Turn 23 · Ianuarius, AD 166 ==  Gold 331.4 (+6.7/turn)   Attention 4/4   Index 68.9
-  Medicine    40.1  expect 48.8  Maintain    debt  26.7 Strained
-  Governance  39.7  expect 54.6  Maintain    debt  44.7 Strained
-  Economy     29.1  expect 53.2  Maintain    debt  74.4 Fragile
-  Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
-
-> end
-
-== Turn 24 · Iulius, AD 166 ==  Gold 343.1 (+6.7/turn)   Attention 4/4   Index 69.4
-  Medicine    40.1  expect 48.8  Maintain    debt  26.7 Strained
-  Governance  39.7  expect 54.6  Maintain    debt  44.7 Strained
-  Economy     29.1  expect 53.2  Maintain    debt  74.4 Fragile
-  Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 167 begins.
-  • Governance moves from Strained to Fragile.
 
-== Turn 25 · Ianuarius, AD 167 ==  Gold 354.9 (+6.4/turn)   Attention 4/4   Index 68
-  Medicine    39.1  expect 47.6  Maintain    debt  36.5 Strained
-  Governance  38.7  expect 54.2  Maintain    debt  62.5 Fragile
-  Economy     28.1  expect 52.4  Maintain    debt 102.4 Fragile
+== Turn 73 · Ianuarius, AD 167 ==  7,763 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -468,16 +1436,17 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 26 · Iulius, AD 167 ==  Gold 366.3 (+6.4/turn)   Attention 4/4   Index 68.6
-  Medicine    39.1  expect 47.6  Maintain    debt  36.5 Strained
-  Governance  38.7  expect 54.2  Maintain    debt  62.5 Fragile
-  Economy     28.1  expect 52.4  Maintain    debt 102.4 Fragile
+== Turn 74 · Martius, AD 167 ==  7,886 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -486,18 +1455,95 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 75 · Maius, AD 167 ==  8,010 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 76 · Iulius, AD 167 ==  8,133 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 77 · September, AD 167 ==  8,257 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 78 · November, AD 167 ==  8,380 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 168 begins.
-  • Economy moves from Fragile to Critical.
 
-== Turn 27 · Ianuarius, AD 168 ==  Gold 377.7 (+6.1/turn)   Attention 4/4   Index 67.1
-  Medicine    38.1  expect 46.4  Maintain    debt  46.5 Strained
-  Governance  37.7  expect 53.8  Maintain    debt  81.8 Fragile
-  Economy     27.1  expect 51.6  Maintain    debt   132 Critical
+== Turn 79 · Ianuarius, AD 168 ==  8,504 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -506,16 +1552,18 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 28 · Iulius, AD 168 ==  Gold 388.9 (+6.1/turn)   Attention 4/4   Index 67.7
-  Medicine    38.1  expect 46.4  Maintain    debt  46.5 Strained
-  Governance  37.7  expect 53.8  Maintain    debt  81.8 Fragile
-  Economy     27.1  expect 51.6  Maintain    debt   132 Critical
+== Turn 80 · Martius, AD 168 ==  8,628 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  News: Both emperors leave for Aquileia and the northern frontier.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -524,17 +1572,95 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 81 · Maius, AD 168 ==  8,753 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 82 · Iulius, AD 168 ==  8,877 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 83 · September, AD 168 ==  9,002 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 84 · November, AD 168 ==  9,126 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 169 begins.
 
-== Turn 29 · Ianuarius, AD 169 ==  Gold 400 (+5.8/turn)   Attention 4/4   Index 66.2
-  Medicine    37.1  expect 45.2  Maintain    debt  56.9 Strained
-  Governance  36.7  expect 53.4  Maintain    debt 102.6 Fragile
-  Economy     26.1  expect 50.8  Maintain    debt 163.3 Critical
+== Turn 85 · Ianuarius, AD 169 ==  9,251 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -543,16 +1669,18 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
 
 > end
 
-== Turn 30 · Iulius, AD 169 ==  Gold 410.9 (+5.8/turn)   Attention 4/4   Index 66.8
-  Medicine    37.1  expect 45.2  Maintain    debt  56.9 Strained
-  Governance  36.7  expect 53.4  Maintain    debt 102.6 Fragile
-  Economy     26.1  expect 50.8  Maintain    debt 163.3 Critical
+== Turn 86 · Martius, AD 169 ==  9,376 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
 No promise is waiting for an answer.
@@ -561,39 +1689,125 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 5 gold.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 87 · Maius, AD 169 ==  9,502 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  News: Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months.   (news)
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 88 · Iulius, AD 169 ==  9,627 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 89 · September, AD 169 ==  9,753 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+
+> end
+
+== Turn 90 · November, AD 169 ==  9,878 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
 
 > end
   • The year AD 170 begins.
-  • Medicine moves from Strained to Fragile.
-  • Governance moves from Fragile to Critical.
 
-== Turn 31 · Ianuarius, AD 170 ==  Gold 421.7 (+5.5/turn)   Attention 4/4   Index 65.2
-  Medicine    36.1  expect   44  Maintain    debt  67.6 Fragile
-  Governance  35.7  expect   53  Maintain    debt 125.1 Critical
-  Economy     25.1  expect   50  Maintain    debt 196.3 Critical
+== Turn 91 · Ianuarius, AD 170 ==  10,004 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 104.8
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  ► The era's 20 turns are over. Jump when you're ready (you can also stay).
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > learn more
 Unknown command. Type 'help'.
 
 > why medicine
-Medicine is at 36.1. Under Maintain it changes -1 a year.
-People expect 44: what was normal in Rome in AD 170.
-The shortfall of 7.9 adds that much debt each year.
-Debt 67.6 (Fragile). Debt grows 5% a year until paid down, which costs 3 gold per point. At Fragile, plague warnings advance with 75% chance a year.
-Index sub-score 82.1 (100 = as in real history).
+Medicine is at 46. You have no voice in it, so it follows Rome's real history (+0 last year). Only your projects and their consequences move it.
+Your influence over it: 0%, so your priorities and policy take 0% effect. Who holds it:
+  The healers of the Tiber Island sanctuary: strength 50, 62.5% of Medicine
+  The Physicians' Circle of the Subura: strength 30, 37.5% of Medicine
+People expect 46: they remember your recent peak of 46 (the memory fades 5 a year).
+Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
+Index sub-score 104.6 (100 = as in real history).
 Recent changes:
-  AD 168-01  Medicine debt grows to 46.5: level 38.1 is below expectation 46.4. [+10.1]
-      because: Medicine slips under Maintain (-1). (AD 168-01)
-  AD 169-01  Medicine slips under Maintain (-1). [-1]
-  AD 169-01  Medicine debt grows to 56.9: level 37.1 is below expectation 45.2. [+10.4]
-      because: Medicine slips under Maintain (-1). (AD 169-01)
-  AD 170-01  Medicine slips under Maintain (-1). [-1]
-  AD 170-01  Medicine debt grows to 67.6: level 36.1 is below expectation 44. [+10.7]
-      because: Medicine slips under Maintain (-1). (AD 170-01)
+  AD 155-03  Clean water runs again in the district fountain. Medicine +1. [+1]
+      because: Work begins: Repair the district fountain (1,000 denarii, 2 turns). (AD 155-01)
+  AD 166-09  The pestilence strikes Medicine. [-5]
+      because: The pestilence is severe: about 83 thousand dead, 8% of Rome. (AD 166-09)
 
 > quit
 
-Run fingerprint (seed 114): 28cf83645b03bb4e
+Run fingerprint (seed 114): 870d8dd5c69568a9

@@ -1,21 +1,26 @@
 THE BUTTERFLY EFFECT — P0 Butterfly Test
 ========================================
-Rome, AD 155. Your time machine failed and left you here. You have a little gold, what you know,
-and a small circle of people willing to listen. Something is coming from the East in a few years.
-When you're ready, the machine can carry you 250 years forward. What you leave behind will go on without you.
+Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
+machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
+You don't yet know what broke. Something is coming from the East within ten years.
+Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
+Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
 
-This prototype covers one era, one jump, and your arrival. When you leave Rome, you'll see what became of it, and the test ends there.
+This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
 
 First, a choice. You can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
-  choose workshop  — Equip the smith by the Porta Trigemina with a second forge and paid apprentices.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  Gold 60 (+14.5/turn)   Attention 4/4   Index 100
-  Medicine      50  expect   50  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
-  ► Waiting: choose fountain or choose workshop (before the end of turn 2).
+== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
 
 > dance
 Unknown command. Type 'help'.
@@ -33,19 +38,19 @@ Usage: priority <medicine|governance|economy> <protect|maintain|accept>
 Usage: priority <medicine|governance|economy> <protect|maintain|accept>
 
 > paydown medicine abc
-Usage: paydown <domain> <points>   (costs 3 gold per point)
+Usage: paydown <domain> <points>   (costs 75 denarii per point)
 
-> endow circle -5
-Found it first.
+> endow school -5
+Found it first (found school).
 
-> endow circle
-Found it first.
+> endow school
+Found it first (found school).
 
-> audit circle
-Found it first.
+> audit school
+Found it first (found school).
 
-> oversee circle
-Found it first.
+> oversee school
+Found it first (found school).
 
 > promise yes
 No promise is waiting for an answer.
@@ -63,126 +68,242 @@ That choice has already been made.
 Repair the district fountain is already under way.
 
 > work
-You earn 5 gold.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
 
 > work
 You already took your personal action this turn.
 
 > why
-The Physicians' Circle of the Subura doesn't exist yet. Demetria of Pergamon would lead it. (found circle)
+Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, school, faction, junian, club, guild, bank, house, policy, promise, index, attention, machine.
 
 > why nothing
-Why what? Try: medicine, governance, economy, gold, plague, circle, faction, promise, index, attention.
+Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, school, faction, junian, club, guild, bank, house, policy, promise, index, attention, machine.
 
 > log 3
   AD 155-01  You can afford only one: you choose the district fountain over the smith's workshop.
-  AD 155-01  Work begins: Repair the district fountain (40 gold, 1 turn).
-  AD 155-01  You spend the season mending instruments and advising builders for pay.
+  AD 155-01  Work begins: Repair the district fountain (1,000 denarii, 2 turns).
+  AD 155-01  You spend the season mending tools and running errands for pay.
 
 > end
-  • Clean water runs again in the district fountain. Medicine +8.
 
-== Turn 2 · Iulius, AD 155 ==  Gold 39.5 (+14.5/turn)   Attention 4/4   Index 105.1
-  Medicine      58  expect   58  Maintain    debt     0 Stable
-  Governance    55  expect   55  Maintain    debt     0 Stable
-  Economy       55  expect   55  Maintain    debt     0 Stable
+== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 2/4   Index 100
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Repair the district fountain (1 turn(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+  • Clean water runs again in the district fountain. Medicine +1.
+
+== Turn 3 · Maius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
+  On your street: People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 4 · Iulius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 5 · September, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
+  On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 6 · November, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 156 begins.
 
-== Turn 3 · Ianuarius, AD 156 ==  Gold 54 (+14.2/turn)   Attention 4/4   Index 103.3
-  Medicine      57  expect   57  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       54  expect 54.9  Maintain    debt     1 Stable
+== Turn 7 · Ianuarius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
+  On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
 
-== Turn 4 · Iulius, AD 156 ==  Gold 68.2 (+14.2/turn)   Attention 4/4   Index 103.3
-  Medicine      57  expect   57  Maintain    debt     1 Stable
-  Governance    54  expect   55  Maintain    debt     1 Stable
-  Economy       54  expect 54.9  Maintain    debt     1 Stable
+== Turn 8 · Martius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 9 · Maius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 10 · Iulius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 11 · September, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 12 · November, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 157 begins.
-  • The smith by the Porta Trigemina gives up and takes his tools to Ostia. You remember choosing the fountain over his workshop.
+  • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
 
-== Turn 5 · Ianuarius, AD 157 ==  Gold 82.4 (+12.7/turn)   Attention 4/4   Index 98.8
-  Medicine      56  expect   56  Maintain    debt   2.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+== Turn 13 · Ianuarius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
 
-== Turn 6 · Iulius, AD 157 ==  Gold 95.1 (+12.7/turn)   Attention 4/4   Index 98.9
-  Medicine      56  expect   56  Maintain    debt   2.1 Stable
-  Governance    53  expect   55  Maintain    debt   3.1 Stable
-  Economy       49  expect 54.8  Maintain    debt   2.9 Stable
+== Turn 14 · Martius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 15 · Maius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 16 · Iulius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 17 · September, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Turn 18 · November, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 158 begins.
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 107.8 (+12.4/turn)   Attention 4/4   Index 97
-  Medicine      55  expect   55  Maintain    debt   3.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+== Turn 19 · Ianuarius, AD 158 ==  112 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
-You will leave AD 158 for AD 408. You can't come back.
-What you leave behind (107.8 gold in hand):
-  • Medicine debt 3.2 keeps growing 5% a year for 30 years after you leave (about 5.1 in a decade, 13.6 after 30 years) unless a crisis clears it. Paying it down now costs 9.5 gold.
-  • Governance debt 6.2 keeps growing 5% a year for 30 years after you leave (about 10.1 in a decade, 26.8 after 30 years) unless a crisis clears it. Paying it down now costs 18.6 gold.
-  • Economy debt 9.7 keeps growing 5% a year for 30 years after you leave (about 15.8 in a decade, 41.9 after 30 years) unless a crisis clears it. Paying it down now costs 29.1 gold.
-  • No institution will look after Rome while you're away.
-  • The 107 gold in your hands stays behind and is lost unless you spend it, pay down debt or endow an institution.
-Prepare: paydown <domain> <points> · endow <inst> <gold|all> · audit <inst>. Type 'jump' again to go, or anything else to stay.
+The machine isn't ready: 0 of 9 repair steps done.
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
+  Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
 > status
 
-== Turn 7 · Ianuarius, AD 158 ==  Gold 107.8 (+12.4/turn)   Attention 4/4   Index 97
-  Medicine      55  expect   55  Maintain    debt   3.2 Stable
-  Governance    52  expect   55  Maintain    debt   6.2 Stable
-  Economy       48  expect 54.7  Maintain    debt   9.7 Stable
+== Turn 19 · Ianuarius, AD 158 ==  112 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
+The machine isn't ready: 0 of 9 repair steps done.
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
+  Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
-The machine shudders. Decades pass in the dark...
+> jump
+The machine isn't ready: 0 of 9 repair steps done.
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
+  Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
-— Recognition —
-You climb out of the machine in AD 408. The Tiber smells the same. You find the district fountain you
-repaired by the shape of the street, but the basin is cracked and dry, full of leaves. Of the smith
-you didn't choose, there is no trace.
+> learn more
+Unknown command. Type 'help'.
 
-— Wrongness —
-Something is wrong. Magistrates post their rulings in the forum and people stop to read them. Nobody
-seems afraid of the soldiers.
+> why medicine
+Medicine is at 51. You have no voice in it, so it follows Rome's real history (+0 last year). Only your projects and their consequences move it.
+Your influence over it: 0%, so your priorities and policy take 0% effect. Who holds it:
+  The healers of the Tiber Island sanctuary: strength 50, 62.5% of Medicine
+  The Physicians' Circle of the Subura: strength 30, 37.5% of Medicine
+People expect 51: they remember your recent peak of 51 (the memory fades 5 a year).
+Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
+Index sub-score 102 (100 = as in real history).
+Recent changes:
+  AD 155-03  Clean water runs again in the district fountain. Medicine +1. [+1]
+      because: Work begins: Repair the district fountain (1,000 denarii, 2 turns). (AD 155-01)
 
-— Personal echo —
-You left before the first rumors came from the East. In the city's records, the pestilence of 163
-fills page after page: about 91 thousand dead in Rome. You aren't in any of them.
+> quit
 
-— Discovery —
-You ask after Demetria of Pergamon and Senator Varro. No one has heard either name. Nothing you built
-outlasted you.
-
-Type 'learn more' for the Index and what became of your institutions, or 'quit'.
-
-(after arrival) > jump
-The era is over. 'learn more' or 'quit'.
-
-(after arrival) > learn more
-Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 158: 97   Medicine 110  Governance 95  Economy 88
-  Arrival,   AD 408: 106   Medicine 107  Governance 111  Economy 100
-Institutions
-  None founded.
-Crises while you were away
-  AD 163: the Antonine pestilence (severe, about 91 thousand dead; response: none)
-  AD 238: pestilence returns (catastrophic, about 211 thousand dead)
-
-
-(after arrival) > why medicine
-You have been away for 250 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
-
-(after arrival) > quit
-
-Run fingerprint (seed 116): c26e0b0bff6799e1
+Run fingerprint (seed 116): a3a50faeb5541b4a

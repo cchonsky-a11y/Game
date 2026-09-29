@@ -1,2 +1,2 @@
-seed 115, commands 4, arrived True, fingerprint d211969622b5c62e
-OK | no findings
+seed 115, commands 4, arrived False, fingerprint a919baa2dfbaffa8
+DEAD END | the run never jumped/arrived (last time AD 155-01, turn 1)

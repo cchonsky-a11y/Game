@@ -1,33 +1,81 @@
 choose workshop
+assess
 work
 end
 work
 end
-found circle
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-promise yes
-oversee circle
+repair coil
 work
 end
-oversee circle
+repair chronometer
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
+end
+repair chronometer
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+restore 60
+end
+end
+work consult
+end
+exchange 1300 denarii
+restore 60
+work consult
 end
 jump
 jump

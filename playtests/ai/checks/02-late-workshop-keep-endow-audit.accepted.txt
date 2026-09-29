@@ -1,73 +1,315 @@
 choose workshop
+assess
 work
 end
-start census
 work
 end
 work
 end
-found circle
-oversee circle
 work
 end
-oversee circle
 work
 end
-charter circle
-oversee circle
 work
 end
-promise yes
-oversee circle
+repair coil
 work
 end
-oversee circle
-start market
+repair chronometer
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
+repair chronometer
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 start physician
 work
 end
-oversee circle
 work
 end
-respond hospice
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
-start magistrates
 work
 end
-oversee circle
 work
 end
-oversee circle
 work
 end
-oversee circle
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+promise yes
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+found school
+oversee school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+charter school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
 work
 end
 status
+exchange 1300 denarii
+restore 60
+end
+exchange 1300 denarii
+restore 60
+end
 jump
-audit circle
-endow circle all
+audit school
 jump
 learn more
 why medicine
