@@ -1,0 +1,57 @@
+name: Build Self-Contained Test Game
+
+on:
+  push:
+    branches:
+      - claude/app-building-prompts-tl4ymh
+  workflow_dispatch:
+
+jobs:
+  build-test-game:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore Butterfly.sln
+
+      - name: Run unit tests
+        run: dotnet test Butterfly.sln --configuration Release --no-restore --verbosity normal
+
+      - name: Publish self-contained Linux build
+        run: |
+          mkdir -p test-artifact/game
+          dotnet publish src/Butterfly.Console/Butterfly.Console.csproj \
+            --configuration Release \
+            --runtime linux-x64 \
+            --self-contained true \
+            --output test-artifact/game
+          cp -R data test-artifact/game/data
+
+      - name: Smoke test published build
+        run: |
+          chmod +x test-artifact/game/Butterfly.Console
+          test-artifact/game/Butterfly.Console --seed 42 --inputs playtests/ai/scripts/06-do-nothing.txt --menu > test-artifact/smoke-test.txt
+          test -s test-artifact/smoke-test.txt
+
+      - name: Include test harness files
+        run: |
+          mkdir -p test-artifact/playtests/ai
+          cp -R playtests/ai/scripts test-artifact/playtests/ai/scripts
+          cp -R playtests/ai/live test-artifact/playtests/ai/live
+          cp playtests/ai/README.md test-artifact/playtests/ai/README.md
+
+      - name: Upload runnable game artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: butterfly-self-contained-linux
+          path: test-artifact
+          if-no-files-found: error
+          retention-days: 7
