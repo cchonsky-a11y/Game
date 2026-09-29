@@ -387,7 +387,7 @@ namespace Butterfly.Core
 
         // ---- the four beats -------------------------------------------------
 
-        private void BuildBeats(Arrival arrival)
+        internal void BuildBeats(Arrival arrival)
         {
             var text = Data.Content;
             var values = new Dictionary<string, string>
@@ -475,6 +475,11 @@ namespace Butterfly.Core
                 };
                 // Institutions without their own templates use the generic ones.
                 string template = text.Text.ContainsKey("discovery." + key) ? "discovery." + key : "discovery.generic." + state;
+                // L6 (tester 6): thriving because it became the camp you ordered, it is that camp now, not its old self
+                // (a thriving Grain Cartel was described as "still arguing for open markets").
+                if (outcome == InstitutionOutcome.Thriving && i.HasDrifted && i.DriftPath != null) template = "discovery.generic.thrivingAs";
+                // L10 (tester 2): the Circle's own thriving line mentions your charter; only if you gave it one.
+                else if (key == "circle.thriving" && !i.Chartered) template = "discovery.circle.thrivingUnchartered";
                 parts.Add(Cap(text.Template(template, v)));
                 // Your office and your parting words (P0-32).
                 if (i.DepartureOffice.Length > 0 && !i.Def.IsOwn) parts.Add(text.Template("discovery.office", new Dictionary<string, string>(v) { { "office", i.DepartureOffice } }));

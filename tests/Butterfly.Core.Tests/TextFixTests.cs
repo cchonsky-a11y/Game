@@ -206,5 +206,51 @@ namespace Butterfly.Core.Tests
             Assert.Contains(sim.Log.Events, e => e.Text.IndexOf("members of the guild", StringComparison.OrdinalIgnoreCase) >= 0
                                                || e.Text.IndexOf("your say in the guild", StringComparison.OrdinalIgnoreCase) >= 0);
         }
+    
+        private static string DiscoveryAfter(System.Action<Simulation> shape)
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.JumpForTests();
+            shape(sim);
+            var a = sim.Arrival!;
+            a.Beats.Clear();
+            sim.BuildBeats(a);
+            return a.Beats.Single(b => b.Name == "Discovery").Text;
+        }
+
+        [Fact]
+        public void AGuildThrivingAsTheCartelIsDescribedAsTheCartel()
+        {
+            // L6 (tester 6): "still arguing for open markets and honest coin. Its head is … Master of the Cartel."
+            string text = DiscoveryAfter(sim =>
+            {
+                var g = sim.World.Institution("guild");
+                sim.GrantStake("guild", 0.5);
+                g.Strength = 60; g.Loyalty = 80;
+                g.OrderCamp = 1; g.OrderForce = 1;
+                g.DriftPath = g.Def.DriftPaths[1];
+                g.HasDrifted = true;
+                Assert.Equal(InstitutionOutcome.Thriving, sim.OutcomeOf(g));
+            });
+            Assert.Contains("the Ostia Grain Cartel", text);
+            Assert.DoesNotContain("open markets", text);
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public void TheCirclesCharterIsMentionedOnlyIfItHasOne(bool chartered)
+        {
+            // L10 (tester 2): "keep a copy of your charter under glass" for a Circle never chartered.
+            string text = DiscoveryAfter(sim =>
+            {
+                var c = sim.World.Institution("circle");
+                sim.GrantStake("circle", 0.5);
+                c.Strength = 60; c.Loyalty = 80; c.HasDrifted = false;
+                c.Chartered = chartered;
+                Assert.Equal(InstitutionOutcome.Thriving, sim.OutcomeOf(c));
+            });
+            Assert.Equal(chartered, text.Contains("charter"));
+        }
     }
 }

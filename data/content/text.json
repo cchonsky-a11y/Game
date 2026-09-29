@@ -72,6 +72,8 @@
     "guild.dissolved": "Of the Merchants' Guild of Ostia nothing remains but a name carved on a warehouse lintel.",
     "guild.rogue": "The guild you backed is now {pathName}. {pathDescription} They know who you are, and they do not want you back.",
     "guild.corrupted": "The Merchants' Guild still has its hall at Ostia, but its treasury was emptied long ago and its seats are for sale. Its head is {leader}.",
+    "generic.thrivingAs": "{name}, which {how}, has become {pathName}, as you asked, and it thrives. {pathDescription} Its head is {leader}.",
+    "circle.thrivingUnchartered": "The Physicians' Circle of the Subura still meets by the fountain. They teach, argue about remedies, and still take in the district's sick. Its head is {leader}.",
     "generic.thriving": "{name}, which {how}, is still there and still itself. Its head is {leader}.",
     "generic.drifted": "{name}, which {how}, is now {pathName}. {pathDescription} Its head is {leader}.",
     "generic.captured": "{name}, which {how}, is now {pathName}. {pathDescription} Its head is {leader}.",
