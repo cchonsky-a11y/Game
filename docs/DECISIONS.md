@@ -383,3 +383,8 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Rule (PROPOSED P1-09):** during the absence, a reproducible capability carried by an institution you belong to rises one level per 20 years (tuning `capabilities.carriedYearsPerLevel`), reproducible → adopted → institutionalized; logged with the institution's leader as actor and your departure as cause.
 - Content: `capabilities.json` (carriers, echo lines for true valve seats), `people.json` (echoes), `invitations.json` (echoGuest).
 - Docs: SYSTEMS §11, tuning.json, P1_PROPOSALS P1-09. GDD Appendix A: add `capabilities.carriedYearsPerLevel` = 20 when Corey confirms P1-09.
+
+## 2026-10-03 — P1: the eight menu sections as view models
+- **Built:** `Simulation.ViewOf(section)` gives each of the eight sections (Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal) as Active / Available now / Blocked (with why) / Emerging / Archived, from the game's state. Civilization shows the capabilities your work touched and the next steps beside them, with their bottleneck and what they still need; the rest of the network stays hidden. A ready machine says "The machine is ready. You can leave now, or remain in Rome and continue your work." and nothing more.
+- **Console:** `view [section]`; the numbered menu is grouped under the sections ("Now · decide", "Projects · commissions", "Institutions · invitations", "Civilization · policy", "Journal · look", …), with the month's controls last.
+- No rule or number changed.

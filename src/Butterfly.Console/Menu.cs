@@ -83,7 +83,7 @@ internal sealed partial class ConsoleGame
         string M(double gold) => _sim.Money(gold);
 
         // Decisions waiting for you come first.
-        var decide = Group("Decide now");
+        var decide = Group("Now · decide");
         if (_sim.SeededChoiceOpen)
         {
             decide.Item2.Add(("the fountain", "choose fountain"));
@@ -105,12 +105,12 @@ internal sealed partial class ConsoleGame
             decide.Item2.Add(("decline", "office decline " + i.Key));
         }
 
-        var work = Group("Work");
+        var work = Group("Projects · odd work");
         if (att && w.PersonalActionTurn != _sim.Turn)
             foreach (var kind in Simulation.WorkKinds)
                 if (_sim.WorkAttention(kind) <= w.Attention) work.Item2.Add((kind + " (" + M(_sim.WorkPay(kind)) + ", " + _sim.WorkAttention(kind) + " Att.)", "work " + kind));
 
-        var shop = Group("Workshop");
+        var shop = Group("Projects · workshop");
         if (att && _sim.OwnsWorkshop)
         {
             if (_sim.OrdersLeftThisSeason > 0)
@@ -142,24 +142,24 @@ internal sealed partial class ConsoleGame
                 machine.Item2.Add(("buy the " + _sim.AureiText(buy) + " it still needs (" + M(_sim.AureiCost(buy)) + ")", "exchange " + F(Math.Ceiling(_sim.Denarii(_sim.AureiCost(buy)))) + " denarii"));
         }
 
-        var money = Group("Money changers");
+        var money = Group("Now · money changers");
         if (att && w.Aurei >= 1 && missing < 1 || att && w.Aurei >= 1 && _sim.MachineStepsDone < _sim.MachineStepsTotal)
         {
             if (w.Aurei >= 10) money.Item2.Add(("change 10 aurei", "exchange 10 aurei"));
             money.Item2.Add(("change all " + _sim.AureiText(Math.Floor(w.Aurei)), "exchange " + F(Math.Floor(w.Aurei)) + " aurei"));
         }
 
-        var projects = Group("Projects");
+        var projects = Group("Projects · public works");
         if (att)
             foreach (var p in _sim.AvailableProjects().Where(p => _sim.ProjectAuthorityBlocker(p) == null && _sim.ProjectGold(p) <= w.Gold && p.AttentionPerTurn <= w.Attention))
                 projects.Item2.Add((p.Id + " (" + M(_sim.ProjectGold(p)) + ")", "start " + p.Id));
 
-        var inventions = Group("Invent");
+        var inventions = Group("Knowledge · invent");
         if (att && w.ActiveInventions.Count == 0)
             foreach (var inv in _sim.Data.Content.Inventions.Where(x => _sim.InventionState(x) == "ready" && _sim.InventionGold(x) <= w.Gold))
                 inventions.Item2.Add((inv.Id + " (" + M(_sim.InventionGold(inv)) + ")", "invent " + inv.Id));
 
-        var commissions = Group("Work and invitations");
+        var commissions = Group("Projects · commissions");
         foreach (var c in _sim.OpenCommissions())
         {
             var d = _sim.CommissionDefOf(c);
@@ -172,11 +172,12 @@ internal sealed partial class ConsoleGame
             }
         }
 
+        var invitations = Group("Institutions · invitations");
         foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None))
         {
             var d = _sim.InvitationPathDefFor(p.Institution)!;
-            commissions.Item2.Add(("accept " + d.Inviter + "'s invitation", "invitation accept " + d.Institution));
-            commissions.Item2.Add(("decline " + d.Inviter + "'s invitation", "invitation decline " + d.Institution));
+            invitations.Item2.Add(("accept " + d.Inviter + "'s invitation", "invitation accept " + d.Institution));
+            invitations.Item2.Add(("decline " + d.Inviter + "'s invitation", "invitation decline " + d.Institution));
         }
 
         var inst = Group("Institutions");
@@ -210,7 +211,7 @@ internal sealed partial class ConsoleGame
             }
         }
 
-        var policy = Group(_sim.PolicyHold() ? "Policy" : "Advocate (no voice yet; " + M(_sim.AdvocacyCost()) + ", 2 Att. each)");
+        var policy = Group(_sim.PolicyHold() ? "Civilization · policy" : "Civilization · advocate (no voice yet; " + M(_sim.AdvocacyCost()) + ", 2 Att. each)");
         if (att && (_sim.PolicyHold() || _sim.AdvocacyCost() <= w.Gold))
         {
             string verb = _sim.PolicyHold() ? "policy" : "advocate";
@@ -223,14 +224,14 @@ internal sealed partial class ConsoleGame
                     }
         }
 
-        var priorities = Group("Priorities");
+        var priorities = Group("Civilization · priorities");
         if (att)
             foreach (var d in DomainInfo.All.Where(_sim.HasHold))
                 foreach (var p in new[] { "protect", "maintain", "accept" })
                     if (DomainInfo.TryParsePriority(p, out var pr) && w[d].Priority != pr)
                         priorities.Item2.Add((d.ToString().ToLowerInvariant() + " " + p, "priority " + d.ToString().ToLowerInvariant() + " " + p));
 
-        var leave = Group("Before you leave");
+        var leave = Group("Machine · before you leave");
         if (_sim.MachineReady)
         {
             if (w.Aurei >= 1) leave.Item2.Add(("deposit " + _sim.AureiText(Math.Floor(w.Aurei)) + " with the bank", "deposit " + F(Math.Floor(w.Aurei))));
@@ -238,14 +239,15 @@ internal sealed partial class ConsoleGame
             leave.Item2.Add(("jump", "jump"));
         }
 
-        var look = Group("Look (free)");
-        foreach (var (label, cmd) in new[] { ("status", "status"), ("news", "news"), ("institutions", "institutions"), ("machine", "machine"), ("workshop", "workshop"), ("inventions", "inventions"), ("projects", "projects"), ("help", "help") })
+        var look = Group("Journal · look (free)");
+        foreach (var (label, cmd) in new[] { ("status", "status"), ("news", "news"), ("people", "people"), ("ledger", "ledger"), ("sections", "view"), ("institutions", "institutions"), ("machine", "machine"), ("workshop", "workshop"), ("inventions", "inventions"), ("projects", "projects"), ("help", "help") })
             if (cmd != "workshop" || _sim.OwnsWorkshop) look.Item2.Add((label, cmd));
 
-        var turn = Group("Month");
+        var turn = Group("Now · month");
         turn.Item2.Add(("End Month", "end"));
         turn.Item2.Add(("fast-forward until something needs you", "wait"));
 
-        return new List<(string, List<(string, string)>)> { decide, commissions, work, shop, machine, money, projects, inventions, inst, policy, priorities, leave, look, turn };
+        // Grouped by the eight P1 sections (Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal).
+        return new List<(string, List<(string, string)>)> { decide, money, commissions, work, shop, projects, invitations, inst, inventions, policy, priorities, machine, leave, look, turn };
     }
 }

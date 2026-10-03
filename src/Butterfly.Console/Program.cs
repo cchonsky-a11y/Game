@@ -90,7 +90,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "view", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -192,6 +192,7 @@ internal sealed partial class ConsoleGame
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
+  view [section]                 the eight sections: now, projects, people, institutions, knowledge, civilization, machine, journal
   people                         the people you know, and how their lives stand now
   commission                     work people bring you: look at the problem (unpaid), then accept, counter or decline the terms
   log [n]                        the last n events
@@ -226,6 +227,7 @@ internal sealed partial class ConsoleGame
             case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "people": case "who": People(); return true;
+            case "view": case "section": View(arg); return true;
             case "ledger": Ledger(parts.Length > 1 && int.TryParse(arg, out var ln) ? ln : 12); return true;
             case "commission": case "commissions":
             {
@@ -608,6 +610,31 @@ internal sealed partial class ConsoleGame
             Console.WriteLine("  " + d.Name + ", " + d.Role + ". " + Capitalize(p.Status) + "." + (_sim.IsPersonAway(d.Id) ? " Laid up or away for now." : ""));
             Console.WriteLine("      household: " + d.Household + "; cares about " + d.CaresAbout + "; wants " + d.Goal + ".");
         }
+    }
+
+    /// <summary>P1 sections: active, available now, blocked (and why), emerging, archived.</summary>
+    private void View(string arg)
+    {
+        if (!Enum.TryParse<MenuSection>(arg, true, out var section) || arg.Length == 0)
+        {
+            Console.WriteLine("  Sections: " + string.Join(" · ", Enum.GetValues(typeof(MenuSection)).Cast<MenuSection>().Select(m => m.ToString().ToLowerInvariant() + " (" + _sim.ViewOf(m).Count + ")")));
+            Console.WriteLine("  Type 'view <section>', e.g. view people.");
+            return;
+        }
+        var v = _sim.ViewOf(section);
+        Console.WriteLine("== " + section);
+        void Part(string title, List<ViewItem> items)
+        {
+            if (items.Count == 0) return;
+            Console.WriteLine("  " + title + ":");
+            foreach (var i in items) Console.WriteLine("    " + i.Label + (i.Command.Length > 0 && i.Command != section.ToString().ToLowerInvariant() ? "   (" + i.Command + ")" : ""));
+        }
+        Part("Active", v.Active);
+        Part("Available now", v.AvailableNow);
+        Part("Blocked", v.Blocked);
+        Part("Emerging", v.Emerging);
+        Part("Archived", v.Archived);
+        if (v.Count == 0) Console.WriteLine("  Nothing here yet.");
     }
 
     private static string Capitalize(string s) => s.Length == 0 ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);
