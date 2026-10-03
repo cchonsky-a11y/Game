@@ -8,7 +8,7 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void CoreLibraryIsReferenced()
         {
-            Assert.Equal("P0 Butterfly Test", CoreInfo.Milestone);
+            Assert.Equal("P1 Playable Game Structure", CoreInfo.Milestone);
         }
     }
 }

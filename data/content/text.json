@@ -144,7 +144,7 @@
     "use.spirits": "surgeons clean wounds with distilled wine",
     "use.ward": "a fever ward keeps its sick apart and writes down every case",
     "changers.bills": "Traders pass written bills across the tables as readily as coin.",
-    "intro.start": "Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).",
+    "intro.start": "Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).",
     "changers.start": "At a table a man weighs coins on a little balance and bites them. You show him an aureus from your purse, and his eyebrows go up: {aureus} denarii, he says, the official rate, less his cut. The silver coins in his tray are about {silver}% silver, and he takes them without a second look. You're going to be doing this a lot.",
     "forges.start.partner": "Down by the Porta Trigemina the smith you've just paid is clearing space for a second forge, still swearing at his cracked bellows. He calls you 'partner' as if testing the word. Out at Ostia, people say, the Merchants' Guild runs the harbor under a man called Publius Aelius Sabinus."
   },
@@ -195,5 +195,12 @@
     "now.189": "You have come back into a sick city. The pestilence has returned this year; people speak through cloth, and at night the carts of the dead go out by the gates.",
     "now.251": "You have come back into a sick city. A new sickness of the eyes, the bowels and the throat is in every district this year, and at night the carts of the dead go out by the gates.",
     "251": "the Plague of Cyprian reaches Rome, a sickness of the eyes, the bowels and the throat that comes back year after year. At its worst five thousand die in a day. It is {label}: about {deaths} thousand dead, {share}% of Rome."
+  },
+  "opening": {
+    "_note": "Locked opening (Corey, P1 handoff 2026-10-02 §6): a non-travel systems test; story first; nothing about plague, jump economics, ranges or Echoes. The gold comes from the machine's components.",
+    "scene": "The machine stops screaming before you do.\n\nYou sit strapped in, sweating, your hands shaking on the armrests. It was a systems test. Nothing was supposed to go anywhere. The panels are dark and the controls are dead.\n\nYou open the hatch expecting the concrete floor of the test bay. You get dirt. A mule cart rattles past close enough to touch, and the driver shouts at you in Latin. You understand him.\n\nThank God I took that in college.\n\nAncient Rome. Not ruins. Alive.",
+    "gold": "The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out {aurei} aurei worth of it. Every piece will have to go back before the machine could ever run again.",
+    "money": "Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).",
+    "choice": "Two things on this street could use your money, and you can afford only one:"
   }
 }

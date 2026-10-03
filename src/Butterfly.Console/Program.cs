@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using Butterfly.Core;
 
-// The Butterfly Effect — P0 Butterfly Test, text console for human players.
+// The Butterfly Effect — P1 playable game structure, text console.
 // Usage: dotnet run --project src/Butterfly.Console -- --seed 42
 // Scripted (automated playtests): add --inputs <file> [--checks <file>]; see playtests/ai/README.md.
 // Add --continue to keep playing from the keyboard once the script's lines run out (resume a saved inputs file).
@@ -136,18 +136,15 @@ internal sealed partial class ConsoleGame
 
     private void Intro()
     {
-        Console.WriteLine("THE BUTTERFLY EFFECT — P0 Butterfly Test");
-        Console.WriteLine("========================================");
-        Console.WriteLine("Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the");
-        Console.WriteLine("machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.");
-        Console.WriteLine("You don't yet know what broke. Something is coming from the East within ten years.");
-        Console.WriteLine("Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.");
-        Console.WriteLine("Once you repair it, the machine can carry you forward, " + _sim.T.GetInt("jump.range.baseMin") + " to " + _sim.T.GetInt("jump.range.maxYears") +
-                          " years depending on how well you repair it. What you leave behind will go on without you.");
+        // The locked P1 opening (decided 2026-10-02): story first; nothing about plague, jump ranges or Echoes up front.
+        var text = _sim.Data.Content;
+        Console.WriteLine("THE BUTTERFLY EFFECT");
         Console.WriteLine();
-        Console.WriteLine("This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.");
+        foreach (var para in text.Template("opening.scene").Split(new[] { "\n\n" }, StringSplitOptions.None)) { Console.WriteLine(Wrap(para)); Console.WriteLine(); }
+        Console.WriteLine(Wrap(text.Template("opening.gold", new System.Collections.Generic.Dictionary<string, string> { { "aurei", F(_sim.MachineGoldNeeded) } })));
+        Console.WriteLine(Wrap(text.Template("opening.money")));
         Console.WriteLine();
-        Console.WriteLine("First, a choice. You can afford only one:");
+        Console.WriteLine(text.Template("opening.choice"));
         Console.WriteLine("  choose fountain  — " + _sim.Data.Content.Project("fountain")!.Description);
         Console.WriteLine("  choose workshop  — " + _sim.Data.Content.Project("workshop")!.Description);
         Console.WriteLine(_sim.Data.Content.Template("walk.intro.start"));
