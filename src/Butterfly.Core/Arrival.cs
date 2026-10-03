@@ -95,6 +95,8 @@ namespace Butterfly.Core
         public double AureiLeft { get; set; }
         public double AureiOnArrival => AureiCarried + AureiDepositReturned + AureiHoardFound;
         public double DenariiPerUnit { get; set; } = 25;
+        /// <summary>P1 echoes surfaced this arrival, by kind: "technical:id", "unintended:id", "person:id", "access:institution".</summary>
+        public List<string> P1Echoes { get; } = new List<string>();
 
         /// <summary>
         /// Learn more: the Index before and after, institution outcomes and the crises that struck.

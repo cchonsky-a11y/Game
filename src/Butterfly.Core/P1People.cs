@@ -23,6 +23,8 @@ namespace Butterfly.Core
         public string Opinion { get; }
         public string Interest { get; }
         public string Voice { get; }
+        /// <summary>What the inventor finds of this person on the first arrival: the first whose requirements hold.</summary>
+        public IReadOnlyList<KeyValuePair<IReadOnlyList<string>, string>> Echoes { get; }
 
         public PersonDef(JsonObject o)
         {
@@ -39,6 +41,9 @@ namespace Butterfly.Core
             Opinion = o.Str("opinion");
             Interest = o.Str("interest");
             Voice = o.Str("voice");
+            Echoes = o.Has("echoes")
+                ? o.Arr("echoes").Cast<JsonObject>().Select(x => new KeyValuePair<IReadOnlyList<string>, string>(x.Arr("requires").Cast<string>().ToList(), x.Str("text"))).ToList()
+                : new List<KeyValuePair<IReadOnlyList<string>, string>>();
         }
     }
 

@@ -39,6 +39,8 @@ namespace Butterfly.Core
         public InvitationStepDef Sponsor { get; }
         public InvitationStepDef Admit { get; }
         public string DeclineText { get; }
+        /// <summary>What the inventor finds on arrival if they were a guest but never joined (present conditions only).</summary>
+        public string EchoGuest { get; }
 
         public InvitationPathDef(JsonObject o)
         {
@@ -56,6 +58,7 @@ namespace Butterfly.Core
             Sponsor = new InvitationStepDef(o.Obj("sponsor"));
             Admit = new InvitationStepDef(o.Obj("admit"));
             DeclineText = o.Str("decline");
+            EchoGuest = o.StrOr("echoGuest", "") ?? "";
         }
     }
 

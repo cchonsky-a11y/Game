@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' (an advance made by the person, not the player; 'distorted' marks a bad copy). 'known' says when the player knows them. Chances PROPOSED P1-08.",
+  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' (an advance made by the person, not the player; 'distorted' marks a bad copy). 'known' says when the player knows them; 'echoes' are what the inventor finds of them on the first arrival (the first whose requirements hold; at most two people an arrival). Chances PROPOSED P1-08.",
   "people": [
     {
       "id": "Felix", "name": "Felix", "known": "commission:cellarpump:Offered",
@@ -12,7 +12,11 @@
       "status": "known on the quays; a member of the guild, not yet an officer",
       "opinion": "a good fitting is worth more than a clever one",
       "interest": "the Blues at the Circus, loudly",
-      "voice": "quick, warm, always halfway to the next errand"
+      "voice": "quick, warm, always halfway to the next errand",
+      "echoes": [
+        { "requires": ["access:guild:Member"], "text": "In the guild hall at Ostia the old contracts on the wall have one witness over and over: Felix. The fitters call him Felix who connected the shops. One says he once sponsored a foreign craftsman; no one remembers the name." },
+        { "requires": ["access:guild:KnowsMember"], "text": "On the quays at Ostia a ship-fitter's yard has FELICIS cut over the gate. His grandsons run it, and argue about the Blues." }
+      ]
     },
     {
       "id": "Cassianus", "name": "Cassianus", "known": "commission:cellarpump:Offered",
@@ -25,7 +29,11 @@
       "status": "comfortable, and worried about staying so",
       "opinion": "a foreigner who fixes things is worth knowing, and worth watching",
       "interest": "old Greek coins",
-      "voice": "careful, counts aloud, repeats a price back to make sure"
+      "voice": "careful, counts aloud, repeats a price back to make sure",
+      "echoes": [
+        { "requires": ["life:warehouse-fire"], "text": "The warehouses under the Aventine were rebuilt in brick after a fire, long ago. The cellar under the third one is still dry." },
+        { "requires": ["commission:cellarpump:Done"], "text": "Cassianus's warehouses under the Aventine belong to his daughter's family now. The cellar is dry." }
+      ]
     },
     {
       "id": "Diodoros", "name": "Diodoros", "known": "life:warehouse-fire",
@@ -38,7 +46,10 @@
       "status": "a porter",
       "opinion": "the men who know how a thing works are never the ones paid for it",
       "interest": "dice, with no luck",
-      "voice": "few words, Greek when he is angry"
+      "voice": "few words, Greek when he is angry",
+      "echoes": [
+        { "requires": ["life:diodoros-deliveries"], "text": "A carters' yard by the Porta Trigemina belongs to a family from Antioch. The man who started it, they say, could only use one hand." }
+      ]
     }
   ],
   "life": [

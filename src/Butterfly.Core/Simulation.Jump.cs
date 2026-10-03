@@ -103,6 +103,7 @@ namespace Butterfly.Core
             JumpsMade++;
             _eraStart = Now.YearFraction;
             SavingsOnArrival(arrival);
+            CarryCapabilities(years, depart.Id);
 
             arrival.ArrivalYear = Now.Year;
             foreach (var d in DomainInfo.All) arrival.SubScoresAfter[d] = SubScore(d);
@@ -457,6 +458,8 @@ namespace Butterfly.Core
             }
             // What your answers to Rome's choices left behind (P0-33).
             foreach (var mark in EventMarks(later)) personal += " " + mark;
+            // The people you knew (P1 echoes).
+            foreach (var line in PeopleEchoes(arrival, later)) personal += " " + line;
             arrival.Beats.Add(new ArrivalBeat("Personal echo", personal));
 
             // 4. Discovery — what the institutions became.
@@ -503,6 +506,7 @@ namespace Butterfly.Core
                 parts.Add(text.Template("discovery.none", values));
                 keys.Add("none");
             }
+            parts.AddRange(WorkEchoes(arrival));
             parts.AddRange(SavingsLines(arrival, values));
             institution.AtArrival = string.Join(", ", keys);
             institution.Beat = "Discovery";

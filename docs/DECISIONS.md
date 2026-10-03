@@ -377,3 +377,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Consequences:** while Felix is laid up the guild's invitations pause (the inviter isn't "willing to take the risk") and he introduces no one; the bad copy moves true valve seats to adopted, marked distorted, with Cassianus as actor, not the player. Each life event is logged with its causes and actors.
 - **Console:** `people` (or `who`) lists the people you know and how they stand now; life events show in the month's news.
 - Docs: SYSTEMS §10, P1_PROPOSALS P1-08. Tests: content integrity, who you know, the fever pausing invitations, the fire, the bad copy, determinism, the console view.
+
+## 2026-10-03 — P1: the jump's echo mixture
+- **Built:** technical echoes (a capability's level on arrival, with authored lines per level), unintended echoes (bad copies, and who they're blamed on), personal echoes (people you knew, first arrival, at most two) and an institutional echo (the guild's book of suppers, if you were a guest who never joined). All present conditions; no causal chains.
+- **Rule (PROPOSED P1-09):** during the absence, a reproducible capability carried by an institution you belong to rises one level per 20 years (tuning `capabilities.carriedYearsPerLevel`), reproducible → adopted → institutionalized; logged with the institution's leader as actor and your departure as cause.
+- Content: `capabilities.json` (carriers, echo lines for true valve seats), `people.json` (echoes), `invitations.json` (echoGuest).
+- Docs: SYSTEMS §11, tuning.json, P1_PROPOSALS P1-09. GDD Appendix A: add `capabilities.carriedYearsPerLevel` = 20 when Corey confirms P1-09.

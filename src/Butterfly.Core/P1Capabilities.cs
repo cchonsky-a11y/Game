@@ -36,6 +36,10 @@ namespace Butterfly.Core
         public string Bottleneck { get; }
         public string Leap { get; }
         public IReadOnlyList<string> Prerequisites { get; }
+        /// <summary>Institutions whose members carry a reproducible capability forward during an absence (P1-09).</summary>
+        public IReadOnlyList<string> Carriers { get; }
+        /// <summary>What the inventor finds on arrival, by level name (and "distorted" for bad copies).</summary>
+        public IReadOnlyDictionary<string, string> Echo { get; }
 
         public CapabilityDef(JsonObject o)
         {
@@ -46,6 +50,9 @@ namespace Butterfly.Core
             Bottleneck = o.Str("bottleneck");
             Leap = o.Str("leap");
             Prerequisites = o.Arr("prerequisites").Cast<string>().ToList();
+            Carriers = o.Has("carriers") ? o.Arr("carriers").Cast<string>().ToList() : new List<string>();
+            var e = o.Has("echo") ? o.Obj("echo") : null;
+            Echo = e == null ? new Dictionary<string, string>() : e.Keys.ToDictionary(k => k, k => e.Str(k));
         }
     }
 

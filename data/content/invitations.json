@@ -30,6 +30,7 @@
         "category": "InstitutionsPolitics",
         "scene": "The guild takes you in. You swear by the guild's genius before the shrine in the hall, pay your entry, and hear what you owe: dues each year, your place at the suppers, a share when a member is buried, help when a member is in trouble, and the guild's word in your disputes. Felix pours the first cup."
       },
+      "echoGuest": "The guild at Ostia keeps a book of its suppers. Your name is in it as a guest, in Felix's hand, and then not again.",
       "decline": "You send word to Felix that you can't come. He doesn't ask again for a while."
     }
   ]

@@ -1898,6 +1898,12 @@
       "ref": "P1_SCOPE Scene routing: weight left to a scene past the soft cap (PROPOSED P1-01, from the P1 Sprint 1 package)"
     }
   },
+  "capabilities": {
+    "carriedYearsPerLevel": {
+      "value": 20,
+      "ref": "P1 echoes (decided 2026-10-02): during an absence, a reproducible capability carried by an institution you belong to rises one level per this many years, up to institutionalized (PROPOSED P1-09)"
+    }
+  },
   "invitations": {
     "inviterPatienceMonths": {
       "value": 6,
