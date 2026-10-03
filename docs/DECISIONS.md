@@ -324,3 +324,22 @@ Test first: free slice ending at arrival vs. extending ~20 minutes into Era 2.
 - **Snapshot test added** (BUILD_GUIDE §8): a fixed reference playthrough (seed 42, the workshop, the guild and the Circle, generous answers, both jumps) must produce the same log hash; a deliberate rule change updates the hash in tests/Butterfly.Core.Tests/SnapshotTests.cs with a note here.
 - **Playtest kit updated** (playtests/kit): the numbered menu in the opening line, the two jumps and the walk, what to watch for (early founding, discovering free markets, orders vs work, the menu), and the batch-gate status. The P0 order of work now moves to step 3: five human testers.
 
+
+## 2026-10-02 — P0 complete; the project moves to P1 (Corey, via the handoff of 2026-10-02)
+Source: `docs/handoff/2026-10-02/` (master handoff, decision log, technology ladder, P1 status, test evidence). Where these conflict with older documents, the newer owner decisions win and are synchronized here.
+- **Phase:** P0 is done. The five-human test is **deferred to a later graphical milestone** (feedback on a console would not represent the game). P1 = playable game structure / vertical-slice architecture. PROTOTYPE_SCOPE.md rewritten for P1; the P0 scope is archived at `docs/archive/PROTOTYPE_SCOPE_P0.md`.
+- **Calendar:** 1 turn = 1 month, fixed. No player-facing turn-length selector. Durations in months. Machine assessment 2 months.
+- **Attention:** 4 a month. Spending the last Attention never ends the month. Explicit **End Month**. Fast-forward is opt-in and stops on meaningful interruptions.
+- **Institutions:** stake buying is retired from the player-facing game. Access is relationship-first: aware → knows member → guest → invited back → sponsored → member → office, through the five-part invitation gate. Institutions bring obligations, not buffs.
+- **Work:** generic consulting is replaced by commissions with explicit terms. Negotiation can fail. A clean ledger.
+- **Technology:** a hidden capability network with Roman-baseline checks; Grand Challenges; theory separate from capability.
+- **Narrative:** "say it once"; the banned narrator patterns; concrete Roman speech; Roman life as a primary pillar; the new opening; the machine's gold from its components; the quiet R-17 mystery.
+- **Scene pacing:** a deterministic router; a third consecutive scene of one category is deprioritized (P1 Sprint 1 package, applied; numbers in tuning `scenes.*`).
+- **Menus:** Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal.
+- **Evidence:** the 10×10, 100-critic and 10×1000 reviews are modeled persona reviews; seeds 611–620 were AI blind testers. None is human testing.
+
+### Provisional readings, awaiting Corey's confirmation (P1_PROPOSALS)
+Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to reverse.
+- **P1-02 Durations:** keep calendar time. A P0 duration of N two-month turns becomes 2N months, except where Corey set a number (machine assessment: 2 months). The era stays AD 155–175 (240 months). With 4 Attention a month, Attention over the era doubles (960 against 480). The P0 rule "demand ≥ 1.4× supply" is not retuned; the batch report shows the new ratio.
+- **P1-03 Stakes during migration:** an institution migrated to the invitation path derives the standing its P0 gates read from membership and office (member = influence, officer = voice, head = control) instead of a purchased stake. Not yet built; one institution at a time.
+- **P1-04 Jump range:** stays 25–60 years until Corey decides; the live session's AD 164 → 247 (83 years) exceeds the cap.

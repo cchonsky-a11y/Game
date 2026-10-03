@@ -1,100 +1,55 @@
-# PROTOTYPE_SCOPE.md — Current Milestone: P0 Butterfly Test
+# PROTOTYPE_SCOPE.md — Current Milestone: P1 Playable Game Structure
 
-> This file defines the **only** work in scope right now.
-> VISION.md and SYSTEMS.md describe the long-term game; they are **not** a build list.
-> If something is not listed under "In scope," do not build it, even if other documents describe it.
+> This file defines the **only** work in scope right now. It replaces the P0 scope (kept at `docs/archive/PROTOTYPE_SCOPE_P0.md`).
+> Decided by Corey (handoff of 2026-10-02, `docs/handoff/2026-10-02/`): P0 is complete. The five-human test is deferred to a later graphical milestone. The project is in **P1**.
+> VISION.md and SYSTEMS.md describe the long-term game; they are not a build list.
 
-## The question P0 must answer
-Do players feel their actions changed the world they return to, and want to see what happens next?
+## The P1 target
+A fresh player can **arrive in AD 155 → establish themselves → form recurring relationships → complete explicit paid work → begin a Grand Challenge → earn institutional access through people → prepare the machine → make a meaningful jump → see persistent consequences**, through the intended game structure rather than ad hoc console flow.
 
-Target tester sentence (unprompted): *"The plague hit harder because I left before the fountain was fixed, and the order I founded turned into something I didn't want."*
+P1 is architecture, not content volume. The P0 executable keeps running while its systems migrate one at a time. Every migrated system replaces its P0 version; old and new never both remain player-facing.
 
-## Deliverable
-- A **text-based** prototype: no graphics, no Unity.
-- A **C# class library targeting .NET Standard 2.1** (usable later inside Unity) containing the simulation.
-- A **console app** that runs the library for a human player.
-- A **small batch runner** that plays the scenario automatically with scripted strategies.
+## Locked rules for P1 (Corey)
 
-## Scenario
-Rome, AD 155. One region. The player makes 8–12 meaningful decisions over roughly 20 in-game years, faces the plague, repairs the time machine, then jumps 25–60 years forward and receives a four-beat arrival, walks around the Rome they find, and may jump once more to see how it aged.
-
-## In scope
-
-| Area | P0 version |
+| Area | Rule |
 |---|---|
-| Determinism | Seeded random generator; same seed + inputs = same result |
-| Event log | Immediate causes, actors, effects (SYSTEMS.md §1); a `why <thing>` console command for current conditions only |
-| Time | Turns in months or years; per-year simulation; one coarse-mode jump in decade steps |
-| P0 pacing (**P0-only**, not in SYSTEMS.md) | **2-month turns, 120 per era** (AD 155–175; each era is 20 years; 2-month turns decided 2026-09-28, were 3). The player can change the turn length at any time with `turns <1|2|3>` (SYSTEMS §2; Attention stays 4 a turn and multi-turn work keeps its turn counts; the era ends by the calendar). **End turn** advances exactly one turn; **Wait** advances until something needs the player (an open prompt, news that turn, an affordable new investment, or the end of the era). Only turns where no action is possible (no free Attention and no open prompt) pass on their own; in the console, a choice that uses the last Attention ends the turn by itself unless debt can still be paid down (decided 2026-09-28). At game start the console says: "This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there." Attention costs are tuned so total demand is at least 1.4× supply (120 × 4 = 480; was 1.5×, loosened 2026-09-28 with 2-month turns). Demand counts every project once, every institution step (found, charter, audit, endow), a full mentoring commitment per institution, the oversight needed to hold loyalty, active membership (two meetings a year) in one institution per domain, one plague response, and one personal action per turn |
-| Care domains | **3 only:** Medicine, Governance, Economy |
-| Priorities | Protect / Maintain / Accept Risk, available only for domains where the player has a voice (25% stake) in an institution that maintains it. Other domains follow Rome's real history until the player can influence them; priorities act relative to that history, scaled by the player's sway (SYSTEMS §7) |
-| Projects | Public projects (magistrates, census, night watch, market, mint audit, road) need 10% of an institution in their domain; quarantine rules need 10% of a Medicine or Governance institution, or only membership once the first plague warning has come (decided 2026-09-28). 3–4 templated projects per domain (Economy 5, with the mint audit; one more each added 2026-09-28; gold ×1.5 except the hour-one choice; an institution you have a voice in pays a quarter of a project in its domain) (e.g., repair the fountain, fund a physician, free prices at the market, patronage for a senator) |
-| Economic policy | Set through a Governance institution the player has a voice in, scaled by sway: coinage, prices, property, taxes, each Austrian / as history / interventionist (SYSTEMS §9). Austrian stances are better but provoke backlash; interventionist stances build malinvestment that ends in a **boom-bust crisis** with three visible warnings (SYSTEMS §6). Without a voice the player can **advocate** a stance (gold, 2 Attention; small sway, more with memberships and a faction office; only while in Rome; decided 2026-09-28). Coinage sets inflation: prices rise each year under Rome's own slow debasement, faster with debasement, not at all with sound coin (SYSTEMS §9). Near half of Rome's economic decline, and some of Governance's, is the coin's: sound coin defended after departure spares it, debasement hastens it, and the arrival shows the coin (decided 2026-09-28) |
-| Expectations and debt | SYSTEMS.md §6: expectation rule, 5% compounding, tiers, 1.5× paydown |
-| Crisis | The plague, with **3 visible warning stages** and branching outcomes (directing a response needs 10% of a Medicine or Governance institution; otherwise Rome responds as history did), on its historical dates (warnings AD 165–166, outbreak late 166; the player changes how hard it hits, not when; decided 2026-09-28), and its historical recurrences during an absence, AD 189 and the Plague of Cyprian (about AD 251), also on their dates (built 2026-09-28); the economic bust (from intervention), also with 3 visible warnings |
-| Institutions | **9, three per domain:** two established rivals the player buys into (Medicine: the Physicians' Circle, the Tiber Island sanctuary; Governance: the Caecilian and Junian factions; Economy: the Merchants' Guild of Ostia, the banking house of Octavius) and one the player can found (the School of the Fountain, the Club of the Aventine, the trading house of Menodora). Influence grows with time and gold: seniority adds 1% a year of paid-up membership (up to 25%), and newcomers pay a premium on stake (×3, fading to ×1 over 5 years). Each established one has a requirement for joining, an entry fee, and annual dues that grow with the player's stake (SYSTEMS §7). Stakes from 1%: 10% influence (and the way to office, where seniority keeps growing toward control), 25% voice, 50% control; founding costs ~18% of buying control (found small, then grow it; decided 2026-09-28), starts weak and may fail, and each founded institution has its own power (the school softens the plague, the club carries your policy, the house pays a dividend and eases famine); members below 10% pay half dues and count a little after you leave, and several memberships make projects cheaper and Rome readier for plague; rivals push back as an institution takes more of its domain: the player's own from 20% of the domain, an established one past its starting share (SYSTEMS §7). Each with a named leader, loyalty, decay per SYSTEMS.md §7, and **2 pre-authored drift paths** (no general identity engine) |
-| Money (P0) | Two currencies (decided 2026-09-28): everyday **denarii** (1 aureus = 25 denarii in AD 155) and **gold aurei**, whose price in denarii rises with the price level (history unless coinage policy changes it). Exchange at the money changers is an action (1 Attention, a fee each way). You arrive with a purse of scavenged aurei; the machine takes aurei back. Across the jump, the machine carries a small purse; more gold can be deposited with the banking house (interest, risk of failure or embezzlement) or buried (risk of discovery); the rest is lost; the arrival reveals the outcome |
-| Gold | No passive income: work (odd / craft / consult: more gold for more Attention), owned property (workshop, warehouses) scaled by Economy, the player's share of institution surpluses, and memberships (each established institution the player belongs to raises work pay 10%). Work income is taxed (10%). Institutions pay their part of the player's priority upkeep plus their own running cost; the player never pays domain upkeep and covers their stake's share of institution shortfalls |
-| Institution gold | Institutions hold gold given as endowments. **Only in the 30 years after departure:** holdings grow at the region's economic growth rate (0–1.5%/yr by Economy level; no fixed-rate compounding); institutions pay down debt in their own domain at the 1.5× premium (loyal: in full; drifted: partially; rogue: nothing). Actions: **endow** an institution with any amount of gold (the minimum endowment makes it endowed) and found an **audit charter** (costs gold). Jump preparation offers paying down debt directly, endowing an institution, and founding an audit charter |
-| Institutional corruption | Checked each decade in the 30-year window. Chance = base hazard × exposure (small ×1, large ×2) × (1 − audit charter 0.5) × (1 − leader integrity: honest 0.3, average 0, venal −0.3). Minor / Major / Total (lose 25% / 50% / 100% of holdings; payments reduced / stop / stop; small / moderate / large Governance debt; Total makes the institution Captured or Rogue). Weights: unprotected 40/40/20, audited 70/25/5, shifted by integrity. Separate from loyalty. Each leader has a pre-authored integrity trait. The pre-jump briefing shows corruption risk (Low / Medium / High) and potential severity, never the outcome; the arrival's Discovery beat reveals any corruption and its level |
-| Attention | 4 per turn; spent on projects, buying into or directing institutions, attending their meetings, overseeing an institution, economic policy, or one personal action. Also test **multi-turn commitments** as an option |
-| Seeded choice | The hour-one fountain-or-workshop choice |
-| Promise | One promise from an institution leader that conflicts with jump timing |
-| Inventions (P0) | An **invention tree** of **12 inventions** in four branches of three tiers (decided 2026-09-28): mechanics (wheelbarrow → padded horse collar → water-driven trip hammer), accounts (double-entry bookkeeping → bills of exchange → a public accounts audit), hygiene (soap and boiled linen → distilled wine for wounds → a fever ward with case records), workshop (treadle lathe → water-powered bellows → blast furnace; each raises the workshop's income modestly, +10% / +15% / +20%). Every invention names the institution(s) it wins standing in, with stake and loyalty that vary by invention, covering all six established institutions; the list shows each payoff. Each after the first in its branch needs the one before it; the whole tree is visible, locked ones marked. Not the Knowledge Web (no diffusion or absorption). Each needs something from Rome (the workshop, a membership, a finished project) and pays off in income, standing (leader loyalty) and influence (stake). Made once each. No visibility or anachronism risk (decided 2026-09-28; a first version, to be fleshed out later) |
-| Time machine (P0) | A full **assessment** of the machine comes first and reveals what is wrong (decided 2026-09-28). Then a repair track of **9 small steps** in three systems (coil housing, coolant, chronometer); each step costs a little gold and Attention and needs something from Rome (a membership or a finished project), or more gold instead. **All 9 are required to jump** (decided 2026-09-28; to be built out later), and all the gold the inventor scavenged from the machine at the start must go back in (decided 2026-09-28). Plus **3 optional upgrades** (gild the coil contacts, grind a sighting lens, balance the flywheel) that lengthen the jump. No fuel puzzle, repair tiers or malfunctions |
-| Jump | Player chooses when to leave once the machine is repaired. **Two jumps (decided 2026-09-28, option A):** after the first arrival the player may jump once more at once, with no second era to play; the machine stays repaired and the range starts over from the repairs and upgrades. The distance is drawn at departure (seeded, 5-year steps) within a range set by the repairs (25–40 years), time in the era (+5 per 5 years beyond the first 5, up to +10) and upgrades (+5 each), capped at 60; the briefing shows the range, not the result (decided 2026-09-28). Simulated in decade steps, with a final half-decade step when needed |
-| Echoes | **3 specific elements** (e.g., the fountain, the physicians' circle, the broken or kept promise). The seeded choice is always one of them |
-| Arrival | Text version of the four beats: recognition, wrongness, personal echo, discovery. **Walk around Rome** at every arrival, including the first (decided 2026-09-28): `visit market | changers | forges | curia | subura` shows what is there now and, after a jump, what changed since you left, in words and numbers (prices and wages, the aureus and the coin's silver, the workshop and your inventions in use, the Curia, the fountain and the population); present conditions only. Optional `learn more` shows the Index and institution outcomes. **No causal chains after the jump** |
-| Index | Geometric mean over the 3 domains, before and after the jump |
-| News (P0) | A free `news` command (decided 2026-09-28): the talk of the Forum (history's dated news of Rome, AD 155–175: the emperors, Galen, the Parthian and Danube wars, Marcus's auction; hand-written, text only, changes nothing), local talk on your street (invented, one item every 4 months plus the festivals in their month; talk about the player's own world first: the hour-one choice, their institutions and leaders, the plague and prices reaching the street; each heard once), what befell Rome in the past year (world events from the log, never the player's own), and the market (the aureus, prices, the coin's silver). A new item shows as a headline on the turn that covers its date. Historical figures appear only in the news, never as people to talk to. History's news stops after a jump |
-| Lasting mark (**decided 2026-09-28; built**) | The exploration runs showed the jump erased most differences between players (see playtests/explore-report.md). Effects must survive the jump: a slower pull back toward history, more of the departure lead kept, stronger upkeep by surviving institutions, drift that can show on the first arrival; Austrian stances compound, and an interventionist policy left standing busts at most once per absence (amounts in P0_PROPOSALS P0-30) |
-| Tradeoffs on existing actions (**decided 2026-09-28; built**) | Quarantine rules hurt trade at Ostia (Economy, the guild's loyalty); labor-saving inventions cost Governance (unrest) and the trades' goodwill; the two factions are rivals (joining one makes the other obstruct your public projects, and the 10% lock-out applies to every purchase and to seniority); consulting ties you to the rich (Demetria's and the poor's regard); endowing speeds drift toward power (P0-31) |
-| Institution camps and offices (**decided 2026-09-28; built 2026-09-28; leaders' requests built with the decision events**) | Each institution's two drift paths are visible as **camps**; attending a meeting is a **vote** for one camp, and the votes decide which camp leads when you leave. **Offices** you can rise into, with period titles: the guild: member → quaestor or curator → decurio → **quinquennalis** (elected every 5 years), with **patronus** open to outsiders; the bank: depositor → institor → **socius** → head; the factions: **cliens** → **amicus** → **consilium** member (a foreigner's ceiling); the Physicians' Circle: medicus → senior → **archiater**; the sanctuary: donor → **benefactor** → **aedituus** (the ceiling); your own: founder and head (scholarch, magister, senior partner). Office needs stake, seniority, the leader's regard and a vacancy or vote; it brings weight and powers and costs Attention each turn. **Last orders** at departure back a camp and, from the head's seat (or your own institution), name a successor; their weight scales with office, stake, the leader's loyalty and your voting record. Leaders make requests with costs (P0-32) |
-| Decision events (**decided 2026-09-28; built**) | Six dated choices from Rome's history, each with a cost: the Tiber flood (161), Galen's arrival (162), the Parthian war levy (162), Marcus's palace auction (169), the invasion scare (170), the late grain fleet (172); plus four leaders' requests to members (Varro's praetor, the sanctuary's new wing, the guild's grain arrangement, the bank's treasury loan). Answered with `decide <option>`; unanswered, one lapses to its last option after 3 turns or at departure. An answer you made yourself leaves a **mark** in Rome that the arrival's Personal echo shows (up to 2 an arrival, aged on the second; present conditions only). Answers win favor in the institutions they touch, and stake in those you belong to; each has a style (generous, profit, principled, loyal) and they **stack**: flood relief makes quarantine cheaper, sponsoring Galen or the clinic softens the plague, the grain arrangement makes the late fleet worse, profiteering twice turns the street against you and three generous answers win it (decided 2026-09-28) (P0-33, P0-36) |
-| Workshop (**decided 2026-09-28; built**) | Once you own a share of it: orders each season (ship fittings for the guild, tools for builders, instruments for physicians, ironwork for a senator; `take <order>`, one a season, two with 2+ apprentices; each takes 2–3 Attention and pays less per Attention than odd work, but brings standing and effects: trimmed 2026-09-28), the smith Tertius as a person with ambitions (he asks to sell your designs, AD 163, and for a forge on the river, AD 168, which builds the works) and a regard for you, and free, paid apprentices (never enslaved, SYSTEMS §14; `apprentice hire`) who raise output and carry your techniques after you leave; **a ladder of sizes** (decided 2026-09-28, Corey: upgrade the workshop, not only invent; `expand`): smithy → workshop with a yard (needs guild or bank membership) → works on the river (a water right: 10% of a Governance institution, or 10% of the guild) → foundry (the water-powered bellows; rare but reachable, decided 2026-09-28), each for gold, Attention and a few turns, taking more and better orders (the foundry gets public-works contracts) and more apprentices, with yearly upkeep (an upkeep you can't pay shrinks it a size); they, the size, the smith's regard and the Economy decide what you find at the forges on arrival: a street of forges, a workshop still working, or a stable (P0-34) |
-| Text | Hand-written templates only |
+| Calendar | **1 turn = 1 calendar month**, fixed. No player-facing turn-length choice. Durations are authored in months. Machine assessment takes 2 months. The era still runs AD 155–175 by the calendar. |
+| Attention | 4 a month. Future commitments are visible; no silent overbooking. **Spending the last Attention never ends the month.** **End Month** is the normal advance. An optional fast-forward stops on meaningful interruptions. |
+| Menus | Eight sections: **Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal**. Depth is organized, not flattened. Within lists: Active / Available now / Blocked / Emerging / Archived. |
+| Scene pacing | Eight scene categories. After two consecutive meaningful scenes of one category a third is strongly deprioritized unless the player explicitly stays focused. World interruptions are never suppressed. A deterministic router, not a writing guideline. |
+| Work and money | No generic consulting grind. Work grows: encounter → help/diagnosis → prototype → paid commission → repeat work → scaled opportunity. Before substantial work starts, the game states who pays, who pays for materials, any profit share, self-funded R&D, or a favor. No invisible free labor. Negotiation can fail. A clean **ledger** records money. |
+| Institutions | No buying stakes. Access goes **Aware → knows a member → guest → invited back → sponsored candidate → member → office**. A forward invitation needs a specific inviter, an existing relationship, relevant work in that domain, demonstrated usefulness, and an inviter willing to take the social risk. Fame alone never qualifies. Institutions bring obligations (dues, meals, mutual aid, funerals, disputes, standards), not buffs. |
+| Technology | A hidden **capability network**, not a tech tree. Theory is tracked separately from demonstrated, prototype, reproducible, manufacturable, economical, adopted and institutionalized. **Roman baseline first:** never "invent" what Rome already had; formalize, improve, combine, scale or standardize it (`docs/handoff/2026-10-02/03_TECHNOLOGY_CAPABILITY_LADDER.md`). Small problems prove principles; **Grand Challenges** change capability. Once a bottleneck is understood, stop the micro-scenes. |
+| People | Recurring characters have a goal, a vulnerability, loyalties, rivals, a household, opinions and a life offscreen. They can cancel, fall ill, quarrel, copy an idea, leave, fail or improve on it. |
+| Narrative | **Say it once:** scene → necessary state change → choices. No narrator commentary after a line ("That lands.", "That changes things." and the rest of the banned list in the master handoff §7). No clipped title-card fragments. Romans speak concretely; the inventor does the abstraction. Roman life (households, baths, religion, patronage, markets, festivals, games, law, class) is a primary pillar, woven into routine. |
+| Opening | "The machine stops screaming before you do." A non-travel systems test, then dirt, a mule cart, Latin: "Ancient Rome. Not ruins. Alive." Nothing about plague, jump economics, ranges or Echoes up front. The machine's gold is scavenged from its components. |
+| Machine | Support systems around an intact Temporal Field Core. The quiet R-17 mystery is not explained early. A ready machine says: "The machine is ready. You can leave now, or remain in Rome and continue your work." No hidden gate against early jumps. |
+| Jump | The payoff: physical, personal, institutional and unintended echoes, distortions and failures. The player reconstructs the links; `why` reveals details. |
+| Early reputation | For about six months the inventor is socially minor; no senators or imperial plots early. |
+
+## Order of work (master handoff §25)
+1. P1 Sprint 1 foundation (menu sections, scene router, project terms, ledger, invitation access). **Done.**
+2. Fixed 1-month turns, no normal auto-end, explicit End Month, fast-forward that stops on interruptions.
+3. Pacing state, ledger, projects and institution access in `World`.
+4. One real paid commission end-to-end (encounter → terms → stages → scenes → ledger → completion → referral).
+5. Institution access in content; retire player-facing stake buying institution by institution.
+6. Hidden technology/capability graph with Roman-baseline metadata and checks.
+7. NPC autonomous progression.
+8. Jump-echo model: personal, technical, institutional, unintended.
+9. View models for the eight menu sections.
+10. Narrative/dialogue cleanup, resource bottlenecks for Grand Challenges.
+11. Throughout: SYSTEMS → GDD Appendix A → tuning → DECISIONS → content → tests in sync.
+
+## Still running from P0 until migrated
+Everything in `docs/archive/PROTOTYPE_SCOPE_P0.md` that P1 has not yet replaced keeps working and keeps its tests: domains and debt, the plague and its recurrences, policy, the workshop, Rome's dated choices, the machine repair track, two jumps and the walk. Each is reviewed when its P1 replacement lands; an old bug item is fixed only if its system survives.
 
 ## Out of scope (do not build)
-- Unity, graphics, UI beyond the console, audio
-- Sim Mode scenes, historical figure dialogue, nudge verbs
-- Fuel puzzles, repair tiers, malfunctions (the small P0 repair track above is in scope)
-- The Knowledge Web, absorption bars, emergent advancements, diffusion
-- Multiple regions, spillover, AI civilizations, diplomacy, warfare
-- Agriculture, Knowledge, Military, Infrastructure, Faith and Culture domains
-- Life budget, aging, mortality, succession, the Journal
-- Fortune shares (the regional-economy share model of SYSTEMS §9), loss events other than the plague, the economic bust and institutional corruption
-- Visibility, anachronism risk, Legend
-- Stages of control (use a fixed Stage 3 setup)
-- A general institution identity engine
-- Post-jump causal chains, the Chronicle, signature systems, the tutorial engine
-- Saves, iCloud, purchases, analytics
-- Any language-model integration
+- Unity, graphics, audio, a UI beyond the console (P1 builds view models a later UI will consume).
+- Eras after Rome as playable eras, multiple regions, diplomacy, warfare.
+- The fuel puzzle (P2), repair tiers, malfunctions.
+- Saves, iCloud, purchases, analytics, networking.
+- Any language-model integration.
+- Human playtests (deferred to a graphical milestone). AI or persona testing is advisory and is never called human testing.
 
-## Order of work
-1. Build the simulation and console game.
-2. **Run the batch runner before any human test:** 100 seeded runs × 7 strategies (Balanced/Pay-down, Specialized, Neglectful, Endow, Split, FreeMarket, Interventionist), each with early and late jump timing. Fix any dominant strategy first.
-3. Run 5 human testers.
-
-## Pass criteria
-
-| Test | Pass |
-|---|---|
-| Determinism | Identical results for identical seed and inputs |
-| Balance vs. specialization | Both viable; within **each** jump timing (early, late), no strategy wins more than 65% of automated runs. **FreeMarket is exempt** (decided 2026-09-28, Corey: free-market policy is meant to be better, SYSTEMS §9); the others are compared among themselves and FreeMarket's rate is reported |
-| Jump timing | **Not applicable to P0; deferred to P3.** Staying longer has no cost until aging and machine-discovery risk exist. Reported in the batch report for information only |
-| Debt at departure | Within each timing, none of Pay-down (Balanced), Endow, and Split wins more than 65% of runs; the batch report flags it if more than ~80% of the best runs bought an audit charter |
-| Debt pacing | 2–3 years of accepted risk → Strained; plague warning stages visible before the outbreak |
-| Institution decay | Formula check (the P0 jump is now 25–60 years): after 250 years from strength 80: bare 80 × 0.9^25 ≈ 6; chartered 80 × 0.97^25 ≈ 37; strong 80 × 0.99^25 ≈ 62 |
-| Impact | At least 3 of 5 testers say, unprompted, that their actions changed the returned world, pointing to at least one Echo |
-| Real choices | Testers can describe what they were choosing *between*, not just what they clicked |
-| Desire to continue | Testers want to see what happens after another jump |
-| Expectations | Testers don't avoid improvements to keep expectations low |
-| "Why?" | In-era explanations readable to someone who didn't write the code |
-
-## Kill criteria
-- One strategy always dominates → rework debt or expectations before human testing.
-- **The jump and arrival aren't compelling → redesign before any further prototype.**
-- Testers describe only what they clicked, not what they chose between → cut decisions before adding systems.
-
-## After P0
-Next milestones, in order: P2 fuel puzzle (paper), P3 headless simulation core, P4 first-hour vertical slice in Unity, P5 first jump. Each will get its own version of this file.
+## Hard constraints (SYSTEMS.md §14) still apply
+Player institutions never use enslaved labor. No atrocity verbs. Religious founders are never depicted, nudged or erased. No weapon of mass destruction as a player tool. Exploitation always costs the Index. Roman slavery may be depicted as part of Roman life, never as a player tool.

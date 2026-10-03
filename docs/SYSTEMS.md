@@ -19,11 +19,12 @@
 - Game time is measured in years. All simulated change (aging, debt, decay, drift, AI actions) scales per year, never per turn.
 - Turn length by stage: 1 = 1 month; 2 = 2 months; 3 = 3 months; 4 = 6 months; 5 = 1 year.
 - The player may shorten turn length at any time, never lengthen it beyond the stage cap.
+- **P1 (decided 2026-10-02, Corey):** in the Rome era a turn is **1 calendar month**, fixed, with no player-facing turn-length choice; durations are authored in months (machine assessment 2 months). Spending the last Attention never ends the month: the player ends it explicitly (**End Month**), and an opt-in fast-forward stops on meaningful interruptions. The stage table above applies to later eras.
 - Jumps are simulated in decade steps (coarse mode) using the same rules.
 - Undo is allowed within a turn, except for actions that reveal information (experiments, conversations, investigations).
 
 ## 3. The inventor
-- **Attention:** 4 per turn; −1 when old or unwell; +1 with an apprentice or secretary. Never scales with stage. Can be borrowed from the next turn during a crisis at a health cost.
+- **Attention:** 4 per turn (P1: per month); −1 when old or unwell; +1 with an apprentice or secretary. Never scales with stage. Can be borrowed from the next turn during a crisis at a health cost.
 - **Healthy years** (expected maximum age with the best available care): baseline ~70; well-advanced medicine ~85; heavily advanced ~95. Mortality risk rises near the ceiling; the ceiling is predictable.
 - Starts at age 28. Ages only within eras, never during jumps.
 - **Succession:** a prepared successor inherits the machine; knowledge transfers through the Journal. No successor: Standard mode restarts from the latest checkpoint; Ironman ends the run.
@@ -58,6 +59,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 - **Spillover:** debt spreads along trade routes, borders, and shared institutions in proportion to connection strength.
 
 ## 7. Institutions
+- **P1 (decided 2026-10-02, Corey): relationship-first access replaces stake buying.** Access goes aware → knows a member → guest → invited back → sponsored candidate → member → office/leadership. A forward invitation needs a specific inviter, an existing relationship, relevant work in that domain, demonstrated usefulness, and an inviter willing to take the social risk; fame alone never qualifies. Institutions create obligations (dues, meals, mutual aid, funeral contributions, disputes, standards, arbitration). The stake rules below are the P0 model; they are retired institution by institution as each migrates (P1_PROPOSALS P1-03).
 - Attributes: `type` (political, religious, commercial, scholarly, military), `reach`, `capacity` (directives per turn), `loyalty`, `leader` (a named notable with a successor), `identity`, `drift`.
 - Directive effectiveness = capacity × loyalty, within reach, limited by type.
 - **Identities:** charitable, commercial, bureaucratic, militant, ritualistic, isolationist, reformist, politically powerful. Drift moves identity toward the institution's own interests; charters, founding principles, and reverence for the founder slow it.

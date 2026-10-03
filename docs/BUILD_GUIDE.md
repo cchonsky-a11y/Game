@@ -138,6 +138,7 @@ Claude Code automatically loads a project CLAUDE.md (at `./CLAUDE.md` or `./.cla
 |---|---|---|---|
 | **Setup** | Repo, docs, CLAUDE.md, empty solution with one passing test | 1 weekend | Does Claude Code read the scope and build the skeleton correctly? |
 | **P0 Butterfly Test** | Text game + batch runner | 1–3 weekends + testing | Do players feel their actions changed the world and want to continue? |
+| **P1 Playable Game Structure** (added 2026-10-02) | Vertical-slice architecture in the C# core: monthly turns, menu sections, scene routing, commissions and ledger, relationship-first institutions, capability network, NPC autonomy, jump echoes | — | Can a fresh player arrive, build relationships, take paid work, start a Grand Challenge, earn institution access, jump and see lasting consequences through the intended structure? (Human testing moves to a graphical milestone.) |
 | **P2 Fuel Puzzle** | Paper or spreadsheet puzzle | 1–2 weekends (can overlap P0 testing) | Does deduction beat guessing, and is it fun? |
 | **P3 Headless Core** | Full-scale simulation without graphics | 3–6 weeks | Deterministic, performant, readable "Why?" at full scale? |
 | **P4 First Hour** | Unity vertical slice of the first hour in Rome | 2–3 months | Do the minute 10 / 30 / 60 feelings land on an iPhone? |

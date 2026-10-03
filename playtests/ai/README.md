@@ -1,6 +1,6 @@
 # Automated playtests (AI)
 
-Automated checks run **before** human testing. They change no game rules. **Nothing here is gate evidence.** The P0 gate needs the 5 human testers in `playtests/kit/`.
+Automated checks run **before** human testing. They change no game rules. **Nothing here is gate evidence.** Human testing is deferred to a graphical milestone (2026-10-02); the kit in `playtests/kit/` is kept for then.
 
 ## How to run
 ```

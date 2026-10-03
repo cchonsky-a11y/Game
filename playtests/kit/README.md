@@ -1,6 +1,6 @@
 # P0 playtest kit
 
-For the 5 human tests in BUILD_GUIDE.md §9. The batch gate (`../batch-report.md`) passes for late jumps; for early jumps founding the school wins most automated runs, and Corey decided (2026-09-28) to let the human testers judge that rather than tune it. Watch for it (see below).
+For the 5 human tests in BUILD_GUIDE.md §9 (**deferred on 2026-10-02 to a later graphical milestone**; this kit predates P1). The batch gate (`../batch-report.md`) passes for late jumps; for early jumps founding the school wins most automated runs, and Corey decided (2026-09-28) to let the human testers judge that rather than tune it. Watch for it (see below).
 
 ## Before each session
 1. Pull the branch and run `dotnet test`. Everything must pass.

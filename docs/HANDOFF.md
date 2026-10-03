@@ -1,7 +1,9 @@
 # HANDOFF.md: picking up this project cold
 
 > For any AI assistant (or person) continuing work on The Butterfly Effect without the earlier conversation.
-> Read this first, then `CLAUDE.md`, which is binding. Last updated 2026-09-28.
+> Read this first, then `CLAUDE.md`, which is binding. Last updated 2026-09-28; P1 note 2026-10-03.
+
+> **The project is now in P1 (decided 2026-10-02).** The current authority is the owner's handoff in `docs/handoff/2026-10-02/` (start with `00_READ_THIS_FIRST.md` and `01_MASTER_HANDOFF_CURRENT.md`) and the P1 `docs/PROTOTYPE_SCOPE.md`. The five-human test is deferred to a graphical milestone. The P0 notes below remain accurate for the systems still running from P0; where they conflict with the P1 handoff, the handoff wins.
 
 ## 1. What this is
 A turn-based historical strategy game about a stranded time traveler: Rome, AD 155, then jumps forward to see what their choices did. We are building **P0 only**: a deterministic, text-based C# simulation with a console game, an automated batch runner and xUnit tests. There are no graphics, networking or language-model features.
@@ -57,7 +59,7 @@ python3 playtests/ai/live/play.py setup                                     # li
   - FreeMarket is meant to be better and is exempt from the gate.
 - **Jump timing:** deferred to P3 (staying longer is always better in P0). Don't try to fix it.
 - **Free markets:** only the player's `policy` or `advocate` moves Rome off its historical economic policy. Left alone, Rome follows history. Keep it that way.
-- **Next gate:** 5 human testers with `playtests/kit/` (seeds 101–505). That is the only P0 pass/fail evidence.
+- **Human testing:** deferred to a graphical milestone (2026-10-02). `playtests/kit/` stays for then.
 
 ## 6. Live blind AI playtesters
 Advisory only: they find bugs and unclear text; they are not gate evidence. The setup, the prompt and the ten personas are in `playtests/ai/live/tester-prompt.md`. Reports go in `playtests/ai/live/reports/<date>/`.
@@ -82,7 +84,7 @@ Keep bugs apart from design notes.
 
 **Design observations** (report to Corey; don't change without his decision): listed at the end of the "Live blind testers" section of `playtests/ai/bugs.md`. They cover leaving early, consulting's dominance, the middle-years grind, repeated office offers, the fountain's value, the Curia text, and a question about deposits after an arrival.
 
-**Waiting on Corey:** the human playtest results. After them come the gate review, DECISIONS entries and a rewrite of PROTOTYPE_SCOPE for P2.
+**P1 order of work:** see `docs/PROTOTYPE_SCOPE.md` (P1) and `docs/handoff/2026-10-02/04_P1_IMPLEMENTATION_STATUS.md`. Open questions for Corey: `docs/P1_PROPOSALS.md`.
 
 ## 8. How to report back to Corey
 End every task with:

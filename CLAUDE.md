@@ -1,7 +1,7 @@
 # CLAUDE.md — The Butterfly Effect
 
 ## What this project is
-A turn-based historical strategy game for Apple platforms. We are currently building **prototypes only**, starting with P0: a text-based simulation in C#.
+A turn-based historical strategy game for Apple platforms. We are currently building **prototypes only**. P0 (a text-based simulation in C#) is complete; we are in **P1, playable game structure** (decided 2026-10-02; see docs/handoff/2026-10-02/).
 
 ## Read these first
 - Current scope (what to build now): @docs/PROTOTYPE_SCOPE.md
