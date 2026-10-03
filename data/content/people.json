@@ -1,0 +1,75 @@
+{
+  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' (an advance made by the person, not the player; 'distorted' marks a bad copy). 'known' says when the player knows them. Chances PROPOSED P1-08.",
+  "people": [
+    {
+      "id": "Felix", "name": "Felix", "known": "commission:cellarpump:Offered",
+      "role": "a freedman who fits out ships at Ostia and in Rome, and a member of the guild",
+      "goal": "to be the man two shops send for when they can't agree",
+      "vulnerability": "the marsh fever from Ostia, which comes back most years",
+      "caresAbout": "his wife Prima and the two boys he is putting through a grammarian",
+      "distrusts": "the shippers who pay late and the guild's older families, who still call him a freedman",
+      "household": "a wife, two sons, a slave-born clerk he freed last year",
+      "status": "known on the quays; a member of the guild, not yet an officer",
+      "opinion": "a good fitting is worth more than a clever one",
+      "interest": "the Blues at the Circus, loudly",
+      "voice": "quick, warm, always halfway to the next errand"
+    },
+    {
+      "id": "Cassianus", "name": "Cassianus", "known": "commission:cellarpump:Offered",
+      "role": "a grain and oil merchant with warehouses under the Aventine",
+      "goal": "to keep his oil dry and his name good with the Ostia shippers",
+      "vulnerability": "everything he owns sits in one row of warehouses",
+      "caresAbout": "his daughter's dowry",
+      "distrusts": "the neighbour across the lane, Pollio, who undersells him",
+      "household": "a widowed sister who keeps his accounts, a daughter, porters",
+      "status": "comfortable, and worried about staying so",
+      "opinion": "a foreigner who fixes things is worth knowing, and worth watching",
+      "interest": "old Greek coins",
+      "voice": "careful, counts aloud, repeats a price back to make sure"
+    },
+    {
+      "id": "Diodoros", "name": "Diodoros", "known": "life:warehouse-fire",
+      "role": "Cassianus's porter, freeborn, from Antioch",
+      "goal": "more responsibility and more pay than carrying jars",
+      "vulnerability": "his back and his hands are his living",
+      "caresAbout": "a mother in Antioch he sends money to",
+      "distrusts": "the overseer who docks his pay",
+      "household": "a room above a bakery with two other porters",
+      "status": "a porter",
+      "opinion": "the men who know how a thing works are never the ones paid for it",
+      "interest": "dice, with no luck",
+      "voice": "few words, Greek when he is angry"
+    }
+  ],
+  "life": [
+    {
+      "id": "felix-fever", "person": "Felix", "fromMonth": 6, "chance": 0.06,
+      "requires": ["access:guild:KnowsMember"],
+      "awayMonths": 2, "category": "Personal",
+      "text": "Prima sends a boy: the marsh fever has Felix again. No suppers and no quays for him for a month or two.",
+      "returnText": "Felix is back on the quays, thinner, asking after your work before his own."
+    },
+    {
+      "id": "warehouse-fire", "person": "Cassianus", "fromMonth": 14, "chance": 0.03,
+      "requires": ["commission:cellarpump:Done"],
+      "category": "CityHistory",
+      "status": { "Cassianus": "rebuilding after the fire; he lost a season's oil", "Diodoros": "his right hand burned in the fire; he can't carry" },
+      "text": "Fire in the warehouses under the Aventine in the night. Cassianus loses a season's oil. His porter Diodoros burns his hand dragging jars out of the smoke. Below it all, in the wet cellar, your pump still draws."
+    },
+    {
+      "id": "diodoros-deliveries", "person": "Diodoros", "fromMonth": 0, "chance": 0.1,
+      "requires": ["life:warehouse-fire"],
+      "category": "Personal",
+      "status": { "Diodoros": "runs Cassianus's deliveries and keeps the pump, one-handed" },
+      "text": "Diodoros can't carry with that hand, so Cassianus has him run the deliveries and see to the pump. He knows its seats better than Cassianus does."
+    },
+    {
+      "id": "pollio-copy", "person": "Cassianus", "fromMonth": 0, "chance": 0.08,
+      "requires": ["capability:valveseats:Reproducible"],
+      "category": "WorkEconomy",
+      "capability": { "id": "valveseats", "to": "Adopted", "distorted": true },
+      "status": { "Cassianus": "furious that Pollio has a pump like his" },
+      "text": "Pollio, across the lane from Cassianus, has had a pump made like his by a bronzesmith on the Clivus who saw it once. The seats are cut by eye and it leaks back on every stroke. Pollio tells everyone the design is yours."
+    }
+  ]
+}

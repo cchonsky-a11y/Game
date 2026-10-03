@@ -90,7 +90,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -192,6 +192,7 @@ internal sealed partial class ConsoleGame
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
+  people                         the people you know, and how their lives stand now
   commission                     work people bring you: look at the problem (unpaid), then accept, counter or decline the terms
   log [n]                        the last n events
   ledger [n]                     your money: the last n entries (who paid, what for) and the totals
@@ -224,6 +225,7 @@ internal sealed partial class ConsoleGame
             case "why": Console.WriteLine(Why.Explain(_sim, arg)); return true;
             case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
+            case "people": case "who": People(); return true;
             case "ledger": Ledger(parts.Length > 1 && int.TryParse(arg, out var ln) ? ln : 12); return true;
             case "commission": case "commissions":
             {
@@ -417,7 +419,8 @@ internal sealed partial class ConsoleGame
                             "workshop.apprentice", "workshop.size",
                             // P1 commissions: the scenes as they happen.
                             "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
-                            "invitation.offer", "institution.join", "invitation.wait" };
+                            "invitation.offer", "institution.join", "invitation.wait",
+                            "person.life", "person.return" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -593,6 +596,21 @@ internal sealed partial class ConsoleGame
             Console.WriteLine("  " + d.Title + " (" + d.Client + ", " + d.ClientRole + ") — " + where);
         }
     }
+
+    /// <summary>P1 people: who you know and how they stand now (present conditions only).</summary>
+    private void People()
+    {
+        var known = _sim.KnownPeople().ToList();
+        if (known.Count == 0) { Console.WriteLine("You don't know anyone here by name yet."); return; }
+        foreach (var d in known)
+        {
+            var p = _sim.PersonOf(d.Id)!;
+            Console.WriteLine("  " + d.Name + ", " + d.Role + ". " + Capitalize(p.Status) + "." + (_sim.IsPersonAway(d.Id) ? " Laid up or away for now." : ""));
+            Console.WriteLine("      household: " + d.Household + "; cares about " + d.CaresAbout + "; wants " + d.Goal + ".");
+        }
+    }
+
+    private static string Capitalize(string s) => s.Length == 0 ? s : char.ToUpperInvariant(s[0]) + s.Substring(1);
 
     /// <summary>The P1 ledger: every change to your money, with who paid and why.</summary>
     private void Ledger(int n)

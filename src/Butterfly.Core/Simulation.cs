@@ -51,6 +51,7 @@ namespace Butterfly.Core
             InitCommissions();
             InitInvitations();
             foreach (var c in Data.Content.Capabilities) World.Capabilities.Add(new CapabilityState(c.Id));
+            foreach (var p in Data.Content.People) World.People.Add(new PersonState(p.Id, p.Status));
         }
 
         private SceneRouter? _sceneRouter;
@@ -85,6 +86,7 @@ namespace Butterfly.Core
             AdvanceLocalNews();
             AdvanceEvents();
             AdvanceWorkshop();
+            AdvancePeople();
             OpenCommissionsDue();
             AdvanceInvitations();
         }

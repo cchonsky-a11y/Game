@@ -47,7 +47,7 @@ namespace Butterfly.Core
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.NotYet))
             {
                 var d = CommissionDefOf(c);
-                if (monthsIn < d.OpensAfterMonths) continue;
+                if (monthsIn < d.OpensAfterMonths || d.Introducer.Length > 0 && IsPersonAway(d.Introducer)) continue;
                 c.Status = CommissionStatus.Offered;
                 Scene(d.Encounter.Category, "commission.encounter", c, d.Encounter.Text + " " + PayLine(d));
             }

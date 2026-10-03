@@ -67,6 +67,10 @@ namespace Butterfly.Core
         public List<InvitationPathState> Invitations { get; } = new List<InvitationPathState>();
         /// <summary>Rome's progress on each capability of the hidden network, in content order.</summary>
         public List<CapabilityState> Capabilities { get; } = new List<CapabilityState>();
+        /// <summary>P1 recurring people, whose lives go on without the player.</summary>
+        public List<PersonState> People { get; } = new List<PersonState>();
+        /// <summary>The log event of each life event that has happened (for causes).</summary>
+        public Dictionary<string, int> LifeEventLog { get; } = new Dictionary<string, int>();
 
         public InstitutionAccessState AccessTo(string institutionId) => Access.First(a => a.InstitutionId == institutionId);
 

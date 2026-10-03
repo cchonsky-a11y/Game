@@ -32,7 +32,8 @@ namespace Butterfly.Core
             var state = InvitationState(d.Institution)!;
             var work = World.Commissions.FirstOrDefault(c => c.Id == d.Work);
             bool worked = work != null && work.Status == CommissionStatus.Done;
-            bool risk = Turn - state.DeclinedTurn >= T.GetInt("invitations.inviterPatienceMonths");
+            // Willing to take the risk: not still smarting from a refusal, and not laid up or away (P1 people).
+            bool risk = Turn - state.DeclinedTurn >= T.GetInt("invitations.inviterPatienceMonths") && !IsPersonAway(d.Inviter);
             return new InstitutionInvitationContext(d.Institution, d.Inviter, access.KnownMemberId == d.Inviter, worked, worked, risk);
         }
 

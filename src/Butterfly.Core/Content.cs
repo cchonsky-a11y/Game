@@ -431,6 +431,8 @@ namespace Butterfly.Core
         public IReadOnlyList<InvitationPathDef> InvitationPaths { get; private set; } = new List<InvitationPathDef>();
         /// <summary>The hidden P1 capability network (data/content/capabilities.json).</summary>
         public IReadOnlyList<CapabilityDef> Capabilities { get; private set; } = new List<CapabilityDef>();
+        public IReadOnlyList<PersonDef> People { get; private set; } = new List<PersonDef>();
+        public IReadOnlyList<LifeEventDef> Lives { get; private set; } = new List<LifeEventDef>();
         /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
         public string Smith { get; private set; } = "the smith";
         public IReadOnlyList<OrderDef> Orders { get; private set; } = new List<OrderDef>();
@@ -498,6 +500,12 @@ namespace Butterfly.Core
                 content.InvitationPaths = Read(contentDirectory, "invitations.json").Arr("paths").Cast<JsonObject>().Select(o => new InvitationPathDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "capabilities.json")))
                 content.Capabilities = Read(contentDirectory, "capabilities.json").Arr("capabilities").Cast<JsonObject>().Select(o => new CapabilityDef(o)).ToList();
+            if (File.Exists(Path.Combine(contentDirectory, "people.json")))
+            {
+                var people = Read(contentDirectory, "people.json");
+                content.People = people.Arr("people").Cast<JsonObject>().Select(o => new PersonDef(o)).ToList();
+                content.Lives = people.Arr("life").Cast<JsonObject>().Select(o => new LifeEventDef(o)).ToList();
+            }
             if (File.Exists(Path.Combine(contentDirectory, "workshop.json")))
             {
                 var w = Read(contentDirectory, "workshop.json");

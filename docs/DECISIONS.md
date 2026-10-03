@@ -371,3 +371,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **First link:** the cellar-pump commission moves true valve seats to prototype and then reproducible.
 - **Hidden:** no console view yet; the Knowledge and Civilization views will surface it.
 - Docs: SYSTEMS §13, P1_PROPOSALS P1-07. Tests: graph integrity (known leaps, no cycles, prerequisites exist), the blocker rule, and the commission's advance.
+
+## 2026-10-03 — P1: recurring people with lives of their own
+- **Built:** `data/content/people.json`: Felix, Cassianus and Diodoros, each with goal, vulnerability, cares, distrust, household, status, opinion, interest and voice; four life events that happen without the player (Felix's fever, the warehouse fire, Diodoros taking over deliveries, Pollio's bad copy of the pump). Requirements read the game's own state; chances are seeded (PROPOSED P1-08).
+- **Consequences:** while Felix is laid up the guild's invitations pause (the inviter isn't "willing to take the risk") and he introduces no one; the bad copy moves true valve seats to adopted, marked distorted, with Cassianus as actor, not the player. Each life event is logged with its causes and actors.
+- **Console:** `people` (or `who`) lists the people you know and how they stand now; life events show in the month's news.
+- Docs: SYSTEMS §10, P1_PROPOSALS P1-08. Tests: content integrity, who you know, the fever pausing invitations, the fire, the bad copy, determinism, the console view.

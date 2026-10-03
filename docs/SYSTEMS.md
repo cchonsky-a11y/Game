@@ -105,6 +105,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 - Larger shares raise confiscation and revolution risk; aggressive extraction adds stability debt; longer jumps increase exposure.
 
 ## 10. People
+- **P1 (decided 2026-10-02, Corey): recurring people have lives of their own.** Each has a goal, a vulnerability, people they care about, someone they distrust, a household, status, opinions, an outside interest and a voice, and their lives go on without the player: illness, fire, loss, a new job, a bad copy of the player's work. A life event happens once, when its requirements in the game hold, by seeded chance each month (P1_PROPOSALS P1-08). A person who is ill or away can't invite, sponsor or introduce; a copy made by someone else spreads a capability without the player, possibly distorted. Every change is logged with its causes and the people who acted. P1 people: data/content/people.json (Felix, Cassianus, Diodoros).
 - Nudge success = Trust × receptivity.
 - Trust is explained by remembered interactions drawn from the event log.
 - **Visibility** rises with how anachronistic, public, and threatening an act is, and with displays of wealth. Threat chance ∝ Visibility × threat to power.

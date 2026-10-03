@@ -27,13 +27,13 @@ namespace Butterfly.Core
         }
 
         /// <summary>Moves Rome's capability up to a level (never down here), logged with its cause. False if blocked or already there.</summary>
-        internal bool AdvanceCapability(string id, CapabilityLevel to, IEnumerable<int>? causes, string text)
+        internal bool AdvanceCapability(string id, CapabilityLevel to, IEnumerable<int>? causes, string text, string actor = "player")
         {
             var state = World.Capabilities.FirstOrDefault(c => c.Id == id);
             if (state == null || state.Level >= to || CapabilityBlocker(id, to) != null) return false;
             var before = state.Level;
             state.Level = to;
-            Record("capability.advance", "capability." + id, causes, new[] { "player" },
+            Record("capability.advance", "capability." + id, causes, new[] { actor },
                 new[] { new Effect("capability." + id, (int)before, (int)to) }, text);
             return true;
         }

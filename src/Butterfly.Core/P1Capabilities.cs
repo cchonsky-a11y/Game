@@ -54,6 +54,8 @@ namespace Butterfly.Core
     {
         public string Id { get; }
         public CapabilityLevel Level { get; set; }
+        /// <summary>Spread by bad copies the inventor didn't make (an unintended echo).</summary>
+        public bool Distorted { get; set; }
         public CapabilityState(string id) => Id = id;
     }
 }

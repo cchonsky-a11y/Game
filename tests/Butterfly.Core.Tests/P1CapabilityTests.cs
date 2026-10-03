@@ -75,8 +75,8 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.AcceptCommission("cellarpump").Ok);
             Assert.Equal(CapabilityLevel.None, sim.CapabilityLevelOf("valveseats"));
             while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
-            Assert.Equal(CapabilityLevel.Reproducible, sim.CapabilityLevelOf("valveseats"));
-            var advances = sim.Log.Events.Where(e => e.Type == "capability.advance").ToList();
+            Assert.True(sim.CapabilityLevelOf("valveseats") >= CapabilityLevel.Reproducible);   // others may copy it on (P1 people)
+            var advances = sim.Log.Events.Where(e => e.Type == "capability.advance" && e.Actors.Contains("player")).ToList();
             Assert.Equal(2, advances.Count);                                    // prototype, then reproducible; never twice
             Assert.All(advances, e => Assert.NotEmpty(e.ImmediateCauses));      // each caused by a stage of the work
         }
