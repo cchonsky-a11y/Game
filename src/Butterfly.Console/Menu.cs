@@ -159,6 +159,19 @@ internal sealed partial class ConsoleGame
             foreach (var inv in _sim.Data.Content.Inventions.Where(x => _sim.InventionState(x) == "ready" && _sim.InventionGold(x) <= w.Gold))
                 inventions.Item2.Add((inv.Id + " (" + M(_sim.InventionGold(inv)) + ")", "invent " + inv.Id));
 
+        var commissions = Group("Commissions");
+        foreach (var c in _sim.OpenCommissions())
+        {
+            var d = _sim.CommissionDefOf(c);
+            if (c.Status == CommissionStatus.Offered && w.Attention >= d.Diagnosis.Attention) commissions.Item2.Add(("look at " + d.Client + "'s problem (unpaid)", "commission look " + d.Id));
+            if (c.Status == CommissionStatus.TermsOffered)
+            {
+                if (w.Attention >= d.Work[0].Attention) commissions.Item2.Add(("accept " + d.Client + "'s terms", "commission accept " + d.Id));
+                if (!c.Countered) commissions.Item2.Add(("ask " + d.Client + " for more", "commission counter " + d.Id));
+                commissions.Item2.Add(("decline " + d.Client + "'s work", "commission decline " + d.Id));
+            }
+        }
+
         var inst = Group("Institutions");
         if (att)
         {
@@ -225,6 +238,6 @@ internal sealed partial class ConsoleGame
         turn.Item2.Add(("End Month", "end"));
         turn.Item2.Add(("fast-forward until something needs you", "wait"));
 
-        return new List<(string, List<(string, string)>)> { decide, work, shop, machine, money, projects, inventions, inst, policy, priorities, leave, look, turn };
+        return new List<(string, List<(string, string)>)> { decide, commissions, work, shop, machine, money, projects, inventions, inst, policy, priorities, leave, look, turn };
     }
 }

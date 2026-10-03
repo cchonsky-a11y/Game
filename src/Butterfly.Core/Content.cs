@@ -425,6 +425,8 @@ namespace Butterfly.Core
         public IReadOnlyList<LocalNewsDef> LocalNews { get; }
         /// <summary>Decision events and leaders' requests, in date order (optional file).</summary>
         public IReadOnlyList<EventDef> Events { get; private set; } = new List<EventDef>();
+        /// <summary>P1 commissions (data/content/commissions.json).</summary>
+        public IReadOnlyList<CommissionDef> Commissions { get; private set; } = new List<CommissionDef>();
         /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
         public string Smith { get; private set; } = "the smith";
         public IReadOnlyList<OrderDef> Orders { get; private set; } = new List<OrderDef>();
@@ -486,6 +488,8 @@ namespace Butterfly.Core
             var content = new Content(projects, institutions, machine, upgrades, assessment, inventions, news, local, text);
             if (File.Exists(Path.Combine(contentDirectory, "events.json")))
                 content.Events = Read(contentDirectory, "events.json").Arr("events").Cast<JsonObject>().Select(o => new EventDef(o)).OrderBy(e => e.Time.TotalMonths).ToList();
+            if (File.Exists(Path.Combine(contentDirectory, "commissions.json")))
+                content.Commissions = Read(contentDirectory, "commissions.json").Arr("commissions").Cast<JsonObject>().Select(o => new CommissionDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "workshop.json")))
             {
                 var w = Read(contentDirectory, "workshop.json");

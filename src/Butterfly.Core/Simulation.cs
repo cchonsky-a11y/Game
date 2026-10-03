@@ -48,6 +48,7 @@ namespace Butterfly.Core
         {
             World.ScenePacing = ScenePacingState.FromTuning(T);
             foreach (var i in World.Institutions) World.Access.Add(new InstitutionAccessState(i.Key));
+            InitCommissions();
         }
 
         private SceneRouter? _sceneRouter;
@@ -67,6 +68,7 @@ namespace Butterfly.Core
             ProgressInventions();
             ProgressWorkshop();
             ProgressCommitments();
+            ProgressCommissions();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();
             SettleGold();
@@ -81,6 +83,7 @@ namespace Butterfly.Core
             AdvanceLocalNews();
             AdvanceEvents();
             AdvanceWorkshop();
+            OpenCommissionsDue();
         }
 
         private void YearTick()
@@ -117,7 +120,7 @@ namespace Butterfly.Core
             if (type != "gold.settle")
             foreach (var fx in effectList.Where(fx => fx.Key == GoldKey && Math.Abs(fx.Delta) > 1e-12))
                 World.Ledger.Record(new LedgerEntry("e" + e.Id + (k++ == 0 ? "" : ":" + k), LedgerKindFor(type, fx.Delta), fx.Delta,
-                    actors?.FirstOrDefault(a => a != "player") ?? "", text));
+                    actors?.FirstOrDefault(a => a != "player") ?? "", text, World.Projects.Any(p => p.Id == target) ? target : ""));
             return e;
         }
 

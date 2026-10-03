@@ -1,0 +1,69 @@
+{
+  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05.",
+  "commissions": [
+    {
+      "id": "cellarpump",
+      "title": "Cassianus's flooded cellar",
+      "client": "Cassianus",
+      "clientRole": "grain and oil merchant under the Aventine",
+      "introducer": "Felix",
+      "opensAfterMonths": 4,
+      "encounter": {
+        "category": "WorkEconomy",
+        "text": "Felix finds you at the smith's at first light. \"There's a man under the Aventine with water to his knees,\" he says. \"Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Cassianus's cellar smells of wet sacking. The pump is a good bronze force pump, two cylinders and a rocking beam, the kind the fire watch carries. The plungers are sound. Water spurts back past the leather flaps on every stroke: the seats are worn into ovals, and the last man who fixed them packed the gaps with wax. Cassianus watches you trace the leak with a finger. \"Can you fix it, or do I buy another pump?\""
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Cassianus",
+        "materialsPayer": "Cassianus",
+        "upfront": 12,
+        "completion": 20,
+        "text": "\"Here is what I'll do,\" he says. \"I buy the bronze and the leather. You make it pump. Three hundred denarii now, five hundred when my cellar is dry.\""
+      },
+      "counter": {
+        "completion": 28,
+        "acceptWeight": 4,
+        "standFirmWeight": 4,
+        "walkWeight": 2,
+        "acceptText": "Cassianus counts on his fingers, then shrugs. \"Seven hundred. If it pumps.\"",
+        "standFirmText": "\"Five hundred,\" he says. \"There are other men with clever hands.\" The offer stands as it was.",
+        "walkText": "Cassianus's face closes. \"I asked a fair price and you asked a rich man's. I'll buy another pump.\" He sees you out himself."
+      },
+      "declineText": "You tell Cassianus you can't take it on. He nods and goes back to bailing.",
+      "work": [
+        {
+          "stage": "Prototype",
+          "category": "Engineering",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "You turn a new valve seat on the smith's lathe, true and flat, and cut the leather flap to sit on it. The first one leaks at one edge. The second holds."
+        },
+        {
+          "stage": "CraftAdaptation",
+          "category": "WorkEconomy",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The smith's apprentice learns to cut seats to your gauge. He spoils two, then makes four that fit. Cassianus has two more pumps at his warehouse by the river and wants them done the same way."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The cellar drains in an afternoon. Cassianus pours wine for the workmen on the wet steps, gives a cup to the Lares by the door, and pays you on the spot."
+        }
+      ],
+      "referral": {
+        "institution": "guild",
+        "member": "Felix",
+        "text": "Felix was at the drinking. \"The men at Ostia have pumps too,\" he says, \"and worse ones. Come out to one of our suppers sometime.\""
+      }
+    }
+  ]
+}

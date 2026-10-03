@@ -83,6 +83,7 @@ namespace Butterfly.Core
             World.ActiveProjects.Clear();
             World.ActiveMachineSteps.Clear();
             World.ActiveInventions.Clear();
+            AbandonCommissionsOnDeparture(depart.Id);
             World.Commitments.Clear();
 
             IsAway = true;

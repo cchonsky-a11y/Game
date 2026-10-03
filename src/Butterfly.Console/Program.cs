@@ -90,7 +90,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -195,6 +195,7 @@ internal sealed partial class ConsoleGame
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
+  commission                     work people bring you: look at the problem (unpaid), then accept, counter or decline the terms
   log [n]                        the last n events
   ledger [n]                     your money: the last n entries (who paid, what for) and the totals
   end                            End Month: the calendar moves one month (only this ends a month)
@@ -227,6 +228,15 @@ internal sealed partial class ConsoleGame
             case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "ledger": Ledger(parts.Length > 1 && int.TryParse(arg, out var ln) ? ln : 12); return true;
+            case "commission": case "commissions":
+            {
+                string verb = arg.ToLowerInvariant(), id = parts.Length > 2 ? parts[2] : "";
+                if (verb == "" ) { Commissions(); return true; }
+                r = verb == "look" ? _sim.LookAtCommission(id) : verb == "accept" ? _sim.AcceptCommission(id)
+                  : verb == "counter" ? _sim.CounterCommission(id) : verb == "decline" ? _sim.DeclineCommission(id)
+                  : CommandResult.Fail("Usage: commission [look|accept|counter|decline] <id>");
+                break;
+            }
             case "start": r = _sim.StartProject(arg.ToLowerInvariant()); break;
             case "choose": r = _sim.ChooseSeeded(arg.ToLowerInvariant()); break;
             case "priority":
@@ -399,7 +409,9 @@ internal sealed partial class ConsoleGame
                             "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start",
                             "machine.step", "machine.assessed", "invention.complete", "institution.stake", "institution.seniority", "rivalry.strike", "institution.collapse", "bust.warning", "bust.toll",
                             // L4 (tester 2): apprentices who leave over unpaid wages, and a workshop that grows or shrinks, were only in the log.
-                            "workshop.apprentice", "workshop.size" };
+                            "workshop.apprentice", "workshop.size",
+                            // P1 commissions: the scenes as they happen.
+                            "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -453,6 +465,12 @@ internal sealed partial class ConsoleGame
                               (i.Holdings > 0 ? ", holds " + _sim.Money(i.Holdings) : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " month(s) left)");
         foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " month(s) left)");
+        foreach (var c in _sim.OpenCommissions())
+        {
+            var d = _sim.CommissionDefOf(c);
+            Console.WriteLine("  " + (c.Status == CommissionStatus.Working ? "Commission: " + d.Title + " (" + Simulation.StageLabel(d.Work[c.WorkIndex].Stage) + ", " + c.MonthsLeftInStage + " month(s) left in this stage)"
+                : "► " + d.Client + ": " + (c.Status == CommissionStatus.Offered ? "commission look " + d.Id + " (unpaid)" : "terms on the table: commission accept|counter|decline " + d.Id)) + "   (commission)");
+        }
         if (w.WorkshopBuildTurns > 0) Console.WriteLine("  Enlarging the workshop (" + w.WorkshopBuildTurns + " month(s) left)   (workshop)");
         Console.WriteLine("  Machine: " + (_sim.MachineAssessed ? _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" : "not yet assessed") +
                           ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) + " aurei" +
@@ -529,6 +547,21 @@ internal sealed partial class ConsoleGame
                     }
                 }
             }
+        }
+    }
+
+    /// <summary>P1 commissions: what's offered, what's on the table, what's under way.</summary>
+    private void Commissions()
+    {
+        var open = _sim.OpenCommissions().ToList();
+        if (open.Count == 0) { Console.WriteLine("No one has brought you work yet."); return; }
+        foreach (var c in open)
+        {
+            var d = _sim.CommissionDefOf(c);
+            string where = c.Status == CommissionStatus.Offered ? "offered: commission look " + d.Id + " (" + d.Diagnosis.Attention + " Attention · Pay: none initially · may lead to paid commission)"
+                         : c.Status == CommissionStatus.TermsOffered ? "terms on the table " + _sim.TermsLine(c)
+                         : "under way: " + Simulation.StageLabel(d.Work[c.WorkIndex].Stage) + ", " + c.MonthsLeftInStage + " month(s) left in this stage";
+            Console.WriteLine("  " + d.Title + " (" + d.Client + ", " + d.ClientRole + ") — " + where);
         }
     }
 

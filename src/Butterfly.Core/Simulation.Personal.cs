@@ -20,6 +20,7 @@ namespace Butterfly.Core
             + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
             + ReservedMachineAttention()
             + ReservedInventionAttention()
+            + ReservedCommissionAttention()
             + OfficeDuties();
 
         /// <summary>What holds this month's reserved Attention, by name (P1 header: "2 reserved — Machine Assessment").</summary>
@@ -30,6 +31,8 @@ namespace Butterfly.Core
             foreach (var c in World.Commitments) parts.Add(("Mentoring " + World.Institution(c.InstitutionId).Def.ShortName, T.GetInt("commitments.mentor.attentionPerTurn")));
             foreach (var a in World.ActiveMachineSteps.Where(a => a.TurnsRemaining < a.Def.DurationMonths && a.Def.AttentionPerTurn > 0)) parts.Add((a.Def.Name, a.Def.AttentionPerTurn));
             foreach (var a in World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.DurationMonths && a.Def.AttentionPerTurn > 0)) parts.Add((a.Def.Name, a.Def.AttentionPerTurn));
+            foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Working && Turn >= c.ReservedFromTurn))
+                parts.Add((CommissionDefOf(c).Title, CommissionDefOf(c).Work[c.WorkIndex].Attention));
             foreach (var i in World.Institutions.Where(i => i.Exists && (i.Def.IsOwn ? i.Stake > 0 : i.Backed)))
             {
                 int duty = DutyAttention(i.Rank, i.Def.IsOwn);
@@ -47,6 +50,7 @@ namespace Butterfly.Core
             + World.Commitments.Where(c => c.TurnsRemaining > 1).Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
             + World.ActiveMachineSteps.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
             + World.ActiveInventions.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
+            + CommissionAttentionNextMonth()
             + OfficeDuties();
 
         private void InitAttention()
