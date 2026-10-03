@@ -212,6 +212,10 @@ namespace Butterfly.Core
         public string? Prerequisite { get; }
         public IReadOnlyList<InventionEffect> Effects { get; }
         public string Description { get; }
+        /// <summary>The Roman-baseline check (P1, master handoff §16): what Rome already had, what stops the next step, and the kind of leap.</summary>
+        public string Baseline { get; }
+        public string Bottleneck { get; }
+        public string Leap { get; }
         public string CompletionText { get; }
 
         public InventionDef(JsonObject o)
@@ -226,6 +230,9 @@ namespace Butterfly.Core
             Prerequisite = o.Has("prerequisite") ? o.Str("prerequisite") : null;
             Effects = o.Arr("effects").Cast<JsonObject>().Select(x => new InventionEffect(x)).ToList();
             Description = o.Str("description");
+            Baseline = o.StrOr("baseline", "") ?? "";
+            Bottleneck = o.StrOr("bottleneck", "") ?? "";
+            Leap = o.StrOr("leap", "") ?? "";
             CompletionText = o.Str("completionText");
         }
     }

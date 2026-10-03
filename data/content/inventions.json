@@ -35,6 +35,9 @@
         }
       ],
       "description": "One wheel, two handles, a tray: a builder's laborer moves three times the load.",
+      "baseline": "Builders carry loads in baskets, on hods and on two-man hand-barrows; mules carry panniers. A one-wheeled barrow isn't in use on Roman sites.",
+      "bottleneck": "Every load on a building site moves on men's backs or between two men.",
+      "leap": "apply",
       "completionText": "The smith turns out wheelbarrows by the dozen, and every builder in the Subura knows whose idea they were."
     },
     {
@@ -72,6 +75,9 @@
         }
       ],
       "description": "A stiff padded collar that rests on a horse's shoulders instead of a strap across its throat: the horse breathes, and pulls three or four times the load.",
+      "baseline": "Horses pull by a strap across the throat and chest, or under a yoke; oxen do the heavy hauling.",
+      "bottleneck": "The strap presses on the horse's windpipe, so the harder it pulls the less it can breathe.",
+      "leap": "improve",
       "completionText": "The carters at the Ostia road try your collar on one horse, then on all of them; the guild's wagons carry more for less, and the guild remembers whose idea it was."
     },
     {
@@ -114,6 +120,9 @@
         }
       ],
       "description": "A water wheel lifts a heavy hammer by a cam, day and night, for fulling cloth and beating iron.",
+      "baseline": "Water wheels grind grain, some in great flights, and a few saw stone by a crank; fullers tread cloth and smiths strike by hand.",
+      "bottleneck": "A wheel turns; nothing turns its turning into a blow.",
+      "leap": "combine",
       "completionText": "The trip hammer pounds beside the river; the banking house that lent against the mill takes a larger interest in you, and the guild's members queue to use it, and pay."
     },
     {
@@ -141,6 +150,9 @@
         }
       ],
       "description": "Every sum written twice, once as a debit and once as a credit, so the books always balance.",
+      "baseline": "Households and bankers keep careful daybooks and ledgers of receipts and payments.",
+      "bottleneck": "Each sum is written once, so a slip or a theft hides in it.",
+      "leap": "formalize",
       "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them give you a share in return."
     },
     {
@@ -173,6 +185,9 @@
         }
       ],
       "description": "A merchant in Ostia writes a note; his partner in Alexandria pays it. Gold stays home, and trade moves on paper.",
+      "baseline": "Bankers move credit between their own clients' accounts; letters of credit between cities pass between friends.",
+      "bottleneck": "Coin has to travel with the trade, and coin can be robbed or sunk.",
+      "leap": "standardize",
       "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the banking house that honors them grows, and so does your share."
     },
     {
@@ -202,6 +217,9 @@
         }
       ],
       "description": "The city's accounts kept by double entry and read aloud each year: every tax farmer's sums checked against his receipts.",
+      "baseline": "Magistrates render accounts at the end of office, and tax farmers answer to officials and the courts.",
+      "bottleneck": "There is no shared way to check one man's sums against another's receipts.",
+      "leap": "apply",
       "completionText": "The first public audit exposes two tax farmers and embarrasses a third; the senators who pushed it through owe you for the victory."
     },
     {
@@ -233,6 +251,9 @@
         }
       ],
       "description": "Lye and tallow boiled into hard soap, and linen boiled before it touches a wound.",
+      "baseline": "Soap is known, from Gaul and Germany, for hair and in medicine; Romans bathe with oil and the strigil, and physicians wash wounds with wine.",
+      "bottleneck": "No one ties a clean cloth to a wound that doesn't fester.",
+      "leap": "apply",
       "completionText": "The physicians wash with your soap and boil their linen; fewer wounds turn bad."
     },
     {
@@ -270,6 +291,9 @@
         }
       ],
       "description": "Wine boiled in a still and its vapour caught cold: a spirit strong enough to clean a wound before it festers.",
+      "baseline": "Alexandrian stills draw off waters and oils; wine and vinegar are poured on wounds.",
+      "bottleneck": "No one runs wine through a still and keeps what comes over.",
+      "leap": "apply",
       "completionText": "Surgeons pour your spirit into wounds and swear at the sting; fewer of their patients die of fever afterward."
     },
     {
@@ -303,6 +327,9 @@
         }
       ],
       "description": "The sick kept apart, in clean beds, each with a written record of symptoms, treatment and outcome, so the physicians learn what works.",
+      "baseline": "Army and estate hospitals take in the sick, temples heal by incubation, and physicians write case histories in the Hippocratic way.",
+      "bottleneck": "Cases are never put side by side, so no one learns which treatment works.",
+      "leap": "combine",
       "completionText": "The fever ward opens with twelve beds and a ledger; within a year its physicians know which treatments save lives, and they say whose idea it was."
     },
     {
@@ -330,6 +357,9 @@
         }
       ],
       "description": "A foot treadle and crank spin the work steadily, leaving both hands free: one smith turns true axles, spindles and handles alone.",
+      "baseline": "Bow and pole lathes turn wood, bone and soft metal.",
+      "bottleneck": "One hand drives the bow, so only one hand holds the tool.",
+      "leap": "improve",
       "completionText": "The smith's apprentices take turns at the treadle; the workshop turns out axles faster than the carters can buy them."
     },
     {
@@ -358,6 +388,9 @@
         }
       ],
       "description": "A water wheel works the bellows day and night: the forge runs hotter and steadier, and burns less charcoal.",
+      "baseline": "Bellows of hide are worked by hand or foot, by boys at the forge.",
+      "bottleneck": "A forge is only as hot and as steady as the boy at the bellows.",
+      "leap": "combine",
       "completionText": "The forge breathes without a boy at the bellows; the workshop's iron comes out cleaner, and the guild's merchants buy all of it."
     },
     {
@@ -391,6 +424,9 @@
         }
       ],
       "description": "A tall furnace fed by the water bellows runs hot enough to melt iron outright, so it can be poured into moulds instead of hammered.",
+      "baseline": "Bloomery furnaces make iron as a spongy bloom to be hammered; founders cast bronze, never iron.",
+      "bottleneck": "A furnace blown by hand never gets iron hot enough to run.",
+      "leap": "scale",
       "completionText": "Molten iron runs into sand moulds by the Porta Trigemina; the senators with public works to build want cast iron, and they want to know you."
     }
   ]

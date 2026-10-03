@@ -311,6 +311,7 @@ internal sealed partial class ConsoleGame
                         if (state != "made")
                         {
                             Console.WriteLine("                " + idea.Description);
+                            if (idea.Baseline.Length > 0) Console.WriteLine("                Rome already: " + idea.Baseline);
                             Console.WriteLine("                Pays: " + _sim.InventionPayoffText(idea));
                         }
                     }
