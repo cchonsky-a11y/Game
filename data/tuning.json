@@ -1897,5 +1897,11 @@
       "value": 0.15,
       "ref": "P1_SCOPE Scene routing: weight left to a scene past the soft cap (PROPOSED P1-01, from the P1 Sprint 1 package)"
     }
+  },
+  "invitations": {
+    "inviterPatienceMonths": {
+      "value": 6,
+      "ref": "P1_SCOPE Institutions (decided 2026-10-02): an inviter who was turned down doesn't take the risk again for this many months (PROPOSED P1-06)"
+    }
   }
 }

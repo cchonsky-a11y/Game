@@ -159,7 +159,7 @@ internal sealed partial class ConsoleGame
             foreach (var inv in _sim.Data.Content.Inventions.Where(x => _sim.InventionState(x) == "ready" && _sim.InventionGold(x) <= w.Gold))
                 inventions.Item2.Add((inv.Id + " (" + M(_sim.InventionGold(inv)) + ")", "invent " + inv.Id));
 
-        var commissions = Group("Commissions");
+        var commissions = Group("Work and invitations");
         foreach (var c in _sim.OpenCommissions())
         {
             var d = _sim.CommissionDefOf(c);
@@ -172,11 +172,19 @@ internal sealed partial class ConsoleGame
             }
         }
 
+        foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None))
+        {
+            var d = _sim.InvitationPathDefFor(p.Institution)!;
+            commissions.Item2.Add(("accept " + d.Inviter + "'s invitation", "invitation accept " + d.Institution));
+            commissions.Item2.Add(("decline " + d.Inviter + "'s invitation", "invitation decline " + d.Institution));
+        }
+
         var inst = Group("Institutions");
         if (att)
         {
             foreach (var i in w.Institutions.Where(x => !x.Def.IsOwn && x.Exists))
             {
+                if (!i.Backed && _sim.OnInvitationPath(i)) continue;   // P1: by invitation only, nothing to buy
                 if (!i.Backed)
                 {
                     int first = i.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;

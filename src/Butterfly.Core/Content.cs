@@ -427,6 +427,8 @@ namespace Butterfly.Core
         public IReadOnlyList<EventDef> Events { get; private set; } = new List<EventDef>();
         /// <summary>P1 commissions (data/content/commissions.json).</summary>
         public IReadOnlyList<CommissionDef> Commissions { get; private set; } = new List<CommissionDef>();
+        /// <summary>P1 invitation paths into institutions (data/content/invitations.json).</summary>
+        public IReadOnlyList<InvitationPathDef> InvitationPaths { get; private set; } = new List<InvitationPathDef>();
         /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
         public string Smith { get; private set; } = "the smith";
         public IReadOnlyList<OrderDef> Orders { get; private set; } = new List<OrderDef>();
@@ -490,6 +492,8 @@ namespace Butterfly.Core
                 content.Events = Read(contentDirectory, "events.json").Arr("events").Cast<JsonObject>().Select(o => new EventDef(o)).OrderBy(e => e.Time.TotalMonths).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "commissions.json")))
                 content.Commissions = Read(contentDirectory, "commissions.json").Arr("commissions").Cast<JsonObject>().Select(o => new CommissionDef(o)).ToList();
+            if (File.Exists(Path.Combine(contentDirectory, "invitations.json")))
+                content.InvitationPaths = Read(contentDirectory, "invitations.json").Arr("paths").Cast<JsonObject>().Select(o => new InvitationPathDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "workshop.json")))
             {
                 var w = Read(contentDirectory, "workshop.json");

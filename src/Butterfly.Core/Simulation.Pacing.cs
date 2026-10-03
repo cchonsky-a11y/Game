@@ -16,7 +16,7 @@ namespace Butterfly.Core
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
             "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",
             "bust.warning", "bust.outbreak", "bust.toll", "machine.step", "machine.assessed", "invention.complete", "office.offer", "event.offer", "workshop.orders",
-            "commission.encounter", "commission.stage", "commission.complete"
+            "commission.encounter", "commission.stage", "commission.complete", "invitation.offer", "institution.join"
         };
 
         private int _turnEventStart = 1;
@@ -40,6 +40,7 @@ namespace Butterfly.Core
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
             if (PendingEvent != null) reasons.Add(PendingEvent.Title.ToLowerInvariant());
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.TermsOffered)) reasons.Add(CommissionDefOf(c).Client + "'s offer");
+            foreach (var p in World.Invitations.Where(p => p.Pending != InvitationOffer.None)) reasons.Add(InvitationPathDefFor(p.Institution)!.Inviter + "'s invitation");
             if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this month");
             if (AffordableInvestment()) reasons.Add("money to invest");
             if (EraOver) reasons.Add("the era's " + EraYears + " years are over");

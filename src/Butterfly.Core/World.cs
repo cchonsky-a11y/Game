@@ -63,6 +63,8 @@ namespace Butterfly.Core
         public List<InstitutionAccessState> Access { get; } = new List<InstitutionAccessState>();
         /// <summary>P1 commissions, one per authored commission, in content order.</summary>
         public List<CommissionState> Commissions { get; } = new List<CommissionState>();
+        /// <summary>P1 invitation paths, one per authored path.</summary>
+        public List<InvitationPathState> Invitations { get; } = new List<InvitationPathState>();
 
         public InstitutionAccessState AccessTo(string institutionId) => Access.First(a => a.InstitutionId == institutionId);
 

@@ -1,0 +1,36 @@
+{
+  "_readme": "P1 institution access (decided 2026-10-02): aware → knows a member → guest → invited back → sponsored candidate → member. A forward step needs the five-part gate: a specific inviter, an existing relationship, relevant work in the domain, demonstrated usefulness, and an inviter willing to take the risk. Fame never counts. Months and costs PROPOSED P1-06. 'work' names a commission whose completion is the relevant work.",
+  "paths": [
+    {
+      "institution": "guild",
+      "inviter": "Felix",
+      "work": "cellarpump",
+      "guestAfterMonths": 2,
+      "againAfterMonths": 3,
+      "sponsorAfterMonths": 4,
+      "admitAfterMonths": 1,
+      "mealAttention": 1,
+      "mealCost": 2,
+      "guest": {
+        "offer": "Felix sends a boy with a message: the men of the guild eat together at Ostia on the Ides, and he has told them about Cassianus's pump. \"Come as my guest. Bring nothing but an appetite and a coin for the wine.\"",
+        "category": "RomanLife",
+        "scene": "The supper is in a long room above a warehouse at Ostia, the couches set by rank. You are at the bottom, next to a rope-maker who talks about nothing but hemp. A shipper complains that his pumps leak like Cassianus's did. Felix catches your eye across the room and does not come over."
+      },
+      "again": {
+        "offer": "Felix again: \"They asked whether you'd come back. Not all of them kindly. Come anyway.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "This time the shipper with the leaking pumps saves you a place. The guild's quaestor reads out who owes dues and who has died; the members pass a box for a widow. Someone asks where you are from, and does not believe the answer."
+      },
+      "sponsor": {
+        "offer": "Felix walks you to the river after supper. \"I'll put my name to you, if you want it. If you shame me, it's my name they remember.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "Felix stands up at the next supper and says your name, your trade and what you did for Cassianus. Two men speak for you. One speaks against: foreigners take work from members. The vote is put off a month, as these things are."
+      },
+      "admit": {
+        "category": "InstitutionsPolitics",
+        "scene": "The guild takes you in. You swear by the guild's genius before the shrine in the hall, pay your entry, and hear what you owe: dues each year, your place at the suppers, a share when a member is buried, help when a member is in trouble, and the guild's word in your disputes. Felix pours the first cup."
+      },
+      "decline": "You send word to Felix that you can't come. He doesn't ask again for a while."
+    }
+  ]
+}

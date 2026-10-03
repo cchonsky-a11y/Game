@@ -49,6 +49,7 @@ namespace Butterfly.Core
             World.ScenePacing = ScenePacingState.FromTuning(T);
             foreach (var i in World.Institutions) World.Access.Add(new InstitutionAccessState(i.Key));
             InitCommissions();
+            InitInvitations();
         }
 
         private SceneRouter? _sceneRouter;
@@ -84,6 +85,7 @@ namespace Butterfly.Core
             AdvanceEvents();
             AdvanceWorkshop();
             OpenCommissionsDue();
+            AdvanceInvitations();
         }
 
         private void YearTick()
@@ -129,7 +131,8 @@ namespace Butterfly.Core
         /// <summary>The ledger's kind for a gold change, from the event that made it.</summary>
         private static LedgerEntryKind LedgerKindFor(string type, double delta)
         {
-            if (type.Contains("dues") || type == "institution.unpaid") return LedgerEntryKind.InstitutionDues;
+            if (type.Contains("dues") || type == "institution.unpaid" || type == "institution.join") return LedgerEntryKind.InstitutionDues;
+            if (type == "invitation.guest") return LedgerEntryKind.GiftOrFavor;
             if (type.Contains("material")) return LedgerEntryKind.Materials;
             if (type.Contains("dividend") || type.Contains("share")) return LedgerEntryKind.ProfitShare;
             if (type == "currency.exchange") return LedgerEntryKind.Adjustment;

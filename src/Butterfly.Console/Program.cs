@@ -341,10 +341,18 @@ internal sealed partial class ConsoleGame
                 if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 // L8 (tester 6): with no percent, a first purchase buys what joining takes (the bank's first is 5%, not 1%).
                 var target = _sim.FindInstitution(arg);
+                // P1 (decided 2026-10-02): an institution on an invitation path doesn't sell seats.
+                if (target != null && _sim.OnInvitationPath(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell seats: members bring you in. " + AccessText(target)); return false; }
                 int pct = target != null && !target.Backed && target.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 r = _sim.Buy(arg, pct);
                 break;
+            case "invitation": case "invite":
+            {
+                string verb = arg.ToLowerInvariant(), inst = parts.Length > 2 ? parts[2] : "";
+                r = verb == "accept" ? _sim.AcceptInvitation(inst) : verb == "decline" ? _sim.DeclineInvitation(inst) : CommandResult.Fail("Usage: invitation accept|decline <institution>");
+                break;
+            }
             case "invest":
                 if (parts.Length < 3 || !double.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out var inv))
                 {
@@ -411,7 +419,8 @@ internal sealed partial class ConsoleGame
                             // L4 (tester 2): apprentices who leave over unpaid wages, and a workshop that grows or shrinks, were only in the log.
                             "workshop.apprentice", "workshop.size",
                             // P1 commissions: the scenes as they happen.
-                            "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access" };
+                            "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
+                            "invitation.offer", "institution.join", "invitation.wait" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -465,6 +474,8 @@ internal sealed partial class ConsoleGame
                               (i.Holdings > 0 ? ", holds " + _sim.Money(i.Holdings) : ""));
         foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " month(s) left)");
         foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " month(s) left)");
+        foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None))
+            Console.WriteLine("  ► " + _sim.InvitationPathDefFor(p.Institution)!.Inviter + "'s invitation: invitation accept|decline " + p.Institution + "   (institutions)");
         foreach (var c in _sim.OpenCommissions())
         {
             var d = _sim.CommissionDefOf(c);
@@ -500,6 +511,25 @@ internal sealed partial class ConsoleGame
     private string StakeLabel(Institution i) =>
         _sim.Controls(i) ? " (control)" : _sim.HasVoice(i) ? " (voice)" : _sim.HasInfluence(i) ? " (influence)" : " (member)";
 
+    /// <summary>Where you stand with an institution that takes members by invitation (P1).</summary>
+    private string AccessText(Institution i)
+    {
+        var a = _sim.World.AccessTo(i.Key);
+        var d = _sim.InvitationPathDefFor(i.Key)!;
+        string stage = a.Stage switch
+        {
+            InstitutionAccessStage.Unaware => "you know no one there",
+            InstitutionAccessStage.Aware => "you know of it, but no one in it",
+            InstitutionAccessStage.KnowsMember => "you know " + a.KnownMemberId + ", a member",
+            InstitutionAccessStage.Guest => "you have been a guest at a supper",
+            InstitutionAccessStage.InvitedBack => "you have been asked back",
+            InstitutionAccessStage.SponsoredCandidate => a.SponsorId + " has put your name forward",
+            InstitutionAccessStage.Member => "you are a member",
+            _ => "you hold an office",
+        };
+        return "membership by invitation: " + stage + ".";
+    }
+
     private void Institutions()
     {
         foreach (var d in DomainInfo.All)
@@ -514,11 +544,13 @@ internal sealed partial class ConsoleGame
                 else
                 {
                     line += ": strength " + F(i.Strength) + " (" + F(_sim.DomainShare(i) * 100) + "%)";
+                    if (_sim.OnInvitationPath(i)) line += "; " + AccessText(i);
                     if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
+                    else if (_sim.OnInvitationPath(i)) { }
                     else if (!i.Def.IsOwn)
                         line += "; to join: " + _sim.JoinRequirementText(i) + (_sim.JoinBlocker(i) == null ? " (you qualify)" : " (not yet)");
                     int next = _sim.NextThresholdPercent(i);
-                    if (!i.Def.IsOwn && next > 0)
+                    if (!i.Def.IsOwn && next > 0 && !_sim.OnInvitationPath(i))
                         line += "; next 1% " + _sim.Money(_sim.BuyCost(i, 1)) + (i.Stake <= 0 && _sim.EntryFee(i) > 0 ? " incl. " + _sim.Money(_sim.EntryFee(i)) + " entry fee" : "") +
                                 ", to " + next + "% " + _sim.Money(_sim.BuyCost(i, next - _sim.StakePercent(i))) + "; dues " + _sim.Money(_sim.T.Get("joining.duesBasePerYear." + i.Key)) + "/yr + " +
                                 _sim.Money(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";
