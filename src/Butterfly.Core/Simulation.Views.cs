@@ -79,6 +79,18 @@ namespace Butterfly.Core
             }
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.NotYet))
                 if (Knows(CommissionDefOf(c).Introducer)) v.Emerging.Add(new ViewItem(CommissionDefOf(c).Introducer + " may bring work"));
+            foreach (var c in World.Challenges)
+            {
+                var d = ChallengeDefOf(c);
+                if (c.Status == ChallengeStatus.Working) v.Active.Add(new ViewItem(d.Name + ": " + NextStage(c)!.Name + ", " + c.MonthsLeft + " month(s) left", "challenge"));
+                else if (c.Status == ChallengeStatus.Open)
+                {
+                    var s = NextStage(c)!;
+                    if (StageBlocker(s) == null && StageGold(s) <= World.Gold) v.AvailableNow.Add(new ViewItem(d.Name + ": " + StageLine(s), "challenge begin " + d.Id));
+                    else v.Blocked.Add(new ViewItem(d.Name + ": " + StageLine(s)));
+                }
+                else if (c.Status == ChallengeStatus.Done || c.Status == ChallengeStatus.Abandoned) v.Archived.Add(new ViewItem(d.Name + " (" + c.Status.ToString().ToLowerInvariant() + ")"));
+            }
             foreach (var id in World.CompletedProjects) v.Archived.Add(new ViewItem(Data.Content.Projects.FirstOrDefault(p => p.Id == id)?.Name ?? id));
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Done || c.Status == CommissionStatus.Declined || c.Status == CommissionStatus.Walked || c.Status == CommissionStatus.Abandoned))
                 v.Archived.Add(new ViewItem(CommissionDefOf(c).Title + " (" + c.Status.ToString().ToLowerInvariant() + ")"));

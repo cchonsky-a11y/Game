@@ -392,3 +392,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 ## 2026-10-03 — P1: the Roman-baseline check in content
 - **Built:** every invention in `inventions.json` now states Rome's baseline, the bottleneck and the leap (apply, improve, combine, formalize, standardize, scale), as the capabilities already do; every commission must name the capability it moves. Tests enforce all three. The console's `inventions` list shows "Rome already: …".
 - **For Corey (no change made):** three P0 inventions sit close to what Rome may already have had. Soap was known (the invention is framed as applying it, with boiled linen, to wounds); a few scholars argue for Roman water-powered hammers (framed as combining the wheel with a cam); a one-wheeled barrow may have existed in Greece (framed as applying it to Roman building sites). Names and effects unchanged.
+
+## 2026-10-03 — P1: the first Grand Challenge, with resource bottlenecks
+- **Built:** `data/content/challenges.json` with Measurement and standards (capability ladder §4.1), opened by the pump's question. Four self-funded stages, started by the player (`challenge`, `challenge begin standards`), move shared measures and then gauges to reproducible. Stages hold Attention each month, show in the Attention header, and are abandoned (logged) if you leave mid-stage.
+- **Bottlenecks:** people (the shared foot needs Felix, and waits while he is laid up), capability (gauges can't pass shared measures), and resources: tin bronze and Noric steel cost twice as much to a stranger, at the usual price through the guild (PROPOSED P1-10). Materials are ledger entries.
+- **Echoes:** shared measures and gauges are carried by the guild while you are away and show on arrival.
+- Docs: SYSTEMS §13, P1_PROPOSALS P1-10. No tuning value added (amounts live in the content file, like commissions).

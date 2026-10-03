@@ -52,6 +52,7 @@ namespace Butterfly.Core
             InitInvitations();
             foreach (var c in Data.Content.Capabilities) World.Capabilities.Add(new CapabilityState(c.Id));
             foreach (var p in Data.Content.People) World.People.Add(new PersonState(p.Id, p.Status));
+            InitChallenges();
         }
 
         private SceneRouter? _sceneRouter;
@@ -72,6 +73,7 @@ namespace Butterfly.Core
             ProgressWorkshop();
             ProgressCommitments();
             ProgressCommissions();
+            ProgressChallenges();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();
             SettleGold();
@@ -89,6 +91,7 @@ namespace Butterfly.Core
             AdvancePeople();
             OpenCommissionsDue();
             AdvanceInvitations();
+            OpenChallengesDue();
         }
 
         private void YearTick()

@@ -172,6 +172,14 @@ internal sealed partial class ConsoleGame
             }
         }
 
+        var challenges = Group("Projects · grand challenge");
+        foreach (var c in w.Challenges.Where(c => c.Status == ChallengeStatus.Open))
+        {
+            var s = _sim.NextStage(c)!;
+            if (_sim.StageBlocker(s) == null && _sim.StageGold(s) <= w.Gold && s.Attention <= w.Attention)
+                challenges.Item2.Add((s.Name.ToLowerInvariant() + " (" + M(_sim.StageGold(s)) + ")", "challenge begin " + c.Id));
+        }
+
         var invitations = Group("Institutions · invitations");
         foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None))
         {
@@ -248,6 +256,6 @@ internal sealed partial class ConsoleGame
         turn.Item2.Add(("fast-forward until something needs you", "wait"));
 
         // Grouped by the eight P1 sections (Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal).
-        return new List<(string, List<(string, string)>)> { decide, money, commissions, work, shop, projects, invitations, inst, inventions, policy, priorities, machine, leave, look, turn };
+        return new List<(string, List<(string, string)>)> { decide, money, commissions, challenges, work, shop, projects, invitations, inst, inventions, policy, priorities, machine, leave, look, turn };
     }
 }

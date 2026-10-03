@@ -4,11 +4,23 @@
     { "id": "metrology", "name": "shared measures", "domain": "measurement",
       "baseline": "Every trade measures well by its own foot and its own rule; the state keeps standard measures for the market.",
       "bottleneck": "Two workshops' feet differ by a finger's width, so a part made in one won't fit in the other.",
-      "leap": "standardize", "prerequisites": [] },
+      "leap": "standardize", "prerequisites": [],
+      "carriers": ["guild"],
+      "echo": {
+        "Reproducible": "In a few shops on the Clivus and at Ostia the rules on the walls are copies of one bronze bar. The men there say a thing is cut to the foot and mean that one.",
+        "Adopted": "Every fitter on the river works to one foot now, and the guild keeps the bronze master in its hall.",
+        "Institutionalized": "The guild at Ostia keeps the master foot in a locked case and checks its members' rules against it every year. A short rule costs a fine."
+      } },
     { "id": "gauges", "name": "gauges and fits", "domain": "measurement",
       "baseline": "Skilled men fit each part by hand to the part beside it.",
       "bottleneck": "Parts made apart, by different hands, don't fit without filing.",
-      "leap": "standardize", "prerequisites": ["metrology"] },
+      "leap": "standardize", "prerequisites": ["metrology"],
+      "carriers": ["guild"],
+      "echo": {
+        "Reproducible": "Three shops still cut seats to a shared set of gauges, and their pumps trade parts.",
+        "Adopted": "Fitters on the quays carry fit and no-fit plugs in a leather roll, and buy seats from whichever shop is nearest.",
+        "Institutionalized": "The guild sells sealed sets of gauges to its members. A seat cut to them fits any member's pump, from Ostia to the Aventine."
+      } },
     { "id": "valveseats", "name": "true valve seats", "domain": "hydraulics",
       "baseline": "Bronze force pumps with leather flaps, the kind the fire watch carries (Ctesibius's design, two centuries old).",
       "bottleneck": "Seats wear oval and are refitted by eye, so pumps leak back on every stroke.",

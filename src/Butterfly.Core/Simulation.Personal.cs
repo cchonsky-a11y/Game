@@ -21,6 +21,7 @@ namespace Butterfly.Core
             + ReservedMachineAttention()
             + ReservedInventionAttention()
             + ReservedCommissionAttention()
+            + ReservedChallengeAttention()
             + OfficeDuties();
 
         /// <summary>What holds this month's reserved Attention, by name (P1 header: "2 reserved — Machine Assessment").</summary>
@@ -33,6 +34,8 @@ namespace Butterfly.Core
             foreach (var a in World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.DurationMonths && a.Def.AttentionPerTurn > 0)) parts.Add((a.Def.Name, a.Def.AttentionPerTurn));
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Working && Turn >= c.ReservedFromTurn))
                 parts.Add((CommissionDefOf(c).Title, CommissionDefOf(c).Work[c.WorkIndex].Attention));
+            foreach (var c in World.Challenges.Where(c => c.Status == ChallengeStatus.Working && Turn >= c.ReservedFromTurn))
+                parts.Add((NextStage(c)!.Name, NextStage(c)!.Attention));
             foreach (var i in World.Institutions.Where(i => i.Exists && (i.Def.IsOwn ? i.Stake > 0 : i.Backed)))
             {
                 int duty = DutyAttention(i.Rank, i.Def.IsOwn);
@@ -51,6 +54,7 @@ namespace Butterfly.Core
             + World.ActiveMachineSteps.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
             + World.ActiveInventions.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
             + CommissionAttentionNextMonth()
+            + ChallengeAttentionNextMonth()
             + OfficeDuties();
 
         private void InitAttention()

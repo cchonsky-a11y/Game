@@ -90,7 +90,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "view", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "view", "challenge", "challenges", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -193,6 +193,7 @@ internal sealed partial class ConsoleGame
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   view [section]                 the eight sections: now, projects, people, institutions, knowledge, civilization, machine, journal
+  challenge [begin <id>]         Grand Challenges: the question, the next stage and what holds it up; begin the next stage
   people                         the people you know, and how their lives stand now
   commission                     work people bring you: look at the problem (unpaid), then accept, counter or decline the terms
   log [n]                        the last n events
@@ -228,6 +229,10 @@ internal sealed partial class ConsoleGame
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "people": case "who": People(); return true;
             case "view": case "section": View(arg); return true;
+            case "challenge": case "challenges":
+                if (arg.ToLowerInvariant() == "begin") { r = _sim.StartChallengeStage(parts.Length > 2 ? parts[2] : ""); break; }
+                Challenges();
+                return true;
             case "ledger": Ledger(parts.Length > 1 && int.TryParse(arg, out var ln) ? ln : 12); return true;
             case "commission": case "commissions":
             {
@@ -423,7 +428,7 @@ internal sealed partial class ConsoleGame
                             // P1 commissions: the scenes as they happen.
                             "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
                             "invitation.offer", "institution.join", "invitation.wait",
-                            "person.life", "person.return" };
+                            "person.life", "person.return", "challenge.open", "challenge.stage", "challenge.complete" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
@@ -610,6 +615,21 @@ internal sealed partial class ConsoleGame
             var p = _sim.PersonOf(d.Id)!;
             Console.WriteLine("  " + d.Name + ", " + d.Role + ". " + Capitalize(p.Status) + "." + (_sim.IsPersonAway(d.Id) ? " Laid up or away for now." : ""));
             Console.WriteLine("      household: " + d.Household + "; cares about " + d.CaresAbout + "; wants " + d.Goal + ".");
+        }
+    }
+
+    /// <summary>P1 Grand Challenges: the question, how far it has come, and the next stage with what holds it up.</summary>
+    private void Challenges()
+    {
+        var open = _sim.World.Challenges.Where(c => c.Status != ChallengeStatus.NotYet).ToList();
+        if (open.Count == 0) { Console.WriteLine("No Grand Challenge has come up yet. Your work will raise one."); return; }
+        foreach (var c in open)
+        {
+            var d = _sim.ChallengeDefOf(c);
+            Console.WriteLine("  " + d.Name + " — " + d.Question + "   [" + c.StageIndex + "/" + d.Stages.Count + " stages]");
+            if (c.Status == ChallengeStatus.Working) Console.WriteLine("    Under way: " + _sim.NextStage(c)!.Name + ", " + c.MonthsLeft + " month(s) left.");
+            else if (c.Status == ChallengeStatus.Open) Console.WriteLine("    Next: " + _sim.StageLine(_sim.NextStage(c)!) + "   (challenge begin " + d.Id + ")");
+            else Console.WriteLine("    " + c.Status + ".");
         }
     }
 
