@@ -90,7 +90,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -196,6 +196,7 @@ internal sealed partial class ConsoleGame
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   log [n]                        the last n events
+  ledger [n]                     your money: the last n entries (who paid, what for) and the totals
   end                            End Month: the calendar moves one month (only this ends a month)
   wait                           fast-forward: months pass until something needs you
   inventions                     the invention tree: what you can make, what each needs first and from Rome
@@ -225,6 +226,7 @@ internal sealed partial class ConsoleGame
             case "why": Console.WriteLine(Why.Explain(_sim, arg)); return true;
             case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
+            case "ledger": Ledger(parts.Length > 1 && int.TryParse(arg, out var ln) ? ln : 12); return true;
             case "start": r = _sim.StartProject(arg.ToLowerInvariant()); break;
             case "choose": r = _sim.ChooseSeeded(arg.ToLowerInvariant()); break;
             case "priority":
@@ -528,6 +530,16 @@ internal sealed partial class ConsoleGame
                 }
             }
         }
+    }
+
+    /// <summary>The P1 ledger: every change to your money, with who paid and why.</summary>
+    private void Ledger(int n)
+    {
+        var l = _sim.World.Ledger;
+        foreach (var e in l.Entries.Skip(Math.Max(0, l.Entries.Count - n)))
+            Console.WriteLine("  " + (e.Amount >= 0 ? "+" : "−") + _sim.Money(Math.Abs(e.Amount)).PadLeft(16) + "  " + e.Kind.ToString().PadRight(15) +
+                              (e.Counterparty.Length > 0 ? e.Counterparty + ": " : "") + e.Reason);
+        Console.WriteLine("  In: " + _sim.Money(l.Income) + " · out: " + _sim.Money(l.Expenses) + " · now: " + _sim.Money(_sim.World.Gold) + ".");
     }
 
     private void Log(int n)

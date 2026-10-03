@@ -191,5 +191,14 @@ namespace Butterfly.Core.Tests
             Assert.Contains("Attention: 2 free / 4 total · 2 reserved — Repair the district fountain", output);
             Assert.Contains("== Month 2 · ", output);
         }
+    
+        [Fact]
+        public void TheLedgerCommandShowsWhereTheMoneyWent()
+        {
+            var sim = new Simulation(TestData.Load(), 3);
+            string output = Play(sim, "choose workshop", "exchange 20 aurei", "work odd", "end", "ledger");
+            Assert.Contains("Payment", output);
+            Assert.Contains("In: ", output);
+        }
     }
 }

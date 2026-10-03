@@ -51,6 +51,19 @@ namespace Butterfly.Core
 
         public List<Institution> Institutions { get; } = new List<Institution>();
 
+        // ---- P1 state (decided 2026-10-02; P1 Sprint 1 models, now part of the world) ----
+
+        /// <summary>Recent meaningful scenes, for the scene router's two-in-a-row soft cap (set from tuning at start).</summary>
+        public ScenePacingState ScenePacing { get; set; } = new ScenePacingState(2);
+        /// <summary>Every movement of the player's money, with who paid and why (mirrors each gold effect in the log).</summary>
+        public EconomyLedger Ledger { get; } = new EconomyLedger();
+        /// <summary>P1 projects: commissions, experiments and Grand Challenges with explicit terms.</summary>
+        public List<ProjectState> Projects { get; } = new List<ProjectState>();
+        /// <summary>Relationship-first access to each institution, in institution order (aware → … → member → officer).</summary>
+        public List<InstitutionAccessState> Access { get; } = new List<InstitutionAccessState>();
+
+        public InstitutionAccessState AccessTo(string institutionId) => Access.First(a => a.InstitutionId == institutionId);
+
         public Institution Institution(string id) => Institutions.First(i => i.Def.Id == id);
 
         public List<ActiveProject> ActiveProjects { get; } = new List<ActiveProject>();

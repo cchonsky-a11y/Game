@@ -96,9 +96,15 @@ namespace Butterfly.Core
 
             string text = "Income +" + F(income) + ", upkeep −" + F(instPaid + domainPaid) + ".";
             if (paidFraction < 1) text += " You could pay only " + F(paidFraction * 100) + "% of domain upkeep; the rest is neglected.";
-            Record("gold.settle", GoldKey, CausesOf(LevelKey(Domain.Economy), PriorityKey(Domain.Medicine),
+            var settle = Record("gold.settle", GoldKey, CausesOf(LevelKey(Domain.Economy), PriorityKey(Domain.Medicine),
                     PriorityKey(Domain.Governance), PriorityKey(Domain.Economy)), new[] { "world" },
                 new[] { new Effect(GoldKey, before, World.Gold) }, text);
+            // The ledger (P1) shows the settlement's parts, not just its net: income, what institutions were owed, upkeep.
+            double net = World.Gold - before, upkeepSide = -instPaid - domainPaid;
+            double incomeShown = net - upkeepSide;
+            if (Math.Abs(incomeShown) > 1e-12) World.Ledger.Record(new LedgerEntry("e" + settle.Id + ":income", LedgerEntryKind.Payment, incomeShown, "", "Income this month (property, work bonuses, institutions' shares)."));
+            if (instPaid > 1e-12) World.Ledger.Record(new LedgerEntry("e" + settle.Id + ":institutions", LedgerEntryKind.InstitutionDues, -instPaid, "", "Dues and your share of institutions' costs this month."));
+            if (domainPaid > 1e-12) World.Ledger.Record(new LedgerEntry("e" + settle.Id + ":upkeep", LedgerEntryKind.Expense, -domainPaid, "", "Upkeep of the domains you look after this month."));
         }
 
         internal void SpendGold(double amount) => World.Gold -= amount;

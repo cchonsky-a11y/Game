@@ -20,6 +20,15 @@ namespace Butterfly.Core.Tests
         /// <summary>A plain, fixed player: the workshop, the guild and the Circle, generous answers, the machine, then two jumps.</summary>
         public static Simulation ReferencePlaythrough()
         {
+            var sim = ReferencePlaythroughBeforeJump();
+            sim.Jump();
+            sim.Jump();
+            return sim;
+        }
+
+        /// <summary>The reference playthrough up to the moment it leaves Rome.</summary>
+        public static Simulation ReferencePlaythroughBeforeJump()
+        {
             var sim = new Simulation(TestData.Load(), 42);
             sim.ChooseSeeded("workshop");
             while (!sim.MachineReady || sim.Now.Year < 172)
@@ -58,8 +67,6 @@ namespace Butterfly.Core.Tests
                 sim.EndTurn();
                 if (sim.Now.Year > 190) break;
             }
-            sim.Jump();
-            sim.Jump();
             return sim;
         }
 

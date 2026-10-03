@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -39,7 +40,19 @@ namespace Butterfly.Core
             InitInstitutions();
             InitAttention();
             World.SmithRegard = T.Get("workshop.smith.startRegard");
+            InitP1();
         }
+
+        /// <summary>The P1 state in the world: scene pacing from tuning, and an access record for every institution.</summary>
+        private void InitP1()
+        {
+            World.ScenePacing = ScenePacingState.FromTuning(T);
+            foreach (var i in World.Institutions) World.Access.Add(new InstitutionAccessState(i.Key));
+        }
+
+        private SceneRouter? _sceneRouter;
+        /// <summary>The deterministic scene router (seeded Rng; numbers from tuning).</summary>
+        public SceneRouter Scenes => _sceneRouter ??= SceneRouter.FromTuning(Rng, T);
 
         /// <summary>Fraction of a year covered by one turn.</summary>
         public double YearsPerTurn => MonthsPerTurn / 12.0;
@@ -98,9 +111,26 @@ namespace Butterfly.Core
             var effectList = effects?.ToList() ?? new List<Effect>();
             var e = Log.Record(Now, type, target, causes, actors, effectList, text);
             foreach (var fx in effectList) _lastChange[fx.Key] = e.Id;
+            // The ledger (P1): every change to the player's money, with its counterparty and reason, straight from the log.
+            int k = 0;
+            // (The monthly settlement records its own parts: income, institutions, upkeep.)
+            if (type != "gold.settle")
+            foreach (var fx in effectList.Where(fx => fx.Key == GoldKey && Math.Abs(fx.Delta) > 1e-12))
+                World.Ledger.Record(new LedgerEntry("e" + e.Id + (k++ == 0 ? "" : ":" + k), LedgerKindFor(type, fx.Delta), fx.Delta,
+                    actors?.FirstOrDefault(a => a != "player") ?? "", text));
             return e;
         }
 
         internal void MarkChanged(string key, int eventId) => _lastChange[key] = eventId;
+
+        /// <summary>The ledger's kind for a gold change, from the event that made it.</summary>
+        private static LedgerEntryKind LedgerKindFor(string type, double delta)
+        {
+            if (type.Contains("dues") || type == "institution.unpaid") return LedgerEntryKind.InstitutionDues;
+            if (type.Contains("material")) return LedgerEntryKind.Materials;
+            if (type.Contains("dividend") || type.Contains("share")) return LedgerEntryKind.ProfitShare;
+            if (type == "currency.exchange") return LedgerEntryKind.Adjustment;
+            return delta > 0 ? LedgerEntryKind.Payment : LedgerEntryKind.Expense;
+        }
     }
 }
