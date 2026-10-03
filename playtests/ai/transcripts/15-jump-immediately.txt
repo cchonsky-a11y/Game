@@ -14,23 +14,24 @@ First, a choice. You can afford only one:
 Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+== Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
+  Attention: 4 free / 4 total
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
-  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
+  ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > jump
 The machine isn't ready: 0 of 9 repair steps done.
-  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a month for 2 months).
   Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 60 aurei).
   Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
 > jump
 The machine isn't ready: 0 of 9 repair steps done.
-  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a month for 2 months).
   Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 60 aurei).
   Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 

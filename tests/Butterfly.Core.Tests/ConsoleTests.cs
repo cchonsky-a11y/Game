@@ -111,18 +111,22 @@ namespace Butterfly.Core.Tests
         }
     
         [Fact]
-        public void PayingDownDebtWithNoAttentionLeftDoesNotEndTheTurn()
+        public void NothingButEndMonthEndsTheMonth()
         {
-            // L2 (testers 2 and 6): paying down at 0 Attention ended the turn, so their next 'end' skipped a whole turn.
+            // P1 (decided 2026-10-02): spending the last Attention never ends the month (L2, testers 2 and 6: a paydown or the
+            // last Attention ended the turn, and their next 'end' skipped one).
             var sim = new Simulation(TestData.Load(), 3);
             sim.ChooseSeeded("workshop");
             sim.World[Domain.Economy].Debt = 10;
             sim.World.Gold = 5000;
-            string output = Play(sim, "@autoend on", "work craft", "work craft", "paydown economy 10");
-            Assert.Contains("You can still pay down debt", output);   // the last Attention didn't end the turn: debt was payable
-            Assert.Equal(1, sim.Turn);                                  // and paying it didn't end it either
+            string output = Play(sim, "@autoend on", "work craft", "exchange 1 aurei", "assess", "paydown economy 10");
+            Assert.Equal(0, sim.World.Attention);
+            Assert.Equal(1, sim.Turn);                                  // still the first month
+            Assert.Contains("No Attention left this month. Type 'end' to end the month.", output);
             Assert.Equal(0, sim.World[Domain.Economy].Debt, 6);
-            Assert.Contains("type 'end' when you're done", output);
+            Play(sim, "end");
+            Assert.Equal(2, sim.Turn);                                  // 'end' moves exactly one month
+            Assert.Contains("Attention: ", Play(sim, "status"));
         }
     
         [Fact]
@@ -134,7 +138,7 @@ namespace Butterfly.Core.Tests
             sim.ChooseSeeded("fountain");
             sim.GrantStake("circle", 0.5);
             string output = Play(sim, "start warehouses", "mentor circle");
-            Assert.Contains("All your Attention is pledged for the turns ahead", output);
+            Assert.Contains("All your Attention is pledged for the months ahead", output);
             Assert.True(sim.AttentionCommittedNextTurn() >= sim.AttentionPerTurn);
             sim.EndTurn();
             Assert.Equal(0, sim.World.Attention);                     // the prediction holds
@@ -142,7 +146,7 @@ namespace Butterfly.Core.Tests
             var light = new Simulation(TestData.Load(), 3);
             light.World.Gold = 5000;
             light.ChooseSeeded("fountain");
-            Assert.DoesNotContain("pledged for the turns ahead", Play(light, "work craft"));   // work is this turn only
+            Assert.DoesNotContain("pledged for the months ahead", Play(light, "work craft"));   // work is this month only
         }
     
         [Fact]
@@ -176,6 +180,16 @@ namespace Butterfly.Core.Tests
             string output = Play(small, "buy bank 1");
             Assert.Equal(0, small.StakePercent(small.World.Institution("bank")));   // an explicit 1% is still refused, with the reason
             Assert.Contains("5%", output);
+        }
+    
+        [Fact]
+        public void TheHeaderShowsFreeTotalAndWhatHoldsTheReservedAttention()
+        {
+            // P1 header (decided 2026-10-02): "Attention: 2 free / 4 total · 2 reserved — Machine Assessment".
+            var sim = new Simulation(TestData.Load(), 3);
+            string output = Play(sim, "choose fountain", "end", "status");
+            Assert.Contains("Attention: 2 free / 4 total · 2 reserved — Repair the district fountain", output);
+            Assert.Contains("== Month 2 · ", output);
         }
     }
 }

@@ -29,9 +29,6 @@ internal sealed partial class ConsoleGame
     private readonly ScriptInput? _script;
     private readonly Harness? _harness;
     private bool _jumpArmed;
-    /// <summary>End the turn by itself once a choice uses the last Attention (decided 2026-09-28). On for keyboard play;
-    /// scripts turn it on with the line "@autoend on" so older scripts with explicit 'end's still replay the same.</summary>
-    private bool _autoEnd;
     private static readonly string[] PrepCommands = { "paydown", "endow", "audit", "orders", "status", "s", "why", "help", "?", "exchange", "deposit", "bury", "restore", "visit", "walk" };
 
     /// <summary>After the script's last line, read from the keyboard (--continue).</summary>
@@ -45,7 +42,6 @@ internal sealed partial class ConsoleGame
         _sim = sim;
         _script = script;
         _harness = harness;
-        _autoEnd = script == null;
     }
 
     /// <summary>Next command: from the script (echoed so transcripts read like a session) or from the keyboard.</summary>
@@ -119,27 +115,17 @@ internal sealed partial class ConsoleGame
             if (showMenu && _menuOn) ShowMenu();
             return true;
         }
-        if (cmd == "@autoend") { _autoEnd = arg != "off"; return true; }
-        int attentionBefore = _sim.World.Attention, committedBefore = _sim.AttentionCommittedNextTurn();
+        // "@autoend" (P0 scripts): auto-end is gone in P1 (decided 2026-10-02), so the directive is accepted and ignored.
+        if (cmd == "@autoend") return true;
+        int committedBefore = _sim.AttentionCommittedNextTurn();
         bool ok = Handle(cmd, arg, parts);
         _harness?.AfterCommand(line, ok);
-        // L3 (tester 2): say so the moment all of next turn's Attention is pledged, before turns start passing on their own.
+        // L3 (tester 2): say so the moment all of next month's Attention is pledged.
         if (ok && !_sim.Arrived && committedBefore < _sim.AttentionPerTurn && _sim.AttentionCommittedNextTurn() >= _sim.AttentionPerTurn)
-            Console.WriteLine("  (All your Attention is pledged for the turns ahead: they will pass on their own until work finishes or something needs you.)");
-        // Only a choice that uses the last Attention ends the turn. Paying down debt uses none, so at 0 Attention it never
-        // ends the turn by itself (testers 2 and 6: it did, and their next 'end' skipped a whole turn).
-        if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore == 0 && cmd == "paydown")
-            Console.WriteLine("  (No Attention left: type 'end' when you're done.)");
-        else if (ok && _autoEnd && !_jumpArmed && !_sim.Arrived && _sim.World.Attention == 0 && attentionBefore > 0)
-        {
-            if (_sim.ShouldAutoEnd())
-            {
-                Console.WriteLine("  (No Attention left: the turn ends.)");
-                EndTurn(wait: false);
-            }
-            else if (_sim.NoActionPossible())
-                Console.WriteLine("  (No Attention left. You can still pay down debt; type 'end' when you're done.)");
-        }
+            Console.WriteLine("  (All your Attention is pledged for the months ahead, until that work finishes.)");
+        // P1 (decided 2026-10-02): spending the last Attention never ends the month; only 'end' does.
+        if (ok && !_sim.Arrived && _sim.World.Attention == 0 && cmd != "end" && cmd != "e" && cmd != "wait" && cmd != "w")
+            Console.WriteLine("  (No Attention left this month. Type 'end' to end the month.)");
         if (showMenu && _menuOn)
         {
             if (LookCommands.Contains(cmd)) Console.WriteLine("  (Pick a number from the menu above, or type 'menu' to see it again.)");
@@ -203,16 +189,15 @@ internal sealed partial class ConsoleGame
   policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (2 Attention):
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
-  mentor <inst>                  commit Attention every turn for several turns
+  mentor <inst>                  commit Attention every month for several months
   work [odd|craft|consult]       your one personal action: earn about 125 / 300 / 500 denarii for 1 / 2 / 3 Attention
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   log [n]                        the last n events
-  end                            end the turn (2 months unless you change it)
-  turns <1|2|3>                  set how many months a turn lasts (Attention stays 4 a turn)
-  wait                           let turns pass until something needs you
+  end                            End Month: the calendar moves one month (only this ends a month)
+  wait                           fast-forward: months pass until something needs you
   inventions                     the invention tree: what you can make, what each needs first and from Rome
   invent <invention>             start work on an invention (income, standing and influence)
   machine                        the time machine: what's repaired and what's next
@@ -308,7 +293,7 @@ internal sealed partial class ConsoleGame
                     foreach (var idea in _sim.Data.Content.Inventions.Where(x => x.Branch == branch))
                     {
                         string state = _sim.InventionState(idea);
-                        Console.WriteLine("    " + idea.Id.PadRight(12) + _sim.Money(_sim.InventionGold(idea)).PadLeft(14) + ", " + idea.AttentionPerTurn + " Attention a turn for " + idea.Turns + " turns  " + idea.Name +
+                        Console.WriteLine("    " + idea.Id.PadRight(12) + _sim.Money(_sim.InventionGold(idea)).PadLeft(14) + ", " + idea.AttentionPerTurn + " Attention a month for " + idea.DurationMonths + " months  " + idea.Name +
                                           (state == "ready" ? "" : "   (" + state + ")"));
                         if (state != "made")
                         {
@@ -388,21 +373,14 @@ internal sealed partial class ConsoleGame
             case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
-            case "turns":
-                if (!int.TryParse(arg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var months))
-                {
-                    Console.WriteLine("Usage: turns <1|2|3>   (now " + _sim.MonthsPerTurn + " months a turn)");
-                    return false;
-                }
-                r = _sim.SetTurnLength(months);
-                break;
+            case "turns": Console.WriteLine("Each turn is one month (fixed). 'end' ends the month; 'wait' fast-forwards until something needs you."); return false;
             case "end": case "e": EndTurn(wait: false); return true;
             case "wait": case "w": EndTurn(wait: true); return true;
             case "jump": Jump(); return true;
             default: Console.WriteLine("Unknown command. Type 'help'."); return false;
         }
         Console.WriteLine(r.Message + (r.Ok && _sim.World.Attention < attentionBefore
-            ? "  [Attention left this turn: " + _sim.World.Attention + "/" + _sim.AttentionPerTurn + "]" : ""));
+            ? "  [Attention left this month: " + _sim.World.Attention + "/" + _sim.AttentionPerTurn + "]" : ""));
         // During jump preparation, show the updated briefing after each change.
         if (_jumpArmed && r.Ok && PrepCommands.Contains(cmd)) Briefing();
         return r.Ok;
@@ -411,9 +389,10 @@ internal sealed partial class ConsoleGame
     private void EndTurn(bool wait)
     {
         int from = _sim.Log.Events.Count;
-        int turns = wait ? _sim.AdvanceUntilDecision() : _sim.EndTurnAndSkipIdle();
-        if (turns > 1) Console.WriteLine(wait ? "  (" + turns + " turns pass; nothing needed you until now)"
-                                              : "  (" + turns + " turns pass; your Attention was fully committed)");
+        int months = 1;
+        if (wait) months = _sim.AdvanceUntilDecision();
+        else _sim.EndMonth();
+        if (months > 1) Console.WriteLine("  (" + months + " months pass; nothing needed you until now)");
         var shown = new[] { "project.complete", "debt.tier", "plague.warning", "plague.outbreak", "plague.toll", "plague.opening", "plague.passed",
                             "seeded.payoff", "promise.offer", "promise.kept", "commitment.complete", "income.bonus", "seeded.choice", "institution.unpaid", "year.start",
                             "machine.step", "machine.assessed", "invention.complete", "institution.stake", "institution.seniority", "rivalry.strike", "institution.collapse", "bust.warning", "bust.toll",
@@ -426,13 +405,23 @@ internal sealed partial class ConsoleGame
         Status();
     }
 
+    /// <summary>P1 header (decided 2026-10-02): "Attention: 2 free / 4 total · 2 reserved — Machine Assessment".</summary>
+    private string AttentionHeader()
+    {
+        var reserved = _sim.ReservedAttentionParts();
+        int held = reserved.Sum(p => p.Attention);
+        return "Attention: " + _sim.World.Attention + " free / " + _sim.AttentionPerTurn + " total" +
+               (held > 0 ? " · " + held + " reserved — " + string.Join(", ", reserved.Select(p => p.What)) : "");
+    }
+
     private void Status()
     {
         var w = _sim.World;
         Console.WriteLine();
-        Console.WriteLine("== Turn " + _sim.Turn + " · " + _sim.Now.Display + " ==  " + _sim.Money(w.Gold) + " (" + (((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn) >= 0 ? "+" : "−") +
-                          _sim.Money(Math.Abs((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn)).Replace(" denarii", "") + "/turn) · " +
-                          _sim.AureiText(w.Aurei) + " (1 = " + F(Math.Round(_sim.AureusInDenarii, 1)) + " den.)   Attention " + w.Attention + "/" + _sim.AttentionPerTurn + "   Index " + F(_sim.SphereIndex()));
+        Console.WriteLine("== Month " + _sim.Turn + " · " + _sim.Now.Display + " ==  " + _sim.Money(w.Gold) + " (" + (((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn) >= 0 ? "+" : "−") +
+                          _sim.Money(Math.Abs((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn)).Replace(" denarii", "") + "/month) · " +
+                          _sim.AureiText(w.Aurei) + " (1 = " + F(Math.Round(_sim.AureusInDenarii, 1)) + " den.)   Index " + F(_sim.SphereIndex()));
+        Console.WriteLine("  " + AttentionHeader());
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
                               "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
@@ -460,14 +449,14 @@ internal sealed partial class ConsoleGame
                               " (" + F(_sim.DomainShare(i) * 100) + "% of " + i.Def.Maintains + ")" + (_sim.Controls(i) ? ", loyalty " + F(i.Loyalty) : "") +
                               (i.Chartered ? ", chartered" : "") + (i.Endowed ? ", endowed" : "") + (i.AuditCharter ? ", audited" : "") +
                               (i.Holdings > 0 ? ", holds " + _sim.Money(i.Holdings) : ""));
-        foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " turn(s) left)");
-        foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)");
-        if (w.WorkshopBuildTurns > 0) Console.WriteLine("  Enlarging the workshop (" + w.WorkshopBuildTurns + " turn(s) left)   (workshop)");
+        foreach (var p in w.ActiveProjects) Console.WriteLine("  Under way: " + p.Def.Name + " (" + p.TurnsRemaining + " month(s) left)");
+        foreach (var a in w.ActiveInventions) Console.WriteLine("  Inventing: " + a.Def.Name + " (" + a.TurnsRemaining + " month(s) left)");
+        if (w.WorkshopBuildTurns > 0) Console.WriteLine("  Enlarging the workshop (" + w.WorkshopBuildTurns + " month(s) left)   (workshop)");
         Console.WriteLine("  Machine: " + (_sim.MachineAssessed ? _sim.MachineStepsDone + "/" + _sim.MachineStepsTotal + " repair steps" : "not yet assessed") +
                           ", gold " + F(_sim.MachineGoldRestored) + "/" + F(_sim.MachineGoldNeeded) + " aurei" +
-                          string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " turn(s) left)")) +
+                          string.Concat(w.ActiveMachineSteps.Select(a => "; under way: " + a.Def.Name + " (" + a.TurnsRemaining + " month(s) left)")) +
                           (_sim.MachineReady ? " — ready to jump" : "") + "   (machine)");
-        foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " turn(s) left)");
+        foreach (var c in w.Commitments) Console.WriteLine("  Mentoring " + c.InstitutionId + " (" + c.TurnsRemaining + " month(s) left)");
         if (_sim.SeededChoiceOpen) Console.WriteLine("  ► Waiting: choose fountain or choose workshop (before the end of turn " + _sim.T.GetInt("seededChoice.deadlineTurn") + ").");
         if (w.Promise.Status == PromiseStatus.Offered) Console.WriteLine("  ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no");
         if (_sim.OutbreakAwaitingResponse)
@@ -482,7 +471,7 @@ internal sealed partial class ConsoleGame
         foreach (var p in _sim.AvailableProjects())
         {
             string? blocked = _sim.ProjectAuthorityBlocker(p);
-            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + _sim.Money(_sim.ProjectGold(p)).PadLeft(14) + "  " + p.Turns + "t  +" + F(p.LevelGain) + "  " + p.Name +
+            Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + _sim.Money(_sim.ProjectGold(p)).PadLeft(14) + "  " + p.DurationMonths + "t  +" + F(p.LevelGain) + "  " + p.Name +
                               (blocked != null ? "\n                (" + blocked + ")" : p.Authority != null ? "   (public: you have the backing)" : ""));
         }
         Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");

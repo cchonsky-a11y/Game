@@ -41,22 +41,6 @@ namespace Butterfly.Core
             World.SmithRegard = T.Get("workshop.smith.startRegard");
         }
 
-        /// <summary>
-        /// Changes the turn length from the next turn on (SYSTEMS §2: the player may shorten turns at any time, never
-        /// lengthen them beyond the stage cap). Attention stays 4 a turn and multi-turn work keeps its turn counts.
-        /// </summary>
-        public CommandResult SetTurnLength(int months)
-        {
-            int cap = T.GetInt("time.maxMonthsPerTurn");
-            if (months < 1 || months > cap) return CommandResult.Fail("Turns can be 1 to " + cap + " months long.");
-            if (months == MonthsPerTurn) return CommandResult.Fail("Turns are already " + months + " month" + (months == 1 ? "" : "s") + " long.");
-            int before = MonthsPerTurn;
-            MonthsPerTurn = months;
-            Record("time.turnLength", "clock", null, new[] { "player" }, new[] { new Effect("time.monthsPerTurn", before, months) },
-                "Turns now last " + months + " month" + (months == 1 ? "" : "s") + " (were " + before + ").");
-            return CommandResult.Success("Turns now last " + months + " month" + (months == 1 ? "" : "s") + ".");
-        }
-
         /// <summary>Fraction of a year covered by one turn.</summary>
         public double YearsPerTurn => MonthsPerTurn / 12.0;
 

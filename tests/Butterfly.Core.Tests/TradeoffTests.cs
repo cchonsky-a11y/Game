@@ -74,7 +74,7 @@ namespace Butterfly.Core.Tests
                 var sim = Rich(12);
                 Hold(sim, "sanctuary", 0.10);
                 if (quarantine) { var q = sim.StartProject("quarantine"); Assert.True(q.Ok, q.Message); }
-                for (int t = 0; t < 6; t++) sim.EndTurn();
+                for (int t = 0; t < 12; t++) sim.EndTurn();   // 12 months (P1)
                 return sim;
             }
             var with = Run(true);

@@ -12,7 +12,7 @@ using Butterfly.Core;
 /// </summary>
 internal sealed class ScriptInput
 {
-    public const int MaxCycles = 200;
+    public const int MaxCycles = 400;   // an era is 240 one-month turns (P1)
 
     private readonly Simulation _sim;
     private readonly Queue<string> _lines;

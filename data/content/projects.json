@@ -7,7 +7,7 @@
       "name": "Repair the district fountain",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "durationMonths": 4,
       "levelGain": 1,
       "extras": [
         {
@@ -28,7 +28,7 @@
       "name": "Fund a physician for the district",
       "gold": 90,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "levelGain": 10,
       "extras": [
         {
@@ -50,7 +50,7 @@
       "name": "Draft quarantine rules for Ostia's docks",
       "gold": 70,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "levelGain": 5,
       "extras": [
         {
@@ -82,7 +82,7 @@
       "name": "Train midwives in the Subura",
       "gold": 80,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "levelGain": 6,
       "tags": [
         "teaching",
@@ -97,7 +97,7 @@
       "name": "Patronage for a senator",
       "gold": 75,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "levelGain": 6,
       "extras": [
         {
@@ -119,7 +119,7 @@
       "name": "Fund the district magistrates",
       "gold": 90,
       "attentionPerTurn": 2,
-      "turns": 8,
+      "durationMonths": 16,
       "levelGain": 10,
       "tags": [
         "law",
@@ -135,7 +135,7 @@
       "name": "Sponsor a household census",
       "gold": 60,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "levelGain": 6,
       "extras": [
         {
@@ -156,7 +156,7 @@
       "name": "Fund a night watch against fires",
       "gold": 80,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "levelGain": 6,
       "tags": [
         "public-works",
@@ -172,7 +172,7 @@
       "name": "Buy into the smith's workshop",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "durationMonths": 4,
       "levelGain": 0,
       "extras": [
         {
@@ -193,7 +193,7 @@
       "name": "Honest weights and free prices at the Forum Boarium",
       "gold": 75,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "levelGain": 8,
       "tags": [
         "commerce",
@@ -209,7 +209,7 @@
       "name": "Repair the Ostia warehouses",
       "gold": 105,
       "attentionPerTurn": 2,
-      "turns": 8,
+      "durationMonths": 16,
       "levelGain": 12,
       "extras": [
         {
@@ -230,7 +230,7 @@
       "name": "Mint audit: honest weight in the denarius",
       "gold": 70,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "durationMonths": 4,
       "levelGain": 6,
       "tags": [
         "commerce",
@@ -246,7 +246,7 @@
       "name": "Pave the market road to the river docks",
       "gold": 100,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "levelGain": 7,
       "tags": [
         "public-works",

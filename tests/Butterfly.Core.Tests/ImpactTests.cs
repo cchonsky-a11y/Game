@@ -25,7 +25,7 @@ namespace Butterfly.Core.Tests
             sim.ChooseSeeded("fountain");
             setup?.Invoke(sim);
             int guard = 0;
-            while (sim.PendingEvent?.Id != eventId && guard++ < 200)
+            while (sim.PendingEvent?.Id != eventId && guard++ < 400)
             {
                 sim.World.Gold = System.Math.Max(sim.World.Gold, 2000);
                 if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");

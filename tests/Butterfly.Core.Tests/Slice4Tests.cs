@@ -58,8 +58,8 @@ namespace Butterfly.Core.Tests
             }
             for (ulong seed = 1; seed <= 20; seed++)
                 Assert.Equal(Dates(Priority.Protect, seed), Dates(Priority.AcceptRisk, seed));
-            // On the turns that cover the historical dates (2-month turns: October 166 falls in the September turn).
-            Assert.Equal("AD 165-07,AD 166-01,AD 166-07,AD 166-09", Dates(Priority.Maintain, 1));
+            // On the historical dates, to the month (P1: 1-month turns): July 165, January 166, July 166, outbreak October 166.
+            Assert.Equal("AD 165-07,AD 166-01,AD 166-07,AD 166-10", Dates(Priority.Maintain, 1));
         }
 
         [Fact]

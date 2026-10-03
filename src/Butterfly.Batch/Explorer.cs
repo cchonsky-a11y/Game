@@ -32,7 +32,6 @@ namespace Butterfly.Batch
         public double JumpYear;
         public double DepositShare, BuryShare;
         public bool EndowAtJump, AuditAtJump;
-        public double TurnLengthChangeRate;
         /// <summary>Camps, offices, last orders (P0-32): which camp it prefers, how keen it is on office, and whether it leaves orders.</summary>
         public int CampLean;
         public double OfficeAppetite, OrdersRate;
@@ -81,7 +80,6 @@ namespace Butterfly.Batch
             p.BuryShare = r.NextDouble() * (1 - p.DepositShare);
             p.EndowAtJump = r.Chance(0.6);
             p.AuditAtJump = r.Chance(0.5);
-            p.TurnLengthChangeRate = r.Chance(0.3) ? 0.02 : 0;
             p.MachineStartYear = 155 + r.NextInt(0, 10);
             p.CampLean = r.NextInt(0, 3);          // 0 the first camps, 1 the second, 2 mixed
             p.OfficeAppetite = r.NextDouble();
@@ -172,7 +170,7 @@ namespace Butterfly.Batch
             if (Idle)
             {
                 p.Join.Clear(); p.Found = null; p.ProjectRate = 0; p.InventRate = 0; p.PaydownRate = 0; p.AttendRate = 0;
-                p.TurnLengthChangeRate = 0; p.PlagueResponse = new[] { "none" }; p.Promise = false; p.OrdersRate = 0;
+                p.PlagueResponse = new[] { "none" }; p.Promise = false; p.OrdersRate = 0;
                 p.PolicyStyle = "history"; p.Stances = new int[4]; p.EndowAtJump = false; p.AuditAtJump = false;
             }
             res.Persona = p;
@@ -363,7 +361,6 @@ namespace Butterfly.Batch
                 foreach (var resp in p.PlagueResponse) if (!done && Do(sim, res, () => sim.RespondToPlague(resp))) done = true;
                 if (!done) Do(sim, res, () => sim.RespondToPlague("none"));
             }
-            if (p.TurnLengthChangeRate > 0 && r.Chance(p.TurnLengthChangeRate)) Do(sim, res, () => sim.SetTurnLength(r.NextInt(1, 4)));
             // Live on the scavenged gold until the machine needs it back.
             if (w.Aurei >= 1 && sim.MachineGoldRestored < 1 && (w.Gold < 20 || r.Chance(0.3))) Do(sim, res, () => sim.SellAurei(w.Aurei));
 

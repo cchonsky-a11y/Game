@@ -6,33 +6,36 @@ namespace Butterfly.Core.Tests
     /// <summary>Rules decided on 2026-09-27 (G1, G3, G4, G8).</summary>
     public class Decisions0927Tests
     {
+        // Pacing (decided 2026-10-02, Corey, P1): 1-month turns; only End Month or an opt-in fast-forward moves the calendar.
+
         [Fact]
-        public void EndTurnAdvancesExactlyOneTurnWhenAnActionIsPossible()
+        public void EndMonthAdvancesExactlyOneMonth()
         {
             var sim = new Simulation(TestData.Load(), 3);
             sim.ChooseSeeded("fountain");
-            Assert.Equal(1, sim.EndTurnAndSkipIdle());
+            sim.EndMonth();
             Assert.Equal(2, sim.Turn);
+            Assert.Equal(1, sim.Now.Month);
         }
 
         [Fact]
-        public void EndTurnSkipsOnlyTurnsWithNoFreeAttention()
+        public void EndMonthNeverSkipsMonthsEvenWhenAllAttentionIsPledged()
         {
             var sim = new Simulation(TestData.Load(), 3);
             sim.World.Gold = 1000;
             sim.ChooseSeeded("fountain");
-            sim.EndTurn();
-            sim.EndTurn();
+            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();   // the fountain is repaired
             sim.GrantStake("circle", 0.5);                  // control, so you can mentor it
-            Assert.True(sim.StartProject("warehouses").Ok); // 2 per turn for several turns
-            Assert.True(sim.Mentor("circle").Ok);           // 2 per turn for several turns
-            int advanced = sim.EndTurnAndSkipIdle();
-            Assert.True(advanced > 1);                      // fully committed turns pass on their own
-            Assert.False(sim.NoActionPossible());
+            Assert.True(sim.StartProject("warehouses").Ok); // 2 a month for several months
+            Assert.True(sim.Mentor("circle").Ok);           // 2 a month for several months
+            int turn = sim.Turn;
+            sim.EndMonth();
+            Assert.Equal(turn + 1, sim.Turn);               // one month, never more (P0 skipped fully committed turns)
+            Assert.Equal(0, sim.World.Attention);
         }
 
         [Fact]
-        public void FullyCommittedTurnsStopWhenOneOfRomesChoicesOpens()
+        public void FastForwardStopsWhenOneOfRomesChoicesOpens()
         {
             // L1 (tester 6): a treasury loan opened and lapsed while committed turns passed on their own.
             Simulation Setup()
@@ -41,34 +44,31 @@ namespace Butterfly.Core.Tests
                 s.World.Gold = 5000;
                 s.ChooseSeeded("fountain");
                 s.GrantStake("circle", 0.5);
+                while (s.World.ActiveProjects.Count > 0) s.EndMonth();  // the fountain is repaired
                 return s;
             }
             var probe = Setup();
-            while (probe.PendingEvent == null) probe.EndTurn();
+            while (probe.PendingEvent == null) probe.EndMonth();
             int opens = probe.Turn;
 
             var sim = Setup();
-            while (sim.Turn < opens - 1) sim.EndTurn();
             Assert.True(sim.StartProject("warehouses").Ok);
             Assert.True(sim.Mentor("circle").Ok);
-            Assert.Equal(0, sim.World.Attention);
-            sim.EndTurnAndSkipIdle();
-            Assert.Equal(opens, sim.Turn);                  // it stops on the turn the choice opens
+            while (sim.PendingEvent == null && sim.Turn < opens + 12) sim.AdvanceUntilDecision();
+            Assert.Equal(opens, sim.Turn);                  // never fast-forwarded past the month it opened
             Assert.NotNull(sim.PendingEvent);
             Assert.False(sim.NoActionPossible());
         }
 
         [Fact]
-        public void TheTurnEndsByItselfWhenAttentionRunsOutUnlessDebtCanBePaid()
+        public void SpendingTheLastAttentionDoesNotEndTheMonth()
         {
             var sim = new Simulation(TestData.Load(), 3);
             sim.ChooseSeeded("workshop");
-            Assert.False(sim.ShouldAutoEnd());       // Attention left
             sim.Work("craft");
-            Assert.True(sim.ShouldAutoEnd());        // none left, nothing free to do
-            sim.World[Domain.Economy].Debt = 10;
-            sim.World.Gold = 100;
-            Assert.False(sim.ShouldAutoEnd());       // could still pay down debt
+            sim.Work("odd");
+            Assert.Equal(1, sim.Turn);
+            Assert.Equal(4, sim.T.GetInt("attention.perTurn"));
         }
 
         [Theory]

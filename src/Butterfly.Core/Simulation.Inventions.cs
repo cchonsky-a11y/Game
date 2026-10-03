@@ -61,7 +61,7 @@ namespace Butterfly.Core
         {
             if (World.Invented.Contains(def.Id)) return "made";
             var active = World.ActiveInventions.FirstOrDefault(a => a.Def.Id == def.Id);
-            if (active != null) return "under way (" + active.TurnsRemaining + " turn(s) left)";
+            if (active != null) return "under way (" + active.TurnsRemaining + " month(s) left)";
             if (!InventionUnlocked(def)) return "locked: first make " + InventionById(def.Prerequisite!)!.Name;
             if (!InventionRequirementMet(def)) return "needs " + InventionRequirementText(def);
             return "ready";
@@ -133,13 +133,13 @@ namespace Butterfly.Core
             double before = World.Gold;
             SpendGold(price);
             var e = Record("invention.start", def.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
-                "You start work on " + def.Name + " (" + Money(price) + ", " + def.Turns + " turns).");
+                "You start work on " + def.Name + " (" + Money(price) + ", " + def.DurationMonths + " months).");
             World.ActiveInventions.Add(new ActiveInvention(def, e.Id));
             return CommandResult.Success("Started: " + def.Name + ".");
         }
 
         private int ReservedInventionAttention() =>
-            World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.Turns).Sum(a => a.Def.AttentionPerTurn);
+            World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.DurationMonths).Sum(a => a.Def.AttentionPerTurn);
 
         private void ProgressInventions()
         {

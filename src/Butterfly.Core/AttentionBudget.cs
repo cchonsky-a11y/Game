@@ -22,7 +22,7 @@ namespace Butterfly.Core
             var t = data.Tuning;
             double turns = EraTurns(data);
             double years = t.Get("time.eraYears");
-            double demand = data.Content.Projects.Sum(p => p.AttentionPerTurn * p.Turns);
+            double demand = data.Content.Projects.Sum(p => p.AttentionPerTurn * p.DurationMonths);
             // One institution per domain taken to control: founding it (or the buys to 10%, 25% and 50%), then
             // charter, audit, endowment and one investment.
             int domains = data.Content.Institutions.Select(i => i.Maintains).Distinct().Count();
@@ -35,9 +35,9 @@ namespace Butterfly.Core
             // Attending meetings often enough to be an active member of one established institution per domain.
             demand += domains * years * t.Get("stakes.activeMeetingsPerYear") * t.Get("stakes.attendAttention");
             // The 9 time machine repair steps (all needed to jump).
-            demand += data.Content.MachineSteps.Concat(data.Content.MachineUpgrades).Sum(m => m.AttentionPerTurn * m.Turns);
-            if (data.Content.MachineAssessment != null) demand += data.Content.MachineAssessment.AttentionPerTurn * data.Content.MachineAssessment.Turns;
-            demand += data.Content.Inventions.Sum(i => i.AttentionPerTurn * i.Turns);
+            demand += data.Content.MachineSteps.Concat(data.Content.MachineUpgrades).Sum(m => m.AttentionPerTurn * m.DurationMonths);
+            if (data.Content.MachineAssessment != null) demand += data.Content.MachineAssessment.AttentionPerTurn * data.Content.MachineAssessment.DurationMonths;
+            demand += data.Content.Inventions.Sum(i => i.AttentionPerTurn * i.DurationMonths);
             demand += turns;
             return demand;
         }

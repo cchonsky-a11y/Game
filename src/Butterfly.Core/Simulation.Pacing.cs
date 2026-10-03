@@ -5,8 +5,8 @@ using System.Linq;
 namespace Butterfly.Core
 {
     /// <summary>
-    /// P0-only pacing (decided 2026-09-26, recorded in PROTOTYPE_SCOPE.md): 3-month turns, 40 per era,
-    /// and turns with no pending decision advance on their own.
+    /// Pacing (decided 2026-10-02, Corey, P1): 1-month turns, 240 in the era. A month ends only when the player ends it
+    /// (End Month), never because Attention ran out; fast-forward ends months until one needs the player.
     /// </summary>
     public sealed partial class Simulation
     {
@@ -38,7 +38,7 @@ namespace Butterfly.Core
             if (World.Promise.Status == PromiseStatus.Offered) reasons.Add("Demetria's request");
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
             if (PendingEvent != null) reasons.Add(PendingEvent.Title.ToLowerInvariant());
-            if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this turn");
+            if (Log.Events.Skip(_turnEventStart - 1).Any(e => NotableEvents.Contains(e.Type))) reasons.Add("news this month");
             if (AffordableInvestment()) reasons.Add("money to invest");
             if (EraOver) reasons.Add("the era's " + EraYears + " years are over");
             return reasons;
@@ -93,31 +93,15 @@ namespace Butterfly.Core
             !Arrived && World.Attention == 0 && !SeededChoiceOpen && World.Promise.Status != PromiseStatus.Offered && !OutbreakAwaitingResponse && PendingEvent == null && !EraOver;
 
         /// <summary>
-        /// Something the player could still do this turn without Attention that is worth pausing for (decided
-        /// 2026-09-28): paying down debt they can afford. Priorities are a standing setting and don't count.
+        /// "End Month" (decided 2026-10-02, Corey, P1): exactly one month, always. No month passes on its own, even when
+        /// no Attention is free; the player ends each one, or fast-forwards.
         /// </summary>
-        public bool FreeActionWorthPausingFor() =>
-            World.Domains.Any(d => d.Debt > 0) && World.Gold >= PaydownCost(1);
+        public void EndMonth() => EndTurn();
 
         /// <summary>
-        /// Auto-end (decided 2026-09-28): once a choice uses up the turn's Attention, the turn ends by itself unless an
-        /// open prompt or a free action (paying down debt) is still available.
+        /// Fast-forward (opt-in): ends months until one needs the player: an open prompt, news, an affordable investment or
+        /// the era's end (or <paramref name="maxTurns"/> pass). Returns months advanced.
         /// </summary>
-        public bool ShouldAutoEnd() => NoActionPossible() && !FreeActionWorthPausingFor();
-
-        /// <summary>"End turn": exactly one turn, then only turns where no action is possible pass on their own. Returns turns advanced.</summary>
-        public int EndTurnAndSkipIdle(int maxTurns = 100)
-        {
-            int n = 0;
-            do
-            {
-                EndTurn();
-                n++;
-            } while (n < maxTurns && NoActionPossible());
-            return n;
-        }
-
-        /// <summary>"Wait": ends turns until one needs the player (or <paramref name="maxTurns"/> pass). Returns turns advanced.</summary>
         public int AdvanceUntilDecision(int maxTurns = 100)
         {
             int n = 0;

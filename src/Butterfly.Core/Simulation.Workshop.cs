@@ -66,7 +66,7 @@ namespace Butterfly.Core
         public string? ExpandBlocker()
         {
             if (!OwnsWorkshop) return "You have no workshop to enlarge.";
-            if (World.WorkshopBuildTurns > 0) return "The workshop is already being enlarged (" + World.WorkshopBuildTurns + " turn(s) left).";
+            if (World.WorkshopBuildTurns > 0) return "The workshop is already being enlarged (" + World.WorkshopBuildTurns + " month(s) left).";
             var next = NextSize;
             if (next == null) return "The foundry is as big as the workshop gets.";
             if (!WorkshopRequirementHolds(next.Requires)) return Cap(next.Name) + " needs " + next.RequiresText + ".";
@@ -86,10 +86,10 @@ namespace Butterfly.Core
             double before = World.Gold, cost = ExpandCost(next);
             World.Gold -= cost;
             World.WorkshopBuildingTo = next.Size;
-            World.WorkshopBuildTurns = next.Turns;
+            World.WorkshopBuildTurns = next.DurationMonths;
             _expandEventId = Record("workshop.expand", "workshop", null, new[] { "player", Data.Content.Smith }, new[] { new Effect(GoldKey, before, World.Gold) },
-                "You pay " + Money(cost) + " to make the workshop " + next.Name + ": " + next.Description + " Ready in " + next.Turns + " turn(s).").Id;
-            return CommandResult.Success("Work begins on " + next.Name + " (" + Money(cost) + "; ready in " + next.Turns + " turn(s)). Upkeep will be " +
+                "You pay " + Money(cost) + " to make the workshop " + next.Name + ": " + next.Description + " Ready in " + next.DurationMonths + " month(s).").Id;
+            return CommandResult.Success("Work begins on " + next.Name + " (" + Money(cost) + "; ready in " + next.DurationMonths + " month(s)). Upkeep will be " +
                                          Money(next.Upkeep * World.PriceLevel) + " a year.");
         }
 
@@ -299,10 +299,10 @@ namespace Butterfly.Core
                       " (size +" + R(CurrentSize.Output * 100, "0") + "%, inventions " + (World.WorkshopBonus >= 0 ? "+" : "") + R(World.WorkshopBonus * 100, "0") + "%, apprentices +" +
                       R(World.Apprentices * T.Get("workshop.apprentices.outputEach") * 100, "0") + "%)" + (CurrentSize.Upkeep > 0 ? "; upkeep " + Money(WorkshopUpkeep()) + " a year." : "."));
             if (World.WorkshopBuildTurns > 0)
-                lines.Add("Being enlarged: " + Data.Content.WorkshopSizes.First(s => s.Size == World.WorkshopBuildingTo).Name + " (" + World.WorkshopBuildTurns + " turn(s) left).");
+                lines.Add("Being enlarged: " + Data.Content.WorkshopSizes.First(s => s.Size == World.WorkshopBuildingTo).Name + " (" + World.WorkshopBuildTurns + " month(s) left).");
             else if (NextSize is WorkshopSizeDef next)
-                lines.Add("expand: " + next.Name + " — " + next.Description + " " + Money(ExpandCost(next)) + ", " + next.Attention + " Attention, " + next.Turns +
-                          " turns; needs " + (next.RequiresText.Length > 0 ? next.RequiresText : "nothing") + (WorkshopRequirementHolds(next.Requires) ? " (you have it)" : " (not yet)") +
+                lines.Add("expand: " + next.Name + " — " + next.Description + " " + Money(ExpandCost(next)) + ", " + next.Attention + " Attention, " + next.DurationMonths +
+                          " months; needs " + (next.RequiresText.Length > 0 ? next.RequiresText : "nothing") + (WorkshopRequirementHolds(next.Requires) ? " (you have it)" : " (not yet)") +
                           ". Then " + next.Offered + " orders offered, " + next.PerSeason + " taken a season, " + next.ApprenticeMax + " apprentices, output +" + R(next.Output * 100, "0") +
                           "%, upkeep " + Money(next.Upkeep * World.PriceLevel) + " a year.");
             lines.Add("Orders this season (" + OrdersLeftThisSeason + " more can be taken):" + (_orderBoard.Count == 0 ? " none waiting." : ""));

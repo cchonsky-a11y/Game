@@ -112,7 +112,7 @@ namespace Butterfly.Core
                 Record("office.offer", i.Key, CausesOf(StakeKey(i), LoyaltyKey(i)), new[] { i.Leader },
                     new[] { new Effect(i.Key + ".offer", 0, next) },
                     (next == Head && i.Key == "guild" ? "The guild's members elect you quinquennalis" : i.Leader + " asks you to serve " + i.Def.ShortName + " as " + OfficeTitle(i, next)) +
-                    ": " + DutyAttention(next, false) + " Attention a turn in duties. (office accept " + i.Key + " / office decline " + i.Key + ")");
+                    ": " + DutyAttention(next, false) + " Attention a month in duties. (office accept " + i.Key + " / office decline " + i.Key + ")");
             }
         }
 
@@ -145,7 +145,7 @@ namespace Butterfly.Core
             Record("office.accept", i.Key, null, new[] { "player" }, new[] { new Effect(i.Key + ".rank", before, rank) },
                 "You serve " + i.Def.Name + " as " + OfficeTitle(i, rank) + ".");
             return CommandResult.Success("You are " + OfficeTitle(i, rank) + " of " + i.Def.ShortName + ": your vote weighs more, your parting words will carry, and the duties take " +
-                                         DutyAttention(rank, false) + " Attention a turn (resign " + i.Key + " to step down).");
+                                         DutyAttention(rank, false) + " Attention a month (resign " + i.Key + " to step down).");
         }
 
         public CommandResult Resign(string id)

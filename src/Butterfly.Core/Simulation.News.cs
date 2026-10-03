@@ -48,6 +48,11 @@ namespace Butterfly.Core
             var all = Data.Content.LocalNews;
             for (int k = 0; k < all.Count; k++)
                 if (all[k].Month > 0 && !_localHeard.Contains(k) && TurnCoversMonth(all[k].Month) && LocalNewsFits(all[k])) Hear(k);
+            // Talk about the outbreak comes the month it happens: it lasts a single month (P1, 1-month turns) and would
+            // otherwise fall between the every-few-months slots and never reach the street.
+            int urgent = Enumerable.Range(0, all.Count).Where(k => all[k].Month == 0 && all[k].When == "plague:outbreak" && !_localHeard.Contains(k) && LocalNewsFits(all[k]))
+                .DefaultIfEmpty(-1).First();
+            if (urgent >= 0) Hear(urgent);
             int every = T.GetInt("news.localEveryMonths");
             int slot = (Now.TotalMonths - SimTime.FromYear(T.GetInt("time.startYear"), T.GetInt("time.startMonth")).TotalMonths) / every;
             if (slot <= _localSlot) return;

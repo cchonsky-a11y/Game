@@ -90,7 +90,7 @@ namespace Butterfly.Core
 
         private CommandResult? NotAssessed() => MachineAssessed ? null
             : CommandResult.Fail("You don't know yet what's wrong with the machine. Assess it first (assess: " + MachineAssessment!.AttentionPerTurn +
-                                 " Attention a turn for " + MachineAssessment.Turns + " turns).");
+                                 " Attention a month for " + MachineAssessment.DurationMonths + " months).");
 
         /// <summary>Puts gold back into the machine (no Attention). All the gold you scavenged must go back before it can jump.</summary>
         public CommandResult RestoreGold(double amount)
@@ -174,7 +174,7 @@ namespace Butterfly.Core
             bool viaRome = MachineRequirementMet(step);
             var e = Record("machine.start", step.Id, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
                 "You begin: " + step.Name + (step.Requirement != null && !viaRome ? " (without help from Rome, you " + step.AltText + ")" : "") +
-                " (" + Money(gold) + ", " + step.Turns + " turn" + (step.Turns == 1 ? "" : "s") + ").");
+                " (" + Money(gold) + ", " + step.DurationMonths + " month" + (step.DurationMonths == 1 ? "" : "s") + ").");
             World.ActiveMachineSteps.Add(new ActiveMachineStep(step, e.Id) { WithoutRome = !viaRome });
             return CommandResult.Success("Started: " + step.Name + ".");
         }
@@ -205,7 +205,7 @@ namespace Butterfly.Core
 
         /// <summary>Attention pledged to machine steps already under way.</summary>
         private int ReservedMachineAttention() =>
-            World.ActiveMachineSteps.Where(a => a.TurnsRemaining < a.Def.Turns).Sum(a => a.Def.AttentionPerTurn);
+            World.ActiveMachineSteps.Where(a => a.TurnsRemaining < a.Def.DurationMonths).Sum(a => a.Def.AttentionPerTurn);
 
         /// <summary>What still stands between you and the jump.</summary>
         public IEnumerable<string> MachineStatus()
@@ -214,8 +214,8 @@ namespace Butterfly.Core
             {
                 var assessing = World.ActiveMachineSteps.FirstOrDefault(a => a.Def == MachineAssessment);
                 yield return assessing != null
-                    ? "Assessing the machine (" + assessing.TurnsRemaining + " turn(s) left): until then you don't know what's wrong."
-                    : "Not yet assessed: you don't know what's wrong. assess (" + MachineAssessment!.AttentionPerTurn + " Attention a turn for " + MachineAssessment.Turns + " turns).";
+                    ? "Assessing the machine (" + assessing.TurnsRemaining + " month(s) left): until then you don't know what's wrong."
+                    : "Not yet assessed: you don't know what's wrong. assess (" + MachineAssessment!.AttentionPerTurn + " Attention a month for " + MachineAssessment.DurationMonths + " months).";
                 yield return GoldLine();
                 yield return "Jump range: " + JumpRangeText() + ".";
                 yield break;
@@ -227,10 +227,10 @@ namespace Butterfly.Core
                 var active = World.ActiveMachineSteps.FirstOrDefault(a => a.Def.System == system);
                 var next = NextMachineStep(system);
                 string line = Cap(system) + ": " + done + "/" + steps.Count;
-                if (active != null) line += " — under way: " + active.Def.Name + " (" + active.TurnsRemaining + " turn(s) left)";
+                if (active != null) line += " — under way: " + active.Def.Name + " (" + active.TurnsRemaining + " month(s) left)";
                 else if (next != null)
                     line += " — next: " + next.Name + " (" + Money(MachineStepGold(next)) + ", " + next.AttentionPerTurn + " Attention" +
-                            (next.Turns > 1 ? " a turn for " + next.Turns + " turns" : "") + ")" +
+                            (next.DurationMonths > 1 ? " a month for " + next.DurationMonths + " months" : "") + ")" +
                             (next.Requirement == null ? "" : MachineRequirementMet(next) ? "; Rome helps: you have " + MachineRequirementText(next)
                                 : "; with " + MachineRequirementText(next) + " it would cost " + Money(next.Gold * World.PriceLevel));
                 else line += " — done";
@@ -240,8 +240,8 @@ namespace Butterfly.Core
             {
                 var active = World.ActiveMachineSteps.FirstOrDefault(a => a.Def.Id == u.Id);
                 yield return "Upgrade " + u.Id + ": " + u.Name + (World.MachineDone.Contains(u.Id) ? " — done"
-                    : active != null ? " — under way (" + active.TurnsRemaining + " turn(s) left)"
-                    : " — " + Money(MachineStepGold(u)) + ", " + u.AttentionPerTurn + " Attention a turn for " + u.Turns + " turns" +
+                    : active != null ? " — under way (" + active.TurnsRemaining + " month(s) left)"
+                    : " — " + Money(MachineStepGold(u)) + ", " + u.AttentionPerTurn + " Attention a month for " + u.DurationMonths + " months" +
                       (MachineRequirementMet(u) ? "" : "; with " + MachineRequirementText(u) + " it would cost " + Money(u.Gold * World.PriceLevel)));
             }
             yield return GoldLine();

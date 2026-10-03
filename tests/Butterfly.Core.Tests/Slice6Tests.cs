@@ -36,7 +36,7 @@ namespace Butterfly.Core.Tests
             sim.World.Gold = 1000;
             var def = sim.Data.Content.Project("warehouses")!;
             Assert.True(sim.StartProject("warehouses").Ok);
-            for (int i = 1; i < def.Turns; i++)
+            for (int i = 1; i < def.DurationMonths; i++)
             {
                 sim.EndTurn();
                 Assert.Equal(4 - def.AttentionPerTurn, sim.World.Attention);
@@ -69,8 +69,13 @@ namespace Butterfly.Core.Tests
         public void AttentionDemandIsAtLeastOneAndAHalfTimesSupply()
         {
             var data = TestData.Load();
-            Assert.Equal(480, AttentionBudget.Supply(data)); // 120 two-month turns × 4 (20-year eras; 2-month turns decided 2026-09-28)
-            Assert.True(AttentionBudget.Demand(data) >= data.Tuning.Get("attention.demandTarget") * AttentionBudget.Supply(data));
+            Assert.Equal(960, AttentionBudget.Supply(data)); // 240 one-month turns × 4 (P1, decided 2026-10-02; durations kept their calendar length, P1-02)
+            // P0's rule (demand >= 1.4x supply) belonged to 2-month pacing (archived scope). With monthly turns the per-year
+            // demands (meetings, oversight, policy) don't double while supply does; the ratio is reported, not retuned (P1-02).
+            // P1 keeps Attention scarce: demand still exceeds supply.
+            double ratio = AttentionBudget.Demand(data) / AttentionBudget.Supply(data);
+            Assert.True(ratio > 1.0, "demand/supply = " + ratio);
+            Assert.True(ratio < data.Tuning.Get("attention.demandTarget"), "if this fails, the P0 ratio is back: revisit P1-02 (" + ratio + ")");
         }
     }
 

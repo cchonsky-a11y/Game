@@ -14,8 +14,8 @@ namespace Butterfly.Core.Tests
         private readonly ITestOutputHelper _out;
         public SnapshotTests(ITestOutputHelper output) => _out = output;
 
-        /// <summary>The reference playthrough's log hash (set 2026-09-28, before the P0 human tests).</summary>
-        public const string ReferenceHash = "37cb8c3f47197c93e4cf30287ad674a588d8f0bdfec75b3f6b50b58ad9723f25";
+        /// <summary>The reference playthrough's log hash (set 2026-09-28; reset 2026-10-03 for P1 one-month turns, durations in months and no auto-end).</summary>
+        public const string ReferenceHash = "648b285f808fa280a0c23ec7a3dfe6f2f6f44452cd58a9598698935ee8971715";
 
         /// <summary>A plain, fixed player: the workshop, the guild and the Circle, generous answers, the machine, then two jumps.</summary>
         public static Simulation ReferencePlaythrough()

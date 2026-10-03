@@ -1,2 +1,2 @@
-seed 116, commands 44, arrived False, fingerprint a3a50faeb5541b4a
-DEAD END | the run never jumped/arrived (last time AD 158-01, turn 19)
+seed 116, commands 62, arrived False, fingerprint 2224b0eaf80c0e23
+DEAD END | the run never jumped/arrived (last time AD 158-01, turn 37)

@@ -8,12 +8,53 @@ work
 end
 work
 end
+repair coolant
+repair chronometer
+work
+end
+work
+end
 work
 end
 work
 end
 repair coil
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
 repair coolant
+end
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+end
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
 work
 end
 work
@@ -25,38 +66,52 @@ work
 end
 work
 end
-repair chronometer
-work
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-work
-end
-work
-end
-repair coolant
 work
 end
 repair coil
+end
+end
+work
+end
+work
+end
 work
 end
 work
 end
 work
 end
-repair chronometer
 work
 end
 work
 end
 work
 end
-repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+start physician
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 work
 end
 work
@@ -70,9 +125,6 @@ end
 work
 end
 why plague
-restore 60
-work consult
-end
 exchange 1300 denarii
 restore 60
 work consult

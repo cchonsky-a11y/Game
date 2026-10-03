@@ -27,7 +27,7 @@ namespace Butterfly.Core
         public string Name { get; }
         public int Gold { get; }
         public int AttentionPerTurn { get; }
-        public int Turns { get; }
+        public int DurationMonths { get; }
         public double LevelGain { get; }
         /// <summary>Who must back it (decided 2026-09-28): null for a private project, "public" or "plague".</summary>
         public string? Authority { get; }
@@ -44,7 +44,7 @@ namespace Butterfly.Core
             Name = o.Str("name");
             Gold = (int)o.Num("gold");
             AttentionPerTurn = (int)o.Num("attentionPerTurn");
-            Turns = (int)o.Num("turns");
+            DurationMonths = (int)o.Num("durationMonths");
             LevelGain = o.Num("levelGain");
             Authority = o.Has("authority") ? o.Str("authority") : null;
             Extras = o.Has("extras")
@@ -154,7 +154,7 @@ namespace Butterfly.Core
         public string Name { get; }
         public int Gold { get; }
         public int AttentionPerTurn { get; }
-        public int Turns { get; }
+        public int DurationMonths { get; }
         /// <summary>What Rome must give you for this step (tradeMember, medicineWork, factionMember), if anything.</summary>
         public string? Requirement { get; }
         /// <summary>Gold price instead, if the requirement isn't met.</summary>
@@ -171,7 +171,7 @@ namespace Butterfly.Core
             Name = o.Str("name");
             Gold = (int)o.Num("gold");
             AttentionPerTurn = (int)o.Num("attentionPerTurn");
-            Turns = (int)o.Num("turns");
+            DurationMonths = (int)o.Num("durationMonths");
             Requirement = o.StrOr("requirement", null);
             AltGold = o.Has("altGold") ? (int)o.Num("altGold") : 0;
             AltText = o.StrOr("altText", "") ?? "";
@@ -205,7 +205,7 @@ namespace Butterfly.Core
         public string Name { get; }
         public int Gold { get; }
         public int AttentionPerTurn { get; }
-        public int Turns { get; }
+        public int DurationMonths { get; }
         public string Requirement { get; }
         /// <summary>The invention tree (decided 2026-09-28): its branch, and the invention it needs first (null for a branch's first).</summary>
         public string Branch { get; }
@@ -220,7 +220,7 @@ namespace Butterfly.Core
             Name = o.Str("name");
             Gold = (int)o.Num("gold");
             AttentionPerTurn = (int)o.Num("attentionPerTurn");
-            Turns = (int)o.Num("turns");
+            DurationMonths = (int)o.Num("durationMonths");
             Requirement = o.Str("requirement");
             Branch = o.Has("branch") ? o.Str("branch") : "";
             Prerequisite = o.Has("prerequisite") ? o.Str("prerequisite") : null;
@@ -379,7 +379,7 @@ namespace Butterfly.Core
         public string BuildText { get; }
         public double Cost { get; }
         public int Attention { get; }
-        public int Turns { get; }
+        public int DurationMonths { get; }
         public string Requires { get; }
         public string RequiresText { get; }
         public double Upkeep { get; }
@@ -397,7 +397,7 @@ namespace Butterfly.Core
             BuildText = o.StrOr("buildText", "") ?? "";
             Cost = o.Num("cost");
             Attention = (int)o.Num("attention");
-            Turns = (int)o.Num("turns");
+            DurationMonths = (int)o.Num("durationMonths");
             Requires = o.Str("requires");
             RequiresText = o.StrOr("requiresText", "") ?? "";
             Upkeep = o.Num("upkeep");

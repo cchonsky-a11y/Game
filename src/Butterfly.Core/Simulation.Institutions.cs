@@ -124,7 +124,7 @@ namespace Butterfly.Core
             var inst = FindInstitution(id)!;
             var fail = RequireControl(inst, id);
             if (fail != null) return fail;
-            if (inst.OverseenTurn == Turn) return CommandResult.Fail("You already oversaw " + inst.Def.ShortName + " this turn.");
+            if (inst.OverseenTurn == Turn) return CommandResult.Fail("You already oversaw " + inst.Def.ShortName + " this month.");
             var attention = CheckAttention(1);
             if (attention != null) return attention;
             SpendAttention(1);

@@ -7,7 +7,7 @@
       "name": "The wheelbarrow",
       "gold": 30,
       "attentionPerTurn": 2,
-      "turns": 2,
+      "durationMonths": 4,
       "requirement": "workshop",
       "effects": [
         {
@@ -43,7 +43,7 @@
       "name": "The padded horse collar",
       "gold": 60,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "prerequisite": "wheelbarrow",
       "requirement": "workshopAndTrade",
       "effects": [
@@ -80,7 +80,7 @@
       "name": "The water-driven trip hammer",
       "gold": 90,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "prerequisite": "collar",
       "requirement": "workshopAndGuild10",
       "effects": [
@@ -122,7 +122,7 @@
       "name": "Double-entry bookkeeping",
       "gold": 40,
       "attentionPerTurn": 2,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "tradeMember",
       "effects": [
         {
@@ -149,7 +149,7 @@
       "name": "Bills of exchange",
       "gold": 55,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "prerequisite": "bookkeeping",
       "requirement": "tradeInfluence",
       "effects": [
@@ -181,7 +181,7 @@
       "name": "A public accounts audit",
       "gold": 80,
       "attentionPerTurn": 2,
-      "turns": 5,
+      "durationMonths": 10,
       "prerequisite": "bills",
       "requirement": "factionInfluence",
       "effects": [
@@ -210,7 +210,7 @@
       "name": "Soap and boiled linen",
       "gold": 35,
       "attentionPerTurn": 2,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "medicineWork",
       "effects": [
         {
@@ -241,7 +241,7 @@
       "name": "Distilled wine for wounds",
       "gold": 55,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "prerequisite": "soap",
       "requirement": "medicineMember",
       "effects": [
@@ -278,7 +278,7 @@
       "name": "A fever ward with case records",
       "gold": 85,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "prerequisite": "spirits",
       "requirement": "medicineInfluence",
       "effects": [
@@ -311,7 +311,7 @@
       "name": "The treadle lathe",
       "gold": 35,
       "attentionPerTurn": 2,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "workshop",
       "effects": [
         {
@@ -338,7 +338,7 @@
       "name": "Water-powered bellows",
       "gold": 55,
       "attentionPerTurn": 2,
-      "turns": 4,
+      "durationMonths": 8,
       "prerequisite": "lathe",
       "requirement": "workshopAndTrade",
       "effects": [
@@ -366,7 +366,7 @@
       "name": "A blast furnace",
       "gold": 80,
       "attentionPerTurn": 2,
-      "turns": 5,
+      "durationMonths": 10,
       "prerequisite": "bellows",
       "requirement": "workshopAndGuild10",
       "effects": [

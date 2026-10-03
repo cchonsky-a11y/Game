@@ -221,9 +221,9 @@ internal sealed partial class ConsoleGame
         foreach (var (label, cmd) in new[] { ("status", "status"), ("news", "news"), ("institutions", "institutions"), ("machine", "machine"), ("workshop", "workshop"), ("inventions", "inventions"), ("projects", "projects"), ("help", "help") })
             if (cmd != "workshop" || _sim.OwnsWorkshop) look.Item2.Add((label, cmd));
 
-        var turn = Group("Turn");
-        turn.Item2.Add(("end the turn", "end"));
-        turn.Item2.Add(("wait until something happens", "wait"));
+        var turn = Group("Month");
+        turn.Item2.Add(("End Month", "end"));
+        turn.Item2.Add(("fast-forward until something needs you", "wait"));
 
         return new List<(string, List<(string, string)>)> { decide, work, shop, machine, money, projects, inventions, inst, policy, priorities, leave, look, turn };
     }

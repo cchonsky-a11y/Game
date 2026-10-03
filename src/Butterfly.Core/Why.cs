@@ -110,7 +110,7 @@ namespace Butterfly.Core
             if (sim.AnnualDuesTotal() > 0)
                 sb.AppendLine("Dues " + sim.Money(sim.AnnualDuesTotal()) + " a year: " + string.Join(", ", sim.Backed().Where(i => sim.AnnualDues(i) > 0)
                     .Select(i => i.Def.ShortName + " " + sim.Money(sim.AnnualDues(i)) + " (" + sim.StakePercent(i) + "%)")) + ". More stake, more dues.");
-            sb.AppendLine("Settled each turn: " + sim.Money((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per turn.");
+            sb.AppendLine("Settled each month: " + sim.Money((sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn) + " per month.");
             AppendRecent(sim, sb, new[] { "gold" }, 4, skipTypes: new[] { "gold.settle" });
             return sb.ToString().TrimEnd();
         }
@@ -233,7 +233,7 @@ namespace Butterfly.Core
         private static string Attention(Simulation sim)
         {
             int reserved = sim.ReservedAttention();
-            return "You have " + sim.World.Attention + " of " + sim.AttentionPerTurn + " Attention left this turn" +
+            return "You have " + sim.World.Attention + " of " + sim.AttentionPerTurn + " Attention left this month" +
                    (reserved > 0 ? " (" + reserved + " already pledged to ongoing work)." : ".") +
                    " Attention never grows; it is spent on projects, overseeing an institution, or your one personal action.";
         }

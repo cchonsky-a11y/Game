@@ -113,7 +113,7 @@ namespace Butterfly.Core
             if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
             if (inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.ShortName) + " is yours; oversee it instead.");
             if (!inst.Backed) return CommandResult.Fail("You aren't a member of " + inst.Def.ShortName + " (buy " + inst.Key + ").");
-            if (inst.AttendedTurn == Turn) return CommandResult.Fail("You already attended " + inst.Def.ShortName + " this turn.");
+            if (inst.AttendedTurn == Turn) return CommandResult.Fail("You already attended " + inst.Def.ShortName + " this month.");
             // A meeting is a vote (P0-32): for the camp you name, or the one you usually back.
             int? vote = camp != null && camp.Trim().Length > 0 ? FindCamp(inst, camp) : YourCamp(inst);
             if (camp != null && camp.Trim().Length > 0 && vote == null)

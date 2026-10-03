@@ -12,7 +12,7 @@ Scripted mode in the console (normal interactive play is unchanged):
 ```
 dotnet run --project src/Butterfly.Console -- --seed 101 --inputs playtests/ai/scripts/01-early-fountain-keep-paydown.txt --checks out.txt
 ```
-- `--inputs <file>`: one command per line, echoed into the transcript; `#` starts a comment. `@until <year>|era-end|ready: cmd; cmd; ...` repeats the commands (which should include `end`) until that year, the end of the era, or the machine is ready to jump. Loops are capped at 200 cycles and reported as possible dead ends.
+- `--inputs <file>`: one command per line, echoed into the transcript; `#` starts a comment. `@until <year>|era-end|ready: cmd; cmd; ...` repeats the commands (which should include `end`) until that year, the end of the era, or the machine is ready to jump. Loops are capped at 400 cycles (an era is 240 one-month turns) and reported as possible dead ends.
 - `--checks <file>` writes harness findings separately, so transcripts stay clean. It also writes `<file>.accepted.txt`, the commands the game accepted.
   - **Impossible states:** checked after every command. Negative gold, NaN or negative debt, levels outside 0–100, Attention outside 0–4, negative holdings, and strength or loyalty out of range.
   - **Arrival:** exactly 4 beats in order, 3 Echoes including the seeded choice, each surfaced in a beat.

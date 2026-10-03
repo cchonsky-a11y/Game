@@ -279,7 +279,7 @@ namespace Butterfly.Core
         public ActiveProject(ProjectDef def, int startEventId)
         {
             Def = def;
-            TurnsRemaining = def.Turns;
+            TurnsRemaining = def.DurationMonths;
             StartEventId = startEventId;
         }
     }
@@ -296,7 +296,7 @@ namespace Butterfly.Core
         public ActiveMachineStep(MachineStepDef def, int startEventId)
         {
             Def = def;
-            TurnsRemaining = def.Turns;
+            TurnsRemaining = def.DurationMonths;
             StartEventId = startEventId;
         }
     }
@@ -311,7 +311,7 @@ namespace Butterfly.Core
         public ActiveInvention(InventionDef def, int startEventId)
         {
             Def = def;
-            TurnsRemaining = def.Turns;
+            TurnsRemaining = def.DurationMonths;
             StartEventId = startEventId;
         }
     }

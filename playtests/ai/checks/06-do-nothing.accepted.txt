@@ -118,31 +118,139 @@ end
 end
 end
 end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
 restore 60
 assess
 work consult
 end
 work consult
 end
-work consult
-end
-exchange 1300 denarii
-end
-work consult
-end
-work consult
-end
-exchange 1300 denarii
-work consult
-end
-repair chronometer
-work consult
-end
-work consult
-end
 repair coil
+work consult
 end
-repair chronometer
+repair coolant
+end
+end
+end
 end
 end
 work consult
@@ -151,9 +259,8 @@ repair coolant
 end
 end
 end
-work consult
 end
-repair coolant
+end
 end
 end
 end
@@ -166,30 +273,39 @@ repair chronometer
 end
 end
 end
-work consult
+end
 end
 work consult
 end
-exchange 1300 denarii
-work consult
-end
+repair chronometer
 work consult
 end
 repair coil
-work consult
 end
-work consult
 end
-work consult
 end
-exchange 1300 denarii
 end
-work consult
 end
-work consult
 end
-exchange 1300 denarii
+end
+end
+end
+end
+end
+end
 repair coil
+end
+end
+end
+end
+end
+end
+work consult
+end
+repair chronometer
+end
+end
+end
 end
 end
 end

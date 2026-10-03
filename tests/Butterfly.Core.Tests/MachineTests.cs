@@ -37,7 +37,7 @@ namespace Butterfly.Core.Tests
             var a = sim.Data.Content.MachineAssessment!;
             Assert.True(sim.Assess().Ok);
             Assert.False(sim.Assess().Ok);                                   // already under way
-            for (int t = 0; t < a.Turns; t++) { Assert.False(sim.MachineAssessed); sim.EndTurn(); }
+            for (int t = 0; t < a.DurationMonths; t++) { Assert.False(sim.MachineAssessed); sim.EndTurn(); }
             Assert.True(sim.MachineAssessed);
             Assert.Contains(sim.Log.Events, e => e.Type == "machine.assessed" && e.ImmediateCauses.Count > 0);
             Assert.Equal("bronze", sim.NextMachineStep("coil")!.Id);
@@ -76,7 +76,7 @@ namespace Butterfly.Core.Tests
         {
             // Even with every system worked in parallel, the longest system takes at least two years (decided 2026-09-28).
             var steps = TestData.Load().Content.MachineSteps;
-            int longest = Simulation.MachineSystems.Max(sys => steps.Where(s => s.System == sys).Sum(s => s.Turns));
+            int longest = Simulation.MachineSystems.Max(sys => steps.Where(s => s.System == sys).Sum(s => s.DurationMonths));
             Assert.True(longest * TestData.Load().Tuning.GetInt("time.monthsPerTurn") >= 24);
         }
 
@@ -154,7 +154,7 @@ namespace Butterfly.Core.Tests
             Assert.Equal("bronze", sim.NextMachineStep("coil")!.Id);
             Assert.True(sim.Repair("coil").Ok);
             Assert.False(sim.Repair("coil").Ok);  // already under way
-            for (int t = 0; t < sim.Data.Content.MachineSteps.First(m => m.Id == "bronze").Turns; t++) sim.EndTurn();
+            for (int t = 0; t < sim.Data.Content.MachineSteps.First(m => m.Id == "bronze").DurationMonths; t++) sim.EndTurn();
             Assert.Equal("casting", sim.NextMachineStep("coil")!.Id);
             var done = sim.Log.Events.Single(e => e.Type == "machine.step");
             Assert.NotEmpty(done.ImmediateCauses);
@@ -354,7 +354,7 @@ namespace Butterfly.Core.Tests
             sim.World.IncomeBonus += sim.WorkshopRate();
             double before = sim.OwnedIncome();
             Assert.True(sim.Invent("lathe").Ok);
-            for (int t = 0; t < sim.InventionById("lathe")!.Turns; t++) sim.EndTurn();
+            for (int t = 0; t < sim.InventionById("lathe")!.DurationMonths; t++) sim.EndTurn();
             Assert.Equal(before * 1.10, sim.OwnedIncome(), 6);
             // All three together add less than half again to the workshop.
             Assert.True(sim.Data.Content.Inventions.Where(i => i.Branch == "workshop").SelectMany(i => i.Effects).Where(e => e.Type == "workshop").Sum(e => e.Value) < 0.5);
@@ -373,7 +373,7 @@ namespace Butterfly.Core.Tests
             Assert.False(sim.Invent("spirits").Ok);
             Assert.Equal("ready", sim.InventionState(sim.InventionById("soap")!));
             Assert.True(sim.Invent("soap").Ok);
-            for (int t = 0; t < sim.InventionById("soap")!.Turns; t++) sim.EndTurn();
+            for (int t = 0; t < sim.InventionById("soap")!.DurationMonths; t++) sim.EndTurn();
             sim.World.Attention = 100;
             Assert.Equal("ready", sim.InventionState(spirits));
             Assert.True(sim.Invent("spirits").Ok);
@@ -385,47 +385,37 @@ namespace Butterfly.Core.Tests
 
 namespace Butterfly.Core.Tests
 {
-    /// <summary>Turn length: 2-month turns by default, and the player may change it (decided 2026-09-28; SYSTEMS §2).</summary>
+    /// <summary>Turn length (decided 2026-10-02, Corey, P1): one calendar month, fixed; there is no turn-length setting.</summary>
     public class TurnLengthTests
     {
         [Fact]
-        public void TurnsAreTwoMonthsAndThePlayerCanChangeThemUpToTheCap()
+        public void EveryTurnIsOneMonth()
         {
             var sim = new Simulation(TestData.Load(), 3);
-            Assert.Equal(2, sim.MonthsPerTurn);
-            sim.EndTurn();
-            Assert.Equal(2, sim.Now.Month);
-            Assert.False(sim.SetTurnLength(4).Ok);            // never beyond the Stage 3 cap
-            Assert.False(sim.SetTurnLength(0).Ok);
-            Assert.True(sim.SetTurnLength(3).Ok);
-            Assert.Contains(sim.Log.Events, e => e.Type == "time.turnLength");
-            sim.EndTurn();
-            Assert.Equal(5, sim.Now.Month);
-            Assert.True(sim.SetTurnLength(1).Ok);
-            sim.EndTurn();
-            Assert.Equal(6, sim.Now.Month);
-            Assert.Equal(4, sim.World.Attention);             // Attention stays 4 a turn
+            Assert.Equal(1, sim.MonthsPerTurn);
+            for (int m = 1; m <= 13; m++)
+            {
+                sim.EndMonth();
+                Assert.Equal(m % 12, sim.Now.Month);
+                Assert.Equal(4, sim.World.Attention);         // Attention is 4 a month
+            }
         }
 
         [Fact]
-        public void TheEraEndsByTheCalendarAndThePlagueByItsDatesWhateverTheTurnLength()
+        public void TheEraLastsTwoHundredFortyMonthsAndThePlagueComesOnItsDate()
         {
-            foreach (int months in new[] { 1, 2, 3 })
+            var sim = new Simulation(TestData.Load(), 3);
+            while (!sim.EraOver)
             {
-                var sim = new Simulation(TestData.Load(), 3);
-                if (months != sim.MonthsPerTurn) Assert.True(sim.SetTurnLength(months).Ok);
-                while (!sim.EraOver)
-                {
-                    if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
-                    sim.EndTurn();
-                }
-                Assert.Equal(175, sim.Now.Year);
-                Assert.Equal(0, sim.Now.Month);
-                var outbreak = sim.Log.Events.Single(e => e.Type == "plague.outbreak");
-                // The outbreak shows on the turn that covers October 166.
-                Assert.Equal(166, outbreak.Time.Year);
-                Assert.InRange(outbreak.Time.Month, 9 - months + 1, 9);
+                if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none");
+                sim.EndMonth();
             }
+            Assert.Equal(175, sim.Now.Year);
+            Assert.Equal(0, sim.Now.Month);
+            Assert.Equal(241, sim.Turn);
+            var outbreak = sim.Log.Events.Single(e => e.Type == "plague.outbreak");
+            Assert.Equal(166, outbreak.Time.Year);
+            Assert.Equal(9, outbreak.Time.Month);                 // October 166, to the month
         }
     }
 }

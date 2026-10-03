@@ -8,6 +8,11 @@ work
 end
 work
 end
+repair chronometer
+work
+end
+work
+end
 work
 end
 work
@@ -15,11 +20,6 @@ end
 repair coil
 work
 end
-repair chronometer
-work
-end
-work
-end
 work
 end
 repair chronometer
@@ -27,32 +27,9 @@ work
 end
 work
 end
-repair coolant
-work
-end
-work
-end
 work
 end
 repair coolant
-work
-end
-work
-end
-work
-end
-work
-end
-repair chronometer
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-repair coil
 work
 end
 work
@@ -68,10 +45,82 @@ end
 repair coil
 work
 end
-restore 60
+work
+end
+work
+end
+repair coolant
 end
 end
-work consult
+end
+end
+end
+end
+work
+end
+work
+end
+work
+end
+repair coil
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
 end
 exchange 1300 denarii
 restore 60

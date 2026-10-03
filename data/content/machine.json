@@ -6,7 +6,7 @@
     "name": "Assess the machine",
     "gold": 0,
     "attentionPerTurn": 1,
-    "turns": 6,
+    "durationMonths": 2,
     "text": "You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)"
   },
   "steps": [
@@ -16,7 +16,7 @@
       "name": "Source bronze for the coil housing",
       "gold": 10,
       "attentionPerTurn": 1,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "tradeMember",
       "altGold": 20,
       "altText": "buy it at the open market instead",
@@ -29,7 +29,7 @@
       "name": "Commission the casting at Ostia",
       "gold": 30,
       "attentionPerTurn": 1,
-      "turns": 6,
+      "durationMonths": 12,
       "text": "A founder at Ostia casts the housing to your drawing and asks no questions."
     },
     {
@@ -38,7 +38,7 @@
       "name": "Fit and test the coil housing",
       "gold": 0,
       "attentionPerTurn": 2,
-      "turns": 3,
+      "durationMonths": 6,
       "text": "The new housing seats cleanly; the coil hums when you close the circuit."
     },
     {
@@ -47,7 +47,7 @@
       "name": "Borrow glassware and a still",
       "gold": 0,
       "attentionPerTurn": 1,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "medicineWork",
       "altGold": 25,
       "altText": "buy them from a glassblower instead",
@@ -60,7 +60,7 @@
       "name": "Distil the coolant",
       "gold": 15,
       "attentionPerTurn": 2,
-      "turns": 5,
+      "durationMonths": 10,
       "text": "Three nights at the still give you a clear spirit, cold to the touch."
     },
     {
@@ -69,7 +69,7 @@
       "name": "Seal and test the coolant",
       "gold": 0,
       "attentionPerTurn": 1,
-      "turns": 3,
+      "durationMonths": 6,
       "text": "The coolant holds its seal; the gauge needle settles."
     },
     {
@@ -78,7 +78,7 @@
       "name": "Get into the state archives",
       "gold": 0,
       "attentionPerTurn": 1,
-      "turns": 3,
+      "durationMonths": 6,
       "requirement": "factionMember",
       "altGold": 15,
       "altText": "bribe a clerk instead",
@@ -91,7 +91,7 @@
       "name": "Copy the star tables",
       "gold": 0,
       "attentionPerTurn": 1,
-      "turns": 9,
+      "durationMonths": 18,
       "text": "You copy a season of star tables by lamplight, checking every column twice."
     },
     {
@@ -100,7 +100,7 @@
       "name": "Recalibrate the chronometer",
       "gold": 10,
       "attentionPerTurn": 2,
-      "turns": 3,
+      "durationMonths": 6,
       "text": "The chronometer's dial agrees with the stars to the hour."
     }
   ],
@@ -111,7 +111,7 @@
       "name": "Gild the coil contacts",
       "gold": 30,
       "attentionPerTurn": 1,
-      "turns": 5,
+      "durationMonths": 10,
       "requirement": "tradeMember",
       "altGold": 50,
       "altText": "buy gold leaf from a jeweller instead",
@@ -124,7 +124,7 @@
       "name": "Grind a sighting lens for the chronometer",
       "gold": 20,
       "attentionPerTurn": 2,
-      "turns": 5,
+      "durationMonths": 10,
       "requirement": "medicineWork",
       "altGold": 35,
       "altText": "pay a glassblower instead",
@@ -137,7 +137,7 @@
       "name": "Balance the flywheel",
       "gold": 25,
       "attentionPerTurn": 2,
-      "turns": 6,
+      "durationMonths": 12,
       "requirement": "workshop",
       "altGold": 45,
       "altText": "hire a smith by the day instead",

@@ -10,16 +10,16 @@
       "ref": "PROPOSED P0-01"
     },
     "monthsPerTurn": {
-      "value": 2,
-      "ref": "DECIDED 2026-09-28 (Corey): P0 turns are 2 months (was 3); the player can shorten or restore them with `turns` (SYSTEMS §2), up to the Stage 3 cap"
+      "value": 1,
+      "ref": "DECIDED 2026-10-02 (Corey, P1): 1 turn = 1 calendar month, fixed; no player-facing turn-length choice (SYSTEMS §2; was 2)"
     },
     "eraYears": {
       "value": 20,
-      "ref": "DECIDED 2026-09-28 (Corey): each era is 20 years (AD 155–175); with 2-month turns, 120 turns"
+      "ref": "DECIDED 2026-09-28 (Corey): each era is 20 years (AD 155–175); P1: 240 one-month turns (era length kept, PROVISIONAL P1-02)"
     },
     "maxMonthsPerTurn": {
-      "value": 3,
-      "ref": "SYSTEMS §2: turn length by stage; P0 uses a fixed Stage 3 setup (3 months)"
+      "value": 1,
+      "ref": "DECIDED 2026-10-02 (Corey, P1): turns are fixed at 1 month in the Rome era (SYSTEMS §2; P0 allowed up to 3)"
     }
   },
   "domains": {
@@ -789,8 +789,8 @@
     },
     "mentor": {
       "turns": {
-        "value": 10,
-        "ref": "PROPOSED P0-12"
+        "value": 20,
+        "ref": "PROPOSED P0-12; P1: months (was 10 two-month turns), PROVISIONAL P1-02"
       },
       "attentionPerTurn": {
         "value": 2,
@@ -808,8 +808,8 @@
   },
   "seededChoice": {
     "deadlineTurn": {
-      "value": 4,
-      "ref": "PROPOSED P0-12"
+      "value": 8,
+      "ref": "PROPOSED P0-12; P1: month 8 (was turn 4 of 2-month turns), PROVISIONAL P1-02"
     },
     "payoffYear": {
       "value": 157,
@@ -1843,8 +1843,8 @@
       "ref": "DECIDED 2026-09-28 (Corey: tie the answers to the arrival); amount PROPOSED P0-33: how many of your answers to Rome's choices the Personal echo shows at one arrival"
     },
     "lapseTurns": {
-      "value": 3,
-      "ref": "DECIDED 2026-09-28 (Corey: decision events, P0-33); amount PROPOSED P0-33: turns a choice waits before it passes you by (its last option)"
+      "value": 6,
+      "ref": "DECIDED 2026-09-28 (Corey: decision events, P0-33); amount PROPOSED P0-33: months a choice waits before it passes you by (its last option; P1: 6 months, was 3 two-month turns, PROVISIONAL P1-02)"
     },
     "street": {
       "profitsToTurn": {

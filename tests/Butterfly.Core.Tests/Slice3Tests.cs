@@ -27,7 +27,7 @@ namespace Butterfly.Core.Tests
             var fountain = sim.Data.Content.Project("fountain")!;
             Assert.True(sim.StartProject("fountain").Ok);
             Assert.Equal(gold - fountain.Gold, sim.World.Gold);
-            for (int i = 0; i < fountain.Turns; i++) sim.EndTurn();
+            for (int i = 0; i < fountain.DurationMonths; i++) sim.EndTurn();
             Assert.Equal(level + fountain.LevelGain, sim.World[Domain.Medicine].Level);
             Assert.True(sim.World.CleanWater);
 
@@ -43,7 +43,7 @@ namespace Butterfly.Core.Tests
             var sim = NewSim();
             sim.World.Gold = 500;
             Assert.True(sim.StartProject("warehouses").Ok);
-            int turns = sim.Data.Content.Project("warehouses")!.Turns;
+            int turns = sim.Data.Content.Project("warehouses")!.DurationMonths;
             for (int i = 1; i < turns; i++) sim.EndTurn();
             Assert.DoesNotContain("warehouses", sim.World.CompletedProjects);
             sim.EndTurn();

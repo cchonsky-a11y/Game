@@ -7,6 +7,11 @@ work
 end
 work
 end
+repair chronometer
+work
+end
+work
+end
 work
 end
 work
@@ -23,28 +28,7 @@ work
 end
 work
 end
-repair chronometer
 work
-end
-work
-end
-work
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-repair chronometer
 end
 repair coolant
 work
@@ -68,13 +52,32 @@ work
 end
 work
 end
+repair coolant
+end
+end
+end
+end
+work
+end
+work
+end
 work
 end
 work
 end
 repair coil
+end
+end
+repair coolant
 work
 end
+work
+end
+work
+end
+work
+end
+repair chronometer
 work
 end
 work
@@ -122,17 +125,6 @@ work
 end
 work
 end
-work
-end
-work
-end
-work
-end
-work
-end
-work
-end
-promise yes
 work
 end
 work
@@ -204,10 +196,377 @@ end
 oversee school
 work
 end
+charter school
+end
 oversee school
 work
 end
-charter school
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+promise yes
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+respond hospice
+oversee school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
 end
 oversee school
 work

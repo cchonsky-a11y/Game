@@ -186,7 +186,7 @@ namespace Butterfly.Core
             SpendAttention(def.AttentionPerTurn);
             var e = Record("project.start", def.Id, causes, partner == null ? actors : actors.Concat(new[] { partner.Leader }),
                 new[] { new Effect(GoldKey, before, World.Gold) },
-                "Work begins: " + def.Name + " (" + Money(gold) + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + Money(def.Gold * World.PriceLevel - gold)) + ", " + def.Turns + " turn" + (def.Turns == 1 ? "" : "s") + ").");
+                "Work begins: " + def.Name + " (" + Money(gold) + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + Money(def.Gold * World.PriceLevel - gold)) + ", " + def.DurationMonths + " month" + (def.DurationMonths == 1 ? "" : "s") + ").");
             var active = new ActiveProject(def, e.Id);
             World.ActiveProjects.Add(active);
             OnProjectStarted(active);

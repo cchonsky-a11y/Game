@@ -8,48 +8,10 @@ work
 end
 work
 end
-work
-end
-work
-end
-repair coil
 repair coolant
-work
-end
-work
-end
 repair chronometer
 work
 end
-work
-end
-work
-end
-repair chronometer
-work
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-work
-end
-work
-end
-repair coolant
-work
-end
-repair coil
-work
-end
-work
-end
-work
-end
-repair chronometer
 work
 end
 work
@@ -61,11 +23,53 @@ work
 end
 work
 end
+repair chronometer
+work
+end
+work
+end
+repair coolant
+end
+end
+work
+end
 work
 end
 work
 end
 work
+end
+work
+end
+work
+end
+repair coil
+end
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+end
 end
 work
 end
@@ -130,13 +134,6 @@ work
 end
 work
 end
-work
-end
-work
-end
-work
-end
-promise yes
 work
 end
 work
@@ -244,9 +241,6 @@ oversee club
 work
 end
 oversee club
-work
-end
-oversee club
 start census
 end
 oversee club
@@ -256,6 +250,96 @@ end
 oversee club
 end
 oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+promise yes
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+start magistrates
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
 work
 end
 oversee club
@@ -276,15 +360,257 @@ end
 oversee club
 work
 end
-restore 60
-work consult
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
+end
+oversee club
+work
 end
 exchange 1300 denarii
 restore 60
-end
-work consult
-end
-work consult
 end
 exchange 1300 denarii
 restore 60

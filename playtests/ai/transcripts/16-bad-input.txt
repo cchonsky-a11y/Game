@@ -14,13 +14,14 @@ First, a choice. You can afford only one:
 Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+== Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
+  Attention: 4 free / 4 total
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
-  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
+  ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > dance
 Unknown command. Type 'help'.
@@ -59,7 +60,7 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > choose fountain
-You chose the fountain.  [Attention left this turn: 2/4]
+You chose the fountain.  [Attention left this month: 2/4]
 
 > choose workshop
 That choice has already been made.
@@ -68,10 +69,10 @@ That choice has already been made.
 Repair the district fountain is already under way.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > work
-You already took your personal action this turn.
+You already took your personal action this month.
 
 > why
 Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, school, faction, junian, club, guild, bank, house, policy, promise, index, attention, machine.
@@ -81,23 +82,45 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > log 3
   AD 155-01  You can afford only one: you choose the district fountain over the smith's workshop.
-  AD 155-01  Work begins: Repair the district fountain (1,000 denarii, 2 turns).
+  AD 155-01  Work begins: Repair the district fountain (1,000 denarii, 4 months).
   AD 155-01  You spend the season mending tools and running errands for pay.
 
 > end
 
-== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 2/4   Index 100
+== Month 2 · Februarius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Under way: Repair the district fountain (3 month(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 3 · Martius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
-  Under way: Repair the district fountain (1 turn(s) left)
+  Under way: Repair the district fountain (2 month(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 4 · Aprilis, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Under way: Repair the district fountain (1 month(s) left)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • Clean water runs again in the district fountain. Medicine +1.
 
-== Turn 3 · Maius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 5 · Maius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -107,7 +130,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 4 · Iulius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 6 · Iunius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -115,7 +139,26 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 5 · September, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 7 · Iulius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 8 · Augustus, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 9 · September, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -125,7 +168,26 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 6 · November, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 10 · October, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 11 · November, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 12 · December, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -135,7 +197,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 > end
   • The year AD 156 begins.
 
-== Turn 7 · Ianuarius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 13 · Ianuarius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -146,7 +209,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 8 · Martius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 14 · Februarius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -155,7 +219,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 9 · Maius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 15 · Martius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 16 · Aprilis, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 17 · Maius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -165,7 +250,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 10 · Iulius, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 18 · Iunius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -174,7 +260,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 11 · September, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 19 · Iulius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 20 · Augustus, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 21 · September, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -184,7 +291,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 12 · November, AD 156 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 22 · October, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 23 · November, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 24 · December, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -195,7 +323,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   • The year AD 157 begins.
   • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
 
-== Turn 13 · Ianuarius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 25 · Ianuarius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -205,7 +334,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 14 · Martius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 26 · Februarius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -214,7 +344,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 15 · Maius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 27 · Martius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 28 · Aprilis, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 29 · Maius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -224,7 +375,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 16 · Iulius, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 30 · Iunius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -233,7 +385,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 17 · September, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 31 · Iulius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 32 · Augustus, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 33 · September, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -243,7 +416,28 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
 
-== Turn 18 · November, AD 157 ==  112 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 34 · October, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 35 · November, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
+
+== Month 36 · December, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -253,7 +447,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 > end
   • The year AD 158 begins.
 
-== Turn 19 · Ianuarius, AD 158 ==  112 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  112 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -263,13 +458,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > jump
 The machine isn't ready: 0 of 9 repair steps done.
-  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a month for 2 months).
   Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
   Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
 > status
 
-== Turn 19 · Ianuarius, AD 158 ==  112 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  112 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -279,13 +475,13 @@ The machine isn't ready: 0 of 9 repair steps done.
 
 > jump
 The machine isn't ready: 0 of 9 repair steps done.
-  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a month for 2 months).
   Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
   Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
 > jump
 The machine isn't ready: 0 of 9 repair steps done.
-  Not yet assessed: you don't know what's wrong. assess (1 Attention a turn for 6 turns).
+  Not yet assessed: you don't know what's wrong. assess (1 Attention a month for 2 months).
   Gold: 0 of the 60 aurei you scavenged are back in the machine; all must go back before it can jump (restore <aurei>, no Attention; you hold 20 aurei).
   Jump range: 25–40 years (repairs, 0 of 3 upgrades, and your time in this era).
 
@@ -301,9 +497,9 @@ People expect 51: they remember your recent peak of 51 (the memory fades 5 a yea
 Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
 Index sub-score 102 (100 = as in real history).
 Recent changes:
-  AD 155-03  Clean water runs again in the district fountain. Medicine +1. [+1]
-      because: Work begins: Repair the district fountain (1,000 denarii, 2 turns). (AD 155-01)
+  AD 155-04  Clean water runs again in the district fountain. Medicine +1. [+1]
+      because: Work begins: Repair the district fountain (1,000 denarii, 4 months). (AD 155-01)
 
 > quit
 
-Run fingerprint (seed 116): a3a50faeb5541b4a
+Run fingerprint (seed 116): 2224b0eaf80c0e23

@@ -14,16 +14,17 @@ First, a choice. You can afford only one:
 Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
-== Turn 1 · Ianuarius, AD 155 ==  0 denarii (+0/turn) · 60 aurei (1 = 25 den.)   Attention 4/4   Index 100
+== Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
+  Attention: 4 free / 4 total
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
-  ► Waiting: choose fountain or choose workshop (before the end of turn 4).
+  ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > choose fountain
-You chose the fountain.  [Attention left this turn: 2/4]
+You chose the fountain.  [Attention left this month: 2/4]
 
 > promise yes
 No promise is waiting for an answer.
@@ -32,16 +33,16 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
 
-== Turn 2 · Martius, AD 155 ==  112 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 2/4   Index 100
+== Month 2 · Februarius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
-  Under way: Repair the district fountain (1 turn(s) left)
+  Under way: Repair the district fountain (3 month(s) left)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -51,12 +52,52 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 1/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 3 · Martius, AD 155 ==  225 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Repair the district fountain (2 month(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 4 · Aprilis, AD 155 ==  338 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Under way: Repair the district fountain (1 month(s) left)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
   • Clean water runs again in the district fountain. Medicine +1.
 
-== Turn 3 · Maius, AD 155 ==  225 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 5 · Maius, AD 155 ==  450 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -71,11 +112,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 4 · Iulius, AD 155 ==  338 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 6 · Iunius, AD 155 ==  562 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -88,11 +130,48 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 5 · September, AD 155 ==  450 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 7 · Iulius, AD 155 ==  675 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 8 · Augustus, AD 155 ==  788 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 9 · September, AD 155 ==  900 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -107,11 +186,48 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 6 · November, AD 155 ==  562 denarii (+0/turn) · 20 aurei (1 = 25 den.)   Attention 4/4   Index 100.7
+== Month 10 · October, AD 155 ==  1,012 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 11 · November, AD 155 ==  1,125 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 12 · December, AD 155 ==  1,238 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
@@ -125,12 +241,13 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this turn: 3/4]
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 156 begins.
 
-== Turn 7 · Ianuarius, AD 156 ==  675 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 13 · Ianuarius, AD 156 ==  1,350 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -146,11 +263,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 8 · Martius, AD 156 ==  788 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 14 · Februarius, AD 156 ==  1,463 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -164,11 +282,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 9 · Maius, AD 156 ==  902 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 15 · Martius, AD 156 ==  1,577 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 16 · Aprilis, AD 156 ==  1,690 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 17 · Maius, AD 156 ==  1,803 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -183,11 +340,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 10 · Iulius, AD 156 ==  1,015 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 18 · Iunius, AD 156 ==  1,917 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -201,11 +359,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 11 · September, AD 156 ==  1,128 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 19 · Iulius, AD 156 ==  2,030 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 20 · Augustus, AD 156 ==  2,143 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 21 · September, AD 156 ==  2,257 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -220,11 +417,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 12 · November, AD 156 ==  1,242 denarii (+0/turn) · 20 aurei (1 = 25.4 den.)   Attention 4/4   Index 100.7
+== Month 22 · October, AD 156 ==  2,370 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
@@ -238,13 +436,52 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this turn: 3/4]
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 23 · November, AD 156 ==  2,483 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 24 · December, AD 156 ==  2,597 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 157 begins.
   • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
 
-== Turn 13 · Ianuarius, AD 157 ==  1,355 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 25 · Ianuarius, AD 157 ==  2,710 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -259,11 +496,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 14 · Martius, AD 157 ==  1,469 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 26 · Februarius, AD 157 ==  2,824 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -277,11 +515,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 15 · Maius, AD 157 ==  1,583 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 27 · Martius, AD 157 ==  2,939 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 28 · Aprilis, AD 157 ==  3,053 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 29 · Maius, AD 157 ==  3,167 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -296,11 +573,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 16 · Iulius, AD 157 ==  1,698 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 30 · Iunius, AD 157 ==  3,281 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -314,11 +592,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 17 · September, AD 157 ==  1,812 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 31 · Iulius, AD 157 ==  3,395 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 32 · Augustus, AD 157 ==  3,510 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 33 · September, AD 157 ==  3,624 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -333,11 +650,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 18 · November, AD 157 ==  1,926 denarii (+0/turn) · 20 aurei (1 = 25.8 den.)   Attention 4/4   Index 100.7
+== Month 34 · October, AD 157 ==  3,738 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
@@ -351,12 +669,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this turn: 3/4]
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 35 · November, AD 157 ==  3,852 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 36 · December, AD 157 ==  3,966 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 158 begins.
 
-== Turn 19 · Ianuarius, AD 158 ==  2,040 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  4,081 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -371,11 +728,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 20 · Martius, AD 158 ==  2,155 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 38 · Februarius, AD 158 ==  4,196 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -389,11 +747,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 21 · Maius, AD 158 ==  2,270 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 39 · Martius, AD 158 ==  4,311 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 40 · Aprilis, AD 158 ==  4,426 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 41 · Maius, AD 158 ==  4,541 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -408,11 +805,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 22 · Iulius, AD 158 ==  2,385 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 42 · Iunius, AD 158 ==  4,656 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -426,11 +824,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 23 · September, AD 158 ==  2,501 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 43 · Iulius, AD 158 ==  4,771 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 44 · Augustus, AD 158 ==  4,886 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 45 · September, AD 158 ==  5,001 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -445,11 +882,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 24 · November, AD 158 ==  2,616 denarii (+0/turn) · 20 aurei (1 = 26.1 den.)   Attention 4/4   Index 100.7
+== Month 46 · October, AD 158 ==  5,116 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -463,12 +901,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this turn: 3/4]
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 47 · November, AD 158 ==  5,231 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 48 · December, AD 158 ==  5,346 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 159 begins.
 
-== Turn 25 · Ianuarius, AD 159 ==  2,731 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 49 · Ianuarius, AD 159 ==  5,461 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -483,11 +960,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 26 · Martius, AD 159 ==  2,847 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 50 · Februarius, AD 159 ==  5,577 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -501,11 +979,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 27 · Maius, AD 159 ==  2,963 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 51 · Martius, AD 159 ==  5,693 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 52 · Aprilis, AD 159 ==  5,809 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 53 · Maius, AD 159 ==  5,925 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -520,11 +1037,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 28 · Iulius, AD 159 ==  3,079 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 54 · Iunius, AD 159 ==  6,041 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -538,11 +1056,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 29 · September, AD 159 ==  3,194 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 55 · Iulius, AD 159 ==  6,157 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 56 · Augustus, AD 159 ==  6,273 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 57 · September, AD 159 ==  6,389 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -557,11 +1114,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 30 · November, AD 159 ==  3,310 denarii (+0/turn) · 20 aurei (1 = 26.5 den.)   Attention 4/4   Index 100.7
+== Month 58 · October, AD 159 ==  6,505 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
@@ -575,12 +1133,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this turn: 3/4]
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 59 · November, AD 159 ==  6,621 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 60 · December, AD 159 ==  6,737 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 160 begins.
 
-== Turn 31 · Ianuarius, AD 160 ==  3,426 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 61 · Ianuarius, AD 160 ==  6,853 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -595,11 +1192,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 32 · Martius, AD 160 ==  3,543 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 62 · Februarius, AD 160 ==  6,970 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -613,11 +1211,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 33 · Maius, AD 160 ==  3,660 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 63 · Martius, AD 160 ==  7,086 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 64 · Aprilis, AD 160 ==  7,203 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 65 · Maius, AD 160 ==  7,320 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -632,11 +1269,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 34 · Iulius, AD 160 ==  3,777 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 66 · Iunius, AD 160 ==  7,437 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -650,11 +1288,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 35 · September, AD 160 ==  3,894 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 67 · Iulius, AD 160 ==  7,554 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 68 · Augustus, AD 160 ==  7,671 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 69 · September, AD 160 ==  7,788 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -670,11 +1347,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 36 · November, AD 160 ==  4,011 denarii (+0/turn) · 20 aurei (1 = 26.9 den.)   Attention 4/4   Index 100.7
+== Month 70 · October, AD 160 ==  7,904 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
@@ -688,12 +1366,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this turn: 3/4]
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 71 · November, AD 160 ==  8,021 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 72 · December, AD 160 ==  8,138 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 161 begins.
 
-== Turn 37 · Ianuarius, AD 161 ==  4,127 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 73 · Ianuarius, AD 161 ==  8,255 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
@@ -708,16 +1425,55 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 38 · Martius, AD 161 ==  4,245 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 74 · Februarius, AD 161 ==  8,373 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 75 · Martius, AD 161 ==  8,490 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 76 · Aprilis, AD 161 ==  8,608 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
   News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -728,11 +1484,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 39 · Maius, AD 161 ==  4,363 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 77 · Maius, AD 161 ==  8,726 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
@@ -747,11 +1504,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 40 · Iulius, AD 161 ==  4,481 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 78 · Iunius, AD 161 ==  8,844 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 79 · Iulius, AD 161 ==  8,961 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 80 · Augustus, AD 161 ==  9,079 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
@@ -766,20 +1562,16 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 41 · September, AD 161 ==  4,598 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 81 · September, AD 161 ==  9,197 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
-  News: The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves.   (news)
-  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
-      decide relief   pay for relief in the Subura (1,093 denarii)
-      decide profit   buy the spoiled grain cheap and sell it dear
-      decide none     stay out of it
   On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -790,11 +1582,59 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 42 · November, AD 161 ==  4,716 denarii (+0/turn) · 20 aurei (1 = 27.3 den.)   Attention 4/4   Index 100.7
+== Month 82 · October, AD 161 ==  9,315 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 83 · November, AD 161 ==  9,433 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 84 · December, AD 161 ==  9,550 denarii (+0/month) · 20 aurei (1 = 27.3 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
@@ -813,12 +1653,13 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this turn: 3/4]
+You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 162 begins.
 
-== Turn 43 · Ianuarius, AD 162 ==  4,834 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 85 · Ianuarius, AD 162 ==  9,668 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -837,11 +1678,58 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 44 · Martius, AD 162 ==  4,953 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 86 · Februarius, AD 162 ==  9,787 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 87 · Martius, AD 162 ==  9,905 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 88 · Aprilis, AD 162 ==  10,024 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -855,11 +1743,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 45 · Maius, AD 162 ==  5,071 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 89 · Maius, AD 162 ==  10,143 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -875,11 +1764,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 46 · Iulius, AD 162 ==  5,190 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 90 · Iunius, AD 162 ==  10,261 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 91 · Iulius, AD 162 ==  10,380 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 92 · Augustus, AD 162 ==  10,499 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -898,11 +1826,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 47 · September, AD 162 ==  5,309 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 93 · September, AD 162 ==  10,617 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -921,11 +1850,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 48 · November, AD 162 ==  5,427 denarii (+0/turn) · 20 aurei (1 = 27.7 den.)   Attention 4/4   Index 100.7
+== Month 94 · October, AD 162 ==  10,736 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
@@ -943,16 +1873,67 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this turn: 3/4]
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 95 · November, AD 162 ==  10,855 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 96 · December, AD 162 ==  10,973 denarii (+0/month) · 20 aurei (1 = 27.7 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 163 begins.
 
-== Turn 49 · Ianuarius, AD 163 ==  5,546 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 97 · Ianuarius, AD 163 ==  11,092 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (704 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
   On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -963,11 +1944,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 50 · Martius, AD 163 ==  5,666 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 98 · Februarius, AD 163 ==  11,212 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
@@ -981,11 +1963,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 51 · Maius, AD 163 ==  5,785 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 99 · Martius, AD 163 ==  11,331 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 100 · Aprilis, AD 163 ==  11,451 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 101 · Maius, AD 163 ==  11,571 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
@@ -1000,11 +2021,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 52 · Iulius, AD 163 ==  5,905 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 102 · Iunius, AD 163 ==  11,690 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
@@ -1018,11 +2040,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 53 · September, AD 163 ==  6,025 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 103 · Iulius, AD 163 ==  11,810 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 104 · Augustus, AD 163 ==  11,929 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 105 · September, AD 163 ==  12,049 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
@@ -1038,11 +2099,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 54 · November, AD 163 ==  6,144 denarii (+0/turn) · 20 aurei (1 = 28.2 den.)   Attention 4/4   Index 100.7
+== Month 106 · October, AD 163 ==  12,169 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
@@ -1056,12 +2118,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this turn: 3/4]
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 107 · November, AD 163 ==  12,288 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 108 · December, AD 163 ==  12,408 denarii (+0/month) · 20 aurei (1 = 28.2 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 164 begins.
 
-== Turn 55 · Ianuarius, AD 164 ==  6,264 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 109 · Ianuarius, AD 164 ==  12,528 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
@@ -1076,11 +2177,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 56 · Martius, AD 164 ==  6,384 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 110 · Februarius, AD 164 ==  12,648 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
@@ -1094,16 +2196,54 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 57 · Maius, AD 164 ==  6,505 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 111 · Martius, AD 164 ==  12,769 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
-  News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 112 · Aprilis, AD 164 ==  12,889 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 113 · Maius, AD 164 ==  13,010 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1114,11 +2254,32 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 58 · Iulius, AD 164 ==  6,625 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 114 · Iunius, AD 164 ==  13,130 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 115 · Iulius, AD 164 ==  13,251 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
@@ -1132,11 +2293,31 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 59 · September, AD 164 ==  6,746 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 116 · Augustus, AD 164 ==  13,372 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 117 · September, AD 164 ==  13,492 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
@@ -1151,11 +2332,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 60 · November, AD 164 ==  6,867 denarii (+0/turn) · 20 aurei (1 = 28.6 den.)   Attention 4/4   Index 100.7
+== Month 118 · October, AD 164 ==  13,613 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
@@ -1169,12 +2351,51 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this turn: 3/4]
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 119 · November, AD 164 ==  13,733 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 120 · December, AD 164 ==  13,854 denarii (+0/month) · 20 aurei (1 = 28.6 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
+  Prices: +14.3% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 165 begins.
 
-== Turn 61 · Ianuarius, AD 165 ==  6,987 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 121 · Ianuarius, AD 165 ==  13,974 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1189,11 +2410,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 62 · Martius, AD 165 ==  7,109 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 122 · Februarius, AD 165 ==  14,096 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1207,11 +2429,50 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 63 · Maius, AD 165 ==  7,230 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 123 · Martius, AD 165 ==  14,217 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 124 · Aprilis, AD 165 ==  14,339 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 125 · Maius, AD 165 ==  14,460 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1226,13 +2487,33 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 126 · Iunius, AD 165 ==  14,582 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
   • Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   • Demetria of Pergamon, a Greek physician who treats the Subura's poor, has watched you: the fountain you had cleaned, and the way you talk about fever as if you had seen it before. "You have heard what the letters from Seleucia say. If that sickness comes here, the rich will leave for their villas, and the famous physicians with them. Promise me you will stay and help until it has passed."
 
-== Turn 64 · Iulius, AD 165 ==  7,352 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 127 · Iulius, AD 165 ==  14,704 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1248,11 +2529,32 @@ You gave your word.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 65 · September, AD 165 ==  7,473 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 128 · Augustus, AD 165 ==  14,825 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 129 · September, AD 165 ==  14,947 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1268,11 +2570,52 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 66 · November, AD 165 ==  7,595 denarii (+0/turn) · 20 aurei (1 = 29 den.)   Attention 4/4   Index 100.7
+== Month 130 · October, AD 165 ==  15,068 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 131 · November, AD 165 ==  15,190 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +16.1% since AD 155 (1.5% a year)
+  Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 132 · December, AD 165 ==  15,311 denarii (+0/month) · 20 aurei (1 = 29 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1288,13 +2631,14 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this turn: 3/4]
+You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 166 begins.
   • Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
 
-== Turn 67 · Ianuarius, AD 166 ==  7,716 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+== Month 133 · Ianuarius, AD 166 ==  15,433 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1310,11 +2654,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 68 · Martius, AD 166 ==  7,839 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+== Month 134 · Februarius, AD 166 ==  15,555 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1329,11 +2674,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 69 · Maius, AD 166 ==  7,961 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+== Month 135 · Martius, AD 166 ==  15,678 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1348,12 +2694,93 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 136 · Aprilis, AD 166 ==  15,800 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 137 · Maius, AD 166 ==  15,923 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 138 · Iunius, AD 166 ==  16,045 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
   • Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
 
-== Turn 70 · Iulius, AD 166 ==  8,084 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+== Month 139 · Iulius, AD 166 ==  16,168 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 140 · Augustus, AD 166 ==  16,290 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1369,12 +2796,33 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 141 · September, AD 166 ==  16,413 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
   • Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
 
-== Turn 71 · September, AD 166 ==  8,206 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 100.7
+== Month 142 · October, AD 166 ==  16,535 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 100.7
+  Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
@@ -1392,7 +2840,7 @@ No promise is waiting for an answer.
 You can't choose 'hospice' now.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
   • The pestilence is severe: about 83 thousand dead, 8% of Rome.
@@ -1400,7 +2848,8 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Turn 72 · November, AD 166 ==  7,640 denarii (+0/turn) · 20 aurei (1 = 29.4 den.)   Attention 4/4   Index 99.3
+== Month 143 · November, AD 166 ==  15,969 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 99.3
+  Attention: 4 free / 4 total
   Medicine      46  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1415,12 +2864,33 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this turn: 3/4]
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 144 · December, AD 166 ==  16,092 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 102
+  Attention: 4 free / 4 total
+  Medicine      46  expect   50  (no voice)  debt     0 Stable
+  Governance  53.3  expect   55  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 167 begins.
 
-== Turn 73 · Ianuarius, AD 167 ==  7,763 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 145 · Ianuarius, AD 167 ==  16,214 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1436,11 +2906,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 74 · Martius, AD 167 ==  7,886 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 146 · Februarius, AD 167 ==  16,338 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1455,11 +2926,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 75 · Maius, AD 167 ==  8,010 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 147 · Martius, AD 167 ==  16,461 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1474,11 +2946,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 76 · Iulius, AD 167 ==  8,133 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 148 · Aprilis, AD 167 ==  16,585 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1493,11 +2966,92 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 77 · September, AD 167 ==  8,257 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 149 · Maius, AD 167 ==  16,708 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 150 · Iunius, AD 167 ==  16,832 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 151 · Iulius, AD 167 ==  16,955 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 152 · Augustus, AD 167 ==  17,079 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 153 · September, AD 167 ==  17,202 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1513,11 +3067,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 78 · November, AD 167 ==  8,380 denarii (+0/turn) · 20 aurei (1 = 29.9 den.)   Attention 4/4   Index 104.8
+== Month 154 · October, AD 167 ==  17,326 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1532,12 +3087,53 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this turn: 3/4]
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 155 · November, AD 167 ==  17,449 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 156 · December, AD 167 ==  17,573 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +19.6% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 168 begins.
 
-== Turn 79 · Ianuarius, AD 168 ==  8,504 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 157 · Ianuarius, AD 168 ==  17,696 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1552,11 +3148,52 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 80 · Martius, AD 168 ==  8,628 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 158 · Februarius, AD 168 ==  17,821 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 159 · Martius, AD 168 ==  17,945 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 160 · Aprilis, AD 168 ==  18,070 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1572,11 +3209,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 81 · Maius, AD 168 ==  8,753 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 161 · Maius, AD 168 ==  18,194 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1591,11 +3229,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 82 · Iulius, AD 168 ==  8,877 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 162 · Iunius, AD 168 ==  18,319 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1610,11 +3249,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 83 · September, AD 168 ==  9,002 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 163 · Iulius, AD 168 ==  18,443 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1629,11 +3269,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 84 · November, AD 168 ==  9,126 denarii (+0/turn) · 20 aurei (1 = 30.3 den.)   Attention 4/4   Index 104.8
+== Month 164 · Augustus, AD 168 ==  18,568 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1648,12 +3289,93 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this turn: 3/4]
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 165 · September, AD 168 ==  18,692 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 166 · October, AD 168 ==  18,817 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 167 · November, AD 168 ==  18,941 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 168 · December, AD 168 ==  19,066 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +21.4% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 169 begins.
 
-== Turn 85 · Ianuarius, AD 169 ==  9,251 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 169 · Ianuarius, AD 169 ==  19,190 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1669,11 +3391,32 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 86 · Martius, AD 169 ==  9,376 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 170 · Februarius, AD 169 ==  19,316 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 171 · Martius, AD 169 ==  19,441 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1689,11 +3432,52 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 87 · Maius, AD 169 ==  9,502 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 172 · Aprilis, AD 169 ==  19,567 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 173 · Maius, AD 169 ==  19,692 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 174 · Iunius, AD 169 ==  19,818 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1713,11 +3497,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 88 · Iulius, AD 169 ==  9,627 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 175 · Iulius, AD 169 ==  19,943 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1736,11 +3521,12 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 89 · September, AD 169 ==  9,753 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 176 · Augustus, AD 169 ==  20,069 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1759,11 +3545,84 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
 
-== Turn 90 · November, AD 169 ==  9,878 denarii (+0/turn) · 20 aurei (1 = 30.8 den.)   Attention 4/4   Index 104.8
+== Month 177 · September, AD 169 ==  20,195 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 178 · October, AD 169 ==  20,320 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 179 · November, AD 169 ==  20,446 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
+  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
+  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Prices: +23.2% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
+      decide buy      buy a gold cup at a bargain (1,540 denarii)
+      decide relief   fund bread and physicians for the poor instead (1,232 denarii)
+      decide none     stay out of it
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> work
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 180 · December, AD 169 ==  20,571 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1778,12 +3637,13 @@ No promise is waiting for an answer.
 There is no outbreak to respond to.
 
 > work
-You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this turn: 3/4]
+You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
 
 > end
   • The year AD 170 begins.
 
-== Turn 91 · Ianuarius, AD 170 ==  10,004 denarii (+0/turn) · 20 aurei (1 = 31.3 den.)   Attention 4/4   Index 104.8
+== Month 181 · Ianuarius, AD 170 ==  20,697 denarii (+0/month) · 20 aurei (1 = 31.3 den.)   Index 104.8
+  Attention: 4 free / 4 total
   Medicine      46  expect   46  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
@@ -1803,11 +3663,11 @@ People expect 46: they remember your recent peak of 46 (the memory fades 5 a yea
 Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
 Index sub-score 104.6 (100 = as in real history).
 Recent changes:
-  AD 155-03  Clean water runs again in the district fountain. Medicine +1. [+1]
-      because: Work begins: Repair the district fountain (1,000 denarii, 2 turns). (AD 155-01)
-  AD 166-09  The pestilence strikes Medicine. [-5]
-      because: The pestilence is severe: about 83 thousand dead, 8% of Rome. (AD 166-09)
+  AD 155-04  Clean water runs again in the district fountain. Medicine +1. [+1]
+      because: Work begins: Repair the district fountain (1,000 denarii, 4 months). (AD 155-01)
+  AD 166-10  The pestilence strikes Medicine. [-5]
+      because: The pestilence is severe: about 83 thousand dead, 8% of Rome. (AD 166-10)
 
 > quit
 
-Run fingerprint (seed 114): 870d8dd5c69568a9
+Run fingerprint (seed 114): 094f5390300d8839

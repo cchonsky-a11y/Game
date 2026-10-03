@@ -8,48 +8,10 @@ work
 end
 work
 end
-work
-end
-work
-end
-repair coil
 repair coolant
-work
-end
-work
-end
 repair chronometer
 work
 end
-work
-end
-work
-end
-repair chronometer
-work
-end
-repair coolant
-work
-end
-work
-end
-work
-end
-work
-end
-work
-end
-repair coolant
-work
-end
-repair coil
-work
-end
-work
-end
-work
-end
-repair chronometer
 work
 end
 work
@@ -61,7 +23,53 @@ work
 end
 work
 end
+repair chronometer
 work
+end
+work
+end
+repair coolant
+end
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+end
+end
+repair coolant
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+repair chronometer
+work
+end
+work
+end
+work
+end
+work
+end
+repair coil
+end
 end
 work
 end
@@ -144,7 +152,199 @@ end
 oversee school
 work
 end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
 promise yes
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
 oversee school
 work
 end
@@ -168,6 +368,153 @@ work
 end
 respond hospice
 oversee school
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
+end
+oversee school
+work
 end
 oversee school
 work

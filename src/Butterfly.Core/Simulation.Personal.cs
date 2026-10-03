@@ -16,11 +16,27 @@ namespace Butterfly.Core
 
         /// <summary>Attention already pledged to multi-turn projects and commitments for this turn.</summary>
         public int ReservedAttention() =>
-            World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.Turns).Sum(p => p.Def.AttentionPerTurn)
+            World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.DurationMonths).Sum(p => p.Def.AttentionPerTurn)
             + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
             + ReservedMachineAttention()
             + ReservedInventionAttention()
             + OfficeDuties();
+
+        /// <summary>What holds this month's reserved Attention, by name (P1 header: "2 reserved — Machine Assessment").</summary>
+        public List<(string What, int Attention)> ReservedAttentionParts()
+        {
+            var parts = new List<(string, int)>();
+            foreach (var p in World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.DurationMonths && p.Def.AttentionPerTurn > 0)) parts.Add((p.Def.Name, p.Def.AttentionPerTurn));
+            foreach (var c in World.Commitments) parts.Add(("Mentoring " + World.Institution(c.InstitutionId).Def.ShortName, T.GetInt("commitments.mentor.attentionPerTurn")));
+            foreach (var a in World.ActiveMachineSteps.Where(a => a.TurnsRemaining < a.Def.DurationMonths && a.Def.AttentionPerTurn > 0)) parts.Add((a.Def.Name, a.Def.AttentionPerTurn));
+            foreach (var a in World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.DurationMonths && a.Def.AttentionPerTurn > 0)) parts.Add((a.Def.Name, a.Def.AttentionPerTurn));
+            foreach (var i in World.Institutions.Where(i => i.Exists && (i.Def.IsOwn ? i.Stake > 0 : i.Backed)))
+            {
+                int duty = DutyAttention(i.Rank, i.Def.IsOwn);
+                if (duty > 0) parts.Add(("Duties at " + i.Def.ShortName, duty));
+            }
+            return parts;
+        }
 
         /// <summary>
         /// Attention already pledged for next turn: work that is still running then, and office duties. When it takes all of
@@ -46,7 +62,7 @@ namespace Butterfly.Core
         internal CommandResult? CheckAttention(int amount)
         {
             if (amount > World.Attention)
-                return CommandResult.Fail("That needs " + amount + " Attention; you have " + World.Attention + " left this turn.");
+                return CommandResult.Fail("That needs " + amount + " Attention; you have " + World.Attention + " left this month.");
             return null;
         }
 
@@ -79,7 +95,7 @@ namespace Butterfly.Core
         public CommandResult Work(string kind = "odd")
         {
             if (!WorkKinds.Contains(kind)) return CommandResult.Fail("Work at what? odd, craft or consult.");
-            if (World.PersonalActionTurn == Turn) return CommandResult.Fail("You already took your personal action this turn.");
+            if (World.PersonalActionTurn == Turn) return CommandResult.Fail("You already took your personal action this month.");
             int cost = WorkAttention(kind);
             var attention = CheckAttention(cost);
             if (attention != null) return attention;
@@ -125,9 +141,9 @@ namespace Butterfly.Core
             SpendAttention(perTurn);
             int turns = T.GetInt("commitments.mentor.turns");
             var e = Record("commitment.start", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader }, null,
-                "You commit to mentoring " + inst.Def.ShortName + "'s members for " + turns + " turns (" + perTurn + " Attention each turn).");
+                "You commit to mentoring " + inst.Def.ShortName + "'s members for " + turns + " months (" + perTurn + " Attention each turn).");
             World.Commitments.Add(new Commitment("mentor", inst.Key, turns, e.Id));
-            return CommandResult.Success("Commitment made: " + turns + " turns.");
+            return CommandResult.Success("Commitment made: " + turns + " months.");
         }
 
         private void ProgressCommitments()

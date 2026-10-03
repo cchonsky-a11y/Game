@@ -317,7 +317,7 @@ namespace Butterfly.Batch
             {
                 var xs = g.Select(r => r.IndexAfter).OrderBy(x => x).ToList();
                 sb.AppendLine("| " + g.Key.Timing + " | " + Label(g.Key.Strategy) + " | " + F1(xs.Average()) + " | " + F1(StdDev(xs)) + " | " +
-                              F0(xs[(int)(xs.Count * 0.1)]) + "–" + F0(xs[(int)(xs.Count * 0.9) - 1]) + " |");
+                              F0(xs[(int)(xs.Count * 0.1)]) + "–" + F0(xs[Math.Max(0, (int)(xs.Count * 0.9) - 1)]) + " |");
             }
             sb.AppendLine();
             sb.AppendLine("- All runs: SD of arrival Index " + F1(StdDev(results.Select(r => r.IndexAfter))) + "; SD of the strategy means " +
