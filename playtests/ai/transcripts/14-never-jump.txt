@@ -103,6 +103,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
   On your street: People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -121,6 +122,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -139,6 +141,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -157,6 +160,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -177,6 +181,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
   On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -195,6 +200,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -213,6 +219,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -232,6 +239,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -254,6 +262,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -273,6 +282,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -292,6 +302,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -311,6 +322,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -331,6 +343,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -350,6 +363,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -369,6 +383,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -388,6 +403,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -408,6 +424,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -427,6 +444,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -446,6 +464,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -465,6 +484,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -487,6 +507,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -506,6 +527,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -525,6 +547,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -544,6 +567,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -564,6 +588,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -583,6 +608,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -602,6 +628,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -621,6 +648,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -641,6 +669,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -660,6 +689,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -679,6 +709,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -698,6 +729,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -719,6 +751,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -738,6 +771,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -757,6 +791,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -776,6 +811,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -796,6 +832,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -815,6 +852,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -834,6 +872,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -853,6 +892,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -873,6 +913,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -892,6 +933,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -911,6 +953,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -930,6 +973,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -951,6 +995,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -970,6 +1015,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -989,6 +1035,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1008,6 +1055,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1028,6 +1076,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1047,6 +1096,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1066,6 +1116,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1085,6 +1136,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1105,6 +1157,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1124,6 +1177,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1143,6 +1197,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1162,6 +1217,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1183,6 +1239,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1202,6 +1259,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1221,6 +1279,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1240,6 +1299,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1260,6 +1320,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1279,6 +1340,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1298,6 +1360,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1317,6 +1380,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1338,6 +1402,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1357,6 +1422,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1376,6 +1442,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1395,6 +1462,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1416,6 +1484,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1435,6 +1504,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1455,6 +1525,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1475,6 +1546,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1495,6 +1567,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1514,6 +1587,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1533,6 +1607,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1553,6 +1628,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1573,6 +1649,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1597,6 +1674,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1620,6 +1698,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1644,6 +1723,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1669,6 +1749,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1692,6 +1773,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1715,6 +1797,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1734,6 +1817,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1755,6 +1839,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Prices: +11% since AD 155 (1.5% a year)
   News: Lucius Verus leaves Rome to take command against Parthia.   (news)
   On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1774,6 +1859,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1793,6 +1879,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1817,6 +1904,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1841,6 +1929,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1864,6 +1953,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1887,6 +1977,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1910,6 +2001,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1935,6 +2027,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1954,6 +2047,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1973,6 +2067,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -1992,6 +2087,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2012,6 +2108,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2031,6 +2128,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2050,6 +2148,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2069,6 +2168,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2090,6 +2190,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Prices: +12.6% since AD 155 (1.5% a year)
   News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
   On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2109,6 +2210,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2128,6 +2230,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2147,6 +2250,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2168,6 +2272,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2187,6 +2292,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2206,6 +2312,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2225,6 +2332,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2245,6 +2353,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2265,6 +2374,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2284,6 +2394,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2303,6 +2414,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2323,6 +2435,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2342,6 +2455,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2361,6 +2475,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2380,6 +2495,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2401,6 +2517,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2420,6 +2537,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2439,6 +2557,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2458,6 +2577,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2478,6 +2598,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2497,6 +2618,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2519,6 +2641,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
 
@@ -2540,6 +2663,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2561,6 +2685,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2581,6 +2706,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2601,6 +2727,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2622,6 +2749,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2645,6 +2773,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2665,6 +2794,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2685,6 +2815,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2705,6 +2836,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2725,6 +2857,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2745,6 +2878,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2766,6 +2900,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2787,6 +2922,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2807,6 +2943,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2830,6 +2967,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Pestilence: Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
   News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
   On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: respond none   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)
 
@@ -2855,6 +2993,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2875,6 +3014,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2897,6 +3037,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2917,6 +3058,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2937,6 +3079,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2957,6 +3100,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2977,6 +3121,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -2997,6 +3142,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3017,6 +3163,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3037,6 +3184,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3058,6 +3206,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3078,6 +3227,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3098,6 +3248,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3118,6 +3269,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3139,6 +3291,7 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3159,6 +3312,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3179,6 +3333,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3200,6 +3355,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Both emperors leave for Aquileia and the northern frontier.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3220,6 +3376,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3240,6 +3397,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3260,6 +3418,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3280,6 +3439,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3300,6 +3460,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3320,6 +3481,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3340,6 +3502,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3360,6 +3523,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3382,6 +3546,7 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3402,6 +3567,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3423,6 +3589,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3443,6 +3610,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3463,6 +3631,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3488,6 +3657,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3512,6 +3682,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3536,6 +3707,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3560,6 +3732,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3584,6 +3757,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3608,6 +3782,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3628,6 +3803,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > promise yes
@@ -3649,6 +3825,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > learn more
@@ -3670,4 +3847,4 @@ Recent changes:
 
 > quit
 
-Run fingerprint (seed 114): 094f5390300d8839
+Run fingerprint (seed 114): 38e83eb89186ca1a

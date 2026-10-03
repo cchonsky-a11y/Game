@@ -59,6 +59,7 @@
           "text": "The cellar drains in an afternoon. Cassianus pours wine for the workmen on the wet steps, gives a cup to the Lares by the door, and pays you on the spot."
         }
       ],
+      "capability": "valveseats",
       "referral": {
         "institution": "guild",
         "member": "Felix",

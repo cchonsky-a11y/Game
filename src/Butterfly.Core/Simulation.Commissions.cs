@@ -166,6 +166,9 @@ namespace Butterfly.Core
                 if (--c.MonthsLeftInStage > 0) continue;
                 var stage = d.Work[c.WorkIndex];
                 var done = Scene(stage.Category, "commission.stage", c, stage.Text);
+                if (d.Capability.Length > 0)
+                    AdvanceCapability(d.Capability, CapabilityLevelFor(stage.Stage), new[] { done.Id },
+                        "Rome's " + CapabilityDefOf(d.Capability)!.Name + " now stand at " + CapabilityLevelFor(stage.Stage).ToString().ToLowerInvariant() + ".");
                 c.WorkIndex++;
                 if (c.WorkIndex < d.Work.Count)
                 {

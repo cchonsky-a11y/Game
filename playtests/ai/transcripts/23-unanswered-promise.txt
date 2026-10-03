@@ -132,6 +132,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
   On your street: The smith at the forges tells anyone who'll listen about his odd new partner, who draws machines on wax tablets and never says where he learned it.   (news)
   Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -157,6 +158,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (5 month(s) left)   (machine)
 
 > assess
@@ -182,6 +184,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (4 month(s) left)   (machine)
 
 > assess
@@ -207,6 +210,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   Workshop orders: take ironwork (400 denarii, 3 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (3 month(s) left)   (machine)
 
 > assess
@@ -234,6 +238,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
   On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
   Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (2 month(s) left)   (machine)
 
 > assess
@@ -259,6 +264,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (1 month(s) left); under way: Source bronze for the coil housing (5 month(s) left)   (machine)
 
 > assess
@@ -285,6 +291,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (4 month(s) left)   (machine)
 
 > assess
@@ -311,6 +318,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
   Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (3 month(s) left); under way: Copy the star tables (17 month(s) left)   (machine)
 
 > assess
@@ -340,6 +348,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
   Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 month(s) left); under way: Copy the star tables (16 month(s) left)   (machine)
 
 > assess
@@ -366,6 +375,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 month(s) left); under way: Copy the star tables (15 month(s) left)   (machine)
 
 > assess
@@ -394,6 +404,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (14 month(s) left); under way: Borrow glassware and a still (5 month(s) left)   (machine)
 
 > assess
@@ -420,6 +431,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (13 month(s) left); under way: Borrow glassware and a still (4 month(s) left)   (machine)
 
 > assess
@@ -447,6 +459,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
   Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (12 month(s) left); under way: Borrow glassware and a still (3 month(s) left)   (machine)
 
 > assess
@@ -473,6 +486,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (11 month(s) left); under way: Borrow glassware and a still (2 month(s) left)   (machine)
 
 > assess
@@ -499,6 +513,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (10 month(s) left); under way: Borrow glassware and a still (1 month(s) left)   (machine)
 
 > assess
@@ -526,6 +541,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (9 month(s) left)   (machine)
 
 > assess
@@ -553,6 +569,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
   Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (8 month(s) left); under way: Commission the casting at Ostia (11 month(s) left)   (machine)
 
 > assess
@@ -579,6 +596,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (7 month(s) left); under way: Commission the casting at Ostia (10 month(s) left)   (machine)
 
 > assess
@@ -605,6 +623,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 month(s) left); under way: Commission the casting at Ostia (9 month(s) left)   (machine)
 
 > assess
@@ -633,6 +652,7 @@ That needs 1 Attention; you have 0 left this month.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 month(s) left); under way: Commission the casting at Ostia (8 month(s) left); under way: Distil the coolant (9 month(s) left)   (machine)
 
 > assess
@@ -662,6 +682,7 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
   Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 month(s) left); under way: Commission the casting at Ostia (7 month(s) left); under way: Distil the coolant (8 month(s) left)   (machine)
 
 > assess
@@ -688,6 +709,7 @@ That needs 1 Attention; you have 0 left this month.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 month(s) left); under way: Commission the casting at Ostia (6 month(s) left); under way: Distil the coolant (7 month(s) left)   (machine)
 
 > assess
@@ -714,6 +736,7 @@ That needs 1 Attention; you have 0 left this month.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 month(s) left); under way: Commission the casting at Ostia (5 month(s) left); under way: Distil the coolant (6 month(s) left)   (machine)
 
 > assess
@@ -740,6 +763,7 @@ That needs 1 Attention; you have 0 left this month.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take tools (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 month(s) left); under way: Commission the casting at Ostia (4 month(s) left); under way: Distil the coolant (5 month(s) left)   (machine)
 
 > assess
@@ -768,6 +792,7 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
   Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 month(s) left); under way: Distil the coolant (4 month(s) left)   (machine)
 
 > assess
@@ -795,6 +820,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 month(s) left); under way: Distil the coolant (3 month(s) left)   (machine)
 
 > assess
@@ -822,6 +848,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 month(s) left); under way: Distil the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -850,6 +877,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 0/60 aurei; under way: Distil the coolant (1 month(s) left)   (machine)
 
 > assess
@@ -879,6 +907,7 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
   Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (5 month(s) left)   (machine)
 
 > assess
@@ -906,6 +935,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (4 month(s) left); under way: Seal and test the coolant (5 month(s) left)   (machine)
 
 > assess
@@ -933,6 +963,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (3 month(s) left); under way: Seal and test the coolant (4 month(s) left)   (machine)
 
 > assess
@@ -960,6 +991,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (2 month(s) left); under way: Seal and test the coolant (3 month(s) left)   (machine)
 
 > assess
@@ -989,6 +1021,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
   Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (1 month(s) left); under way: Seal and test the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -1017,6 +1050,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 7/9 repair steps, gold 0/60 aurei; under way: Seal and test the coolant (1 month(s) left)   (machine)
 
 > assess
@@ -1045,6 +1079,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (5 month(s) left)   (machine)
 
 > assess
@@ -1071,6 +1106,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (4 month(s) left)   (machine)
 
 > assess
@@ -1098,6 +1134,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
   Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (3 month(s) left)   (machine)
 
 > assess
@@ -1124,6 +1161,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (2 month(s) left)   (machine)
 
 > assess
@@ -1150,6 +1188,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (1 month(s) left)   (machine)
 
 > assess
@@ -1177,6 +1216,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1204,6 +1244,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
   Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1230,6 +1271,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1256,6 +1298,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1282,6 +1325,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   Workshop orders: take instruments (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1310,6 +1354,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
   Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1336,6 +1381,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1362,6 +1408,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1388,6 +1435,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1415,6 +1463,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1441,6 +1490,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1467,6 +1517,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1493,6 +1544,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1520,6 +1572,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1546,6 +1599,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1572,6 +1626,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1598,6 +1653,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (425 denarii, 3 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1626,6 +1682,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
   Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1652,6 +1709,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1678,6 +1736,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1704,6 +1763,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1731,6 +1791,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1757,6 +1818,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1783,6 +1845,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1809,6 +1872,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1837,6 +1901,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1863,6 +1928,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1889,6 +1955,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1915,6 +1982,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (431 denarii, 3 Att.); take fittings (215 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1943,6 +2011,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
   Workshop orders: take ironwork (437 denarii, 3 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > exchange 1300 denarii
@@ -1976,6 +2045,7 @@ You earn 523 denarii; tax takes 52 denarii, you keep 471 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   Workshop orders: take ironwork (437 denarii, 3 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
 
 > jump
@@ -2031,4 +2101,4 @@ You have been away for 25 years. What happened in between is lost to you; the wo
 
 (after arrival) > quit
 
-Run fingerprint (seed 123): c985d804bd8e7269
+Run fingerprint (seed 123): 3e00cedf37b0eb09

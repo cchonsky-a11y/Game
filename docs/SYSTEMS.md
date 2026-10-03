@@ -139,6 +139,7 @@ Every idea has three bars: **Knowledge**, **Means**, **Carriers** (0–100).
 - Knowledge lives in regions and spreads by diffusion; the world advances on its own.
 - Nodes: prerequisites (alternative paths allowed), Means, Carriers, effects, shadow effects, historical window, fuel or repair link.
 - Reusable capability layers sit behind nodes.
+- **P1 (decided 2026-10-02, Corey): the hidden capability network.** Separate from what the inventor knows, Rome holds a level in each capability: none → theory → demonstrated → prototype → reproducible → manufacturable → economical → adopted → institutionalized. Every node starts from what Rome already did well (its baseline), names the bottleneck, and the inventor's leap (formalize, improve, combine, scale, standardize, apply), never "invent" what Rome had. A capability can't pass a level its prerequisites haven't reached, up to reproducible (P1_PROPOSALS P1-07). Work moves it: each commission stage advances its capability (the cellar pump takes true valve seats to reproducible), logged with its cause. Hidden in play; the Knowledge and Civilization views show only what is relevant. P1 graph: data/content/capabilities.json (16 nodes).
 - Emergent variants come from rule tables: base node × modifier (carrier, culture, distortion) → bounded variant with at least one trade-off.
 
 ## 14. Hard constraints (enforced in code and content checks)

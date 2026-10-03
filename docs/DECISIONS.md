@@ -364,3 +364,10 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 ## 2026-10-03 — P1: the locked opening; narrative rules checked by tests
 - **Built:** the opening is now Corey's locked version (text.json `opening.*`): "The machine stops screaming before you do.", the non-travel systems test, dirt, the mule cart, Latin, "Ancient Rome. Not ruins. Alive." The machine's gold is pried from its contacts and couplings. Nothing about the plague, jump ranges or Echoes up front (the P0 tester line and the "something is coming from the East" hint are gone). Milestone label: P1 Playable Game Structure.
 - **Checks:** a test scans every authored string in `data/content` for the banned narrator patterns (master handoff §7), and the quoted speech for modern managerial words. All current content passes.
+
+## 2026-10-03 — P1: the hidden capability network
+- **Built:** `data/content/capabilities.json`, 16 nodes from the capability ladder (handoff 03): shared measures, gauges and fits, true valve seats, recorded trials, dimensioned drawings, bronze recipes, graded tool steel, rigid lathe work, line shafts, interchangeable parts, the hydraulic press, the governor, steam power, comparative case records, electrical experiments, copying at scale. Each states Rome's baseline, the bottleneck and the leap. Rome's level per node lives in the world; every advance is logged (`capability.advance`) with its cause.
+- **Rule (PROPOSED P1-07):** a capability can't pass a level its prerequisites haven't reached, up to reproducible ("Knowing is not making").
+- **First link:** the cellar-pump commission moves true valve seats to prototype and then reproducible.
+- **Hidden:** no console view yet; the Knowledge and Civilization views will surface it.
+- Docs: SYSTEMS §13, P1_PROPOSALS P1-07. Tests: graph integrity (known leaps, no cycles, prerequisites exist), the blocker rule, and the commission's advance.

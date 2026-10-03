@@ -73,6 +73,8 @@ namespace Butterfly.Core
         public string ReferralInstitution { get; }
         public string ReferralMember { get; }
         public string ReferralText { get; }
+        /// <summary>The capability (data/content/capabilities.json) this work moves Rome along, or empty.</summary>
+        public string Capability { get; }
 
         public CommissionDef(JsonObject o)
         {
@@ -105,6 +107,7 @@ namespace Butterfly.Core
             ReferralInstitution = r.Str("institution");
             ReferralMember = r.Str("member");
             ReferralText = r.Str("text");
+            Capability = o.StrOr("capability", "") ?? "";
         }
     }
 

@@ -126,6 +126,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
   On your street: People on your street say the stranger who fixed the district fountain must be an engineer from Alexandria. The women queuing there before dawn have stopped boiling the water.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -135,6 +136,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -144,6 +146,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -153,6 +156,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -164,6 +168,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
   On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -173,6 +178,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -182,6 +188,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -192,6 +199,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -205,6 +213,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -215,6 +224,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -225,6 +235,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -235,6 +246,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -246,6 +258,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -256,6 +269,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -266,6 +280,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -276,6 +291,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -287,6 +303,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -297,6 +314,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -307,6 +325,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -317,6 +336,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -330,6 +350,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -340,6 +361,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -350,6 +372,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -360,6 +383,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -371,6 +395,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -381,6 +406,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -391,6 +417,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -401,6 +428,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -412,6 +440,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -422,6 +451,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -432,6 +462,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -442,6 +473,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -454,6 +486,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
@@ -471,6 +504,7 @@ The machine isn't ready: 0 of 9 repair steps done.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
@@ -502,4 +536,4 @@ Recent changes:
 
 > quit
 
-Run fingerprint (seed 116): 2224b0eaf80c0e23
+Run fingerprint (seed 116): 67ab2b0e6057effd

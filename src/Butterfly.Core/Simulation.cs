@@ -50,6 +50,7 @@ namespace Butterfly.Core
             foreach (var i in World.Institutions) World.Access.Add(new InstitutionAccessState(i.Key));
             InitCommissions();
             InitInvitations();
+            foreach (var c in Data.Content.Capabilities) World.Capabilities.Add(new CapabilityState(c.Id));
         }
 
         private SceneRouter? _sceneRouter;
