@@ -48,6 +48,17 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, polish pass)
+- **IMPLEMENTED:**
+  - event, effect, workshop, invention and machine content validated at load;
+  - the departure briefing groups every kind of money, with tests for each;
+  - the router remembers waiting progression scenes, with an age bonus off by default (PROPOSED P1-23);
+  - odd jobs vary their words, with pay unchanged;
+  - a relationship-first introduction to a senator's house (Hermogenes, the salutatio, a favor), as a client only;
+  - no repeated discovery lines across arrivals.
+- **Report:** `docs/P1_POLISH_2026-10-04.md`, covering wealth, validation, the long waits, fallback work, political access, the elapsed-time echo design, route causality, Attention and jump range.
+- **OPEN:** turning on the age bonus (about 0.10); the factions' following; the machine archive step; the jump-range model and the elapsed-time echoes before longer jumps; Attention (needs people).
+
 ### P1 status (2026-10-04, hardening pass)
 - **IMPLEMENTED:**
   - Grand Challenges open by any of several routes (Measurement and standards: pump, hoist, Subura allotment, baths).

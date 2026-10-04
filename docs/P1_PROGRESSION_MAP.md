@@ -57,7 +57,7 @@ Generic odd jobs are the fallback. The menu offers them only while no commission
 | Physicians' Circle | invitation (Serenus) | relationship: knows Serenus; work: P0 join condition (a Medicine project or the promise); usefulness: Serenus's regard 2 | Serenus (4 ways); join condition (2 ways) | Relationship; legacy P0 `join:` condition |
 | Tiber Island sanctuary | gifts (`give`) | — | — | Economic |
 | Banking house of Octavius | shares (legacy stakes, kept) | first purchase ≥ 5% | — | Economic |
-| Caecilian / Junian factions | patronage (closed in P1) | — | none in P1 | OPEN DESIGN QUESTION (patron's introduction) |
+| Caecilian / Junian factions | patronage | Caecilians: a client's introduction to Senator Varro's steward Hermogenes, through Cassianus (pump done, regard 2) or Serenus (regard 3), after month 18; then the salutatio and a favor (polish pass) | Two intermediaries; Junians none yet | Relationship. Access stage 'knows a member' only. The following, offices and policy stay OPEN. |
 
 ## 5. Grand Challenges
 

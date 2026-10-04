@@ -71,3 +71,24 @@ P1's structure is complete enough to be judged by people. **What is left is most
 5. **Locking 3:1 progression routing.** Recommended, with evidence. Whether to add an age bonus for long-waiting scenes is a separate choice.
 6. **Approving the proposed numbers P1-01 to P1-22,** including this pass's P1-20 (fountain neighborhood work), P1-21 (profit shares) and P1-22 (bad copies).
 7. **Whether the generic arrival line should drop stake percentages** for the bank and sanctuary.
+
+## Polish-pass update (2026-10-04, later)
+
+See `docs/P1_POLISH_2026-10-04.md` for the full findings. Changes since the audit above:
+
+| Item | Before | After |
+|---|---|---|
+| 10. Institution access through relationships | PARTIAL: factions had no P1 path | Still PARTIAL, closer. A senator's house is reachable as a **client** through Cassianus or Serenus (the salutatio, then a favor with costs). The following, its offices and policy stay OPEN. |
+| Generic-work grind | PARTIAL | Still PARTIAL by design: players who refuse work lean on odd jobs. Odd-job months no longer repeat one sentence, and pay is unchanged. |
+| 14. Four echo kinds on the first arrival | 298 of 300 | 297 of 300 on the current content. Repeated arrival sentences 0, after fixing the rogue-house repeat. |
+| Wealth across jumps | Correct, but scattered in the briefing | One briefing block (carry, deposit or bury, bank, jar, coin in hand, institutions' money). 7 tests. |
+| Content safety | Requirements validated | Event, effect, workshop, invention and machine content validated too |
+| Long progression waits | Attributed to category exclusion | Traced to a crowded pool. An age bonus is built but off (PROPOSED P1-23). |
+
+**Still PARTIAL:**
+- understanding without overload (needs people);
+- Attention (needs people);
+- institution access (the factions' following);
+- "continuing" (scope);
+- the grind for players who refuse work, and legacy ownership numbers in a few places.
+
