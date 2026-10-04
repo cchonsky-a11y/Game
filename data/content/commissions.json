@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05. P1 (2026-10-04): 'requires' (people.json syntax) gates when the work can come; 'fundingModel' may be Favor (no one pays) or ProfitShare; a work stage may name its own 'capability' and 'capabilityTo'; 'onComplete' gives regard, status and flags; 'referral' is optional and may be only a lead (no institution). Amounts PROPOSED P1-05, P1-14, P1-17, P1-19.",
+  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05. P1 (2026-10-04): 'requires' (people.json syntax) gates when the work can come; 'fundingModel' may be Favor (no one pays) or ProfitShare; a work stage may name its own 'capability' and 'capabilityTo'; 'onComplete' gives regard, status and flags; 'referral' is optional and may be only a lead (no institution). Amounts PROPOSED P1-05, P1-14, P1-17, P1-19, P1-20.",
   "commissions": [
     {
       "id": "cellarpump",
@@ -325,6 +325,82 @@
       },
       "referral": {
         "text": "Philippus tells everyone in the warm room that the foreigner fixed his water. One of them owns a fuller's yard downstream, and doesn't look pleased."
+      }
+    },
+    {
+      "id": "allotment",
+      "title": "The Subura basin runs low",
+      "client": "the Subura magistrates",
+      "clientRole": "the elected magistrates of the street where the fountain stands",
+      "introducer": "",
+      "opensAfterMonths": 8,
+      "requires": [
+        "project:fountain:done",
+        "monthsIn:8"
+      ],
+      "encounter": {
+        "category": "CityHistory",
+        "text": "Since the fountain ran clean, the women of the street queue at it again, and by noon the basin is low. The magistrates of the vicus, a lamp-seller, a carpenter and the widow who keeps the cookshop, find you at the basin. \"You made it run,\" the widow says. \"Now someone is drinking it before it gets here.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "You follow the pipe back along the street with your ear to the paving. Three private taps come off it between the water tower and the basin, each through a bronze calix stamped with the size the water office granted. Two are honest. The third, into a dyer's yard, has been reamed out: the stamp says one quinaria and the bore says nearly two."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "the Subura magistrates",
+        "materialsPayer": "the Subura magistrates",
+        "upfront": 4,
+        "completion": 10,
+        "text": "\"A hundred now from the street's box,\" the carpenter says, \"two hundred and fifty when the basin is full at noon. The bronze we'll find. The quarrel with the dyer is yours.\""
+      },
+      "counter": {
+        "completion": 14,
+        "acceptWeight": 2,
+        "standFirmWeight": 5,
+        "walkWeight": 3,
+        "acceptText": "The widow looks at the other two. \"Three hundred and fifty. If it's full at noon.\"",
+        "standFirmText": "\"Two hundred and fifty,\" the carpenter says. \"It's a street, not a senator.\" The offer stands.",
+        "walkText": "The magistrates thank you for looking and take it to the water office's man, who takes a fee from the dyer and changes nothing."
+      },
+      "declineText": "You tell the magistrates you can't take it on. The basin runs low by noon all summer.",
+      "work": [
+        {
+          "stage": "Observation",
+          "category": "Engineering",
+          "durationMonths": 1,
+          "attention": 1,
+          "capability": "records",
+          "capabilityTo": "Demonstrated",
+          "text": "A bucket and a water clock at each tap: so many drips to fill it. The honest taps fill in near enough the same time; the dyer's fills in half. You write it on a tablet, tap by tap, and the carpenter copies it onto the wall by the basin before you can stop him."
+        },
+        {
+          "stage": "Refinement",
+          "category": "WorkEconomy",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The dyer's calix has to go, and the magistrates want the new one cast by someone the dyer can't buy. You try a bronzesmith on the Clivus, Gaius Fabius Crispus, who listens with his arms folded, says the water office's plumbers are thieves, and casts it to your measure. It is true to a hair. He charges the street full price."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "At noon the basin is full. Women fill their jars and trade news; a boy sails a walnut shell across it. The dyer's wife tells the street the foreigner ruined her husband, and for a month the street buys from the other dyer. The magistrates pour a little wine at the crossroads shrine and pay you there."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Gaius": 1
+        },
+        "sets": [
+          "subura-allotment"
+        ]
+      },
+      "referral": {
+        "text": "The magistrates of the next vicus, along the Argiletum, hear about the wall of numbers by the basin and come to read it."
       }
     },
     {
@@ -823,6 +899,74 @@
       "onComplete": {
         "regard": {
           "Livia": 1
+        }
+      }
+    },
+    {
+      "id": "argiletum",
+      "title": "Four fountains on the Argiletum",
+      "client": "the Argiletum magistrates",
+      "clientRole": "magistrates of a street of booksellers and cobblers next to the Subura",
+      "introducer": "",
+      "opensAfterMonths": 26,
+      "requires": [
+        "commission:allotment:Done",
+        "knows:Gaius"
+      ],
+      "encounter": {
+        "category": "CityHistory",
+        "text": "The magistrates of the Argiletum come to the Subura basin to read your numbers on the wall. Their street has four fountains and a dozen private taps, and two of the fountains run dry by midday. \"We can pay more than a cookshop,\" says their leader, a bookseller. \"Not much more.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Four fountains off one main, twelve taps, and a water-office plumber who has been selling bigger calices on the side for years. You walk the run in a day with Gaius, who knows half the plumbers by name and the other half by reputation."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "the Argiletum magistrates",
+        "materialsPayer": "the Argiletum magistrates",
+        "upfront": 8,
+        "completion": 18,
+        "text": "\"Two hundred now,\" the bookseller says, \"four hundred and fifty when all four fountains run at noon. The bronze goes on the street's account. Gaius casts; you measure.\""
+      },
+      "counter": {
+        "completion": 24,
+        "acceptWeight": 3,
+        "standFirmWeight": 5,
+        "walkWeight": 2,
+        "acceptText": "The bookseller sighs. \"Six hundred. Gaius said you'd ask.\"",
+        "standFirmText": "\"Four hundred and fifty,\" the bookseller says. \"I sell books. I know what words cost.\" The offer stands.",
+        "walkText": "The Argiletum decides it can live with two dry fountains until the next aedile wants votes."
+      },
+      "declineText": "You tell the bookseller you can't take it on. He copies your Subura numbers off the wall anyway.",
+      "work": [
+        {
+          "stage": "Observation",
+          "category": "Engineering",
+          "durationMonths": 2,
+          "attention": 1,
+          "text": "Every tap timed, every calix checked against the bore it was granted. The plumber who sold the big ones follows you along the street for a day, then stops, then sends his son with a jar of wine, which you send back."
+        },
+        {
+          "stage": "Refinement",
+          "category": "WorkEconomy",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "Gaius casts eleven calices to one pattern. The twelfth tap belongs to a man with a senator for a patron, and you leave it alone."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "All four fountains run at noon. The bookseller has the numbers painted by each one, with the bore of every tap, and a line at the bottom saying the water belongs to the street. Someone writes under it in charcoal that it belongs to the dyers."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Gaius": 1
         }
       }
     }

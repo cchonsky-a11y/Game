@@ -482,3 +482,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Fixed:** Philippus's baths job depended on a scene that can only play before the pump is offered; it now also comes after an ordinary afternoon at the baths.
 - **Tests:** each route opens it; losing the pump (played out) doesn't lose it; with no route it stays closed; with all routes holding it opens once; every requirement in the content parses.
 - No rule numbers changed. Snapshot hash updated (text only: same arrival, AD 247, Index 127.6).
+
+## 2026-10-04 — P1 hardening: the fountain opening's own economy
+- **Evidence (scripted runs, not human):** fountain seeds spent 15–47 of 96 months on odd jobs against the workshop's 15–16. Causes: the workshop's seasonal craft orders (intended asymmetry), and structural gates: Gaius (and through him Livia, Marcus, the singing fountain, the Clivus drain, Aulus and the power arc) came only after shared measures, which came only after the pump; the fountain had no paid work of its own.
+- **Implemented (PROPOSED P1-20):** the Subura allotment (after the fountain is repaired) and its follow-up on the Argiletum: neighborhood water work, client-paid from street funds, Roman baseline (the water office's stamped calices). The allotment introduces Gaius (his first meeting scene no longer plays afterwards) and is a fourth route into Measurement and standards. Odd-job pay unchanged; the workshop keeps its orders.
+- **Result (seeds 1–6, scripted):** fountain odd-job months 22 / 18 / 40 (seed 6 asks for more on every offer and loses three jobs), workshop 16 / 30 / 15 (seed 3, who lost the pump, now opens and finishes both Grand Challenges and does odd jobs to pay for their stages).
+- **Tests:** a paid neighborhood chain without a workshop; the fountain opens standards without the pump; Gaius is introduced once; the workshop keeps orders the fountain doesn't get.

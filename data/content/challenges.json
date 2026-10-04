@@ -24,6 +24,15 @@
           "text": "A tooth breaks off the ratchet on Aemilius's drum. The smith at the Emporium cuts a new pawl from your drawing, and it rides up over the ratchet instead of catching. Your drawing says a finger and a half; his finger is not yours, and nor is his foot. Until two shops measure the same way, every repair is a new hoist."
         },
         {
+          "id": "allotment",
+          "requires": [
+            "commission:allotment:Done",
+            "monthsIn:12"
+          ],
+          "category": "Engineering",
+          "text": "Two calices on your bench, both stamped as one quinaria: the water office's, and the one Gaius cast to your rule. Timed on the same bucket, Gaius's passes a sixth more. Neither man cheated. Each measured by his own finger, and Rome has as many fingers as plumbers. Until two shops measure the same way, every allotment is an argument."
+        },
+        {
           "id": "baths",
           "requires": [
             "commission:baths:Done",
@@ -104,7 +113,7 @@
           "text": "The fitter at Ostia cuts a part to the gauges and sends it up the river in a box. It drops into its place at your bench without a file touching it. The bronzesmith asks for a set of gauges of his own and pays for them."
         }
       ],
-      "completeText": "Three shops now cut seats to one set of gauges, and a seat from one fits a pump from another. Nobody calls it a standard. They say the parts are cut to the foreigner's foot."
+      "completeText": "Three shops now cut parts to one set of gauges, and a part from one fits a machine from another. Nobody calls it a standard. They say the parts are cut to the foreigner's foot."
     },
     {
       "id": "power",

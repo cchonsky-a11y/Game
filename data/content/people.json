@@ -156,8 +156,8 @@
     {
       "id": "Gaius",
       "name": "Gaius Fabius Crispus",
-      "known": "scene:gaius-meet",
-      "role": "a bronze worker with a shop on the Clivus, the one who first cut seats to your foot",
+      "known": "scene:gaius-meet|commission:allotment:Done",
+      "role": "a bronze worker with a shop on the Clivus",
       "goal": "for his shop to be the one other shops copy, not the one that copies",
       "vulnerability": "pride: he would rather lose a month than be told how to hold a file",
       "caresAbout": "Livia, their two daughters, and his sister's boy Marcus",

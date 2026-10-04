@@ -132,7 +132,8 @@
       "id": "gaius-meet",
       "category": "WorkEconomy",
       "requires": [
-        "capability:metrology:Reproducible"
+        "capability:metrology:Reproducible",
+        "!commission:allotment:Done"
       ],
       "regard": {
         "Gaius": 1
