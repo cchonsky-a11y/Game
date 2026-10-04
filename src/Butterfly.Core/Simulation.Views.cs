@@ -151,7 +151,7 @@ namespace Butterfly.Core
         private void CivilizationView(SectionView v)
         {
             foreach (var c in World.Capabilities.Where(c => c.Level > CapabilityLevel.None))
-                v.Active.Add(new ViewItem(Cap(CapabilityDefOf(c.Id)!.Name) + ": " + c.Level.ToString().ToLowerInvariant() + (c.Distorted ? ", with bad copies about" : "")));
+                v.Active.Add(new ViewItem(Cap(CapabilityDefOf(c.Id)!.Name) + ": " + c.Level.ToString().ToLowerInvariant() + (c.Spread >= CapabilitySpread.Copied ? ", copied" + (c.Distorted ? ", badly" : "") : "")));
             var touched = new HashSet<string>(World.Capabilities.Where(c => c.Level > CapabilityLevel.None).Select(c => c.Id));
             foreach (var def in Data.Content.Capabilities.Where(d => !touched.Contains(d.Id) && d.Prerequisites.Any(touched.Contains)))
             {

@@ -69,12 +69,11 @@ namespace Butterfly.Core
             }
             var happened = Record("person.life", "person." + e.Person, CausesOf(e).ToList(), actors, effects.Count > 0 ? effects : null, e.Text);
             World.LifeEventLog[e.Id] = happened.Id;
-            if (e.Capability.Length > 0)
-            {
-                if (AdvanceCapability(e.Capability, e.CapabilityTo, new[] { happened.Id },
-                        "Rome's " + CapabilityDefOf(e.Capability)!.Name + " spread without you" + (e.Distorted ? ", badly." : "."), e.Person) && e.Distorted)
-                    World.Capabilities.First(c => c.Id == e.Capability).Distorted = true;
-            }
+            if (e.Capability.Length > 0 && e.Spread != CapabilitySpread.None)
+                SpreadCapability(e.Capability, e.Spread, e.Distorted, e.Misattributed, new[] { happened.Id },
+                    Cap(CapabilityDefOf(e.Capability)!.Name) + " spread without you" + (e.Distorted ? ", badly" : "") + (e.Misattributed ? ", under the wrong name" : "") + ".", e.Person);
+            if (e.Capability.Length > 0 && e.CapabilityTo > CapabilityLevel.None)
+                AdvanceCapability(e.Capability, e.CapabilityTo, new[] { happened.Id }, e.Person + " took " + CapabilityDefOf(e.Capability)!.Name + " further on their own.", e.Person);
         }
 
         /// <summary>The events that made a life event possible: the last event behind each requirement.</summary>

@@ -23,8 +23,8 @@ namespace Butterfly.Core
         public string Opinion { get; }
         public string Interest { get; }
         public string Voice { get; }
-        /// <summary>What the inventor finds of this person on the first arrival: the first whose requirements hold.</summary>
-        public IReadOnlyList<KeyValuePair<IReadOnlyList<string>, string>> Echoes { get; }
+        /// <summary>What the inventor may find of this person on an arrival (each shown once; later arrivals prefer later lines).</summary>
+        public IReadOnlyList<PersonEchoDef> Echoes { get; }
 
         public PersonDef(JsonObject o)
         {
@@ -41,9 +41,23 @@ namespace Butterfly.Core
             Opinion = o.Str("opinion");
             Interest = o.Str("interest");
             Voice = o.Str("voice");
-            Echoes = o.Has("echoes")
-                ? o.Arr("echoes").Cast<JsonObject>().Select(x => new KeyValuePair<IReadOnlyList<string>, string>(x.Arr("requires").Cast<string>().ToList(), x.Str("text"))).ToList()
-                : new List<KeyValuePair<IReadOnlyList<string>, string>>();
+            Echoes = o.Has("echoes") ? o.Arr("echoes").Cast<JsonObject>().Select(x => new PersonEchoDef(x)).ToList() : new List<PersonEchoDef>();
+        }
+    }
+
+    /// <summary>One thing the inventor may find of a person after a jump: from which arrival on, and what must hold.</summary>
+    public sealed class PersonEchoDef
+    {
+        public IReadOnlyList<string> Requires { get; }
+        public string Text { get; }
+        /// <summary>The first arrival (1, 2, …) this line can appear on: later lines carry aged consequences.</summary>
+        public int FromJump { get; }
+
+        public PersonEchoDef(JsonObject o)
+        {
+            Requires = o.Arr("requires").Cast<string>().ToList();
+            Text = o.Str("text");
+            FromJump = (int)o.NumOr("fromJump", 1);
         }
     }
 
@@ -64,6 +78,9 @@ namespace Butterfly.Core
         public string Capability { get; }
         public CapabilityLevel CapabilityTo { get; }
         public bool Distorted { get; }
+        /// <summary>How far the person's imitation spreads the work (never its true maturity), or None.</summary>
+        public CapabilitySpread Spread { get; }
+        public bool Misattributed { get; }
         /// <summary>A world interruption (illness, fire): it happens when it happens, not when the scene router allows.</summary>
         public bool Interrupt { get; }
 
@@ -82,9 +99,13 @@ namespace Butterfly.Core
             StatusChanges = s == null ? new List<KeyValuePair<string, string>>() : s.Keys.Select(k => new KeyValuePair<string, string>(k, s.Str(k))).ToList();
             var c = o.Has("capability") ? o.Obj("capability") : null;
             Capability = c?.Str("id") ?? "";
-            CapabilityTo = c == null ? CapabilityLevel.None
+            // "to": a true advance by the person (they improve the method); "spread": imitation, which never raises maturity.
+            CapabilityTo = c == null || !c.Has("to") ? CapabilityLevel.None
                 : Enum.TryParse<CapabilityLevel>(c.Str("to"), out var l) ? l : throw new FormatException("Unknown capability level: " + c.Str("to"));
+            Spread = c == null || !c.Has("spread") ? CapabilitySpread.None
+                : Enum.TryParse<CapabilitySpread>(c.Str("spread"), out var sp) ? sp : throw new FormatException("Unknown spread: " + c.Str("spread"));
             Distorted = c != null && c.BoolOr("distorted", false);
+            Misattributed = c != null && c.BoolOr("misattributed", false);
             Interrupt = o.BoolOr("interrupt", false);
         }
     }

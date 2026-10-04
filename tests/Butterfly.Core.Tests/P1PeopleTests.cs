@@ -97,11 +97,13 @@ namespace Butterfly.Core.Tests
         {
             var sim = UntilLife("pollio-copy", out _);
             var cap = sim.World.Capabilities.First(c => c.Id == "valveseats");
-            Assert.Equal(CapabilityLevel.Adopted, cap.Level);
+            Assert.Equal(CapabilityLevel.Reproducible, cap.Level);              // the bad copy never raises true maturity
+            Assert.Equal(CapabilitySpread.Copied, cap.Spread);
             Assert.True(cap.Distorted);
-            var advance = sim.Log.Events.Last(e => e.Type == "capability.advance" && e.Target == "capability.valveseats");
-            Assert.Equal(new[] { "Cassianus" }, advance.Actors);
-            Assert.Contains(sim.World.LifeEventLog["pollio-copy"], advance.ImmediateCauses);
+            Assert.True(cap.Misattributed);
+            var spread = sim.Log.Events.Last(e => e.Type == "capability.spread" && e.Target == "capability.valveseats");
+            Assert.Equal(new[] { "Cassianus" }, spread.Actors);
+            Assert.Contains(sim.World.LifeEventLog["pollio-copy"], spread.ImmediateCauses);
         }
 
         [Fact]

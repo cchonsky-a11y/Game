@@ -460,7 +460,7 @@ namespace Butterfly.Core
             // What your answers to Rome's choices left behind (P0-33).
             foreach (var mark in EventMarks(later)) personal += " " + mark;
             // The people you knew (P1 echoes).
-            foreach (var line in PeopleEchoes(arrival, later)) personal += " " + line;
+            foreach (var line in PeopleEchoes(arrival)) personal += " " + line;
             arrival.Beats.Add(new ArrivalBeat("Personal echo", personal));
 
             // 4. Discovery — what the institutions became.

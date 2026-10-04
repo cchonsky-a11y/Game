@@ -43,7 +43,7 @@ namespace Butterfly.Core.Tests
             var sim = AfterThePump();
             FollowFelix(sim, InstitutionAccessStage.Member);
             var arrival = sim.JumpForTests();
-            Assert.True(sim.CapabilityLevelOf("valveseats") >= CapabilityLevel.Adopted);
+            Assert.True(sim.CapabilityLevelOf("valveseats") >= CapabilityLevel.Manufacturable);   // at least one rung up the ladder
             Assert.Contains("technical:valveseats", arrival.P1Echoes);
             Assert.Contains("person:Felix", arrival.P1Echoes);
             Assert.Contains("Felix who connected the shops", Beat(arrival, "Personal echo"));
@@ -82,7 +82,7 @@ namespace Butterfly.Core.Tests
         {
             // No causal chains after the jump (PROTOTYPE_SCOPE): echo lines never say "because" or "you caused".
             var c = TestData.Load().Content;
-            var lines = c.Capabilities.SelectMany(x => x.Echo.Values).Concat(c.People.SelectMany(p => p.Echoes.Select(e => e.Value)))
+            var lines = c.Capabilities.SelectMany(x => x.Echo.Values).Concat(c.People.SelectMany(p => p.Echoes.Select(e => e.Text)))
                          .Concat(c.InvitationPaths.Select(p => p.EchoGuest)).Where(s => s.Length > 0).ToList();
             Assert.NotEmpty(lines);
             Assert.All(lines, s => { Assert.DoesNotContain("because", s); Assert.DoesNotContain("you caused", s); });

@@ -412,3 +412,10 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Fix:** Measurement and standards now opens only after the pump commission is finished (its opening scene speaks of a worn seat).
 - **Tests:** a stakes test that counted collapses over one monthly year was made robust (two years, 60 seeds; no rule change). Snapshot reset (deliberate rule change: the router draws from the seeded generator): the reference playthrough still arrives in AD 242, now with Index 127.6 (was 126.1).
 - Docs: SYSTEMS §2, tuning (`scenes.optionalPerMonth`, `scenes.baseWeight`), P1_PROPOSALS P1-11. GDD Appendix A: add both when Corey confirms P1-11.
+
+## 2026-10-04 — P1: true maturity vs spread; edge levels; the full ladder; human echoes on every arrival
+- **Implemented (Corey):** a capability's level is the true maturity of the method; spread (local / copied / widespread), distortion and misattribution are tracked apart and never raise it. Pollio's bad copy now spreads true valve seats as copied, distorted and misattributed; the arrival shows the true lineage and the bad copies as separate echoes ("distorted", then "distorted.later" on a later arrival).
+- **Implemented:** dependency edges may name the level they need (`{"id", "level"}`); plain ids keep the P1-07 rule. Steam uses it (P1-12).
+- **Implemented:** carried capabilities climb reproducible → manufacturable → economical → adopted → institutionalized, a rung per 20 years; manufacturable and economical have their own arrival lines for shared measures, gauges and valve seats.
+- **Implemented:** people echoes on every arrival (the "first arrival only" rule removed), at most `echoes.peoplePerArrival` = 2, never repeated word for word; lines may carry `fromJump` and later arrivals prefer them. Second-arrival lines for Felix, Cassianus and Diodoros: a founders' feast and a mistaken memory of the foreigner, a family split, a praetor's ruling between two families, a bathhouse owner's version of the pump, a tombstone that claims too much.
+- Docs: SYSTEMS §11 and §13, tuning (`echoes.peoplePerArrival`), P1_PROPOSALS P1-09 (revised) and P1-12.

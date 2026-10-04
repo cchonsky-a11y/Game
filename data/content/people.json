@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' (an advance made by the person, not the player; 'distorted' marks a bad copy). 'known' says when the player knows them; 'echoes' are what the inventor finds of them on the first arrival (the first whose requirements hold; at most two people an arrival). Chances PROPOSED P1-08.",
+  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' with 'spread' (imitation: Local / Copied / Widespread, optionally 'distorted' and 'misattributed'; it never raises true maturity) or 'to' (a true advance the person makes themselves). 'interrupt' marks a world interruption that bypasses the scene router. 'known' says when the player knows them; 'echoes' are what the inventor may find of them on an arrival: each line at most once, 'fromJump' (default 1) the first arrival it can appear on, later arrivals preferring their own lines (aged consequences, descendants, deaths, contradictory memory); at most echoes.peoplePerArrival people an arrival. Chances PROPOSED P1-08.",
   "people": [
     {
       "id": "Felix", "name": "Felix", "known": "commission:cellarpump:Offered",
@@ -15,7 +15,9 @@
       "voice": "quick, warm, always halfway to the next errand",
       "echoes": [
         { "requires": ["access:guild:Member"], "text": "In the guild hall at Ostia the old contracts on the wall have one witness over and over: Felix. The fitters call him Felix who connected the shops. One says he once sponsored a foreign craftsman; no one remembers the name." },
-        { "requires": ["access:guild:KnowsMember"], "text": "On the quays at Ostia a ship-fitter's yard has FELICIS cut over the gate. His grandsons run it, and argue about the Blues." }
+        { "requires": ["access:guild:KnowsMember"], "text": "On the quays at Ostia a ship-fitter's yard has FELICIS cut over the gate. His grandsons run it, and argue about the Blues." },
+        { "fromJump": 2, "requires": ["access:guild:Member"], "text": "The guild at Ostia keeps a feast for its founders now. Felix is on the list, though he founded nothing; the speech calls him the man who taught the shops to trust each other's measures. An apprentice tells you the foreigner Felix sponsored was really a Greek from Alexandria." },
+        { "fromJump": 2, "requires": ["access:guild:KnowsMember"], "text": "FELICIS is still cut over the yard gate at Ostia, but the yard makes rope now. The family sold the fitting trade after two brothers quarrelled; one went to Puteoli and did well, the other stayed and didn't." }
       ]
     },
     {
@@ -32,7 +34,9 @@
       "voice": "careful, counts aloud, repeats a price back to make sure",
       "echoes": [
         { "requires": ["life:warehouse-fire"], "text": "The warehouses under the Aventine were rebuilt in brick after a fire, long ago. The cellar under the third one is still dry." },
-        { "requires": ["commission:cellarpump:Done"], "text": "Cassianus's warehouses under the Aventine belong to his daughter's family now. The cellar is dry." }
+        { "requires": ["commission:cellarpump:Done"], "text": "Cassianus's warehouses under the Aventine belong to his daughter's family now. The cellar is dry." },
+        { "fromJump": 2, "requires": ["life:pollio-copy"], "text": "A stone in the lane under the Aventine settles an old lawsuit: the heirs of Cassianus and of Pollio share a wall and a well by the praetor's order. The two families still don't marry." },
+        { "fromJump": 2, "requires": ["commission:cellarpump:Done"], "text": "The third warehouse under the Aventine is a bathhouse now. The owner shows you the old pump in the cellar, green with age, and says a foreigner built it for his great-grandfather from Hero's books." }
       ]
     },
     {
@@ -48,7 +52,8 @@
       "interest": "dice, with no luck",
       "voice": "few words, Greek when he is angry",
       "echoes": [
-        { "requires": ["life:diodoros-deliveries"], "text": "A carters' yard by the Porta Trigemina belongs to a family from Antioch. The man who started it, they say, could only use one hand." }
+        { "requires": ["life:diodoros-deliveries"], "text": "A carters' yard by the Porta Trigemina belongs to a family from Antioch. The man who started it, they say, could only use one hand." },
+        { "fromJump": 2, "requires": ["life:diodoros-deliveries"], "text": "The carters' yard by the Porta Trigemina has become three yards and a feud. Diodoros's tombstone stands in the oldest one: a man with one hand raised, a citizen of Antioch and of Rome, it says, though he was never a citizen of either." }
       ]
     }
   ],
@@ -78,7 +83,7 @@
       "id": "pollio-copy", "person": "Cassianus", "fromMonth": 0, "chance": 0.08,
       "requires": ["capability:valveseats:Reproducible"],
       "category": "WorkEconomy",
-      "capability": { "id": "valveseats", "to": "Adopted", "distorted": true },
+      "capability": { "id": "valveseats", "spread": "Copied", "distorted": true, "misattributed": true },
       "status": { "Cassianus": "furious that Pollio has a pump like his" },
       "text": "Pollio, across the lane from Cassianus, has had a pump made like his by a bronzesmith on the Clivus who saw it once. The seats are cut by eye and it leaks back on every stroke. Pollio tells everyone the design is yours."
     }

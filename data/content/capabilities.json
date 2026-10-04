@@ -8,6 +8,8 @@
       "carriers": ["guild"],
       "echo": {
         "Reproducible": "In a few shops on the Clivus and at Ostia the rules on the walls are copies of one bronze bar. The men there say a thing is cut to the foot and mean that one.",
+        "Manufacturable": "A founder by the river casts bronze rules from the one master and sells them stamped. Every new shop on the river buys one before it buys an anvil.",
+        "Economical": "Rules cut to the shared foot are cheap now, cheaper than arguing over measures. Builders' contracts on the Aventine name the foot by the founder's stamp.",
         "Adopted": "Every fitter on the river works to one foot now, and the guild keeps the bronze master in its hall.",
         "Institutionalized": "The guild at Ostia keeps the master foot in a locked case and checks its members' rules against it every year. A short rule costs a fine."
       } },
@@ -18,6 +20,8 @@
       "carriers": ["guild"],
       "echo": {
         "Reproducible": "Three shops still cut seats to a shared set of gauges, and their pumps trade parts.",
+        "Manufacturable": "One shop at Ostia makes nothing but gauges, hardened plugs in pairs, and sells them to fitters up and down the river.",
+        "Economical": "A fitter's gauges cost less than a bad job. Shops that don't use them can't sell to the shippers, and say so bitterly.",
         "Adopted": "Fitters on the quays carry fit and no-fit plugs in a leather roll, and buy seats from whichever shop is nearest.",
         "Institutionalized": "The guild sells sealed sets of gauges to its members. A seat cut to them fits any member's pump, from Ostia to the Aventine."
       } },
@@ -28,9 +32,12 @@
       "carriers": ["guild"],
       "echo": {
         "Reproducible": "In a few cellars under the Aventine the pumps still have seats cut true, refitted by men who learned it in Cassianus's cellar. Nowhere else.",
+        "Manufacturable": "A bronze shop on the Clivus casts seats by the dozen from one pattern and sells them in straw, ready to fit. A fitter buys three and keeps two for the next job.",
+        "Economical": "A true seat costs less now than a day's bailing. Bakers and fullers who never owned a pump have one in the yard, and the porters who used to bail have other work or none.",
         "Adopted": "The pumps on the Ostia quays have seats cut to a gauge now. The guild's fitters carry the gauges in a box, and a pump that leaks back is a joke.",
         "Institutionalized": "The guild at Ostia stamps the pumps its members fit: a seal on the casing says the seats were cut to the guild's gauge. A shipper won't buy a pump without it.",
-        "distorted": "You see the other kind, too: seats cut by eye to look like the good ones, leaking back on every stroke. The men who sell them say the design is the foreigner's."
+        "distorted": "You see the other kind, too: seats cut by eye to look like the good ones, leaking back on every stroke. The men who sell them say the design is the foreigner's.",
+        "distorted.later": "The cheap seats are still sold at the market gates, and still leak. People call them Pollio's seats now, and say the good ones were stolen from him by a foreigner."
       } },
     { "id": "records", "name": "recorded trials", "domain": "experiment",
       "baseline": "Craft trial and error, and physicians' case histories in the Hippocratic tradition.",
@@ -71,7 +78,8 @@
     { "id": "steam", "name": "steam power", "domain": "thermal power",
       "baseline": "Hero's spinning sphere and temple devices show steam can move things.",
       "bottleneck": "Boilers, seals and true cylinders: nothing holds pressure and does work for long.",
-      "leap": "scale", "prerequisites": ["steelgrades", "interchange"] },
+      "leap": "scale",
+      "prerequisites": [ { "id": "steelgrades", "level": "Manufacturable" }, { "id": "interchange", "level": "Reproducible" }, { "id": "records", "level": "Reproducible" } ] },
     { "id": "casenotes", "name": "comparative case records", "domain": "medicine",
       "baseline": "Physicians write case histories and argue over them.",
       "bottleneck": "Households' cases are never put side by side and counted.",

@@ -1906,6 +1906,12 @@
       "ref": "P1_SCOPE Scene routing: weight left to a scene past the soft cap (PROPOSED P1-01, from the P1 Sprint 1 package)"
     }
   },
+  "echoes": {
+    "peoplePerArrival": {
+      "value": 2,
+      "ref": "P1 jump echoes (Corey, 2026-10-04: every arrival keeps human echoes): at most this many people's lines on one arrival (PROPOSED P1-09)"
+    }
+  },
   "capabilities": {
     "carriedYearsPerLevel": {
       "value": 20,
