@@ -11,6 +11,8 @@ A turn-based historical strategy game for Apple platforms. We are currently buil
 
 The full design document (docs/butterfly-effect-gdd.md) is background reference only. **It is not a build list.**
 
+Human testing waits for a graphical UI, with one exception (Corey, 2026-10-04): a limited console experience validation of the first return, described in PROTOTYPE_SCOPE.md. AI or persona runs are never human testing.
+
 ## Rules
 1. Build **only** what PROTOTYPE_SCOPE.md lists as in scope. Never build anything on its out-of-scope list, even if another document describes it.
 2. SYSTEMS.md is the source of truth for rules and numbers. Put every tuning value in `data/tuning.json`; never hard-code numbers.

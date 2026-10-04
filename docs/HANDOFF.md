@@ -48,6 +48,13 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, after the correctness pass)
+- **Corey's decisions:**
+  - guild and Circle members can't buy more stake (only the bank sells ownership);
+  - 234 of 300 runs completing both challenges is the accepted baseline (don't tune it);
+  - the archive note needs only the salutatio, not the later favor.
+- **Scope:** a limited console human experience validation of the first return is authorized (PROTOTYPE_SCOPE.md). General usability testing still waits for graphics.
+
 ### P1 status (2026-10-04, correctness pass)
 - **FIXED:**
   - Grand Challenges complete by their authored stages (Powered Workshops used to finish early in 148 of 300 runs);
@@ -129,7 +136,7 @@ python3 playtests/ai/live/play.py setup                                     # li
   - FreeMarket is meant to be better and is exempt from the gate.
 - **Jump timing:** deferred to P3 (staying longer is always better in P0). Don't try to fix it.
 - **Free markets:** only the player's `policy` or `advocate` moves Rome off its historical economic policy. Left alone, Rome follows history. Keep it that way.
-- **Human testing:** deferred to a graphical milestone (2026-10-02). `playtests/kit/` stays for then.
+- **Human testing:** deferred to a graphical milestone (2026-10-02). `playtests/kit/` stays for then. **Exception (2026-10-04):** a console experience validation of the first return, about 5 testers, protocol in `playtests/human/FIRST_RETURN_PROTOCOL.md` (PROTOTYPE_SCOPE.md).
 
 ## 6. Live blind AI playtesters
 Advisory only: they find bugs and unclear text; they are not gate evidence. The setup, the prompt and the ten personas are in `playtests/ai/live/tester-prompt.md`. Reports go in `playtests/ai/live/reports/<date>/`.

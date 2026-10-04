@@ -648,3 +648,14 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - jumps (300 of 300 twice), the ledger, overbooking, route tallies and the archive tally are unchanged;
   - P0 batch, explorer and snapshot unchanged.
 - **Documented:** docs/SAVE_STATE_BOUNDARY.md (not built). No tuning value changed.
+
+## 2026-10-04 — Corey's decisions after the correctness pass
+- **Guild and Physicians' Circle:** a legitimately admitted member still can't buy more stake. Influence there should come later through participation, seniority, relationships, obligations and offices, none of which are built now. The banking house is where buying financial ownership makes sense.
+- **Grand Challenge completion:** 234 of 300 matrix runs completing both challenges is the accepted baseline. Don't tune toward the old 266, which was inflated by the Powered Workshops short-circuit. Whether both are too demanding is a question for human testing.
+- **Archive note:** reaching Varro's salutatio as his client opens the archives. The later patron favor is not required, deliberately; requiring it would turn an optional moral choice into a hidden machine gate.
+
+## 2026-10-04 — Scope: a narrow console human experience validation of the first return
+- **Changed:** human testing stays deferred to a graphical milestone, with one exception. A limited console test with about 5 real testers is authorized to test the first-return hypothesis: whether players hesitate before leaving, care whom they leave, recognize consequences, can reconstruct some causes without being told, find uncertainty interesting, and want to explore and continue.
+- **Not evidence about:** final UI usability, menu clarity, graphical hierarchy, accessibility, onboarding or readability of the eventual product. AI, scripted or model runs never count as human testers.
+- **Milestone consequence:** if the return fails those tests (no hesitation, nobody matters, no plausible causes, a status report, no wish to explore), rework it before major graphical UI work. If it works, graphical UI proceeds with the return as a primary design target.
+- **Updated:** PROTOTYPE_SCOPE.md (out-of-scope line and a new "Authorized" section), CLAUDE.md, BUILD_GUIDE §6, HANDOFF.md. The protocol will be `playtests/human/FIRST_RETURN_PROTOCOL.md`.

@@ -1,7 +1,7 @@
 # PROTOTYPE_SCOPE.md — Current Milestone: P1 Playable Game Structure
 
 > This file defines the **only** work in scope right now. It replaces the P0 scope (kept at `docs/archive/PROTOTYPE_SCOPE_P0.md`).
-> Decided by Corey (handoff of 2026-10-02, `docs/handoff/2026-10-02/`): P0 is complete. The five-human test is deferred to a later graphical milestone. The project is in **P1**.
+> Decided by Corey (handoff of 2026-10-02, `docs/handoff/2026-10-02/`): P0 is complete. The five-human test is deferred to a later graphical milestone, except the narrow first-return experience validation authorized on 2026-10-04 (below). The project is in **P1**.
 > VISION.md and SYSTEMS.md describe the long-term game; they are not a build list.
 
 ## The P1 target
@@ -49,7 +49,23 @@ Everything in `docs/archive/PROTOTYPE_SCOPE_P0.md` that P1 has not yet replaced 
 - The fuel puzzle (P2), repair tiers, malfunctions.
 - Saves, iCloud, purchases, analytics, networking.
 - Any language-model integration.
-- Human playtests (deferred to a graphical milestone). AI or persona testing is advisory and is never called human testing.
+- General human usability testing (deferred to a graphical milestone). **One narrow exception (Corey, 2026-10-04):** a console experience validation of the first return; see "Authorized: first-return experience validation" below. AI or persona testing is advisory and is never called human testing.
+
+## Authorized: first-return experience validation (Corey, 2026-10-04)
+General usability testing still waits for a graphical UI. A limited console test with **about 5 real human testers** is authorized for one purpose: to test the first-return hypothesis, using the protocol in `playtests/human/FIRST_RETURN_PROTOCOL.md`. It asks whether players:
+- hesitate before leaving;
+- care about the people they leave behind;
+- recognize consequences after returning;
+- can reconstruct some causal history without being told;
+- find the uncertainty interesting rather than merely confusing;
+- want to explore the changed city;
+- want to keep playing.
+
+It is **not** evidence about final UI usability, menu clarity, graphical information hierarchy, accessibility, onboarding or the eventual product's readability. AI simulations, scripted personas and language models (Claude, Grok, ChatGPT or others) are never human testers.
+
+**What the result decides.** If testers generally don't hesitate before leaving, don't care whom they leave, can't find any plausible cause for what they see, read the return as a status report, or don't want to explore further, the return is reworked **before** major graphical UI development. If it works emotionally and strategically, graphical UI work proceeds with the return as a primary design target. Five people give patterns, not scores.
+
+Building for it (the first-return prototype, Part II, 2026-10-04) stays a prototype: one first return, no second era, no long-jump or generational model.
 
 ## Hard constraints (SYSTEMS.md §14) still apply
 Player institutions never use enslaved labor. No atrocity verbs. Religious founders are never depicted, nudged or erased. No weapon of mass destruction as a player tool. Exploitation always costs the Index. Roman slavery may be depicted as part of Roman life, never as a player tool.
