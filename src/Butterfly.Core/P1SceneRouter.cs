@@ -47,7 +47,8 @@ namespace Butterfly.Core
             IEnumerable<SceneCandidate> candidates,
             ScenePacingState pacing,
             SceneCategory? explicitlyFocusedCategory = null,
-            bool recordChoice = true)
+            bool recordChoice = true,
+            Rng? rng = null)
         {
             if (candidates == null) throw new ArgumentNullException(nameof(candidates));
             if (pacing == null) throw new ArgumentNullException(nameof(pacing));
@@ -61,7 +62,7 @@ namespace Butterfly.Core
             if (weighted.Count == 0) return null;
 
             double total = weighted.Sum(c => c.Weight);
-            double roll = _rng.NextDouble() * total;
+            double roll = (rng ?? _rng).NextDouble() * total;
             double cursor = 0;
 
             foreach (var item in weighted)

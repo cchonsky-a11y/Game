@@ -12,9 +12,9 @@ namespace Butterfly.Core.Tests
     public class P1RoutingTests
     {
         /// <summary>Month 6: Cassianus's flooded cellar (work) and the talk at the baths (Roman life) both waiting, after two work scenes.</summary>
-        private static Simulation TwoCandidates()
+        private static Simulation TwoCandidates(ulong seed = 42)
         {
-            var sim = new Simulation(TestData.Load(), 42);
+            var sim = new Simulation(TestData.Load(), seed);
             for (int m = 0; m < 5; m++) sim.EndMonth();
             sim.FindCommission("cellarpump")!.Status = CommissionStatus.NotYet;   // still to come
             sim.World.ScenesSeen.Clear();
@@ -29,16 +29,19 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void NoThirdWorkSceneWhileSomethingElseCanHappen()
         {
-            var sim = TwoCandidates();
-            for (int k = 0; k < 40; k++) Assert.NotEqual("commission:cellarpump", sim.PeekRoutedScene());   // never a third work scene
+            // A preview no longer draws from the game's generator, so the spread of picks comes from different seeds.
+            for (ulong seed = 1; seed <= 40; seed++) Assert.NotEqual("commission:cellarpump", TwoCandidates(seed).PeekRoutedScene());   // never a third work scene
         }
 
         [Fact]
         public void ExplicitFocusLetsTheThirdOneThrough()
         {
-            var sim = TwoCandidates();
-            Assert.True(sim.SetSceneFocus("workeconomy").Ok);
-            var picks = Enumerable.Range(0, 40).Select(_ => sim.PeekRoutedScene()).ToList();
+            var picks = Enumerable.Range(1, 40).Select(seed =>
+            {
+                var sim = TwoCandidates((ulong)seed);
+                Assert.True(sim.SetSceneFocus("workeconomy").Ok);
+                return sim.PeekRoutedScene();
+            }).ToList();
             Assert.Contains("commission:cellarpump", picks);
             Assert.Contains("scene:baths-wet-cellar", picks);
         }

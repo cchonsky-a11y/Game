@@ -16,6 +16,12 @@ namespace Butterfly.Core
             _state = seed;
         }
 
+        /// <summary>
+        /// A copy at the same point in the stream, for previews: drawing from the copy never moves this generator, so looking
+        /// ahead can't change the game (P1 correctness pass, 2026-10-04).
+        /// </summary>
+        public Rng Clone() => new Rng(_state);
+
         public ulong NextULong()
         {
             ulong z = unchecked(_state += 0x9E3779B97F4A7C15UL);

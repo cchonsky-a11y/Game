@@ -113,19 +113,23 @@ namespace Butterfly.Core
         /// (unless the player is focused on it); then a seeded weighted pick (SceneRouter, which still deprioritizes it if
         /// it is all there is).
         /// </summary>
-        private RoutedScene? ChooseScene(List<RoutedScene> candidates)
+        /// <param name="rng">Draw from this instead of the game's generator (a preview passes a copy).</param>
+        private RoutedScene? ChooseScene(List<RoutedScene> candidates, Rng? rng = null)
         {
             if (candidates.Count == 0) return null;
             var pacing = World.ScenePacing;
             var focus = World.SceneFocus;
             var fresh = candidates.Where(c => !pacing.ShouldDeprioritize(c.Candidate.Category, focus == c.Candidate.Category)).ToList();
             var pool = fresh.Count > 0 ? fresh : candidates;
-            var picked = Scenes.Choose(pool.Select(c => c.Candidate), pacing, focus, recordChoice: false);
+            var picked = Scenes.Choose(pool.Select(c => c.Candidate), pacing, focus, recordChoice: false, rng: rng);
             return picked == null ? null : pool.First(c => c.Candidate.Id == picked.Id);
         }
 
-        /// <summary>For tests: what the router would pick from this month's candidates, without firing it.</summary>
-        internal string? PeekRoutedScene() => ChooseScene(SceneCandidates())?.Candidate.Id;
+        /// <summary>
+        /// What the router would pick from the candidates as they stand, without firing it. Read-only: it draws from a copy of
+        /// the generator, so previewing never changes what actually happens (P1 correctness pass, 2026-10-04).
+        /// </summary>
+        internal string? PeekRoutedScene() => ChooseScene(SceneCandidates(), Rng.Clone())?.Candidate.Id;
 
         public IReadOnlyList<string> SceneCandidateIds() => SceneCandidates().Select(c => c.Candidate.Id).ToList();
 
