@@ -159,7 +159,11 @@ namespace Butterfly.Core
             foreach (var c in World.Capabilities.Where(c => c.Level > CapabilityLevel.None))
                 v.Active.Add(new ViewItem(Cap(CapabilityDefOf(c.Id)!.Name) + ": " + c.Level.ToString().ToLowerInvariant() + (c.Spread >= CapabilitySpread.Copied ? ", copied" + (c.Distorted ? ", badly" : "") : "")));
             var touched = new HashSet<string>(World.Capabilities.Where(c => c.Level > CapabilityLevel.None).Select(c => c.Id));
-            foreach (var def in Data.Content.Capabilities.Where(d => !touched.Contains(d.Id) && d.Prerequisites.Any(touched.Contains)))
+            // Only next steps some P1 work can move: nodes no authored work reaches are future scope and stay hidden.
+            var workable = new HashSet<string>(Data.Content.Commissions.SelectMany(CommissionAdvances).Select(a => a.Id)
+                .Concat(Data.Content.Challenges.SelectMany(d => d.Stages).SelectMany(StageAdvances).Select(a => a.Id))
+                .Concat(Data.Content.Inventions.Where(i => i.Capability.Length > 0).Select(i => i.Capability)));
+            foreach (var def in Data.Content.Capabilities.Where(d => !touched.Contains(d.Id) && workable.Contains(d.Id) && d.Prerequisites.Any(touched.Contains)))
             {
                 var blocker = CapabilityBlocker(def.Id, CapabilityLevel.Prototype);
                 v.Emerging.Add(new ViewItem(Cap(def.Name) + ": " + def.Bottleneck + (blocker == null ? "" : " " + blocker)));

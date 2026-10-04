@@ -54,6 +54,42 @@ namespace Butterfly.Core
             return true;
         }
 
+        /// <summary>
+        /// Why authored work that will move these capabilities, in this order, can't be done yet, or null. Each step counts the
+        /// steps before it as done, so a stage may build on the one it follows. A step already at or above its level is fine.
+        /// </summary>
+        public string? AuthoredAdvanceBlocker(IEnumerable<(string Id, CapabilityLevel To)> steps)
+        {
+            var levels = new Dictionary<string, CapabilityLevel>(StringComparer.Ordinal);
+            CapabilityLevel LevelOf(string id) => levels.TryGetValue(id, out var l) ? l : CapabilityLevelOf(id);
+            foreach (var (id, to) in steps)
+            {
+                var def = CapabilityDefOf(id);
+                if (def == null) return "No such capability: " + id + ".";
+                if (LevelOf(id) >= to) continue;
+                var missing = def.Edges.Where(e => LevelOf(e.Id) < e.RequiredFor(to)).ToList();
+                if (missing.Count > 0)
+                    return "Knowing is not making: " + def.Name + " needs " + string.Join(" and ", missing.Select(e =>
+                        CapabilityDefOf(e.Id)!.Name + (e.Level != null && to >= CapabilityLevel.Prototype ? " (" + e.Level.ToString()!.ToLowerInvariant() + ")" : ""))) + " first.";
+                levels[id] = to;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Authored work (a commission stage, a challenge stage, a practical project) moving the capability it declares. Already
+        /// at or above the level: nothing changes and nothing is claimed. Blocked by a missing prerequisite: an invariant broken,
+        /// since such work can't be offered or started while its advances are out of reach (capabilities never fall), so it
+        /// fails loudly instead of finishing as if Rome had moved.
+        /// </summary>
+        private void AdvanceAuthored(string id, CapabilityLevel to, IEnumerable<int> causes, string source)
+        {
+            if (CapabilityLevelOf(id) >= to) return;
+            if (CapabilityBlocker(id, to) is string blocker)
+                throw new InvalidOperationException(source + " declares " + id + " → " + to + " but the capability network refuses it: " + blocker);
+            AdvanceCapability(id, to, causes, "Rome's " + CapabilityDefOf(id)!.Name + " now stand at " + to.ToString().ToLowerInvariant() + ".");
+        }
+
         /// <summary>The level a commission work stage brings its capability to (Prototype → prototype, teaching the shop → reproducible …).</summary>
         public static CapabilityLevel CapabilityLevelFor(ProjectStage stage) => stage switch
         {

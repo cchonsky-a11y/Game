@@ -81,8 +81,12 @@ namespace Butterfly.Core
                 var first = s.NeedsPerson.Split('|')[0];
                 return Knows(first) ? PersonDefOf(first)!.Name + " is laid up or away; this waits." : s.NeedsText;
             }
-            return CapabilityBlocker(s.Capability, s.To);
+            return AuthoredAdvanceBlocker(StageAdvances(s));
         }
+
+        /// <summary>What a stage's work moves: its capability, then each "also", in that order.</summary>
+        public static IEnumerable<(string Id, CapabilityLevel To)> StageAdvances(ChallengeStageDef s) =>
+            new[] { (s.Capability, s.To) }.Concat(s.Also.Select(kv => (kv.Key, kv.Value)));
 
         /// <summary>Who does the stage's work: the first person named who is known and here, or null.</summary>
         public string? StagePerson(ChallengeStageDef s) =>
@@ -151,13 +155,16 @@ namespace Butterfly.Core
                 bool standIn = s.StandInText.Length > 0 && c.DoneBy.Length > 0 && c.DoneBy != s.NeedsPerson.Split('|')[0];
                 var actors = c.DoneBy.Length > 0 ? new[] { "player", c.DoneBy } : new[] { "player" };
                 var done = Record("challenge.stage", c.ProjectId, null, actors, null, standIn ? s.StandInText : s.Text);
-                AdvanceCapability(s.Capability, s.To, new[] { done.Id }, "Rome's " + CapabilityDefOf(s.Capability)!.Name + " now stand at " + s.To.ToString().ToLowerInvariant() + ".");
-                foreach (var kv in s.Also)
-                    AdvanceCapability(kv.Key, kv.Value, new[] { done.Id }, "Rome's " + CapabilityDefOf(kv.Key)!.Name + " now stand at " + kv.Value.ToString().ToLowerInvariant() + ".");
+                foreach (var (cap, to) in StageAdvances(s)) AdvanceAuthored(cap, to, new[] { done.Id }, "Challenge " + d.Id + " stage " + s.Id);
                 c.StageIndex++;
                 c.Status = ChallengeStatus.Open;
-                if (CapabilityLevelOf(d.GoalCapability) >= d.GoalLevel || c.StageIndex >= d.Stages.Count)
+                // A Grand Challenge is done when its authored work is done, never because other work already took the goal
+                // capability there (P1 correctness pass: the sluice used to finish Powered Workshops early). The goal is the
+                // postcondition of the finished work.
+                if (c.StageIndex >= d.Stages.Count)
                 {
+                    if (CapabilityLevelOf(d.GoalCapability) < d.GoalLevel)
+                        throw new InvalidOperationException("Challenge " + d.Id + " finished its stages without reaching its goal " + d.GoalCapability + " " + d.GoalLevel + ".");
                     c.Status = ChallengeStatus.Done;
                     World.Projects.First(p => p.Id == c.ProjectId).Complete();
                     Record("challenge.complete", c.ProjectId, new[] { done.Id }, new[] { "player" }, null, d.CompleteText);

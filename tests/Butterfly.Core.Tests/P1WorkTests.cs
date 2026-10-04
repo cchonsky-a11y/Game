@@ -131,6 +131,8 @@ namespace Butterfly.Core.Tests
         {
             var sim = At();
             sim.World.ScenesSeen.Add("aulus-meet");
+            Assert.True(sim.AdvanceCapability("metrology", CapabilityLevel.Reproducible, null, "test"));   // Aulus comes once gauges exist
+            Assert.True(sim.AdvanceCapability("gauges", CapabilityLevel.Reproducible, null, "test"));
             Terms(sim, "millbearing");
             int regard = sim.PersonOf("Aulus")!.Regard;
             Finish(sim, "millbearing");

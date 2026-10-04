@@ -41,8 +41,11 @@ namespace Butterfly.Core.Tests
             Assert.Contains(sim.ViewOf(MenuSection.People).Active, i => i.Label.StartsWith("Felix"));
             var civ = sim.ViewOf(MenuSection.Civilization);
             Assert.Contains(civ.Active, i => i.Label.StartsWith("True valve seats"));
-            // The next step beside it shows its bottleneck, and what it still needs (knowing is not making).
-            Assert.Contains(civ.Emerging, i => i.Label.StartsWith("The hydraulic press") && i.Label.Contains("recipes for bronze"));
+            // The hydraulic press, beside it in the network, is future scope: no P1 work moves it, so it isn't shown as a goal.
+            Assert.DoesNotContain(civ.Emerging, i => i.Label.StartsWith("The hydraulic press"));
+            // A next step P1 work can move shows its bottleneck, and what it still needs (knowing is not making).
+            Assert.True(sim.AdvanceCapability("metrology", CapabilityLevel.Prototype, null, "test"));
+            Assert.Contains(sim.ViewOf(MenuSection.Civilization).Emerging, i => i.Label.StartsWith("Gauges and fits") && i.Label.Contains("Knowing is not making") == false);
         }
 
         [Fact]
@@ -61,7 +64,7 @@ namespace Butterfly.Core.Tests
         public void TheConsoleShowsTheSections()
         {
             var sim = AfterThePump();
-            string output = ConsoleTests.Play(sim, "view", "view people", "view civilization");
+            string output = ConsoleTests.Play(sim, "view", "view people", "view institutions", "view civilization");
             foreach (var s in new[] { "now (", "projects (", "people (", "institutions (", "knowledge (", "civilization (", "machine (", "journal (" })
                 Assert.Contains(s, output);
             Assert.Contains("== People", output);

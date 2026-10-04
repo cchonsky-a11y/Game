@@ -122,6 +122,9 @@ namespace Butterfly.Core
                     Positive(ws, s.Months, "months");
                     NotNegative(ws, s.Gold, "gold");
                 }
+                // The stages are the challenge; its goal is what the finished stages prove, so some stage must reach it.
+                if (!d.Stages.SelectMany(Simulation.StageAdvances).Any(a => a.Id == d.GoalCapability && a.To >= d.GoalLevel))
+                    p.Add(w + ": no stage takes its goal " + d.GoalCapability + " to " + d.GoalLevel);
             }
             foreach (var i in c.Inventions) Capability("invention " + i.Id, i.Capability);
             EventsAndEffects(p, c, flags, people, institutions);

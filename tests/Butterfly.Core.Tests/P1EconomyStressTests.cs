@@ -50,6 +50,7 @@ namespace Butterfly.Core.Tests
             var d = sim.Data.Content.Commissions.First(x => x.Id == "drawings");
             Assert.Equal(ProjectFundingModel.ProfitShare, d.FundingModel);
             Assert.True(d.SharePayments > 0);
+            Assert.True(sim.AdvanceCapability("metrology", CapabilityLevel.Reproducible, null, "test"));   // as its offer requires
             Terms(sim, "drawings");
             Finish(sim, "drawings");
             int done = sim.Turn;
@@ -65,6 +66,7 @@ namespace Butterfly.Core.Tests
         public void AShareStillOwingStopsAtDeparture()
         {
             var sim = At();
+            Assert.True(sim.AdvanceCapability("metrology", CapabilityLevel.Reproducible, null, "test"));   // as its offer requires
             Terms(sim, "drawings");
             Finish(sim, "drawings");
             Assert.True(sim.FindCommission("drawings")!.SharesLeft > 0);

@@ -45,8 +45,20 @@ namespace Butterfly.Core
             World.Commissions.Where(c => c.Status == CommissionStatus.NotYet).Where(c =>
             {
                 var d = CommissionDefOf(c);
-                return MonthsSinceStart >= d.OpensAfterMonths && d.Requires.All(Holds) && !(d.Introducer.Length > 0 && IsPersonAway(d.Introducer));
+                return MonthsSinceStart >= d.OpensAfterMonths && d.Requires.All(Holds) && !(d.Introducer.Length > 0 && IsPersonAway(d.Introducer))
+                    && AuthoredAdvanceBlocker(CommissionAdvances(d)) == null;    // knowing is not making: the work waits on Rome
             });
+
+        /// <summary>The capability advances a commission's work declares, stage by stage.</summary>
+        public static IEnumerable<(string Id, CapabilityLevel To)> CommissionAdvances(CommissionDef d)
+        {
+            foreach (var stage in d.Work)
+            {
+                string cap = stage.Capability.Length > 0 ? stage.Capability : d.Capability;
+                var to = stage.CapabilityTo ?? CapabilityLevelFor(stage.Stage);
+                if (cap.Length > 0 && to > CapabilityLevel.None) yield return (cap, to);
+            }
+        }
 
         /// <summary>The encounter: someone brings you the problem.</summary>
         private void OpenCommission(CommissionState c)
@@ -132,6 +144,7 @@ namespace Butterfly.Core
             var c = FindCommission(id);
             if (c == null || c.Status != CommissionStatus.TermsOffered) return CommandResult.Fail("No terms are waiting for your answer.");
             var d = CommissionDefOf(c);
+            if (AuthoredAdvanceBlocker(CommissionAdvances(d)) is string beyond) return CommandResult.Fail(beyond);
             var first = d.Work[0];
             int months = d.Work.Sum(w => w.DurationMonths);
             var attention = CheckAttention(first.Attention)
@@ -187,8 +200,7 @@ namespace Butterfly.Core
                 var done = Scene(stage.Category, "commission.stage", c, stage.Text);
                 string cap = stage.Capability.Length > 0 ? stage.Capability : d.Capability;
                 var to = stage.CapabilityTo ?? CapabilityLevelFor(stage.Stage);
-                if (cap.Length > 0 && to > CapabilityLevel.None)
-                    AdvanceCapability(cap, to, new[] { done.Id }, "Rome's " + CapabilityDefOf(cap)!.Name + " now stand at " + to.ToString().ToLowerInvariant() + ".");
+                if (cap.Length > 0 && to > CapabilityLevel.None) AdvanceAuthored(cap, to, new[] { done.Id }, "Commission " + d.Id);
                 c.WorkIndex++;
                 if (c.WorkIndex < d.Work.Count)
                 {

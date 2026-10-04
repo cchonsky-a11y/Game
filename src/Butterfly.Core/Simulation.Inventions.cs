@@ -148,9 +148,7 @@ namespace Butterfly.Core
                 var done = Record("invention.complete", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
                     new[] { new Effect("invention." + a.Def.Id, 0, 1) }, a.Def.CompletionText);
                 foreach (var fx in a.Def.Effects) ApplyInventionEffect(a.Def, fx, done.Id);
-                if (a.Def.Capability.Length > 0)
-                    AdvanceCapability(a.Def.Capability, a.Def.CapabilityTo, new[] { done.Id },
-                        "Rome's " + CapabilityDefOf(a.Def.Capability)!.Name + " now stand at " + a.Def.CapabilityTo.ToString().ToLowerInvariant() + ".");
+                if (a.Def.Capability.Length > 0) AdvanceAuthored(a.Def.Capability, a.Def.CapabilityTo, new[] { done.Id }, "Practical project " + a.Def.Id);
             }
         }
 
