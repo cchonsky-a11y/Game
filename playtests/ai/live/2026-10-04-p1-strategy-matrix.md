@@ -21,31 +21,32 @@ Every profile does odd jobs only when no commission is under way and it holds un
 
 - **Every run jumped twice.** The ledger reconciles at departure in 300 of 300 runs. Gold never goes negative (lowest 0.0).
 - **No future-month overbooking was ever accepted or attempted** (0 refusals). No duplicate scene texts in any era, and no sentence repeated between first and second arrivals (after the fixes below).
-- **Both Grand Challenges were completed in 272 of 300 runs.** One was completed in 19 runs and none in 9; the Selective fountain profile averages 1.3, because it waits until it can afford stages twice over.
+- **Both Grand Challenges were completed in 267 of 300 runs.** One was completed in 26 runs and none in 7; the Selective fountain profile averages 1.3, because it waits until it can afford stages twice over.
 - **Measurement and standards opened by the pump in 288 runs**, the hoist in 8 and the allotment in 3. It never opened in 1 workshop run, a Negotiator who lost the pump, the hoist and the baths.
   - Before this pass, every one of those 12 non-pump runs would have stayed closed.
   - The baths route didn't fire in these runs, because an earlier route always held first. It is covered by tests.
-- **R-17:** the DO NOT JUMP warning was reached in 296 of 300 runs. The remaining four left before `listen` came up.
+- **R-17:** the DO NOT JUMP warning was reached in 293 of 300 runs. The rest left before `listen` came up.
+- **Echoes:** 298 of 300 first arrivals show all four kinds (personal, technical, institutional, unintended), after the fixes below. Before them it was 263.
 
 ## Fountain against workshop: odd-job months (of 96)
 
 | Profile | Fountain | Workshop |
 |---|---|---|
-| A Cooperative | 17.3 (6–33) | 15.5 (11–23) |
-| B Negotiator | 28.8 (12–49) | 21.2 (8–32) |
-| C Selective | 28.4 (13–45) | 19.4 (10–38) |
-| D Engineering | 38.5 (22–49) | 22.5 (13–36) |
-| E Relationship | 21.4 (11–33) | 15.4 (7–20) |
+| A Cooperative | 18.6 (4–34) | 14.5 (10–25) |
+| B Negotiator | 29.4 (13–48) | 21.3 (8–33) |
+| C Selective | 28.4 (14–45) | 19.4 (10–38) |
+| D Engineering | 38.9 (21–52) | 21.1 (12–34) |
+| E Relationship | 21.5 (10–34) | 15.9 (9–23) |
 
 Before this pass, the 8-seed legacy validation showed fountain seeds at 15–47 and workshop seeds at 15–16.
 
-- **The fountain is no longer routinely in the 40–50 band.** Its means run 17–29 for profiles that take the work offered.
+- **The fountain is no longer routinely in the 40–50 band.** Its means run 19–29 for profiles that take the work offered.
 - **Runs over 40 come from profiles that refuse or lose work.** The Engineering profile turns down the fountain's own neighborhood jobs, which open as city scenes. The Negotiator loses about three jobs a run.
 
 The asymmetry is kept:
 
-- The workshop earns about 145 aurei a run from craft orders the fountain never gets, and leaves Rome with three to four times the gold (Cooperative: 187 vs 57).
-- The fountain earns more from commissions (350 vs 284) through its neighborhood and medicine work, and joins two institutions (the guild and the Circle) where the workshop usually joins one.
+- The workshop earns about 145 aurei a run from craft orders the fountain never gets, and leaves Rome with three to four times the gold (Cooperative: 198 vs 56).
+- The fountain earns more from commissions (345 vs 284) through its neighborhood and medicine work, and joins two institutions (the guild and the Circle) where the workshop usually joins one.
 
 ## Results by strategy
 
@@ -57,25 +58,25 @@ The asymmetry is kept:
 
 ## Scene routing at 3:1 (all 300 runs)
 
-- **Routed optional scenes:** Roman life about 50%, Personal 12%, Institutions and politics 11%, City 7%, Work 7%, Machine mystery 5%, Exploration 5%, Engineering 2%.
-- **All meaningful scenes, including the player's own work:** Roman life 31%, Work 17%, Personal 13%, Engineering 13%, Institutions 10%. Engineering stays well under a third of what the player experiences.
-- **Longest runs.** All-scene runs of one category reached 6 in normal play. The 11-long run (Negotiator seed 5) happened because nothing but Roman life could happen. The 13–14-long routed runs belong to the Relationship profile, which stays focused on Roman life by choice. Neither breaks the rule ("a third in a row only when nothing else can happen, or the player stays focused").
-- **Progression waits:** a commission, invitation or life development waits for the router about 7 months on average. The longest single wait was 60 months.
+- **Routed optional scenes:** Roman life about 49%, Personal 12%, Institutions and politics 11%, Work 8%, City 7%, Machine mystery 5%, Exploration 5%, Engineering 2%.
+- **All meaningful scenes, including the player's own work:** Roman life 30–33%, Work 17–22%, Personal 11–14%, Engineering 12–13%, Institutions 10%. Engineering stays well under a third of what the player experiences.
+- **Longest runs.** All-scene runs of one category (always Roman life) reached 7–9. Those happen when nothing but Roman life can happen: no progression candidate waits, and most authored texture is Roman life. In an earlier build of this pass, a Negotiator who had lost three jobs ran 11 in a row. The 12-long routed run belongs to the Relationship profile, which stays focused on Roman life by choice. Neither breaks the rule ("a third in a row only when nothing else can happen, or the player stays focused").
+- **Progression waits:** a commission, invitation or life development waits for the router about 7 months on average. The longest single wait was 49 months (the Circle's invitation averages 12).
   - The long tail comes from same-category exclusion, not the weight. Roman life fills half the routed slots, so a RomanLife-category progression scene (such as the baths job) is often barred by the two-in-a-row rule.
 
 ### Is 3:1 right? Counterfactual weights (in memory only; the game still uses 3)
 
 | Progression weight | Roman life, routed | Engineering, all scenes | Months with progression waiting | Mean wait (top 20 candidates) | Max wait | Still waiting at departure (top 20) | Odd-job months | Commissions done |
 |---|---|---|---|---|---|---|---|---|
-| 1 | 52.1% | 12.4% | 84.3 | 14.0 | 79 | 110 | 27.8 | 8.7 |
-| 2 | 50.5% | 12.6% | 73.3 | 9.3 | 80 | 27 | 24.6 | 9.3 |
-| **3 (current)** | 50.3% | 12.6% | 63.8 | 7.0 | 60 | 9 | 22.8 | 9.4 |
-| 4 | 49.9% | 12.7% | 57.7 | 5.8 | 44 | 11 | 22.7 | 9.4 |
-| 6 | 49.8% | 12.6% | 47.4 | 4.5 | 49 | 6 | 21.6 | 9.3 |
+| 1 | 51.7% | 12.4% | 85.3 | 13.5 | 86 | 133 | 27.9 | 8.6 |
+| 2 | 49.7% | 12.6% | 75.2 | 9.4 | 69 | 52 | 24.3 | 9.2 |
+| **3 (current)** | 49.3% | 12.6% | 66.0 | 7.3 | 49 | 21 | 22.9 | 9.4 |
+| 4 | 49.2% | 12.7% | 59.8 | 6.0 | 55 | 20 | 22.4 | 9.4 |
+| 6 | 49.1% | 12.7% | 49.1 | 4.5 | 49 | 9 | 21.2 | 9.3 |
 
 **Recommendation: lock 3:1.**
 
-- **Below 3 the plot starves.** At weight 1, 110 progression scenes are still unplayed at departure, there are 5 more odd-job months, and commissions done drop.
+- **Below 3 the plot starves.** At weight 1, 133 progression scenes are still unplayed at departure, there are 5 more odd-job months, and commissions done drop. Going from 2 to 3 still more than halves the unplayed progression scenes (52 to 21).
 - **Above 3 nothing the player keeps changes.** Waits shorten, but commissions done, odd jobs and the Roman-life share stay the same.
 - **The long-tail waits come from category exclusion, not the weight.** If Corey wants them shorter, the targeted options (not implemented) are:
   - give a waiting progression candidate an age bonus;
@@ -85,7 +86,7 @@ The asymmetry is kept:
 
 | | Months ending with 0 free | 1 free | 2+ free | Idle Attention a month | Future-overbooking refusals | Challenge stages deferred for Attention |
 |---|---|---|---|---|---|---|
-| Range across profiles | 30–41 | 13–19 | 36–53 | 1.2–2.0 of 4 | 0 | 1.0–4.8 a run |
+| Range across profiles | 30–40 | 13–20 | 36–53 | 1.2–1.9 of 4 | 0 | 1.0–4.6 a run |
 
 **Does Attention force prioritization? Partly, and in bursts.**
 
@@ -113,6 +114,8 @@ Each of these is covered by tests (`P1EconomyStressTests`, 10 tests):
 3. **Duplicate text after a refused vote.** Felix's (and Serenus's) sponsorship played word for word twice. A second sponsorship now has its own words. The guild's sponsor scene no longer assumes the pump.
 4. **A drift description repeated on both arrivals.** "A handful of houses that decide who may land grain at Ostia..." appeared on both arrivals when a drifted guild was later captured. A path already described now says it has gone further down the same road.
 5. **A thin world after three lost jobs.** Felix's fever, and so the vow and Serenus, waited on a guild referral that only his two jobs gave. His fever now needs only that you know him.
+6. **Unintended echoes had one source.** Only Pollio's copy of the pump produced them, so 37 of 300 first arrivals had none. Three more bad copies now exist (Vettius's drawings, Serenus's tables, brass bearings).
+7. **Half the cast had no echo.** Arrivals always led with Felix and Cassianus. Livia, Marcus, Lucan and Aulus now have echoes, the fountain's Gaius is remembered through the allotment, and arrivals prefer the people the inventor was closest to. First arrivals now feature Felix, Serenus, Gaius, Aulus and Diodoros; second arrivals Gaius, Aulus, Diodoros, Cassianus, Serenus, Livia and others.
 
 ## Jump range (measured; no change)
 
@@ -121,10 +124,10 @@ Each of these is covered by tests (`P1EconomyStressTests`, 10 tests):
   - The briefing shows the range, never the draw.
 - **Second jump.** It is available at once on arrival. The time bonus restarts from the arrival year (so 0 if you leave at once), upgrades still count, and no further repair is needed.
 - **Observed (300 runs, all leaving in AD 163):**
-  - First jump: 25 yrs × 84, 30 × 54, 35 × 74, 40 × 71, 45 × 11, 50 × 4, 55 × 2.
-  - Second jump: 25 × 66, 30 × 69, 35 × 74, 40 × 64, 45 × 11, 50 × 13, 55 × 3.
-  - Ranges offered: 25–40 (250 runs), 30–45 (19), 35–50 (21), 40–55 (10).
-  - First arrivals AD 188–218; second arrivals AD 213–268.
+  - First jump: 25 yrs × 58, 30 × 60, 35 × 80, 40 × 75, 45 × 15, 50 × 8, 55 × 4.
+  - Second jump: 25 × 64, 30 × 64, 35 × 79, 40 × 70, 45 × 9, 50 × 7, 55 × 7.
+  - Ranges offered: 25–40 (251 runs), 30–45 (17), 35–50 (19), 40–55 (13).
+  - First arrivals AD 188–218; second arrivals AD 213–273.
 - **What content supports.**
   - History curves and the coin run to AD 420, and the historical plagues of 189 and 251 are on their dates.
   - People echoes are keyed by **arrival number, not elapsed years**. A first-arrival line written for 25–40 years (Felix's son running the yard) would read the same after 60 years or more.

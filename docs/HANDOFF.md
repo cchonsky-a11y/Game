@@ -31,6 +31,8 @@ dotnet run --project src/Butterfly.Console -- --seed 42 --inputs f.txt --checks 
 dotnet run --project src/Butterfly.Batch -- --runs 100 --out playtests/batch-report.md # 7 strategies × early/late gate
 dotnet run --project src/Butterfly.Batch -c Release -- --explore 10000 --out playtests/explore-report-10000.md  # random personas, 2 jumps
 dotnet run --project src/Butterfly.Batch -c Release -- --idle 1000          # a player who does nothing (should track history)
+dotnet run --project src/Butterfly.Batch -- --p1-validate 1,2,3             # P1 scripted two-jump validation (not human)
+dotnet run --project src/Butterfly.Batch -- --p1-matrix 1-60 [--weight W]  # P1 strategy matrix, 5 scripted profiles (not human)
 playtests/ai/run.sh                                                         # 24 scripted playthroughs + harness checks
 python3 playtests/ai/live/play.py setup                                     # live blind AI testers (see §6)
 ```
@@ -45,6 +47,21 @@ python3 playtests/ai/live/play.py setup                                     # li
 - `tests/Butterfly.Core.Tests/`: formula tests, determinism, snapshot (reference hash in `SnapshotTests`; a deliberate rule change updates it, and the commit says so).
 
 ## 5. Where things stand
+
+### P1 status (2026-10-04, hardening pass)
+- **IMPLEMENTED:**
+  - Grand Challenges open by any of several routes (Measurement and standards: pump, hoist, Subura allotment, baths).
+  - The fountain opening's own paid neighborhood chain (the allotment introduces Gaius; the Argiletum follows).
+  - The shared-foot stage can be vouched for by Gaius.
+  - Profit shares are paid; coin in hand stays behind at a jump.
+  - Second sponsorships and drift descriptions no longer repeat; Felix's life no longer waits on the guild.
+  - Three more bad copies give unintended echoes several sources; half the cast gained echoes; arrivals remember the people you were closest to.
+  - A scripted strategy matrix (`--p1-matrix 1-60`, with `--weight` counterfactuals).
+- **Reports:**
+  - the gate map, `docs/P1_PROGRESSION_MAP.md`;
+  - the 300-run matrix, `playtests/ai/live/2026-10-04-p1-strategy-matrix.md`;
+  - the completion audit, `docs/P1_COMPLETION_AUDIT_2026-10-04.md` (12 PASS, 5 PARTIAL, 0 FAIL; not a declaration of completion).
+- **OPEN DESIGN QUESTIONS:** what R-17 is; the patron path into the factions; the jump-range model (A/B/C in the matrix report); whether Attention should bind more often; locking 3:1 (recommended).
 
 ### P1 status (2026-10-04, second pass)
 - **IMPLEMENTED (this pass):** the R-17 warning (DO NOT JUMP after `listen`; notebook "reciprocal lock"); 13 commissions in all, across domains, with a second chance after losing the first; deeper recurring lives (13 more life events, private scenes, choices people can refuse); ~45 Roman-life scenes, many reusable with new words each time; progression candidates outweigh texture in the router; access kinds (factions closed pending a patron path, sanctuary by gifts, bank by shares; Rome's choices give standing); the P0 smith renamed Successus; an executable two-jump validation runner (`--p1-validate`) and its report in `playtests/ai/live/`.

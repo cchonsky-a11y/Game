@@ -497,7 +497,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 
 ## 2026-10-04 — P1 hardening: strategy matrix, routing and economy stress (scripted, not human)
 - **Implemented:** `--p1-matrix <from>-<to> [--weight W]` runs each seed with five scripted profiles (cooperative, negotiator, selective, engineering-focused, relationship/Roman-life; odd seeds workshop, even fountain) through an era and two jumps. It measures routing and waits, Attention use, income by source, odd jobs, challenges, institutions, R-17, jumps and integrity. `--weight` is a counterfactual run in memory only. Report: playtests/ai/live/2026-10-04-p1-strategy-matrix.md (60 seeds, 300 runs).
-- **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 110 progression scenes unplayed at departure, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits come from same-category exclusion; an age bonus is an option for Corey, not implemented.
+- **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 133 progression scenes unplayed at departure on the final content, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits come from same-category exclusion; an age bonus is an option for Corey, not implemented.
 - **Fixed from evidence:**
   - Profit shares were promised in terms and text but never paid; they are now paid on schedule, once each, and lapse at departure (PROPOSED P1-21).
   - Coin in hand crossed the jump, against SYSTEMS §9 and the briefing; it is now left behind, logged and ledgered.
@@ -520,3 +520,13 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Evidence (scripted):** unintended echoes came only from Pollio's copy of the pump, so 37 of 300 first arrivals had none, against the P1 target of technical, personal, institutional and unintended echoes.
 - **Implemented (PROPOSED P1-22):** three more bad copies in people's lives, each with its own arrival line: Vettius's drawings traced at the wrong scale, Serenus's tables kept with horoscopes instead of water, and brass bearing blocks. Maturity is never raised; spread, distortion and misattribution are recorded.
 - **Result:** 298 of 300 first arrivals now show all four kinds.
+
+## 2026-10-04 — P1 readiness audit (not a completion declaration)
+- **Written:** docs/P1_COMPLETION_AUDIT_2026-10-04.md: every P1 target step and every must-be-absent item, with evidence from tests, the 300-run scripted matrix and the gate map. 12 PASS, 5 PARTIAL, 0 FAIL.
+- **PARTIAL:**
+  - understanding without overload (needs people);
+  - Attention binds in bursts;
+  - factions have no P1 path;
+  - "continuing" is the walk and the second jump (later eras are out of scope);
+  - generic grind for players who refuse work, and legacy ownership numbers.
+- **Not decided here:** whether to freeze P1. That is Corey's call. The audit recommends a content and polish pass, plus Corey's decisions on the open questions, before P2.

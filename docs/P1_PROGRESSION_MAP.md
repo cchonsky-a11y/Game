@@ -20,7 +20,7 @@ The two are meant to differ. The workshop earns from craft, the fountain from ne
 | Felix | `commission:cellarpump:Offered` | The pump offer comes to every player from month 4 | — (always) |
 | Cassianus | same | same | — |
 | Diodoros | `life:warehouse-fire` (needs the pump done) | One: Cassianus's household | Exclusive (losing the pump loses Cassianus's household thread, a favor job with no pay) |
-| Serenus | `scene:serenus-meet` | Felix's vow, the fountain, a physician project, or the promise | Relationship (4 ways) |
+| Serenus | `scene:serenus-meet` | Felix's vow (his fever needs only that you know him), the fountain, a physician project, or the promise | Relationship (4 ways) |
 | Gaius | `scene:gaius-meet \| commission:allotment:Done` | Shared measures (standards stage 2), **or** the allotment (fountain) | Relationship / capability (2 ways; was 1) |
 | Livia, Marcus | `knows:Gaius` + month 14 | Through Gaius | Relationship |
 | Lucan | `knows:Gaius` + the power challenge open | Through Gaius | Relationship |
@@ -116,6 +116,8 @@ Stages:
 2. The baths job needed a scene that can only play before the pump is offered. Any baths visit now counts.
 3. The standards "shared" stage needed a guild contact only Felix's jobs gave. Gaius can vouch.
 4. Gaius, and everything behind him (Livia, Marcus, Lucan, Aulus, power, millbearing, sluice, fountainworks, drains), hung on standards stage 2 alone. The fountain's allotment is a second way.
+5. Felix's fever (and so the vow, one of the four ways to Serenus) needed a guild referral. It now needs only that you know Felix. Found by the strategy matrix: a player who lost three jobs met no one new for six years.
+6. Unintended echoes came from one life event (Pollio's copy, which needs the pump). Three more bad copies (Vettius's drawings, Serenus's tables, brass bearings) make the echo kind resilient.
 
 ## 10. Known remaining narrow points (not fixed; judged intended or acceptable)
 
