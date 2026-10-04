@@ -101,6 +101,7 @@ namespace Butterfly.Core
             double before = World.Gold;
             World.Gold -= gold;
             c.Status = ChallengeStatus.Working;
+            c.DoneBy = StagePerson(s) ?? "";
             c.MonthsLeft = months;
             c.ReservedFromTurn = Turn + 1;
             string resource = s.Resource == null ? "" : HasSource(s) ? " " + Cap(s.Resource.Name) + " comes through your friends." : " " + s.Resource.Note;
@@ -123,7 +124,9 @@ namespace Butterfly.Core
                 var d = ChallengeDefOf(c);
                 var s = d.Stages[c.StageIndex];
                 World.ScenePacing.Record(s.Category);
-                var done = Record("challenge.stage", c.ProjectId, null, new[] { "player" }, null, s.Text);
+                bool standIn = s.StandInText.Length > 0 && c.DoneBy.Length > 0 && c.DoneBy != s.NeedsPerson.Split('|')[0];
+                var actors = c.DoneBy.Length > 0 ? new[] { "player", c.DoneBy } : new[] { "player" };
+                var done = Record("challenge.stage", c.ProjectId, null, actors, null, standIn ? s.StandInText : s.Text);
                 AdvanceCapability(s.Capability, s.To, new[] { done.Id }, "Rome's " + CapabilityDefOf(s.Capability)!.Name + " now stand at " + s.To.ToString().ToLowerInvariant() + ".");
                 foreach (var kv in s.Also)
                     AdvanceCapability(kv.Key, kv.Value, new[] { done.Id }, "Rome's " + CapabilityDefOf(kv.Key)!.Name + " now stand at " + kv.Value.ToString().ToLowerInvariant() + ".");

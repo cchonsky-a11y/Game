@@ -42,6 +42,8 @@ namespace Butterfly.Core
         /// <summary>Further capabilities the stage moves, in order, after its own.</summary>
         public IReadOnlyList<KeyValuePair<string, CapabilityLevel>> Also { get; }
         public string Text { get; }
+        /// <summary>The stage's text when the second person named in "needsPerson" does it instead of the first (optional).</summary>
+        public string StandInText { get; }
 
         public ChallengeStageDef(JsonObject o)
         {
@@ -63,6 +65,7 @@ namespace Butterfly.Core
                        Enum.TryParse<CapabilityLevel>(x.Str("to"), out var lv) ? lv : throw new FormatException("Unknown capability level: " + x.Str("to")))).ToList()
                  : new List<KeyValuePair<string, CapabilityLevel>>();
             Text = o.Str("text");
+            StandInText = o.StrOr("standInText", "") ?? "";
         }
     }
 
@@ -134,6 +137,8 @@ namespace Butterfly.Core
         public int ReservedFromTurn { get; set; }
         /// <summary>The route by which the question came up (empty until it opens).</summary>
         public string OpenedBy { get; set; } = "";
+        /// <summary>Who is doing the stage under way (from "needsPerson"), fixed when it starts.</summary>
+        public string DoneBy { get; set; } = "";
         public ChallengeState(string id) => Id = id;
         public string ProjectId => "challenge:" + Id;
     }

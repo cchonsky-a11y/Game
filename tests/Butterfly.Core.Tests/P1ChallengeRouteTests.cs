@@ -137,5 +137,32 @@ namespace Butterfly.Core.Tests
             Assert.Equal("pump", c.OpenedBy);                                           // the first route that holds, in authored order
             Assert.DoesNotContain("challenge:standards", sim.SceneCandidateIds());
         }
+    
+        [Fact]
+        public void WithoutAGuildContactGaiusCanVouchForTheSharedFoot()
+        {
+            // The allotment route opens the challenge for a player who never did Felix's jobs; the second stage used to need a
+            // guild contact only those jobs could give. A smith who has seen your work will do.
+            var sim = At("fountain");
+            Close(sim, "cellarpump", CommissionStatus.Declined);
+            Close(sim, "hoist", CommissionStatus.Declined);
+            Close(sim, "allotment", CommissionStatus.Done);
+            Assert.True(sim.Knows("Gaius"));
+            Assert.True(sim.World.AccessTo("guild").Stage < InstitutionAccessStage.KnowsMember);
+            var c = RunUntilOpen(sim);
+            Assert.Equal(ChallengeStatus.Open, c.Status);
+            c.StageIndex = 1;
+            Assert.True(sim.AdvanceCapability("metrology", CapabilityLevel.Prototype, null, "test"));
+            var shared = sim.NextStage(c)!;
+            Assert.Equal("shared", shared.Id);
+            Assert.Null(sim.StageBlocker(shared));
+            sim.PersonOf("Felix")!.AwayUntilTurn = sim.Turn + 12;                          // Felix laid up: Gaius does it
+            Assert.Equal("Gaius", sim.StagePerson(shared));
+            while (sim.World.Attention < 1) sim.EndMonth();
+            Assert.True(sim.StartChallengeStage("standards").Ok);
+            while (c.Status == ChallengeStatus.Working) sim.EndMonth();
+            Assert.Contains(sim.Log.Events, e => e.Type == "challenge.stage" && e.Text == shared.StandInText && e.Actors.Contains("Gaius"));
+            Assert.Equal(CapabilityLevel.Reproducible, sim.CapabilityLevelOf("metrology"));
+        }
     }
 }
