@@ -31,8 +31,10 @@ namespace Butterfly.Core.Tests
             var arrival = sim.JumpForTests();
             Assert.True(sim.CapabilityLevelOf("valveseats") >= CapabilityLevel.Manufacturable);   // at least one rung up the ladder
             Assert.Contains("technical:valveseats", arrival.P1Echoes);
-            Assert.Contains("person:Felix", arrival.P1Echoes);
-            Assert.Contains("Felix who connected the shops", Beat(arrival, "Personal echo"));
+            // Felix is found in the first return, at the age the years away make him (first return, 2026-10-04), not in the beats.
+            Assert.DoesNotContain("person:Felix", arrival.P1Echoes);
+            var felix = Assert.Single(sim.World.Return!.Sites, s => s.Person == "Felix");
+            Assert.Equal("founder", felix.Variant);
             var def = sim.CapabilityDefOf("valveseats")!;
             Assert.Contains(def.Echo[sim.CapabilityLevelOf("valveseats").ToString()], Beat(arrival, "Discovery"));
             var carried = sim.Log.Events.Last(e => e.Type == "capability.advance");
@@ -50,7 +52,7 @@ namespace Butterfly.Core.Tests
             Assert.Equal(before, sim.CapabilityLevelOf("valveseats"));                   // no member, no carrier
             Assert.Contains("access:guild", arrival.P1Echoes);
             Assert.Contains(sim.InvitationPathDefFor("guild")!.EchoGuest, Beat(arrival, "Discovery"));
-            Assert.Contains("person:Cassianus", arrival.P1Echoes);
+            Assert.Contains(sim.World.Return!.Sites, s => s.Person == "Cassianus");      // found in the return, not the beats
         }
 
         [Fact]

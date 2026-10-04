@@ -462,6 +462,10 @@ namespace Butterfly.Core
         /// <summary>The hidden P1 capability network (data/content/capabilities.json).</summary>
         public IReadOnlyList<CapabilityDef> Capabilities { get; private set; } = new List<CapabilityDef>();
         public IReadOnlyList<PersonDef> People { get; private set; } = new List<PersonDef>();
+        /// <summary>The first return (returns.json): the places that can be found, the category order, the journal anchors.</summary>
+        public IReadOnlyList<ReturnSiteDef> ReturnSites { get; private set; } = new List<ReturnSiteDef>();
+        public IReadOnlyList<ReturnCategory> ReturnOrder { get; private set; } = new List<ReturnCategory>();
+        public IReadOnlyList<JournalAnchorDef> JournalAnchors { get; private set; } = new List<JournalAnchorDef>();
         public IReadOnlyList<ChallengeDef> Challenges { get; private set; } = new List<ChallengeDef>();
         public IReadOnlyList<AuthoredSceneDef> Scenes { get; private set; } = new List<AuthoredSceneDef>();
         public IReadOnlyList<LifeEventDef> Lives { get; private set; } = new List<LifeEventDef>();
@@ -541,6 +545,13 @@ namespace Butterfly.Core
                 var people = Read(contentDirectory, "people.json");
                 content.People = people.Arr("people").Cast<JsonObject>().Select(o => new PersonDef(o)).ToList();
                 content.Lives = people.Arr("life").Cast<JsonObject>().Select(o => new LifeEventDef(o)).ToList();
+            }
+            if (File.Exists(Path.Combine(contentDirectory, "returns.json")))
+            {
+                var r = Read(contentDirectory, "returns.json");
+                content.ReturnSites = r.Arr("sites").Cast<JsonObject>().Select(o => new ReturnSiteDef(o)).ToList();
+                content.ReturnOrder = r.Arr("order").Cast<string>().Select(x => (ReturnCategory)System.Enum.Parse(typeof(ReturnCategory), x)).ToList();
+                content.JournalAnchors = r.Arr("journal").Cast<JsonObject>().Select(o => new JournalAnchorDef(o)).ToList();
             }
             if (File.Exists(Path.Combine(contentDirectory, "workshop.json")))
             {

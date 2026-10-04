@@ -32,9 +32,11 @@ namespace Butterfly.Core.Tests
             sim.FindCommission("allotment")!.Status = CommissionStatus.Done;
             sim.PersonOf("Gaius")!.Regard = 5;                                          // the person you were closest to
             var a = sim.JumpForTests();
-            Assert.Contains("person:Gaius", a.P1Echoes);
             Assert.True(a.P1Echoes.Count(e => e.StartsWith("person:")) <= sim.Data.Tuning.GetInt("echoes.peoplePerArrival"));
-            Assert.Contains(a.Beats, b => b.Text.Contains("Crispi foundry"));
+            // On the first arrival Gaius is found in the return chapter, by the calices, not as a powered works.
+            var gaius = Assert.Single(sim.World.Return!.Sites, s => s.Person == "Gaius");
+            Assert.Equal("calices", gaius.Variant);
+            Assert.DoesNotContain("Fabian works", gaius.Contradiction);
         }
     
         [Fact]

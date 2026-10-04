@@ -51,7 +51,7 @@ namespace Butterfly.Core.Tests
                 "commission:cellarpump:Done", "access:guild:Guest", "capability:valveseats:Reproducible", "life:felix-fever",
                 "flag:baths-flow", "knows:Felix", "scene:market-day", "month:3", "monthsIn:2", "machine:assessed",
                 "project:fountain:done", "regard:Felix:1", "regardBelow:Felix:2", "challenge:standards:Open", "stage:standards:1",
-                "invented:" + c.Inventions[0].Id, "join:circle", "promise"
+                "invented:" + c.Inventions[0].Id, "join:circle", "promise", "journal:foot", "answered:nerius:honest"
             };
             Assert.Equal(ContentValidation.RequirementPrefixes.OrderBy(x => x), samples.Select(s => s.Split(':')[0]).OrderBy(x => x));
             foreach (var s in samples) sim.Holds(s);                                      // every prefix the validator accepts, Holds parses

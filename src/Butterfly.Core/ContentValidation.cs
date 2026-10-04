@@ -17,7 +17,7 @@ namespace Butterfly.Core
         public static readonly string[] RequirementPrefixes =
         {
             "commission", "access", "capability", "life", "flag", "knows", "scene", "month", "monthsIn", "machine",
-            "project", "regard", "regardBelow", "challenge", "stage", "invented", "join", "promise"
+            "project", "regard", "regardBelow", "challenge", "stage", "invented", "join", "promise", "journal", "answered"
         };
 
         public static IReadOnlyList<string> Problems(Content c)
@@ -127,8 +127,50 @@ namespace Butterfly.Core
                     p.Add(w + ": no stage takes its goal " + d.GoalCapability + " to " + d.GoalLevel);
             }
             foreach (var i in c.Inventions) Capability("invention " + i.Id, i.Capability);
+            ReturnContent(p, c, people, Requirements);
             EventsAndEffects(p, c, flags, people, institutions);
             return p;
+        }
+
+        /// <summary>
+        /// The first return (returns.json): unique ids, requirements that parse, every site ends in a variant that always holds (so
+        /// a site whose own requirements hold always has words), human sites name a core-cast person with an age and the bands
+        /// the P1 jump range can reach (heirs and memory at least), journal anchors end in an unconditional later version.
+        /// </summary>
+        private static void ReturnContent(List<string> p, Content c, HashSet<string> people, Action<string, IEnumerable<string>> requirements)
+        {
+            Unique(p, "return site", c.ReturnSites.Select(x => x.Id).Concat(c.JournalAnchors.Select(a => "journal-" + a.Id)));
+            Unique(p, "journal anchor", c.JournalAnchors.Select(x => x.Id));
+            if (c.ReturnSites.Count > 0 && c.ReturnOrder.Count == 0) p.Add("returns.json: no category order");
+            foreach (var d in c.ReturnSites)
+            {
+                string w = "return site " + d.Id;
+                requirements(w, d.Requires);
+                Unique(p, w + " variant", d.Variants.Select(v => v.Id));
+                foreach (var v in d.Variants) requirements(w + " variant " + v.Id, v.Requires);
+                if (d.Variants.Count == 0 || d.Variants[d.Variants.Count - 1].Requires.Count > 0) p.Add(w + ": its last variant must hold always (no requirements)");
+                foreach (var v in d.Variants)
+                {
+                    if (v.Evidence != "obvious" && v.Evidence != "plausible" && v.Evidence != "contested" && v.Evidence != "lost") p.Add(w + " variant " + v.Id + ": unknown evidence '" + v.Evidence + "'");
+                    if (d.Category != ReturnCategory.Human && v.Recognition.Length == 0) p.Add(w + " variant " + v.Id + ": no recognition");
+                }
+                if (d.Category == ReturnCategory.Human)
+                {
+                    if (!people.Contains(d.Person)) { p.Add(w + ": unknown person '" + d.Person + "'"); continue; }
+                    var person = c.People.First(x => x.Id == d.Person);
+                    if (person.Age <= 0 || person.LivesTo <= person.Age) p.Add(w + ": " + d.Person + " needs an age and a later livesTo in people.json");
+                    if (!d.Bands.ContainsKey(HumanBand.Heirs) || !d.Bands.ContainsKey(HumanBand.Memory)) p.Add(w + ": needs heirs and memory bands");
+                }
+                else if (d.Person.Length > 0) p.Add(w + ": only human sites follow a person");
+            }
+            foreach (var a in c.JournalAnchors)
+            {
+                string w = "journal anchor " + a.Id;
+                requirements(w, a.Requires);
+                Unique(p, w + " version", a.Now.Select(n => n.Id));
+                foreach (var n in a.Now) requirements(w + " version " + n.Id, n.Requires);
+                if (a.Now.Count == 0 || a.Now[a.Now.Count - 1].Requires.Count > 0) p.Add(w + ": its last later version must hold always (no requirements)");
+            }
         }
 
         /// <summary>The effect types <see cref="Simulation.ApplyEffects"/> applies (decision events and workshop orders).</summary>
@@ -317,6 +359,14 @@ namespace Butterfly.Core
                     return;
                 case "promise":
                     Arity(1);
+                    return;
+                case "journal":
+                    if (Arity(2) && c.JournalAnchors.All(x => x.Id != parts[1])) p.Add(Bad("names an unknown journal anchor"));
+                    return;
+                case "answered":
+                    if (!Arity(3)) return;
+                    if (c.Events.FirstOrDefault(x => x.Id == parts[1]) is var ev && ev == null) p.Add(Bad("names an unknown event"));
+                    else if (ev.Options.All(o => o.Id != parts[2])) p.Add(Bad("names an unknown option"));
                     return;
                 default:
                     p.Add(Bad("has an unknown prefix"));

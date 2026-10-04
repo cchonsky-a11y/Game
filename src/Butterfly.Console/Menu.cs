@@ -59,6 +59,19 @@ internal sealed partial class ConsoleGame
 
     private List<(string Title, List<(string Label, string Command)> Items)> ArrivalGroups()
     {
+        var look = Group("The return · places to look");
+        var ret = _sim.World.Return;
+        if (ret != null)
+        {
+            for (int k = 0; k < ret.Sites.Count; k++)
+            {
+                var s = ret.Sites[k];
+                if (!ret.Visited.Contains(s.Id)) look.Item2.Add((s.Place, "visit " + (k + 1)));
+                else if (!ret.Investigated.Contains(s.Id)) look.Item2.Add(("look closer: " + s.Lead, "look closer " + (k + 1)));
+            }
+            if (_sim.World.Journal.Count > 0) look.Item2.Add(("your journal", "journal"));
+            if (_sim.ReturnCanComplete) look.Item2.Add(("done looking", "done"));
+        }
         var walk = Group("Walk around");
         foreach (var place in new[] { "market", "changers", "forges", "curia", "subura" }) walk.Item2.Add((place, "visit " + place));
         var more = Group("Then");
@@ -74,7 +87,11 @@ internal sealed partial class ConsoleGame
             more.Item2.Add((_jumpArmed ? "jump (go now)" : "jump again", "jump"));
         }
         more.Item2.Add(("quit", "quit"));
-        return new List<(string, List<(string, string)>)> { walk, more };
+        var groups = new List<(string, List<(string, string)>)>();
+        if (look.Item2.Count > 0) groups.Add(look);
+        groups.Add(walk);
+        groups.Add(more);
+        return groups;
     }
 
     private List<(string Title, List<(string Label, string Command)> Items)> EraGroups()

@@ -1,0 +1,729 @@
+{
+  "_readme": "The first return (Part II prototype, 2026-10-04; docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). After the first jump the player finds a few places in the changed city (return.sitesMax, PROPOSED P1-24). A site exists only if its 'requires' hold for what actually happened; its first variant whose 'requires' hold decides what is there. Visiting shows recognition then contradiction; 'look closer' follows the lead to the investigation. Present conditions and evidence only, never 'because you did X'. Human sites take their recognition from the person's band (self / elder / heirs / memory) by years away and the person's age and lifespan in people.json (PROPOSED P1-25). Journal anchors are written in the player's journal during the first life when their 'requires' first hold; each anchor is also a return site comparing what you wrote then with what survives now. 'order' is the category sequence selection follows (at most return.maxPerCategory a category). Placeholders: {sinceDeath} years since the person died, {years} years away, {year} the arrival year, {departed} the year you left, {then} the year the journal line was written.",
+  "order": [ "Human", "Technical", "Institutional", "Human", "Unintended", "Journal", "Mystery", "Technical", "Institutional", "Unintended", "Journal" ],
+  "sites": [
+    {
+      "id": "felix",
+      "category": "Human",
+      "person": "Felix",
+      "place": "Felix's yard on the quays at Ostia",
+      "requires": [ "knows:Felix" ],
+      "bands": {
+        "heirs": "FELICIS is still cut over the yard gate. His son runs it now, a big man with Felix's voice and none of his jokes. Felix died {sinceDeath} years ago, the son says, owing a rope-maker money and still talking about a cellar pump.",
+        "memory": "There is a yard on the quays with FELICIS cut over the gate, though nobody in it is called Felix. The fitters think the word means luck."
+      },
+      "variants": [
+        {
+          "id": "founder",
+          "requires": [ "access:guild:Member" ],
+          "contradiction": "Over the guild hall door the founders' list is cut in marble, and Felix is on it, with a line about “the true seat, which Felix brought to the quays.” There is no line about you.",
+          "lead": "the guild's old contract chest",
+          "investigation": "The first bilge-pump contract is still in the chest, in Felix's hand. It names you as the fitter. Over your name someone has written “the Greek” in a later ink, as if your name had stopped meaning anything.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "yard",
+          "requires": [],
+          "contradiction": "The fitters have never heard of you. They say Felix learned the seat from a Greek who drowned off the lighthouse.",
+          "lead": "the yard's old day-book",
+          "investigation": "Felix's day-book for your years lists “the cellar pump, Cassianus, with the foreigner” and, a page later, “the foreigner, a supper at the guild”. After that you are not in it.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "cassianus",
+      "category": "Human",
+      "person": "Cassianus",
+      "place": "Cassianus's warehouses under the Aventine",
+      "requires": [ "knows:Cassianus" ],
+      "bands": {
+        "heirs": "Cassianus's name is still on the lintel. His daughter's son keeps the books there. Cassianus died {sinceDeath} years ago, and the family is still arguing about his will.",
+        "memory": "The warehouses under the Aventine have changed hands three times. By the third door a stone is cut CASSIANUS, half under new plaster."
+      },
+      "variants": [
+        {
+          "id": "copied",
+          "requires": [ "commission:cellarpump:Done", "life:pollio-copy", "!access:guild:Member" ],
+          "contradiction": "The pump you fitted in the cellar is gone. Its replacement is one of Pollio's, and it leaks back on every stroke. The porter bails every morning, as his grandfather did before you came.",
+          "lead": "the porter's grandmother",
+          "investigation": "She remembers the first pump. “It worked. Then the foreigner went away, and it wore, and Pollio's men said theirs was the same thing and cheaper.”",
+          "evidence": "plausible",
+          "misattributed": false
+        },
+        {
+          "id": "kept",
+          "requires": [ "commission:cellarpump:Done" ],
+          "contradiction": "The pump in the cellar has new seats, cut true by a man who learned from a man who learned in this cellar. The family says the pump was Cassianus's idea.",
+          "lead": "Cassianus's old accounts",
+          "investigation": "In a box of old accounts: three hundred denarii “to the Greek, for the pump”, then five hundred more, crossed out and written again.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "flooded",
+          "requires": [],
+          "contradiction": "The cellar floods every spring, as it always did. Nobody in the house remembers you. They remember that the old man once nearly bought a pump.",
+          "lead": "the steward's tally",
+          "investigation": "A tally from your years: “the foreigner came, asked too much, went.”",
+          "evidence": "obvious",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "serenus",
+      "category": "Human",
+      "person": "Serenus",
+      "place": "The physicians' rooms in the Subura",
+      "requires": [ "knows:Serenus" ],
+      "bands": {
+        "elder": "Serenus is alive, nearly blind, in a room above the Circle's hall. A boy reads him cases aloud and he corrects the boy's arithmetic. He knows your voice before he can see your face.",
+        "heirs": "Serenus died {sinceDeath} years ago. His pupil, an old man himself now, keeps the casebooks in a chest and lets you look, because you knew the hand.",
+        "memory": "The Circle's library has a shelf of casebooks in a careful hand, labelled SERENUS. The young physicians copy them for the Greek."
+      },
+      "variants": [
+        {
+          "id": "stars",
+          "requires": [ "life:serenus-tables-copied" ],
+          "contradiction": "His tables are copied all over the city now, column by column: the patient's stars, the wind on the day. None of the copies has a column for the water.",
+          "lead": "Serenus's first casebook",
+          "investigation": "The first casebook has the water column, ruled in his hand, with a note in the margin: “the foreigner's column — keep it.” The copies start a generation later and leave it out.",
+          "evidence": "plausible",
+          "misattributed": false
+        },
+        {
+          "id": "method",
+          "requires": [ "commission:fevers:Done" ],
+          "contradiction": "Physicians in the hall compare fevers across households, as you did in Pomponia's house. They say the method is the Circle's own, as old as its founding.",
+          "lead": "the hall's register",
+          "investigation": "The register for your years names Serenus “keeper of tables”. The first table is dated the month you began on Pomponia's fevers.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "curiosity",
+          "requires": [],
+          "contradiction": "Nobody in the Circle compares cases. Serenus's casebook is kept as a curiosity, for the handwriting.",
+          "lead": "the casebook itself",
+          "investigation": "The entries are careful and full until the month you left Rome. After that they are short, and then they stop.",
+          "evidence": "lost",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "gaius",
+      "category": "Human",
+      "person": "Gaius",
+      "place": "The bronze shop on the Clivus",
+      "requires": [ "knows:Gaius" ],
+      "bands": {
+        "elder": "Gaius is at the shop, white-haired and deaf in one ear from the hammers. His grandsons do the casting now. He looks at you a long time and asks where you have been, in a voice that expects a lie.",
+        "heirs": "Gaius died {sinceDeath} years ago. The shop is his grandsons' now. One of them has his hands and none of his patience.",
+        "memory": "The shop on the Clivus is FABIUS AND SONS, though nobody there ever knew a Gaius. A bronze rule hangs on the wall by the shrine like a household god."
+      },
+      "variants": [
+        {
+          "id": "works",
+          "requires": [ "challenge:power:Done" ],
+          "contradiction": "Along the river the powered sheds are called the Fabian works. The story there is that Gaius built the first shaft with his own hands. You are not in the story.",
+          "lead": "the tally board at the works",
+          "investigation": "The oldest tally board starts with Aulus's name and, beside it, the mark Marcus used for you. Nobody at the works knows what the mark means.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "foot",
+          "requires": [ "capability:gauges:Reproducible" ],
+          "contradiction": "The fitters on the Clivus call the shared foot “the Fabian foot”. Gaius's grandsons sell rules stamped with it.",
+          "lead": "the shop's first bronze bar",
+          "investigation": "The first bar is in the back room, scratched with two marks where you and Gaius signed it. The grandsons think the second mark is a slip of the graver.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "calices",
+          "requires": [ "commission:allotment:Done" ],
+          "contradiction": "The shop still casts the Subura's calices, honest to the bucket. The street magistrates' book says the water office devised the test.",
+          "lead": "the magistrates' first entry",
+          "investigation": "The first entry about calices is in a magistrate's hand: “tried by the Greek's bucket, cast by Gaius.” The water office comes into the book twenty years later.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "byeye",
+          "requires": [],
+          "contradiction": "The shop does what it did before you came: good work, cut by eye. The grandsons have never heard of a shared foot.",
+          "lead": "Gaius's oldest workman",
+          "investigation": "The old man remembers a foreigner who talked about measuring for a season and then went away. “Gaius missed him,” he says, “and wouldn't say so.”",
+          "evidence": "lost",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "marcus",
+      "category": "Human",
+      "person": "Marcus",
+      "place": "A shop by the river below the Clivus",
+      "requires": [ "knows:Marcus" ],
+      "bands": {
+        "self": "Marcus is at a bench by the river, broad now, a man of about fifty with three apprentices of his own. He stares at you, then laughs, because you look exactly as you did.",
+        "elder": "Marcus is old. He sits in the sun outside the shop and watches younger men work a shaft he could build in his sleep. He knows you, and he doesn't get up.",
+        "heirs": "Marcus died {sinceDeath} years ago. His son keeps Marcus's tally book on the shelf with the household gods.",
+        "memory": "Nobody by the river remembers Marcus. A shop there keeps an old tally board whose first marks are in a hand you know."
+      },
+      "variants": [
+        {
+          "id": "stayed",
+          "thread": "marcus",
+          "requires": [ "life:marcus-stays" ],
+          "contradiction": "The tally book he kept for you is still in use, ruled the way you showed him: every week, the same hour, the same figures. The shop says the method is Marcus's own.",
+          "lead": "the first tally book",
+          "investigation": "Under the first week's figures, in Marcus's young hand: “as the master said.” Which master, it doesn't say.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "priscus",
+          "thread": "marcus",
+          "requires": [ "life:marcus-priscus" ],
+          "contradiction": "Priscus's name is over the gate of the biggest works on the river. Marcus was his foreman. The men say Priscus built the first shaft in Rome.",
+          "lead": "the foreman's oldest board",
+          "investigation": "The oldest board is in Marcus's hand, dated the year you left, copying figures from Aulus's race. Priscus's own first entry comes a year after.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "undecided",
+          "thread": "marcus",
+          "requires": [],
+          "contradiction": "He never finished with you. Gaius's shop took him back as a hand, and whatever you meant to teach him, he learned from someone else.",
+          "lead": "Gaius's day-book",
+          "investigation": "One line, the month you left: “Marcus — paid as a hand again.”",
+          "evidence": "obvious",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "aulus",
+      "category": "Human",
+      "person": "Aulus",
+      "place": "The mills on the Janiculum",
+      "requires": [ "knows:Aulus" ],
+      "bands": {
+        "heirs": "Aulus died {sinceDeath} years ago, bent like a hook from his back. His sons keep the mills.",
+        "memory": "Aulus's grandsons keep the mills on the Janiculum. They know his name from the race's founding stone."
+      },
+      "variants": [
+        {
+          "id": "shafts",
+          "thread": "shaft",
+          "requires": [ "challenge:power:Done" ],
+          "contradiction": "The race turns a dozen shafts now. The founding stone names Aulus and the three mill owners, and nobody else.",
+          "lead": "the first bearing block",
+          "investigation": "The oldest bearing block on the race is kept in the shed. Its shell is stamped with your gauge's mark. The millwrights call it Aulus's mark.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "idle",
+          "thread": "shaft",
+          "requires": [ "stage:power:1" ],
+          "contradiction": "The shaft you began is still above the race, rusted in its blocks. Aulus's sons grind grain on the race, as their grandfather did before you came.",
+          "lead": "the shed under the race",
+          "investigation": "Inside the shed: bearing shells cut to your gauge, oiled and wrapped in sacking, as if someone had meant to finish.",
+          "evidence": "plausible",
+          "misattributed": false
+        },
+        {
+          "id": "grain",
+          "thread": "shaft",
+          "requires": [],
+          "contradiction": "The mills grind grain, as they always did. His sons remember a foreigner who stood looking at the race for a long time and never came back.",
+          "lead": "the race's founding stone",
+          "investigation": "The stone names Aulus's grandfather and the mill owners of his day. Nothing has been added.",
+          "evidence": "lost",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "fittings",
+      "category": "Technical",
+      "place": "The fitting yards below the Clivus",
+      "requires": [ "challenge:standards:Open|challenge:standards:Working|challenge:standards:Abandoned|challenge:standards:Done" ],
+      "variants": [
+        {
+          "id": "guildfoot",
+          "thread": "foot",
+          "requires": [ "capability:gauges:Reproducible", "access:guild:Member" ],
+          "recognition": "Fitters here carry fit and no-fit plugs in a leather roll, all cut to one foot. A seat made on the Clivus drops into a pump at Ostia.",
+          "contradiction": "Every plug is stamped with the guild's seal. The fitters call it the guild's foot, and pay the guild for the stamp.",
+          "lead": "the guild's measure-room",
+          "investigation": "The master bar is in a locked case at Ostia. Scratched on its underside, where nobody looks, are two marks and a date: the year you and Gaius cut it.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "fabianfoot",
+          "thread": "foot",
+          "requires": [ "capability:gauges:Reproducible" ],
+          "recognition": "Fitters here carry fit and no-fit plugs in a leather roll, all cut to one foot. A seat made on the Clivus drops into a pump at Ostia.",
+          "contradiction": "They call it the Fabian foot, after a bronze shop on the Clivus. Nobody here has heard of you.",
+          "lead": "the oldest gauge in the yard",
+          "investigation": "The oldest plug in the yard is one of the first set, worn bright. Its pair is lost. Every gauge in the yard was copied from it.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "drift",
+          "thread": "foot",
+          "requires": [],
+          "recognition": "The fitters here have gauges, of a kind: each shop keeps a plug it calls true.",
+          "contradiction": "No two shops' plugs agree. A seat cut on the Clivus won't go into a pump at Ostia, and each side says the other's foot is wrong.",
+          "lead": "the oldest plug in the yard",
+          "investigation": "The oldest plug is one of yours, from the master set you never finished, worn smooth. Every other plug in the yard was copied from a copy of it, and each copy is a little shorter.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "pumps",
+      "category": "Technical",
+      "place": "The pumps on the Ostia quays",
+      "requires": [ "capability:valveseats:Reproducible" ],
+      "variants": [
+        {
+          "id": "stamped",
+          "thread": "copies",
+          "requires": [ "access:guild:Member" ],
+          "recognition": "The pumps on the quays have seats cut to a gauge. A seal on each casing says so.",
+          "contradiction": "The seal reads “cut true to the guild's gauge.” Shippers won't buy a pump without it, and the guild charges for the seal.",
+          "lead": "the stamp-master's book",
+          "investigation": "The stamp-master's first page copies a rule: lap the seat until the red shows all round. The page is headed with Felix's name.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "few",
+          "thread": "copies",
+          "requires": [],
+          "recognition": "A few old pumps on the quays still have seats cut true. They pump dry in a dozen strokes.",
+          "contradiction": "Most pumps don't. The fitters say the good ones were luck, or the old bronze.",
+          "lead": "an old fitter at the lighthouse",
+          "investigation": "He learned from a man who learned in a cellar under the Aventine. “He showed six of us,” he says. “Then he went away and there was nobody to ask.”",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "mills",
+      "category": "Technical",
+      "place": "The race below the Janiculum",
+      "requires": [ "stage:power:1" ],
+      "variants": [
+        {
+          "id": "fewer",
+          "thread": "shaft",
+          "requires": [ "challenge:power:Done", "answered:nerius:honest" ],
+          "recognition": "A dozen sheds stand along the race, each running two or three machines from one shaft.",
+          "contradiction": "They employ fewer men than the hand shops they replaced. On the Clivus the shopmen sing a song about the wheel that eats men.",
+          "lead": "Sextus Nerius's old shop",
+          "investigation": "His grandson runs it with four men and a grinder. He says his grandfather asked a foreigner what would happen to his men, and was told the truth, and never forgave him for it.",
+          "evidence": "obvious",
+          "misattributed": false
+        },
+        {
+          "id": "sheds",
+          "thread": "shaft",
+          "requires": [ "challenge:power:Done" ],
+          "recognition": "A dozen sheds stand along the race, each running two or three machines from one shaft.",
+          "contradiction": "The sheds do the rough work and the hand shops on the Clivus do the fine. Each side says it saved the other.",
+          "lead": "the race's oldest shed",
+          "investigation": "The first shed still runs on its first shaft, with new bearing shells every season. The shells are cut to a gauge nobody in the shed can name the origin of.",
+          "evidence": "plausible",
+          "misattributed": false
+        },
+        {
+          "id": "rusted",
+          "thread": "shaft",
+          "requires": [],
+          "recognition": "Above the race a long oak shaft lies in split bearing blocks, as you left it.",
+          "contradiction": "It never turned a second machine. The bearings rusted, the race silted, and the hill went back to grinding grain.",
+          "lead": "the millwright's yard below",
+          "investigation": "The millwright has your drawing of the shaft pinned to his wall. He has never built one. “Nobody knew why it had to be that way,” he says.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "drawings",
+      "category": "Technical",
+      "place": "The shipyards at Ostia",
+      "requires": [ "capability:drawings:Prototype" ],
+      "variants": [
+        {
+          "id": "sameship",
+          "requires": [ "capability:drawings:Reproducible" ],
+          "recognition": "Two yards are building the same hull from one drawing, a day's walk apart, with sizes written on every timber.",
+          "contradiction": "The shipwrights call them Vettius's drawings. Vettius's name is on the corner of every sheet.",
+          "lead": "the yard's oldest drawing",
+          "investigation": "The oldest sheet has a second hand in the margins, correcting Vettius's sizes. It is your hand.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "framed",
+          "requires": [],
+          "recognition": "One yard keeps a drawing in a frame by the gate: a hull with sizes written along every timber.",
+          "contradiction": "Nobody builds from it. The shipwrights work by eye and by their fathers' moulds, and keep the drawing for luck.",
+          "lead": "the yard's master",
+          "investigation": "He says his grandfather paid a foreigner for it, and it was the best money he ever wasted.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "guildhall",
+      "category": "Institutional",
+      "place": "The guild hall at Ostia",
+      "requires": [ "access:guild:Guest" ],
+      "variants": [
+        {
+          "id": "rule",
+          "requires": [ "access:guild:Member", "capability:metrology:Reproducible" ],
+          "recognition": "The master foot hangs in a locked case in the hall, and members' rules are tried against it every year.",
+          "contradiction": "Ask why and the officers say it is the rule. The reason, that a worn gauge passes bad work and nobody can tell, isn't written anywhere.",
+          "lead": "the guild's charter",
+          "investigation": "The article on measures is in a later hand than the rest of the charter. It gives the rule and the fine. It doesn't give the reason.",
+          "evidence": "plausible",
+          "misattributed": false
+        },
+        {
+          "id": "dues",
+          "requires": [ "access:guild:Member" ],
+          "recognition": "Your name is on the members' roll for your years, in the treasurer's neat hand.",
+          "contradiction": "Beside it: “peregrinus, absent, dues unpaid”, and a fine that grew every year for decades.",
+          "lead": "the treasurer's ledger",
+          "investigation": "The fine was forgiven in a good harvest year, by vote, “for old service”. Felix's son proposed it.",
+          "evidence": "obvious",
+          "misattributed": false
+        },
+        {
+          "id": "guest",
+          "requires": [],
+          "recognition": "The guest book for the founders' supper has your name once, in Felix's hand.",
+          "contradiction": "Beside it, in another hand: “did not return.”",
+          "lead": "the steward of the hall",
+          "investigation": "The steward's father served at that supper. He says the guild meant to ask you back, and then you were gone, and they asked a shipwright instead.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "circle",
+      "category": "Institutional",
+      "place": "The Physicians' Circle in the Subura",
+      "requires": [ "access:circle:Guest" ],
+      "variants": [
+        {
+          "id": "roll",
+          "requires": [ "access:circle:Member" ],
+          "recognition": "Your name is in the Circle's roll, between Serenus and a man you never met.",
+          "contradiction": "The roll calls you “the Greek physician”. You were never a physician, and never Greek.",
+          "lead": "the roll's first page",
+          "investigation": "The first page is in Serenus's hand and calls you “the foreigner who counts”. The next copyist made you a physician, and the one after that a Greek.",
+          "evidence": "obvious",
+          "misattributed": true
+        },
+        {
+          "id": "supper",
+          "requires": [],
+          "recognition": "The Circle still dines on the first of the month in the room above the hall.",
+          "contradiction": "Nobody there remembers that a foreigner once sat at the end of the table as Serenus's guest.",
+          "lead": "the Circle's guest list",
+          "investigation": "Your name is on it once, misspelled, with Serenus's name beside it as host.",
+          "evidence": "obvious",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "opening",
+      "category": "Institutional",
+      "place": "Where you began",
+      "requires": [],
+      "variants": [
+        {
+          "id": "workshop",
+          "requires": [ "project:workshop:done" ],
+          "place": "The smith's workshop by the Porta Trigemina",
+          "recognition": "The yard is where it was, and the forge stands where you and the smith built it the first spring.",
+          "contradiction": "The smith's grandson says the second forge was his grandfather's idea, and the bellows too.",
+          "lead": "the workshop's old order tally",
+          "investigation": "The tally starts in your hand for the first season, then changes to the smith's. Your orders are marked with a little sign nobody now reads.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "fountain",
+          "requires": [ "project:fountain:done" ],
+          "place": "The district fountain in the Subura",
+          "recognition": "The fountain still runs at the crossroads, and the women still fill their jars there before the sun is up.",
+          "contradiction": "A plaque on the basin says the street's magistrates restored it, at their own cost, in the year you paid for it.",
+          "lead": "the street magistrates' book",
+          "investigation": "The entry for that year reads “the fountain, mended by the foreigner at his own cost”. The plaque was cut ten years later, under different magistrates.",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "neither",
+          "requires": [],
+          "recognition": "The crossroads where you first stood with the machine's gold in your purse looks much as it did.",
+          "contradiction": "Nothing here was ever yours.",
+          "lead": "the shrine at the crossroads",
+          "investigation": "The Lares of the crossroads have new paint and the same faces.",
+          "evidence": "lost",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "varro",
+      "category": "Institutional",
+      "place": "Senator Varro's house",
+      "requires": [ "scene:salutatio-varro" ],
+      "variants": [
+        {
+          "id": "obliged",
+          "requires": [ "answered:patronfavor:oblige" ],
+          "recognition": "The clients still wait in the atrium at first light, forty or so, as you did.",
+          "contradiction": "The fuller's family still draws the tap you swore was honest. The street magistrates' book calls it “Varro's water”, and the street still resents it.",
+          "lead": "the steward's client book",
+          "investigation": "Hermogenes' book lists you once: “the Greek, useful at hearings.” A later steward has added: “went away”.",
+          "evidence": "obvious",
+          "misattributed": false
+        },
+        {
+          "id": "measured",
+          "requires": [ "answered:patronfavor:measure" ],
+          "recognition": "The clients still wait in the atrium at first light, forty or so, as you did.",
+          "contradiction": "The fuller's family pays for its water by the measure now. The magistrates tell it as the time the senator's house paid what it owed.",
+          "lead": "the steward's client book",
+          "investigation": "Hermogenes' book lists you once: “the Greek, measures before he swears.” Someone has underlined it twice.",
+          "evidence": "obvious",
+          "misattributed": false
+        },
+        {
+          "id": "client",
+          "requires": [],
+          "recognition": "The clients still wait in the atrium at first light, forty or so, as you did.",
+          "contradiction": "The doorkeeper has no list with your name on it. The house has had three stewards since Hermogenes.",
+          "lead": "the steward's oldest client book",
+          "investigation": "Your name is in Hermogenes' book once, the first morning you came, and never again.",
+          "evidence": "lost",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "copyseats",
+      "category": "Unintended",
+      "place": "The market gates",
+      "requires": [ "life:pollio-copy" ],
+      "variants": [
+        {
+          "id": "outsold",
+          "thread": "copies",
+          "requires": [ "access:guild:Member" ],
+          "recognition": "Pollio's seats are still sold at the gates, cheap, piled in straw.",
+          "contradiction": "Nobody buys them for the quays: the guild's seal drove them out. Bakers and fullers buy them, and bail anyway.",
+          "lead": "a stall-holder",
+          "investigation": "“Pollio? He always said the design was stolen from him by a foreigner,” she says, “and that the guild took his trade.”",
+          "evidence": "contested",
+          "misattributed": true
+        },
+        {
+          "id": "everywhere",
+          "thread": "copies",
+          "requires": [],
+          "recognition": "Pollio's seats are sold at every gate and fitted on half the quays.",
+          "contradiction": "They leak back on every stroke. People say the good seats were stolen from Pollio by a foreigner.",
+          "lead": "the oldest fitter on the quays",
+          "investigation": "He learned from Pollio's man, who learned by looking at a pump in a cellar under the Aventine and copying what he could see. The lapping you can't see.",
+          "evidence": "contested",
+          "misattributed": true
+        }
+      ]
+    },
+    {
+      "id": "copydrawings",
+      "category": "Unintended",
+      "place": "A stall by the lighthouse at Ostia",
+      "requires": [ "life:vettius-copies" ],
+      "variants": [
+        {
+          "id": "traced",
+          "requires": [],
+          "recognition": "The stall sells hull drawings with sizes on every timber, a denarius a sheet.",
+          "contradiction": "They are copies of copies, traced at the wrong scale. The yards that build from them pack every joint with pitch and blame the timber.",
+          "lead": "the stall-holder's oldest sheet",
+          "investigation": "The oldest sheet is in Vettius's yard style, traced from one of the drawings you corrected. Your corrections are not on it.",
+          "evidence": "plausible",
+          "misattributed": true
+        }
+      ]
+    },
+    {
+      "id": "copybearings",
+      "category": "Unintended",
+      "place": "The river mills below the Janiculum",
+      "requires": [ "life:brass-bearings" ],
+      "variants": [
+        {
+          "id": "brass",
+          "requires": [],
+          "recognition": "Every mill on the river runs on split bearing blocks, the kind you and Aulus made.",
+          "contradiction": "The cheap ones are cast in soft brass and wear through in a season. The millers call them foreign blocks and curse the foreigner.",
+          "lead": "a miller with a worn block",
+          "investigation": "He shows you the block. The shell is brass where yours was bearing bronze. “You pay for the shape,” the founder told him.",
+          "evidence": "plausible",
+          "misattributed": true
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "category": "Mystery",
+      "place": "The field outside the walls where you first came down",
+      "requires": [],
+      "variants": [
+        {
+          "id": "lintel",
+          "requires": [ "flag:r17-warned" ],
+          "recognition": "The field is a fuller's yard now, walled, with vats where the grass was.",
+          "contradiction": "On the gatepost, cut deep and old: R XVII. The fuller says it was there when his grandfather took the lease.",
+          "lead": "the gatepost",
+          "investigation": "The letters were cut with a good chisel by someone who knew how. There is nothing else on the post.",
+          "evidence": "lost",
+          "misattributed": false
+        },
+        {
+          "id": "field",
+          "requires": [],
+          "recognition": "The field is a fuller's yard now, walled, with vats where the grass was.",
+          "contradiction": "The fuller's grandmother says something fell out of the sky here once, in the old emperor's time, and killed a goat.",
+          "lead": "the fuller's grandmother",
+          "investigation": "She says the goat's owner was paid in gold coins by a stranger who couldn't speak properly. She still has one. It is one of yours.",
+          "evidence": "plausible",
+          "misattributed": false
+        }
+      ]
+    }
+  ],
+  "journal": [
+    {
+      "id": "foot",
+      "requires": [ "capability:metrology:Reproducible" ],
+      "then": "The master foot is the bronze bar we cut together. Every gauge is tried against it at the Kalends. A worn gauge is broken, not filed: a filed gauge passes bad work and nobody can tell.",
+      "now": [
+        {
+          "id": "guild",
+          "requires": [ "capability:gauges:Reproducible", "access:guild:Member" ],
+          "where": "Cut over the door of the guild's measure-room at Ostia",
+          "text": "TRY EVERY GAUGE AT THE KALENDS. BREAK, DO NOT FILE. BY ORDER OF THE GUILD.",
+          "lead": "the guild's fine book",
+          "investigation": "Fines for filed gauges, every year for forty years. Not one entry says why filing is forbidden.",
+          "misattributed": true
+        },
+        {
+          "id": "fabian",
+          "requires": [ "capability:gauges:Reproducible" ],
+          "where": "Painted on the wall of a fitter's shop on the Clivus",
+          "text": "Gaius's rule: try your gauge at the Kalends, and break it when it wears.",
+          "lead": "the fitter who keeps the shop",
+          "investigation": "He learned the rule as an apprentice and says it is about honesty. Asked what a filed gauge does, he says it is unlucky.",
+          "misattributed": true
+        },
+        {
+          "id": "luck",
+          "requires": [],
+          "where": "Said to you by a fitter on the Clivus, of a worn plug nailed over his door",
+          "text": "Never file a gauge. It brings bad work into the shop.",
+          "lead": "the plug over the door",
+          "investigation": "It is one of the first plugs, worn short, nailed up for luck by the fitter's grandfather. Nobody tries gauges against anything.",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "seat",
+      "requires": [ "capability:valveseats:Reproducible" ],
+      "then": "Lap the seat with its own plug and a smear of red earth until the red shows all round. A gap in the red is a leak, however tight the seat feels.",
+      "now": [
+        {
+          "id": "oath",
+          "requires": [ "access:guild:Member" ],
+          "where": "The fitters' oath of the guild at Ostia, sworn at admission",
+          "text": "I will lap every seat until the red shows all round.",
+          "lead": "the oldest fitter in the guild",
+          "investigation": "He swears to it, and does it. He has never heard the second half, about seats that feel tight. Asked whether a tight seat can leak, he says not if it's tight.",
+          "misattributed": false
+        },
+        {
+          "id": "pollio",
+          "requires": [ "life:pollio-copy" ],
+          "where": "A handbill on Pollio's stall at the market gate",
+          "text": "Pollio's seats: cut tight, and tight is true.",
+          "lead": "the stall-holder",
+          "investigation": "She has never heard of red earth. “Why would you put dirt in a pump?”",
+          "misattributed": true
+        },
+        {
+          "id": "foreigner",
+          "requires": [],
+          "where": "Quoted by an old fitter at the lighthouse",
+          "text": "Lap it red all round, the foreigner said. Nobody remembers why.",
+          "lead": "the fitter's own pump",
+          "investigation": "His pump's seat is lapped red all round. It is the only one on the quays that doesn't leak.",
+          "misattributed": false
+        }
+      ]
+    },
+    {
+      "id": "calix",
+      "requires": [ "commission:allotment:Done" ],
+      "then": "A calix is measured by the water it passes, timed on one bucket, not by the width of its mouth. Two mouths can match and pass a sixth apart.",
+      "now": [
+        {
+          "id": "office",
+          "requires": [ "commission:argiletum:Done" ],
+          "where": "The water office's notice at the Argiletum fountains",
+          "text": "Every calix shall be tried by the bucket. Ordered by the curator of waters.",
+          "lead": "the notice's date",
+          "investigation": "The notice is dated thirty years after the Argiletum's four fountains were first tried by the bucket. The curator's office says it devised the test.",
+          "misattributed": true
+        },
+        {
+          "id": "mouth",
+          "requires": [],
+          "where": "A plumber in the Subura, stamping a new calix",
+          "text": "A quinaria is a quinaria. Measure the mouth.",
+          "lead": "the plumber's gauge",
+          "investigation": "His gauge measures the mouth. The calix he stamps passes a sixth more than its grant, and nobody times it.",
+          "misattributed": false
+        }
+      ]
+    }
+  ]
+}

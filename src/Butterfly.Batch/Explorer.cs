@@ -236,6 +236,10 @@ namespace Butterfly.Batch
                 }
                 Trace?.Invoke("ARRIVAL 1\n" + string.Join("\n", a1.Beats.Select(b => b.Name + ": " + b.Text)) + "\n" + a1.LearnMore());
                 foreach (var t in Why.Topics) Texts(res, "why " + t, Why.Explain(sim, t));
+                // The first return (2026-10-04): the gate must hold, then the scripted minimum protocol (not a persona choice).
+                if (sim.World.Return == null) res.Bugs.Add("No return chapter after the first jump");
+                else if (sim.CanJumpAgain) res.Bugs.Add("The second jump is offered before the return was seen");
+                P1Campaign.FollowReturnProtocol(sim);
                 if (!sim.CanJumpAgain) res.Bugs.Add("Can't jump a second time after the first arrival");
                 else
                 {

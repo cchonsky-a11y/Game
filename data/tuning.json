@@ -1918,6 +1918,32 @@
       "ref": "P1_SCOPE Scene routing: weight left to a scene past the soft cap (PROPOSED P1-01, from the P1 Sprint 1 package)"
     }
   },
+  "return": {
+    "sitesMax": {
+      "value": 6,
+      "ref": "First return (2026-10-04): at most this many places to look after the first jump, chosen from what happened (PROPOSED P1-24)"
+    },
+    "sitesMin": {
+      "value": 4,
+      "ref": "First return: the fewest places a first arrival should offer; checked in tests and reported by the matrix, not forced (PROPOSED P1-24)"
+    },
+    "maxPerCategory": {
+      "value": 2,
+      "ref": "First return: at most this many places of one kind of evidence (human, technical, institutional, unintended, journal, mystery) (PROPOSED P1-24)"
+    },
+    "visitsRequired": {
+      "value": 3,
+      "ref": "First return: places you must have seen before you can finish the return and jump again; never all of them (PROPOSED P1-24)"
+    },
+    "elderAge": {
+      "value": 60,
+      "ref": "First return, elapsed time: a living core-cast person this old is found old (elder band) (PROPOSED P1-25)"
+    },
+    "heirsYears": {
+      "value": 25,
+      "ref": "First return, elapsed time: for this many years after a person's death their heirs or household carry them; after that, memory (PROPOSED P1-25)"
+    }
+  },
   "echoes": {
     "peoplePerArrival": {
       "value": 2,

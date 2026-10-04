@@ -14,14 +14,15 @@ namespace Butterfly.Core.Tests
         private readonly ITestOutputHelper _out;
         public SnapshotTests(ITestOutputHelper output) => _out = output;
 
-        /// <summary>The reference playthrough's log hash (set 2026-09-28; reset 2026-10-03 for P1 one-month turns, durations in months and no auto-end).</summary>
-        public const string ReferenceHash = "5738586d0adabc1bff989754cd534f59237f15170dd60626dd8fc33702c0a3bd";
+        /// <summary>The reference playthrough's log hash (set 2026-09-28; reset 2026-10-03 for P1 one-month turns, durations in months and no auto-end; reset 2026-10-04 for the first return: journal notes and return events are logged, the outcome is unchanged at AD 247, Index 127.1).</summary>
+        public const string ReferenceHash = "72598d87bf365f6d9f65b9f1badc51ba13b5ceb7cb1af92071ca2c14301dd69f";
 
         /// <summary>A plain, fixed player: the workshop, the guild and the Circle, generous answers, the machine, then two jumps.</summary>
         public static Simulation ReferencePlaythrough()
         {
             var sim = ReferencePlaythroughBeforeJump();
             sim.Jump();
+            Butterfly.Batch.P1Campaign.FollowReturnProtocol(sim);   // the first return, seen enough (2026-10-04)
             sim.Jump();
             return sim;
         }

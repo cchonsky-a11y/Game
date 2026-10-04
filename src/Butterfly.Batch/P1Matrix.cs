@@ -127,6 +127,21 @@ namespace Butterfly.Batch
             sb.AppendLine("- Measurement and standards opened by: " + string.Join(", ", all.GroupBy(r => r.StandardsRoute.Length == 0 ? "never" : r.StandardsRoute).OrderBy(g => g.Key)
                               .Select(g => g.Key + " × " + g.Count())) + "; by opening: " + string.Join("; ", all.GroupBy(r => r.Choice).Select(g => g.Key + " " +
                               string.Join(", ", g.GroupBy(r => r.StandardsRoute.Length == 0 ? "never" : r.StandardsRoute).OrderBy(x => x.Key).Select(x => x.Key + " × " + x.Count())))) + ".");
+            var started = all.Where(r => r.ReturnStarted).ToList();
+            sb.AppendLine("- First return: started in " + started.Count + " of " + j1.Count + " first jumps; completed in " + all.Count(r => r.ReturnCompleted) +
+                          "; second jump offered before the return was seen: " + all.Sum(r => r.Bugs) + ".");
+            if (started.Count > 0)
+            {
+                sb.AppendLine("- Return sites per arrival: " + string.Join(", ", started.GroupBy(r => r.ReturnSites).OrderBy(g => g.Key).Select(g => g.Key + " × " + g.Count())) +
+                              "; below return.sitesMin (" + started[0].SitesMin + "): " + started.Count(r => r.ReturnSites < r.SitesMin) +
+                              "; visited by the protocol: " + Range(started.Select(r => r.ReturnVisited)) + ".");
+                sb.AppendLine("- Return site categories: " + string.Join(", ", started.SelectMany(r => r.ReturnCategories).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) +
+                              "; runs with 3+ kinds: " + started.Count(r => r.ReturnCategories.Distinct().Count() >= 3) + "; runs with only one kind: " + started.Count(r => r.ReturnCategories.Distinct().Count() == 1) + ".");
+                sb.AppendLine("- People found, by band: " + string.Join(", ", started.SelectMany(r => r.ReturnBands).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
+                sb.AppendLine("- Departure threads found: " + string.Join(", ", started.SelectMany(r => r.ReturnThreads).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
+                sb.AppendLine("- Misattribution sites per return: " + Range(started.Select(r => r.ReturnMisattributed)) + "; journal lines written: " + Range(all.Select(r => r.JournalWritten)) +
+                              "; journal comparisons among the sites: " + started.Count(r => r.JournalSites > 0) + " runs.");
+            }
             sb.AppendLine("- Machine archive step: a senator's note in " + all.Count(r => r.ArchiveBy == "note") + " runs, a bribed clerk in " + all.Count(r => r.ArchiveBy == "bribe") + ".");
             sb.AppendLine("- Grand Challenges completed: both in " + all.Count(r => r.ChallengesDone == 2) + " runs, one in " + all.Count(r => r.ChallengesDone == 1) + ", none in " + all.Count(r => r.ChallengesDone == 0) + ".");
             sb.AppendLine("- Ledger reconciles at departure: " + all.Count(r => r.LedgerReconciles) + " of " + all.Count + ".");

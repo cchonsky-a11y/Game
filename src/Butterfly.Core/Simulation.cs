@@ -74,6 +74,7 @@ namespace Butterfly.Core
             ProgressCommitments();
             ProgressCommissions();
             ProgressChallenges();
+            WriteJournal();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();
             SettleGold();

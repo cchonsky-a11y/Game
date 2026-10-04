@@ -55,13 +55,46 @@ namespace Butterfly.Batch
             public bool Warned;
             public string R17Reached = "none";
             public string Institutions1 = "", Institutions2 = "";
+            // The first return (2026-10-04): measured, never optimized by the profiles.
+            public bool ReturnStarted, ReturnCompleted;
+            public int ReturnSites, ReturnVisited, ReturnMisattributed;
+            public List<string> ReturnCategories = new List<string>(), ReturnBands = new List<string>(), ReturnThreads = new List<string>();
+            public int JournalWritten, JournalSites, SitesMin;
+            /// <summary>Return gate failures: the second jump offered before the return was seen.</summary>
+            public int Bugs;
+        }
+
+        /// <summary>
+        /// The scripted runners' minimum return protocol (infrastructure, not a strategy): visit the first sites in the order the
+        /// return lists them until the requirement is met, then finish. No profile chooses or optimizes what it looks at.
+        /// </summary>
+        public static void FollowReturnProtocol(Simulation sim)
+        {
+            var r = sim.World.Return;
+            if (r == null || r.Completed) return;
+            for (int k = 1; k <= r.Sites.Count && !sim.ReturnCanComplete; k++) sim.VisitReturnSite(k.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            sim.CompleteReturn();
         }
 
         private static void Count(Dictionary<SceneCategory, int> d, SceneCategory c) => d[c] = d.TryGetValue(c, out int n) ? n + 1 : 1;
 
         public static Result Play(GameData data, ulong seed, int departYear = 163) => Play(data, seed, Profile.Legacy, seed % 2 == 1 ? "workshop" : "fountain", departYear);
 
-        public static Result Play(GameData data, ulong seed, Profile profile, string opening, int departYear = 163)
+        public static Result Play(GameData data, ulong seed, Profile profile, string opening, int departYear = 163) =>
+            Play(data, seed, profile, opening, departYear, null);
+
+        /// <summary>
+        /// A readable reference return for one seed (scripted, not human): the first life in brief, what was written in the
+        /// journal, the departure briefing, the arrival, every return site visited and looked into, then finishing the return.
+        /// </summary>
+        public static string ReferenceReturn(GameData data, ulong seed, Profile profile = Profile.Legacy)
+        {
+            var sb = new StringBuilder();
+            Play(data, seed, profile, seed % 2 == 1 ? "workshop" : "fountain", 163, sb);
+            return sb.ToString();
+        }
+
+        private static Result Play(GameData data, ulong seed, Profile profile, string opening, int departYear, StringBuilder? story)
         {
             var sim = new Simulation(data, seed);
             var r = new Result { Seed = seed, Profile = profile };
@@ -191,9 +224,28 @@ namespace Butterfly.Batch
             r.DuplicateList = texts.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key.Substring(0, Math.Min(90, g.Key.Length))).ToList();
             if (!sim.MachineReady) return r;
             r.Depart1 = sim.Now.Year;
+            if (story != null) StoryBeforeJump(sim, story, seed, profile);
             var a1 = sim.Jump();
+            if (story != null) StoryReturn(sim, a1, story);
             r.Arrive1 = a1.ArrivalYear; r.Jump1 = a1.JumpYears; r.Echoes1 = a1.P1Echoes.ToList();
             r.Institutions1 = string.Join("; ", a1.Institutions.Select(i => i.Name.Replace("the ", "") + " " + i.Outcome));
+            var ret = sim.World.Return;
+            r.JournalWritten = sim.World.Journal.Count;
+            if (ret != null)
+            {
+                r.ReturnStarted = true;
+                r.SitesMin = sim.T.GetInt("return.sitesMin");
+                r.ReturnSites = ret.Sites.Count;
+                r.ReturnCategories = ret.Sites.Select(s => s.Category.ToString()).ToList();
+                r.ReturnBands = ret.Sites.Where(s => s.Band != null).Select(s => s.Person + " " + s.Band.ToString()!.ToLowerInvariant()).ToList();
+                r.ReturnThreads = ret.Sites.Where(s => s.Thread.Length > 0).Select(s => s.Thread + ":" + s.Variant).ToList();
+                r.ReturnMisattributed = ret.Sites.Count(s => s.Misattributed);
+                r.JournalSites = ret.Sites.Count(s => s.Category == ReturnCategory.Journal);
+                if (sim.CanJumpAgain) r.Bugs++;                                      // the gate must hold before the return is seen
+                FollowReturnProtocol(sim);
+                r.ReturnVisited = ret.Visited.Count;
+                r.ReturnCompleted = ret.Completed;
+            }
             if (!sim.CanJumpAgain) return r;
             (r.Range2Min, r.Range2Max) = sim.JumpRange();
             var a2 = sim.Jump();
@@ -203,6 +255,70 @@ namespace Butterfly.Batch
             r.RepeatedSentences = s2.Where(s1.Contains).ToList();
             r.RepeatedArrivalSentences = r.RepeatedSentences.Count;
             return r;
+        }
+
+        private static void StoryBeforeJump(Simulation sim, StringBuilder sb, ulong seed, Profile profile)
+        {
+            sb.AppendLine("# Reference first return: seed " + seed + " (" + profile + " profile, " + (sim.World.SeededChoice ?? "no") + " opening)");
+            sb.AppendLine();
+            sb.AppendLine("**Scripted, not human.** A fixed scripted player lives the first life; this file shows what its return holds, for inspection. It is not evidence that the return is engaging.");
+            sb.AppendLine();
+            sb.AppendLine("## The first life (AD 155–" + sim.Now.Year + ")");
+            sb.AppendLine();
+            sb.AppendLine("- People known: " + string.Join(", ", sim.KnownPeople().Select(p => p.Name)) + ".");
+            sb.AppendLine("- Work done: " + string.Join(", ", sim.World.Commissions.Where(c => c.Status == CommissionStatus.Done).Select(c => sim.CommissionDefOf(c).Title)) + ".");
+            sb.AppendLine("- Grand Challenges: " + string.Join("; ", sim.World.Challenges.Select(c => sim.ChallengeDefOf(c).Name + " " + c.Status.ToString().ToLowerInvariant() + " (stage " + c.StageIndex + ")")) + ".");
+            sb.AppendLine("- Institutions: " + string.Join("; ", sim.World.Institutions.Where(i => !i.Def.IsOwn).Select(i => i.Def.ShortName + " " + sim.World.AccessTo(i.Key).Stage)) + ".");
+            sb.AppendLine("- Life events: " + string.Join(", ", sim.World.LifeEventLog.Keys) + ".");
+            sb.AppendLine();
+            sb.AppendLine("## The journal, as written");
+            sb.AppendLine();
+            foreach (var l in sim.JournalLines()) sb.AppendLine("- " + l);
+            if (sim.World.Journal.Count == 0) sb.AppendLine("- (nothing)");
+            sb.AppendLine();
+            sb.AppendLine("## The machine is ready: the departure briefing");
+            sb.AppendLine();
+            foreach (var l in sim.DepartureBriefing()) sb.AppendLine("- " + l);
+            sb.AppendLine();
+        }
+
+        private static void StoryReturn(Simulation sim, Arrival a, StringBuilder sb)
+        {
+            sb.AppendLine("## Arrival: AD " + a.ArrivalYear + " (" + a.JumpYears + " years)");
+            sb.AppendLine();
+            foreach (var b in a.Beats) { sb.AppendLine("**" + b.Name + ".** " + b.Text); sb.AppendLine(); }
+            var ret = sim.World.Return!;
+            sb.AppendLine("## The return: places to look");
+            sb.AppendLine();
+            foreach (var l in sim.ReturnLeads()) sb.AppendLine("- " + l);
+            sb.AppendLine();
+            sb.AppendLine("Second jump allowed before looking: " + (sim.CanJumpAgain ? "YES (gate failure)" : "no") + ".");
+            sb.AppendLine();
+            for (int k = 1; k <= ret.Sites.Count; k++)
+            {
+                var s = ret.Sites[k - 1];
+                string key = k.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                sb.AppendLine("### " + k + ". " + s.Place);
+                sb.AppendLine();
+                sb.AppendLine("*" + s.Category + (s.Band != null ? ", " + s.Person + ": " + s.Band.ToString()!.ToLowerInvariant() : "") + "; variant " + s.Variant +
+                              (s.Thread.Length > 0 ? "; thread " + s.Thread : "") + "; evidence " + s.Evidence + (s.Misattributed ? "; misattributed" : "") +
+                              "; grounded in log events " + string.Join(", ", s.Grounds) + " (hidden from the player).*");
+                sb.AppendLine();
+                sb.AppendLine("> visit " + key);
+                sb.AppendLine();
+                sb.AppendLine(sim.VisitReturnSite(key).Message);
+                sb.AppendLine();
+                sb.AppendLine("> look closer " + key);
+                sb.AppendLine();
+                sb.AppendLine(sim.InvestigateReturnSite(key).Message);
+                sb.AppendLine();
+                if (k == sim.ReturnVisitsRequired) sb.AppendLine("Second jump allowed now: " + (sim.CanJumpAgain ? "yes" : "no, not until 'done'") + ".\n");
+            }
+            sb.AppendLine("> done");
+            sb.AppendLine();
+            sb.AppendLine(sim.CompleteReturn().Message);
+            sb.AppendLine();
+            sb.AppendLine("Second jump allowed after finishing: " + (sim.CanJumpAgain ? "yes" : "NO (gate failure)") + ".");
         }
 
         private static HashSet<string> Sentences(Arrival a) =>

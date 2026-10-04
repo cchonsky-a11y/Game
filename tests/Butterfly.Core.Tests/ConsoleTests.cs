@@ -77,6 +77,7 @@ namespace Butterfly.Core.Tests
             var sim = Ready(7);
             var lines = new List<string> { "jump", "jump" };         // the first jump, through the console as a player makes it
             lines.AddRange(before.Split('|'));
+            lines.AddRange(new[] { "visit 1", "visit 2", "visit 3", "done" });          // the first return, seen enough
             lines.Add("jump");
             string output = Play(sim, lines.ToArray());
             Assert.Equal(1, sim.JumpsMade);
@@ -90,7 +91,7 @@ namespace Butterfly.Core.Tests
             // Tester 7: the second jump's briefing offered paydown, endow, audit and exchange and showed Rome's debts,
             // none of which could be acted on, and 'bury 1' was refused, so the gold was lost.
             var sim = Arrived();
-            string output = Play(sim, "jump", "bury 15", "jump");
+            string output = Play(sim, "visit 1", "visit 2", "visit 3", "done", "jump", "bury 15", "jump");
             int from = output.IndexOf("(after arrival) > jump");
             string briefing = output.Substring(from, output.IndexOf("Type 'jump' again", from) - from);
             Assert.DoesNotContain("paydown", briefing);

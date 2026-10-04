@@ -99,7 +99,7 @@ internal sealed partial class ConsoleGame
         if (cmd != "jump" && !(_jumpArmed && PrepCommands.Contains(cmd))) _jumpArmed = false;
         if (_sim.Arrived)
         {
-            AfterArrival(cmd, arg);
+            AfterArrival(cmd, arg, parts);
             _harness?.AfterCommand(line, true);
             if (showMenu && _menuOn) ShowMenu();
             return true;
@@ -221,6 +221,10 @@ internal sealed partial class ConsoleGame
             case "projects": case "p": Projects(); return true;
             case "why": Console.WriteLine(Why.Explain(_sim, arg)); return true;
             case "news": case "n": foreach (var l in _sim.News()) Console.WriteLine(l); return true;
+            case "journal":
+                if (!_sim.World.Journal.Any()) Console.WriteLine("Your journal has nothing in it yet that you'd want to keep.");
+                foreach (var l in _sim.JournalLines()) Console.WriteLine("  " + Wrap(l));
+                return true;
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "people": case "who": People(); return true;
             case "view": case "section": View(arg); return true;
@@ -711,6 +715,15 @@ internal sealed partial class ConsoleGame
                 Console.ReadLine();
             }
         }
+        if (_sim.ReturnPending)
+        {
+            // The first return (2026-10-04): the arrival is an impression; the city is the experience.
+            Console.WriteLine("Places to look:");
+            ReturnLeads();
+            Console.WriteLine("'visit <n>' to go there, 'look closer <n>' to follow what you find, 'journal' for what you wrote then. When you have seen " +
+                              _sim.ReturnVisitsRequired + " or more, 'done'. ('visit market', 'learn more' and the rest still work.)");
+            return;
+        }
         Console.WriteLine(_sim.Data.Content.Template("walk.intro"));
         Console.WriteLine("Type 'learn more' for the Index and what became of your institutions" +
                           (_sim.CanJumpAgain ? ", 'jump' to go on another " + _sim.JumpRangeText().Split(' ')[0] + " years," : "") + " or 'quit'.");
@@ -727,8 +740,44 @@ internal sealed partial class ConsoleGame
             : "Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.");
     }
 
-    private void AfterArrival(string cmd, string arg)
+    private void ReturnLeads()
     {
+        foreach (var l in _sim.ReturnLeads()) Console.WriteLine("  " + l);
+    }
+
+    private void AfterArrival(string cmd, string arg, string[] parts)
+    {
+        // The first return: places to look, what to look closer at, the journal, and finishing (first-return prototype, 2026-10-04).
+        if (_sim.World.Return != null)
+        {
+            string target = cmd == "look" && arg == "closer" ? (parts.Length > 2 ? parts[2] : "") : arg;
+            if (cmd == "leads" || cmd == "places" || cmd == "return") { ReturnLeads(); return; }
+            if (cmd == "visit" && _sim.FindReturnSite(arg) != null) { Console.WriteLine(Wrap(_sim.VisitReturnSite(arg).Message)); return; }
+            if ((cmd == "look" && arg == "closer") || cmd == "investigate" || cmd == "closer")
+            {
+                Console.WriteLine(Wrap(_sim.InvestigateReturnSite(target).Message));
+                return;
+            }
+            if (cmd == "done" || cmd == "finish")
+            {
+                var r = _sim.CompleteReturn();
+                Console.WriteLine(r.Message);
+                if (r.Ok && _sim.CanJumpAgain) Console.WriteLine("'jump' to go on another " + _sim.JumpRangeText().Split(' ')[0] + " years, or keep looking ('visit <n>'), or 'quit'.");
+                return;
+            }
+        }
+        if (cmd == "journal")
+        {
+            if (!_sim.World.Journal.Any()) Console.WriteLine("Your journal has nothing in it you'd want to keep.");
+            foreach (var l in _sim.JournalLines()) Console.WriteLine("  " + Wrap(l));
+            return;
+        }
+        if (cmd == "jump" && _sim.ReturnPending)
+        {
+            Console.WriteLine("Not yet. You have seen " + _sim.World.Return!.Visited.Count + " of the places; see " + _sim.ReturnVisitsRequired + " and type 'done' first.");
+            ReturnLeads();
+            return;
+        }
         if (cmd == "learn" || cmd == "more") Console.WriteLine(_sim.Arrival!.LearnMore());
         else if (cmd == "why") Console.WriteLine(Why.Explain(_sim, arg));
         else if (cmd == "jump" && _sim.CanJumpAgain) Jump();
@@ -740,6 +789,7 @@ internal sealed partial class ConsoleGame
             if (_jumpArmed && r.Ok) Briefing();
         }
         else if (cmd == "visit" || cmd == "walk") Console.WriteLine(Wrap(cmd == "walk" && arg == "" ? _sim.Data.Content.Template("walk.intro") : _sim.Visit(arg)));
+        else if (_sim.ReturnPending) Console.WriteLine("'visit <n>' (the places to look: 'leads'), 'look closer <n>', 'journal', 'done' once you have seen " + _sim.ReturnVisitsRequired + ", 'learn more' or 'quit'.");
         else Console.WriteLine(_sim.CanJumpAgain ? "'visit <place>', 'learn more', 'jump' to go on (then 'deposit' or 'bury' gold you can't carry), or 'quit'." : "The test is over. 'visit <place>', 'learn more' or 'quit'.");
     }
 

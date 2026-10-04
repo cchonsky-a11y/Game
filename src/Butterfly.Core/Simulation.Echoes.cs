@@ -58,6 +58,9 @@ namespace Butterfly.Core
                                            .ThenByDescending(p => PersonOf(p.Id)?.Regard ?? 0))
             {
                 if (shown >= T.GetInt("echoes.peoplePerArrival")) yield break;
+                // On the first arrival the core cast is found in the return chapter, at the age the years away make them
+                // (first return, 2026-10-04): an arrival line keyed by arrival number could contradict it.
+                if (arrivalNumber == 1 && p.Age > 0) continue;
                 var echo = p.Echoes.Where(e => e.FromJump <= arrivalNumber && !World.EchoesShown.Contains(e.Text) && e.Requires.All(Holds))
                                    .OrderByDescending(e => e.FromJump).FirstOrDefault();
                 if (echo == null) continue;

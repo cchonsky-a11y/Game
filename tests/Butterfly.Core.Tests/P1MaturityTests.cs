@@ -92,8 +92,9 @@ namespace Butterfly.Core.Tests
         {
             var sim = GuildMemberAfterThePump();
             var first = sim.JumpForTests();
-            Assert.Contains(first.P1Echoes, e => e.StartsWith("person:"));
+            Assert.Contains(sim.World.Return!.Sites, s => s.Category == ReturnCategory.Human);   // the first return holds the people
             var firstPersonal = first.Beats.First(b => b.Name == "Personal echo").Text;
+            Butterfly.Batch.P1Campaign.FollowReturnProtocol(sim);
             Assert.True(sim.CanJumpAgain);
             var second = sim.JumpForTests();
             Assert.Contains(second.P1Echoes, e => e.StartsWith("person:"));

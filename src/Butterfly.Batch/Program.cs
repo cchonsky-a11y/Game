@@ -32,6 +32,15 @@ for (int i = 0; i < args.Length - 1; i++)
 }
 for (int i = 0; i < args.Length - 1; i++)
 {
+    if (args[i] != "--p1-return") continue;
+    // A readable reference first return for one seed (scripted, not human): --p1-return 1 [--out file]
+    string ret = P1Campaign.ReferenceReturn(data, ulong.Parse(args[i + 1], CultureInfo.InvariantCulture));
+    Console.WriteLine(ret);
+    if (outPath != null) { File.WriteAllText(outPath, ret); Console.WriteLine("Saved to " + outPath); }
+    return;
+}
+for (int i = 0; i < args.Length - 1; i++)
+{
     if (args[i] != "--p1-matrix") continue;
     // The P1 strategy matrix (scripted, not human): --p1-matrix 1-60 [--weight W] [--age A] [--out file]
     var bounds = args[i + 1].Split('-').Select(x => ulong.Parse(x, CultureInfo.InvariantCulture)).ToArray();

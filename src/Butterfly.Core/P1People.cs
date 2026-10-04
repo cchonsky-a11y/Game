@@ -25,6 +25,10 @@ namespace Butterfly.Core
         public string Voice { get; }
         /// <summary>What the inventor may find of this person on an arrival (each shown once; later arrivals prefer later lines).</summary>
         public IReadOnlyList<PersonEchoDef> Echoes { get; }
+        /// <summary>Age in the start year, for the first-return core cast only (0 = not modelled; PROPOSED P1-25).</summary>
+        public int Age { get; }
+        /// <summary>The age this person dies at, deterministic (no mortality draw).</summary>
+        public int LivesTo { get; }
 
         public PersonDef(JsonObject o)
         {
@@ -41,6 +45,8 @@ namespace Butterfly.Core
             Opinion = o.Str("opinion");
             Interest = o.Str("interest");
             Voice = o.Str("voice");
+            Age = (int)o.NumOr("age", 0);
+            LivesTo = (int)o.NumOr("livesTo", 0);
             Echoes = o.Has("echoes") ? o.Arr("echoes").Cast<JsonObject>().Select(x => new PersonEchoDef(x)).ToList() : new List<PersonEchoDef>();
         }
     }

@@ -81,6 +81,10 @@ namespace Butterfly.Core
         public List<string> TriggeredEvents { get; } = new List<string>();
         /// <summary>Echo lines already shown on an arrival (P1: never repeated word for word).</summary>
         public List<string> EchoesShown { get; } = new List<string>();
+        /// <summary>The return chapter after the first jump (null before it; first-return prototype, 2026-10-04).</summary>
+        public ReturnChapter? Return { get; set; }
+        /// <summary>The player's journal: lines written in the first life, never changed.</summary>
+        public List<JournalEntry> Journal { get; } = new List<JournalEntry>();
         /// <summary>Every optional scene the router picked: the turn, its category and its candidate id (for reports and tests).</summary>
         public List<(int Turn, SceneCategory Category, string Id)> RoutedScenes { get; } = new List<(int, SceneCategory, string)>();
         /// <summary>The month each waiting progression candidate (commission, invitation, challenge, life) first became a router candidate.</summary>

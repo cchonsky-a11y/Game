@@ -36,11 +36,15 @@ namespace Butterfly.Core
         /// Option A (decided 2026-09-28): after an arrival you may jump again at once, without a second era to play, up to
         /// the P0 limit. The machine stays repaired; the range starts over from the repairs and upgrades.
         /// </summary>
-        public bool CanJumpAgain => Arrived && JumpsMade < T.GetInt("jump.maxJumps");
+        public bool CanJumpAgain => Arrived && JumpsMade < T.GetInt("jump.maxJumps") && !ReturnPending;
 
         private Arrival Jump(bool ignoreMachine)
         {
-            if (IsAway || (Arrived && !CanJumpAgain)) throw new InvalidOperationException("Already jumped.");
+            if (IsAway || (Arrived && JumpsMade >= T.GetInt("jump.maxJumps"))) throw new InvalidOperationException("Already jumped.");
+            // The first return must be seen before the machine takes you on (first-return prototype, 2026-10-04). Test setups
+            // that skip the machine (JumpForTests) skip this gate too: they test the absence, not the return.
+            if (Arrived && ReturnPending && !ignoreMachine)
+                throw new InvalidOperationException("The return isn't finished: look at " + ReturnVisitsRequired + " of the places first.");
             Arrived = false;
             if (!ignoreMachine && !MachineReady)
                 throw new InvalidOperationException("The machine isn't ready (" + MachineStepsDone + "/" + MachineStepsTotal + " steps, " +
@@ -133,6 +137,7 @@ namespace Butterfly.Core
             BuildBeats(arrival);
             Record("jump.arrive", "machine", new[] { depart.Id }, new[] { "player" }, null,
                 "You arrive in AD " + Now.Year + ".");
+            if (JumpsMade == 1) StartReturnChapter(arrival, depart.Id);
             Arrival = arrival;
             return arrival;
         }
@@ -150,6 +155,8 @@ namespace Butterfly.Core
                 foreach (var line in SavingsBriefing()) yield return line;
                 yield break;
             }
+            // What you would leave unresolved, as facts (first return, 2026-10-04): never what it will lead to.
+            foreach (var line in DepartureStakes()) yield return line;
             // The warning is shown, never enforced: the player may jump anyway (approved R-17 thread).
             if (World.Flags.Contains("r17-warned")) yield return "The last thing the panel said was DO NOT JUMP. Nothing in the machine stops you.";
             double rate = T.Get("debt.compoundRate");

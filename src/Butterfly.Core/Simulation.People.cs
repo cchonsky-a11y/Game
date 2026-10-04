@@ -152,6 +152,10 @@ namespace Butterfly.Core
                     return FindChallenge(parts[1]) is ChallengeState cs && cs.StageIndex >= int.Parse(parts[2]);
                 case "invented":
                     return World.Invented.Contains(parts[1]);
+                case "journal":
+                    return World.Journal.Any(j => j.Id == parts[1]);
+                case "answered":
+                    return _eventChoices.Any(c => c.Event.Id == parts[1] && c.Option.Id == parts[2]);
                 case "join":
                     return JoinBlocker(World.Institution(parts[1])) == null;
                 case "promise":

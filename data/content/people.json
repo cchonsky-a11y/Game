@@ -1,8 +1,10 @@
 {
-  "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' with 'spread' (imitation: Local / Copied / Widespread, optionally 'distorted' and 'misattributed'; it never raises true maturity) or 'to' (a true advance the person makes themselves). 'interrupt' marks a world interruption that bypasses the scene router. No inevitability (Corey, 2026-10-04): 'windowMonths' bounds how long after it first becomes possible an event can happen, 'decay' lowers the monthly chance each month it has been possible, 'group' makes branches mutually exclusive, 'leaves' takes the person out of Rome for good. 'known' says when the player knows them; 'echoes' are what the inventor may find of them on an arrival: each line at most once, 'fromJump' (default 1) the first arrival it can appear on, later arrivals preferring their own lines (aged consequences, descendants, deaths, contradictory memory); at most echoes.peoplePerArrival people an arrival. Chances PROPOSED P1-08.",
+  "_readme": "'age' (in AD 155) and 'livesTo' (the age they die at, deterministic; PROPOSED P1-25) are set for the first-return core cast only: they decide whether you find a person, an old one, their heirs or a memory. P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' with 'spread' (imitation: Local / Copied / Widespread, optionally 'distorted' and 'misattributed'; it never raises true maturity) or 'to' (a true advance the person makes themselves). 'interrupt' marks a world interruption that bypasses the scene router. No inevitability (Corey, 2026-10-04): 'windowMonths' bounds how long after it first becomes possible an event can happen, 'decay' lowers the monthly chance each month it has been possible, 'group' makes branches mutually exclusive, 'leaves' takes the person out of Rome for good. 'known' says when the player knows them; 'echoes' are what the inventor may find of them on an arrival: each line at most once, 'fromJump' (default 1) the first arrival it can appear on, later arrivals preferring their own lines (aged consequences, descendants, deaths, contradictory memory); at most echoes.peoplePerArrival people an arrival. Chances PROPOSED P1-08.",
   "people": [
     {
       "id": "Felix",
+      "age": 40,
+      "livesTo": 68,
       "name": "Felix",
       "known": "commission:cellarpump:Offered",
       "role": "a freedman who fits out ships at Ostia and in Rome, and a member of the guild",
@@ -46,6 +48,8 @@
     },
     {
       "id": "Cassianus",
+      "age": 45,
+      "livesTo": 70,
       "name": "Cassianus",
       "known": "commission:cellarpump:Offered",
       "role": "a grain and oil merchant with warehouses under the Aventine",
@@ -125,6 +129,8 @@
     },
     {
       "id": "Serenus",
+      "age": 34,
+      "livesTo": 74,
       "name": "Titus Aelius Serenus",
       "known": "scene:serenus-meet",
       "role": "a physician of the Subura, a member of the Physicians' Circle",
@@ -155,6 +161,8 @@
     },
     {
       "id": "Gaius",
+      "age": 30,
+      "livesTo": 72,
       "name": "Gaius Fabius Crispus",
       "known": "scene:gaius-meet|commission:allotment:Done",
       "role": "a bronze worker with a shop on the Clivus",
@@ -231,6 +239,8 @@
     },
     {
       "id": "Marcus",
+      "age": 16,
+      "livesTo": 68,
       "name": "Marcus Fabius Tertius",
       "known": "scene:marcus-meet",
       "role": "Gaius's sister's son, at the bench in Gaius's shop",
@@ -300,6 +310,8 @@
     },
     {
       "id": "Aulus",
+      "age": 48,
+      "livesTo": 70,
       "name": "Aulus Septimius Crispus",
       "known": "scene:aulus-meet",
       "role": "a millwright who keeps the mills on the Janiculum turning",

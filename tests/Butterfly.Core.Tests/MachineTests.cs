@@ -582,6 +582,8 @@ namespace Butterfly.Core.Tests
             sim.ChooseSeeded("fountain");
             while (sim.Now.Year < 168) { if (sim.OutbreakAwaitingResponse) sim.RespondToPlague("none"); sim.EndTurn(); }
             var first = sim.JumpForTests();
+            Assert.False(sim.CanJumpAgain);                     // the first return comes first
+            Butterfly.Batch.P1Campaign.FollowReturnProtocol(sim);
             Assert.True(sim.CanJumpAgain);
             var (lo, hi) = sim.JumpRange();
             Assert.Equal((25, 40), (lo, hi));                  // no time in the new era yet, no upgrades
