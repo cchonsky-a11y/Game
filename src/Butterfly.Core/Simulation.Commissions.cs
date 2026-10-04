@@ -45,7 +45,7 @@ namespace Butterfly.Core
             World.Commissions.Where(c => c.Status == CommissionStatus.NotYet).Where(c =>
             {
                 var d = CommissionDefOf(c);
-                return MonthsSinceStart >= d.OpensAfterMonths && !(d.Introducer.Length > 0 && IsPersonAway(d.Introducer));
+                return MonthsSinceStart >= d.OpensAfterMonths && d.Requires.All(Holds) && !(d.Introducer.Length > 0 && IsPersonAway(d.Introducer));
             });
 
         /// <summary>The encounter: someone brings you the problem.</summary>

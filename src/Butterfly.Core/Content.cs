@@ -216,6 +216,9 @@ namespace Butterfly.Core
         public string Baseline { get; }
         public string Bottleneck { get; }
         public string Leap { get; }
+        /// <summary>The capability this practical project moves when it is done, and to what level (P1); empty if none.</summary>
+        public string Capability { get; }
+        public CapabilityLevel CapabilityTo { get; }
         public string CompletionText { get; }
 
         public InventionDef(JsonObject o)
@@ -233,6 +236,9 @@ namespace Butterfly.Core
             Baseline = o.StrOr("baseline", "") ?? "";
             Bottleneck = o.StrOr("bottleneck", "") ?? "";
             Leap = o.StrOr("leap", "") ?? "";
+            Capability = o.StrOr("capability", "") ?? "";
+            CapabilityTo = Capability.Length == 0 ? CapabilityLevel.None
+                : System.Enum.TryParse<CapabilityLevel>(o.Str("capabilityTo"), out var lv) ? lv : throw new System.FormatException("Unknown capability level on " + Id + ".");
             CompletionText = o.Str("completionText");
         }
     }

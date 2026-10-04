@@ -257,11 +257,15 @@ namespace Butterfly.Core.Tests
             var guild = sim.World.Institution("guild");
             double loyalty = guild.Loyalty, pay = sim.WorkPay("consult");
             Finish(sim, "bookkeeping");
-            Xunit.Assert.Equal(5, sim.StakePercent(guild));
+            // P1 (Corey, 2026-10-04): a practical project wins standing and interest, never a share of the house.
+            Xunit.Assert.Equal(2, sim.StakePercent(guild));
             Xunit.Assert.True(guild.Loyalty > loyalty);
             Xunit.Assert.True(sim.WorkPay("consult") > pay);
-            var stake = System.Linq.Enumerable.Single(sim.Log.Events, e => e.Type == "institution.stake");
-            Xunit.Assert.NotEmpty(stake.ImmediateCauses);
+            Xunit.Assert.DoesNotContain(sim.Log.Events, e => e.Type == "institution.stake");
+            var regard = System.Linq.Enumerable.Single(sim.Log.Events, e => e.Type == "institution.regard");   // the bank, which you don't belong to
+            Xunit.Assert.Equal("bank", regard.Target);
+            Xunit.Assert.NotEmpty(regard.ImmediateCauses);
+            Xunit.Assert.Equal(CapabilityLevel.Demonstrated, sim.CapabilityLevelOf("records"));
         }
     
         [Fact]
@@ -336,12 +340,14 @@ namespace Butterfly.Core.Tests
                 { "guild", new[] { "guild" } }, { "junian", new[] { "junian" } }, { "bank", new[] { "bank" } },
                 { "circle", new[] { "circle" } }, { "sanctuary", new[] { "sanctuary" } },
             };
-            var covered = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "stake").SelectMany(e => groups[e.Group!]).ToHashSet();
+            // P1: regard (interest from houses you don't belong to) replaces the old stake rewards.
+            Assert.DoesNotContain(sim.Data.Content.Inventions.SelectMany(i => i.Effects), e => e.Type == "stake");
+            var covered = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "regard").SelectMany(e => groups[e.Group!]).ToHashSet();
             foreach (var id in new[] { "circle", "sanctuary", "faction", "junian", "guild", "bank" }) Assert.Contains(id, covered);
-            var stakes = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "stake").Select(e => e.Value).Distinct().Count();
+            var stakes = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "regard").Select(e => e.Value).Distinct().Count();
             var loyalties = sim.Data.Content.Inventions.SelectMany(i => i.Effects).Where(e => e.Type == "loyalty").Select(e => e.Value).Distinct().Count();
             Assert.True(stakes >= 4 && loyalties >= 4);   // standing varies by invention
-            Assert.Contains("stake", sim.InventionPayoffText(sim.InventionById("bills")!));
+            Assert.Contains("regard if you're not", sim.InventionPayoffText(sim.InventionById("bills")!));
         }
 
         [Fact]

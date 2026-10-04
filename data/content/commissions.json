@@ -65,6 +65,65 @@
         "member": "Felix",
         "text": "Felix was at the drinking. \"The men at Ostia have pumps too,\" he says, \"and worse ones. Come out to one of our suppers sometime.\""
       }
+    },
+    {
+      "id": "bilges",
+      "title": "Lollius's bilge pumps",
+      "client": "Lollius",
+      "clientRole": "a shipper at Ostia with three hulls and leaking pumps",
+      "introducer": "Felix",
+      "opensAfterMonths": 0,
+      "requires": ["access:guild:Guest", "commission:cellarpump:Done"],
+      "encounter": {
+        "category": "WorkEconomy",
+        "text": "The shipper who complained at the guild supper finds you on the quay at Ostia. Lollius, three hulls, all of them wet. \"Felix says you fixed the oil man's pump. Mine are worse. Come and look before I lose a cargo of grain to my own bilge.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Lollius's pumps are chain pumps and one bronze force pump, all clogged with sand and pitch. The force pump has the same oval seats as Cassianus's. The chain pumps are a different trouble: the buckets jam where the chain bends. Lollius stands over you the whole time and talks about the price of grain in Alexandria."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Lollius",
+        "materialsPayer": "Lollius",
+        "upfront": 16,
+        "completion": 34,
+        "text": "\"I pay for the bronze,\" Lollius says. \"Four hundred now, eight hundred and fifty when all three ships go a week without bailing. And if they leak after, I tell every shipper on the river.\""
+      },
+      "counter": {
+        "completion": 44,
+        "acceptWeight": 3,
+        "standFirmWeight": 5,
+        "walkWeight": 2,
+        "acceptText": "Lollius laughs. \"A thousand and a hundred, then, and if they leak I'll have it back with interest.\"",
+        "standFirmText": "\"Eight hundred and fifty,\" he says. \"I can count as well as you.\" The offer stands.",
+        "walkText": "\"Felix said you were reasonable,\" Lollius says. \"Felix was wrong.\" He goes off to find a fitter who isn't."
+      },
+      "declineText": "You tell Lollius you can't take it. He shrugs and goes back to cursing his crew.",
+      "work": [
+        {
+          "stage": "CraftAdaptation",
+          "category": "WorkEconomy",
+          "durationMonths": 2,
+          "attention": 1,
+          "text": "The smith's apprentice cuts three sets of seats to the gauge without you. You spend your days at Ostia rebuilding the chain pumps' bends so the buckets ride clear, while Lollius's crew watches and offers advice."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 2,
+          "attention": 1,
+          "text": "All three ships go out to Puteoli and back. Lollius's steersman pours a libation to Neptune at the stern before each one sails, and swears it is the libation that keeps them dry. Lollius pays you anyway."
+        }
+      ],
+      "capability": "valveseats",
+      "referral": {
+        "institution": "guild",
+        "member": "Felix",
+        "text": "Lollius tells the shippers at the next supper. Two of them ask Felix where to find you; one asks what you charge, and whistles."
+      }
     }
   ]
 }

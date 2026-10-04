@@ -41,13 +41,14 @@ namespace Butterfly.Core
             foreach (var g in def.Effects.Where(x => x.Group != null).Select(x => x.Group!).Distinct())
             {
                 var loyalty = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "loyalty");
-                var stake = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "stake");
+                var regard = def.Effects.FirstOrDefault(x => x.Group == g && x.Type == "regard");
                 // L7 (testers 2, 6): a group touched only by a grievance has no reward to list ("the guild:  (if you're a member)").
-                if (stake == null && loyalty == null) continue;
+                if (regard == null && loyalty == null) continue;
                 parts.Add(InventionGroupNames[g] + ": " + string.Join(", ", new[] {
-                    stake != null ? "+" + F(stake.Value) + "% stake" : null,
-                    loyalty != null ? "+" + F(loyalty.Value) + " loyalty" : null }.Where(x => x != null)) + " (if you're a member)");
+                    loyalty != null ? "+" + F(loyalty.Value) + " loyalty if you're a member" : null,
+                    regard != null ? "+" + F(regard.Value) + " regard if you're not" : null }.Where(x => x != null)));
             }
+            if (def.Capability.Length > 0) parts.Add("Rome's " + CapabilityDefOf(def.Capability)!.Name + " to " + def.CapabilityTo.ToString().ToLowerInvariant());
             return string.Join("; ", parts);
         }
 
@@ -125,6 +126,7 @@ namespace Butterfly.Core
                 return CommandResult.Fail(def.Name + " builds on " + InventionById(def.Prerequisite!)!.Name + ": make that first.");
             if (!InventionRequirementMet(def))
                 return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
+            if (def.Capability.Length > 0 && CapabilityBlocker(def.Capability, def.CapabilityTo) is string beyond) return CommandResult.Fail(beyond);
             int price = InventionGold(def);
             if (World.Gold < price) return CommandResult.Fail(def.Name + " costs " + Money(price) + "; you have " + Money(World.Gold) + ".");
             var attention = CheckAttention(def.AttentionPerTurn, def.DurationMonths);
@@ -152,6 +154,9 @@ namespace Butterfly.Core
                 var done = Record("invention.complete", a.Def.Id, new[] { a.StartEventId }, new[] { "player" },
                     new[] { new Effect("invention." + a.Def.Id, 0, 1) }, a.Def.CompletionText);
                 foreach (var fx in a.Def.Effects) ApplyInventionEffect(a.Def, fx, done.Id);
+                if (a.Def.Capability.Length > 0)
+                    AdvanceCapability(a.Def.Capability, a.Def.CapabilityTo, new[] { done.Id },
+                        "Rome's " + CapabilityDefOf(a.Def.Capability)!.Name + " now stand at " + a.Def.CapabilityTo.ToString().ToLowerInvariant() + ".");
             }
         }
 
@@ -184,15 +189,16 @@ namespace Butterfly.Core
                     if (i != null) ChangeLoyalty(i, fx.Value, "institution.loyalty", new[] { causeId }, new[] { "player", i.Leader }, def.Name + " impresses " + i.Leader + ".");
                     break;
                 }
-                case "stake":
+                case "regard":
                 {
-                    var i = InventionTarget(fx);
-                    if (i == null) break;
-                    double before = i.Stake;
-                    i.Stake = Math.Min(ExclusiveCapPercent(i) / 100.0, Math.Min(1, (StakePercent(i) + (int)fx.Value) / 100.0));
-                    if (i.Stake < before) i.Stake = before;
-                    Record("institution.stake", i.Key, new[] { causeId }, new[] { "player", i.Leader }, new[] { new Effect(StakeKey(i), before, i.Stake) },
-                        "In return for " + def.Name + ", " + i.Def.Name + " gives you a larger share: " + StakePercent(i) + "%." + Crossed(before, i.Stake));
+                    // P1: an institution you don't belong to takes an interest in you (no shares are handed out for ideas).
+                    foreach (var i in InventionGroups[fx.Group!].Select(World.Institution).Where(i => i.Exists && !i.Backed))
+                    {
+                        double before = i.Regard;
+                        i.Regard += fx.Value;
+                        Record("institution.regard", i.Key, new[] { causeId }, new[] { i.Leader }, new[] { new Effect(i.Key + ".regard", before, i.Regard) },
+                            Cap(i.Def.ShortName) + " takes notice of " + def.Name + ".");
+                    }
                     break;
                 }
                 case "level":

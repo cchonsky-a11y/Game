@@ -66,8 +66,7 @@ namespace Butterfly.Core
             {
                 if (i.Def.IsOwn && !i.Exists && !i.Collapsed) { if (Can(FoundCost(i.Def.Maintains), "founding.attention")) return true; continue; }
                 if (!i.Exists) continue;
-                int next = NextThresholdPercent(i);
-                if (next > 0 && Can(BuyCost(i, next - StakePercent(i)), "stakes.buyAttention")) return true;
+                // P1 (Corey, 2026-10-04): an affordable stake purchase no longer stops fast-forward; seats come through people.
                 if (!Controls(i)) continue;
                 if (!i.Chartered && Can(T.Get("institutions.charterGold"), "institutions.charterAttention")) return true;
                 if (!i.AuditCharter && Can(T.Get("institutions.auditGold"), "institutions.auditAttention")) return true;

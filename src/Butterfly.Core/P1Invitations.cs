@@ -27,7 +27,10 @@ namespace Butterfly.Core
     {
         public string Institution { get; }
         public string Inviter { get; }
-        public string Work { get; }
+        /// <summary>The five-part gate's evidence, each from its own facts in the game (Corey, 2026-10-04: kept distinct).</summary>
+        public IReadOnlyList<string> RelationshipEvidence { get; }
+        public IReadOnlyList<string> WorkEvidence { get; }
+        public IReadOnlyList<string> UsefulnessEvidence { get; }
         public int GuestAfterMonths { get; }
         public int AgainAfterMonths { get; }
         public int SponsorAfterMonths { get; }
@@ -39,6 +42,9 @@ namespace Butterfly.Core
         public InvitationStepDef Sponsor { get; }
         public InvitationStepDef Admit { get; }
         public string DeclineText { get; }
+        /// <summary>The members put the vote off; the members refuse.</summary>
+        public string PostponedText { get; }
+        public string RefusedText { get; }
         /// <summary>What the inventor finds on arrival if they were a guest but never joined (present conditions only).</summary>
         public string EchoGuest { get; }
 
@@ -46,7 +52,10 @@ namespace Butterfly.Core
         {
             Institution = o.Str("institution");
             Inviter = o.Str("inviter");
-            Work = o.Str("work");
+            var ev = o.Obj("evidence");
+            RelationshipEvidence = ev.Arr("relationship").Cast<string>().ToList();
+            WorkEvidence = ev.Arr("work").Cast<string>().ToList();
+            UsefulnessEvidence = ev.Arr("usefulness").Cast<string>().ToList();
             GuestAfterMonths = (int)o.Num("guestAfterMonths");
             AgainAfterMonths = (int)o.Num("againAfterMonths");
             SponsorAfterMonths = (int)o.Num("sponsorAfterMonths");
@@ -59,6 +68,8 @@ namespace Butterfly.Core
             Admit = new InvitationStepDef(o.Obj("admit"));
             DeclineText = o.Str("decline");
             EchoGuest = o.StrOr("echoGuest", "") ?? "";
+            PostponedText = o.Str("postponed");
+            RefusedText = o.Str("refused");
         }
     }
 
@@ -74,6 +85,10 @@ namespace Butterfly.Core
         public int StepTurn { get; set; }
         /// <summary>The turn you last declined: the inviter won't take the risk again for a while.</summary>
         public int DeclinedTurn { get; set; } = -1000;
+        /// <summary>The members put the vote off once already (a second failure is a refusal).</summary>
+        public bool Postponed { get; set; }
+        /// <summary>The members voted you in; only the entry fee is still owed.</summary>
+        public bool VotedIn { get; set; }
 
         public InvitationPathState(string institution) => Institution = institution;
     }

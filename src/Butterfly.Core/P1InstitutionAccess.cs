@@ -65,6 +65,15 @@ namespace Butterfly.Core
             return true;
         }
 
+        /// <summary>The members refuse a sponsored candidate: back to having been asked back; the sponsor's word is spent for now.</summary>
+        public bool Refuse()
+        {
+            if (Stage != InstitutionAccessStage.SponsoredCandidate) return false;
+            SponsorId = null;
+            Stage = InstitutionAccessStage.InvitedBack;
+            return true;
+        }
+
         public bool PromoteToOfficer()
         {
             if (Stage != InstitutionAccessStage.Member) return false;

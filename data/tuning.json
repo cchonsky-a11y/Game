@@ -1919,6 +1919,20 @@
     }
   },
   "invitations": {
+    "vote": {
+      "base": {
+        "value": 0.8,
+        "ref": "P1 institutions (Corey, 2026-10-04: admission is not a timer): the members' chance of voting a sponsored candidate in (PROPOSED P1-13)"
+      },
+      "perSponsorRegard": {
+        "value": 0.05,
+        "ref": "P1 institutions: added for each point of the sponsor's regard for you (PROPOSED P1-13)"
+      },
+      "grievance": {
+        "value": 0.3,
+        "ref": "P1 institutions: taken off if the institution holds a grievance against you (PROPOSED P1-13)"
+      }
+    },
     "inviterPatienceMonths": {
       "value": 6,
       "ref": "P1_SCOPE Institutions (decided 2026-10-02): an inviter who was turned down doesn't take the risk again for this many months (PROPOSED P1-06)"

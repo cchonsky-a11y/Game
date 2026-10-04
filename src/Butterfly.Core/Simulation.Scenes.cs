@@ -114,7 +114,17 @@ namespace Butterfly.Core
                 p.Status = kv.Value;
                 if (!actors.Contains(kv.Key)) actors.Add(kv.Key);
             }
-            Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, s.Text);
+            var played = Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, s.Text);
+            if (s.KnowsInstitution.Length > 0)
+            {
+                var access = World.AccessTo(s.KnowsInstitution);
+                var before = access.Stage;
+                access.RecordMemberRelationship(s.KnowsMember);
+                if (access.Stage != before)
+                    Record("institution.access", s.KnowsInstitution, new[] { played.Id }, new[] { "player", s.KnowsMember },
+                        new[] { new Effect("access." + s.KnowsInstitution, (int)before, (int)access.Stage) },
+                        "You know " + s.KnowsMember + ", a member of " + World.Institution(s.KnowsInstitution).Def.Name + ".");
+            }
         }
     }
 }

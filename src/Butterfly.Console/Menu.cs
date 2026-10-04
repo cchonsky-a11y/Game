@@ -106,10 +106,12 @@ internal sealed partial class ConsoleGame
             decide.Item2.Add(("decline", "office decline " + i.Key));
         }
 
-        var work = Group("Projects · odd work");
-        if (att && w.PersonalActionTurn != _sim.Turn)
-            foreach (var kind in Simulation.WorkKinds)
-                if (_sim.WorkAttention(kind) <= w.Attention) work.Item2.Add((kind + " (" + M(_sim.WorkPay(kind)) + ", " + _sim.WorkAttention(kind) + " Att.)", "work " + kind));
+        // P1 (Corey, 2026-10-04): generic work is a fallback, not the loop. The menu offers only odd jobs, and only while no
+        // commission or Grand Challenge stage is under way; craft and consult stay typed commands (help) for compatibility.
+        var work = Group("Now · get by");
+        bool realWork = w.Commissions.Any(c => c.Status == CommissionStatus.Working) || w.Challenges.Any(c => c.Status == ChallengeStatus.Working);
+        if (att && w.PersonalActionTurn != _sim.Turn && !realWork && _sim.WorkAttention("odd") <= w.Attention)
+            work.Item2.Add(("odd jobs to get by (" + M(_sim.WorkPay("odd")) + ", " + _sim.WorkAttention("odd") + " Att.)", "work odd"));
 
         var shop = Group("Projects · workshop");
         if (att && _sim.OwnsWorkshop)
@@ -155,7 +157,7 @@ internal sealed partial class ConsoleGame
             foreach (var p in _sim.AvailableProjects().Where(p => _sim.ProjectAuthorityBlocker(p) == null && _sim.ProjectGold(p) <= w.Gold && p.AttentionPerTurn <= w.Attention))
                 projects.Item2.Add((p.Id + " (" + M(_sim.ProjectGold(p)) + ")", "start " + p.Id));
 
-        var inventions = Group("Knowledge · invent");
+        var inventions = Group("Knowledge · practical projects");
         if (att && w.ActiveInventions.Count == 0)
             foreach (var inv in _sim.Data.Content.Inventions.Where(x => _sim.InventionState(x) == "ready" && _sim.InventionGold(x) <= w.Gold))
                 inventions.Item2.Add((inv.Id + " (" + M(_sim.InventionGold(inv)) + ")", "invent " + inv.Id));

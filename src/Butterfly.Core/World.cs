@@ -75,6 +75,8 @@ namespace Butterfly.Core
         public Dictionary<string, int> LifeEventLog { get; } = new Dictionary<string, int>();
         /// <summary>Life events whose time has come (chance rolled) and wait for the scene router (optional ones only), in order.</summary>
         public List<string> ReadyLife { get; } = new List<string>();
+        /// <summary>The turn each life event first became possible (for its window and declining hazard).</summary>
+        public Dictionary<string, int> LifeEligibleSince { get; } = new Dictionary<string, int>();
         /// <summary>Echo lines already shown on an arrival (P1: never repeated word for word).</summary>
         public List<string> EchoesShown { get; } = new List<string>();
         /// <summary>Authored scenes that have happened, in order.</summary>

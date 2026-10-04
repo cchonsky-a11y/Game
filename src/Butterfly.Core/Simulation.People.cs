@@ -16,7 +16,7 @@ namespace Butterfly.Core
         public PersonState? PersonOf(string id) => World.People.FirstOrDefault(p => p.Id == id);
 
         /// <summary>True while the person is ill or away and can't invite, sponsor or introduce anyone.</summary>
-        public bool IsPersonAway(string personId) => PersonOf(personId) is PersonState p && p.AwayUntilTurn > Turn;
+        public bool IsPersonAway(string personId) => PersonOf(personId) is PersonState p && (p.Gone || p.AwayUntilTurn > Turn);
 
         /// <summary>True once the player knows this person.</summary>
         public bool Knows(string personId) => PersonDefOf(personId) is PersonDef d && Holds(d.Known);
@@ -38,9 +38,15 @@ namespace Butterfly.Core
             foreach (var e in Data.Content.Lives)
             {
                 var person = PersonOf(e.Person);
-                if (person == null || person.Happened.Contains(e.Id) || MonthsSinceStart < e.FromMonth) continue;
+                if (person == null || person.Gone || person.Happened.Contains(e.Id) || MonthsSinceStart < e.FromMonth) continue;
                 if (!e.Requires.All(Holds) || World.ReadyLife.Contains(e.Id)) continue;
-                if (!Rng.Chance(e.Chance)) continue;
+                // Competing branches: one of a group, never two.
+                if (e.Group.Length > 0 && Data.Content.Lives.Any(o => o.Group == e.Group && o.Id != e.Id && (World.LifeEventLog.ContainsKey(o.Id) || World.ReadyLife.Contains(o.Id)))) continue;
+                // A bounded window and a declining hazard (Corey, 2026-10-04): a long campaign doesn't make every event certain.
+                if (!World.LifeEligibleSince.TryGetValue(e.Id, out int since)) World.LifeEligibleSince[e.Id] = since = Turn;
+                int months = Turn - since;
+                if (e.WindowMonths > 0 && months >= e.WindowMonths) continue;
+                if (!Rng.Chance(e.Chance * Math.Pow(e.Decay, months))) continue;
                 // A world interruption happens now; anything else waits its turn with the scene router (P1 pacing).
                 if (e.Interrupt) Happen(e, person);
                 else World.ReadyLife.Add(e.Id);
@@ -59,6 +65,11 @@ namespace Butterfly.Core
                 effects.Add(new Effect("person." + e.Person + ".away", 0, e.AwayMonths));
                 person.AwayUntilTurn = Turn + e.AwayMonths;
                 person.ReturnText = e.ReturnText;
+            }
+            if (e.Leaves)
+            {
+                person.Gone = true;
+                effects.Add(new Effect("person." + e.Person + ".gone", 0, 1));
             }
             foreach (var kv in e.StatusChanges)
             {
@@ -97,10 +108,12 @@ namespace Butterfly.Core
         /// <summary>
         /// A requirement from people.json or scenes.json: commission:id:Status, access:inst:Stage (or later), capability:id:Level
         /// (or later), life:id, knows:person, scene:id, month:1-12 (calendar), monthsIn:n, machine:assessed, machine:steps:n,
-        /// project:id:done.
+        /// project:id:done, regard:person:n, invented:id, join:institution (its P0 joining condition), promise; "a|b" for either.
         /// </summary>
         internal bool Holds(string requirement)
         {
+            // "a|b": either will do.
+            if (requirement.IndexOf('|') >= 0) return requirement.Split('|').Any(Holds);
             var parts = requirement.Split(':');
             switch (parts[0])
             {
@@ -125,6 +138,14 @@ namespace Butterfly.Core
                     return parts[1] == "assessed" ? MachineAssessed : MachineStepsDone >= int.Parse(parts[2]);
                 case "project":
                     return World.CompletedProjects.Contains(parts[1]);
+                case "regard":
+                    return (PersonOf(parts[1])?.Regard ?? 0) >= int.Parse(parts[2]);
+                case "invented":
+                    return World.Invented.Contains(parts[1]);
+                case "join":
+                    return JoinBlocker(World.Institution(parts[1])) == null;
+                case "promise":
+                    return World.Promise.Status == PromiseStatus.Active || World.Promise.Status == PromiseStatus.Kept;
                 default:
                     throw new FormatException("Unknown requirement: " + requirement);
             }

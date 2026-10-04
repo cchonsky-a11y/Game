@@ -30,11 +30,14 @@ namespace Butterfly.Core
         {
             var access = World.AccessTo(d.Institution);
             var state = InvitationState(d.Institution)!;
-            var work = World.Commissions.FirstOrDefault(c => c.Id == d.Work);
-            bool worked = work != null && work.Status == CommissionStatus.Done;
+            // Five separate pieces of evidence (Corey, 2026-10-04): who invites, that you really know them, work in their
+            // domain, that the work proved useful, and that the inviter will risk their name now.
+            bool relationship = access.KnownMemberId == d.Inviter && d.RelationshipEvidence.All(Holds);
+            bool work = d.WorkEvidence.All(Holds);
+            bool useful = d.UsefulnessEvidence.All(Holds);
             // Willing to take the risk: not still smarting from a refusal, and not laid up or away (P1 people).
             bool risk = Turn - state.DeclinedTurn >= T.GetInt("invitations.inviterPatienceMonths") && !IsPersonAway(d.Inviter);
-            return new InstitutionInvitationContext(d.Institution, d.Inviter, access.KnownMemberId == d.Inviter, worked, worked, risk);
+            return new InstitutionInvitationContext(d.Institution, d.Inviter, relationship, work, useful, risk);
         }
 
         /// <summary>At the start of each month: the referral month is noted, and a sponsored candidate's vote is held.</summary>
@@ -135,18 +138,56 @@ namespace Butterfly.Core
             return CommandResult.Success(d.DeclineText);
         }
 
-        /// <summary>The members vote you in: you pay the entry and take on the obligations; P0 systems read a member's standing.</summary>
+        /// <summary>
+        /// The members' chance of voting a sponsored candidate in (P1-13): a base, more for each point of the sponsor's regard,
+        /// less if the institution holds a grievance against you; within [0, 1].
+        /// </summary>
+        public double AdmissionSupport(InvitationPathDef d)
+        {
+            var inst = World.Institution(d.Institution);
+            double support = T.Get("invitations.vote.base") + T.Get("invitations.vote.perSponsorRegard") * (PersonOf(d.Inviter)?.Regard ?? 0)
+                             - (inst.Regard < 0 ? T.Get("invitations.vote.grievance") : 0);
+            return Math.Max(0, Math.Min(1, support));
+        }
+
+        /// <summary>
+        /// The vote. Admission is not a timer (Corey, 2026-10-04): members can object. A failed vote is put off once; a second
+        /// failure is a refusal, and the sponsor waits before trying again. Won: you pay the entry and take on the obligations.
+        /// </summary>
         private void Admit(InvitationPathDef d, InvitationPathState state, InstitutionAccessState access)
         {
             var inst = World.Institution(d.Institution);
+            // The vote is held once; if you won it but couldn't pay the entry, they wait for your money, not for another vote.
+            if (!state.VotedIn && !Rng.Chance(AdmissionSupport(d)))
+            {
+                if (!state.Postponed)
+                {
+                    state.Postponed = true;
+                    state.StepTurn = Turn;
+                    World.ScenePacing.Record(d.Admit.Category);
+                    Record("invitation.postponed", d.Institution, null, new[] { d.Inviter }, null, d.PostponedText);
+                    return;
+                }
+                state.Postponed = false;
+                state.StepTurn = Turn;
+                state.DeclinedTurn = Turn;
+                access.Refuse();
+                World.ScenePacing.Record(d.Admit.Category);
+                Record("invitation.refused", d.Institution, null, new[] { d.Inviter }, new[] { new Effect("access." + d.Institution, (int)InstitutionAccessStage.SponsoredCandidate, (int)access.Stage) },
+                    d.RefusedText);
+                return;
+            }
             double fee = EntryFee(inst);
             if (World.Gold < fee)
             {
-                if (state.StepTurn != Turn - d.AdmitAfterMonths) return;   // say it once
+                if (state.VotedIn) return;   // say it once
+                state.VotedIn = true;
                 Record("invitation.wait", d.Institution, null, new[] { d.Inviter }, null,
-                    "The guild has voted you in, but the entry is " + Money(fee) + " and you can't pay it yet. They'll wait.");
+                    Cap(inst.Def.ShortName) + " has voted you in, but the entry is " + Money(fee) + " and you can't pay it yet. They'll wait.");
                 return;
             }
+            state.VotedIn = false;
+            state.Postponed = false;
             if (!access.AdmitMember(d.Inviter)) return;
             double gold = World.Gold, stake = inst.Stake, loyalty = inst.Loyalty;
             World.Gold -= fee;

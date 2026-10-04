@@ -83,6 +83,14 @@ namespace Butterfly.Core
         public bool Misattributed { get; }
         /// <summary>A world interruption (illness, fire): it happens when it happens, not when the scene router allows.</summary>
         public bool Interrupt { get; }
+        /// <summary>Months after it first becomes possible during which it can happen; 0 for no limit (Corey, 2026-10-04: no inevitability).</summary>
+        public int WindowMonths { get; }
+        /// <summary>The monthly chance is multiplied by this for each month it has been possible (a declining hazard).</summary>
+        public double Decay { get; }
+        /// <summary>Mutually exclusive branches: once one event of a group happens (or waits to), the others never do.</summary>
+        public string Group { get; }
+        /// <summary>The person leaves Rome for good.</summary>
+        public bool Leaves { get; }
 
         public LifeEventDef(JsonObject o)
         {
@@ -107,6 +115,10 @@ namespace Butterfly.Core
             Distorted = c != null && c.BoolOr("distorted", false);
             Misattributed = c != null && c.BoolOr("misattributed", false);
             Interrupt = o.BoolOr("interrupt", false);
+            WindowMonths = (int)o.NumOr("windowMonths", 0);
+            Decay = o.NumOr("decay", 1);
+            Group = o.StrOr("group", "") ?? "";
+            Leaves = o.BoolOr("leaves", false);
         }
     }
 
@@ -121,6 +133,8 @@ namespace Butterfly.Core
         /// <summary>How this person regards the inventor (P1): small whole steps from shared life and work.</summary>
         public int Regard { get; set; }
         public List<string> Happened { get; } = new List<string>();
+        /// <summary>Gone from Rome for good.</summary>
+        public bool Gone { get; set; }
 
         public PersonState(string id, string status) { Id = id; Status = status; }
     }
@@ -141,6 +155,9 @@ namespace Butterfly.Core
         public string Text { get; }
         public IReadOnlyList<KeyValuePair<string, int>> Regard { get; }
         public IReadOnlyList<KeyValuePair<string, string>> StatusChanges { get; }
+        /// <summary>Through this scene the inventor comes to know a member of an institution (the first step of access).</summary>
+        public string KnowsInstitution { get; }
+        public string KnowsMember { get; }
 
         public AuthoredSceneDef(JsonObject o)
         {
@@ -153,6 +170,9 @@ namespace Butterfly.Core
             Regard = r == null ? new List<KeyValuePair<string, int>>() : r.Keys.Select(k => new KeyValuePair<string, int>(k, (int)r.Num(k))).ToList();
             var s = o.Has("status") ? o.Obj("status") : null;
             StatusChanges = s == null ? new List<KeyValuePair<string, string>>() : s.Keys.Select(k => new KeyValuePair<string, string>(k, s.Str(k))).ToList();
+            var km = o.Has("knowsMember") ? o.Obj("knowsMember") : null;
+            KnowsInstitution = km?.Str("institution") ?? "";
+            KnowsMember = km?.Str("member") ?? "";
         }
     }
 }

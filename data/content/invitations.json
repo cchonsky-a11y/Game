@@ -1,10 +1,14 @@
 {
-  "_readme": "P1 institution access (decided 2026-10-02): aware → knows a member → guest → invited back → sponsored candidate → member. A forward step needs the five-part gate: a specific inviter, an existing relationship, relevant work in the domain, demonstrated usefulness, and an inviter willing to take the risk. Fame never counts. Months and costs PROPOSED P1-06. 'work' names a commission whose completion is the relevant work.",
+  "_readme": "P1 institution access (decided 2026-10-02): aware → knows a member → guest → invited back → sponsored candidate → member. A forward step needs the five-part gate: a specific inviter (who must know you as a member's acquaintance), an existing relationship, relevant work in the domain and demonstrated usefulness, each with its own requirements in 'evidence' (people.json syntax), and an inviter willing to take the risk. Fame never counts. After sponsorship the members vote (P1-13): they may put it off once ('postponed') and then refuse ('refused'). Months and costs PROPOSED P1-06.",
   "paths": [
     {
       "institution": "guild",
       "inviter": "Felix",
-      "work": "cellarpump",
+      "evidence": {
+        "relationship": ["knows:Felix"],
+        "work": ["commission:cellarpump:Done"],
+        "usefulness": ["capability:valveseats:Reproducible"]
+      },
       "guestAfterMonths": 2,
       "againAfterMonths": 3,
       "sponsorAfterMonths": 4,
@@ -30,8 +34,48 @@
         "category": "InstitutionsPolitics",
         "scene": "The guild takes you in. You swear by the guild's genius before the shrine in the hall, pay your entry, and hear what you owe: dues each year, your place at the suppers, a share when a member is buried, help when a member is in trouble, and the guild's word in your disputes. Felix pours the first cup."
       },
+      "postponed": "The guild puts your vote off again. A shipper who lost a contract to a foreigner last year talks for a long time about foreigners. Felix says it means nothing; he says it twice.",
+      "refused": "The guild votes, and you are not in. Felix tells you on the quay, not looking at you: the shipper had friends, and some of the older families don't like a freedman's man. He will try again, but not soon.",
       "echoGuest": "The guild at Ostia keeps a book of its suppers. Your name is in it as a guest, in Felix's hand, and then not again.",
       "decline": "You send word to Felix that you can't come. He doesn't ask again for a while."
+    },
+    {
+      "institution": "circle",
+      "inviter": "Serenus",
+      "evidence": {
+        "relationship": ["knows:Serenus"],
+        "work": ["join:circle"],
+        "usefulness": ["regard:Serenus:2"]
+      },
+      "guestAfterMonths": 1,
+      "againAfterMonths": 3,
+      "sponsorAfterMonths": 4,
+      "admitAfterMonths": 1,
+      "mealAttention": 1,
+      "mealCost": 2,
+      "guest": {
+        "offer": "Serenus: \"The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet.\"",
+        "category": "RomanLife",
+        "scene": "Demetria of Pergamon's dining room has a mosaic of Asclepius and a cook from Alexandria. Twelve physicians argue in Greek about whether the liver makes blood. Demetria asks you one question, about the fountain, and listens to the whole answer. Serenus eats everything."
+      },
+      "again": {
+        "offer": "Serenus: \"Demetria asked if you'd come again. She doesn't ask twice about anyone.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "This time the talk is about money: the Circle's dispensary in the Subura is short, and a member who treats senators wants it closed. Serenus says nothing until the end, then reads out his columns. Nobody laughs. Two men ask to copy them."
+      },
+      "sponsor": {
+        "offer": "Serenus, at the door: \"I'll put your name up. If you embarrass me, I'll have to go back to treating by the stars.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "Serenus speaks for you at the Circle's meeting: a foreigner, but he counts. A senator's physician says the Circle is for physicians. Demetria says the Circle is for whoever is useful to the sick, and the vote is set for next month."
+      },
+      "admit": {
+        "category": "InstitutionsPolitics",
+        "scene": "The Circle takes you in. You swear by Asclepius and Hygieia, pay your entry, and hear what you owe: dues, a day a month at the dispensary, your name on a fee you never charge the poor, and the Circle's word in disputes between physicians. Serenus pours the wine himself."
+      },
+      "postponed": "The Circle puts your vote off. The senator's physician has friends, and the friends want to know what exactly you are. Serenus says they will forget by next month. He doesn't sound sure.",
+      "refused": "The Circle votes you down. Serenus comes to tell you himself, which costs him something. \"They don't like what they can't place,\" he says. \"Neither do I, usually.\"",
+      "echoGuest": "The Circle's dining book still lists you twice as Serenus's guest, under a name spelled two different ways.",
+      "decline": "You send word to Serenus that you can't come. He sends back a jar of honey from his roof and nothing else."
     }
   ]
 }

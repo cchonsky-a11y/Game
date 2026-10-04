@@ -54,6 +54,19 @@
       "text": "The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension."
     },
     {
+      "id": "serenus-meet", "category": "Personal",
+      "requires": ["monthsIn:6", "scene:felix-vow|project:fountain:done|project:physician:done|promise"],
+      "regard": { "Serenus": 1 },
+      "knowsMember": { "institution": "circle", "member": "Serenus" },
+      "text": "A physician called Serenus finds you at the fountain, a short man with ink on his cuffs. He has heard you talk about fevers as if you'd counted them. \"Have you?\" he asks. You say not yet. \"Neither has anyone else,\" he says. \"Come and see my casebooks. Bring wine; my sister won't buy any.\""
+    },
+    {
+      "id": "serenus-casebook", "category": "Engineering",
+      "requires": ["knows:Serenus", "monthsIn:9"],
+      "regard": { "Serenus": 1 },
+      "text": "Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. \"The bleeding,\" he says. \"I bled eleven of them.\""
+    },
+    {
       "id": "r17-request", "category": "MachineMystery",
       "requires": ["machine:assessed", "monthsIn:3"],
       "text": "Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch."

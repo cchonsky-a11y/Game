@@ -53,6 +53,8 @@ namespace Butterfly.Core
         public string ClientRole { get; }
         public string Introducer { get; }
         public int OpensAfterMonths { get; }
+        /// <summary>What must hold before the work can come (people.json syntax): repeat work follows the first.</summary>
+        public IReadOnlyList<string> Requires { get; }
         public CommissionSceneDef Encounter { get; }
         public CommissionSceneDef Diagnosis { get; }
         public CommissionSceneDef TermsScene { get; }
@@ -84,6 +86,7 @@ namespace Butterfly.Core
             ClientRole = o.Str("clientRole");
             Introducer = o.StrOr("introducer", "") ?? "";
             OpensAfterMonths = (int)o.Num("opensAfterMonths");
+            Requires = o.Has("requires") ? o.Arr("requires").Cast<string>().ToList() : new List<string>();
             Encounter = new CommissionSceneDef(o.Obj("encounter"));
             Diagnosis = new CommissionSceneDef(o.Obj("diagnosis"));
             var t = o.Obj("terms");

@@ -1,5 +1,5 @@
 {
-  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence (stake). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22. The compound pulley crane was replaced by the padded horse collar on 2026-09-28 (Corey: Rome already had pulley cranes, and a crane doesn't follow from the wheelbarrow). Workshop branch and varied patrons (DECIDED 2026-09-28, Corey): a fourth branch improves the workshop (treadle lathe → water-powered bellows → blast furnace; +10% / +15% / +20% of the workshop's income, kept modest); every invention names the institution(s) it wins standing in, with stake and loyalty that vary by invention, covering all six established institutions.",
+  "_readme": "Inventions for P0 (DECIDED 2026-09-28, Corey: a first version, to be fleshed out later). Things the inventor makes from future knowledge; each needs Means or Carriers from Rome (Knowing Is Not Making) and pays off in income, standing (leader loyalty) and influence. P1 (Corey, 2026-10-04): these are practical projects in the capability model: small problems that prove principles; 'regard' (an institution's interest in you, which helps its people take you in) replaces the old stake rewards, and 'capability'/'capabilityTo' name the capability a project moves when it is done (it can't start while that level is out of Rome's reach). Visibility and anachronism risk are out of P0 scope. Invention tree (DECIDED 2026-09-28, Corey): three branches of three tiers (mechanics, accounts, hygiene); each invention after the first in its branch needs the one before it (prerequisite) as well as something from Rome. The whole tree is visible; locked ones show what they need. Not the Knowledge Web (no diffusion or absorption). Amounts PROPOSED P0-22. The compound pulley crane was replaced by the padded horse collar on 2026-09-28 (Corey: Rome already had pulley cranes, and a crane doesn't follow from the wheelbarrow). Workshop branch and varied patrons (DECIDED 2026-09-28, Corey): a fourth branch improves the workshop (treadle lathe → water-powered bellows → blast furnace; +10% / +15% / +20% of the workshop's income, kept modest); every invention names the institution(s) it wins standing in, with stake and loyalty that vary by invention, covering all six established institutions.",
   "inventions": [
     {
       "id": "wheelbarrow",
@@ -20,7 +20,7 @@
           "value": 5
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "junian",
           "value": 1
         },
@@ -60,7 +60,7 @@
           "value": 10
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "trade",
           "value": 3
         },
@@ -105,7 +105,7 @@
           "value": 12
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "bank",
           "value": 4
         },
@@ -144,7 +144,7 @@
           "value": 10
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "trade",
           "value": 3
         }
@@ -153,7 +153,9 @@
       "baseline": "Households and bankers keep careful daybooks and ledgers of receipts and payments.",
       "bottleneck": "Each sum is written once, so a slip or a theft hides in it.",
       "leap": "formalize",
-      "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them give you a share in return."
+      "capability": "records",
+      "capabilityTo": "Demonstrated",
+      "completionText": "Your ledgers balance to the last sestertius; the traders who adopt them send their friends to you."
     },
     {
       "id": "bills",
@@ -179,7 +181,7 @@
           "value": 15
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "bank",
           "value": 5
         }
@@ -188,7 +190,7 @@
       "baseline": "Bankers move credit between their own clients' accounts; letters of credit between cities pass between friends.",
       "bottleneck": "Coin has to travel with the trade, and coin can be robbed or sunk.",
       "leap": "standardize",
-      "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the banking house that honors them grows, and so does your share."
+      "completionText": "Traders settle debts across the sea with your notes instead of chests of coin; the banking house that honors them grows, and its partners start asking for you by name."
     },
     {
       "id": "audit",
@@ -211,7 +213,7 @@
           "value": 20
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "faction",
           "value": 2
         }
@@ -276,7 +278,7 @@
           "value": 12
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "medicine",
           "value": 2
         },
@@ -312,7 +314,7 @@
           "value": 20
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "medicine",
           "value": 4
         },
@@ -330,6 +332,8 @@
       "baseline": "Army and estate hospitals take in the sick, temples heal by incubation, and physicians write case histories in the Hippocratic way.",
       "bottleneck": "Cases are never put side by side, so no one learns which treatment works.",
       "leap": "combine",
+      "capability": "casenotes",
+      "capabilityTo": "Demonstrated",
       "completionText": "The fever ward opens with twelve beds and a ledger; within a year its physicians know which treatments save lives, and they say whose idea it was."
     },
     {
@@ -351,7 +355,7 @@
           "value": 8
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "guild",
           "value": 1
         }
@@ -382,7 +386,7 @@
           "value": 6
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "trade",
           "value": 2
         }
@@ -391,6 +395,8 @@
       "baseline": "Bellows of hide are worked by hand or foot, by boys at the forge.",
       "bottleneck": "A forge is only as hot and as steady as the boy at the bellows.",
       "leap": "combine",
+      "capability": "steelgrades",
+      "capabilityTo": "Demonstrated",
       "completionText": "The forge breathes without a boy at the bellows; the workshop's iron comes out cleaner, and the guild's merchants buy all of it."
     },
     {
@@ -418,7 +424,7 @@
           "value": 12
         },
         {
-          "type": "stake",
+          "type": "regard",
           "group": "faction",
           "value": 3
         }

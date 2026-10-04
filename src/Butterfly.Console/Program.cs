@@ -176,7 +176,7 @@ internal sealed partial class ConsoleGame
                                    coinage sound|debase · prices free|controlled · property secure|discretionary · taxes light|heavy
                                    (or 'history' to return to Rome's own practice)
   mentor <inst>                  commit Attention every month for several months
-  work [odd|craft|consult]       your one personal action: earn about 125 / 300 / 500 denarii for 1 / 2 / 3 Attention
+  work [odd|craft|consult]       a fallback when no one has brought you work: about 125 / 300 / 500 denarii for 1 / 2 / 3 Attention
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
