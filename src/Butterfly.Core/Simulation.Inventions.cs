@@ -65,7 +65,7 @@ namespace Butterfly.Core
             return "ready";
         }
 
-        private static readonly Dictionary<string, string[]> InventionGroups = new Dictionary<string, string[]>
+        internal static readonly Dictionary<string, string[]> InventionGroups = new Dictionary<string, string[]>
         {
             { "trade", new[] { "guild", "bank" } }, { "medicine", new[] { "circle", "sanctuary" } },
             { "faction", new[] { "faction", "junian" } }, { "guild", new[] { "guild" } },
@@ -159,7 +159,7 @@ namespace Butterfly.Core
             fx.Group == null ? null : InventionGroups[fx.Group].Select(World.Institution).Where(i => i.Backed)
                 .OrderByDescending(i => i.Stake).ThenBy(i => i.Key, StringComparer.Ordinal).FirstOrDefault();
 
-        private void ApplyInventionEffect(InventionDef def, InventionEffect fx, int causeId)
+        internal void ApplyInventionEffect(InventionDef def, InventionEffect fx, int causeId)
         {
             switch (fx.Type)
             {

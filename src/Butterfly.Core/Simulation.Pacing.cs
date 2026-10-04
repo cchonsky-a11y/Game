@@ -11,7 +11,7 @@ namespace Butterfly.Core
     public sealed partial class Simulation
     {
         /// <summary>Event types that stop auto-advance so the player can react.</summary>
-        private static readonly HashSet<string> NotableEvents = new HashSet<string>
+        internal static readonly HashSet<string> NotableEvents = new HashSet<string>
         {
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
             "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",

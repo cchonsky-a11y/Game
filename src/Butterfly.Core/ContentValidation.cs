@@ -124,11 +124,110 @@ namespace Butterfly.Core
                 }
             }
             foreach (var i in c.Inventions) Capability("invention " + i.Id, i.Capability);
-            foreach (var e in c.Events)
-                foreach (var o in e.Options)
-                    foreach (var fx in o.Effects.Where(fx => fx.Type == "regard" || fx.Type == "status"))
-                        Person("event " + e.Id + " option " + o.Id, fx.Person ?? "");
+            EventsAndEffects(p, c, flags, people, institutions);
             return p;
+        }
+
+        /// <summary>The effect types <see cref="Simulation.ApplyEffects"/> applies (decision events and workshop orders).</summary>
+        public static readonly string[] EffectTypes =
+            { "gold", "aurei", "level", "debt", "loyalty", "lean", "income", "workshop", "stake", "standing", "resilience", "workshopSize", "regard", "status", "smith" };
+
+        /// <summary>The effect types an invention can have (<c>Simulation.ApplyInventionEffect</c>).</summary>
+        public static readonly string[] InventionEffectTypes =
+            { "income", "consultBonus", "loyalty", "regard", "level", "workshop", "plagueResilience", "unrest", "grievance" };
+
+        /// <summary>The named requirements an invention may carry (<c>Simulation.InventionRequirementMet</c>).</summary>
+        public static readonly string[] InventionRequirements =
+            { "workshop", "tradeMember", "medicineWork", "workshopAndFaction", "workshopAndTrade", "workshopAndGuild10", "tradeInfluence", "factionInfluence", "medicineMember", "medicineInfluence" };
+
+        /// <summary>The named requirements a machine step may carry (<c>Simulation.MachineRequirementMet</c>).</summary>
+        public static readonly string[] MachineRequirements = { "tradeMember", "medicineWork", "factionMember", "workshop" };
+
+        /// <summary>
+        /// The older (P0) content grammars: decision events (requirement, effects, "if" conditions, marks), workshop orders and
+        /// sizes, inventions and machine steps. An unknown effect type used to throw only when the event fired; a misspelled
+        /// domain or institution was silently ignored or threw mid-campaign.
+        /// </summary>
+        private static void EventsAndEffects(List<string> p, Content c, HashSet<string> flags, HashSet<string> people, HashSet<string> institutions)
+        {
+            bool Domain(string? d) => d != null && DomainInfo.TryParseDomain(d, out _);
+            void Effects(string where, IEnumerable<EventEffect> effects)
+            {
+                foreach (var fx in effects)
+                {
+                    string w = where + " effect '" + fx.Type + "'";
+                    if (!EffectTypes.Contains(fx.Type)) { p.Add(w + ": unknown effect type (one of " + string.Join(", ", EffectTypes) + ")"); continue; }
+                    if ((fx.Type == "level" || fx.Type == "debt") && !Domain(fx.Domain)) p.Add(w + ": unknown domain '" + fx.Domain + "'");
+                    if (fx.Type == "loyalty" || fx.Type == "lean" || fx.Type == "stake" || fx.Type == "standing")
+                    {
+                        if (fx.Institution == null) p.Add(w + ": names no institution");
+                        else if (fx.Institution != "members" && !institutions.Contains(fx.Institution)) p.Add(w + ": unknown institution '" + fx.Institution + "'");
+                    }
+                    if ((fx.Type == "regard" || fx.Type == "status") && !people.Contains(fx.Person ?? "")) p.Add(w + ": unknown person '" + fx.Person + "'");
+                    if (fx.Type == "status" && string.IsNullOrWhiteSpace(fx.Text)) p.Add(w + ": a status effect needs its new text");
+                    if (fx.If != null)
+                    {
+                        if (fx.If.StartsWith("own:", StringComparison.Ordinal))
+                        {
+                            var inst = c.Institutions.FirstOrDefault(x => x.Id == fx.If.Substring(4));
+                            if (inst == null || !inst.IsOwn) p.Add(w + ": condition '" + fx.If + "' names no institution of your own");
+                        }
+                        else
+                        {
+                            string flag = fx.If.StartsWith("not:", StringComparison.Ordinal) ? fx.If.Substring(4) : fx.If;
+                            if (!flags.Contains(flag)) p.Add(w + ": condition '" + fx.If + "' names a flag nothing sets");
+                        }
+                    }
+                }
+            }
+            foreach (var e in c.Events)
+            {
+                string w = "event " + e.Id;
+                string r = e.Requires;
+                bool ok = r == "any" || r == "workshop" || r == "member"
+                       || r.StartsWith("workshopBelow:", StringComparison.Ordinal) && int.TryParse(r.Substring(14), NumberStyles.Integer, CultureInfo.InvariantCulture, out _)
+                       || r.StartsWith("member:", StringComparison.Ordinal) && institutions.Contains(r.Substring(7));
+                if (!ok) p.Add(w + ": unknown requirement '" + r + "'");
+                if (e.Options.Count == 0) p.Add(w + ": no options");
+                Unique(p, w + " option", e.Options.Select(o => o.Id));
+                foreach (var o in e.Options)
+                {
+                    Effects(w + " option " + o.Id, o.Effects);
+                    if (o.MarkInstitution != null && !institutions.Contains(o.MarkInstitution)) p.Add(w + " option " + o.Id + ": mark names unknown institution '" + o.MarkInstitution + "'");
+                }
+            }
+            foreach (var o in c.Orders) Effects("workshop order " + o.Id, o.Effects);
+            foreach (var s in c.WorkshopSizes) WorkshopRequirement(p, c, institutions, "workshop size " + s.Id, s.Requires);
+            foreach (var i in c.Inventions)
+            {
+                string w = "invention " + i.Id;
+                if (!InventionRequirements.Contains(i.Requirement)) p.Add(w + ": unknown requirement '" + i.Requirement + "'");
+                foreach (var fx in i.Effects)
+                {
+                    string wf = w + " effect '" + fx.Type + "'";
+                    if (!InventionEffectTypes.Contains(fx.Type)) p.Add(wf + ": unknown effect type");
+                    if (fx.Type == "level" && fx.Domain == null) p.Add(wf + ": unknown domain '" + fx.DomainName + "'");
+                    if ((fx.Type == "loyalty" || fx.Type == "regard") && (fx.Group == null || !Simulation.InventionGroups.ContainsKey(fx.Group)))
+                        p.Add(wf + ": unknown group '" + fx.Group + "' (one of " + string.Join(", ", Simulation.InventionGroups.Keys) + ")");
+                    if (fx.Type == "grievance" && (fx.Group == null || !institutions.Contains(fx.Group))) p.Add(wf + ": unknown institution '" + fx.Group + "'");
+                }
+            }
+            foreach (var m in c.MachineSteps.Concat(c.MachineUpgrades))
+                if (m.Requirement != null && !MachineRequirements.Contains(m.Requirement)) p.Add("machine step " + m.Id + ": unknown requirement '" + m.Requirement + "'");
+        }
+
+        /// <summary>The workshop size grammar (<c>Simulation.WorkshopRequirementHolds</c>): none, member:a|b, stake:x, influence:domain, invented:id, joined by "||".</summary>
+        private static void WorkshopRequirement(List<string> p, Content c, HashSet<string> institutions, string where, string requires)
+        {
+            foreach (var part in requires.Split(new[] { "||" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()))
+            {
+                bool ok = part == "none"
+                    || part.StartsWith("member:", StringComparison.Ordinal) && part.Substring(7).Split('|').All(institutions.Contains)
+                    || part.StartsWith("stake:", StringComparison.Ordinal) && institutions.Contains(part.Substring(6).Split(':')[0])
+                    || part.StartsWith("influence:", StringComparison.Ordinal) && DomainInfo.TryParseDomain(part.Substring(10), out _)
+                    || part.StartsWith("invented:", StringComparison.Ordinal) && c.Inventions.Any(i => i.Id == part.Substring(9));
+                if (!ok) p.Add(where + ": unknown requirement '" + part + "'");
+            }
         }
 
         private static void Unique(List<string> p, string what, IEnumerable<string> ids)

@@ -191,12 +191,15 @@ namespace Butterfly.Core
         /// <summary>Which institutions it touches: trade (guild or bank), medicine (Circle or sanctuary), faction (either faction), guild.</summary>
         public string? Group { get; }
         public Domain? Domain { get; }
+        /// <summary>The domain as authored (validated at load; <see cref="Domain"/> is null when it doesn't parse).</summary>
+        public string? DomainName { get; }
 
         public InventionEffect(JsonObject o)
         {
             Type = o.Str("type");
             Value = o.Num("value");
             Group = o.StrOr("group", null);
+            DomainName = o.StrOr("domain", null);
             if (o.Has("domain") && DomainInfo.TryParseDomain(o.Str("domain"), out var d)) Domain = d;
         }
     }

@@ -111,5 +111,78 @@ namespace Butterfly.Core.Tests
             var e = Assert.Throws<FormatException>(() => Json.Parse("{\n  \"a\": 1,\n  \"b\" 2\n}"));
             Assert.Contains("line 3, column 7", e.Message);
         }
+    
+        private static Butterfly.Core.JsonObject Obj(string json) => (Butterfly.Core.JsonObject)Json.Parse(json)!;
+
+        [Fact]
+        public void EveryEffectTypeTheValidatorAcceptsIsApplied()
+        {
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop");
+            foreach (var type in ContentValidation.EffectTypes)
+                sim.ApplyEffects("test", new[] { new EventEffect(Obj("{\"type\":\"" + type + "\",\"value\":1,\"domain\":\"medicine\",\"institution\":\"guild\",\"person\":\"Felix\",\"text\":\"x\"}")) }, new[] { 1 });
+            Assert.Throws<InvalidOperationException>(() => sim.ApplyEffects("test", new[] { new EventEffect(Obj("{\"type\":\"gild\",\"value\":1}")) }, new[] { 1 }));
+            var inv = sim.Data.Content.Inventions[0];
+            foreach (var type in ContentValidation.InventionEffectTypes)
+                sim.ApplyInventionEffect(inv, new InventionEffect(Obj("{\"type\":\"" + type + "\",\"value\":1,\"domain\":\"medicine\",\"group\":\"guild\"}")), 1);
+            Assert.Throws<InvalidOperationException>(() => sim.ApplyInventionEffect(inv, new InventionEffect(Obj("{\"type\":\"incom\",\"value\":1}")), 1));
+        }
+
+        [Fact]
+        public void BadEventContentFailsAtLoad()
+        {
+            string? error = LoadBroken("events.json", n =>
+            {
+                var events = n["events"]!.AsArray();
+                var withOptions = events.Where(e => e!["options"]!.AsArray().Count > 0).Take(2).ToList();
+                var first = withOptions[0]!;
+                first["requires"] = "memberr:guild";
+                first["options"]!.AsArray()[0]!["effects"] = new JsonArray(
+                    new JObject { ["type"] = "gild", ["value"] = 1 },
+                    new JObject { ["type"] = "level", ["domain"] = "medecine", ["value"] = 1 },
+                    new JObject { ["type"] = "loyalty", ["institution"] = "guidl", ["value"] = 1 },
+                    new JObject { ["type"] = "gold", ["value"] = 1, ["if"] = "not:suburaTrsut" },
+                    new JObject { ["type"] = "status", ["person"] = "Felix", ["value"] = 0 });
+            });
+            Assert.NotNull(error);
+            Assert.Contains("unknown requirement 'memberr:guild'", error);
+            Assert.Contains("effect 'gild': unknown effect type", error);
+            Assert.Contains("unknown domain 'medecine'", error);
+            Assert.Contains("unknown institution 'guidl'", error);
+            Assert.Contains("condition 'not:suburaTrsut' names a flag nothing sets", error);
+            Assert.Contains("a status effect needs its new text", error);
+        }
+
+        [Fact]
+        public void BadWorkshopInventionAndMachineContentFailsAtLoad()
+        {
+            Assert.Contains("unknown requirement 'membr:guild'",
+                LoadBroken("workshop.json", n => n["sizes"]!.AsArray()[1]!["requires"] = "membr:guild") ?? "");
+            Assert.Contains("unknown domain 'Medcine'",
+                LoadBroken("workshop.json", n => n["orders"]!.AsArray()[0]!["effects"] = new JsonArray(new JObject { ["type"] = "level", ["domain"] = "Medcine", ["value"] = 1 })) ?? "");
+            string inv = LoadBroken("inventions.json", n =>
+            {
+                var first = n["inventions"]!.AsArray()[0]!;
+                first["requirement"] = "workshp";
+                first["effects"] = new JsonArray(new JObject { ["type"] = "level", ["domain"] = "Medcine", ["value"] = 1 },
+                                                 new JObject { ["type"] = "regard", ["group"] = "guilds", ["value"] = 1 });
+            }) ?? "";
+            Assert.Contains("unknown requirement 'workshp'", inv);
+            Assert.Contains("unknown domain 'Medcine'", inv);
+            Assert.Contains("unknown group 'guilds'", inv);
+            Assert.Contains("unknown requirement 'tradeMembr'",
+                LoadBroken("machine.json", n => n["steps"]!.AsArray()[0]!["requirement"] = "tradeMembr") ?? "");
+        }
+
+        [Fact]
+        public void EveryNotableEventTypeIsOneTheSimulationRecords()
+        {
+            // Fast-forward stops on these event types; a misspelled one would silently never stop it.
+            string src = Path.Combine(Directory.GetParent(GameData.FindDataDirectory(AppContext.BaseDirectory))!.FullName, "src", "Butterfly.Core");
+            string code = string.Join("\n", Directory.GetFiles(src, "*.cs").Where(f => !f.EndsWith("Simulation.Pacing.cs")).Select(File.ReadAllText));
+            var categories = Enum.GetNames(typeof(SceneCategory)).Select(n => "scene." + n.ToLowerInvariant()).ToList();
+            foreach (var type in Simulation.NotableEvents)
+                Assert.True(categories.Contains(type) || code.Contains("\"" + type + "\""), "no code records '" + type + "'");
+        }
     }
 }
