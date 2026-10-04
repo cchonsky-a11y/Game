@@ -597,3 +597,23 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - keep membership (unreachable in P1);
   - another route (a library or the Tabularium through Serenus or the guild).
 - **Snapshot reset** (deliberate: new routable scenes shift seeded draws): the reference game arrives in AD 247 with Index 127.1 (was 127.7). The fast-forward test now checks its real claim, that the offer was made the month fast-forward stopped, instead of assuming two different games open their first event in the same month.
+
+## 2026-10-04 — P1 freeze pass: Corey's decisions applied
+- **Decided (Corey):**
+  - Hermogenes and the political-client foundation are approved as built. They are not expanded into a faction system.
+  - **The machine's archives step takes political client access.** A senator's note comes once the inventor has stood at Varro's salutatio as his client. Knowing Hermogenes, the house's goodwill, or meeting Cassianus or Serenus is not enough, and faction membership is not required. Bribing a clerk (15 gold) stays the fallback. This supersedes the earlier entries that said the step always costs gold.
+  - **Strict Grand Challenge route causality.** A challenge remembers the first route that became eligible.
+  - P1-20, P1-21 and P1-22 are approved provisionally, with no retuning.
+  - The age bonus (`scenes.progressionAgePerMonth`, P1-23) stays at 0. Routing weights are unchanged.
+  - **Not built:** the following (formal Caecilian membership, offices, the Junian path, client exclusivity, recurring obligations), long-jump or elapsed-time echoes, and Attention retuning (NEEDS HUMAN VALIDATION). The jump-range redesign is deferred.
+- **Implemented:**
+  - Machine requirement `senatorsClient` (the salutatio seen; legacy faction members still qualify for the P0 batch).
+  - `ChallengeState.FirstEligibleRoute` / `FirstEligibleTurn`, recorded each month before routing. Same-month ties go by authored order, no randomness is added, a later route never replaces the record, and the challenge opens once.
+  - Tests: the archive (stranger, the steward known, the house's goodwill, the client; the bribe price), and the allotment eligible first with the pump later (the allotment keeps the credit and opens once).
+- **Scripted evidence (not human):**
+  - 510 tests pass. The two-jump validation, the P0 batch gate and the snapshot are unchanged.
+  - Matrix: 300 of 300 runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences.
+  - Standards routes unchanged (pump 288, hoist 8, allotment 3, never 1).
+  - Archives: a note in 8 runs, a bribe in 292. The scripted profiles repair early; only the Relationship profile now waits for the salutatio.
+  - Both challenges done in 259 runs (was 266). This is that profile's script change, not a game regression. The explorer's output changes because its random players reach the salutatio.
+- **Documents updated:** SYSTEMS.md §7, §11, §13; GDD Appendix A; P1_PROPOSALS.md; P1_PROGRESSION_MAP.md; P1_POLISH_2026-10-04.md; P1_COMPLETION_AUDIT_2026-10-04.md; HANDOFF.md; the matrix data. No tuning value changed.

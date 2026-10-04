@@ -92,3 +92,10 @@ See `docs/P1_POLISH_2026-10-04.md` for the full findings. Changes since the audi
 - "continuing" (scope);
 - the grind for players who refuse work, and legacy ownership numbers in a few places.
 
+
+## Freeze-pass update (2026-10-04)
+
+- **13. Preparing the machine:** the gap is closed. The archives step takes a senator's note (standing at Varro's salutatio as his client), with the clerk's bribe as fallback; it no longer always costs gold.
+- **9. A Grand Challenge through more than one path:** the credit now goes to the first route that became eligible (strict causality). Route tallies are unchanged in 300 runs.
+- **P1-20, P1-21, P1-22:** approved provisionally. **P1-23** (age bonus) stays off. Attention is not retuned and needs human validation. The jump range is unchanged; its redesign is deferred.
+- Evidence after the pass: 510 tests pass; 300 of 300 matrix runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences; both challenges done in 259 runs (266 before; the drop is the Relationship profile now waiting on the salutatio before its chronometer repair, a script change).

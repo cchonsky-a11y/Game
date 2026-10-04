@@ -61,7 +61,7 @@ Generic odd jobs are the fallback. The menu offers them only while no commission
 
 ## 5. Grand Challenges
 
-**Measurement and standards** (goal: gauges reproducible). It opens by any route (first that holds, once):
+**Measurement and standards** (goal: gauges reproducible). It opens by any route, once. The credit goes to the first route that became eligible, remembered while the scene waits (same month: authored order):
 
 | Route | Requires | The encounter |
 |---|---|---|
@@ -88,7 +88,7 @@ Stages:
 | Assessment | 2 months, 1 Attention | — | — |
 | Bronze (coil) | `tradeMember` (guild or bank) | open market, 20 gold | Economic; legacy P0 requirement |
 | Glassware (coolant) | `medicineWork` (fountain, physician, quarantine, midwives, Circle or sanctuary) | glassblower, 25 gold | Economic; legacy P0 |
-| Archives (chronometer) | `factionMember` | 15 gold | **Legacy P0 dependency:** the factions take no members in P1, so this is always the gold price |
+| Archives (chronometer) | `senatorsClient`: stood at Varro's salutatio as his client (or, legacy, a faction member) | bribe a clerk, 15 gold | Relationship (Corey, freeze pass): knowing Hermogenes or the house's goodwill isn't enough; no membership needed |
 | Other 6 steps | gold, Attention, time | — | Economic |
 | Upgrades (contacts, lens, flywheel) | as above, optional | higher gold | Economic |
 | Gold restored | the scavenged amount, fixed | — | Economic |
@@ -106,7 +106,7 @@ Stages:
 ## 8. Legacy P0 dependencies still in the graph
 
 - The Circle's work evidence uses the P0 `join:` condition (Medicine project or promise).
-- Machine requirements `tradeMember` / `factionMember` read P0 `Backed` (membership/stake); `factionMember` is unreachable in P1 (gold alternative).
+- Machine requirement `tradeMember` reads P0 `Backed` (membership/stake); `senatorsClient` also accepts legacy faction membership, which only the P0 batch reaches.
 - Workshop orders, odd jobs, craft and consult are P0 work systems.
 - Domains, debt, the plague, policy, advocacy, Rome's dated choices (now granting standing), the bank's stakes, offices and voice via the internal stake field, and the batch/explorer/snapshot purchase.
 

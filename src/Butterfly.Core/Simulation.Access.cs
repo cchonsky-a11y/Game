@@ -4,7 +4,7 @@ namespace Butterfly.Core
 {
     /// <summary>
     /// P1 player-facing access for the institutions not yet on an invitation path (2026-10-04). The Senate factions take
-    /// clients through a patron's introduction, which isn't built yet, so they take no new members in play; the Tiber Island
+    /// clients through a patron's introduction (a client at the salutatio, not a member), so they take no new members in play; the Tiber Island
     /// sanctuary takes gifts and names its givers benefactors; the banking house sells real financial shares. Internally the
     /// P0 stake still records standing for the systems that read it (legacy compatibility).
     /// </summary>

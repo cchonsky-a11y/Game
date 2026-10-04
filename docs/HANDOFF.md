@@ -48,6 +48,27 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, freeze pass)
+- **APPROVED / IMPLEMENTED:**
+  - Hermogenes and the political-client foundation, as built;
+  - the archives machine step takes a senator's note (the salutatio), with a clerk's bribe as fallback;
+  - Grand Challenge credit goes to the first route that became eligible;
+  - P1-20, P1-21 and P1-22 approved provisionally.
+- **Unchanged by decision:**
+  - the age bonus is built but OFF (P1-23 PROPOSED);
+  - Attention is not retuned (NEEDS HUMAN VALIDATION);
+  - the jump range is unchanged (redesign deferred).
+- **OPEN / DEFERRED:**
+  - the following, its membership and offices;
+  - the Junian path;
+  - client exclusivity;
+  - recurring political obligations;
+  - P1-23;
+  - elapsed-time echoes and the long-jump model;
+  - what R-17 is;
+  - human usability and Attention validation.
+- **Next:** P1 systems are frozen pending Corey. P2 is not started.
+
 ### P1 status (2026-10-04, polish pass)
 - **IMPLEMENTED:**
   - event, effect, workshop, invention and machine content validated at load;
@@ -57,7 +78,7 @@ python3 playtests/ai/live/play.py setup                                     # li
   - a relationship-first introduction to a senator's house (Hermogenes, the salutatio, a favor), as a client only;
   - no repeated discovery lines across arrivals.
 - **Report:** `docs/P1_POLISH_2026-10-04.md`, covering wealth, validation, the long waits, fallback work, political access, the elapsed-time echo design, route causality, Attention and jump range.
-- **OPEN:** turning on the age bonus (about 0.10); the factions' following; the machine archive step; the jump-range model and the elapsed-time echoes before longer jumps; Attention (needs people).
+- **OPEN:** turning on the age bonus (about 0.10); the factions' following; the machine archive step (decided in the freeze pass); the jump-range model and the elapsed-time echoes before longer jumps; Attention (needs people).
 
 ### P1 status (2026-10-04, hardening pass)
 - **IMPLEMENTED:**

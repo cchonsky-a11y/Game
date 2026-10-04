@@ -7,6 +7,8 @@ dotnet run --project src/Butterfly.Batch -- --p1-matrix 1-60 [--out file]
 dotnet run --project src/Butterfly.Batch -- --p1-matrix 1-60 --weight 4    # counterfactual, in memory only
 ```
 
+> **Freeze-pass update (2026-10-04).** The data file was regenerated after the archive step began taking a senator's note. The Relationship profile now holds its chronometer repair until it has stood at the salutatio (else month 60). New tallies: archives by a note in 8 runs, by a bribe in 292; both challenges done in 259 runs (the Relationship profile's later machine work); standards routes unchanged (pump 288, hoist 8, allotment 3, never 1), now credited to the first route that became eligible. The figures below are from the hardening pass.
+
 **Method.** 60 seeds × 5 profiles = 300 runs. Odd seeds open with the workshop and even seeds with the fountain (150 each). Each run covers an era from AD 155 to departure, then two jumps. All runs use the build at the end of this pass. The profiles:
 
 - **A Cooperative:** accepts everything.

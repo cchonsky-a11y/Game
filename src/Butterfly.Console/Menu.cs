@@ -198,7 +198,7 @@ internal sealed partial class ConsoleGame
             foreach (var i in w.Institutions.Where(x => !x.Def.IsOwn && x.Exists))
             {
                 if (!i.Backed && _sim.OnInvitationPath(i)) continue;   // P1: by invitation only, nothing to buy
-                if (_sim.PatronageOnly(i) && !i.Backed) continue;      // P1: a patron's introduction, not a purchase (not built yet)
+                if (_sim.PatronageOnly(i) && !i.Backed) continue;      // P1: clients come by introduction, not purchase; no members yet
                 if (_sim.TakesGifts(i))
                 {
                     if (_sim.JoinBlocker(i) == null && w.Attention >= _sim.T.GetInt("stakes.buyAttention") && _sim.GiftCost(i) + (i.Backed ? 0 : _sim.EntryFee(i)) <= w.Gold) inst.Item2.Add(("give the " + i.Def.ShortName.Replace("the ", "") + " a gift (" + M(_sim.GiftCost(i)) + ")", "give " + i.Key));
