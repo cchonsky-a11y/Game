@@ -158,7 +158,7 @@ namespace Butterfly.Core
         public int Gold { get; }
         public int AttentionPerTurn { get; }
         public int DurationMonths { get; }
-        /// <summary>What Rome must give you for this step (tradeMember, medicineWork, factionMember), if anything.</summary>
+        /// <summary>What Rome must give you for this step (tradeMember, medicineWork, senatorsClient, workshop), if anything.</summary>
         public string? Requirement { get; }
         /// <summary>Gold price instead, if the requirement isn't met.</summary>
         public int AltGold { get; }

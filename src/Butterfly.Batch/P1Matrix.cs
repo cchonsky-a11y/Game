@@ -40,7 +40,7 @@ namespace Butterfly.Batch
             sb.AppendLine("- **B Negotiator:** as A, but asks for more on every offer.");
             sb.AppendLine("- **C Selective:** turns down favors, profit shares and shared development, and any job when next month is already 3 Attention deep; starts a challenge stage only with twice its cost in hand.");
             sb.AppendLine("- **D Engineering-focused:** stays focused on Engineering scenes; turns down jobs that open as Roman life, city or personal scenes; buys machine upgrades when it has 60+ aurei.");
-            sb.AppendLine("- **E Relationship / Roman-life:** stays focused on Roman-life scenes; answers Rome's and people's choices with their first option; starts a challenge stage only when no paid job is under way.");
+            sb.AppendLine("- **E Relationship / Roman-life:** stays focused on Roman-life scenes; answers Rome's and people's choices with their first option; starts a challenge stage only when no paid job is under way; holds off on the machine's chronometer until it has stood at a senator's salutatio (a note opens the archives), else from month 60 pays a clerk.");
             sb.AppendLine();
             sb.AppendLine("## By profile and opening (mean, min–max)");
             sb.AppendLine();
@@ -127,6 +127,7 @@ namespace Butterfly.Batch
             sb.AppendLine("- Measurement and standards opened by: " + string.Join(", ", all.GroupBy(r => r.StandardsRoute.Length == 0 ? "never" : r.StandardsRoute).OrderBy(g => g.Key)
                               .Select(g => g.Key + " × " + g.Count())) + "; by opening: " + string.Join("; ", all.GroupBy(r => r.Choice).Select(g => g.Key + " " +
                               string.Join(", ", g.GroupBy(r => r.StandardsRoute.Length == 0 ? "never" : r.StandardsRoute).OrderBy(x => x.Key).Select(x => x.Key + " × " + x.Count())))) + ".");
+            sb.AppendLine("- Machine archive step: a senator's note in " + all.Count(r => r.ArchiveBy == "note") + " runs, a bribed clerk in " + all.Count(r => r.ArchiveBy == "bribe") + ".");
             sb.AppendLine("- Grand Challenges completed: both in " + all.Count(r => r.ChallengesDone == 2) + " runs, one in " + all.Count(r => r.ChallengesDone == 1) + ", none in " + all.Count(r => r.ChallengesDone == 0) + ".");
             sb.AppendLine("- Ledger reconciles at departure: " + all.Count(r => r.LedgerReconciles) + " of " + all.Count + ".");
             sb.AppendLine("- Lowest gold in any run: " + F(all.Min(r => r.MinGold)) + ".");

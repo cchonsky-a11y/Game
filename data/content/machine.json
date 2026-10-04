@@ -79,7 +79,7 @@
       "gold": 0,
       "attentionPerTurn": 1,
       "durationMonths": 6,
-      "requirement": "factionMember",
+      "requirement": "senatorsClient",
       "altGold": 15,
       "altText": "bribe a clerk instead",
       "text": "A senator's note gets you past the archive door.",

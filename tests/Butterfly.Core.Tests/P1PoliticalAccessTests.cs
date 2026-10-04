@@ -93,5 +93,29 @@ namespace Butterfly.Core.Tests
                 Assert.False(faction.Backed);                                          // whatever you answer, no seat comes of it
             }
         }
+
+        [Fact]
+        public void TheArchiveTakesASenatorsNoteNotMembership()
+        {
+            // Corey, 2026-10-04: the chronometer's archive step is reached through the senator's household (the salutatio),
+            // not faction membership; bribing a clerk stays possible.
+            var sim = Trusted();
+            var archives = sim.Data.Content.MachineSteps.Single(m => m.Id == "archives");
+            int bribe = (int)System.Math.Round(archives.AltGold * sim.World.PriceLevel);
+            Assert.False(sim.MachineRequirementMet(archives));                          // a stranger to the house
+            Assert.Equal(bribe, sim.MachineStepGold(archives));                          // the clerk's price
+
+            Until(sim, "patron-cassianus");
+            Assert.True(sim.Knows("Hermogenes"));
+            Assert.False(sim.MachineRequirementMet(archives));                          // knowing the steward isn't a note
+            sim.World.Institution("faction").Regard = 10;
+            Assert.False(sim.MachineRequirementMet(archives));                          // nor is the house's goodwill
+
+            Until(sim, "salutatio-varro", 80);
+            Assert.Contains("salutatio-varro", sim.World.ScenesSeen);
+            Assert.True(sim.MachineRequirementMet(archives));                           // the client's note opens the door
+            Assert.False(sim.World.Institution("faction").Backed);                      // without making you a member
+            Assert.Equal((int)System.Math.Round(archives.Gold * sim.World.PriceLevel), sim.MachineStepGold(archives));
+        }
     }
 }

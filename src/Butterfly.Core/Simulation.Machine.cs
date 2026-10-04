@@ -127,7 +127,9 @@ namespace Butterfly.Core
                 case "tradeMember": return backed("guild", "bank");
                 case "medicineWork":
                     return new[] { "fountain", "physician", "quarantine", "midwives" }.Any(World.CompletedProjects.Contains) || backed("circle", "sanctuary");
-                case "factionMember": return backed("faction", "junian");
+                // A senator's note (Corey, 2026-10-04): the client who has stood at Varro's salutatio through Hermogenes's
+                // introduction; knowing the steward or standing alone isn't enough. Legacy faction members still qualify.
+                case "senatorsClient": return World.ScenesSeen.Contains("salutatio-varro") || backed("faction", "junian");
                 case "workshop": return World.CompletedProjects.Contains("workshop");
                 default: throw new InvalidOperationException("Unknown machine requirement: " + step.Requirement);
             }
@@ -139,7 +141,7 @@ namespace Butterfly.Core
             {
                 case "tradeMember": return "membership in the guild or the bank";
                 case "medicineWork": return "a finished Medicine project (fountain, physician, quarantine or midwives) or membership in the Circle or the sanctuary";
-                case "factionMember": return "membership in a senate faction";
+                case "senatorsClient": return "a senator's note (from standing at a senator's salutatio as his client)";
                 case "workshop": return "the smith's workshop";
                 default: return "";
             }

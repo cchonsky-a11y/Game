@@ -141,7 +141,7 @@ namespace Butterfly.Core
             { "workshop", "tradeMember", "medicineWork", "workshopAndFaction", "workshopAndTrade", "workshopAndGuild10", "tradeInfluence", "factionInfluence", "medicineMember", "medicineInfluence" };
 
         /// <summary>The named requirements a machine step may carry (<c>Simulation.MachineRequirementMet</c>).</summary>
-        public static readonly string[] MachineRequirements = { "tradeMember", "medicineWork", "factionMember", "workshop" };
+        public static readonly string[] MachineRequirements = { "tradeMember", "medicineWork", "senatorsClient", "workshop" };
 
         /// <summary>
         /// The older (P0) content grammars: decision events (requirement, effects, "if" conditions, marks), workshop orders and
