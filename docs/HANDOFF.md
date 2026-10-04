@@ -46,7 +46,12 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
-### P1 status (2026-10-04)
+### P1 status (2026-10-04, second pass)
+- **IMPLEMENTED (this pass):** the R-17 warning (DO NOT JUMP after `listen`; notebook "reciprocal lock"); 13 commissions in all, across domains, with a second chance after losing the first; deeper recurring lives (13 more life events, private scenes, choices people can refuse); ~45 Roman-life scenes, many reusable with new words each time; progression candidates outweigh texture in the router; access kinds (factions closed pending a patron path, sanctuary by gifts, bank by shares; Rome's choices give standing); the P0 smith renamed Successus; an executable two-jump validation runner (`--p1-validate`) and its report in `playtests/ai/live/`.
+- **OPEN DESIGN QUESTIONS:** what R-17 is; the patron path into the Senate factions; Measurement and standards for a player who lost the pump; the fountain choice's heavier reliance on odd jobs; the jump range (25–60 kept, an 83-year live jump exists); the Attention ratio (1.25×, not retuned).
+- **LEGACY COMPATIBILITY:** the internal stake still drives offices, voice and policy; batch strategies, explorer and snapshot use the old purchase; craft/consult remain typed commands.
+
+### P1 status (2026-10-04, first pass)
 - **IMPLEMENTED:** 1-month turns, End Month, fast-forward that stops on interruptions (and no longer for stake purchases); the hard future-Attention limit; one numbered choice at a time; the scene router over a monthly candidate pool (commissions, invitations, Grand Challenges, people's lives, Roman life, the machine mystery), with `focus` and unrouted interruptions; the ledger; two commissions (the cellar pump, Lollius's bilges); the guild and the Physicians' Circle by invitation (separate evidence, a vote that can refuse); the capability network (19 nodes, edge levels, maturity apart from spread, the full ladder); recurring people with bounded, branching lives; jump echoes on every arrival without repeats; the eight section views (`view`); the Roman-baseline check; old inventions as practical projects (regard, capability links); Grand Challenges: Measurement and standards, Powered workshops (with Sextus Nerius's consequence).
 - **PROPOSED (numbers and readings awaiting Corey):** P1-01 to P1-15 in `docs/P1_PROPOSALS.md`.
 - **NOT YET IMPLEMENTED:** the sanctuary and the two Senate factions still sell seats (P0 legacy; open question); craft/consult remain typed fallback commands; the batch strategies, explorer and snapshot still use the legacy stake purchase; enough commissions and Roman-life scenes to fill a whole era (the scripted session runs thin after about AD 158); a P1 batch strategy set.

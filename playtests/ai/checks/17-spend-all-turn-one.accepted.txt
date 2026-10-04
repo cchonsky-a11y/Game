@@ -89,6 +89,8 @@ work
 end
 work
 end
+work
+end
 start patronage
 work
 end
@@ -133,8 +135,6 @@ end
 work
 end
 start physician
-work
-end
 work
 end
 work

@@ -43,6 +43,7 @@ Type 'help' for commands.
   ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > end
+  • Market day at the Forum Holitorium. You buy bread, a cheese wrapped in leaves, and a bunch of leeks, and you pay too much for all of it. The cheese woman knows you are foreign by the way you count, and charges for it.
 
 == Month 3 · Martius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -54,6 +55,7 @@ Type 'help' for commands.
   ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > end
+  • Under an awning at the edge of the Forum a schoolmaster drills a dozen boys in their letters: they chant the alphabet forwards, backwards, and in pairs, and the slowest gets the cane across his palm. A slave boy sits at the back holding his young master's tablets and learns faster than any of them.
 
 == Month 4 · Aprilis, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -78,6 +80,7 @@ Type 'help' for commands.
   ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > end
+  • At the broken fountain the women queue at a trickle and argue about whose turn it is. One of them has walked from three streets over. A girl falls asleep against the basin waiting.
 
 == Month 6 · Iunius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -89,6 +92,7 @@ Type 'help' for commands.
   ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > end
+  • A night in the tavern on the corner: a jug of rough red, a plate of chickpeas, and a dice game you are talked into and lose. The landlord has painted on the wall what a cup costs, so nobody can argue. People argue anyway.
 
 == Month 7 · Iulius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -100,6 +104,7 @@ Type 'help' for commands.
   ► Waiting: choose fountain or choose workshop (before the end of turn 8).
 
 > end
+  • A fire in an insula behind the Circus at night. The vigiles come with buckets, axes and a pump on a cart, and the street makes a chain from the nearest fountain. They pull down the next house to stop it spreading. By dawn two families are sitting on their furniture in the street, and the pump's leather flaps are hanging in strips.
 
 == Month 8 · Augustus, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -112,6 +117,7 @@ Type 'help' for commands.
 
 > end
   • The smith and the fountain's neighbors stop waiting for you. You chose neither.
+  • An afternoon at the baths: exercise in the courtyard, the hot room, the warm room, the cold plunge, then oil and a strigil. The real business is talk. You hear about three lawsuits, two scandals and a ship lost off Sicily before you are dry.
 
 == Month 9 · September, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -124,6 +130,7 @@ Type 'help' for commands.
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Before dawn you go with Cassianus to his patron's house on the Caelian, where twenty men in togas wait in the street to say good morning to a senator's freedman, who says good morning to the senator. Cassianus gets a nod and a small basket of food. On the way back he says it was a good morning, and means it.
 
 == Month 10 · October, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -134,6 +141,7 @@ Type 'help' for commands.
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The bath-keeper Philippus remembers you from the warm room. "You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet." (commission look baths: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 11 · November, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100.1
   Attention: 4 free / 4 total
@@ -141,9 +149,11 @@ Type 'help' for commands.
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the market a sausage seller shouts that his sausages are from Lucania and his prices are from heaven. A man with a basket of snails haggles with him over a trade and wins. You eat a sausage standing up, the Roman way, and burn your mouth.
 
 == Month 12 · December, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100.1
   Attention: 4 free / 4 total
@@ -152,10 +162,12 @@ Type 'help' for commands.
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 156 begins.
+  • Compitalia: at the shrine where four streets cross, the neighborhood hangs a woolen doll for every free person and a woolen ball for every slave, for the Lares of the crossroads to take instead of them. The street magistrate, a freedman in a borrowed toga, pours the wine. Your insula hangs a doll for you without asking.
 
 == Month 13 · Ianuarius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -166,9 +178,11 @@ Type 'help' for commands.
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The broken fountain has a pool of green water around its base now, and boys float bark boats in it. A woman pulls her son out by the ear and tells him that's where fevers come from. She may be right.
 
 == Month 14 · Februarius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -177,9 +191,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Your neighbors in the insula: a cobbler on the ground floor who sings, a family of six on your landing who share one brazier, and a widow above who drops her slops into the street with a shout of warning that comes a moment too late.
 
 == Month 15 · Martius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -188,9 +204,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the tavern a sailor from Alexandria tells everyone the lighthouse there is twice the height of anything in Rome. A man from the Subura offers to fight him over it. The landlord stops them by putting a free jug on the table, and charges for it later.
 
 == Month 16 · Aprilis, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -199,9 +217,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The price of wheat is chalked on a board by the grain sellers' stalls, and the women around it argue about the number as if it were a person. A girl sells you figs and gives you the change in a coin so worn you can't tell whose head is on it.
 
 == Month 17 · Maius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -211,9 +231,11 @@ Type 'help' for commands.
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A sacrifice at the temple of Castor in the Forum: a white heifer garlanded, the priest's head covered, a flute playing so nobody hears an unlucky word. The haruspex reads the liver and pronounces it favorable. The meat is sold afterward at a stall by the steps.
 
 == Month 18 · Iunius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -222,9 +244,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the Basilica Julia four courts sit at once, separated by curtains, and the advocates' voices carry over all of them. You watch a case about a stolen mule. The mule is brought in as evidence. It does not testify.
 
 == Month 19 · Iulius, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -233,9 +257,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • On the Via Appia, among the great tombs, a small one has a carved relief of a baker at his oven and an inscription longer than the tomb is wide: once a slave, now free, a baker, he built this for himself, his wife and his freedmen, and wishes the reader good health. A boy is relieving himself against the next tomb along.
 
 == Month 20 · Augustus, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -244,9 +270,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The landlord's agent comes for the rent and finds the family on your landing a month behind. He threatens, they plead, the cobbler downstairs lends them half. By evening everyone is sitting on the stairs together eating his bread.
 
 == Month 21 · September, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -256,9 +284,11 @@ Type 'help' for commands.
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Felix's elder boy has gone to a rhetor at the Forum of Trajan. The fees are more than Felix makes in a good month. He tells you about it with his arms folded, daring you to say it's too much. Prima has already said it.
 
 == Month 22 · October, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 4 free / 4 total
@@ -267,9 +297,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Someone has scratched on the tavern wall, beside the price list, a long complaint that the landlord waters his wine and pisses in the jugs. Underneath, in a different hand: and you drank it.
 
 == Month 23 · November, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100.1
   Attention: 4 free / 4 total
@@ -278,9 +310,11 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Market day, and it is raining. The stallholders pull hides over their goods and keep shouting. You buy lamp oil from a man who swears it is Spanish and smells of fish. Under the awning of a wine shop two old men are playing knucklebones for olives.
 
 == Month 24 · December, AD 156 ==  0 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100.1
   Attention: 4 free / 4 total
@@ -289,12 +323,14 @@ Type 'help' for commands.
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 157 begins.
   • Fever in the district: children who drink from the broken fountain fall sick. You remember letting both chances pass.
   • The smith by the Porta Trigemina struggles on with one forge and no apprentices.
+  • Winter fog on the river. Everyone in the insula cooks on a brazier, and the stairwell smells of charcoal and fish sauce. A man two floors down has died of the fumes, which happens every winter, and the landlord says it happens every winter.
 
 == Month 25 · Ianuarius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -304,9 +340,11 @@ Type 'help' for commands.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the baths a man selling cakes walks round the pool shouting, a hair-plucker's customers shriek, and a ball game in the courtyard sends a ball into the hot room. Nobody seems to find any of it strange but you.
 
 == Month 26 · Februarius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -315,9 +353,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the Porticus Minucia the citizens queue for their monthly grain with bronze tokens in their hands. Diodoros, who isn't a citizen, watches from across the street. "Your city feeds its own," he says. "The rest of us buy bread." A clerk checks each token against a list as long as the portico.
 
 == Month 27 · Martius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -326,9 +366,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A baby is born on your landing in the night. In the morning the father hangs a garland on the door and puts a little altar to Juno on the step. The widow upstairs comes down for the first time in a month to look.
 
 == Month 28 · Aprilis, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -337,9 +379,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A crowd at the market around a man selling a cure for everything from a painted cart: fevers, gout, sorrow, failing hair. Three people buy. You think of Serenus's columns and almost laugh, and the man sees you and offers you a discount.
 
 == Month 29 · Maius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -349,9 +393,11 @@ Type 'help' for commands.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A day in the courts: a will contested by three nephews, each with his own advocate and his own claque of paid applauders. The judge falls asleep. The applauders don't.
 
 == Month 30 · Iunius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -360,9 +406,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the steam a senator's freedman tells anyone who listens how much his master's new villa cost. A builder in the corner says quietly that it cost half that, and he should know.
 
 == Month 31 · Iulius, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -371,9 +419,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the tavern a veteran with one ear sings a marching song about a general's bald head. The whole room knows the chorus. The landlord's wife throws him out at the third verse, and he comes back in for the fourth.
 
 == Month 32 · Augustus, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -382,9 +432,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the temple of Ceres the plebeian aediles hand out bread to the poor on the goddess's day. The line goes around the Aventine. Diodoros, who isn't entitled to any, gets two loaves anyway, from a woman who likes his face.
 
 == Month 33 · September, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -394,9 +446,11 @@ Type 'help' for commands.
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The fishmongers by the river have a sturgeon as long as a man laid out on a slab. A cook from a senator's house buys it whole, and four porters carry it up the Caelian like a funeral.
 
 == Month 34 · October, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -405,9 +459,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The insula's water comes from a fountain at the end of the street, and the stairs are steep. A boy from the top floor charges an as a jar to carry it up. He is saving to buy a dog.
 
 == Month 35 · November, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -416,9 +472,11 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The baths are crowded with soldiers on leave. They oil each other, wrestle, and argue about pay. One of them tells you the army's coins are getting lighter every year and the officers pretend not to notice.
 
 == Month 36 · December, AD 157 ==  0 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -427,10 +485,12 @@ Type 'help' for commands.
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 158 begins.
+  • Compitalia again. The crossroads shrine has a new coat of paint: two Lares dancing, a snake, a pig being led to sacrifice. The painter is the cobbler's nephew and has given one Lar the cobbler's face.
 
 == Month 37 · Ianuarius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -440,9 +500,11 @@ Type 'help' for commands.
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Lupercalia: young men of good family run half naked round the Palatine with strips of goatskin, striking anyone in reach. Young wives step out to be struck, for luck with children. Livia's sister does; Livia doesn't, and says loudly why not.
 
 == Month 38 · Februarius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -451,9 +513,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the Forum a man has a contract witnessed: seven witnesses, seven seals, an argument over whether the fourth witness is really a citizen. You think of how many of Rome's agreements depend on someone's ring.
 
 == Month 39 · Martius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -462,9 +526,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A market inspector, an aedile's man, walks the stalls with a set of bronze weights, checking the bakers' scales. One baker is found short and fined on the spot. The crowd enjoys it more than the theater.
 
 == Month 40 · Aprilis, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -473,9 +539,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the baths you see Felix, Cassianus's sister and the cheese woman from the market, all in one afternoon. Rome is a million people and you keep meeting the same twenty.
 
 == Month 41 · Maius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -485,9 +553,11 @@ Type 'help' for commands.
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The grain ships are late from Alexandria and the bakers' loaves get smaller without getting cheaper. At the fountain the women say the emperor will fix it. At the tavern the men say the bakers are hoarding.
 
 == Month 42 · Iunius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -496,9 +566,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • High summer. Anyone with money has gone to the hills. The streets stink by noon, the fountains run warm, and the physicians say the bad air rises off the Tiber marshes at dusk. You keep the shutters closed and work at night.
 
 == Month 43 · Iulius, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -507,9 +579,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Painted on the wall of a fuller's yard in red letters a yard high: a show of gladiators, twenty pairs, awnings provided. Below it, smaller, in charcoal: Successus loves Iris, and Iris doesn't care.
 
 == Month 44 · Augustus, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -518,9 +592,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Market day, and a slave dealer has set up at the edge of the Forum with a dozen people on a platform, each with a placard round the neck listing age, origin and faults. Customers walk past it to buy cabbages.
 
 == Month 45 · September, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -530,9 +606,11 @@ Type 'help' for commands.
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A quiet night in the tavern. A scribe is writing a letter for a soldier's mother, reading each line back aloud. By the end half the tavern is helping with the wording.
 
 == Month 46 · October, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -541,9 +619,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A crack runs down the wall of your room after a heavy cart passes in the night. The landlord says the building has stood forty years. The cobbler downstairs says that is exactly the trouble.
 
 == Month 47 · November, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -552,9 +632,11 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A procession for Magna Mater: her eunuch priests in bright robes, cymbals, tambourines, men cutting their own arms until they bleed. The crowd parts for them, half afraid, half delighted. Livia covers the girls' eyes and watches herself.
 
 == Month 48 · December, AD 158 ==  0 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -563,10 +645,12 @@ Type 'help' for commands.
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 159 begins.
+  • A cold January: the fountains freeze at the edges, the bathhouses can't keep the hot room hot, and the price of charcoal doubles. Gaius sleeps at the shop to keep the furnace in.
 
 == Month 49 · Ianuarius, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -576,9 +660,11 @@ Type 'help' for commands.
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Lupercalia again. This year a running boy catches a magistrate's wife across the face with the goatskin and the whole street holds its breath until she laughs.
 
 == Month 50 · Februarius, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -587,9 +673,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The cobbler's wife has left him for a sausage maker from the next street. The cobbler sings sadder songs and makes better shoes.
 
 == Month 51 · Martius, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -598,9 +686,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • On a shop wall someone has painted a notice for a lost donkey, a reward, and a description so detailed you could pick the donkey out in a crowd. Underneath, another hand: found it, ate it.
 
 == Month 52 · Aprilis, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -609,6 +699,7 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -621,6 +712,7 @@ Type 'help' for commands.
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -632,9 +724,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the Ludi Apollinares you go to the theater of Marcellus to see an old comedy: a clever slave, two foolish fathers, a lost daughter found. The audience knows every joke before it comes and laughs harder for it. Afterward a mime does a drunk senator and nobody laughs at all, and the mime is very pleased.
 
 == Month 55 · Iulius, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -643,9 +737,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Bread is short again. A crowd gathers at the bakers' street and someone throws a stone through a shutter. The urban cohorts come and stand about with their shields, and the bread comes, eventually.
 
 == Month 56 · Augustus, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -654,9 +750,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The Ludi Romani: a procession from the Capitol to the Circus, the gods carried on litters, dancers, boxers, men dressed as satyrs mocking the dancers. Then the races. The crowd is a single animal, and for an afternoon you are part of it.
 
 == Month 57 · September, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -666,6 +764,7 @@ Type 'help' for commands.
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -677,9 +776,11 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A new notice on the street corner: apartments to let in the insula of Arrius, shops with lodgings above, first floor for gentlemen. In smaller letters: no dyers.
 
 == Month 59 · November, AD 159 ==  0 denarii (+0/month) · 60 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -688,6 +789,7 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -699,10 +801,12 @@ Type 'help' for commands.
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 160 begins.
+  • Winter again. The streets are quiet after dark; the lamplighters don't bother with the alleys. You go home by the main streets with a hand on your knife, the way everyone does.
 
 == Month 61 · Ianuarius, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -712,9 +816,11 @@ Type 'help' for commands.
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At Lupercalia the runners are thinner this year and the crowd smaller. An old man tells you that in his father's day the senators ran too, and nobody believes him.
 
 == Month 62 · Februarius, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -723,6 +829,7 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -734,6 +841,7 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -745,6 +853,7 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -757,9 +866,11 @@ Type 'help' for commands.
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Someone has scratched a long list of debts on the tavern wall, with names. By the end of the week half the names are scratched out and the list has a new heading: paid, or dead.
 
 == Month 66 · Iunius, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -768,9 +879,11 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The games again, a tragedy this time: Medea, in Latin, very loud. A woman behind you weeps for the children every time and eats almonds between the weeping.
 
 == Month 67 · Iulius, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -779,9 +892,11 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Another summer of heat. Felix sends his boys to an uncle at Tibur. The baths are full from dawn and the bath-keepers raise their prices, and nobody can stop them.
 
 == Month 68 · Augustus, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -790,9 +905,11 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The Ludi Romani again, and gladiators this year in the Flavian amphitheater as well as the races. The crowd boos a fighter who won't finish a fallen man and cheers when the editor spares him. You leave before the beasts.
 
 == Month 69 · September, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -803,9 +920,11 @@ Type 'help' for commands.
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The grain fleet comes in all at once after a month of nothing: two hundred ships in the harbor at Ostia, and every barge on the river busy. Lollius's men work three days without sleeping.
 
 == Month 70 · October, AD 160 ==  0 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -814,6 +933,7 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -825,6 +945,7 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -836,10 +957,12 @@ Type 'help' for commands.
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 161 begins.
+  • At the crossroads shrine this Compitalia the street magistrate is a baker you buy from. He makes a speech about the neighborhood that goes on too long and ends with free bread, so nobody minds.
 
 == Month 73 · Ianuarius, AD 161 ==  0 denarii (+0/month) · 60 aurei (1 = 27.3 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -849,6 +972,7 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -860,9 +984,11 @@ Type 'help' for commands.
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The old emperor is dead at his villa at Lorium, and his body comes into the city on a bier carried by magistrates. The shops close. Two men are emperors now, Marcus and his brother Lucius, and the coins with both their heads are in the market within the month.
 
 == Month 75 · Martius, AD 161 ==  0 denarii (+0/month) · 60 aurei (1 = 27.3 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -872,6 +998,7 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -884,6 +1011,7 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -896,6 +1024,7 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -907,9 +1036,11 @@ Type 'help' for commands.
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the games a troupe of pantomime dancers plays the loves of Mars and Venus without a word spoken, only a chorus and pipes. The crowd knows the dancer by name and chants it until he comes out again.
 
 == Month 79 · Iulius, AD 161 ==  0 denarii (+0/month) · 60 aurei (1 = 27.3 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -918,9 +1049,11 @@ Type 'help' for commands.
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Summer, and a dry one: the Tiber is low enough to show the old piers, and boys dive for coins off them. The grain barges scrape bottom coming up from Ostia and the price of bread goes up a little, as it does.
 
 == Month 80 · Augustus, AD 161 ==  0 denarii (+0/month) · 60 aurei (1 = 27.3 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -930,9 +1063,11 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At this year's Ludi Romani it rains on the procession. The gods' litters are covered with oiled cloth and the dancers dance anyway. The races run in mud; a Red driver wins for the first time in years and his supporters riot happily.
 
 == Month 81 · September, AD 161 ==  0 denarii (+0/month) · 60 aurei (1 = 27.3 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -942,6 +1077,7 @@ Type 'help' for commands.
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -958,6 +1094,7 @@ Type 'help' for commands.
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -973,6 +1110,7 @@ Type 'help' for commands.
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -989,10 +1127,12 @@ Type 'help' for commands.
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 162 begins.
+  • Compitalia, and the dolls on the crossroads shrine are fewer this year. The street magistrate reads the names of neighbors who died in the year before he pours the wine.
 
 == Month 85 · Ianuarius, AD 162 ==  0 denarii (+0/month) · 60 aurei (1 = 27.7 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1006,6 +1146,7 @@ Type 'help' for commands.
       decide none     stay out of it
   On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1021,6 +1162,7 @@ Type 'help' for commands.
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1036,6 +1178,7 @@ Type 'help' for commands.
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1047,9 +1190,11 @@ Type 'help' for commands.
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Recruiters are in the Forum: the war with Parthia needs men. A centurion with a vine stick looks over the young men who come forward, checks their teeth like a horse dealer's, and turns away half. A boy from your insula is taken; his mother walks beside him as far as the Porta Capena.
 
 == Month 89 · Maius, AD 162 ==  0 denarii (+0/month) · 60 aurei (1 = 27.7 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1060,6 +1205,7 @@ Type 'help' for commands.
   News: Lucius Verus leaves Rome to take command against Parthia.   (news)
   On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1071,6 +1217,7 @@ Type 'help' for commands.
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1082,6 +1229,7 @@ Type 'help' for commands.
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1098,6 +1246,7 @@ Type 'help' for commands.
       decide circle   side with the Circle against him
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1114,6 +1263,7 @@ Type 'help' for commands.
       decide none     stay out of it
   On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1129,6 +1279,7 @@ Type 'help' for commands.
       decide circle   side with the Circle against him
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1144,6 +1295,7 @@ Type 'help' for commands.
       decide circle   side with the Circle against him
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1159,6 +1311,7 @@ Type 'help' for commands.
       decide circle   side with the Circle against him
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1176,6 +1329,7 @@ Type 'help' for commands.
       decide none     stay out of it
   On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1187,6 +1341,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1198,6 +1353,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1209,9 +1365,11 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A courier from the East rides in through the Porta Flaminia, and by evening the whole city knows: Armenia retaken. The baths are full of men who have never been east of Ostia explaining the campaign.
 
 == Month 101 · Maius, AD 163 ==  0 denarii (+0/month) · 60 aurei (1 = 28.2 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1221,6 +1379,7 @@ Type 'help' for commands.
   Prices: +12.6% since AD 155 (1.5% a year)
   On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1232,6 +1391,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1243,6 +1403,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1254,6 +1415,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1267,6 +1429,7 @@ Type 'help' for commands.
   News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
   On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1278,6 +1441,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1289,6 +1453,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1300,6 +1465,7 @@ Type 'help' for commands.
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1313,6 +1479,7 @@ Type 'help' for commands.
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1324,6 +1491,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1335,6 +1503,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1346,9 +1515,11 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • News from the East: the legions have crossed the Euphrates. A sausage seller has renamed his best sausage after the general. It is the same sausage.
 
 == Month 113 · Maius, AD 164 ==  0 denarii (+0/month) · 60 aurei (1 = 28.6 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1358,6 +1529,7 @@ Type 'help' for commands.
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1370,6 +1542,7 @@ Type 'help' for commands.
   Prices: +14.3% since AD 155 (1.5% a year)
   News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1381,6 +1554,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1392,6 +1566,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1404,6 +1579,7 @@ Type 'help' for commands.
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1415,6 +1591,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1426,6 +1603,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1437,6 +1615,7 @@ Type 'help' for commands.
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1450,6 +1629,7 @@ Type 'help' for commands.
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1461,6 +1641,7 @@ Type 'help' for commands.
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1472,6 +1653,7 @@ Type 'help' for commands.
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1483,9 +1665,11 @@ Type 'help' for commands.
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • More news from the East: Ctesiphon taken and burned. There are games for it, three days of them, and the price of grain goes up again because the ships are carrying soldiers.
 
 == Month 125 · Maius, AD 165 ==  0 denarii (+0/month) · 60 aurei (1 = 29 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1494,6 +1678,7 @@ Type 'help' for commands.
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1505,6 +1690,7 @@ Type 'help' for commands.
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1518,6 +1704,7 @@ Type 'help' for commands.
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1530,6 +1717,7 @@ Type 'help' for commands.
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1543,6 +1731,7 @@ Type 'help' for commands.
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1555,6 +1744,7 @@ Type 'help' for commands.
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1567,6 +1757,7 @@ Type 'help' for commands.
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1580,11 +1771,13 @@ Type 'help' for commands.
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 166 begins.
   • Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  • The legions are back from the East. Veterans fill the taverns with tales of Ctesiphon and Seleucia, show off silk and scars, and pay for everything in eastern coin. Some of them are coughing. Nobody minds yet.
 
 == Month 133 · Ianuarius, AD 166 ==  0 denarii (+0/month) · 60 aurei (1 = 29.4 den.)   Index 99.3
   Attention: 4 free / 4 total
@@ -1595,6 +1788,7 @@ Type 'help' for commands.
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1607,6 +1801,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1619,6 +1814,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1631,6 +1827,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1643,6 +1840,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1655,6 +1853,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1668,6 +1867,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1681,6 +1881,7 @@ Type 'help' for commands.
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1693,6 +1894,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1708,6 +1910,7 @@ Type 'help' for commands.
   News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
   On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: respond none   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)
 
@@ -1724,6 +1927,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1736,6 +1940,7 @@ Type 'help' for commands.
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1750,6 +1955,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1762,6 +1968,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1774,6 +1981,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1786,6 +1994,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1798,6 +2007,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1810,6 +2020,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1822,6 +2033,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1834,6 +2046,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1847,6 +2060,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1859,6 +2073,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1871,6 +2086,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1883,6 +2099,7 @@ Type 'help' for commands.
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1896,6 +2113,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1908,6 +2126,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1920,6 +2139,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1933,6 +2153,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   News: Both emperors leave for Aquileia and the northern frontier.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1945,6 +2166,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1957,6 +2179,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1969,6 +2192,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1981,6 +2205,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -1993,6 +2218,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2005,6 +2231,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2017,6 +2244,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2029,6 +2257,7 @@ Type 'help' for commands.
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2043,6 +2272,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2055,6 +2285,7 @@ Type 'help' for commands.
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2068,6 +2299,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2080,6 +2312,7 @@ Type 'help' for commands.
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2092,6 +2325,7 @@ Type 'help' for commands.
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2109,6 +2343,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2125,6 +2360,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2141,6 +2377,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2157,6 +2394,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2173,6 +2411,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2189,6 +2428,7 @@ Type 'help' for commands.
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2201,6 +2441,7 @@ Type 'help' for commands.
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2214,6 +2455,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2226,6 +2468,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2238,6 +2481,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2250,6 +2494,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2262,6 +2507,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2274,6 +2520,7 @@ Type 'help' for commands.
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2291,6 +2538,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2307,6 +2555,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2323,6 +2572,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2339,6 +2589,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2355,6 +2606,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2371,6 +2623,7 @@ Type 'help' for commands.
       decide sell     sell out while you still can
       decide none     wait it out
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2384,6 +2637,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2396,6 +2650,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2408,6 +2663,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2420,6 +2676,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2432,6 +2689,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2444,6 +2702,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2456,6 +2715,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2468,6 +2728,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2480,6 +2741,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2492,6 +2754,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2504,6 +2767,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2516,6 +2780,7 @@ Type 'help' for commands.
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2529,6 +2794,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2541,6 +2807,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2553,6 +2820,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2565,6 +2833,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2582,6 +2851,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2598,6 +2868,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2614,6 +2885,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2630,6 +2902,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2646,6 +2919,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2662,6 +2936,7 @@ Type 'help' for commands.
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2674,6 +2949,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2686,6 +2962,7 @@ Type 'help' for commands.
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2699,6 +2976,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2711,6 +2989,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2723,6 +3002,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2735,6 +3015,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2747,6 +3028,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2759,6 +3041,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2771,6 +3054,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2783,6 +3067,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2795,6 +3080,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2807,6 +3093,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2819,6 +3106,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2831,6 +3119,7 @@ Type 'help' for commands.
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2844,6 +3133,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2856,6 +3146,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2868,6 +3159,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2880,6 +3172,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2892,6 +3185,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2905,6 +3199,7 @@ Type 'help' for commands.
   Pestilence: The pestilence has passed.
   News: Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front.   (news)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2917,6 +3212,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2929,6 +3225,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2941,6 +3238,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2953,6 +3251,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2965,6 +3264,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2977,6 +3277,7 @@ Type 'help' for commands.
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
@@ -2990,6 +3291,7 @@ Type 'help' for commands.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3025,6 +3327,7 @@ You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention le
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 60/60 aurei; under way: Assess the machine (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3052,7 +3355,7 @@ You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention le
 
 > end
   • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
-  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch.
+  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then two lines you didn't write. REQUEST. REFERENCE REQUEST ACCEPTED — R-17. Four seconds later, the destination locks: 155-03-ROMA. The timestamp is a second before you threw the switch.
 
 == Month 243 · Martius, AD 175 ==  1,056 denarii (+0/month) · 0 aurei (1 = 33.7 den.)   Index 101.3
   Attention: 4 free / 4 total
@@ -3062,6 +3365,7 @@ You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention le
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3097,6 +3401,7 @@ You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention le
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei; under way: Source bronze for the coil housing (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3131,6 +3436,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei; under way: Source bronze for the coil housing (4 month(s) left); under way: Borrow glassware and a still (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3165,6 +3471,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei; under way: Source bronze for the coil housing (3 month(s) left); under way: Borrow glassware and a still (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3199,6 +3506,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei; under way: Source bronze for the coil housing (2 month(s) left); under way: Borrow glassware and a still (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3233,6 +3541,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 60/60 aurei; under way: Source bronze for the coil housing (1 month(s) left); under way: Borrow glassware and a still (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3268,6 +3577,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 60/60 aurei; under way: Borrow glassware and a still (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3304,6 +3614,7 @@ You earn 587 denarii; tax takes 59 denarii, you keep 528 denarii.  [Attention le
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3338,6 +3649,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (9 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3372,6 +3684,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (8 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3407,6 +3720,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (7 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3441,6 +3755,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (6 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3475,6 +3790,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3509,6 +3825,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3543,6 +3860,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3577,6 +3895,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3611,6 +3930,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 60/60 aurei; under way: Distil the coolant (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3647,6 +3967,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3682,6 +4003,7 @@ You earn 592 denarii; tax takes 59 denarii, you keep 533 denarii.  [Attention le
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei; under way: Seal and test the coolant (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3716,6 +4038,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei; under way: Seal and test the coolant (4 month(s) left); under way: Get into the state archives (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3750,6 +4073,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei; under way: Seal and test the coolant (3 month(s) left); under way: Get into the state archives (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3784,6 +4108,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +36.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei; under way: Seal and test the coolant (2 month(s) left); under way: Get into the state archives (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3819,6 +4144,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 60/60 aurei; under way: Seal and test the coolant (1 month(s) left); under way: Get into the state archives (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3854,6 +4180,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 60/60 aurei; under way: Get into the state archives (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3890,6 +4217,7 @@ You earn 597 denarii; tax takes 60 denarii, you keep 537 denarii.  [Attention le
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3925,6 +4253,7 @@ You earn 597 denarii; tax takes 60 denarii, you keep 537 denarii.  [Attention le
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (17 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3959,6 +4288,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (16 month(s) left); under way: Commission the casting at Ostia (11 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -3993,6 +4323,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (15 month(s) left); under way: Commission the casting at Ostia (10 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4027,6 +4358,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (14 month(s) left); under way: Commission the casting at Ostia (9 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4061,6 +4393,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (13 month(s) left); under way: Commission the casting at Ostia (8 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4095,6 +4428,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (12 month(s) left); under way: Commission the casting at Ostia (7 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4129,6 +4463,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (11 month(s) left); under way: Commission the casting at Ostia (6 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4163,6 +4498,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (10 month(s) left); under way: Commission the casting at Ostia (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4197,6 +4533,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +38.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (9 month(s) left); under way: Commission the casting at Ostia (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4233,6 +4570,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (8 month(s) left); under way: Commission the casting at Ostia (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4267,6 +4605,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (7 month(s) left); under way: Commission the casting at Ostia (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4301,6 +4640,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (6 month(s) left); under way: Commission the casting at Ostia (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4337,6 +4677,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4371,6 +4712,7 @@ That needs 3 Attention; you have 1 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (4 month(s) left); under way: Fit and test the coil housing (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4405,6 +4747,7 @@ That needs 3 Attention; you have 1 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (3 month(s) left); under way: Fit and test the coil housing (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4439,6 +4782,7 @@ That needs 3 Attention; you have 1 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (2 month(s) left); under way: Fit and test the coil housing (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4473,6 +4817,7 @@ That needs 3 Attention; you have 1 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 60/60 aurei; under way: Copy the star tables (1 month(s) left); under way: Fit and test the coil housing (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4508,6 +4853,7 @@ That needs 3 Attention; you have 1 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 7/9 repair steps, gold 60/60 aurei; under way: Fit and test the coil housing (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4543,6 +4889,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4577,6 +4924,7 @@ You earn 602 denarii; tax takes 60 denarii, you keep 542 denarii.  [Attention le
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4611,6 +4959,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +40.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei; under way: Recalibrate the chronometer (5 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4646,6 +4995,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +43% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei; under way: Recalibrate the chronometer (4 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4680,6 +5030,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +43% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei; under way: Recalibrate the chronometer (3 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4714,6 +5065,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +43% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei; under way: Recalibrate the chronometer (2 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4748,6 +5100,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +43% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 60/60 aurei; under way: Recalibrate the chronometer (1 month(s) left)   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4775,6 +5128,7 @@ That needs 3 Attention; you have 2 left this month.
 > end
   • The chronometer's dial agrees with the stars to the hour. (Machine: 9/9 steps; it can carry you now.)
   • The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.
+  • Prima hears you may be going on a long journey and sends you to the temple of Fortuna Redux by the Porta Capena. "Make a vow," she says. "People who come back make vows. People who don't, didn't."
 
 == Month 293 · Maius, AD 179 ==  311 denarii (+0/month) · 0 aurei (1 = 35.7 den.)   Index 101.4
   Attention: 4 free / 4 total
@@ -4784,6 +5138,7 @@ That needs 3 Attention; you have 2 left this month.
   Prices: +43% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
 
@@ -4840,4 +5195,4 @@ You have been away for 50 years. What happened in between is lost to you; the wo
 
 (after arrival) > quit
 
-Run fingerprint (seed 106): 23065a20e2658d19
+Run fingerprint (seed 106): 8de521aa22bcc570

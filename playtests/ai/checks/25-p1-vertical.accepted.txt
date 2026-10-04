@@ -8,12 +8,23 @@ work odd
 end
 work odd
 end
+take instruments
+work odd
+end
 commission look cellarpump
 commission accept cellarpump
-take instruments
+work odd
 end
 work odd
 end
+work odd
+end
+take tools
+work odd
+end
+work odd
+end
+challenge begin standards
 work odd
 end
 work odd
@@ -22,62 +33,38 @@ challenge begin standards
 take tools
 work odd
 end
-invitation accept guild
-work odd
-end
-challenge begin standards
-work odd
-end
 work odd
 end
 invitation accept guild
-take tools
-end
-challenge begin standards
-work odd
-end
 work odd
 end
 commission look bilges
 commission accept bilges
 challenge begin standards
+end
+work odd
+end
+challenge begin standards
+take instruments
+end
 work odd
 end
 invitation accept guild
+work odd
+end
 take instruments
+work odd
+end
+work odd
 end
 work odd
 end
 work odd
 end
-challenge begin power
-work odd
-end
-challenge begin power
 take instruments
-end
 work odd
 end
-work odd
-end
-challenge begin power
-work odd
-end
-take tools
-work odd
-end
-challenge begin power
-work odd
-end
-work odd
-end
-challenge begin power
-work odd
-end
-take tools
-work odd
-end
-challenge begin power
+invitation accept guild
 work odd
 end
 work odd
@@ -85,6 +72,14 @@ end
 work odd
 end
 take tools
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
 work odd
 end
 work odd
@@ -96,6 +91,149 @@ end
 repair coil
 repair coolant
 repair chronometer
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+repair coil
+repair coolant
+repair chronometer
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+repair coolant
+work odd
+end
+work odd
+end
+repair coil
+end
+end
+end
+end
+work odd
+end
+work odd
+end
+repair chronometer
+take tools
+end
+work odd
+end
+work odd
+end
+work odd
+end
+take tools
+end
+work odd
+end
+work odd
+end
+work odd
+end
+take instruments
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+take instruments
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+take instruments
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+work odd
+end
+challenge begin power
+take instruments
+work odd
+end
+challenge begin power
+work odd
+end
+work odd
+end
+challenge begin power
+work odd
+end
+take instruments
+work odd
+end
+challenge begin power
+work odd
+end
+work odd
+end
+challenge begin power
+work odd
+end
+take tools
+work odd
+end
+work odd
+end
+challenge begin power
+work odd
+end
+work odd
+end
+take instruments
+work odd
+end
 decide workers
 work odd
 end
@@ -103,83 +241,6 @@ work odd
 end
 work odd
 end
-work odd
-end
-work odd
-end
-work odd
-end
-repair coil
-repair coolant
-repair chronometer
-end
-end
-end
-end
-end
-end
-end
-end
-end
-end
-repair coolant
-work odd
-end
-work odd
-end
-repair coil
-end
-end
-end
-end
-work odd
-end
-work odd
-end
-repair chronometer
-take instruments
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take instruments
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take instruments
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
 take instruments
 work odd
 end
@@ -225,70 +286,7 @@ work odd
 end
 work odd
 end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
 take instruments
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
-work odd
-end
-work odd
-end
-work odd
-end
-work odd
-end
-take tools
 work odd
 end
 work odd

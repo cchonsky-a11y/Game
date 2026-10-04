@@ -178,9 +178,9 @@ work
 end
 work
 end
-start warehouses
 work
 end
+start warehouses
 work
 end
 work

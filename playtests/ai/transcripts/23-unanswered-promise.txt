@@ -79,6 +79,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
+  • Market day at the Forum Holitorium. You buy bread, a cheese wrapped in leaves, and a bunch of leeks, and you pay too much for all of it. The cheese woman knows you are foreign by the way you count, and charges for it.
 
 == Month 3 · Martius, AD 155 ==  225 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Buy into the smith's workshop
@@ -105,7 +106,7 @@ Get into the state archives costs 375 denarii; you have 225 denarii.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
-  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch.
+  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then two lines you didn't write. REQUEST. REFERENCE REQUEST ACCEPTED — R-17. Four seconds later, the destination locks: 155-03-ROMA. The timestamp is a second before you threw the switch.
 
 == Month 4 · Aprilis, AD 155 ==  338 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Buy into the smith's workshop
@@ -133,7 +134,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 > end
   • The smith's second forge is lit, and part of the workshop is now yours.
   • You own a share of it: about 138 denarii a year, rising and falling with the Economy.
-  • Felix finds you at the smith's at first light. "There's a man under the Aventine with water to his knees," he says. "Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised." (commission look cellarpump: 1 Attention · Pay: none initially · may lead to paid commission)
+  • At the broken fountain the women queue at a trickle and argue about whose turn it is. One of them has walked from three streets over. A girl falls asleep against the basin waiting.
 
 == Month 5 · Maius, AD 155 ==  461 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -142,8 +143,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
   On your street: The smith at the forges tells anyone who'll listen about his odd new partner, who draws machines on wax tablets and never says where he learned it.   (news)
-  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -162,15 +162,14 @@ Started: Get into the state archives.  [Attention left this month: 3/4]
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
 
 > end
-  • The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension.
+  • Under an awning at the edge of the Forum a schoolmaster drills a dozen boys in their letters: they chant the alphabet forwards, backwards, and in pairs, and the slowest gets the cane across his palm. A slave boy sits at the back holding his young master's tablets and learns faster than any of them.
 
 == Month 6 · Iunius, AD 155 ==  210 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Get into the state archives
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (5 month(s) left)   (machine)
 
 > assess
@@ -189,13 +188,14 @@ You are already working on the chronometer.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
 
 > end
+  • Felix finds you at the smith's at first light. "There's a man under the Aventine with water to his knees," he says. "Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised." (commission look cellarpump: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 7 · Iulius, AD 155 ==  334 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Get into the state archives
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (4 month(s) left)   (machine)
 
@@ -215,13 +215,14 @@ You are already working on the chronometer.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
 
 > end
+  • Before dawn you go with Cassianus to his patron's house on the Caelian, where twenty men in togas wait in the street to say good morning to a senator's freedman, who says good morning to the senator. Cassianus gets a nod and a small basket of food. On the way back he says it was a good morning, and means it.
 
 == Month 8 · Augustus, AD 155 ==  458 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Get into the state archives
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  Workshop orders: take fittings (200 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (3 month(s) left)   (machine)
 
@@ -241,6 +242,7 @@ You are already working on the chronometer.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
 
 > end
+  • An afternoon at the baths: exercise in the courtyard, the hot room, the warm room, the cold plunge, then oil and a strigil. The real business is talk. You hear about three lawsuits, two scandals and a ship lost off Sicily before you are dry.
 
 == Month 9 · September, AD 155 ==  582 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Get into the state archives
@@ -249,7 +251,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
   On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
-  Workshop orders: take instruments (162 denarii, 2 Att.); take tools (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (162 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (2 month(s) left)   (machine)
 
@@ -269,13 +271,14 @@ You are already working on the chronometer.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension.
 
 == Month 10 · October, AD 155 ==  206 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Get into the state archives, Source bronze for the coil housing
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  Workshop orders: take instruments (162 denarii, 2 Att.); take tools (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (162 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 0/9 repair steps, gold 0/60 aurei; under way: Get into the state archives (1 month(s) left); under way: Source bronze for the coil housing (5 month(s) left)   (machine)
 
@@ -296,14 +299,16 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • A clerk pockets your coins and lets you into the archives after dark. (Machine: 1/9 steps.)
+  • The bath-keeper Philippus remembers you from the warm room. "You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet." (commission look baths: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 11 · November, AD 155 ==  330 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.1
   Attention: 3 free / 4 total · 1 reserved — Source bronze for the coil housing
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  Workshop orders: take instruments (162 denarii, 2 Att.); take tools (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (162 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (4 month(s) left)   (machine)
 
 > assess
@@ -322,6 +327,7 @@ Started: Copy the star tables.  [Attention left this month: 2/4]
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Your neighbors in the insula: a cobbler on the ground floor who sings, a family of six on your landing who share one brazier, and a widow above who drops her slops into the street with a shout of warning that comes a moment too late.
 
 == Month 12 · December, AD 155 ==  454 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.1
   Attention: 2 free / 4 total · 2 reserved — Source bronze for the coil housing, Copy the star tables
@@ -329,8 +335,9 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
-  Workshop orders: take instruments (162 denarii, 2 Att.); take tools (162 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (162 denarii, 2 Att.); take instruments (162 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (3 month(s) left); under way: Copy the star tables (17 month(s) left)   (machine)
 
 > assess
@@ -350,6 +357,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • The year AD 156 begins.
+  • The broken fountain has a pool of green water around its base now, and boys float bark boats in it. A woman pulls her son out by the ear and tells him that's where fevers come from. She may be right.
 
 == Month 13 · Ianuarius, AD 156 ==  578 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Source bronze for the coil housing, Copy the star tables
@@ -359,8 +367,9 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
-  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 month(s) left); under way: Copy the star tables (16 month(s) left)   (machine)
 
 > assess
@@ -379,6 +388,7 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • At the market a sausage seller shouts that his sausages are from Lucania and his prices are from heaven. A man with a basket of snails haggles with him over a trade and wins. You eat a sausage standing up, the Roman way, and burn your mouth.
 
 == Month 14 · Februarius, AD 156 ==  703 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Source bronze for the coil housing, Copy the star tables
@@ -386,8 +396,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 1/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 month(s) left); under way: Copy the star tables (15 month(s) left)   (machine)
 
 > assess
@@ -408,6 +419,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
 
 > end
   • You pay open-market prices for bronze of uncertain quality, and it will do. (Machine: 2/9 steps.)
+  • At the baths a man selling cakes walks round the pool shouting, a hair-plucker's customers shriek, and a ball game in the courtyard sends a ball into the hot room. Nobody seems to find any of it strange but you.
 
 == Month 15 · Martius, AD 156 ==  203 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Borrow glassware and a still
@@ -415,8 +427,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (14 month(s) left); under way: Borrow glassware and a still (5 month(s) left)   (machine)
 
 > assess
@@ -435,6 +448,7 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • A sacrifice at the temple of Castor in the Forum: a white heifer garlanded, the priest's head covered, a flute playing so nobody hears an unlucky word. The haruspex reads the liver and pronounces it favorable. The meat is sold afterward at a stall by the steps.
 
 == Month 16 · Aprilis, AD 156 ==  327 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Borrow glassware and a still
@@ -442,8 +456,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take ironwork (406 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (13 month(s) left); under way: Borrow glassware and a still (4 month(s) left)   (machine)
 
 > assess
@@ -462,23 +477,25 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • A night in the tavern on the corner: a jug of rough red, a plate of chickpeas, and a dice game you are talked into and lose. The landlord has painted on the wall what a cup costs, so nobody can argue. People argue anyway.
 
-== Month 17 · Maius, AD 156 ==  452 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 17 · Maius, AD 156 ==  447 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Borrow glassware and a still
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
-  Workshop orders: take tools (165 denarii, 2 Att.); take fittings (203 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (12 month(s) left); under way: Borrow glassware and a still (3 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 452 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 447 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -490,22 +507,24 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • On the Via Appia, among the great tombs, a small one has a carved relief of a baker at his oven and an inscription longer than the tomb is wide: once a slave, now free, a baker, he built this for himself, his wife and his freedmen, and wishes the reader good health. A boy is relieving himself against the next tomb along.
 
-== Month 18 · Iunius, AD 156 ==  577 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 18 · Iunius, AD 156 ==  572 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Borrow glassware and a still
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take fittings (203 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (11 month(s) left); under way: Borrow glassware and a still (2 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 577 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 572 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -517,22 +536,24 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • In the Basilica Julia four courts sit at once, separated by curtains, and the advocates' voices carry over all of them. You watch a case about a stolen mule. The mule is brought in as evidence. It does not testify.
 
-== Month 19 · Iulius, AD 156 ==  702 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 19 · Iulius, AD 156 ==  697 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Borrow glassware and a still
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take fittings (203 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (10 month(s) left); under way: Borrow glassware and a still (1 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 702 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 697 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -545,16 +566,17 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
 
 > end
   • A glassblower sells you flasks and a crude still at a stranger's price. (Machine: 3/9 steps.)
-  • With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out.
+  • The price of wheat is chalked on a board by the grain sellers' stalls, and the women around it argue about the number as if it were a person. A girl sells you figs and gives you the change in a coin so worn you can't tell whose head is on it.
 
-== Month 20 · Augustus, AD 156 ==  827 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 20 · Augustus, AD 156 ==  822 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Copy the star tables
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take tools (165 denarii, 2 Att.); take fittings (203 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (9 month(s) left)   (machine)
 
 > assess
@@ -564,7 +586,7 @@ You have already assessed the machine; see 'machine'.
 Started: Commission the casting at Ostia.  [Attention left this month: 2/4]
 
 > repair coolant
-Distil the coolant costs 375 denarii; you have 77 denarii.
+Distil the coolant costs 375 denarii; you have 72 denarii.
 
 > repair chronometer
 You are already working on the chronometer.
@@ -573,16 +595,18 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out.
 
-== Month 21 · September, AD 156 ==  201 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 21 · September, AD 156 ==  196 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Commission the casting at Ostia
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
-  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take instruments (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (8 month(s) left); under way: Commission the casting at Ostia (11 month(s) left)   (machine)
 
 > assess
@@ -592,7 +616,7 @@ You have already assessed the machine; see 'machine'.
 You are already working on the coil.
 
 > repair coolant
-Distil the coolant costs 375 denarii; you have 201 denarii.
+Distil the coolant costs 375 denarii; you have 196 denarii.
 
 > repair chronometer
 You are already working on the chronometer.
@@ -601,15 +625,17 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • In the steam a senator's freedman tells anyone who listens how much his master's new villa cost. A builder in the corner says quietly that it cost half that, and he should know.
 
-== Month 22 · October, AD 156 ==  326 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
+== Month 22 · October, AD 156 ==  321 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Commission the casting at Ostia
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take instruments (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (7 month(s) left); under way: Commission the casting at Ostia (10 month(s) left)   (machine)
 
 > assess
@@ -619,7 +645,7 @@ You have already assessed the machine; see 'machine'.
 You are already working on the coil.
 
 > repair coolant
-Distil the coolant costs 375 denarii; you have 326 denarii.
+Distil the coolant costs 375 denarii; you have 321 denarii.
 
 > repair chronometer
 You are already working on the chronometer.
@@ -628,15 +654,17 @@ You are already working on the chronometer.
 You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
 
 > end
+  • In the tavern a sailor from Alexandria tells everyone the lighthouse there is twice the height of anything in Rome. A man from the Subura offers to fight him over it. The landlord stops them by putting a free jug on the table, and charges for it later.
 
-== Month 23 · November, AD 156 ==  451 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100.1
+== Month 23 · November, AD 156 ==  441 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100.1
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Commission the casting at Ostia
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take instruments (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 month(s) left); under way: Commission the casting at Ostia (9 month(s) left)   (machine)
 
 > assess
@@ -657,15 +685,17 @@ You are already working on the chronometer.
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • Successus's apprentice has run off to join a troupe of acrobats going to Capua. Successus says good riddance and spends the whole day looking out of the door. The boy's mother comes to apologize and leaves a cheese.
 
-== Month 24 · December, AD 156 ==  87 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100.1
+== Month 24 · December, AD 156 ==  77 denarii (+11/month) · 20 aurei (1 = 25.4 den.)   Index 100.1
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Commission the casting at Ostia, Distil the coolant
   Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (165 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take instruments (165 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 month(s) left); under way: Commission the casting at Ostia (8 month(s) left); under way: Distil the coolant (9 month(s) left)   (machine)
 
 > assess
@@ -686,16 +716,18 @@ That needs 1 Attention; you have 0 left this month.
 > end
   • The year AD 157 begins.
   • Fever in the district: children who drink from the broken fountain fall sick. You remember choosing the workshop over the fountain.
+  • At the temple of Ceres the plebeian aediles hand out bread to the poor on the goddess's day. The line goes around the Aventine. Diodoros, who isn't entitled to any, gets two loaves anyway, from a woman who likes his face.
 
-== Month 25 · Ianuarius, AD 157 ==  99 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
+== Month 25 · Ianuarius, AD 157 ==  89 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take ironwork (412 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 month(s) left); under way: Commission the casting at Ostia (7 month(s) left); under way: Distil the coolant (8 month(s) left)   (machine)
 
 > assess
@@ -714,15 +746,17 @@ You are already working on the chronometer.
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • The landlord's agent comes for the rent and finds the family on your landing a month behind. He threatens, they plead, the cobbler downstairs lends them half. By evening everyone is sitting on the stairs together eating his bread.
 
-== Month 26 · Februarius, AD 157 ==  110 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
+== Month 26 · Februarius, AD 157 ==  100 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take ironwork (412 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 month(s) left); under way: Commission the casting at Ostia (6 month(s) left); under way: Distil the coolant (7 month(s) left)   (machine)
 
 > assess
@@ -741,15 +775,17 @@ You are already working on the chronometer.
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • At the Porticus Minucia the citizens queue for their monthly grain with bronze tokens in their hands. Diodoros, who isn't a citizen, watches from across the street. "Your city feeds its own," he says. "The rest of us buy bread." A clerk checks each token against a list as long as the portico.
 
-== Month 27 · Martius, AD 157 ==  122 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
+== Month 27 · Martius, AD 157 ==  112 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take ironwork (412 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 month(s) left); under way: Commission the casting at Ostia (5 month(s) left); under way: Distil the coolant (6 month(s) left)   (machine)
 
 > assess
@@ -768,15 +804,17 @@ You are already working on the chronometer.
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • A day in the courts: a will contested by three nephews, each with his own advocate and his own claque of paid applauders. The judge falls asleep. The applauders don't.
 
-== Month 28 · Aprilis, AD 157 ==  133 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
+== Month 28 · Aprilis, AD 157 ==  123 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take ironwork (412 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 month(s) left); under way: Commission the casting at Ostia (4 month(s) left); under way: Distil the coolant (5 month(s) left)   (machine)
 
 > assess
@@ -796,16 +834,18 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • You copy a season of star tables by lamplight, checking every column twice. (Machine: 4/9 steps.)
+  • Market day, and it is raining. The stallholders pull hides over their goods and keep shouting. You buy lamp oil from a man who swears it is Spanish and smells of fish. Under the awning of a wine shop two old men are playing knucklebones for olives.
 
-== Month 29 · Maius, AD 157 ==  144 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
+== Month 29 · Maius, AD 157 ==  134 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.3
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 month(s) left); under way: Distil the coolant (4 month(s) left)   (machine)
 
 > assess
@@ -818,22 +858,24 @@ You are already working on the coil.
 You are already working on the coolant.
 
 > repair chronometer
-Recalibrate the chronometer costs 250 denarii; you have 144 denarii.
+Recalibrate the chronometer costs 250 denarii; you have 134 denarii.
 
 > work
 You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 0/4]
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • Someone has scratched on the tavern wall, beside the price list, a long complaint that the landlord waters his wine and pisses in the jugs. Underneath, in a different hand: and you drank it.
 
-== Month 30 · Iunius, AD 157 ==  270 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 30 · Iunius, AD 157 ==  255 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 month(s) left); under way: Distil the coolant (3 month(s) left)   (machine)
 
 > assess
@@ -853,15 +895,17 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • The baths are crowded with soldiers on leave. They oil each other, wrestle, and argue about pay. One of them tells you the army's coins are getting lighter every year and the officers pretend not to notice.
 
-== Month 31 · Iulius, AD 157 ==  396 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 31 · Iulius, AD 157 ==  381 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 month(s) left); under way: Distil the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -882,15 +926,17 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
 
 > end
   • A founder at Ostia casts the housing to your drawing and asks no questions. (Machine: 5/9 steps.)
+  • A fire in an insula behind the Circus at night. The vigiles come with buckets, axes and a pump on a cart, and the street makes a chain from the nearest fountain. They pull down the next house to stop it spreading. By dawn two families are sitting on their furniture in the street, and the pump's leather flaps are hanging in strips.
 
-== Month 32 · Augustus, AD 157 ==  521 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 32 · Augustus, AD 157 ==  506 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 2 free / 4 total · 2 reserved — Distil the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (206 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 5/9 repair steps, gold 0/60 aurei; under way: Distil the coolant (1 month(s) left)   (machine)
 
 > assess
@@ -911,17 +957,18 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 6/9 steps.)
-  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
+  • A procession for Magna Mater: her eunuch priests in bright robes, cymbals, tambourines, men cutting their own arms until they bleed. The crowd parts for them, half afraid, half delighted. Livia covers the girls' eyes and watches herself.
 
-== Month 33 · September, AD 157 ==  533 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 33 · September, AD 157 ==  518 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (5 month(s) left)   (machine)
 
 > assess
@@ -941,15 +988,17 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • A baby is born on your landing in the night. In the morning the father hangs a garland on the door and puts a little altar to Juno on the step. The widow upstairs comes down for the first time in a month to look.
 
-== Month 34 · October, AD 157 ==  658 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 34 · October, AD 157 ==  643 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 1 free / 4 total · 3 reserved — Fit and test the coil housing, Seal and test the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (4 month(s) left); under way: Seal and test the coolant (5 month(s) left)   (machine)
 
 > assess
@@ -969,15 +1018,17 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
 
-== Month 35 · November, AD 157 ==  784 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 35 · November, AD 157 ==  769 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 1 free / 4 total · 3 reserved — Fit and test the coil housing, Seal and test the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (3 month(s) left); under way: Seal and test the coolant (4 month(s) left)   (machine)
 
 > assess
@@ -997,15 +1048,17 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • In the tavern a veteran with one ear sings a marching song about a general's bald head. The whole room knows the chorus. The landlord's wife throws him out at the third verse, and he comes back in for the fourth.
 
-== Month 36 · December, AD 157 ==  910 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
+== Month 36 · December, AD 157 ==  890 denarii (+11/month) · 20 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 1 free / 4 total · 3 reserved — Fit and test the coil housing, Seal and test the coolant
   Medicine      49  expect   50  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (206 denarii, 2 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take instruments (167 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (2 month(s) left); under way: Seal and test the coolant (3 month(s) left)   (machine)
 
 > assess
@@ -1026,16 +1079,18 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
 
 > end
   • The year AD 158 begins.
+  • Felix's elder boy has gone to a rhetor at the Forum of Trajan. The fees are more than Felix makes in a good month. He tells you about it with his arms folded, daring you to say it's too much. Prima has already said it.
 
-== Month 37 · Ianuarius, AD 158 ==  1,035 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
+== Month 37 · Ianuarius, AD 158 ==  1,015 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 1 free / 4 total · 3 reserved — Fit and test the coil housing, Seal and test the coolant
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (1 month(s) left); under way: Seal and test the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -1056,15 +1111,17 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 
 > end
   • The new housing seats cleanly; the coil hums when you close the circuit. (Machine: 7/9 steps.)
+  • The insula's water comes from a fountain at the end of the street, and the stairs are steep. A boy from the top floor charges an as a jar to carry it up. He is saving to buy a dog.
 
-== Month 38 · Februarius, AD 158 ==  1,162 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
+== Month 38 · Februarius, AD 158 ==  1,142 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 3 free / 4 total · 1 reserved — Seal and test the coolant
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 7/9 repair steps, gold 0/60 aurei; under way: Seal and test the coolant (1 month(s) left)   (machine)
 
 > assess
@@ -1085,15 +1142,17 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 
 > end
   • The coolant holds its seal; the gauge needle settles. (Machine: 8/9 steps.)
+  • In the Forum a man has a contract witnessed: seven witnesses, seven seals, an argument over whether the fourth witness is really a citizen. You think of how many of Rome's agreements depend on someone's ring.
 
-== Month 39 · Martius, AD 158 ==  1,038 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
+== Month 39 · Martius, AD 158 ==  1,018 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (5 month(s) left)   (machine)
 
 > assess
@@ -1112,15 +1171,17 @@ You are already working on the chronometer.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 1/4]
 
 > end
+  • At the baths you see Felix, Cassianus's sister and the cheese woman from the market, all in one afternoon. Rome is a million people and you keep meeting the same twenty.
 
-== Month 40 · Aprilis, AD 158 ==  1,165 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
+== Month 40 · Aprilis, AD 158 ==  1,145 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take ironwork (418 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (4 month(s) left)   (machine)
 
 > assess
@@ -1139,16 +1200,18 @@ You are already working on the chronometer.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 1/4]
 
 > end
+  • A crowd at the market around a man selling a cure for everything from a painted cart: fevers, gout, sorrow, failing hair. Three people buy. You think of Serenus's columns and almost laugh, and the man sees you and offers you a discount.
 
-== Month 41 · Maius, AD 158 ==  1,291 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
+== Month 41 · Maius, AD 158 ==  1,271 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.3
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
-  Workshop orders: take ironwork (418 denarii, 3 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (418 denarii, 3 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (3 month(s) left)   (machine)
 
 > assess
@@ -1167,15 +1230,17 @@ You are already working on the chronometer.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 1/4]
 
 > end
+  • The grain ships are late from Alexandria and the bakers' loaves get smaller without getting cheaper. At the fountain the women say the emperor will fix it. At the tavern the men say the bakers are hoarding.
 
-== Month 42 · Iunius, AD 158 ==  1,418 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 42 · Iunius, AD 158 ==  1,398 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take ironwork (418 denarii, 3 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (418 denarii, 3 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (2 month(s) left)   (machine)
 
 > assess
@@ -1194,15 +1259,17 @@ You are already working on the chronometer.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 1/4]
 
 > end
+  • At the Ludi Apollinares you go to the theater of Marcellus to see an old comedy: a clever slave, two foolish fathers, a lost daughter found. The audience knows every joke before it comes and laughs harder for it. Afterward a mime does a drunk senator and nobody laughs at all, and the mime is very pleased.
 
-== Month 43 · Iulius, AD 158 ==  1,544 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 43 · Iulius, AD 158 ==  1,524 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take ironwork (418 denarii, 3 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (418 denarii, 3 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (1 month(s) left)   (machine)
 
 > assess
@@ -1223,15 +1290,17 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 > end
   • The chronometer's dial agrees with the stars to the hour. (Machine: 9/9 steps; 60 aurei still to put back.)
   • The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.
+  • High summer. Anyone with money has gone to the hills. The streets stink by noon, the fountains run warm, and the physicians say the bad air rises off the Tiber marshes at dusk. You keep the shutters closed and work at night.
 
-== Month 44 · Augustus, AD 158 ==  1,670 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 44 · Augustus, AD 158 ==  1,650 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take ironwork (418 denarii, 3 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  Workshop orders: take ironwork (418 denarii, 3 Att.); take instruments (170 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1250,16 +1319,18 @@ The chronometer is finished.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A quiet night in the tavern. A scribe is writing a letter for a soldier's mother, reading each line back aloud. By the end half the tavern is helping with the wording.
 
-== Month 45 · September, AD 158 ==  1,797 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 45 · September, AD 158 ==  1,772 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1278,15 +1349,17 @@ The chronometer is finished.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Painted on the wall of a fuller's yard in red letters a yard high: a show of gladiators, twenty pairs, awnings provided. Below it, smaller, in charcoal: Successus loves Iris, and Iris doesn't care.
 
-== Month 46 · October, AD 158 ==  1,923 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 46 · October, AD 158 ==  1,898 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1305,15 +1378,17 @@ The chronometer is finished.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A crack runs down the wall of your room after a heavy cart passes in the night. The landlord says the building has stood forty years. The cobbler downstairs says that is exactly the trouble.
 
-== Month 47 · November, AD 158 ==  2,050 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 47 · November, AD 158 ==  2,025 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1332,15 +1407,17 @@ The chronometer is finished.
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The fishmongers by the river have a sturgeon as long as a man laid out on a slab. A cook from a senator's house buys it whole, and four porters carry it up the Caelian like a funeral.
 
-== Month 48 · December, AD 158 ==  2,176 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
+== Month 48 · December, AD 158 ==  2,151 denarii (+11/month) · 20 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt     1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (209 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1360,16 +1437,79 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 
 > end
   • The year AD 159 begins.
+  • Compitalia: at the shrine where four streets cross, the neighborhood hangs a woolen doll for every free person and a woolen ball for every slave, for the Lares of the crossroads to take instead of them. The street magistrate, a freedman in a borrowed toga, pours the wine. Your insula hangs a doll for you without asking.
 
-== Month 49 · Ianuarius, AD 159 ==  2,303 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
+== Month 49 · Ianuarius, AD 159 ==  2,278 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
-  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+  • Prima hears you may be going on a long journey and sends you to the temple of Fortuna Redux by the Porta Capena. "Make a vow," she says. "People who come back make vows. People who don't, didn't."
+
+== Month 50 · Februarius, AD 159 ==  2,405 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
+  Attention: 4 free / 4 total
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The cobbler's wife has left him for a sausage maker from the next street. The cobbler sings sadder songs and makes better shoes.
+
+== Month 51 · Martius, AD 159 ==  2,532 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
+  Attention: 4 free / 4 total
+  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1389,14 +1529,18 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
 
-== Month 50 · Februarius, AD 159 ==  2,430 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
+== Month 52 · Aprilis, AD 159 ==  2,660 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1415,70 +1559,21 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • On a shop wall someone has painted a notice for a lost donkey, a reward, and a description so detailed you could pick the donkey out in a crowd. Underneath, another hand: found it, ate it.
 
-== Month 51 · Martius, AD 159 ==  2,557 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
+== Month 53 · Maius, AD 159 ==  2,787 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
-
-> end
-
-== Month 52 · Aprilis, AD 159 ==  2,685 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
-  Attention: 4 free / 4 total
-  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
-  Governance    55  expect   55  (no voice)  debt     0 Stable
-  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
-  Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (212 denarii, 2 Att.); take instruments (172 denarii, 2 Att.)   (workshop)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> work
-You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
-
-> end
-
-== Month 53 · Maius, AD 159 ==  2,812 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.3
-  Attention: 4 free / 4 total
-  Medicine      49  expect   50  (no voice)  debt   2.1 Stable
-  Governance    55  expect   55  (no voice)  debt     0 Stable
-  Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
-  Prices: +6.1% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Workshop orders: take fittings (212 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1497,15 +1592,20 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A market inspector, an aedile's man, walks the stalls with a set of bronze weights, checking the bakers' scales. One baker is found short and fined on the spot. The crowd enjoys it more than the theater.
 
-== Month 54 · Iunius, AD 159 ==  2,939 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 54 · Iunius, AD 159 ==  2,914 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
+  Workshop orders: take fittings (212 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1524,15 +1624,20 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The games again, a tragedy this time: Medea, in Latin, very loud. A woman behind you weeps for the children every time and eats almonds between the weeping.
 
-== Month 55 · Iulius, AD 159 ==  3,067 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 55 · Iulius, AD 159 ==  3,042 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
+  Workshop orders: take fittings (212 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1551,15 +1656,20 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Bread is short again. A crowd gathers at the bakers' street and someone throws a stone through a shutter. The urban cohorts come and stand about with their shields, and the bread comes, eventually.
 
-== Month 56 · Augustus, AD 159 ==  3,194 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 56 · Augustus, AD 159 ==  3,169 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
+  Workshop orders: take fittings (212 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1578,16 +1688,18 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The Ludi Romani: a procession from the Capitol to the Circus, the gods carried on litters, dancers, boxers, men dressed as satyrs mocking the dancers. Then the races. The crowd is a single animal, and for an afternoon you are part of it.
 
-== Month 57 · September, AD 159 ==  3,321 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 57 · September, AD 159 ==  3,296 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1607,14 +1719,15 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
 
-== Month 58 · October, AD 159 ==  3,449 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 58 · October, AD 159 ==  3,424 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1633,15 +1746,17 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Market day, and a slave dealer has set up at the edge of the Forum with a dozen people on a platform, each with a placard round the neck listing age, origin and faults. Customers walk past it to buy cabbages.
 
-== Month 59 · November, AD 159 ==  3,576 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 59 · November, AD 159 ==  3,551 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1660,15 +1775,17 @@ The chronometer is finished.
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A new notice on the street corner: apartments to let in the insula of Arrius, shops with lodgings above, first floor for gentlemen. In smaller letters: no dyers.
 
-== Month 60 · December, AD 159 ==  3,703 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
+== Month 60 · December, AD 159 ==  3,678 denarii (+11/month) · 20 aurei (1 = 26.5 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   2.1 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
-  Workshop orders: take tools (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take fittings (212 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1688,16 +1805,18 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
   • The year AD 160 begins.
+  • Compitalia again. The crossroads shrine has a new coat of paint: two Lares dancing, a snake, a pig being led to sacrifice. The painter is the cobbler's nephew and has given one Lar the cobbler's face.
 
-== Month 61 · Ianuarius, AD 160 ==  3,831 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
+== Month 61 · Ianuarius, AD 160 ==  3,806 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1716,15 +1835,17 @@ The chronometer is finished.
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Lupercalia: young men of good family run half naked round the Palatine with strips of goatskin, striking anyone in reach. Young wives step out to be struck, for luck with children. Livia's sister does; Livia doesn't, and says loudly why not.
 
-== Month 62 · Februarius, AD 160 ==  3,959 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
+== Month 62 · Februarius, AD 160 ==  3,934 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1744,14 +1865,15 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 63 · Martius, AD 160 ==  4,087 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
+== Month 63 · Martius, AD 160 ==  4,062 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1771,14 +1893,15 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 64 · Aprilis, AD 160 ==  4,215 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
+== Month 64 · Aprilis, AD 160 ==  4,190 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1798,15 +1921,16 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 65 · Maius, AD 160 ==  4,344 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
+== Month 65 · Maius, AD 160 ==  4,319 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1826,14 +1950,15 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 66 · Iunius, AD 160 ==  4,472 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 66 · Iunius, AD 160 ==  4,447 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1852,15 +1977,17 @@ The chronometer is finished.
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • At the games a troupe of pantomime dancers plays the loves of Mars and Venus without a word spoken, only a chorus and pipes. The crowd knows the dancer by name and chants it until he comes out again.
 
-== Month 67 · Iulius, AD 160 ==  4,600 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 67 · Iulius, AD 160 ==  4,575 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1879,15 +2006,17 @@ The chronometer is finished.
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Someone has scratched a long list of debts on the tavern wall, with names. By the end of the week half the names are scratched out and the list has a new heading: paid, or dead.
 
-== Month 68 · Augustus, AD 160 ==  4,728 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 68 · Augustus, AD 160 ==  4,703 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  Workshop orders: take tools (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1906,8 +2035,9 @@ The chronometer is finished.
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The Ludi Romani again, and gladiators this year in the Flavian amphitheater as well as the races. The crowd boos a fighter who won't finish a fallen man and cheers when the editor spares him. You leave before the beasts.
 
-== Month 69 · September, AD 160 ==  4,856 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 69 · September, AD 160 ==  4,831 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1915,8 +2045,38 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
-  Workshop orders: take instruments (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> work
+You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The grain fleet comes in all at once after a month of nothing: two hundred ships in the harbor at Ostia, and every barge on the river busy. Lollius's men work three days without sleeping.
+
+== Month 70 · October, AD 160 ==  4,960 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+  Attention: 4 free / 4 total
+  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1936,14 +2096,15 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 70 · October, AD 160 ==  4,985 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 71 · November, AD 160 ==  5,088 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -1963,41 +2124,15 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
 
-== Month 71 · November, AD 160 ==  5,113 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
+== Month 72 · December, AD 160 ==  5,216 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   3.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> work
-You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
-
-> end
-
-== Month 72 · December, AD 160 ==  5,241 denarii (+11/month) · 20 aurei (1 = 26.9 den.)   Index 99.4
-  Attention: 4 free / 4 total
-  Medicine      49  expect   50  (no voice)  debt   3.2 Stable
-  Governance    55  expect   55  (no voice)  debt     0 Stable
-  Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
-  Prices: +7.7% since AD 155 (1.5% a year)
-  Workshop orders: take instruments (175 denarii, 2 Att.); take ironwork (431 denarii, 3 Att.)   (workshop)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2017,8 +2152,9 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
   • The year AD 161 begins.
+  • At the crossroads shrine this Compitalia the street magistrate is a baker you buy from. He makes a speech about the neighborhood that goes on too long and ends with free bread, so nobody minds.
 
-== Month 73 · Ianuarius, AD 161 ==  5,369 denarii (+11/month) · 20 aurei (1 = 27.3 den.)   Index 99.3
+== Month 73 · Ianuarius, AD 161 ==  5,344 denarii (+11/month) · 20 aurei (1 = 27.3 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   4.3 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2027,6 +2163,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
   Workshop orders: take tools (178 denarii, 2 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > exchange 1300 denarii
@@ -2052,8 +2189,9 @@ You earn 523 denarii; tax takes 52 denarii, you keep 471 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • Lupercalia again. This year a running boy catches a magistrate's wife across the face with the goatskin and the whole street holds its breath until she laughs.
 
-== Month 74 · Februarius, AD 161 ==  4,563 denarii (+11/month) · 6 aurei (1 = 27.3 den.)   Index 99.3
+== Month 74 · Februarius, AD 161 ==  4,538 denarii (+11/month) · 6 aurei (1 = 27.3 den.)   Index 99.3
   Attention: 4 free / 4 total
   Medicine      49  expect   50  (no voice)  debt   4.3 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2061,15 +2199,16 @@ You earn 523 denarii; tax takes 52 denarii, you keep 471 denarii.  [Attention le
   Prices: +9.3% since AD 155 (1.5% a year)
   Workshop orders: take tools (178 denarii, 2 Att.); take fittings (219 denarii, 2 Att.)   (workshop)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
 
 > jump
 You will leave AD 161 and arrive somewhere between AD 186 and AD 201: the machine's range is 25–40 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
-What you leave behind (4,563 denarii and 6 aurei in hand):
+What you leave behind (4,538 denarii and 6 aurei in hand):
   • Medicine debt 4.3 keeps growing 5% a year for 30 years after you leave (about 7 in a decade, 18.6 after 30 years) unless a crisis clears it. Paying it down now costs 323 denarii.
   • No institution you hold 10%+ of will look after Rome while you're away.
   • The machine will carry you 25–40 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
-  • The 4,563 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
+  • The 4,538 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
   • Your gold: the machine can carry 10 aurei; you hold 6 aurei.
   •   Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).
 Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
@@ -2103,7 +2242,7 @@ Type 'learn more' for the Index and what became of your institutions, 'jump' to 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 161: 99   Medicine 98  Governance 100  Economy 100
-  Arrival,   AD 186: 96   Medicine 92  Governance 101  Economy 96
+  Arrival,   AD 186: 96   Medicine 92  Governance 98  Economy 100
 Institutions
   None you held 10% or more of.
 Your gold: carried 6, deposited 0 (0 back), buried 0 (0 recovered), left behind 0; you hold 6 aurei now.
@@ -2116,4 +2255,4 @@ You have been away for 25 years. What happened in between is lost to you; the wo
 
 (after arrival) > quit
 
-Run fingerprint (seed 123): ecfec31e44125bd1
+Run fingerprint (seed 123): b84abe9ab7d9be8d

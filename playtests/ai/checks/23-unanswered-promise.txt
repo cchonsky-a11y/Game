@@ -1,2 +1,2 @@
-seed 123, commands 445, arrived True, fingerprint ecfec31e44125bd1
+seed 123, commands 445, arrived True, fingerprint b84abe9ab7d9be8d
 OK | no findings

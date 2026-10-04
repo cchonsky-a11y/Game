@@ -105,6 +105,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Market day at the Forum Holitorium. You buy bread, a cheese wrapped in leaves, and a bunch of leeks, and you pay too much for all of it. The cheese woman knows you are foreign by the way you count, and charges for it.
 
 == Month 3 · Martius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
@@ -116,6 +117,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Under an awning at the edge of the Forum a schoolmaster drills a dozen boys in their letters: they chant the alphabet forwards, backwards, and in pairs, and the slowest gets the cane across his palm. A slave boy sits at the back holding his young master's tablets and learns faster than any of them.
 
 == Month 4 · Aprilis, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
@@ -140,6 +142,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the district fountain the women wait their turn with jars on their hips and trade news faster than any messenger: a midwife who drinks, a baby born with a caul, the price of leeks, a husband seen somewhere he shouldn't have been. They stop talking when you come near and start again when you leave.
 
 == Month 6 · Iunius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
@@ -162,6 +165,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A fire in an insula behind the Circus at night. The vigiles come with buckets, axes and a pump on a cart, and the street makes a chain from the nearest fountain. They pull down the next house to stop it spreading. By dawn two families are sitting on their furniture in the street, and the pump's leather flaps are hanging in strips.
 
 == Month 8 · Augustus, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
@@ -172,8 +176,9 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A night in the tavern on the corner: a jug of rough red, a plate of chickpeas, and a dice game you are talked into and lose. The landlord has painted on the wall what a cup costs, so nobody can argue. People argue anyway.
 
-== Month 9 · September, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+== Month 9 · September, AD 155 ==  108 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -184,9 +189,20 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the market a sausage seller shouts that his sausages are from Lucania and his prices are from heaven. A man with a basket of snails haggles with him over a trade and wins. You eat a sausage standing up, the Roman way, and burn your mouth.
+
+== Month 10 · October, AD 155 ==  108 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+
+> end
   • Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. "The bleeding," he says. "I bled eleven of them."
 
-== Month 10 · October, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+== Month 11 · November, AD 155 ==  108 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -197,18 +213,7 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 > end
   • Serenus: "The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet." (invitation accept circle: 1 Attention and 50 denarii for the wine / decline circle)
 
-== Month 11 · November, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
-  Attention: 4 free / 4 total
-  Medicine      51  expect   51  (no voice)  debt     0 Stable
-  Governance    55  expect   55  (no voice)  debt     0 Stable
-  Economy       55  expect   55  (no voice)  debt     0 Stable
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: not yet assessed, gold 0/60 aurei   (machine)
-
-> end
-
-== Month 12 · December, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
+== Month 12 · December, AD 155 ==  108 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -220,8 +225,9 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
 
 > end
   • The year AD 156 begins.
+  • Before dawn you go with Cassianus to his patron's house on the Caelian, where twenty men in togas wait in the street to say good morning to a senator's freedman, who says good morning to the senator. Cassianus gets a nod and a small basket of food. On the way back he says it was a good morning, and means it.
 
-== Month 13 · Ianuarius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 13 · Ianuarius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -234,8 +240,9 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Serenus catches you at the fountain. "Pomponia has fever in her household again, the third summer running. She pays, which makes her rare. She wants to know why her people sicken and her neighbors' don't. I told her you count things." (commission look fevers: 1 Attention · Pay: none initially · may lead to paid commission)
 
-== Month 14 · Februarius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 14 · Februarius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -243,11 +250,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The fountain runs clean and cold, and the boys of the street have found out that a thumb over the spout soaks anyone passing. You are passing. An old woman laughs so hard she has to put her jar down.
 
-== Month 15 · Martius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 15 · Martius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -255,11 +264,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • An afternoon at the baths: exercise in the courtyard, the hot room, the warm room, the cold plunge, then oil and a strigil. The real business is talk. You hear about three lawsuits, two scandals and a ship lost off Sicily before you are dry.
 
-== Month 16 · Aprilis, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 16 · Aprilis, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -267,11 +278,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Your neighbors in the insula: a cobbler on the ground floor who sings, a family of six on your landing who share one brazier, and a widow above who drops her slops into the street with a shout of warning that comes a moment too late.
 
-== Month 17 · Maius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 17 · Maius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -280,11 +293,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • On the Via Appia, among the great tombs, a small one has a carved relief of a baker at his oven and an inscription longer than the tomb is wide: once a slave, now free, a baker, he built this for himself, his wife and his freedmen, and wishes the reader good health. A boy is relieving himself against the next tomb along.
 
-== Month 18 · Iunius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 18 · Iunius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -292,11 +307,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the Basilica Julia four courts sit at once, separated by curtains, and the advocates' voices carry over all of them. You watch a case about a stolen mule. The mule is brought in as evidence. It does not testify.
 
-== Month 19 · Iulius, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 19 · Iulius, AD 156 ==  108 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -304,11 +321,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the tavern a sailor from Alexandria tells everyone the lighthouse there is twice the height of anything in Rome. A man from the Subura offers to fight him over it. The landlord stops them by putting a free jug on the table, and charges for it later.
 
-== Month 20 · Augustus, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 20 · Augustus, AD 156 ==  102 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -316,11 +335,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A water-carrier with two jars on a yoke tells you he used to walk to the Aqua Marcia for clean water. Now he sells to the top floors of the insulae, where nobody wants to carry anything up six flights, and makes a better living than before.
 
-== Month 21 · September, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 21 · September, AD 156 ==  102 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -329,11 +350,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The price of wheat is chalked on a board by the grain sellers' stalls, and the women around it argue about the number as if it were a person. A girl sells you figs and gives you the change in a coin so worn you can't tell whose head is on it.
 
-== Month 22 · October, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 22 · October, AD 156 ==  102 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -341,11 +364,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A fashionable physician who treats senators calls Serenus's casebooks 'the accounts of a grocer' at a public lecture. Serenus stands up in the audience and asks him how many of his patients died last summer. The Circle talks of nothing else for a month, and two senators' households stop calling Serenus at all.
 
-== Month 23 · November, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 23 · November, AD 156 ==  102 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -353,11 +378,13 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • The landlord's agent comes for the rent and finds the family on your landing a month behind. He threatens, they plead, the cobbler downstairs lends them half. By evening everyone is sitting on the stairs together eating his bread.
 
-== Month 24 · December, AD 156 ==  112 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 24 · December, AD 156 ==  102 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -365,13 +392,15 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 157 begins.
   • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
+  • The bath-keeper Philippus remembers you from the warm room. "You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet." (commission look baths: 1 Attention · Pay: none initially · may lead to paid commission)
 
-== Month 25 · Ianuarius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 25 · Ianuarius, AD 157 ==  102 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -380,11 +409,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Serenus asks you to stand at the back of the hall while he reads his fevers to anyone who will come. Eleven people come, three of them physicians, one of them asleep. He reads every case. Afterward a young woman from the Subura asks him to come and see her children, and he goes.
 
-== Month 26 · Februarius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 26 · Februarius, AD 157 ==  102 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -392,11 +424,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Someone has scratched on the tavern wall, beside the price list, a long complaint that the landlord waters his wine and pisses in the jugs. Underneath, in a different hand: and you drank it.
 
-== Month 27 · Martius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 27 · Martius, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -404,11 +439,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A baby is born on your landing in the night. In the morning the father hangs a garland on the door and puts a little altar to Juno on the step. The widow upstairs comes down for the first time in a month to look.
 
-== Month 28 · Aprilis, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 28 · Aprilis, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -416,11 +454,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A day in the courts: a will contested by three nephews, each with his own advocate and his own claque of paid applauders. The judge falls asleep. The applauders don't.
 
-== Month 29 · Maius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 29 · Maius, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -429,11 +470,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the baths a man selling cakes walks round the pool shouting, a hair-plucker's customers shriek, and a ball game in the courtyard sends a ball into the hot room. Nobody seems to find any of it strange but you.
 
-== Month 30 · Iunius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 30 · Iunius, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -441,11 +485,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • At the fountain the talk is of a neighbor's son who has joined the vigiles: good pay, a bed, a uniform, and every fire in the city to run into.
 
-== Month 31 · Iulius, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 31 · Iulius, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -453,11 +500,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • High summer. Anyone with money has gone to the hills. The streets stink by noon, the fountains run warm, and the physicians say the bad air rises off the Tiber marshes at dusk. You keep the shutters closed and work at night.
 
-== Month 32 · Augustus, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 32 · Augustus, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -465,11 +515,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • Market day, and it is raining. The stallholders pull hides over their goods and keep shouting. You buy lamp oil from a man who swears it is Spanish and smells of fish. Under the awning of a wine shop two old men are playing knucklebones for olives.
 
-== Month 33 · September, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 33 · September, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -478,11 +531,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • A sacrifice at the temple of Castor in the Forum: a white heifer garlanded, the priest's head covered, a flute playing so nobody hears an unlucky word. The haruspex reads the liver and pronounces it favorable. The meat is sold afterward at a stall by the steps.
 
-== Month 34 · October, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 34 · October, AD 157 ==  97 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -490,11 +546,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the tavern a veteran with one ear sings a marching song about a general's bald head. The whole room knows the chorus. The landlord's wife throws him out at the third verse, and he comes back in for the fourth.
 
-== Month 35 · November, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 35 · November, AD 157 ==  92 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -502,11 +561,14 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
+  • In the steam a senator's freedman tells anyone who listens how much his master's new villa cost. A builder in the corner says quietly that it cost half that, and he should know.
 
-== Month 36 · December, AD 157 ==  112 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 36 · December, AD 157 ==  92 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -514,12 +576,15 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > end
   • The year AD 158 begins.
+  • Compitalia: at the shrine where four streets cross, the neighborhood hangs a woolen doll for every free person and a woolen ball for every slave, for the Lares of the crossroads to take instead of them. The street magistrate, a freedman in a borrowed toga, pours the wine. Your insula hangs a doll for you without asking.
 
-== Month 37 · Ianuarius, AD 158 ==  112 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  92 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -528,6 +593,8 @@ Why what? Try: medicine, governance, economy, gold, plague, circle, sanctuary, s
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
@@ -538,7 +605,7 @@ The machine isn't ready: 0 of 9 repair steps done.
 
 > status
 
-== Month 37 · Ianuarius, AD 158 ==  112 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  92 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -547,6 +614,8 @@ The machine isn't ready: 0 of 9 repair steps done.
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
 > jump
@@ -578,4 +647,4 @@ Recent changes:
 
 > quit
 
-Run fingerprint (seed 116): 1844c7684d8fc7f9
+Run fingerprint (seed 116): 673cbba848b36516

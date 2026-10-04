@@ -139,6 +139,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
+  • Market day at the Forum Holitorium. You buy bread, a cheese wrapped in leaves, and a bunch of leeks, and you pay too much for all of it. The cheese woman knows you are foreign by the way you count, and charges for it.
 
 == Month 3 · Martius, AD 155 ==  225 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
@@ -195,7 +196,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
-  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch.
+  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then two lines you didn't write. REQUEST. REFERENCE REQUEST ACCEPTED — R-17. Four seconds later, the destination locks: 155-03-ROMA. The timestamp is a second before you threw the switch.
 
 == Month 4 · Aprilis, AD 155 ==  338 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
@@ -310,6 +311,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Under an awning at the edge of the Forum a schoolmaster drills a dozen boys in their letters: they chant the alphabet forwards, backwards, and in pairs, and the slowest gets the cane across his palm. A slave boy sits at the back holding his young master's tablets and learns faster than any of them.
 
 == Month 6 · Iunius, AD 155 ==  188 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Borrow glassware and a still, Get into the state archives
@@ -422,6 +424,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • High summer. Anyone with money has gone to the hills. The streets stink by noon, the fountains run warm, and the physicians say the bad air rises off the Tiber marshes at dusk. You keep the shutters closed and work at night.
 
 == Month 8 · Augustus, AD 155 ==  412 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Borrow glassware and a still, Get into the state archives
@@ -477,6 +480,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • At the market a sausage seller shouts that his sausages are from Lucania and his prices are from heaven. A man with a basket of snails haggles with him over a trade and wins. You eat a sausage standing up, the Roman way, and burn your mouth.
 
 == Month 9 · September, AD 155 ==  525 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Borrow glassware and a still, Get into the state archives
@@ -594,15 +598,15 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 > end
   • The physicians lend you flasks, a still and a pair of tongs. (Machine: 1/9 steps.)
   • A clerk pockets your coins and lets you into the archives after dark. (Machine: 2/9 steps.)
-  • Serenus: "The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet." (invitation accept circle: 1 Attention and 50 denarii for the wine / decline circle)
+  • Serenus catches you at the fountain. "Pomponia has fever in her household again, the third summer running. She pays, which makes her rare. She wants to know why her people sicken and her neighbors' don't. I told her you count things." (commission look fevers: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 11 · November, AD 155 ==  250 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 3 free / 4 total · 1 reserved — Source bronze for the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (4 month(s) left)   (machine)
 
 > assess
@@ -651,6 +655,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Your neighbors in the insula: a cobbler on the ground floor who sings, a family of six on your landing who share one brazier, and a widow above who drops her slops into the street with a shout of warning that comes a moment too late.
 
 == Month 12 · December, AD 155 ==  362 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Source bronze for the coil housing, Copy the star tables
@@ -658,8 +663,8 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (3 month(s) left); under way: Copy the star tables (17 month(s) left)   (machine)
 
 > assess
@@ -709,6 +714,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • The year AD 156 begins.
+  • Winter fog on the river. Everyone in the insula cooks on a brazier, and the stairwell smells of charcoal and fish sauce. A man two floors down has died of the fumes, which happens every winter, and the landlord says it happens every winter.
 
 == Month 13 · Ianuarius, AD 156 ==  475 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Source bronze for the coil housing, Copy the star tables
@@ -718,8 +724,8 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 month(s) left); under way: Copy the star tables (16 month(s) left)   (machine)
 
 > assess
@@ -770,15 +776,16 @@ Fund the district magistrates is public business: you need 10% of an institution
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • A night in the tavern on the corner: a jug of rough red, a plate of chickpeas, and a dice game you are talked into and lose. The landlord has painted on the wall what a cup costs, so nobody can argue. People argue anyway.
 
-== Month 14 · Februarius, AD 156 ==  100 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 14 · Februarius, AD 156 ==  95 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 0 free / 4 total · 4 reserved — Source bronze for the coil housing, Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: 2/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 month(s) left); under way: Copy the star tables (15 month(s) left); under way: Distil the coolant (9 month(s) left)   (machine)
 
 > assess
@@ -812,7 +819,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 100 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 95 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -830,21 +837,21 @@ That needs 1 Attention; you have 0 left this month.
   • You pay open-market prices for bronze of uncertain quality, and it will do. (Machine: 3/9 steps.)
   • With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out.
 
-== Month 15 · Martius, AD 156 ==  100 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 15 · Martius, AD 156 ==  95 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (14 month(s) left); under way: Distil the coolant (8 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 100 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 95 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -871,7 +878,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 100 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 95 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -887,22 +894,24 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • The bath-keeper Philippus remembers you from the warm room. "You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet." (commission look baths: 1 Attention · Pay: none initially · may lead to paid commission)
 
-== Month 16 · Aprilis, AD 156 ==  213 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 16 · Aprilis, AD 156 ==  208 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
-  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (13 month(s) left); under way: Distil the coolant (7 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 213 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 208 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -929,7 +938,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 213 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 208 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -945,8 +954,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • Serenus: "The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet." (invitation accept circle: 1 Attention and 50 denarii for the wine / decline circle)
 
-== Month 17 · Maius, AD 156 ==  327 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 17 · Maius, AD 156 ==  322 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -955,13 +965,15 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (12 month(s) left); under way: Distil the coolant (6 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 327 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 322 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -988,7 +1000,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 327 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 322 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1004,8 +1016,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • On the Via Appia, among the great tombs, a small one has a carved relief of a baker at his oven and an inscription longer than the tomb is wide: once a slave, now free, a baker, he built this for himself, his wife and his freedmen, and wishes the reader good health. A boy is relieving himself against the next tomb along.
 
-== Month 18 · Iunius, AD 156 ==  440 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 18 · Iunius, AD 156 ==  435 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1013,13 +1026,15 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (11 month(s) left); under way: Distil the coolant (5 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 440 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 435 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -1046,7 +1061,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 440 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 435 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1062,8 +1077,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • In the Basilica Julia four courts sit at once, separated by curtains, and the advocates' voices carry over all of them. You watch a case about a stolen mule. The mule is brought in as evidence. It does not testify.
 
-== Month 19 · Iulius, AD 156 ==  553 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 19 · Iulius, AD 156 ==  548 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1071,13 +1087,15 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (10 month(s) left); under way: Distil the coolant (4 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 553 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 548 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -1104,7 +1122,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 553 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 548 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1120,8 +1138,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • A sacrifice at the temple of Castor in the Forum: a white heifer garlanded, the priest's head covered, a flute playing so nobody hears an unlucky word. The haruspex reads the liver and pronounces it favorable. The meat is sold afterward at a stall by the steps.
 
-== Month 20 · Augustus, AD 156 ==  667 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 20 · Augustus, AD 156 ==  662 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1129,13 +1148,15 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (9 month(s) left); under way: Distil the coolant (3 month(s) left)   (machine)
 
 > assess
 You have already assessed the machine; see 'machine'.
 
 > repair coil
-Commission the casting at Ostia costs 750 denarii; you have 667 denarii.
+Commission the casting at Ostia costs 750 denarii; you have 662 denarii.
 
 > repair coolant
 You are already working on the coolant.
@@ -1162,7 +1183,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 667 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 662 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1178,8 +1199,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • The landlord's agent comes for the rent and finds the family on your landing a month behind. He threatens, they plead, the cobbler downstairs lends them half. By evening everyone is sitting on the stairs together eating his bread.
 
-== Month 21 · September, AD 156 ==  780 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 21 · September, AD 156 ==  775 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Distil the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1188,6 +1210,8 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (8 month(s) left); under way: Distil the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -1223,7 +1247,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 30 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 25 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1238,8 +1262,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • The price of wheat is chalked on a board by the grain sellers' stalls, and the women around it argue about the number as if it were a person. A girl sells you figs and gives you the change in a coin so worn you can't tell whose head is on it.
 
-== Month 22 · October, AD 156 ==  30 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 22 · October, AD 156 ==  25 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Distil the coolant, Commission the casting at Ostia
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1247,6 +1272,8 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 3/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (7 month(s) left); under way: Distil the coolant (1 month(s) left); under way: Commission the casting at Ostia (11 month(s) left)   (machine)
 
 > assess
@@ -1280,7 +1307,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 30 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 25 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1296,8 +1323,9 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 4/9 steps.)
+  • At the district fountain the women wait their turn with jars on their hips and trade news faster than any messenger: a midwife who drinks, a baby born with a caul, the price of leeks, a husband seen somewhere he shouldn't have been. They stop talking when you come near and start again when you leave.
 
-== Month 23 · November, AD 156 ==  30 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 23 · November, AD 156 ==  25 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Commission the casting at Ostia
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1305,6 +1333,8 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 month(s) left); under way: Commission the casting at Ostia (10 month(s) left)   (machine)
 
 > assess
@@ -1338,7 +1368,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 30 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 25 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1354,8 +1384,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • In the tavern a sailor from Alexandria tells everyone the lighthouse there is twice the height of anything in Rome. A man from the Subura offers to fight him over it. The landlord stops them by putting a free jug on the table, and charges for it later.
 
-== Month 24 · December, AD 156 ==  143 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
+== Month 24 · December, AD 156 ==  133 denarii (+0/month) · 20 aurei (1 = 25.4 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Commission the casting at Ostia, Seal and test the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1363,6 +1394,8 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 month(s) left); under way: Commission the casting at Ostia (9 month(s) left); under way: Seal and test the coolant (5 month(s) left)   (machine)
 
 > assess
@@ -1396,7 +1429,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,275 denarii; you have 143 denarii.
+Fund a physician for the district costs 2,275 denarii; you have 133 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1414,8 +1447,9 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
 > end
   • The year AD 157 begins.
   • The smith by the Porta Trigemina struggles on with one forge and no apprentices. You remember choosing the fountain over his workshop.
+  • Before dawn you go with Cassianus to his patron's house on the Caelian, where twenty men in togas wait in the street to say good morning to a senator's freedman, who says good morning to the senator. Cassianus gets a nod and a small basket of food. On the way back he says it was a good morning, and means it.
 
-== Month 25 · Ianuarius, AD 157 ==  257 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 25 · Ianuarius, AD 157 ==  247 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Commission the casting at Ostia, Seal and test the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1424,6 +1458,8 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 month(s) left); under way: Commission the casting at Ostia (8 month(s) left); under way: Seal and test the coolant (4 month(s) left)   (machine)
 
 > assess
@@ -1457,7 +1493,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 257 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 247 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1473,8 +1509,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • A baby is born on your landing in the night. In the morning the father hangs a garland on the door and puts a little altar to Juno on the step. The widow upstairs comes down for the first time in a month to look.
 
-== Month 26 · Februarius, AD 157 ==  371 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 26 · Februarius, AD 157 ==  361 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Commission the casting at Ostia, Seal and test the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1482,6 +1519,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 month(s) left); under way: Commission the casting at Ostia (7 month(s) left); under way: Seal and test the coolant (3 month(s) left)   (machine)
 
 > assess
@@ -1515,7 +1554,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 371 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 361 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1531,8 +1570,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • At the Porticus Minucia the citizens queue for their monthly grain with bronze tokens in their hands. Diodoros, who isn't a citizen, watches from across the street. "Your city feeds its own," he says. "The rest of us buy bread." A clerk checks each token against a list as long as the portico.
 
-== Month 27 · Martius, AD 157 ==  485 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 27 · Martius, AD 157 ==  475 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Commission the casting at Ostia, Seal and test the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1540,6 +1580,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 month(s) left); under way: Commission the casting at Ostia (6 month(s) left); under way: Seal and test the coolant (2 month(s) left)   (machine)
 
 > assess
@@ -1573,7 +1615,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 485 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 475 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1589,8 +1631,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • A day in the courts: a will contested by three nephews, each with his own advocate and his own claque of paid applauders. The judge falls asleep. The applauders don't.
 
-== Month 28 · Aprilis, AD 157 ==  599 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 28 · Aprilis, AD 157 ==  589 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Commission the casting at Ostia, Seal and test the coolant
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1598,6 +1641,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 4/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 month(s) left); under way: Commission the casting at Ostia (5 month(s) left); under way: Seal and test the coolant (1 month(s) left)   (machine)
 
 > assess
@@ -1631,7 +1676,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 599 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 589 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1649,9 +1694,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
 > end
   • You copy a season of star tables by lamplight, checking every column twice. (Machine: 5/9 steps.)
   • The coolant holds its seal; the gauge needle settles. (Machine: 6/9 steps.)
-  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
+  • Market day, and it is raining. The stallholders pull hides over their goods and keep shouting. You buy lamp oil from a man who swears it is Spanish and smells of fish. Under the awning of a wine shop two old men are playing knucklebones for olives.
 
-== Month 29 · Maius, AD 157 ==  714 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 29 · Maius, AD 157 ==  704 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 3 free / 4 total · 1 reserved — Commission the casting at Ostia
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1660,6 +1705,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (4 month(s) left)   (machine)
 
 > assess
@@ -1693,7 +1740,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 464 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 454 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1709,8 +1756,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • The fountain runs clean and cold, and the boys of the street have found out that a thumb over the spout soaks anyone passing. You are passing. An old woman laughs so hard she has to put her jar down.
 
-== Month 30 · Iunius, AD 157 ==  578 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 30 · Iunius, AD 157 ==  568 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Recalibrate the chronometer
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1718,6 +1766,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 month(s) left); under way: Recalibrate the chronometer (5 month(s) left)   (machine)
 
 > assess
@@ -1751,7 +1801,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 578 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 568 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1767,8 +1817,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
 
-== Month 31 · Iulius, AD 157 ==  692 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 31 · Iulius, AD 157 ==  682 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Recalibrate the chronometer
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1776,6 +1827,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 month(s) left); under way: Recalibrate the chronometer (4 month(s) left)   (machine)
 
 > assess
@@ -1809,7 +1862,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 692 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 682 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1825,8 +1878,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • An afternoon at the baths: exercise in the courtyard, the hot room, the warm room, the cold plunge, then oil and a strigil. The real business is talk. You hear about three lawsuits, two scandals and a ship lost off Sicily before you are dry.
 
-== Month 32 · Augustus, AD 157 ==  806 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 32 · Augustus, AD 157 ==  796 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Recalibrate the chronometer
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1834,6 +1888,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 6/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 month(s) left); under way: Recalibrate the chronometer (3 month(s) left)   (machine)
 
 > assess
@@ -1867,7 +1923,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 806 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 796 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1884,8 +1940,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
 
 > end
   • A founder at Ostia casts the housing to your drawing and asks no questions. (Machine: 7/9 steps.)
+  • Someone has scratched on the tavern wall, beside the price list, a long complaint that the landlord waters his wine and pisses in the jugs. Underneath, in a different hand: and you drank it.
 
-== Month 33 · September, AD 157 ==  920 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 33 · September, AD 157 ==  905 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1894,6 +1951,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 7/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (2 month(s) left)   (machine)
 
 > assess
@@ -1929,7 +1988,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 920 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 905 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -1944,8 +2003,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 That needs 1 Attention; you have 0 left this month.
 
 > end
+  • Felix's elder boy has gone to a rhetor at the Forum of Trajan. The fees are more than Felix makes in a good month. He tells you about it with his arms folded, daring you to say it's too much. Prima has already said it.
 
-== Month 34 · October, AD 157 ==  920 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 34 · October, AD 157 ==  905 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 0 free / 4 total · 4 reserved — Recalibrate the chronometer, Fit and test the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -1953,6 +2013,8 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 7/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (1 month(s) left); under way: Fit and test the coil housing (5 month(s) left)   (machine)
 
 > assess
@@ -1986,7 +2048,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 920 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 905 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2002,8 +2064,9 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • The chronometer's dial agrees with the stars to the hour. (Machine: 8/9 steps.)
+  • At the temple of Ceres the plebeian aediles hand out bread to the poor on the goddess's day. The line goes around the Aventine. Diodoros, who isn't entitled to any, gets two loaves anyway, from a woman who likes his face.
 
-== Month 35 · November, AD 157 ==  920 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 35 · November, AD 157 ==  905 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2011,6 +2074,8 @@ That needs 1 Attention; you have 0 left this month.
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (4 month(s) left)   (machine)
 
 > assess
@@ -2044,7 +2109,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 920 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 905 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2059,8 +2124,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention left this month: 1/4]
 
 > end
+  • The insula's water comes from a fountain at the end of the street, and the stairs are steep. A boy from the top floor charges an as a jar to carry it up. He is saving to buy a dog.
 
-== Month 36 · December, AD 157 ==  1,035 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+== Month 36 · December, AD 157 ==  1,020 denarii (+0/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2068,6 +2134,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Prices: +3% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (3 month(s) left)   (machine)
 
 > assess
@@ -2101,7 +2169,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,325 denarii; you have 1,035 denarii.
+Fund a physician for the district costs 2,325 denarii; you have 1,020 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2117,8 +2185,9 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
 
 > end
   • The year AD 158 begins.
+  • In the Forum a man has a contract witnessed: seven witnesses, seven seals, an argument over whether the fourth witness is really a citizen. You think of how many of Rome's agreements depend on someone's ring.
 
-== Month 37 · Ianuarius, AD 158 ==  1,149 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 37 · Ianuarius, AD 158 ==  1,134 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2127,6 +2196,8 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (2 month(s) left)   (machine)
 
 > assess
@@ -2160,7 +2231,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,149 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,134 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2175,8 +2246,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Painted on the wall of a fuller's yard in red letters a yard high: a show of gladiators, twenty pairs, awnings provided. Below it, smaller, in charcoal: Successus loves Iris, and Iris doesn't care.
 
-== Month 38 · Februarius, AD 158 ==  1,264 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 38 · Februarius, AD 158 ==  1,249 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2184,6 +2256,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 8/9 repair steps, gold 0/60 aurei; under way: Fit and test the coil housing (1 month(s) left)   (machine)
 
 > assess
@@ -2217,7 +2291,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,264 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,249 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2234,8 +2308,9 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 > end
   • The new housing seats cleanly; the coil hums when you close the circuit. (Machine: 9/9 steps; 60 aurei still to put back.)
   • The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.
+  • At the baths a man selling cakes walks round the pool shouting, a hair-plucker's customers shriek, and a ball game in the courtyard sends a ball into the hot room. Nobody seems to find any of it strange but you.
 
-== Month 39 · Martius, AD 158 ==  1,379 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 39 · Martius, AD 158 ==  1,364 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2243,6 +2318,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2276,7 +2353,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,379 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,364 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2291,8 +2368,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • In the tavern a veteran with one ear sings a marching song about a general's bald head. The whole room knows the chorus. The landlord's wife throws him out at the third verse, and he comes back in for the fourth.
 
-== Month 40 · Aprilis, AD 158 ==  1,494 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 40 · Aprilis, AD 158 ==  1,474 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2300,6 +2378,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2333,7 +2413,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,494 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,474 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2348,8 +2428,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The grain ships are late from Alexandria and the bakers' loaves get smaller without getting cheaper. At the fountain the women say the emperor will fix it. At the tavern the men say the bakers are hoarding.
 
-== Month 41 · Maius, AD 158 ==  1,609 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 41 · Maius, AD 158 ==  1,589 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2358,6 +2439,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2391,7 +2474,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,609 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,589 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2406,8 +2489,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A water-carrier with two jars on a yoke tells you he used to walk to the Aqua Marcia for clean water. Now he sells to the top floors of the insulae, where nobody wants to carry anything up six flights, and makes a better living than before.
 
-== Month 42 · Iunius, AD 158 ==  1,724 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 42 · Iunius, AD 158 ==  1,704 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2415,6 +2499,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2448,7 +2534,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,724 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,704 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2463,8 +2549,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Prima hears you may be going on a long journey and sends you to the temple of Fortuna Redux by the Porta Capena. "Make a vow," she says. "People who come back make vows. People who don't, didn't."
 
-== Month 43 · Iulius, AD 158 ==  1,839 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 43 · Iulius, AD 158 ==  1,819 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2472,6 +2559,8 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Prices: +4.6% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2505,7 +2594,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,839 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,819 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2520,15 +2609,21 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A fire in an insula behind the Circus at night. The vigiles come with buckets, axes and a pump on a cart, and the street makes a chain from the nearest fountain. They pull down the next house to stop it spreading. By dawn two families are sitting on their furniture in the street, and the pump's leather flaps are hanging in strips.
 
-== Month 44 · Augustus, AD 158 ==  1,954 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 44 · Augustus, AD 158 ==  1,934 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2562,7 +2657,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 1,954 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 1,934 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2577,16 +2672,22 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • In the steam a senator's freedman tells anyone who listens how much his master's new villa cost. A builder in the corner says quietly that it cost half that, and he should know.
 
-== Month 45 · September, AD 158 ==  2,069 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 45 · September, AD 158 ==  2,049 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2620,7 +2721,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 2,069 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 2,049 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2635,15 +2736,21 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A procession for Magna Mater: her eunuch priests in bright robes, cymbals, tambourines, men cutting their own arms until they bleed. The crowd parts for them, half afraid, half delighted. Livia covers the girls' eyes and watches herself.
 
-== Month 46 · October, AD 158 ==  2,184 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 46 · October, AD 158 ==  2,164 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2677,7 +2784,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 2,184 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 2,164 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2692,15 +2799,21 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A quiet night in the tavern. A scribe is writing a letter for a soldier's mother, reading each line back aloud. By the end half the tavern is helping with the wording.
 
-== Month 47 · November, AD 158 ==  2,299 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 47 · November, AD 158 ==  2,274 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2734,7 +2847,7 @@ Found it first (found school).
 Found it first (found school).
 
 > start physician
-Fund a physician for the district costs 2,350 denarii; you have 2,299 denarii.
+Fund a physician for the district costs 2,350 denarii; you have 2,274 denarii.
 
 > start market
 Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
@@ -2749,15 +2862,21 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention left this month: 3/4]
 
 > end
+  • On a shop wall someone has painted a notice for a lost donkey, a reward, and a description so detailed you could pick the donkey out in a crowd. Underneath, another hand: found it, ate it.
 
-== Month 48 · December, AD 158 ==  2,415 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
+== Month 48 · December, AD 158 ==  2,390 denarii (+0/month) · 20 aurei (1 = 26.1 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2807,17 +2926,23 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 
 > end
   • The year AD 159 begins.
+  • At the fountain the talk is of a neighbor's son who has joined the vigiles: good pay, a bed, a uniform, and every fire in the city to run into.
 
-== Month 49 · Ianuarius, AD 159 ==  180 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 49 · Ianuarius, AD 159 ==  155 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► A vow at Fortuna Redux. The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.
+      decide vow      vow a silver cup if you return (13 denarii)
+      decide leave    thank Prima and keep your money
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
   Under way: Fund a physician for the district (7 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2866,8 +2991,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Lupercalia: young men of good family run half naked round the Palatine with strips of goatskin, striking anyone in reach. Young wives step out to be struck, for luck with children. Livia's sister does; Livia doesn't, and says loudly why not.
 
-== Month 50 · Februarius, AD 159 ==  296 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 50 · Februarius, AD 159 ==  271 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2876,6 +3002,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (6 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2924,8 +3052,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 1/4]
 
 > end
+  • The baths are crowded with soldiers on leave. They oil each other, wrestle, and argue about pay. One of them tells you the army's coins are getting lighter every year and the officers pretend not to notice.
 
-== Month 51 · Martius, AD 159 ==  411 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 51 · Martius, AD 159 ==  386 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2934,6 +3063,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (5 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -2982,8 +3113,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 1/4]
 
 > end
+  • A crack runs down the wall of your room after a heavy cart passes in the night. The landlord says the building has stood forty years. The cobbler downstairs says that is exactly the trouble.
 
-== Month 52 · Aprilis, AD 159 ==  527 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 52 · Aprilis, AD 159 ==  502 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -2992,6 +3124,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (4 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3040,8 +3174,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 1/4]
 
 > end
+  • A crowd at the market around a man selling a cure for everything from a painted cart: fevers, gout, sorrow, failing hair. Three people buy. You think of Serenus's columns and almost laugh, and the man sees you and offers you a discount.
 
-== Month 53 · Maius, AD 159 ==  643 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 53 · Maius, AD 159 ==  618 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3051,6 +3186,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (3 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3100,7 +3237,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
 
-== Month 54 · Iunius, AD 159 ==  759 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 54 · Iunius, AD 159 ==  734 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3109,6 +3246,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (2 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3157,8 +3296,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 1/4]
 
 > end
+  • Bread is short again. A crowd gathers at the bakers' street and someone throws a stone through a shutter. The urban cohorts come and stand about with their shields, and the bread comes, eventually.
 
-== Month 55 · Iulius, AD 159 ==  875 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
+== Month 55 · Iulius, AD 159 ==  850 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 100.7
   Attention: 2 free / 4 total · 2 reserved — Fund a physician for the district
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3167,6 +3307,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Under way: Fund a physician for the district (1 month(s) left)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3216,8 +3358,9 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
   • A physician now keeps open hours in the Subura. Medicine +10.
+  • At the baths you see Felix, Cassianus's sister and the cheese woman from the market, all in one afternoon. Rome is a million people and you keep meeting the same twenty.
 
-== Month 56 · Augustus, AD 159 ==  991 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
+== Month 56 · Augustus, AD 159 ==  966 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3225,6 +3368,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3273,8 +3418,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The Ludi Romani: a procession from the Capitol to the Circus, the gods carried on litters, dancers, boxers, men dressed as satyrs mocking the dancers. Then the races. The crowd is a single animal, and for an afternoon you are part of it.
 
-== Month 57 · September, AD 159 ==  1,107 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
+== Month 57 · September, AD 159 ==  1,082 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3283,6 +3429,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3331,8 +3479,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A new notice on the street corner: apartments to let in the insula of Arrius, shops with lodgings above, first floor for gentlemen. In smaller letters: no dyers.
 
-== Month 58 · October, AD 159 ==  1,223 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
+== Month 58 · October, AD 159 ==  1,198 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3340,6 +3489,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3388,8 +3539,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The women at the fountain have heard about you. One asks if it's true you can fix anything. Another asks if you're married. A third asks both at once, and they all laugh.
 
-== Month 59 · November, AD 159 ==  1,339 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
+== Month 59 · November, AD 159 ==  1,314 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3397,6 +3549,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3445,8 +3599,9 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention left this month: 3/4]
 
 > end
+  • The fishmongers by the river have a sturgeon as long as a man laid out on a slab. A cook from a senator's house buys it whole, and four porters carry it up the Caelian like a funeral.
 
-== Month 60 · December, AD 159 ==  1,455 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
+== Month 60 · December, AD 159 ==  1,430 denarii (+0/month) · 20 aurei (1 = 26.5 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3454,6 +3609,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Prices: +6.1% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > assess
@@ -3503,8 +3660,9 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
 
 > end
   • The year AD 160 begins.
+  • Compitalia: at the shrine where four streets cross, the neighborhood hangs a woolen doll for every free person and a woolen ball for every slave, for the Lares of the crossroads to take instead of them. The street magistrate, a freedman in a borrowed toga, pours the wine. Your insula hangs a doll for you without asking.
 
-== Month 61 · Ianuarius, AD 160 ==  1,571 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 106.9
+== Month 61 · Ianuarius, AD 160 ==  1,546 denarii (+0/month) · 20 aurei (1 = 26.9 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3513,6 +3671,8 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
 > why plague
@@ -3544,8 +3704,9 @@ You earn 519 denarii; tax takes 52 denarii, you keep 467 denarii.  [Attention le
   (No Attention left this month. Type 'end' to end the month.)
 
 > end
+  • Lupercalia again. This year a running boy catches a magistrate's wife across the face with the goatskin and the whole street holds its breath until she laughs.
 
-== Month 62 · Februarius, AD 160 ==  741 denarii (+0/month) · 7 aurei (1 = 26.9 den.)   Index 106.9
+== Month 62 · Februarius, AD 160 ==  716 denarii (+0/month) · 7 aurei (1 = 26.9 den.)   Index 106.9
   Attention: 4 free / 4 total
   Medicine      61  expect   61  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -3553,14 +3714,16 @@ You earn 519 denarii; tax takes 52 denarii, you keep 467 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  ► Pomponia: commission look fevers (unpaid)   (commission)
+  ► Philippus: commission look baths (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
 
 > jump
 You will leave AD 160 and arrive somewhere between AD 185 and AD 200: the machine's range is 25–40 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
-What you leave behind (741 denarii and 7 aurei in hand):
+What you leave behind (716 denarii and 7 aurei in hand):
   • No institution you hold 10%+ of will look after Rome while you're away.
   • The machine will carry you 25–40 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
-  • The 741 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
+  • The 716 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
   • Your gold: the machine can carry 10 aurei; you hold 7 aurei.
   •   Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).
 Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
@@ -3576,17 +3739,18 @@ Economy has no debt to pay down.
 
 > jump
 
-The machine shudders. Decades pass in the dark... It carries you 25 years.
+The machine shudders. Decades pass in the dark... It carries you 35 years.
 
 — Recognition —
-You climb out of the machine in AD 185. The Tiber smells the same. In the Subura, the district
+You climb out of the machine in AD 195. The Tiber smells the same. In the Subura, the district
 fountain you repaired still runs: the basin is worn smooth, and someone has cut two words into its
 rim: AQUA PURA. Of the smith you didn't choose, there is no trace.
 
 — Wrongness —
 Something is wrong, and it takes you a moment to see it: children, everywhere. More than any Roman
-street you remember, and fewer small graves along the Via Appia. Coins pass a little lighter than you
-remember, a shade less silver in each, as Rome's mint has always done.
+street you remember, and fewer small graves along the Via Appia. The coins are lighter and paler than
+you remember, barely half silver now. Prices have climbed with every cut, and soldiers grumble that
+their pay buys less each year.
 
 — Personal echo —
 You left before the first rumors came from the East. In the city's records, the pestilence of 166
@@ -3605,17 +3769,18 @@ Type 'learn more' for the Index and what became of your institutions, 'jump' to 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
   Departure, AD 160: 107   Medicine 122  Governance 100  Economy 100
-  Arrival,   AD 185: 104   Medicine 119  Governance 98  Economy 97
+  Arrival,   AD 195: 104   Medicine 114  Governance 101  Economy 97
 Institutions
   None you held 10% or more of.
 Your gold: carried 7, deposited 0 (0 back), buried 0 (0 recovered), left behind 0; you hold 7 aurei now.
 Crises while you were away
   AD 166: the Antonine pestilence (severe, about 76 thousand dead; response: none)
+  AD 189: the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is contained: about 38 thousand dead, 4% of Rome.
 
 
 (after arrival) > why medicine
-You have been away for 25 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+You have been away for 35 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
 
 (after arrival) > quit
 
-Run fingerprint (seed 101): f1f7f23a84486097
+Run fingerprint (seed 101): 5abd18f75a5c451f

@@ -89,9 +89,9 @@ work
 end
 work
 end
-start patronage
 work
 end
+start patronage
 work
 end
 work

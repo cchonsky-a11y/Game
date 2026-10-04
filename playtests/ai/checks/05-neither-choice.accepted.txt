@@ -43,20 +43,7 @@ work
 end
 work
 end
-repair coil
-work
-end
-work
-end
-work
-end
-work
-end
 repair coolant
-end
-end
-end
-end
 work
 end
 work
@@ -68,16 +55,33 @@ end
 repair coil
 end
 end
+end
+end
+work
+end
+work
+end
 repair coolant
-work
-end
-work
-end
-work
-end
-work
-end
 repair chronometer
+end
+end
+end
+end
+end
+end
+repair coil
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
+work
+end
 work
 end
 work
@@ -196,22 +200,10 @@ end
 oversee school
 work
 end
+oversee school
+work
+end
 charter school
-end
-oversee school
-work
-end
-oversee school
-work
-end
-oversee school
-work
-end
-oversee school
-work
-end
-oversee school
-work
 end
 oversee school
 work

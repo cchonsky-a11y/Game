@@ -161,6 +161,8 @@ work
 end
 work
 end
+work
+end
 found school
 oversee school
 end
@@ -183,9 +185,6 @@ oversee school
 work
 end
 charter school
-end
-oversee school
-work
 end
 oversee school
 work

@@ -326,6 +326,9 @@ end
 oversee school
 work
 end
+oversee school
+work
+end
 found club
 end
 oversee school
@@ -343,10 +346,7 @@ end
 oversee school
 work
 end
-oversee school
-work
-end
-respond hospice
+respond quarantine
 end
 oversee school
 work
@@ -649,7 +649,7 @@ exchange 1300 denarii
 restore 60
 end
 jump
-endow school 60
+audit school
 jump
 learn more
 why medicine
