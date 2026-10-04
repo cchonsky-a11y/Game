@@ -1897,6 +1897,10 @@
       "value": 1,
       "ref": "P1 scene pacing (Corey, locked 2026-10-02; implemented 2026-10-04): at most this many optional scenes a month from all systems' candidates; world interruptions are extra (PROPOSED P1-11)"
     },
+    "progressionWeight": {
+      "value": 3,
+      "ref": "P1 scene pacing (revised 2026-10-04 after content density tests showed invitations and work starved by texture): the weight of a commission, invitation, Grand Challenge or life-event candidate (PROPOSED P1-11)"
+    },
     "baseWeight": {
       "value": 1,
       "ref": "P1 scene pacing: the weight of each optional scene candidate unless its content gives one (PROPOSED P1-11)"

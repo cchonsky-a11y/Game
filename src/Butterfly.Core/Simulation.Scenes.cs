@@ -45,19 +45,22 @@ namespace Butterfly.Core
         private List<RoutedScene> SceneCandidates()
         {
             double w = T.Get("scenes.baseWeight");
+            // Scenes that move the game on (work, invitations, challenges, people's lives) outweigh texture, so a rich Rome
+            // doesn't starve the plot; texture still wins most months when nothing is waiting (P1-11, revised 2026-10-04).
+            double pw = T.Get("scenes.progressionWeight");
             var list = new List<RoutedScene>();
             foreach (var c in CommissionsDue().ToList())
-                list.Add(new RoutedScene("commission:" + c.Id, CommissionDefOf(c).Encounter.Category, w, () => OpenCommission(c)));
+                list.Add(new RoutedScene("commission:" + c.Id, CommissionDefOf(c).Encounter.Category, pw, () => OpenCommission(c)));
             foreach (var (d, offer) in InvitationOffersDue().ToList())
-                list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), w, () => OfferInvitation(d, offer)));
+                list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), pw, () => OfferInvitation(d, offer)));
             foreach (var c in ChallengesDue().ToList())
-                list.Add(new RoutedScene("challenge:" + c.Id, ChallengeDefOf(c).OpenCategory, w, () => OpenChallenge(c)));
+                list.Add(new RoutedScene("challenge:" + c.Id, ChallengeDefOf(c).OpenCategory, pw, () => OpenChallenge(c)));
             foreach (var id in World.ReadyLife.ToList())
             {
                 var e = Data.Content.Lives.First(l => l.Id == id);
-                list.Add(new RoutedScene("life:" + id, e.Category, w, () => Happen(e, PersonOf(e.Person)!)));
+                list.Add(new RoutedScene("life:" + id, e.Category, pw, () => Happen(e, PersonOf(e.Person)!)));
             }
-            foreach (var s in Data.Content.Scenes.Where(s => !World.ScenesSeen.Contains(s.Id) && s.Requires.All(Holds)))
+            foreach (var s in Data.Content.Scenes.Where(s => !World.ScenesSeen.Contains(s.Id) && Rested(s) && s.Requires.All(Holds)))
                 list.Add(new RoutedScene("scene:" + s.Id, s.Category, s.Weight > 0 ? s.Weight : w, () => PlayAuthoredScene(s)));
             return list;
         }
@@ -70,6 +73,7 @@ namespace Butterfly.Core
             {
                 var chosen = ChooseScene(SceneCandidates());
                 if (chosen == null) return;
+                World.RoutedScenes.Add((Turn, chosen.Candidate.Category, chosen.Candidate.Id));
                 chosen.Fire();
             }
         }
@@ -95,9 +99,18 @@ namespace Butterfly.Core
 
         internal IReadOnlyList<string> SceneCandidateIds() => SceneCandidates().Select(c => c.Candidate.Id).ToList();
 
+        /// <summary>A reusable scene comes back only after its cooldown.</summary>
+        private bool Rested(AuthoredSceneDef s) =>
+            !World.SceneLastTurn.TryGetValue(s.Id, out int last) || Turn - last >= s.CooldownMonths;
+
         private void PlayAuthoredScene(AuthoredSceneDef s)
         {
-            World.ScenesSeen.Add(s.Id);
+            // Reusable scenes play their text, then each variant once; when the words run out the scene is done.
+            World.ScenePlays.TryGetValue(s.Id, out int plays);
+            string text = plays == 0 ? s.Text : s.Variants[plays - 1];
+            World.ScenePlays[s.Id] = plays + 1;
+            World.SceneLastTurn[s.Id] = Turn;
+            if (plays >= s.Variants.Count) World.ScenesSeen.Add(s.Id);
             World.ScenePacing.Record(s.Category);
             var effects = new List<Effect>();
             var actors = new List<string> { "player" };
@@ -114,7 +127,13 @@ namespace Butterfly.Core
                 p.Status = kv.Value;
                 if (!actors.Contains(kv.Key)) actors.Add(kv.Key);
             }
-            var played = Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, s.Text);
+            if (s.Gold != 0)
+            {
+                double before = World.Gold, amount = Priced(s.Gold);
+                World.Gold = Math.Max(0, World.Gold + amount);
+                effects.Add(new Effect(GoldKey, before, World.Gold));
+            }
+            var played = Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, text);
             if (s.DelaysChallenge.Length > 0 && FindChallenge(s.DelaysChallenge) is ChallengeState ch && ch.Status == ChallengeStatus.Working)
             {
                 int before = ch.MonthsLeft;

@@ -1302,6 +1302,40 @@
           "effects": []
         }
       ]
+    },
+    {
+      "id": "vow",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "category": "RomanLife",
+      "title": "A vow at Fortuna Redux",
+      "text": "The temple of Fortuna who brings travelers home is small and busy. The priest's attendant asks what you will promise her if you come back.",
+      "options": [
+        {
+          "id": "vow",
+          "label": "vow a silver cup if you return",
+          "style": "generous",
+          "sets": [
+            "fortuna-vow"
+          ],
+          "text": "You write the vow on a wax tablet and leave it with the attendant, and pay the fee for writing it down. The attendant files it with a thousand others. You feel foolish, and a little lighter.",
+          "effects": [
+            {
+              "type": "gold",
+              "value": -0.5
+            }
+          ],
+          "mark": "In the storeroom of the temple of Fortuna Redux, among the unpaid vows, a wax tablet in an odd hand promises a silver cup. It was never paid; the attendants still dust it."
+        },
+        {
+          "id": "leave",
+          "label": "thank Prima and keep your money",
+          "style": "aloof",
+          "text": "You thank Prima and keep your money. She shrugs. \"Then come back anyway,\" she says.",
+          "effects": []
+        }
+      ]
     }
   ]
 }

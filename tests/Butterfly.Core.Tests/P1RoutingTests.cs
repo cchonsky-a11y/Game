@@ -30,7 +30,7 @@ namespace Butterfly.Core.Tests
         public void NoThirdWorkSceneWhileSomethingElseCanHappen()
         {
             var sim = TwoCandidates();
-            for (int k = 0; k < 40; k++) Assert.Equal("scene:baths-wet-cellar", sim.PeekRoutedScene());
+            for (int k = 0; k < 40; k++) Assert.NotEqual("commission:cellarpump", sim.PeekRoutedScene());   // never a third work scene
         }
 
         [Fact]
@@ -57,9 +57,10 @@ namespace Butterfly.Core.Tests
         public void TheRouterFiresOneOptionalSceneAMonthAndTheRestWait()
         {
             var sim = TwoCandidates();
-            int seen = sim.World.ScenesSeen.Count;
+            int picks = sim.World.RoutedScenes.Count;
             sim.EndMonth();
-            Assert.Equal(seen + 1, sim.World.ScenesSeen.Count);                                // one scene of another kind
+            Assert.Equal(picks + 1, sim.World.RoutedScenes.Count);                            // one optional scene a month
+            Assert.NotEqual(SceneCategory.WorkEconomy, sim.World.RoutedScenes.Last().Category); // of another kind
             Assert.Equal(CommissionStatus.NotYet, sim.FindCommission("cellarpump")!.Status);  // the work waits
             for (int m = 0; m < 6 && sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet; m++) sim.EndMonth();
             Assert.Equal(CommissionStatus.Offered, sim.FindCommission("cellarpump")!.Status); // then comes

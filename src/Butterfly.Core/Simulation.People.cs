@@ -114,6 +114,8 @@ namespace Butterfly.Core
         {
             // "a|b": either will do.
             if (requirement.IndexOf('|') >= 0) return requirement.Split('|').Any(Holds);
+            // "!x": x does not hold.
+            if (requirement.StartsWith("!", StringComparison.Ordinal)) return !Holds(requirement.Substring(1));
             var parts = requirement.Split(':');
             switch (parts[0])
             {
@@ -131,7 +133,7 @@ namespace Butterfly.Core
                 case "knows":
                     return Knows(parts[1]);
                 case "scene":
-                    return World.ScenesSeen.Contains(parts[1]);
+                    return World.ScenesSeen.Contains(parts[1]) || World.ScenePlays.ContainsKey(parts[1]);
                 case "month":
                     return Now.Month + 1 == int.Parse(parts[1]);
                 case "monthsIn":

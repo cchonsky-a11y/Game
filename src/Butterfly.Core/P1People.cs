@@ -163,6 +163,12 @@ namespace Butterfly.Core
         public int DelayMonths { get; }
         /// <summary>A choice the scene puts to the player: a triggered event (events.json) offered the next month.</summary>
         public string Triggers { get; }
+        /// <summary>Reusable texture (markets, fountains, weather): it may come back after this many months, each time with the
+        /// next variant's text, never the same words twice; 0 for a one-off scene.</summary>
+        public int CooldownMonths { get; }
+        public IReadOnlyList<string> Variants { get; }
+        /// <summary>Money the scene costs or brings, in aurei at AD 155 prices (scaled by the price level).</summary>
+        public double Gold { get; }
 
         public AuthoredSceneDef(JsonObject o)
         {
@@ -182,6 +188,9 @@ namespace Butterfly.Core
             DelaysChallenge = dl?.Str("challenge") ?? "";
             DelayMonths = dl == null ? 0 : (int)dl.Num("months");
             Triggers = o.StrOr("triggers", "") ?? "";
+            CooldownMonths = (int)o.NumOr("cooldownMonths", 0);
+            Variants = o.Has("variants") ? o.Arr("variants").Cast<string>().ToList() : new List<string>();
+            Gold = o.NumOr("gold", 0);
         }
     }
 }

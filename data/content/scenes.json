@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>, flag:<name>). Effects: 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
+  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>, flag:<name>; '!x' for not, 'a|b' for either). Reusable texture: 'cooldownMonths' and 'variants' (each variant's text used once, never the same words twice). Effects: 'gold' (aurei at AD 155 prices), 'triggers' (a choice from events.json), 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
   "scenes": [
     {
       "id": "baths-wet-cellar",
@@ -350,6 +350,376 @@
         "flag:nerius-answered"
       ],
       "text": "You pass Sextus Nerius's shop on the Clivus. Through the door you can hear the grinder and, under it, men talking as they work. One of the old finishers is teaching a boy to judge a polish by the way it holds the light. Sextus sees you and nods, and doesn't come out."
+    },
+    {
+      "id": "market-day",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:2"
+      ],
+      "cooldownMonths": 5,
+      "text": "Market day at the Forum Holitorium. You buy bread, a cheese wrapped in leaves, and a bunch of leeks, and you pay too much for all of it. The cheese woman knows you are foreign by the way you count, and charges for it.",
+      "variants": [
+        "At the market a sausage seller shouts that his sausages are from Lucania and his prices are from heaven. A man with a basket of snails haggles with him over a trade and wins. You eat a sausage standing up, the Roman way, and burn your mouth.",
+        "The price of wheat is chalked on a board by the grain sellers' stalls, and the women around it argue about the number as if it were a person. A girl sells you figs and gives you the change in a coin so worn you can't tell whose head is on it.",
+        "Market day, and it is raining. The stallholders pull hides over their goods and keep shouting. You buy lamp oil from a man who swears it is Spanish and smells of fish. Under the awning of a wine shop two old men are playing knucklebones for olives.",
+        "A crowd at the market around a man selling a cure for everything from a painted cart: fevers, gout, sorrow, failing hair. Three people buy. You think of Serenus's columns and almost laugh, and the man sees you and offers you a discount.",
+        "The fishmongers by the river have a sturgeon as long as a man laid out on a slab. A cook from a senator's house buys it whole, and four porters carry it up the Caelian like a funeral.",
+        "A market inspector, an aedile's man, walks the stalls with a set of bronze weights, checking the bakers' scales. One baker is found short and fined on the spot. The crowd enjoys it more than the theater.",
+        "Market day, and a slave dealer has set up at the edge of the Forum with a dozen people on a platform, each with a placard round the neck listing age, origin and faults. Customers walk past it to buy cabbages."
+      ]
+    },
+    {
+      "id": "fountain-gossip",
+      "category": "RomanLife",
+      "requires": [
+        "project:fountain:done",
+        "monthsIn:3"
+      ],
+      "cooldownMonths": 6,
+      "text": "At the district fountain the women wait their turn with jars on their hips and trade news faster than any messenger: a midwife who drinks, a baby born with a caul, the price of leeks, a husband seen somewhere he shouldn't have been. They stop talking when you come near and start again when you leave.",
+      "variants": [
+        "The fountain runs clean and cold, and the boys of the street have found out that a thumb over the spout soaks anyone passing. You are passing. An old woman laughs so hard she has to put her jar down.",
+        "A water-carrier with two jars on a yoke tells you he used to walk to the Aqua Marcia for clean water. Now he sells to the top floors of the insulae, where nobody wants to carry anything up six flights, and makes a better living than before.",
+        "At the fountain the talk is of a neighbor's son who has joined the vigiles: good pay, a bed, a uniform, and every fire in the city to run into.",
+        "The women at the fountain have heard about you. One asks if it's true you can fix anything. Another asks if you're married. A third asks both at once, and they all laugh."
+      ]
+    },
+    {
+      "id": "fountain-broken",
+      "category": "RomanLife",
+      "requires": [
+        "!project:fountain:done",
+        "monthsIn:4"
+      ],
+      "cooldownMonths": 8,
+      "text": "At the broken fountain the women queue at a trickle and argue about whose turn it is. One of them has walked from three streets over. A girl falls asleep against the basin waiting.",
+      "variants": [
+        "The broken fountain has a pool of green water around its base now, and boys float bark boats in it. A woman pulls her son out by the ear and tells him that's where fevers come from. She may be right."
+      ]
+    },
+    {
+      "id": "tavern-night",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Felix|project:workshop:done",
+        "monthsIn:6"
+      ],
+      "cooldownMonths": 6,
+      "gold": -0.2,
+      "text": "A night in the tavern on the corner: a jug of rough red, a plate of chickpeas, and a dice game you are talked into and lose. The landlord has painted on the wall what a cup costs, so nobody can argue. People argue anyway.",
+      "variants": [
+        "In the tavern a sailor from Alexandria tells everyone the lighthouse there is twice the height of anything in Rome. A man from the Subura offers to fight him over it. The landlord stops them by putting a free jug on the table, and charges for it later.",
+        "Someone has scratched on the tavern wall, beside the price list, a long complaint that the landlord waters his wine and pisses in the jugs. Underneath, in a different hand: and you drank it.",
+        "In the tavern a veteran with one ear sings a marching song about a general's bald head. The whole room knows the chorus. The landlord's wife throws him out at the third verse, and he comes back in for the fourth.",
+        "A quiet night in the tavern. A scribe is writing a letter for a soldier's mother, reading each line back aloud. By the end half the tavern is helping with the wording."
+      ]
+    },
+    {
+      "id": "salutatio",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:7",
+        "knows:Cassianus"
+      ],
+      "text": "Before dawn you go with Cassianus to his patron's house on the Caelian, where twenty men in togas wait in the street to say good morning to a senator's freedman, who says good morning to the senator. Cassianus gets a nod and a small basket of food. On the way back he says it was a good morning, and means it."
+    },
+    {
+      "id": "grammarian",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:3"
+      ],
+      "text": "Under an awning at the edge of the Forum a schoolmaster drills a dozen boys in their letters: they chant the alphabet forwards, backwards, and in pairs, and the slowest gets the cane across his palm. A slave boy sits at the back holding his young master's tablets and learns faster than any of them."
+    },
+    {
+      "id": "theater-ludi",
+      "category": "RomanLife",
+      "requires": [
+        "month:7",
+        "monthsIn:6"
+      ],
+      "text": "At the Ludi Apollinares you go to the theater of Marcellus to see an old comedy: a clever slave, two foolish fathers, a lost daughter found. The audience knows every joke before it comes and laughs harder for it. Afterward a mime does a drunk senator and nobody laughs at all, and the mime is very pleased.",
+      "cooldownMonths": 11,
+      "variants": [
+        "The games again, a tragedy this time: Medea, in Latin, very loud. A woman behind you weeps for the children every time and eats almonds between the weeping.",
+        "At the games a troupe of pantomime dancers plays the loves of Mars and Venus without a word spoken, only a chorus and pipes. The crowd knows the dancer by name and chants it until he comes out again."
+      ]
+    },
+    {
+      "id": "vigiles",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:5",
+        "month:8"
+      ],
+      "text": "A fire in an insula behind the Circus at night. The vigiles come with buckets, axes and a pump on a cart, and the street makes a chain from the nearest fountain. They pull down the next house to stop it spreading. By dawn two families are sitting on their furniture in the street, and the pump's leather flaps are hanging in strips."
+    },
+    {
+      "id": "summer-heat",
+      "category": "RomanLife",
+      "requires": [
+        "month:7|month:8",
+        "monthsIn:6"
+      ],
+      "cooldownMonths": 11,
+      "text": "High summer. Anyone with money has gone to the hills. The streets stink by noon, the fountains run warm, and the physicians say the bad air rises off the Tiber marshes at dusk. You keep the shutters closed and work at night.",
+      "variants": [
+        "Another summer of heat. Felix sends his boys to an uncle at Tibur. The baths are full from dawn and the bath-keepers raise their prices, and nobody can stop them.",
+        "Summer, and a dry one: the Tiber is low enough to show the old piers, and boys dive for coins off them. The grain barges scrape bottom coming up from Ostia and the price of bread goes up a little, as it does."
+      ]
+    },
+    {
+      "id": "winter-braziers",
+      "category": "RomanLife",
+      "requires": [
+        "month:1",
+        "monthsIn:10"
+      ],
+      "cooldownMonths": 11,
+      "text": "Winter fog on the river. Everyone in the insula cooks on a brazier, and the stairwell smells of charcoal and fish sauce. A man two floors down has died of the fumes, which happens every winter, and the landlord says it happens every winter.",
+      "variants": [
+        "A cold January: the fountains freeze at the edges, the bathhouses can't keep the hot room hot, and the price of charcoal doubles. Gaius sleeps at the shop to keep the furnace in.",
+        "Winter again. The streets are quiet after dark; the lamplighters don't bother with the alleys. You go home by the main streets with a hand on your knife, the way everyone does."
+      ]
+    },
+    {
+      "id": "dole-line",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:24",
+        "month:3"
+      ],
+      "text": "At the Porticus Minucia the citizens queue for their monthly grain with bronze tokens in their hands. Diodoros, who isn't a citizen, watches from across the street. \"Your city feeds its own,\" he says. \"The rest of us buy bread.\" A clerk checks each token against a list as long as the portico."
+    },
+    {
+      "id": "lupercalia",
+      "category": "RomanLife",
+      "requires": [
+        "month:2",
+        "monthsIn:13"
+      ],
+      "text": "Lupercalia: young men of good family run half naked round the Palatine with strips of goatskin, striking anyone in reach. Young wives step out to be struck, for luck with children. Livia's sister does; Livia doesn't, and says loudly why not.",
+      "cooldownMonths": 11,
+      "variants": [
+        "Lupercalia again. This year a running boy catches a magistrate's wife across the face with the goatskin and the whole street holds its breath until she laughs.",
+        "At Lupercalia the runners are thinner this year and the crowd smaller. An old man tells you that in his father's day the senators ran too, and nobody believes him."
+      ]
+    },
+    {
+      "id": "parentalia",
+      "category": "RomanLife",
+      "requires": [
+        "month:2",
+        "knows:Livia"
+      ],
+      "text": "For the Parentalia Livia takes bread soaked in wine and a few violets out to her parents' tomb on the Via Appia, and you carry the basket. She pours the wine through a pipe into the ground so they can drink it. On the way back she is quieter than you have ever heard her, and then she isn't.",
+      "cooldownMonths": 11,
+      "variants": [
+        "Parentalia again. Livia takes the girls this time and teaches them what to pour and where. The younger one asks if her grandparents can taste the wine. Livia says yes, and drinks a little herself to make sure.",
+        "For Parentalia the whole Via Appia smells of violets and wine. Families picnic by their tombs. Gaius's mother's niche has a new crack, and he spends the afternoon arguing with the tomb's keeper about who will pay to mend it."
+      ]
+    },
+    {
+      "id": "gaius-saturnalia",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Gaius",
+        "month:12",
+        "monthsIn:20"
+      ],
+      "regard": {
+        "Gaius": 1
+      },
+      "text": "Saturnalia at Gaius's: the shop shut, the old slave who keeps the furnace sitting at the head of the table and giving orders, Marcus made to serve the wine. Livia gives you a little clay lamp with a gladiator on it. Gaius gives you a file he made himself, which from Gaius is a speech."
+    },
+    {
+      "id": "pomponia-dinner",
+      "category": "RomanLife",
+      "requires": [
+        "commission:fevers:Done"
+      ],
+      "regard": {
+        "Serenus": 1
+      },
+      "text": "Pomponia asks you to dinner. You recline on the lowest couch, beside Serenus, who eats with concentration while a freedman reads Greek poetry nobody listens to. Pomponia asks your opinion of her new cistern lid in front of everyone. A senator's wife at the top couch asks who you are, and nobody quite knows."
+    },
+    {
+      "id": "apprentice-runs",
+      "category": "WorkEconomy",
+      "requires": [
+        "project:workshop:done",
+        "monthsIn:20"
+      ],
+      "text": "Successus's apprentice has run off to join a troupe of acrobats going to Capua. Successus says good riddance and spends the whole day looking out of the door. The boy's mother comes to apologize and leaves a cheese."
+    },
+    {
+      "id": "veterans-return",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:132"
+      ],
+      "text": "The legions are back from the East. Veterans fill the taverns with tales of Ctesiphon and Seleucia, show off silk and scars, and pay for everything in eastern coin. Some of them are coughing. Nobody minds yet."
+    },
+    {
+      "id": "freedman-tomb",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:15"
+      ],
+      "text": "On the Via Appia, among the great tombs, a small one has a carved relief of a baker at his oven and an inscription longer than the tomb is wide: once a slave, now free, a baker, he built this for himself, his wife and his freedmen, and wishes the reader good health. A boy is relieving himself against the next tomb along."
+    },
+    {
+      "id": "vow-before-jump",
+      "category": "RomanLife",
+      "requires": [
+        "machine:steps:9",
+        "knows:Felix|knows:Livia"
+      ],
+      "triggers": "vow",
+      "text": "Prima hears you may be going on a long journey and sends you to the temple of Fortuna Redux by the Porta Capena. \"Make a vow,\" she says. \"People who come back make vows. People who don't, didn't.\""
+    },
+    {
+      "id": "insula-neighbors",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:10"
+      ],
+      "cooldownMonths": 4,
+      "text": "Your neighbors in the insula: a cobbler on the ground floor who sings, a family of six on your landing who share one brazier, and a widow above who drops her slops into the street with a shout of warning that comes a moment too late.",
+      "variants": [
+        "The landlord's agent comes for the rent and finds the family on your landing a month behind. He threatens, they plead, the cobbler downstairs lends them half. By evening everyone is sitting on the stairs together eating his bread.",
+        "A baby is born on your landing in the night. In the morning the father hangs a garland on the door and puts a little altar to Juno on the step. The widow upstairs comes down for the first time in a month to look.",
+        "The insula's water comes from a fountain at the end of the street, and the stairs are steep. A boy from the top floor charges an as a jar to carry it up. He is saving to buy a dog.",
+        "A crack runs down the wall of your room after a heavy cart passes in the night. The landlord says the building has stood forty years. The cobbler downstairs says that is exactly the trouble.",
+        "The cobbler's wife has left him for a sausage maker from the next street. The cobbler sings sadder songs and makes better shoes."
+      ]
+    },
+    {
+      "id": "baths-regular",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:8"
+      ],
+      "cooldownMonths": 5,
+      "text": "An afternoon at the baths: exercise in the courtyard, the hot room, the warm room, the cold plunge, then oil and a strigil. The real business is talk. You hear about three lawsuits, two scandals and a ship lost off Sicily before you are dry.",
+      "variants": [
+        "At the baths a man selling cakes walks round the pool shouting, a hair-plucker's customers shriek, and a ball game in the courtyard sends a ball into the hot room. Nobody seems to find any of it strange but you.",
+        "In the steam a senator's freedman tells anyone who listens how much his master's new villa cost. A builder in the corner says quietly that it cost half that, and he should know.",
+        "The baths are crowded with soldiers on leave. They oil each other, wrestle, and argue about pay. One of them tells you the army's coins are getting lighter every year and the officers pretend not to notice.",
+        "At the baths you see Felix, Cassianus's sister and the cheese woman from the market, all in one afternoon. Rome is a million people and you keep meeting the same twenty."
+      ]
+    },
+    {
+      "id": "temple-day",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:14"
+      ],
+      "cooldownMonths": 8,
+      "text": "A sacrifice at the temple of Castor in the Forum: a white heifer garlanded, the priest's head covered, a flute playing so nobody hears an unlucky word. The haruspex reads the liver and pronounces it favorable. The meat is sold afterward at a stall by the steps.",
+      "variants": [
+        "At the temple of Ceres the plebeian aediles hand out bread to the poor on the goddess's day. The line goes around the Aventine. Diodoros, who isn't entitled to any, gets two loaves anyway, from a woman who likes his face.",
+        "A procession for Magna Mater: her eunuch priests in bright robes, cymbals, tambourines, men cutting their own arms until they bleed. The crowd parts for them, half afraid, half delighted. Livia covers the girls' eyes and watches herself."
+      ]
+    },
+    {
+      "id": "court-day",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "monthsIn:18"
+      ],
+      "cooldownMonths": 9,
+      "text": "In the Basilica Julia four courts sit at once, separated by curtains, and the advocates' voices carry over all of them. You watch a case about a stolen mule. The mule is brought in as evidence. It does not testify.",
+      "variants": [
+        "A day in the courts: a will contested by three nephews, each with his own advocate and his own claque of paid applauders. The judge falls asleep. The applauders don't.",
+        "In the Forum a man has a contract witnessed: seven witnesses, seven seals, an argument over whether the fourth witness is really a citizen. You think of how many of Rome's agreements depend on someone's ring."
+      ]
+    },
+    {
+      "id": "pius-funeral",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:74"
+      ],
+      "text": "The old emperor is dead at his villa at Lorium, and his body comes into the city on a bier carried by magistrates. The shops close. Two men are emperors now, Marcus and his brother Lucius, and the coins with both their heads are in the market within the month."
+    },
+    {
+      "id": "levy",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:88"
+      ],
+      "text": "Recruiters are in the Forum: the war with Parthia needs men. A centurion with a vine stick looks over the young men who come forward, checks their teeth like a horse dealer's, and turns away half. A boy from your insula is taken; his mother walks beside him as far as the Porta Capena."
+    },
+    {
+      "id": "eastern-news",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:100"
+      ],
+      "cooldownMonths": 12,
+      "text": "A courier from the East rides in through the Porta Flaminia, and by evening the whole city knows: Armenia retaken. The baths are full of men who have never been east of Ostia explaining the campaign.",
+      "variants": [
+        "News from the East: the legions have crossed the Euphrates. A sausage seller has renamed his best sausage after the general. It is the same sausage.",
+        "More news from the East: Ctesiphon taken and burned. There are games for it, three days of them, and the price of grain goes up again because the ships are carrying soldiers."
+      ]
+    },
+    {
+      "id": "grain-worry",
+      "category": "CityHistory",
+      "requires": [
+        "monthsIn:40"
+      ],
+      "cooldownMonths": 14,
+      "text": "The grain ships are late from Alexandria and the bakers' loaves get smaller without getting cheaper. At the fountain the women say the emperor will fix it. At the tavern the men say the bakers are hoarding.",
+      "variants": [
+        "Bread is short again. A crowd gathers at the bakers' street and someone throws a stone through a shutter. The urban cohorts come and stand about with their shields, and the bread comes, eventually.",
+        "The grain fleet comes in all at once after a month of nothing: two hundred ships in the harbor at Ostia, and every barge on the river busy. Lollius's men work three days without sleeping."
+      ]
+    },
+    {
+      "id": "compitalia",
+      "category": "RomanLife",
+      "requires": [
+        "month:1",
+        "monthsIn:12"
+      ],
+      "cooldownMonths": 11,
+      "text": "Compitalia: at the shrine where four streets cross, the neighborhood hangs a woolen doll for every free person and a woolen ball for every slave, for the Lares of the crossroads to take instead of them. The street magistrate, a freedman in a borrowed toga, pours the wine. Your insula hangs a doll for you without asking.",
+      "variants": [
+        "Compitalia again. The crossroads shrine has a new coat of paint: two Lares dancing, a snake, a pig being led to sacrifice. The painter is the cobbler's nephew and has given one Lar the cobbler's face.",
+        "At the crossroads shrine this Compitalia the street magistrate is a baker you buy from. He makes a speech about the neighborhood that goes on too long and ends with free bread, so nobody minds.",
+        "Compitalia, and the dolls on the crossroads shrine are fewer this year. The street magistrate reads the names of neighbors who died in the year before he pours the wine."
+      ]
+    },
+    {
+      "id": "ludi-romani",
+      "category": "RomanLife",
+      "requires": [
+        "month:9",
+        "monthsIn:30"
+      ],
+      "cooldownMonths": 11,
+      "text": "The Ludi Romani: a procession from the Capitol to the Circus, the gods carried on litters, dancers, boxers, men dressed as satyrs mocking the dancers. Then the races. The crowd is a single animal, and for an afternoon you are part of it.",
+      "variants": [
+        "The Ludi Romani again, and gladiators this year in the Flavian amphitheater as well as the races. The crowd boos a fighter who won't finish a fallen man and cheers when the editor spares him. You leave before the beasts.",
+        "At this year's Ludi Romani it rains on the procession. The gods' litters are covered with oiled cloth and the dancers dance anyway. The races run in mud; a Red driver wins for the first time in years and his supporters riot happily."
+      ]
+    },
+    {
+      "id": "wall-writing",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:36"
+      ],
+      "cooldownMonths": 7,
+      "text": "Painted on the wall of a fuller's yard in red letters a yard high: a show of gladiators, twenty pairs, awnings provided. Below it, smaller, in charcoal: Successus loves Iris, and Iris doesn't care.",
+      "variants": [
+        "On a shop wall someone has painted a notice for a lost donkey, a reward, and a description so detailed you could pick the donkey out in a crowd. Underneath, another hand: found it, ate it.",
+        "A new notice on the street corner: apartments to let in the insula of Arrius, shops with lodgings above, first floor for gentlemen. In smaller letters: no dyers.",
+        "Someone has scratched a long list of debts on the tavern wall, with names. By the end of the week half the names are scratched out and the list has a new heading: paid, or dead."
+      ]
     },
     {
       "id": "r17-request",

@@ -81,6 +81,11 @@ namespace Butterfly.Core
         public List<string> TriggeredEvents { get; } = new List<string>();
         /// <summary>Echo lines already shown on an arrival (P1: never repeated word for word).</summary>
         public List<string> EchoesShown { get; } = new List<string>();
+        /// <summary>Every optional scene the router picked: the turn, its category and its candidate id (for reports and tests).</summary>
+        public List<(int Turn, SceneCategory Category, string Id)> RoutedScenes { get; } = new List<(int, SceneCategory, string)>();
+        /// <summary>Reusable scenes: how often each has played and the turn it last did.</summary>
+        public Dictionary<string, int> ScenePlays { get; } = new Dictionary<string, int>();
+        public Dictionary<string, int> SceneLastTurn { get; } = new Dictionary<string, int>();
         /// <summary>Authored scenes that have happened, in order.</summary>
         public List<string> ScenesSeen { get; } = new List<string>();
         /// <summary>The scene category the player chose to stay focused on (P1 pacing), or null.</summary>

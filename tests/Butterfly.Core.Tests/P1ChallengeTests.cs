@@ -60,7 +60,8 @@ namespace Butterfly.Core.Tests
             Assert.Contains("stranger's price", sim.StageLine(master));
             FollowFelix(sim, InstitutionAccessStage.Guest);
             Assert.True(sim.HasSource(master));
-            Assert.Equal(stranger / 2, sim.StageGold(master), 6);
+            Assert.Equal(sim.Priced(master.Gold), sim.StageGold(master), 6);   // the usual price (prices drift while you wait)
+            Assert.True(stranger > sim.StageGold(master) * 1.9);
         }
 
         [Fact]
