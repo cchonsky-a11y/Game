@@ -493,7 +493,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Audit:** every gate in the content classified as exclusive, relationship, capability, economic or accidental single point of failure; written up in docs/P1_PROGRESSION_MAP.md (opportunities, entrances, dependencies, exclusivities, legacy P0 dependencies).
 - **Fixed:** the standards "two shops agree" stage needed a guild contact that only Felix's two jobs gave, so a player who came in by the allotment or the baths could open the challenge and stall at stage 2. Gaius can now vouch and do it, with his own text (`standInText`), and the person doing a stage is logged as an actor.
 - **Kept, by judgment:** Aulus's single introducer (Gaius never leaves), powered workshops' single route (the sequel to standards), the guild closing if both of Felix's jobs are refused (nothing required sits behind it), Diodoros's thread hanging on the pump (a favor, no money).
-- **Legacy:** the chronometer archives step asks for faction membership, which P1 never grants, so it always costs its gold alternative (OPEN, tied to the patron's-introduction question).
+- **Legacy:** the chronometer archives step asks for faction membership, which P1 never grants, so it always costs its gold alternative (OPEN, tied to the patron's-introduction question). *Superseded in the freeze pass (2026-10-04): APPROVED and IMPLEMENTED as senator-client access, bribe fallback kept.*
 
 ## 2026-10-04 — P1 hardening: strategy matrix, routing and economy stress (scripted, not human)
 - **Implemented:** `--p1-matrix <from>-<to> [--weight W]` runs each seed with five scripted profiles (cooperative, negotiator, selective, engineering-focused, relationship/Roman-life; odd seeds workshop, even fountain) through an era and two jumps. It measures routing and waits, Attention use, income by source, odd jobs, challenges, institutions, R-17, jumps and integrity. `--weight` is a counterfactual run in memory only. Report: playtests/ai/live/2026-10-04-p1-strategy-matrix.md (60 seeds, 300 runs).
@@ -592,7 +592,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - Faction access stage: knows a member. The views and console say plainly that this is a client at the salutatio, not a place in the following.
   - Hermogenes is a recurring person with a full profile and two echoes.
 - **Not granted:** membership, stake, office, policy voice or historical importance. The factions still take no members in P1 (the following, its offices and the exclusivity between the two factions stay OPEN).
-- **Machine archive step (OPEN, not changed):** it still asks for faction membership, so it always costs its gold alternative. Options for Corey:
+- **Machine archive step (OPEN, not changed):** it still asks for faction membership, so it always costs its gold alternative. *Superseded in the freeze pass (2026-10-04): APPROVED and IMPLEMENTED as senator-client access, bribe fallback kept.* Options for Corey:
   - a patron's introduction is enough (a client may be let into a house's records through its steward);
   - keep membership (unreachable in P1);
   - another route (a library or the Tabularium through Serenus or the guild).
@@ -613,7 +613,17 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Scripted evidence (not human):**
   - 510 tests pass. The two-jump validation, the P0 batch gate and the snapshot are unchanged.
   - Matrix: 300 of 300 runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences.
-  - Standards routes unchanged (pump 288, hoist 8, allotment 3, never 1).
+  - Standards routes unchanged (pump 288, hoist 8, allotment 3, never 1). *Corrected below (benchmark profiles restored): pump 287, baths 1.*
   - Archives: a note in 8 runs, a bribe in 292. The scripted profiles repair early; only the Relationship profile now waits for the salutatio.
   - Both challenges done in 259 runs (was 266). This is that profile's script change, not a game regression. The explorer's output changes because its random players reach the salutatio.
 - **Documents updated:** SYSTEMS.md §7, §11, §13; GDD Appendix A; P1_PROPOSALS.md; P1_PROGRESSION_MAP.md; P1_POLISH_2026-10-04.md; P1_COMPLETION_AUDIT_2026-10-04.md; HANDOFF.md; the matrix data. No tuning value changed.
+
+## 2026-10-04 — Benchmark profiles restored (harness and documentation only)
+- **Reverted (batch harness only):** the freeze pass had made the matrix's Relationship profile hold its chronometer repair until it had stood at the salutatio (else month 60). The strategy matrix is a stable behavioral benchmark, so the profile is restored to its pre-freeze definition. No other profile changed. No game rule changed: the archive implementation, Grand Challenge causality, routing, Attention and the jump range are as frozen.
+- **Kept:** the matrix line that reports how the archives were reached (measurement only).
+- **Result (scripted, not human):**
+  - Both challenges done in 266 runs (pre-freeze 266; 259 with the deferral).
+  - Relationship: 71.5 waiting months a run, longest wait 53 (pre-freeze values exactly). The other four profiles are unchanged.
+  - Archives: a note in 0 runs, a bribe in 300. The note route is covered by the focused test and the explorer.
+  - Standards credit: pump 287, hoist 8, allotment 3, baths 1, never 1. One fountain run moves from the pump to the baths because the baths raised the question first. The freeze pass's "routes unchanged" figure came from the deferred profile, and this entry corrects it.
+- **Documentation:** the archive-access rule is no longer listed as OPEN anywhere. The earlier OPEN entries are marked superseded. It is APPROVED and IMPLEMENTED: senator-client access through the salutatio, with the bribe fallback kept.

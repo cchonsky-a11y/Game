@@ -105,13 +105,7 @@ namespace Butterfly.Batch
                     if (!res.Ok && res.Message.Contains("Attention")) r.StageAttentionRefusals++;
                 }
                 if (!sim.MachineAssessed) Note(sim.Assess());
-                foreach (var system in Simulation.MachineSystems)
-                {
-                    // E prefers a senator's note to a bribe: it waits on the chronometer (the archives come first) until it has
-                    // stood at the salutatio, or until month 60, then pays the clerk.
-                    if (profile == Profile.Relationship && system == "chronometer" && !sim.World.ScenesSeen.Contains("salutatio-varro") && r.EraMonths < 60) continue;
-                    Note(sim.Repair(system));
-                }
+                foreach (var system in Simulation.MachineSystems) Note(sim.Repair(system));
                 if (profile == Profile.Engineering && sim.MachineAssessed && w.Gold > sim.Priced(60))
                     foreach (var u in data.Content.MachineUpgrades) if (!w.MachineDone.Contains(u.Id)) { Note(sim.Upgrade(u.Id)); break; }
                 if (sim.MachineStepsDone >= sim.MachineStepsTotal && sim.MachineGoldRestored < sim.MachineGoldNeeded)

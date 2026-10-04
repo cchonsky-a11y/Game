@@ -40,7 +40,7 @@ namespace Butterfly.Batch
             sb.AppendLine("- **B Negotiator:** as A, but asks for more on every offer.");
             sb.AppendLine("- **C Selective:** turns down favors, profit shares and shared development, and any job when next month is already 3 Attention deep; starts a challenge stage only with twice its cost in hand.");
             sb.AppendLine("- **D Engineering-focused:** stays focused on Engineering scenes; turns down jobs that open as Roman life, city or personal scenes; buys machine upgrades when it has 60+ aurei.");
-            sb.AppendLine("- **E Relationship / Roman-life:** stays focused on Roman-life scenes; answers Rome's and people's choices with their first option; starts a challenge stage only when no paid job is under way; holds off on the machine's chronometer until it has stood at a senator's salutatio (a note opens the archives), else from month 60 pays a clerk.");
+            sb.AppendLine("- **E Relationship / Roman-life:** stays focused on Roman-life scenes; answers Rome's and people's choices with their first option; starts a challenge stage only when no paid job is under way.");
             sb.AppendLine();
             sb.AppendLine("## By profile and opening (mean, min–max)");
             sb.AppendLine();

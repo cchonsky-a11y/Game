@@ -23,7 +23,7 @@
 | 10 | **Institution access through relationships** | PARTIAL | The guild (Felix; either of two jobs) and the Physicians' Circle (Serenus; four ways to meet him) are by invitation, with separate evidence and a vote that can refuse. The sanctuary takes gifts. Rome's choices give standing, not shares. | The Senate factions have no P1 path (OPEN: patron's introduction). The bank keeps legitimate stakes. Offices still read the internal stake (legacy). |
 | 11 | **NPC autonomy** | PASS | Life events with windows, declining chances and exclusive branches. People leave Rome, fall ill (Felix's fever no longer waits on your guild standing), refuse, quarrel and copy. 9–12 life events per scripted era. | — |
 | 12 | **Machine mystery** | PASS | The R-17 thread follows the repairs. The DO NOT JUMP warning was reached in 293 of 300 runs, then the notebook. It never blocks the jump. R-17 stays unexplained (OPEN, as intended). | — |
-| 13 | **Preparing the machine** | PASS | Assessment and nine repair steps, each with a Roman source or a gold alternative; the scavenged gold is restored; optional upgrades lengthen the jump. | The chronometer archives step asks for faction membership P1 never grants, so it always costs gold (legacy). |
+| 13 | **Preparing the machine** | PASS | Assessment and nine repair steps, each with a Roman source or a gold alternative; the scavenged gold is restored; optional upgrades lengthen the jump. | The chronometer archives step asks for faction membership P1 never grants, so it always costs gold (legacy). *Closed in the freeze pass: senator-client access, bribe fallback.* |
 | 14 | **A first jump with technical, personal, institutional and unintended echoes** | PASS | 298 of 300 first arrivals show all four kinds (was 263 before this pass). Bad copies now come from four threads. The people remembered are those you were closest to, at most two. 0 repeated sentences. | Echoes are keyed by arrival number, not years elapsed (matters only if the range changes). |
 | 15 | **Continuing** | PARTIAL | After arrival the player can walk the city (present conditions, not causes), read the Learn-more chronicle, and jump again. | Playing on in a later era is out of P1 scope, so "continuing" is the walk and the second jump. |
 | 16 | **A second jump** | PASS | 300 of 300 runs jumped twice. Second arrivals avoid repeating lines, prefer people not yet featured, and use later-aged lines. | — |
@@ -65,7 +65,7 @@ P1's structure is complete enough to be judged by people. **What is left is most
 ## Open design decisions for Corey
 
 1. **What R-17 is** (deliberately unexplained).
-2. **The patron's-introduction path** into a senator's following, within the six-month "socially minor" rule. Until then the factions are closed, and the archives machine step always costs gold.
+2. **The patron's-introduction path** into a senator's following, within the six-month "socially minor" rule. Until then the factions are closed, and the archives machine step always costs gold. *(Since resolved in part: client access was built in the polish pass, and the archive step was APPROVED and IMPLEMENTED as senator-client access in the freeze pass. The following, its membership and offices stay OPEN.)*
 3. **The jump-range model:** A constrained random window, B a player-chosen band with uncertainty, or C capability-improved targeting. See the strategy-matrix report. Echoes are keyed by arrival, not elapsed years.
 4. **Whether Attention should bind more often.** Measured, not retuned.
 5. **Locking 3:1 progression routing.** Recommended, with evidence. Whether to add an age bonus for long-waiting scenes is a separate choice.
@@ -96,6 +96,6 @@ See `docs/P1_POLISH_2026-10-04.md` for the full findings. Changes since the audi
 ## Freeze-pass update (2026-10-04)
 
 - **13. Preparing the machine:** the gap is closed. The archives step takes a senator's note (standing at Varro's salutatio as his client), with the clerk's bribe as fallback; it no longer always costs gold.
-- **9. A Grand Challenge through more than one path:** the credit now goes to the first route that became eligible (strict causality). Route tallies are unchanged in 300 runs.
+- **9. A Grand Challenge through more than one path:** the credit now goes to the first route that became eligible (strict causality). With the benchmark profiles restored: pump 287, hoist 8, allotment 3, baths 1, never 1 (one run moved from the pump to the baths, as intended).
 - **P1-20, P1-21, P1-22:** approved provisionally. **P1-23** (age bonus) stays off. Attention is not retuned and needs human validation. The jump range is unchanged; its redesign is deferred.
-- Evidence after the pass: 510 tests pass; 300 of 300 matrix runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences; both challenges done in 259 runs (266 before; the drop is the Relationship profile now waiting on the salutatio before its chronometer repair, a script change).
+- Evidence after the pass: 510 tests pass; 300 of 300 matrix runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences; both challenges done in 266 runs once the Relationship benchmark profile was restored to its pre-freeze definition (259 while it waited on the salutatio, a script change, since reverted).
