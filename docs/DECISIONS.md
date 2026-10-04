@@ -500,7 +500,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 133 progression scenes unplayed at departure on the final content, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits come from same-category exclusion; an age bonus is an option for Corey, not implemented.
 - **Fixed from evidence:**
   - Profit shares were promised in terms and text but never paid; they are now paid on schedule, once each, and lapse at departure (PROPOSED P1-21).
-  - Coin in hand crossed the jump, against SYSTEMS §9 and the briefing; it is now left behind, logged and ledgered.
+  - Unconverted denarii in hand survived the jump automatically, against SYSTEMS §9 and the briefing (wealth meant to reach the future, the carried purse, bank deposits, the jar and institutions' holdings, was never affected); denarii in hand are now left behind, logged and ledgered.
   - A second sponsorship after a refused vote repeated the first word for word; it now has its own words, and the guild's sponsor scene no longer assumes the pump.
   - A drift description repeated across arrivals; a path already described now says it has gone further down the same road.
   - Felix's fever (and so the vow and Serenus) waited on a guild referral; a player who lost three jobs met no one for six years. It now needs only that you know him.
@@ -530,3 +530,18 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - "continuing" is the walk and the second jump (later eras are out of scope);
   - generic grind for players who refuse work, and legacy ownership numbers.
 - **Not decided here:** whether to freeze P1. That is Corey's call. The audit recommends a content and polish pass, plus Corey's decisions on the open questions, before P2.
+
+## 2026-10-04 — P1 polish: wealth across jumps, made legible
+- **Clarified (no rule change):** the departure briefing now puts all money in one block:
+  - what the machine carries;
+  - what is too much to carry, with the two ways to keep it: deposit (interest, the house can fail) or bury (no interest, it can be found);
+  - what the bank and the jar already hold, as risk bands, never outcomes;
+  - coin in hand, which stays behind unless changed into aurei or spent (endowing is offered only to someone who controls an institution);
+  - money institutions hold, which stays with them in Rome and isn't the inventor's purse.
+- **Tests:**
+  - carried aurei survive;
+  - aurei beyond the purse don't survive unless deposited or buried;
+  - deposits follow the bank's rules (interest, or lost) and hoards follow the jar's (found, or gone);
+  - denarii stay behind;
+  - institutional holdings never come back as coin;
+  - the briefing names each kind of money.

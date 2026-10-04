@@ -131,18 +131,35 @@ namespace Butterfly.Core
             if (arrival.AureiLeft >= 1) yield return text.Template("savings.left", v);
         }
 
-        /// <summary>The jump briefing's lines about your gold: risk bands, never the outcome.</summary>
+        /// <summary>
+        /// The jump briefing's lines about your money, in one place: what the machine carries, what is too much to carry
+        /// (deposit or bury it), what the bank and the jar already hold (risk bands, never the outcome), the coin in your hands
+        /// (it stays behind), and the money institutions hold (it stays with them, not in your purse).
+        /// </summary>
         private IEnumerable<string> SavingsBriefing()
         {
             double carried = Math.Min(World.Aurei, CarryAurei), left = World.Aurei - carried;
-            yield return "Your gold: the machine can carry " + AureiText(CarryAurei) + "; you hold " + AureiText(World.Aurei) +
-                         (left >= 1 ? ", so " + AureiText(left) + " would be left behind and lost (deposit <n> or bury <n>" + (Arrived ? "" : ", 1 Attention each") + "; the bank takes up to " + AureiText(T.Get("savings.depositCapAurei")) + ", a jar holds " + AureiText(T.Get("savings.hoardCapAurei")) + ")." : ".");
+            yield return "Your gold: the machine can carry " + AureiText(CarryAurei) + "; you hold " + AureiText(World.Aurei) + " in aurei" +
+                         (left >= 1 ? ", so it would carry " + AureiText(carried) + "." : ", and it carries all of it.");
+            if (left >= 1)
+                yield return "  Too much to carry: " + AureiText(left) + ". Deposit it with the banking house (deposit <n>; up to " + AureiText(T.Get("savings.depositCapAurei")) +
+                             ", it earns interest, and the house can fail) or bury it (bury <n>; a jar holds " + AureiText(T.Get("savings.hoardCapAurei")) +
+                             ", no interest, and it can be found)" + (Arrived ? "" : ", 1 Attention each") + ". Whatever you don't stays behind and is lost.";
             if (World.DepositAurei >= 1)
                 yield return "  With the banking house: " + AureiText(World.DepositAurei) + ", earning " + F(T.Get("savings.depositInterestPerYear") * 100) +
                              "% a year in gold; risk the house fails or embezzles: " + RiskBand(DepositLossChance()) + ".";
             if (World.HoardAurei >= 1)
                 yield return "  Buried: " + AureiText(World.HoardAurei) + "; risk someone finds it: " + RiskBand(T.Get("savings.hoardFoundPerDecade")) + " (more the longer you're gone).";
-            if (World.Gold >= 1 && !Arrived) yield return "  Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).";
+            if (World.Gold >= 1 && !Arrived)
+            {
+                var endowable = World.Institutions.Where(Controls).Select(i => i.Key).ToList();
+                yield return "  Coin in hand: " + Money(World.Gold) + ". Denarii stay behind when you leave: change them into aurei first (exchange <n> denarii) to carry, deposit or bury them, or spend them" +
+                             (endowable.Count > 0 ? ", or endow " + string.Join(" or ", endowable) : "") + ".";
+            }
+            var holders = Arrived ? new List<Institution>() : Influential().Where(i => i.Holdings > 0).ToList();
+            if (holders.Count > 0)
+                yield return "  Money held by " + string.Join(" and ", holders.Select(i => i.Def.ShortName)) + " stays with " + (holders.Count == 1 ? "it" : "them") +
+                             " in Rome and works there while you're away. It isn't part of your purse and won't come back to you as coin.";
         }
     }
 }

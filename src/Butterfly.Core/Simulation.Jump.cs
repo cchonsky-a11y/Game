@@ -209,7 +209,6 @@ namespace Butterfly.Core
             if (World.Promise.Status == PromiseStatus.Offered) yield return "Demetria asked you to stay until the sickness has passed. If you leave now, she will never have an answer.";
             if (LeavingBreaksPromise) yield return "You promised Demetria you would stay until the sickness has passed. Leaving now breaks that promise.";
             if (World.ActiveProjects.Count > 0) yield return "Unfinished work will be abandoned.";
-            if (World.Gold >= 1) yield return "The " + Money(World.Gold) + " in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.";
             foreach (var line in SavingsBriefing()) yield return line;
         }
 
