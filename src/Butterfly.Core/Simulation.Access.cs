@@ -11,6 +11,19 @@ namespace Butterfly.Core
     public sealed partial class Simulation
     {
         public bool PatronageOnly(Institution i) => i.Def.Access == "patronage";
+
+        /// <summary>
+        /// Where you stand with a senator's following (P1 polish pass, 2026-10-04): a patron's introduction makes you a client
+        /// who attends the morning salutatio, not a member. No place in its following, office or policy comes of it yet.
+        /// </summary>
+        public string PatronageStanding(Institution i)
+        {
+            if (i.Stake > 0) return "you are in its following";
+            var a = World.AccessTo(i.Key);
+            return a.Stage >= InstitutionAccessStage.KnowsMember
+                ? "you stand at the senator's salutatio as a client, introduced to his steward " + a.KnownMemberId + "; that is not a place in his following"
+                : "it takes clients through a patron's introduction: a merchant or physician the senator's house already trusts";
+        }
         public bool TakesGifts(Institution i) => i.Def.Access == "gifts";
 
         /// <summary>A gift to an institution that takes gifts (1 Attention-priced step of the legacy stake): you become a benefactor.</summary>

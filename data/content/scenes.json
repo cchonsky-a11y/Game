@@ -785,6 +785,54 @@
         "monthsIn:3"
       ],
       "text": "In the bottom of your pack, under the spare gloves, is your old lab notebook. Most of it is load tables. On a page from the month before the crash, in your own hand, is a citation you don't remember writing down: R17, a paper on temporal-reference stability, and underlined twice, the words 'reciprocal lock'. Nothing else on the page. You read it until the lamp runs out."
+    },
+    {
+      "id": "patron-cassianus",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "monthsIn:18",
+        "commission:cellarpump:Done",
+        "regard:Cassianus:2",
+        "!scene:patron-serenus"
+      ],
+      "regard": {
+        "Hermogenes": 1
+      },
+      "knowsMember": {
+        "institution": "faction",
+        "member": "Hermogenes"
+      },
+      "text": "Cassianus sells oil to the house of Senator Lucius Caecilius Varro and owes its steward a favor. He pays it with you. The steward, a freedman called Hermogenes, sees you in a side room off the atrium among baskets of the senator's letters. He has heard about a pump. \"The senator receives his friends at dawn,\" he says. \"Come and stand with them. Say nothing unless he asks you something.\""
+    },
+    {
+      "id": "patron-serenus",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "monthsIn:18",
+        "regard:Serenus:3",
+        "!scene:patron-cassianus"
+      ],
+      "regard": {
+        "Hermogenes": 1
+      },
+      "knowsMember": {
+        "institution": "faction",
+        "member": "Hermogenes"
+      },
+      "text": "Serenus is called to the house of Senator Lucius Caecilius Varro, where the household physician is out of his depth with the steward's daughter's fever. He brings you along as a man who counts things. The steward, a freedman called Hermogenes, thanks Serenus, looks you over, and says the senator receives his friends at dawn. \"Come and stand with them. Speak when you are spoken to.\""
+    },
+    {
+      "id": "salutatio-varro",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "knows:Hermogenes",
+        "monthsIn:20"
+      ],
+      "regard": {
+        "Hermogenes": 1
+      },
+      "triggers": "patronfavor",
+      "text": "At first light you stand in the senator's atrium with forty other men in their best togas: freedmen, a poet, two tax farmers, a man who sells statues. Hermogenes calls the names. When yours comes, Varro looks at you for the length of a breath and asks whether it is true you can tell how much water a pipe carries without opening it. You say it is. He nods, and the next name is called."
     }
   ]
 }

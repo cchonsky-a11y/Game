@@ -346,7 +346,7 @@ internal sealed partial class ConsoleGame
                 var target = _sim.FindInstitution(arg);
                 // P1 (decided 2026-10-02): an institution on an invitation path doesn't sell seats.
                 if (target != null && _sim.OnInvitationPath(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell seats: members bring you in. " + AccessText(target)); return false; }
-                if (target != null && _sim.PatronageOnly(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell places: a senator's following takes clients through a patron's introduction. (Not open to you in this prototype yet.)"); return false; }
+                if (target != null && _sim.PatronageOnly(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell places: a senator's following takes clients through a patron's introduction. (" + Simulation.Cap(_sim.PatronageStanding(target)) + ".)"); return false; }
                 if (target != null && _sim.TakesGifts(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell shares; it takes gifts. Type 'give " + target.Key + "' (" + _sim.Money(_sim.GiftCost(target)) + ")."); return false; }
                 int pct = target != null && !target.Backed && target.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
@@ -552,7 +552,7 @@ internal sealed partial class ConsoleGame
                     line += ": strength " + F(i.Strength) + " (" + F(_sim.DomainShare(i) * 100) + "%)";
                     if (_sim.OnInvitationPath(i)) line += "; " + AccessText(i);
                     if (_sim.TakesGifts(i)) line += i.Stake > 0 ? "; you are among its benefactors" : "; it takes gifts (give " + i.Key + ", " + _sim.Money(_sim.GiftCost(i)) + ")";
-                    else if (_sim.PatronageOnly(i)) line += i.Stake > 0 ? "; you are in its following" : "; it takes clients through a patron's introduction (not yet open)";
+                    else if (_sim.PatronageOnly(i)) line += "; " + _sim.PatronageStanding(i);
                     else if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
                     else if (_sim.OnInvitationPath(i)) { }
                     else if (!i.Def.IsOwn)

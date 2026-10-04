@@ -127,6 +127,12 @@ namespace Butterfly.Core
                     continue;
                 }
                 if (i.Def.IsOwn) { if (FoundCost(i.Def.Maintains) <= World.Gold) v.AvailableNow.Add(new ViewItem("found " + name, "found " + i.Key)); continue; }
+                if (PatronageOnly(i))
+                {
+                    if (a.Stage >= InstitutionAccessStage.KnowsMember) v.Emerging.Add(new ViewItem(name + ": " + PatronageStanding(i)));
+                    else v.Blocked.Add(new ViewItem(name + ": " + PatronageStanding(i)));
+                    continue;
+                }
                 var blocker = JoinBlocker(i);
                 if (blocker == null) v.AvailableNow.Add(new ViewItem(name, "buy " + i.Key + " 1"));
                 else v.Blocked.Add(new ViewItem(name + ": " + blocker));

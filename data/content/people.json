@@ -343,6 +343,37 @@
       "opinion": "good finishing is done by hand, or it isn't good",
       "interest": "his son's speeches, which he pretends to understand",
       "voice": "plain, worried, asks the same question twice in different words"
+    },
+    {
+      "id": "Hermogenes",
+      "name": "Hermogenes",
+      "known": "scene:patron-cassianus|scene:patron-serenus",
+      "role": "freedman steward of Senator Lucius Caecilius Varro, who keeps the senator's door and the list of his clients",
+      "goal": "to see the last of his debts to the house paid and buy a small farm near Tibur",
+      "vulnerability": "everything he has, he holds at the senator's pleasure",
+      "caresAbout": "his freedman's tomb, half built on the Via Appia, and the boy he pays a grammarian to teach",
+      "distrusts": "the senator's son, who will inherit the house and him with it",
+      "household": "a wife whose freedom he is still paying for, and a boy at a grammarian's",
+      "status": "a freedman with a senator's ear and no vote",
+      "opinion": "a client is worth what he can do for the house this month",
+      "interest": "Greek epigrams, which he writes badly and recites often",
+      "voice": "smooth and quick; never says yes and no in the same sentence",
+      "echoes": [
+        {
+          "requires": [
+            "scene:salutatio-varro"
+          ],
+          "fromJump": 1,
+          "text": "Hermogenes' tomb stands on the Via Appia, finished at last, with a long inscription about his loyalty to the Caecilii. His grandson keeps the house's old list of clients and shows it to anyone who asks."
+        },
+        {
+          "requires": [
+            "knows:Hermogenes"
+          ],
+          "fromJump": 2,
+          "text": "The Caecilian house is out of the Senate now. Its old steward's farm near Tibur belongs to strangers, and one of his epigrams is scratched on the wall of a tavern there, misquoted."
+        }
+      ]
     }
   ],
   "life": [

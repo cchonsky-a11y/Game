@@ -1341,6 +1341,76 @@
           "effects": []
         }
       ]
+    },
+    {
+      "id": "patronfavor",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "category": "InstitutionsPolitics",
+      "title": "A word from the senator's house",
+      "text": "Hermogenes sends for you. A fuller who is one of the senator's clients is quarrelling with his street's magistrates over a water tap, and the hearing is before the urban praetor's man next month. The senator would be glad if a man who understands water said the fuller's tap was honest.",
+      "options": [
+        {
+          "id": "oblige",
+          "label": "speak for the senator's client",
+          "style": "profit",
+          "sets": [
+            "varro-client"
+          ],
+          "text": "You stand up before the praetor's man and say the tap is honest, which it nearly is. The fuller keeps his water. The magistrates of his street look at you as if they will remember your face, and they do. Hermogenes sends a jar of good Falernian.",
+          "effects": [
+            {
+              "type": "standing",
+              "institution": "faction",
+              "value": 2
+            },
+            {
+              "type": "standing",
+              "institution": "junian",
+              "value": -1
+            },
+            {
+              "type": "regard",
+              "person": "Hermogenes",
+              "value": 1
+            },
+            {
+              "type": "regard",
+              "person": "Gaius",
+              "value": -1,
+              "if": "subura-allotment"
+            }
+          ],
+          "mark": "In the Caecilian house a list of the old senator's clients hangs in the tablinum. Your name is on it, between a fuller and a statue-seller, as an engineer from Alexandria."
+        },
+        {
+          "id": "measure",
+          "label": "offer to measure the tap first and say what you find",
+          "style": "principled",
+          "text": "You measure it. It takes half again what its grant allows. You tell Hermogenes before the hearing, not after. The fuller settles out of court and pays his street a fine. The senator says nothing about it, which Hermogenes tells you is a compliment.",
+          "effects": [
+            {
+              "type": "standing",
+              "institution": "faction",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "decline",
+          "label": "tell Hermogenes you won't swear to what you haven't measured",
+          "style": "principled",
+          "text": "Hermogenes smiles as if you had said something charming and says the senator will be sorry. You are still welcome at the salutatio. Your name is called a little later each time.",
+          "effects": [
+            {
+              "type": "regard",
+              "person": "Hermogenes",
+              "value": -1
+            }
+          ]
+        }
+      ]
     }
   ]
 }

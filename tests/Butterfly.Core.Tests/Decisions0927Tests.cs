@@ -47,16 +47,14 @@ namespace Butterfly.Core.Tests
                 while (s.World.ActiveProjects.Count > 0) s.EndMonth();  // the fountain is repaired
                 return s;
             }
-            var probe = Setup();
-            while (probe.PendingEvent == null) probe.EndMonth();
-            int opens = probe.Turn;
-
             var sim = Setup();
             Assert.True(sim.StartProject("warehouses").Ok);
             Assert.True(sim.Mentor("circle").Ok);
-            while (sim.PendingEvent == null && sim.Turn < opens + 12) sim.AdvanceUntilDecision();
-            Assert.Equal(opens, sim.Turn);                  // never fast-forwarded past the month it opened
+            while (sim.PendingEvent == null && sim.Turn < 240) sim.AdvanceUntilDecision();
             Assert.NotNull(sim.PendingEvent);
+            // Never fast-forwarded past the month it opened: the offer was made this very month.
+            var offer = sim.Log.Events.Last(e => e.Type == "event.offer");
+            Assert.Equal(sim.Now.TotalMonths, offer.Time.TotalMonths);
         }
 
         [Fact]

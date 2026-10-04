@@ -577,3 +577,23 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Unchanged:** pay, Attention, the economy and every seeded outcome.
 - **Snapshot:** hash updated for the new text only; the reference game still arrives in AD 247 with Index 127.7, and p1-validate, p1-matrix, batch and explorer outputs are byte-identical.
 - **Not added:** new commissions. The existing referral and repeat chains already cover each opening.
+
+## 2026-10-04 — P1 polish: a relationship-first way toward a senator's house (foundation only)
+- **Implemented:**
+  - After month 18 (well past the six months when the inventor is socially minor), a credible intermediary can introduce him to Senator Lucius Caecilius Varro's freedman steward, Hermogenes:
+    - Cassianus, who sells the house oil (after the pump and his regard of 2);
+    - or Serenus, called to the house's sickroom (his regard of 3).
+    One introduction only.
+  - The inventor then stands at the morning salutatio as one client among forty. Varro asks him one technical question.
+  - The house soon asks a favor: speak for a fuller-client in a water dispute. Every answer costs something:
+    - oblige: the Caecilians' regard up, the Junians' down, and Gaius cooler if the inventor measured honest taps with him;
+    - measure first: a smaller gain;
+    - decline: Hermogenes cooler.
+  - Faction access stage: knows a member. The views and console say plainly that this is a client at the salutatio, not a place in the following.
+  - Hermogenes is a recurring person with a full profile and two echoes.
+- **Not granted:** membership, stake, office, policy voice or historical importance. The factions still take no members in P1 (the following, its offices and the exclusivity between the two factions stay OPEN).
+- **Machine archive step (OPEN, not changed):** it still asks for faction membership, so it always costs its gold alternative. Options for Corey:
+  - a patron's introduction is enough (a client may be let into a house's records through its steward);
+  - keep membership (unreachable in P1);
+  - another route (a library or the Tabularium through Serenus or the guild).
+- **Snapshot reset** (deliberate: new routable scenes shift seeded draws): the reference game arrives in AD 247 with Index 127.1 (was 127.7). The fast-forward test now checks its real claim, that the offer was made the month fast-forward stopped, instead of assuming two different games open their first event in the same month.
