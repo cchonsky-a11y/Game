@@ -47,7 +47,8 @@ namespace Butterfly.Core.Tests
         public void WhenNothingElseCanHappenTheThirdOneMayStillCome()
         {
             var sim = TwoCandidates();
-            sim.World.ScenesSeen.AddRange(sim.Data.Content.Scenes.Select(s => s.Id));   // nothing but the commission left
+            sim.World.ScenesSeen.AddRange(sim.Data.Content.Scenes.Select(s => s.Id).Where(id => id != "serenus-meet"));   // nothing but the commission left
+            foreach (var cm in sim.World.Commissions.Where(cm => cm.Id != "cellarpump")) cm.Status = CommissionStatus.Declined;
             Assert.Equal(new[] { "commission:cellarpump" }, sim.SceneCandidateIds());
             Assert.Equal("commission:cellarpump", sim.PeekRoutedScene());
         }

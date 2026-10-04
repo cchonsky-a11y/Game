@@ -38,7 +38,15 @@ namespace Butterfly.Core
             DurationMonths = (int)o.Num("durationMonths");
             Attention = (int)o.Num("attention");
             Text = o.Str("text");
+            Capability = o.StrOr("capability", "") ?? "";
+            CapabilityTo = o.Has("capabilityTo")
+                ? (Enum.TryParse<CapabilityLevel>(o.Str("capabilityTo"), out var lv) ? lv : throw new FormatException("Unknown capability level: " + o.Str("capabilityTo")))
+                : (CapabilityLevel?)null;
         }
+
+        /// <summary>A stage may move its own capability, or the commission's to a level of its own (else from the stage kind).</summary>
+        public string Capability { get; }
+        public CapabilityLevel? CapabilityTo { get; }
     }
 
     /// <summary>
@@ -75,6 +83,10 @@ namespace Butterfly.Core
         public string ReferralInstitution { get; }
         public string ReferralMember { get; }
         public string ReferralText { get; }
+        /// <summary>What finishing the work leaves besides money: people's regard, their standing, flags later content reads.</summary>
+        public IReadOnlyList<KeyValuePair<string, int>> OnCompleteRegard { get; }
+        public IReadOnlyList<KeyValuePair<string, string>> OnCompleteStatus { get; }
+        public IReadOnlyList<string> OnCompleteSets { get; }
         /// <summary>The capability (data/content/capabilities.json) this work moves Rome along, or empty.</summary>
         public string Capability { get; }
 
@@ -106,10 +118,17 @@ namespace Butterfly.Core
             WalkText = c.Str("walkText");
             DeclineText = o.Str("declineText");
             Work = o.Arr("work").Cast<JsonObject>().Select(x => new CommissionWorkDef(x)).ToList();
-            var r = o.Obj("referral");
-            ReferralInstitution = r.Str("institution");
-            ReferralMember = r.Str("member");
-            ReferralText = r.Str("text");
+            // Not every job leads into an institution (Corey, 2026-10-04): the referral is optional, and may be only a lead.
+            var r = o.Has("referral") ? o.Obj("referral") : null;
+            ReferralInstitution = r?.StrOr("institution", "") ?? "";
+            ReferralMember = r?.StrOr("member", "") ?? "";
+            ReferralText = r?.StrOr("text", "") ?? "";
+            var oc = o.Has("onComplete") ? o.Obj("onComplete") : null;
+            var rg = oc != null && oc.Has("regard") ? oc.Obj("regard") : null;
+            OnCompleteRegard = rg == null ? new List<KeyValuePair<string, int>>() : rg.Keys.Select(k => new KeyValuePair<string, int>(k, (int)rg.Num(k))).ToList();
+            var st = oc != null && oc.Has("status") ? oc.Obj("status") : null;
+            OnCompleteStatus = st == null ? new List<KeyValuePair<string, string>>() : st.Keys.Select(k => new KeyValuePair<string, string>(k, st.Str(k))).ToList();
+            OnCompleteSets = oc != null && oc.Has("sets") ? oc.Arr("sets").Cast<string>().ToList() : new List<string>();
             Capability = o.StrOr("capability", "") ?? "";
         }
     }

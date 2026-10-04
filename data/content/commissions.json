@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05.",
+  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05. P1 (2026-10-04): 'requires' (people.json syntax) gates when the work can come; 'fundingModel' may be Favor (no one pays) or ProfitShare; a work stage may name its own 'capability' and 'capabilityTo'; 'onComplete' gives regard, status and flags; 'referral' is optional and may be only a lead (no institution). Amounts PROPOSED P1-17.",
   "commissions": [
     {
       "id": "cellarpump",
@@ -73,7 +73,10 @@
       "clientRole": "a shipper at Ostia with three hulls and leaking pumps",
       "introducer": "Felix",
       "opensAfterMonths": 0,
-      "requires": ["access:guild:Guest", "commission:cellarpump:Done"],
+      "requires": [
+        "access:guild:Guest",
+        "commission:cellarpump:Done"
+      ],
       "encounter": {
         "category": "WorkEconomy",
         "text": "The shipper who complained at the guild supper finds you on the quay at Ostia. Lollius, three hulls, all of them wet. \"Felix says you fixed the oil man's pump. Mine are worse. Come and look before I lose a cargo of grain to my own bilge.\""
@@ -123,6 +126,328 @@
         "institution": "guild",
         "member": "Felix",
         "text": "Lollius tells the shippers at the next supper. Two of them ask Felix where to find you; one asks what you charge, and whistles."
+      }
+    },
+    {
+      "id": "fevers",
+      "title": "Pomponia's household fevers",
+      "client": "Pomponia",
+      "clientRole": "a widow with a household of forty in a Subura insula, one of Serenus's few paying patients",
+      "introducer": "Serenus",
+      "opensAfterMonths": 0,
+      "requires": [
+        "knows:Serenus",
+        "scene:serenus-casebook"
+      ],
+      "encounter": {
+        "category": "Personal",
+        "text": "Serenus catches you at the fountain. \"Pomponia has fever in her household again, the third summer running. She pays, which makes her rare. She wants to know why her people sicken and her neighbors' don't. I told her you count things.\""
+      },
+      "diagnosis": {
+        "category": "WorkEconomy",
+        "attention": 1,
+        "text": "Pomponia's insula has five floors: the family on the ground, freedmen above, slaves and lodgers in the garrets. Fever has been worst at the top. The household draws water from two places, the street fountain and a cistern in the yard that a freedman swears is sweeter. Pomponia follows you from room to room with a list of who has died."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Pomponia",
+        "materialsPayer": "Pomponia",
+        "upfront": 6,
+        "completion": 14,
+        "text": "\"I will pay a hundred and fifty denarii now and three hundred and fifty when you tell me something I can act on,\" Pomponia says. \"Wax and tablets on my account. Serenus comes when he is called.\""
+      },
+      "counter": {
+        "completion": 20,
+        "acceptWeight": 5,
+        "standFirmWeight": 4,
+        "walkWeight": 1,
+        "acceptText": "Pomponia sighs. \"Five hundred, then. Serenus says you are worth it. Serenus says that about very few things.\"",
+        "standFirmText": "\"Three hundred and fifty,\" she says. \"I am a widow, not a fool.\" The offer stands.",
+        "walkText": "\"Serenus will do it for less,\" Pomponia says, and he does, badly, without columns."
+      },
+      "declineText": "You tell Pomponia you can't take it on. Serenus doesn't look surprised.",
+      "work": [
+        {
+          "stage": "Observation",
+          "category": "WorkEconomy",
+          "durationMonths": 2,
+          "attention": 1,
+          "capability": "records",
+          "capabilityTo": "Demonstrated",
+          "text": "A tablet for each floor, the same questions for every sick person: when it began, which water they drink, who nursed them. Serenus thinks the cistern is irrelevant and says so daily. The freedman who keeps the tablets on the third floor writes 'cistern' in the margin of every case."
+        },
+        {
+          "stage": "Refinement",
+          "category": "Personal",
+          "durationMonths": 1,
+          "attention": 1,
+          "capability": "casenotes",
+          "capabilityTo": "Demonstrated",
+          "text": "Laid side by side, the tablets disagree with Serenus: the garrets drink only from the cistern, and the garrets are where the fever is. He reads them twice and says it proves nothing. He has the cistern drained anyway, 'for cleanliness', and finds a dead cat. Pomponia orders the household to the street fountain."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Serenus": 1
+        },
+        "sets": [
+          "pomponia-cistern"
+        ]
+      },
+      "referral": {
+        "text": "Pomponia tells her sister, who tells her doctor, who tells Serenus that comparing households is a Greek affectation. Serenus repeats it to you with real pleasure."
+      }
+    },
+    {
+      "id": "baths",
+      "title": "Philippus's cold hot room",
+      "client": "Philippus",
+      "clientRole": "keeper of the small baths behind the Circus Maximus",
+      "introducer": "",
+      "opensAfterMonths": 10,
+      "requires": [
+        "scene:baths-wet-cellar"
+      ],
+      "encounter": {
+        "category": "RomanLife",
+        "text": "The bath-keeper Philippus remembers you from the warm room. \"You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "The furnace is fine; the trouble is the water. Philippus's lead pipe from the aqueduct branch has been tapped by someone upstream and patched with clay where it splits. Half the flow goes to a fuller's yard he swears he doesn't know about. What reaches him is cold and too little for the boiler."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Philippus",
+        "materialsPayer": "Philippus",
+        "upfront": 4,
+        "completion": 12,
+        "text": "\"A hundred now,\" Philippus says, \"three hundred when the hot room is hot. I buy the lead. And you never saw any fuller.\""
+      },
+      "counter": {
+        "completion": 18,
+        "acceptWeight": 1,
+        "standFirmWeight": 2,
+        "walkWeight": 7,
+        "acceptText": "Philippus groans like a man being robbed. \"Four hundred and fifty. If it's hot.\"",
+        "standFirmText": "\"Three hundred,\" he says. \"You can have a free bath every day for a year, which is worth more.\" The offer stands.",
+        "walkText": "\"Bath-keepers don't get rich,\" Philippus says, \"and neither will you, not from me.\" He hires a plumber who knows the fuller."
+      },
+      "declineText": "You tell Philippus you can't take it. He goes back to stoking a furnace that heats nothing.",
+      "work": [
+        {
+          "stage": "Refinement",
+          "category": "Engineering",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "You replace the split section with a new length of lead, sweat-soldered, and fit a bronze stopcock so the boiler fills and stops. The tap upstream you leave alone; it isn't your pipe. The hot room steams by the end of the month."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The hot room fills again: wrestlers oiling themselves, a lawyer rehearsing a speech in the steam, a hair-plucker whose customers yell. Philippus puts a little bronze Fortuna by the furnace door and gives you the first bath free."
+        }
+      ],
+      "onComplete": {
+        "sets": [
+          "baths-flow"
+        ]
+      },
+      "referral": {
+        "text": "Philippus tells everyone in the warm room that the foreigner fixed his water. One of them owns a fuller's yard downstream, and doesn't look pleased."
+      }
+    },
+    {
+      "id": "jars",
+      "title": "Diodoros's broken jars",
+      "client": "Diodoros",
+      "clientRole": "who runs Cassianus's deliveries now, one-handed",
+      "introducer": "",
+      "opensAfterMonths": 0,
+      "requires": [
+        "life:diodoros-deliveries"
+      ],
+      "encounter": {
+        "category": "Personal",
+        "text": "Diodoros finds you after dark. \"Cassianus takes a jar out of my pay for every one that breaks on the carts. Three this week. I can't pay you. I'm asking anyway.\""
+      },
+      "diagnosis": {
+        "category": "WorkEconomy",
+        "attention": 1,
+        "text": "The carts are fine; the jars are packed in loose straw and roll together on every rut of the Clivus. The drivers pack them the way they always have. The worst breakage is on the long axle cart, which bounces where the others sway."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "Favor",
+        "payer": "no one",
+        "materialsPayer": "player",
+        "upfront": 0,
+        "completion": 0,
+        "text": "There is no money in it. Diodoros will owe you, and he is not a man who forgets what he owes."
+      },
+      "counter": {
+        "completion": 0,
+        "acceptWeight": 0,
+        "standFirmWeight": 10,
+        "walkWeight": 0,
+        "acceptText": "Diodoros has nothing more to give.",
+        "standFirmText": "\"I told you,\" Diodoros says. \"I have nothing. It's a favor or it's nothing.\" The offer stands.",
+        "walkText": ""
+      },
+      "declineText": "You tell Diodoros you can't. He nods as if he expected it, and goes.",
+      "work": [
+        {
+          "stage": "Prototype",
+          "category": "WorkEconomy",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "A wooden frame for the cart bed with a hole for each jar, and a rope net over the top. You buy the wood yourself. The first load arrives with one jar cracked instead of five. The drivers call it a cage for chickens and use it anyway."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Diodoros": 2
+        },
+        "status": {
+          "Diodoros": "runs Cassianus's deliveries with jar frames on every cart, and keeps his pay"
+        },
+        "sets": [
+          "jar-frames"
+        ]
+      },
+      "referral": {
+        "text": "Diodoros doesn't thank you. A week later a porter you don't know carries your tools across the city for nothing and says Diodoros sent him."
+      }
+    },
+    {
+      "id": "drawings",
+      "title": "Vettius's fitting drawings",
+      "client": "Vettius",
+      "clientRole": "a shipwright at Ostia who builds for three guild shippers",
+      "introducer": "Felix",
+      "opensAfterMonths": 0,
+      "requires": [
+        "access:guild:Member",
+        "capability:metrology:Reproducible"
+      ],
+      "encounter": {
+        "category": "InstitutionsPolitics",
+        "text": "Felix brings Vettius the shipwright to a guild supper and seats him next to you on purpose. Vettius has two yards and every fitting in them is made by eye. \"Felix says you draw things so another man can make them. Can you draw mine?\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Vettius's master shipwright keeps every fitting in his head and in his hands; his apprentices copy whatever he made last. The drawings Vettius has show shapes, not sizes. When the master is ill, the yard stops."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ProfitShare",
+        "payer": "Vettius",
+        "materialsPayer": "Vettius",
+        "upfront": 5,
+        "completion": 16,
+        "text": "\"A hundred and twenty-five now,\" Vettius says, \"four hundred when my second yard builds a hull from your drawings without my master in it. And a tenth of what I get for selling copies to the other yards, if anyone will buy them.\""
+      },
+      "counter": {
+        "completion": 22,
+        "acceptWeight": 4,
+        "standFirmWeight": 5,
+        "walkWeight": 1,
+        "acceptText": "Vettius looks at Felix, who shrugs. \"Five hundred and fifty, then.\"",
+        "standFirmText": "\"Four hundred and the tenth,\" Vettius says. \"The tenth may be worth more than both of us think.\" The offer stands.",
+        "walkText": "Vettius decides his master's hands are good enough, and they are, until they aren't."
+      },
+      "declineText": "You tell Vettius you can't take it. Felix looks disappointed and pours him more wine.",
+      "work": [
+        {
+          "stage": "Observation",
+          "category": "Engineering",
+          "durationMonths": 2,
+          "attention": 1,
+          "capability": "drawings",
+          "capabilityTo": "Prototype",
+          "text": "You spend two months in the yard with a wax board and a bronze rule cut to the shared foot, drawing every fitting the master makes, with its sizes. The master watches you the whole time and corrects one drawing in three, never kindly."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "InstitutionsPolitics",
+          "durationMonths": 2,
+          "attention": 1,
+          "capability": "drawings",
+          "capabilityTo": "Reproducible",
+          "text": "The second yard frames a hull from the drawings with the master in bed with gout. It isn't as good as his. It floats, and it fits the fittings, and the guild's shippers come to look at it."
+        }
+      ],
+      "onComplete": {
+        "sets": [
+          "vettius-copies"
+        ]
+      },
+      "referral": {
+        "text": "Copies of the drawings go round the Ostia yards within the year. Vettius pays your tenth twice, then stops, and says the copies people are selling aren't his."
+      }
+    },
+    {
+      "id": "millbearing",
+      "title": "The grain mill's burnt bearing",
+      "client": "Statius",
+      "clientRole": "owner of a grain mill on the Janiculum race",
+      "introducer": "Aulus",
+      "opensAfterMonths": 0,
+      "requires": [
+        "knows:Aulus"
+      ],
+      "encounter": {
+        "category": "Exploration",
+        "text": "Aulus sends a boy down the hill: the third mill has burnt a bearing at the start of the grinding, and Statius the owner is shouting at everyone. \"Bring your gauges,\" the message says. \"And don't talk to Statius.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "The bearing is burnt black and the shaft is scored. Statius's man greased it every week; the mill turns every day. The new wheel is bigger than the old one and nobody changed the bearing to match. Aulus says nothing while you work it out, then says \"Yes.\""
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Statius",
+        "materialsPayer": "Statius",
+        "upfront": 0,
+        "completion": 15,
+        "text": "Statius, red in the face: \"I pay when it grinds. Three hundred and seventy-five. Bronze on my account. Every day it doesn't turn I lose more than that, so don't take long.\""
+      },
+      "counter": {
+        "completion": 21,
+        "acceptWeight": 3,
+        "standFirmWeight": 3,
+        "walkWeight": 4,
+        "acceptText": "Statius throws up his hands. \"Five hundred and twenty-five! Just make it turn.\"",
+        "standFirmText": "\"Three hundred and seventy-five,\" Statius says. \"Aulus would do it for the bread.\" The offer stands.",
+        "walkText": "\"Aulus,\" Statius shouts, \"get me a man who doesn't haggle while my grain rots.\" Aulus fixes it himself in four days and doesn't speak to you for a month."
+      },
+      "declineText": "You tell Statius you can't. Aulus shrugs and starts on the bearing himself.",
+      "work": [
+        {
+          "stage": "Refinement",
+          "category": "Engineering",
+          "durationMonths": 1,
+          "attention": 1,
+          "capability": "bearings",
+          "capabilityTo": "Prototype",
+          "text": "A wider shell, cut to your gauge, with a groove so the grease feeds itself, and a second one cut the same, to be kept on a peg by the wheel. Aulus makes Statius's man grease it every morning while he watches."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Aulus": 1
+        }
+      },
+      "referral": {
+        "text": "The mill grinds through the season. Two other owners on the race ask Aulus who cut the spare shell. He tells them, which, for Aulus, is a speech."
       }
     }
   ]

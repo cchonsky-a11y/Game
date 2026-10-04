@@ -227,6 +227,36 @@
       "text": "Up at the mills before dawn, you hear the wheel start, and at the same moment, back at the workshop, the machine's panel wakes on its own. The log shows a short burst of signal and an answer: the same pattern as the last second before the crash, a request and an acceptance. Nothing in Rome is sending anything."
     },
     {
+      "id": "fullers-curse",
+      "category": "RomanLife",
+      "requires": [
+        "flag:baths-flow",
+        "monthsIn:12"
+      ],
+      "text": "Someone has nailed a curse tablet to the bath-house door, a strip of lead folded twice. Philippus reads it out in the warm room for the laughs: may his water run cold, may his furnace smoke, may the foreigner who fixed his pipe lose his teeth. The fuller downstream says he can't read. Nobody believes him."
+    },
+    {
+      "id": "aqueduct-notice",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "scene:fullers-curse",
+        "monthsIn:16"
+      ],
+      "text": "A notice is painted on the wall at the end of the street: by order of the curator of waters, all private taps on the Circus branch will be inspected. Two of the curator's slaves walk the pipe with a ladder. By the end of the week the fuller's tap is cut, his vats stand empty, and four of his men are looking for work. Philippus's hot room has never been hotter."
+    },
+    {
+      "id": "serenus-cistern",
+      "category": "Personal",
+      "requires": [
+        "flag:pomponia-cistern",
+        "monthsIn:10"
+      ],
+      "regard": {
+        "Serenus": -1
+      },
+      "text": "Serenus reads Pomponia's tablets to the Circle and says the fever came from bad air rising off the cistern. You say it was the water. He says water is water, and air is where fever lives, and Hippocrates agrees with him. You argue until his sister throws you both out. The next week he sends you a jar of honey and the tablets from another household, with the cisterns marked."
+    },
+    {
       "id": "r17-request",
       "category": "MachineMystery",
       "requires": [

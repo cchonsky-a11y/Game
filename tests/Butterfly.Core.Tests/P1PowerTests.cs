@@ -134,6 +134,7 @@ namespace Butterfly.Core.Tests
             Assert.True(naming.Requires.All(r => sim.Holds(r)));
             sim.World.ScenesSeen.AddRange(sim.Data.Content.Scenes.Where(s => s.Id != "gaius-naming-day").Select(s => s.Id));
             sim.World.ScenePacing.Reset();
+            foreach (var cm in sim.World.Commissions) cm.Status = CommissionStatus.Declined;   // no work offers in the way
             sim.EndMonth();                                             // the only candidate: the naming day
             Assert.Contains("gaius-naming-day", sim.World.ScenesSeen);
             Assert.Contains(sim.Log.Events, e => e.Type == "challenge.delayed");

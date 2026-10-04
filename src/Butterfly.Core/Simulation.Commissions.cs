@@ -67,7 +67,9 @@ namespace Butterfly.Core
             int months = d.Work.Sum(w => w.DurationMonths);
             int att = d.Work.Max(w => w.Attention);
             string pay = d.FundingModel == ProjectFundingModel.SelfFundedResearch ? "self-funded: no one pays you"
-                : d.Payer + " pays " + (d.Upfront > 0 ? Money(Priced(d.Upfront)) + " now, " : "") + Money(Priced(c.CompletionPay)) + " on completion";
+                : d.FundingModel == ProjectFundingModel.Favor ? "a favor: no one pays you"
+                : d.Payer + " pays " + (d.Upfront > 0 ? Money(Priced(d.Upfront)) + " now, " : "") + Money(Priced(c.CompletionPay)) + " on completion" +
+                  (d.FundingModel == ProjectFundingModel.ProfitShare ? " and a share of what it earns" : "");
             string materials = d.MaterialsPayer == "player" ? "you buy the materials" : d.MaterialsPayer + " buys the materials";
             return "(" + pay + "; " + materials + ". Work: about " + months + " month" + (months == 1 ? "" : "s") + ", " + att + " Attention a month. " +
                    "commission accept " + d.Id + (c.Countered ? "" : " / counter " + d.Id) + " / decline " + d.Id + ")";
@@ -156,7 +158,7 @@ namespace Butterfly.Core
         }
 
         private string TermsSummary(ProjectTerms t) =>
-            (t.Payer.Length > 0 ? t.Payer + " pays " : "") + Money(t.UpfrontGold + t.CompletionGold) + " in all" +
+            (t.FundingModel == ProjectFundingModel.Favor ? "No one pays: it's a favor" : (t.Payer.Length > 0 ? t.Payer + " pays " : "") + Money(t.UpfrontGold + t.CompletionGold) + " in all") +
             (t.UpfrontGold > 0 ? " (" + Money(t.UpfrontGold) + " now, " + Money(t.CompletionGold) + " on completion)" : "") +
             "; " + (t.MaterialsPayer == "player" ? "you buy" : t.MaterialsPayer + " buys") + " the materials.";
 
@@ -171,9 +173,10 @@ namespace Butterfly.Core
                 if (--c.MonthsLeftInStage > 0) continue;
                 var stage = d.Work[c.WorkIndex];
                 var done = Scene(stage.Category, "commission.stage", c, stage.Text);
-                if (d.Capability.Length > 0)
-                    AdvanceCapability(d.Capability, CapabilityLevelFor(stage.Stage), new[] { done.Id },
-                        "Rome's " + CapabilityDefOf(d.Capability)!.Name + " now stand at " + CapabilityLevelFor(stage.Stage).ToString().ToLowerInvariant() + ".");
+                string cap = stage.Capability.Length > 0 ? stage.Capability : d.Capability;
+                var to = stage.CapabilityTo ?? CapabilityLevelFor(stage.Stage);
+                if (cap.Length > 0 && to > CapabilityLevel.None)
+                    AdvanceCapability(cap, to, new[] { done.Id }, "Rome's " + CapabilityDefOf(cap)!.Name + " now stand at " + to.ToString().ToLowerInvariant() + ".");
                 c.WorkIndex++;
                 if (c.WorkIndex < d.Work.Count)
                 {
@@ -193,7 +196,23 @@ namespace Butterfly.Core
             c.Status = CommissionStatus.Done;
             var paid = Record("commission.complete", c.ProjectId, new[] { causeId }, new[] { "player", d.Client },
                 project.Terms.CompletionGold > 0 ? new[] { new Effect(GoldKey, before, World.Gold) } : null,
-                d.Client + " pays " + Money(project.Terms.CompletionGold) + ": " + d.Title + " is done.");
+                (project.Terms.CompletionGold > 0 ? d.Client + " pays " + Money(project.Terms.CompletionGold) + ": " : "") + Cap(d.Title) + " is done.");
+            // What the work leaves besides money (regard, standing, flags), logged with the payment as cause.
+            foreach (var kv in d.OnCompleteRegard)
+            {
+                var p = PersonOf(kv.Key) ?? throw new FormatException("Commission " + d.Id + " names an unknown person: " + kv.Key);
+                int rb = p.Regard;
+                p.Regard += kv.Value;
+                Record("person.regard", "person." + p.Id, new[] { paid.Id }, new[] { "player", p.Id }, new[] { new Effect("person." + p.Id + ".regard", rb, p.Regard) },
+                    PersonDefOf(p.Id)!.Name + (kv.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+            }
+            foreach (var kv in d.OnCompleteStatus) (PersonOf(kv.Key) ?? throw new FormatException("Commission " + d.Id + " names an unknown person: " + kv.Key)).Status = kv.Value;
+            foreach (var f in d.OnCompleteSets) World.Flags.Add(f);
+            if (d.ReferralInstitution.Length == 0)
+            {
+                if (d.ReferralText.Length > 0) Scene(SceneCategory.Personal, "commission.referral", c, d.ReferralText, paid.Id);
+                return;
+            }
             // The referral (P1 institutions): the work earns a relationship with a member, the first step on the invitation path.
             var access = World.Access.FirstOrDefault(a => a.InstitutionId == d.ReferralInstitution);
             if (access != null)

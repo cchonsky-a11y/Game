@@ -24,8 +24,14 @@ namespace Butterfly.Core.Tests
         [Fact]
         public void EveryCommissionMovesANamedCapability()
         {
+            // Not every job is technical (a favor, a bath-house pipe), but every capability a job names must exist, and most move one.
             var c = TestData.Load().Content;
-            Assert.All(c.Commissions, x => Assert.Contains(c.Capabilities, cap => cap.Id == x.Capability));
+            foreach (var x in c.Commissions)
+            {
+                if (x.Capability.Length > 0) Assert.Contains(c.Capabilities, cap => cap.Id == x.Capability);
+                foreach (var w in x.Work.Where(w => w.Capability.Length > 0)) Assert.Contains(c.Capabilities, cap => cap.Id == w.Capability);
+            }
+            Assert.True(c.Commissions.Count(x => x.Capability.Length > 0 || x.Work.Any(w => w.Capability.Length > 0)) * 2 > c.Commissions.Count);
         }
 
         [Fact]
