@@ -25,6 +25,7 @@
 
 ## 3. The inventor
 - **Attention:** 4 per turn (P1: per month); −1 when old or unwell; +1 with an apprentice or secretary. Never scales with stage. Can be borrowed from the next turn during a crisis at a health cost.
+- **P1 (Corey, implemented 2026-10-04): no silent overbooking.** Multi-month work (projects, commissions, Grand Challenge stages, machine work, inventions, mentoring) reserves its Attention in each later month it runs, and an office reserves its duties every month. Before any of it starts, every later month it would touch is checked: if what is already pledged for that month plus the new work exceeds the 4, it is refused with the month and the numbers ("That would reserve 1 Attention next month, but 4 of your 4 are already committed then."). Zero free Attention is legal; only End Month moves time. The console takes one numbered choice at a time.
 - **Healthy years** (expected maximum age with the best available care): baseline ~70; well-advanced medicine ~85; heavily advanced ~95. Mortality risk rises near the ceiling; the ceiling is predictable.
 - Starts at age 28. Ages only within eras, never during jumps.
 - **Succession:** a prepared successor inherits the machine; knowledge transfers through the Journal. No successor: Standard mode restarts from the latest checkpoint; Ironman ends the run.

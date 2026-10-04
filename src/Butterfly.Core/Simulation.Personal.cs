@@ -48,14 +48,49 @@ namespace Butterfly.Core
         /// Attention already pledged for next turn: work that is still running then, and office duties. When it takes all of
         /// it, next turn has nothing free and passes on its own (L3: the console warns the moment that happens).
         /// </summary>
-        public int AttentionCommittedNextTurn() =>
-            World.ActiveProjects.Where(p => p.TurnsRemaining > 1).Sum(p => p.Def.AttentionPerTurn)
-            + World.Commitments.Where(c => c.TurnsRemaining > 1).Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
-            + World.ActiveMachineSteps.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
-            + World.ActiveInventions.Where(a => a.TurnsRemaining > 1).Sum(a => a.Def.AttentionPerTurn)
-            + CommissionAttentionNextMonth()
-            + ChallengeAttentionNextMonth()
+        public int AttentionCommittedNextTurn() => ReservedInMonth(1);
+
+        /// <summary>
+        /// Attention already pledged for the month <paramref name="k"/> months from now (k ≥ 1): every piece of multi-month
+        /// work still running then, at the Attention its stage holds, and office duties (P1: no silent overbooking).
+        /// </summary>
+        public int ReservedInMonth(int k) =>
+            World.ActiveProjects.Where(p => p.TurnsRemaining > k).Sum(p => p.Def.AttentionPerTurn)
+            + World.Commitments.Where(c => c.TurnsRemaining > k).Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
+            + World.ActiveMachineSteps.Where(a => a.TurnsRemaining > k).Sum(a => a.Def.AttentionPerTurn)
+            + World.ActiveInventions.Where(a => a.TurnsRemaining > k).Sum(a => a.Def.AttentionPerTurn)
+            + CommissionAttentionInMonth(k)
+            + ChallengeAttentionInMonth(k)
             + OfficeDuties();
+
+        /// <summary>How far ahead future work is checked (months); longer than any authored piece of work.</summary>
+        private const int FutureHorizonMonths = 120;
+
+        /// <summary>
+        /// P1 rule: new work never silently overbooks a later month. <paramref name="future"/>[k−1] is the Attention it would
+        /// hold k months from now; each must fit beside what is already pledged for that month.
+        /// </summary>
+        internal CommandResult? CheckFutureAttention(IEnumerable<int> future)
+        {
+            int k = 0;
+            foreach (int extra in future)
+            {
+                k++;
+                if (extra <= 0) continue;
+                int already = ReservedInMonth(k);
+                if (already + extra > AttentionPerTurn)
+                    return CommandResult.Fail("That would reserve " + extra + " Attention " + (k == 1 ? "next month" : "in " + k + " months' time") + ", but " +
+                                              already + " of your " + AttentionPerTurn + " are already committed then.");
+            }
+            return null;
+        }
+
+        /// <summary>This month's Attention and the same amount held for each of the following months of the work.</summary>
+        internal CommandResult? CheckAttention(int perMonth, int months) =>
+            CheckAttention(perMonth) ?? CheckFutureAttention(Enumerable.Repeat(perMonth, Math.Max(0, months - 1)));
+
+        /// <summary>A permanent new duty (an office): it must fit beside every later month already pledged.</summary>
+        internal CommandResult? CheckStandingDuty(int perMonth) => CheckFutureAttention(Enumerable.Repeat(perMonth, FutureHorizonMonths));
 
         private void InitAttention()
         {
@@ -114,7 +149,7 @@ namespace Butterfly.Core
             double pay = WorkPay(kind);
             double tax = pay * WorkTaxRate();
             World.Gold += pay - tax;
-            string text = kind == "odd" ? "You spend the season mending tools and running errands for pay."
+            string text = kind == "odd" ? "You spend the month mending tools and running errands for pay."
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
                         : "You advise a wealthy household on its baths and its books.";
             var workEvent = Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
@@ -144,10 +179,10 @@ namespace Butterfly.Core
             if (fail != null) return fail;
             if (World.Commitments.Any(c => c.InstitutionId == inst.Key)) return CommandResult.Fail("You are already mentoring " + inst.Def.ShortName + ".");
             int perTurn = T.GetInt("commitments.mentor.attentionPerTurn");
-            var attention = CheckAttention(perTurn);
+            int turns = T.GetInt("commitments.mentor.turns");
+            var attention = CheckAttention(perTurn, turns);
             if (attention != null) return attention;
             SpendAttention(perTurn);
-            int turns = T.GetInt("commitments.mentor.turns");
             var e = Record("commitment.start", inst.Key, CausesOf(StrengthKey(inst)), new[] { "player", inst.Leader }, null,
                 "You commit to mentoring " + inst.Def.ShortName + "'s members for " + turns + " months (" + perTurn + " Attention each turn).");
             World.Commitments.Add(new Commitment("mentor", inst.Key, turns, e.Id));
@@ -163,7 +198,7 @@ namespace Butterfly.Core
                 World.Commitments.Remove(c);
                 var inst = World.Institution(c.InstitutionId);
                 ChangeStrength(inst, T.Get("commitments.mentor.strength"), "commitment.complete", new[] { c.StartEventId }, new[] { "player", inst.Leader },
-                    "Your season of mentoring pays off: " + inst.Def.ShortName + " has members who can teach others.");
+                    "Your months of mentoring pay off: " + inst.Def.ShortName + " has members who can teach others.");
                 ChangeLoyalty(inst, T.Get("commitments.mentor.loyalty"), "commitment.complete", new[] { c.StartEventId }, new[] { "player", inst.Leader },
                     YouLead(inst) ? "The members of " + inst.Def.ShortName + " are grateful." : inst.Leader + " is grateful.");
             }
@@ -182,7 +217,7 @@ namespace Butterfly.Core
             // The smith and the fountain-menders take your gold as it is (decided 2026-09-28): no trip to the changers.
             double aureiNeeded = Math.Ceiling(Math.Max(0, ProjectGold(def) - World.Gold) / AureusPrice - 1e-9);
             if (aureiNeeded > World.Aurei + 1e-9) return CommandResult.Fail("You can't afford it.");
-            var attention = CheckAttention(def.AttentionPerTurn);
+            var attention = CheckAttention(def.AttentionPerTurn, def.DurationMonths);
             if (attention != null) return attention;
             if (aureiNeeded > 0)
             {
@@ -191,7 +226,7 @@ namespace Butterfly.Core
                 World.Gold += aureiNeeded * AureusPrice;
                 Record("currency.exchange", "aurei", null, new[] { "player" },
                     new[] { new Effect("aurei", aureiBefore, World.Aurei), new Effect(GoldKey, goldBefore, World.Gold) },
-                    "You pay in gold from your purse: " + AureiText(aureiNeeded) + ".");
+                    "You pay in the machine's gold: " + AureiText(aureiNeeded) + ".");
             }
             World.SeededChoice = option;
             string other = option == "fountain" ? "the smith's workshop" : "the district fountain";

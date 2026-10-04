@@ -5,27 +5,28 @@ using Butterfly.Core;
 
 /// <summary>
 /// The action menu (decided 2026-09-28, Corey: so playtesters don't have to type commands): after each command the
-/// console lists, numbered, what you can do right now; type a number, or several ("3 7 1"), to do them in order. Every
-/// number stands for an ordinary command, so a game played by numbers replays exactly like one typed out.
+/// console lists, numbered, what you can do right now; type one number to do it. P1 (Corey): one choice at a time, so the
+/// player sees the result before choosing again; several numbers on one line are refused. Every number stands for an
+/// ordinary command, so a game played by numbers replays exactly like one typed out.
 /// </summary>
 internal sealed partial class ConsoleGame
 {
     private readonly List<string> _menu = new List<string>();
     private bool _menuOn;
 
-    /// <summary>"3", "3 7 1" or "3,7": the commands those numbers stand for in the menu last shown, or null if the line isn't numbers.</summary>
-    private List<string>? MenuCommands(string line)
+    /// <summary>
+    /// "3": the command that number stands for in the menu last shown. <paramref name="wasNumbers"/> is false if the line
+    /// isn't numbers at all (an ordinary command). Several numbers ("3 7 1", "3,7") are refused: one choice at a time.
+    /// </summary>
+    private string? MenuCommand(string line, out bool wasNumbers)
     {
-        var tokens = line.Split(new[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
-        if (tokens.Length == 0 || !tokens.All(t => t.All(char.IsDigit))) return null;
-        var commands = new List<string>();
-        foreach (var t in tokens)
-        {
-            int n = int.Parse(t);
-            if (n < 1 || n > _menu.Count) { Console.WriteLine("  There's no " + n + " in the menu (1-" + _menu.Count + "). Type 'menu' to see it again."); return new List<string>(); }
-            commands.Add(_menu[n - 1]);
-        }
-        return commands;
+        var tokens = line.Split(new[] { ' ', ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+        wasNumbers = tokens.Length > 0 && tokens.All(t => t.All(char.IsDigit));
+        if (!wasNumbers) return null;
+        if (tokens.Length > 1) { Console.WriteLine("  One choice at a time: type a single number, see what happens, then choose again."); return null; }
+        int n = int.Parse(tokens[0]);
+        if (n < 1 || n > _menu.Count) { Console.WriteLine("  There's no " + n + " in the menu (1-" + _menu.Count + "). Type 'menu' to see it again."); return null; }
+        return _menu[n - 1];
     }
 
     private void ShowMenu()
@@ -33,7 +34,7 @@ internal sealed partial class ConsoleGame
         _menu.Clear();
         var groups = _sim.Arrived ? ArrivalGroups() : EraGroups();
         Console.WriteLine();
-        Console.WriteLine("  What you can do (type a number, or several like 3 7 1; 'menu off' hides this):");
+        Console.WriteLine("  What you can do (type one number; 'menu off' hides this):");
         foreach (var (title, items) in groups)
         {
             if (items.Count == 0) continue;

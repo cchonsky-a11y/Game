@@ -134,7 +134,7 @@ namespace Butterfly.Core
             inst.Strength = Math.Min(100, inst.Strength + T.Get("institutions.overseeStrength"));
             Record("institution.oversee", inst.Key, CausesOf(LoyaltyKey(inst)), new[] { "player", inst.Leader },
                 new[] { new Effect(LoyaltyKey(inst), loyalty, inst.Loyalty), new Effect(StrengthKey(inst), strength, inst.Strength) },
-                "You spend the season working alongside " + inst.Leader + ". " + Cap(inst.Def.ShortName) + " grows more loyal.");
+                "You spend the month working alongside " + inst.Leader + ". " + Cap(inst.Def.ShortName) + " grows more loyal.");
             return CommandResult.Success("Loyalty " + F(inst.Loyalty) + ", strength " + F(inst.Strength) + ".");
         }
 
@@ -147,7 +147,7 @@ namespace Butterfly.Core
             {
                 i.MissedDuesThisYear = true;
                 ChangeLoyalty(i, -T.Get("institutions.unpaidLoyaltyLoss"), "institution.unpaid", CausesOf(GoldKey), new[] { i.Leader },
-                    "You couldn't pay what you owe " + i.Def.ShortName + " this season (your dues or your share of its costs); no seniority this year.");
+                    "You couldn't pay what you owe " + i.Def.ShortName + " this month (your dues or your share of its costs); no seniority this year.");
             }
         }
 

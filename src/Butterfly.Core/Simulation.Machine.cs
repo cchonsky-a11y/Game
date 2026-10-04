@@ -166,7 +166,7 @@ namespace Butterfly.Core
         {
             int gold = MachineStepGold(step);
             if (World.Gold < gold) return CommandResult.Fail(step.Name + " costs " + Money(gold) + "; you have " + Money(World.Gold) + ".");
-            var attention = CheckAttention(step.AttentionPerTurn);
+            var attention = CheckAttention(step.AttentionPerTurn, step.DurationMonths);
             if (attention != null) return attention;
             SpendAttention(step.AttentionPerTurn);
             double before = World.Gold;

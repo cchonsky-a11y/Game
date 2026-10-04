@@ -127,7 +127,7 @@ namespace Butterfly.Core
                 return CommandResult.Fail("Knowing is not making: " + def.Name + " needs " + InventionRequirementText(def) + ".");
             int price = InventionGold(def);
             if (World.Gold < price) return CommandResult.Fail(def.Name + " costs " + Money(price) + "; you have " + Money(World.Gold) + ".");
-            var attention = CheckAttention(def.AttentionPerTurn);
+            var attention = CheckAttention(def.AttentionPerTurn, def.DurationMonths);
             if (attention != null) return attention;
             SpendAttention(def.AttentionPerTurn);
             double before = World.Gold;

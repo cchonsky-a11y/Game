@@ -145,7 +145,7 @@
     "use.ward": "a fever ward keeps its sick apart and writes down every case",
     "changers.bills": "Traders pass written bills across the tables as readily as coin.",
     "intro.start": "Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).",
-    "changers.start": "At a table a man weighs coins on a little balance and bites them. You show him an aureus from your purse, and his eyebrows go up: {aureus} denarii, he says, the official rate, less his cut. The silver coins in his tray are about {silver}% silver, and he takes them without a second look. You're going to be doing this a lot.",
+    "changers.start": "At a table a man weighs coins on a little balance and bites them. You show him one of the aurei you pried from the machine, and his eyebrows go up: {aureus} denarii, he says, the official rate, less his cut. The silver coins in his tray are about {silver}% silver, and he takes them without a second look. You're going to be doing this a lot.",
     "forges.start.partner": "Down by the Porta Trigemina the smith you've just paid is clearing space for a second forge, still swearing at his cracked bellows. He calls you 'partner' as if testing the word. Out at Ostia, people say, the Merchants' Guild runs the harbor under a man called Publius Aelius Sabinus."
   },
   "recognition2": {

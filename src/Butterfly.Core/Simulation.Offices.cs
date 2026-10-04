@@ -128,6 +128,12 @@ namespace Butterfly.Core
             var i = FindInstitution(id);
             if (i == null || i.OfferedRank <= 0) return CommandResult.Fail("No office is offered to you" + (i == null ? "." : " at " + i.Def.ShortName + "."));
             int rank = i.OfferedRank;
+            if (accept)
+            {
+                // The duties come every month from now on: they must fit beside what is already pledged (P1).
+                var full = CheckStandingDuty(DutyAttention(rank, false) - DutyAttention(i.Rank, false));
+                if (full != null) return CommandResult.Fail(full.Message + " Finish something first, or decline.");
+            }
             i.OfferedRank = 0;
             if (!accept)
             {

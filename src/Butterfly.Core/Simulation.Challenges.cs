@@ -74,7 +74,7 @@ namespace Butterfly.Core
             if (blocker != null) return CommandResult.Fail(blocker);
             double gold = StageGold(s);
             if (World.Gold < gold) return CommandResult.Fail("This stage needs " + Money(gold) + "; you have " + Money(World.Gold) + ".");
-            var attention = CheckAttention(s.Attention);
+            var attention = CheckAttention(s.Attention, s.Months);
             if (attention != null) return attention;
             SpendAttention(s.Attention);
             if (!World.Projects.Any(p => p.Id == c.ProjectId))
@@ -121,8 +121,8 @@ namespace Butterfly.Core
         private int ReservedChallengeAttention() =>
             World.Challenges.Where(c => c.Status == ChallengeStatus.Working && Turn >= c.ReservedFromTurn).Sum(c => NextStage(c)!.Attention);
 
-        private int ChallengeAttentionNextMonth() =>
-            World.Challenges.Where(c => c.Status == ChallengeStatus.Working && c.MonthsLeft > 1).Sum(c => NextStage(c)!.Attention);
+        private int ChallengeAttentionInMonth(int k) =>
+            World.Challenges.Where(c => c.Status == ChallengeStatus.Working && c.MonthsLeft > k).Sum(c => NextStage(c)!.Attention);
 
         /// <summary>Leaving Rome: a stage under way is abandoned; the challenge stays where it got to.</summary>
         private void AbandonChallengesOnDeparture(int departId)

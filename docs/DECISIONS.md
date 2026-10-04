@@ -398,3 +398,10 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Bottlenecks:** people (the shared foot needs Felix, and waits while he is laid up), capability (gauges can't pass shared measures), and resources: tin bronze and Noric steel cost twice as much to a stranger, at the usual price through the guild (PROPOSED P1-10). Materials are ledger entries.
 - **Echoes:** shared measures and gauges are carried by the guild while you are away and show on arrival.
 - Docs: SYSTEMS §13, P1_PROPOSALS P1-10. No tuning value added (amounts live in the content file, like commissions).
+
+## 2026-10-04 — P1 invariants: future Attention, one choice at a time, stale wording
+- **Implemented:** a hard future-Attention limit. Every start of multi-month work checks each later month against what is already pledged then (projects, mentoring, machine steps, inventions, commission stages month by month, Grand Challenge stages, office duties); accepting an office checks its standing duties. Refusals name the month and the numbers. SYSTEMS §3.
+- **Implemented:** the console's numbered menu takes one number at a time; "3 7 1" and "3,7" are refused with "One choice at a time". This replaces the 2026-09-28 batching (Corey, 2026-10-04).
+- **Wording:** one-month actions no longer say "season" (oversee, unpaid dues, odd work, mentoring); the hour-one choice is paid "in the machine's gold", and the money changer is shown one of the aurei "pried from the machine". The workshop's order cycle (every few months) keeps "season", which is a real period there.
+- **Snapshot:** log hash updated for the wording change only; the reference playthrough still arrives in AD 242 with Index 126.1.
+- No number changed.

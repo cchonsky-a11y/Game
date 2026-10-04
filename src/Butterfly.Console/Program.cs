@@ -66,24 +66,13 @@ internal sealed partial class ConsoleGame
             Console.Write(_sim.Arrived ? "\n(after arrival) > " : "\n> ");
             string? line = ReadCommand();
             if (line == null) break;
-            // Numbers pick from the menu (decided 2026-09-28): each stands for an ordinary command, run in order.
-            var picked = MenuCommands(line);
-            if (picked == null) { if (!ProcessLine(line)) break; }
-            else
+            // A number picks one item from the menu (P1: one choice at a time; you see the result before choosing again).
+            var picked = MenuCommand(line, out bool wasNumbers);
+            if (!wasNumbers) { if (!ProcessLine(line)) break; }
+            else if (picked != null)
             {
-                int turn = _sim.Turn;
-                bool arrived = _sim.Arrived, quit = false;
-                for (int k = 0; k < picked.Count; k++)
-                {
-                    if (k > 0 && (_sim.Turn != turn || _sim.Arrived != arrived))
-                    {
-                        Console.WriteLine("  (The turn moved on, so the rest of those numbers were skipped. Pick again from the new menu.)");
-                        break;
-                    }
-                    Console.WriteLine("  → " + picked[k]);
-                    if (!ProcessLine(picked[k], showMenu: k == picked.Count - 1)) { quit = true; break; }
-                }
-                if (quit) break;
+                Console.WriteLine("  → " + picked);
+                if (!ProcessLine(picked)) break;
             }
         }
         Console.WriteLine("\nRun fingerprint (seed " + _sim.Seed + "): " + _sim.Log.Hash().Substring(0, 16));
@@ -154,7 +143,7 @@ internal sealed partial class ConsoleGame
     private void Help()
     {
         Console.WriteLine(@"Commands
-  <number> [number ...]          do what the numbered menu lists (e.g. 3, or 3 7 1 to do several in order)
+  <number>                       do what that number in the menu lists (one choice at a time)
   menu | menu on | menu off      show the numbered menu, or turn it on or off (on when you play from the keyboard)
   status                         where things stand
   projects                       projects you can start
@@ -180,7 +169,7 @@ internal sealed partial class ConsoleGame
   charter <inst>                 write its founding principles (slows drift; needs control)
   endow <inst> [denarii|all]     give it money to hold (the minimum endowment makes it endowed)
   audit <inst>                   found an audit charter (guards its gold against corruption)
-  oversee <inst>                 spend a season with its leader (1 Attention)
+  oversee <inst>                 spend a month working with its leader (1 Attention)
   advocate <issue> <stance>      without a voice: argue for a stance in pamphlets and at dinners (gold, 2 Attention; small sway,
                                    more with memberships and a faction office; lasts only while you're in Rome)
   policy <issue> <stance>        set economic policy through a Governance institution you have a voice in (2 Attention):

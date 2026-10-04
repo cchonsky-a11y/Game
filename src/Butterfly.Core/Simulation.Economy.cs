@@ -178,7 +178,7 @@ namespace Butterfly.Core
             var authority = ProjectAuthorityBlocker(def);
             if (authority != null) return CommandResult.Fail(authority);
             if (World.Gold < ProjectGold(def)) return CommandResult.Fail(def.Name + " costs " + Money(ProjectGold(def)) + "; you have " + Money(World.Gold) + ".");
-            var attention = CheckAttention(def.AttentionPerTurn);
+            var attention = CheckAttention(def.AttentionPerTurn, def.DurationMonths);
             if (attention != null) return attention;
             return BeginProject(def, new[] { "player" }, null);
         }

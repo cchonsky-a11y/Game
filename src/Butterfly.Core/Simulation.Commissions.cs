@@ -128,7 +128,9 @@ namespace Butterfly.Core
             if (c == null || c.Status != CommissionStatus.TermsOffered) return CommandResult.Fail("No terms are waiting for your answer.");
             var d = CommissionDefOf(c);
             var first = d.Work[0];
-            var attention = CheckAttention(first.Attention);
+            int months = d.Work.Sum(w => w.DurationMonths);
+            var attention = CheckAttention(first.Attention)
+                ?? CheckFutureAttention(Enumerable.Range(1, Math.Max(0, months - 1)).Select(k => StageAttentionAt(d, 0, first.DurationMonths, k)));
             if (attention != null) return attention;
             SpendAttention(first.Attention);
             var terms = new ProjectTerms(d.FundingModel, d.Payer, d.MaterialsPayer, Priced(d.Upfront), Priced(c.CompletionPay));
@@ -214,14 +216,21 @@ namespace Butterfly.Core
         private int ReservedCommissionAttention() =>
             World.Commissions.Where(c => c.Status == CommissionStatus.Working && Turn >= c.ReservedFromTurn).Sum(c => CommissionDefOf(c).Work[c.WorkIndex].Attention);
 
-        /// <summary>Attention the commissions will hold next month: the stage still running then, or the one after it.</summary>
-        private int CommissionAttentionNextMonth() =>
-            World.Commissions.Where(c => c.Status == CommissionStatus.Working).Sum(c =>
+        /// <summary>Attention the commissions will hold k months from now: whichever stage is running then.</summary>
+        private int CommissionAttentionInMonth(int k) =>
+            World.Commissions.Where(c => c.Status == CommissionStatus.Working).Sum(c => StageAttentionAt(CommissionDefOf(c), c.WorkIndex, c.MonthsLeftInStage, k));
+
+        /// <summary>The Attention the stage running k months on holds, from stage <paramref name="index"/> with <paramref name="left"/> months left.</summary>
+        private static int StageAttentionAt(CommissionDef d, int index, int left, int k)
+        {
+            while (k >= left)
             {
-                var d = CommissionDefOf(c);
-                if (c.MonthsLeftInStage > 1) return d.Work[c.WorkIndex].Attention;
-                return c.WorkIndex + 1 < d.Work.Count ? d.Work[c.WorkIndex + 1].Attention : 0;
-            });
+                k -= left;
+                if (++index >= d.Work.Count) return 0;
+                left = d.Work[index].DurationMonths;
+            }
+            return d.Work[index].Attention;
+        }
 
         private void AbandonCommissionsOnDeparture(int departId)
         {
