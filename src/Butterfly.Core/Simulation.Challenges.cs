@@ -46,15 +46,27 @@ namespace Butterfly.Core
         /// <summary>Why the next stage can't start (people, capability), or null. Gold and Attention are checked when starting.</summary>
         public string? StageBlocker(ChallengeStageDef s)
         {
-            if (!s.Needs.All(Holds) || s.NeedsPerson.Length > 0 && !Knows(s.NeedsPerson)) return s.NeedsText;
-            if (s.NeedsPerson.Length > 0 && IsPersonAway(s.NeedsPerson)) return s.NeedsPerson + " is laid up or away; this waits for him.";
+            if (!s.Needs.All(Holds)) return s.NeedsText;
+            if (s.NeedsPerson.Length > 0 && StagePerson(s) == null)
+            {
+                var first = s.NeedsPerson.Split('|')[0];
+                return Knows(first) ? PersonDefOf(first)!.Name + " is laid up or away; this waits." : s.NeedsText;
+            }
             return CapabilityBlocker(s.Capability, s.To);
         }
+
+        /// <summary>Who does the stage's work: the first person named who is known and here, or null.</summary>
+        public string? StagePerson(ChallengeStageDef s) =>
+            s.NeedsPerson.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries).FirstOrDefault(p => Knows(p) && !IsPersonAway(p));
+
+        /// <summary>The stage's months: longer when the first person named isn't there and another stands in.</summary>
+        public int StageMonths(ChallengeStageDef s) =>
+            s.Months + (s.SlowerWithout > 0 && StagePerson(s) is string who && who != s.NeedsPerson.Split('|')[0] ? s.SlowerWithout : 0);
 
         /// <summary>The next stage in plain words: what it costs, what holds it up, what the resource costs without its source.</summary>
         public string StageLine(ChallengeStageDef s)
         {
-            string line = s.Name + ": " + s.Months + " month(s), " + s.Attention + " Attention a month, " + Money(StageGold(s));
+            string line = s.Name + ": " + StageMonths(s) + " month(s), " + s.Attention + " Attention a month, " + Money(StageGold(s));
             if (s.Resource != null) line += HasSource(s) ? " (" + s.Resource.Name + " at the usual price)" : " (" + s.Resource.Name + " at a stranger's price: " + s.Resource.Note + ")";
             var blocker = StageBlocker(s);
             return blocker == null ? line : line + ". Blocked: " + blocker;
@@ -73,7 +85,8 @@ namespace Butterfly.Core
             if (blocker != null) return CommandResult.Fail(blocker);
             double gold = StageGold(s);
             if (World.Gold < gold) return CommandResult.Fail("This stage needs " + Money(gold) + "; you have " + Money(World.Gold) + ".");
-            var attention = CheckAttention(s.Attention, s.Months);
+            int months = StageMonths(s);
+            var attention = CheckAttention(s.Attention, months);
             if (attention != null) return attention;
             SpendAttention(s.Attention);
             if (!World.Projects.Any(p => p.Id == c.ProjectId))
@@ -83,12 +96,13 @@ namespace Butterfly.Core
             double before = World.Gold;
             World.Gold -= gold;
             c.Status = ChallengeStatus.Working;
-            c.MonthsLeft = s.Months;
+            c.MonthsLeft = months;
             c.ReservedFromTurn = Turn + 1;
             string resource = s.Resource == null ? "" : HasSource(s) ? " " + Cap(s.Resource.Name) + " comes through your friends." : " " + s.Resource.Note;
+            if (months > s.Months && s.SlowerText.Length > 0) resource += " " + s.SlowerText;
             Record("challenge.materials", c.ProjectId, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) },
                 "You begin: " + s.Name.ToLowerInvariant() + ", self-funded, " + Money(gold) + " for materials and wages." + resource);
-            return CommandResult.Success("You begin " + s.Name.ToLowerInvariant() + " (" + s.Months + " months; " + Money(gold) + ")." + resource);
+            return CommandResult.Success("You begin " + s.Name.ToLowerInvariant() + " (" + months + (months == 1 ? " month; " : " months; ") + Money(gold) + ")." + resource);
         }
 
         private static ProjectStage ProjectStageFor(CapabilityLevel to) =>
@@ -106,6 +120,8 @@ namespace Butterfly.Core
                 World.ScenePacing.Record(s.Category);
                 var done = Record("challenge.stage", c.ProjectId, null, new[] { "player" }, null, s.Text);
                 AdvanceCapability(s.Capability, s.To, new[] { done.Id }, "Rome's " + CapabilityDefOf(s.Capability)!.Name + " now stand at " + s.To.ToString().ToLowerInvariant() + ".");
+                foreach (var kv in s.Also)
+                    AdvanceCapability(kv.Key, kv.Value, new[] { done.Id }, "Rome's " + CapabilityDefOf(kv.Key)!.Name + " now stand at " + kv.Value.ToString().ToLowerInvariant() + ".");
                 c.StageIndex++;
                 c.Status = ChallengeStatus.Open;
                 if (CapabilityLevelOf(d.GoalCapability) >= d.GoalLevel || c.StageIndex >= d.Stages.Count)
@@ -113,6 +129,8 @@ namespace Butterfly.Core
                     c.Status = ChallengeStatus.Done;
                     World.Projects.First(p => p.Id == c.ProjectId).Complete();
                     Record("challenge.complete", c.ProjectId, new[] { done.Id }, new[] { "player" }, null, d.CompleteText);
+                    // The human consequence follows: not "output +20%", a person asking what it means (Corey, 2026-10-04).
+                    if (d.Consequence.Length > 0) World.TriggeredEvents.Add(d.Consequence);
                 }
             }
         }

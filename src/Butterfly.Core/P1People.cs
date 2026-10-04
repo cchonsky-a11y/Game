@@ -158,6 +158,9 @@ namespace Butterfly.Core
         /// <summary>Through this scene the inventor comes to know a member of an institution (the first step of access).</summary>
         public string KnowsInstitution { get; }
         public string KnowsMember { get; }
+        /// <summary>Life gets in the way: the named Grand Challenge's stage under way takes this many more months.</summary>
+        public string DelaysChallenge { get; }
+        public int DelayMonths { get; }
 
         public AuthoredSceneDef(JsonObject o)
         {
@@ -173,6 +176,9 @@ namespace Butterfly.Core
             var km = o.Has("knowsMember") ? o.Obj("knowsMember") : null;
             KnowsInstitution = km?.Str("institution") ?? "";
             KnowsMember = km?.Str("member") ?? "";
+            var dl = o.Has("delays") ? o.Obj("delays") : null;
+            DelaysChallenge = dl?.Str("challenge") ?? "";
+            DelayMonths = dl == null ? 0 : (int)dl.Num("months");
         }
     }
 }

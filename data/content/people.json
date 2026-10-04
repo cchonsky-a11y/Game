@@ -2,7 +2,9 @@
   "_readme": "P1 recurring people and their offscreen lives (decided 2026-10-02; master handoff §11). Each person has a goal, a vulnerability, people they care about, someone they distrust, a household, status, an opinion, an outside interest and a voice. Their lives go on without the player: each 'life' entry can happen once, from 'fromMonth' (months since AD 155-01), once its 'requires' all hold, with 'chance' each month (seeded). Requirements: commission:<id>:<status>, access:<institution>:<stage or later>, capability:<id>:<level or later>, life:<id>. Effects: 'awayMonths' (the person can't invite or introduce anyone), 'status' per person, 'capability' with 'spread' (imitation: Local / Copied / Widespread, optionally 'distorted' and 'misattributed'; it never raises true maturity) or 'to' (a true advance the person makes themselves). 'interrupt' marks a world interruption that bypasses the scene router. No inevitability (Corey, 2026-10-04): 'windowMonths' bounds how long after it first becomes possible an event can happen, 'decay' lowers the monthly chance each month it has been possible, 'group' makes branches mutually exclusive, 'leaves' takes the person out of Rome for good. 'known' says when the player knows them; 'echoes' are what the inventor may find of them on an arrival: each line at most once, 'fromJump' (default 1) the first arrival it can appear on, later arrivals preferring their own lines (aged consequences, descendants, deaths, contradictory memory); at most echoes.peoplePerArrival people an arrival. Chances PROPOSED P1-08.",
   "people": [
     {
-      "id": "Felix", "name": "Felix", "known": "commission:cellarpump:Offered",
+      "id": "Felix",
+      "name": "Felix",
+      "known": "commission:cellarpump:Offered",
       "role": "a freedman who fits out ships at Ostia and in Rome, and a member of the guild",
       "goal": "to be the man two shops send for when they can't agree",
       "vulnerability": "the marsh fever from Ostia, which comes back most years",
@@ -14,14 +16,38 @@
       "interest": "the Blues at the Circus, loudly",
       "voice": "quick, warm, always halfway to the next errand",
       "echoes": [
-        { "requires": ["access:guild:Member"], "text": "In the guild hall at Ostia the old contracts on the wall have one witness over and over: Felix. The fitters call him Felix who connected the shops. One says he once sponsored a foreign craftsman; no one remembers the name." },
-        { "requires": ["access:guild:KnowsMember"], "text": "On the quays at Ostia a ship-fitter's yard has FELICIS cut over the gate. His grandsons run it, and argue about the Blues." },
-        { "fromJump": 2, "requires": ["access:guild:Member"], "text": "The guild at Ostia keeps a feast for its founders now. Felix is on the list, though he founded nothing; the speech calls him the man who taught the shops to trust each other's measures. An apprentice tells you the foreigner Felix sponsored was really a Greek from Alexandria." },
-        { "fromJump": 2, "requires": ["access:guild:KnowsMember"], "text": "FELICIS is still cut over the yard gate at Ostia, but the yard makes rope now. The family sold the fitting trade after two brothers quarrelled; one went to Puteoli and did well, the other stayed and didn't." }
+        {
+          "requires": [
+            "access:guild:Member"
+          ],
+          "text": "In the guild hall at Ostia the old contracts on the wall have one witness over and over: Felix. The fitters call him Felix who connected the shops. One says he once sponsored a foreign craftsman; no one remembers the name."
+        },
+        {
+          "requires": [
+            "access:guild:KnowsMember"
+          ],
+          "text": "On the quays at Ostia a ship-fitter's yard has FELICIS cut over the gate. His grandsons run it, and argue about the Blues."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "access:guild:Member"
+          ],
+          "text": "The guild at Ostia keeps a feast for its founders now. Felix is on the list, though he founded nothing; the speech calls him the man who taught the shops to trust each other's measures. An apprentice tells you the foreigner Felix sponsored was really a Greek from Alexandria."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "access:guild:KnowsMember"
+          ],
+          "text": "FELICIS is still cut over the yard gate at Ostia, but the yard makes rope now. The family sold the fitting trade after two brothers quarrelled; one went to Puteoli and did well, the other stayed and didn't."
+        }
       ]
     },
     {
-      "id": "Cassianus", "name": "Cassianus", "known": "commission:cellarpump:Offered",
+      "id": "Cassianus",
+      "name": "Cassianus",
+      "known": "commission:cellarpump:Offered",
       "role": "a grain and oil merchant with warehouses under the Aventine",
       "goal": "to keep his oil dry and his name good with the Ostia shippers",
       "vulnerability": "everything he owns sits in one row of warehouses",
@@ -33,14 +59,38 @@
       "interest": "old Greek coins",
       "voice": "careful, counts aloud, repeats a price back to make sure",
       "echoes": [
-        { "requires": ["life:warehouse-fire"], "text": "The warehouses under the Aventine were rebuilt in brick after a fire, long ago. The cellar under the third one is still dry." },
-        { "requires": ["commission:cellarpump:Done"], "text": "Cassianus's warehouses under the Aventine belong to his daughter's family now. The cellar is dry." },
-        { "fromJump": 2, "requires": ["life:pollio-copy"], "text": "A stone in the lane under the Aventine settles an old lawsuit: the heirs of Cassianus and of Pollio share a wall and a well by the praetor's order. The two families still don't marry." },
-        { "fromJump": 2, "requires": ["commission:cellarpump:Done"], "text": "The third warehouse under the Aventine is a bathhouse now. The owner shows you the old pump in the cellar, green with age, and says a foreigner built it for his great-grandfather from Hero's books." }
+        {
+          "requires": [
+            "life:warehouse-fire"
+          ],
+          "text": "The warehouses under the Aventine were rebuilt in brick after a fire, long ago. The cellar under the third one is still dry."
+        },
+        {
+          "requires": [
+            "commission:cellarpump:Done"
+          ],
+          "text": "Cassianus's warehouses under the Aventine belong to his daughter's family now. The cellar is dry."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "life:pollio-copy"
+          ],
+          "text": "A stone in the lane under the Aventine settles an old lawsuit: the heirs of Cassianus and of Pollio share a wall and a well by the praetor's order. The two families still don't marry."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "commission:cellarpump:Done"
+          ],
+          "text": "The third warehouse under the Aventine is a bathhouse now. The owner shows you the old pump in the cellar, green with age, and says a foreigner built it for his great-grandfather from Hero's books."
+        }
       ]
     },
     {
-      "id": "Diodoros", "name": "Diodoros", "known": "life:warehouse-fire",
+      "id": "Diodoros",
+      "name": "Diodoros",
+      "known": "life:warehouse-fire",
       "role": "Cassianus's porter, freeborn, from Antioch",
       "goal": "more responsibility and more pay than carrying jars",
       "vulnerability": "his back and his hands are his living",
@@ -52,13 +102,31 @@
       "interest": "dice, with no luck",
       "voice": "few words, Greek when he is angry",
       "echoes": [
-        { "requires": ["life:diodoros-antioch"], "text": "A cloth merchant from Antioch, in Rome to sell, asks if you knew a porter called Diodoros. His father worked for him, he says: a one-handed man who could fix any pump on the Orontes, and told everyone he learned it in Rome." },
-        { "requires": ["life:diodoros-deliveries"], "text": "A carters' yard by the Porta Trigemina belongs to a family from Antioch. The man who started it, they say, could only use one hand." },
-        { "fromJump": 2, "requires": ["life:diodoros-deliveries"], "text": "The carters' yard by the Porta Trigemina has become three yards and a feud. Diodoros's tombstone stands in the oldest one: a man with one hand raised, a citizen of Antioch and of Rome, it says, though he was never a citizen of either." }
+        {
+          "requires": [
+            "life:diodoros-antioch"
+          ],
+          "text": "A cloth merchant from Antioch, in Rome to sell, asks if you knew a porter called Diodoros. His father worked for him, he says: a one-handed man who could fix any pump on the Orontes, and told everyone he learned it in Rome."
+        },
+        {
+          "requires": [
+            "life:diodoros-deliveries"
+          ],
+          "text": "A carters' yard by the Porta Trigemina belongs to a family from Antioch. The man who started it, they say, could only use one hand."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "life:diodoros-deliveries"
+          ],
+          "text": "The carters' yard by the Porta Trigemina has become three yards and a feud. Diodoros's tombstone stands in the oldest one: a man with one hand raised, a citizen of Antioch and of Rome, it says, though he was never a citizen of either."
+        }
       ]
-    }
-    ,{
-      "id": "Serenus", "name": "Titus Aelius Serenus", "known": "scene:serenus-meet",
+    },
+    {
+      "id": "Serenus",
+      "name": "Titus Aelius Serenus",
+      "known": "scene:serenus-meet",
       "role": "a physician of the Subura, a member of the Physicians' Circle",
       "goal": "to show that a physician can know which treatment works, not just argue for one",
       "vulnerability": "his patients are poor and his fees are small; the Circle's grander men look down on him",
@@ -70,47 +138,250 @@
       "interest": "keeping bees on the roof",
       "voice": "blunt, short sentences, a joke when you least expect one",
       "echoes": [
-        { "requires": ["regard:Serenus:2"], "text": "In the Circle's library a casebook in a careful hand sits chained to the shelf: Serenus's fevers, set side by side, with notes in three later hands arguing with him." },
-        { "fromJump": 2, "requires": ["regard:Serenus:2"], "text": "A physician quotes Serenus's fevers at you to prove a point Serenus would have hated. The casebooks have been copied so often that half the cases in them never happened." }
+        {
+          "requires": [
+            "regard:Serenus:2"
+          ],
+          "text": "In the Circle's library a casebook in a careful hand sits chained to the shelf: Serenus's fevers, set side by side, with notes in three later hands arguing with him."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "regard:Serenus:2"
+          ],
+          "text": "A physician quotes Serenus's fevers at you to prove a point Serenus would have hated. The casebooks have been copied so often that half the cases in them never happened."
+        }
       ]
+    },
+    {
+      "id": "Gaius",
+      "name": "Gaius Fabius Crispus",
+      "known": "scene:gaius-meet",
+      "role": "a bronze worker with a shop on the Clivus, the one who first cut seats to your foot",
+      "goal": "for his shop to be the one other shops copy, not the one that copies",
+      "vulnerability": "pride: he would rather lose a month than be told how to hold a file",
+      "caresAbout": "Livia, their two daughters, and his sister's boy Marcus",
+      "distrusts": "Priscus, the bigger bronze shop by the river, which hires away anyone good",
+      "household": "Livia, two daughters, his nephew Marcus at the bench, an old slave who keeps the furnace",
+      "status": "a master with three men and a reputation on the Clivus",
+      "opinion": "a tool you can't mend yourself is a debt",
+      "interest": "the Greens, though he says it's only for Livia's sake",
+      "voice": "slow, dry, says no first and maybe later",
+      "echoes": [
+        {
+          "requires": [
+            "challenge:power:Done"
+          ],
+          "text": "On the Clivus a shop with a water-driven grinder in the yard has CRISPI over the door. The men inside argue about whose grandfather built the shaft."
+        },
+        {
+          "fromJump": 2,
+          "requires": [
+            "challenge:power:Done"
+          ],
+          "text": "The Fabian works by the river are a dozen sheds now, all on one race. A carved relief over the gate shows a bronze worker at a lathe and a woman holding a green ribbon; nobody there knows who she was."
+        }
+      ]
+    },
+    {
+      "id": "Livia",
+      "name": "Livia",
+      "known": "scene:livia-meet",
+      "role": "Gaius's wife, who runs the household and half the shop's accounts",
+      "goal": "daughters well married and a shop that doesn't eat the family",
+      "vulnerability": "the family's money is all in the shop",
+      "caresAbout": "her daughters, and Gaius more than she lets him see",
+      "distrusts": "men who promise her husband glory",
+      "household": "the same as Gaius's",
+      "status": "a craftsman's wife, sharp, known on the street",
+      "opinion": "the Greens will win when the Blues run out of bribes",
+      "interest": "the Circus, the Greens, and every piece of gossip on the Clivus",
+      "voice": "teasing, quick, never says the serious thing straight"
+    },
+    {
+      "id": "Marcus",
+      "name": "Marcus Fabius Tertius",
+      "known": "scene:marcus-meet",
+      "role": "Gaius's sister's son, at the bench in Gaius's shop",
+      "goal": "a shop of his own, the one his father the clerk never got",
+      "vulnerability": "his pride; he hears every correction as a judgment of his father",
+      "caresAbout": "his widowed mother, and being taken seriously",
+      "distrusts": "his uncle's caution, which he calls fear",
+      "household": "his mother, in two rooms above a cookshop",
+      "status": "an apprentice who thinks he should be a journeyman",
+      "opinion": "a man who writes things down is a clerk, and he will not be a clerk",
+      "interest": "wrestling at the baths",
+      "voice": "eager, defensive, finishes other people's sentences wrong"
+    },
+    {
+      "id": "Lucan",
+      "name": "Lucan",
+      "known": "scene:lucan-advice",
+      "role": "an old smith near the Porta Trigemina who taught half the smiths on the river",
+      "goal": "to see one of his apprentices do better than him",
+      "vulnerability": "his eyes are going",
+      "caresAbout": "the craft, and a granddaughter who sells eggs",
+      "distrusts": "anyone who can draw a thing but not make it",
+      "household": "a granddaughter and too many cats",
+      "status": "respected, poor",
+      "opinion": "steel is honest; men aren't",
+      "interest": "the old soldiers' stories at the tavern",
+      "voice": "few words, each one weighed"
+    },
+    {
+      "id": "Aulus",
+      "name": "Aulus Septimius Crispus",
+      "known": "scene:aulus-meet",
+      "role": "a millwright who keeps the mills on the Janiculum turning",
+      "goal": "mills that run all year without him being called out at night",
+      "vulnerability": "his back, from forty years of lifting stones and shafts",
+      "caresAbout": "his sons, both millwrights at Ostia",
+      "distrusts": "anyone who adds a part a man can't reach to grease",
+      "household": "a wife who sells bread from the mill, two grown sons",
+      "status": "a craftsman every mill owner on the hill knows",
+      "opinion": "water does the work; men only spoil it",
+      "interest": "his garden of beans",
+      "voice": "short orders, concrete, never explains twice"
+    },
+    {
+      "id": "Sextus",
+      "name": "Sextus Nerius",
+      "known": "scene:sextus-meet",
+      "role": "owner of a finishing shop where twelve men polish and fit bronze by hand",
+      "goal": "to keep his shop and his men, and to be paid what the work is worth",
+      "vulnerability": "his men are his shop; without them he is a room",
+      "caresAbout": "his men, some of whom have been with him twenty years",
+      "distrusts": "Priscus, who undercuts him",
+      "household": "a wife, a son who wants to be a lawyer",
+      "status": "a solid man of the trades",
+      "opinion": "good finishing is done by hand, or it isn't good",
+      "interest": "his son's speeches, which he pretends to understand",
+      "voice": "plain, worried, asks the same question twice in different words"
     }
   ],
   "life": [
     {
-      "id": "felix-fever", "person": "Felix", "fromMonth": 6, "chance": 0.06, "windowMonths": 36, "decay": 0.97,
-      "requires": ["access:guild:KnowsMember"],
-      "awayMonths": 2, "category": "Personal", "interrupt": true,
+      "id": "felix-fever",
+      "person": "Felix",
+      "fromMonth": 6,
+      "chance": 0.06,
+      "windowMonths": 36,
+      "decay": 0.97,
+      "requires": [
+        "access:guild:KnowsMember"
+      ],
+      "awayMonths": 2,
+      "category": "Personal",
+      "interrupt": true,
       "text": "Prima sends a boy: the marsh fever has Felix again. No suppers and no quays for him for a month or two.",
       "returnText": "Felix is back on the quays, thinner, asking after your work before his own."
     },
     {
-      "id": "warehouse-fire", "person": "Cassianus", "fromMonth": 14, "chance": 0.03, "windowMonths": 60,
-      "requires": ["commission:cellarpump:Done"],
-      "category": "CityHistory", "interrupt": true,
-      "status": { "Cassianus": "rebuilding after the fire; he lost a season's oil", "Diodoros": "his right hand burned in the fire; he can't carry" },
+      "id": "warehouse-fire",
+      "person": "Cassianus",
+      "fromMonth": 14,
+      "chance": 0.03,
+      "windowMonths": 60,
+      "requires": [
+        "commission:cellarpump:Done"
+      ],
+      "category": "CityHistory",
+      "interrupt": true,
+      "status": {
+        "Cassianus": "rebuilding after the fire; he lost a season's oil",
+        "Diodoros": "his right hand burned in the fire; he can't carry"
+      },
       "text": "Fire in the warehouses under the Aventine in the night. Cassianus loses a season's oil. His porter Diodoros burns his hand dragging jars out of the smoke. Below it all, in the wet cellar, your pump still draws."
     },
     {
-      "id": "diodoros-deliveries", "person": "Diodoros", "fromMonth": 0, "chance": 0.1, "windowMonths": 24, "group": "diodoros-after-fire",
-      "requires": ["life:warehouse-fire"],
+      "id": "diodoros-deliveries",
+      "person": "Diodoros",
+      "fromMonth": 0,
+      "chance": 0.1,
+      "windowMonths": 24,
+      "group": "diodoros-after-fire",
+      "requires": [
+        "life:warehouse-fire"
+      ],
       "category": "Personal",
-      "status": { "Diodoros": "runs Cassianus's deliveries and keeps the pump, one-handed" },
+      "status": {
+        "Diodoros": "runs Cassianus's deliveries and keeps the pump, one-handed"
+      },
       "text": "Diodoros can't carry with that hand, so Cassianus has him run the deliveries and see to the pump. He knows its seats better than Cassianus does."
     },
     {
-      "id": "diodoros-antioch", "person": "Diodoros", "fromMonth": 0, "chance": 0.05, "windowMonths": 24, "group": "diodoros-after-fire",
-      "requires": ["life:warehouse-fire"],
-      "category": "Personal", "leaves": true,
-      "status": { "Diodoros": "gone home to Antioch" },
+      "id": "diodoros-antioch",
+      "person": "Diodoros",
+      "fromMonth": 0,
+      "chance": 0.05,
+      "windowMonths": 24,
+      "group": "diodoros-after-fire",
+      "requires": [
+        "life:warehouse-fire"
+      ],
+      "category": "Personal",
+      "leaves": true,
+      "status": {
+        "Diodoros": "gone home to Antioch"
+      },
       "text": "Diodoros comes to the workshop to say goodbye. A porter with one good hand is no porter, and his mother has written that his uncle needs a man in his shop in Antioch. He has his pay in a knotted cloth and a place on a grain ship back east. He shakes your hand with the left."
     },
     {
-      "id": "pollio-copy", "person": "Cassianus", "fromMonth": 0, "chance": 0.08, "windowMonths": 36, "decay": 0.98,
-      "requires": ["capability:valveseats:Reproducible"],
+      "id": "pollio-copy",
+      "person": "Cassianus",
+      "fromMonth": 0,
+      "chance": 0.08,
+      "windowMonths": 36,
+      "decay": 0.98,
+      "requires": [
+        "capability:valveseats:Reproducible"
+      ],
       "category": "WorkEconomy",
-      "capability": { "id": "valveseats", "spread": "Copied", "distorted": true, "misattributed": true },
-      "status": { "Cassianus": "furious that Pollio has a pump like his" },
+      "capability": {
+        "id": "valveseats",
+        "spread": "Copied",
+        "distorted": true,
+        "misattributed": true
+      },
+      "status": {
+        "Cassianus": "furious that Pollio has a pump like his"
+      },
       "text": "Pollio, across the lane from Cassianus, has had a pump made like his by a bronzesmith on the Clivus who saw it once. The seats are cut by eye and it leaks back on every stroke. Pollio tells everyone the design is yours."
+    },
+    {
+      "id": "marcus-priscus",
+      "person": "Marcus",
+      "fromMonth": 0,
+      "chance": 0.1,
+      "windowMonths": 18,
+      "group": "marcus-path",
+      "requires": [
+        "stage:power:3",
+        "regardBelow:Marcus:2"
+      ],
+      "category": "Personal",
+      "leaves": true,
+      "status": {
+        "Marcus": "working for Priscus by the river, with an apprentice of his own"
+      },
+      "text": "Marcus doesn't come to the bench. Livia tells you: Priscus has offered him half again Gaius's pay and a boy of his own to order about. Gaius says nothing all day and breaks a file."
+    },
+    {
+      "id": "marcus-stays",
+      "person": "Marcus",
+      "fromMonth": 0,
+      "chance": 0.1,
+      "windowMonths": 18,
+      "group": "marcus-path",
+      "requires": [
+        "stage:power:3",
+        "regard:Marcus:2"
+      ],
+      "category": "Personal",
+      "status": {
+        "Marcus": "keeping the shaft's tally book, and still wanting a shop of his own"
+      },
+      "text": "Priscus offers Marcus half again his pay. Marcus tells him no, then tells everyone on the Clivus he said no. He asks you to show him how to keep the tally of the shaft properly, every hour of it, as if it had been his idea."
     }
   ]
 }

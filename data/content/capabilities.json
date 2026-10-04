@@ -1,35 +1,57 @@
 {
-  "_readme": "P1 capability network (decided 2026-10-02; docs/handoff/2026-10-02/03_TECHNOLOGY_CAPABILITY_LADDER.md). Hidden from normal play; the Knowledge and Civilization views surface only what is relevant. Each node is the NEXT step beyond what Rome already does well: 'baseline' says what Rome had, 'bottleneck' what stops the next step, 'leap' how the inventor moves it (formalize, improve, combine, scale, standardize, apply) - never 'invent' what Rome had. Levels: theory, demonstrated, prototype, reproducible, manufacturable, economical, adopted, institutionalized. Rule (PROPOSED P1-07): a capability can't pass a level its prerequisites haven't reached, up to reproducible. 'carriers' are institutions whose members carry a reproducible capability forward during an absence (PROPOSED P1-09); 'echo' gives what the inventor finds on arrival at each level, and 'distorted' when bad copies spread it. A first graph; to be grown with content.",
+  "_readme": "P1 capability network (decided 2026-10-02; docs/handoff/2026-10-02/03_TECHNOLOGY_CAPABILITY_LADDER.md). Hidden from normal play; the Knowledge and Civilization views surface only what is relevant. Each node is the NEXT step beyond what Rome already does well: 'baseline' says what Rome had, 'bottleneck' what stops the next step, 'leap' how the inventor moves it (formalize, improve, combine, scale, standardize, apply) - never 'invent' what Rome had. Levels: theory, demonstrated, prototype, reproducible, manufacturable, economical, adopted, institutionalized. Rule (PROPOSED P1-07): a capability can't pass a level its prerequisites haven't reached, up to reproducible. 'carriers' are institutions whose members carry a reproducible capability forward during an absence (PROPOSED P1-09); 'echo' gives what the inventor finds on arrival at each level, and 'distorted' when bad copies spread it. P1 powered workshops (2026-10-04) added replaceable bearing blocks, controlled transmission and powered boring and grinding, the nodes the Powered Workshops challenge needs. Nodes are added only when content needs them.",
   "capabilities": [
-    { "id": "metrology", "name": "shared measures", "domain": "measurement",
+    {
+      "id": "metrology",
+      "name": "shared measures",
+      "domain": "measurement",
       "baseline": "Every trade measures well by its own foot and its own rule; the state keeps standard measures for the market.",
       "bottleneck": "Two workshops' feet differ by a finger's width, so a part made in one won't fit in the other.",
-      "leap": "standardize", "prerequisites": [],
-      "carriers": ["guild"],
+      "leap": "standardize",
+      "prerequisites": [],
+      "carriers": [
+        "guild"
+      ],
       "echo": {
         "Reproducible": "In a few shops on the Clivus and at Ostia the rules on the walls are copies of one bronze bar. The men there say a thing is cut to the foot and mean that one.",
         "Manufacturable": "A founder by the river casts bronze rules from the one master and sells them stamped. Every new shop on the river buys one before it buys an anvil.",
         "Economical": "Rules cut to the shared foot are cheap now, cheaper than arguing over measures. Builders' contracts on the Aventine name the foot by the founder's stamp.",
         "Adopted": "Every fitter on the river works to one foot now, and the guild keeps the bronze master in its hall.",
         "Institutionalized": "The guild at Ostia keeps the master foot in a locked case and checks its members' rules against it every year. A short rule costs a fine."
-      } },
-    { "id": "gauges", "name": "gauges and fits", "domain": "measurement",
+      }
+    },
+    {
+      "id": "gauges",
+      "name": "gauges and fits",
+      "domain": "measurement",
       "baseline": "Skilled men fit each part by hand to the part beside it.",
       "bottleneck": "Parts made apart, by different hands, don't fit without filing.",
-      "leap": "standardize", "prerequisites": ["metrology"],
-      "carriers": ["guild"],
+      "leap": "standardize",
+      "prerequisites": [
+        "metrology"
+      ],
+      "carriers": [
+        "guild"
+      ],
       "echo": {
         "Reproducible": "Three shops still cut seats to a shared set of gauges, and their pumps trade parts.",
         "Manufacturable": "One shop at Ostia makes nothing but gauges, hardened plugs in pairs, and sells them to fitters up and down the river.",
         "Economical": "A fitter's gauges cost less than a bad job. Shops that don't use them can't sell to the shippers, and say so bitterly.",
         "Adopted": "Fitters on the quays carry fit and no-fit plugs in a leather roll, and buy seats from whichever shop is nearest.",
         "Institutionalized": "The guild sells sealed sets of gauges to its members. A seat cut to them fits any member's pump, from Ostia to the Aventine."
-      } },
-    { "id": "valveseats", "name": "true valve seats", "domain": "hydraulics",
+      }
+    },
+    {
+      "id": "valveseats",
+      "name": "true valve seats",
+      "domain": "hydraulics",
       "baseline": "Bronze force pumps with leather flaps, the kind the fire watch carries (Ctesibius's design, two centuries old).",
       "bottleneck": "Seats wear oval and are refitted by eye, so pumps leak back on every stroke.",
-      "leap": "improve", "prerequisites": [],
-      "carriers": ["guild"],
+      "leap": "improve",
+      "prerequisites": [],
+      "carriers": [
+        "guild"
+      ],
       "echo": {
         "Reproducible": "In a few cellars under the Aventine the pumps still have seats cut true, refitted by men who learned it in Cassianus's cellar. Nowhere else.",
         "Manufacturable": "A bronze shop on the Clivus casts seats by the dozen from one pattern and sells them in straw, ready to fit. A fitter buys three and keeps two for the next job.",
@@ -38,59 +60,227 @@
         "Institutionalized": "The guild at Ostia stamps the pumps its members fit: a seal on the casing says the seats were cut to the guild's gauge. A shipper won't buy a pump without it.",
         "distorted": "You see the other kind, too: seats cut by eye to look like the good ones, leaking back on every stroke. The men who sell them say the design is the foreigner's.",
         "distorted.later": "The cheap seats are still sold at the market gates, and still leak. People call them Pollio's seats now, and say the good ones were stolen from him by a foreigner."
-      } },
-    { "id": "records", "name": "recorded trials", "domain": "experiment",
+      }
+    },
+    {
+      "id": "records",
+      "name": "recorded trials",
+      "domain": "experiment",
       "baseline": "Craft trial and error, and physicians' case histories in the Hippocratic tradition.",
       "bottleneck": "Results live in one man's head and die with him.",
-      "leap": "formalize", "prerequisites": [] },
-    { "id": "drawings", "name": "dimensioned drawings", "domain": "documentation",
+      "leap": "formalize",
+      "prerequisites": []
+    },
+    {
+      "id": "drawings",
+      "name": "dimensioned drawings",
+      "domain": "documentation",
       "baseline": "Architects draw plans and elevations; Vitruvius wrote down how machines are built.",
       "bottleneck": "Drawings show the shape but not the sizes another shop would need.",
-      "leap": "standardize", "prerequisites": ["metrology"] },
-    { "id": "alloys", "name": "recipes for bronze", "domain": "materials",
+      "leap": "standardize",
+      "prerequisites": [
+        "metrology"
+      ]
+    },
+    {
+      "id": "alloys",
+      "name": "recipes for bronze",
+      "domain": "materials",
       "baseline": "Founders make fine bronzes and brass by long practice.",
       "bottleneck": "The mix is judged by eye and tradition, so no two pours are the same.",
-      "leap": "formalize", "prerequisites": ["records"] },
-    { "id": "steelgrades", "name": "graded tool steel", "domain": "materials",
+      "leap": "formalize",
+      "prerequisites": [
+        "records"
+      ]
+    },
+    {
+      "id": "steelgrades",
+      "name": "graded tool steel",
+      "domain": "materials",
       "baseline": "Smiths make good steel from Noric iron and harden and temper it by colour and feel.",
       "bottleneck": "Hardness varies from batch to batch and nobody writes down why.",
-      "leap": "standardize", "prerequisites": ["records", "metrology"] },
-    { "id": "lathework", "name": "rigid lathe work", "domain": "machine tools",
+      "leap": "standardize",
+      "prerequisites": [
+        "records",
+        "metrology"
+      ]
+    },
+    {
+      "id": "lathework",
+      "name": "rigid lathe work",
+      "domain": "machine tools",
       "baseline": "Bow and pole lathes turn wood, bone and soft metal.",
       "bottleneck": "Hand power and a cutter held by hand can't hold a size in hard metal.",
-      "leap": "combine", "prerequisites": ["gauges", "steelgrades"] },
-    { "id": "lineshaft", "name": "line shafts", "domain": "mechanical power",
+      "leap": "combine",
+      "prerequisites": [
+        "gauges",
+        "steelgrades"
+      ]
+    },
+    {
+      "id": "lineshaft",
+      "name": "line shafts",
+      "domain": "mechanical power",
       "baseline": "Water wheels grind grain, some in great flights like the mills at Barbegal; gears are well known.",
       "bottleneck": "One wheel drives one machine.",
-      "leap": "scale", "prerequisites": ["gauges"] },
-    { "id": "interchange", "name": "interchangeable parts", "domain": "production",
+      "leap": "scale",
+      "prerequisites": [
+        "gauges"
+      ],
+      "carriers": [
+        "guild"
+      ],
+      "echo": {
+        "Reproducible": "A few shops by the river run more than one machine from a single wheel, on shafts the millwrights can take apart and put back.",
+        "Manufacturable": "A millwright's yard at the foot of the Janiculum sells shafts, bearing blocks and rope pulleys made to a pattern. Buyers bring the drawing; the yard brings the parts.",
+        "Economical": "Powered shops along the race undersell the hand shops on the Clivus. The hand shops that are left do the fine work, or close.",
+        "Adopted": "Every new shop on the river is built around a shaft. Men speak of a shop's 'wheel' the way they speak of a ship's hull.",
+        "Institutionalized": "The guild keeps a register of who may draw water for a shaft, and inspectors who look at the bearings before the wheel may turn."
+      }
+    },
+    {
+      "id": "bearings",
+      "name": "replaceable bearing blocks",
+      "domain": "mechanical power",
+      "baseline": "Mills turn on bronze and hardwood bearings, greased by hand; millwrights know their work well.",
+      "bottleneck": "A worn bearing is fitted in place, so it stops the mill for days, and no two are alike.",
+      "leap": "standardize",
+      "prerequisites": [
+        "gauges"
+      ],
+      "carriers": [
+        "guild"
+      ],
+      "echo": {
+        "Reproducible": "Millwrights on the hill carry spare bearing shells cut to one size and change a worn one between dawn and the first grinding.",
+        "Economical": "Bearing shells are sold by the basket at Ostia, cheap enough that nobody waits for a worn one to fail."
+      }
+    },
+    {
+      "id": "transmission",
+      "name": "controlled transmission",
+      "domain": "mechanical power",
+      "baseline": "Gears and pinions at mills; rope drives on cranes and treadwheels.",
+      "bottleneck": "Everything on a shaft runs or stops together, and a machine can't be taken off the wheel without stopping the wheel.",
+      "leap": "combine",
+      "prerequisites": [
+        "lineshaft"
+      ],
+      "echo": {
+        "Reproducible": "In the powered shops a boy works a lever that lets a rope go slack, and one machine stops while the others run on."
+      }
+    },
+    {
+      "id": "poweredboring",
+      "name": "powered boring and grinding",
+      "domain": "machine tools",
+      "baseline": "Hand boring with bow drills and augers; grinding with abrasives and treadle wheels.",
+      "bottleneck": "A hand can't hold a bore true down a long cylinder, or grind a hundred parts alike.",
+      "leap": "apply",
+      "prerequisites": [
+        "bearings",
+        "transmission"
+      ],
+      "carriers": [
+        "guild"
+      ],
+      "echo": {
+        "Reproducible": "In a shed by the race a bar turns all day, boring cylinders that the men test with a plug and stack in rows.",
+        "Economical": "Finishing shops buy rough parts bored and ground by water and do only the last polish by hand. There are fewer finishers than there were, and they are better paid."
+      }
+    },
+    {
+      "id": "interchange",
+      "name": "interchangeable parts",
+      "domain": "production",
       "baseline": "Bricks, tiles and lead water pipes come in standard sizes.",
       "bottleneck": "Metal parts are still fitted one by one.",
-      "leap": "standardize", "prerequisites": ["gauges", "drawings", "lathework"] },
-    { "id": "hydraulicpress", "name": "the hydraulic press", "domain": "hydraulics",
+      "leap": "standardize",
+      "prerequisites": [
+        "gauges",
+        "drawings",
+        "lathework"
+      ]
+    },
+    {
+      "id": "hydraulicpress",
+      "name": "the hydraulic press",
+      "domain": "hydraulics",
       "baseline": "Screw presses for oil and wine; force pumps that lift water.",
       "bottleneck": "Seals and cylinders give way long before the pressure a press needs.",
-      "leap": "apply", "prerequisites": ["valveseats", "alloys"] },
-    { "id": "governor", "name": "the governor", "domain": "control",
+      "leap": "apply",
+      "prerequisites": [
+        "valveseats",
+        "alloys"
+      ]
+    },
+    {
+      "id": "governor",
+      "name": "the governor",
+      "domain": "control",
       "baseline": "Hellenistic float regulators keep a water clock's flow steady.",
       "bottleneck": "No one has made a machine that corrects its own speed.",
-      "leap": "apply", "prerequisites": ["lineshaft"] },
-    { "id": "steam", "name": "steam power", "domain": "thermal power",
+      "leap": "apply",
+      "prerequisites": [
+        "lineshaft"
+      ]
+    },
+    {
+      "id": "steam",
+      "name": "steam power",
+      "domain": "thermal power",
       "baseline": "Hero's spinning sphere and temple devices show steam can move things.",
       "bottleneck": "Boilers, seals and true cylinders: nothing holds pressure and does work for long.",
       "leap": "scale",
-      "prerequisites": [ { "id": "steelgrades", "level": "Manufacturable" }, { "id": "interchange", "level": "Reproducible" }, { "id": "records", "level": "Reproducible" } ] },
-    { "id": "casenotes", "name": "comparative case records", "domain": "medicine",
+      "prerequisites": [
+        {
+          "id": "steelgrades",
+          "level": "Manufacturable"
+        },
+        {
+          "id": "interchange",
+          "level": "Reproducible"
+        },
+        {
+          "id": "records",
+          "level": "Reproducible"
+        }
+      ]
+    },
+    {
+      "id": "casenotes",
+      "name": "comparative case records",
+      "domain": "medicine",
       "baseline": "Physicians write case histories and argue over them.",
       "bottleneck": "Households' cases are never put side by side and counted.",
-      "leap": "formalize", "prerequisites": ["records"] },
-    { "id": "electricity", "name": "electrical experiments", "domain": "electricity",
+      "leap": "formalize",
+      "prerequisites": [
+        "records"
+      ]
+    },
+    {
+      "id": "electricity",
+      "name": "electrical experiments",
+      "domain": "electricity",
       "baseline": "Rubbed amber draws straw; lodestone draws iron. No one uses either.",
       "bottleneck": "No drawn wire, no insulation, no steady source.",
-      "leap": "apply", "prerequisites": ["alloys", "records"] },
-    { "id": "copying", "name": "copying at scale", "domain": "knowledge",
+      "leap": "apply",
+      "prerequisites": [
+        "alloys",
+        "records"
+      ]
+    },
+    {
+      "id": "copying",
+      "name": "copying at scale",
+      "domain": "knowledge",
       "baseline": "Scribes copy books for the trade; seals and stamps print the same mark many times.",
       "bottleneck": "Every copy of a text is written out by hand.",
-      "leap": "combine", "prerequisites": ["alloys", "drawings"] }
+      "leap": "combine",
+      "prerequisites": [
+        "alloys",
+        "drawings"
+      ]
+    }
   ]
 }

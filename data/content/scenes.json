@@ -2,88 +2,264 @@
   "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>). Effects: 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
   "scenes": [
     {
-      "id": "baths-wet-cellar", "category": "RomanLife",
-      "requires": ["monthsIn:1", "commission:cellarpump:NotYet"],
+      "id": "baths-wet-cellar",
+      "category": "RomanLife",
+      "requires": [
+        "monthsIn:1",
+        "commission:cellarpump:NotYet"
+      ],
       "text": "At the small baths behind the Circus Maximus you sit in the warm room between a fuller and a man selling olives. The olive man complains that a merchant under the Aventine pays porters to bail his cellar every morning, and still the jars go green. The fuller says the merchant should sacrifice to the river and stop complaining."
     },
     {
-      "id": "felix-lares", "category": "RomanLife",
-      "requires": ["commission:cellarpump:Done"],
-      "regard": { "Felix": 1 },
+      "id": "felix-lares",
+      "category": "RomanLife",
+      "requires": [
+        "commission:cellarpump:Done"
+      ],
+      "regard": {
+        "Felix": 1
+      },
       "text": "Felix has you to dinner on the Kalends. Before anyone eats, his boys put a pinch of meal and a drop of wine before the little shrine by the door, where two dancing Lares stand on either side of a painted snake. Prima asks where your household gods are. Felix answers for you: in a box, travelling. Everyone laughs, and Prima keeps looking at you."
     },
     {
-      "id": "guild-funeral", "category": "RomanLife",
-      "requires": ["access:guild:Guest"],
-      "regard": { "Felix": 1 },
+      "id": "guild-funeral",
+      "category": "RomanLife",
+      "requires": [
+        "access:guild:Guest"
+      ],
+      "regard": {
+        "Felix": 1
+      },
       "text": "A rope-maker of the guild has died. The members walk behind the bier to the tombs on the Ostia road, with flute players and a woman paid to wail. The guild pays for the burial out of the box you saw passed round at supper. Felix walks beside you and names the men as they pass: who owes whom, who will want the dead man's yard."
     },
     {
-      "id": "cassianus-saturnalia", "category": "RomanLife",
-      "requires": ["knows:Cassianus", "month:12", "commission:cellarpump:Done"],
-      "regard": { "Cassianus": 1 },
+      "id": "cassianus-saturnalia",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Cassianus",
+        "month:12",
+        "commission:cellarpump:Done"
+      ],
+      "regard": {
+        "Cassianus": 1
+      },
       "text": "Saturnalia. Cassianus wears a felt cap like a freed slave and serves his own porters at table, badly, while his sister keeps an eye on the good cups. A porter is king of the feast and orders Cassianus to sing. He sings. He gives you a wax candle and a clay figure of a dog, and expects nothing so grand in return."
     },
     {
-      "id": "felix-circus", "category": "RomanLife",
-      "requires": ["knows:Felix", "commission:cellarpump:Done", "monthsIn:9"],
-      "regard": { "Felix": 1 },
+      "id": "felix-circus",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Felix",
+        "commission:cellarpump:Done",
+        "monthsIn:9"
+      ],
+      "regard": {
+        "Felix": 1
+      },
       "text": "Felix drags you to the Circus Maximus to watch the Blues. Two hundred thousand people, the smell of roasting chickpeas, men laying bets, a baker scratching a curse against the Green driver onto a strip of lead. The Blue chariot clips the turning post on the fourth lap and the Greens take it. Felix does not speak to you until you are back across the river."
     },
     {
-      "id": "pollio-lawsuit", "category": "InstitutionsPolitics",
-      "requires": ["life:pollio-copy"],
-      "status": { "Cassianus": "suing Pollio before the praetor over the pump" },
+      "id": "pollio-lawsuit",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "life:pollio-copy"
+      ],
+      "status": {
+        "Cassianus": "suing Pollio before the praetor over the pump"
+      },
       "text": "In the Forum, under an awning, Cassianus's advocate argues before the praetor's man that Pollio's pump slanders his client's goods. Pollio's advocate says nobody owns the shape of a pump. Both name you. The case is put off until after the games, as most cases are."
     },
     {
-      "id": "felix-vow", "category": "RomanLife",
-      "requires": ["life:felix-fever"],
-      "regard": { "Felix": 1 },
+      "id": "felix-vow",
+      "category": "RomanLife",
+      "requires": [
+        "life:felix-fever"
+      ],
+      "regard": {
+        "Felix": 1
+      },
       "text": "Prima has made a vow at the sanctuary of Aesculapius on the Tiber Island: a clay leg, because the fever settled in Felix's knee, and a cockerel if he walks to the quays by the Ides. You carry broth to their room and find two physicians arguing over him. He walks to the quays on the twelfth. Prima buys the cockerel."
     },
     {
-      "id": "diodoros-letter", "category": "RomanLife",
-      "requires": ["life:diodoros-deliveries"],
-      "regard": { "Diodoros": 1 },
+      "id": "diodoros-letter",
+      "category": "RomanLife",
+      "requires": [
+        "life:diodoros-deliveries"
+      ],
+      "regard": {
+        "Diodoros": 1
+      },
       "text": "Diodoros asks you to come with him to a letter-writer in the Forum, a Greek with ink on his fingers who charges by the line. Diodoros dictates to his mother in Antioch: the hand is healing, the work is better, he is not gambling. The letter-writer looks at you over the last line and writes it anyway."
     },
     {
-      "id": "smith-tavern", "category": "RomanLife",
-      "requires": ["project:workshop:done", "monthsIn:5"],
+      "id": "smith-tavern",
+      "category": "RomanLife",
+      "requires": [
+        "project:workshop:done",
+        "monthsIn:5"
+      ],
       "text": "The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension."
     },
     {
-      "id": "serenus-meet", "category": "Personal",
-      "requires": ["monthsIn:6", "scene:felix-vow|project:fountain:done|project:physician:done|promise"],
-      "regard": { "Serenus": 1 },
-      "knowsMember": { "institution": "circle", "member": "Serenus" },
+      "id": "serenus-meet",
+      "category": "Personal",
+      "requires": [
+        "monthsIn:6",
+        "scene:felix-vow|project:fountain:done|project:physician:done|promise"
+      ],
+      "regard": {
+        "Serenus": 1
+      },
+      "knowsMember": {
+        "institution": "circle",
+        "member": "Serenus"
+      },
       "text": "A physician called Serenus finds you at the fountain, a short man with ink on his cuffs. He has heard you talk about fevers as if you'd counted them. \"Have you?\" he asks. You say not yet. \"Neither has anyone else,\" he says. \"Come and see my casebooks. Bring wine; my sister won't buy any.\""
     },
     {
-      "id": "serenus-casebook", "category": "Engineering",
-      "requires": ["knows:Serenus", "monthsIn:9"],
-      "regard": { "Serenus": 1 },
+      "id": "serenus-casebook",
+      "category": "Engineering",
+      "requires": [
+        "knows:Serenus",
+        "monthsIn:9"
+      ],
+      "regard": {
+        "Serenus": 1
+      },
       "text": "Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. \"The bleeding,\" he says. \"I bled eleven of them.\""
     },
     {
-      "id": "r17-request", "category": "MachineMystery",
-      "requires": ["machine:assessed", "monthsIn:3"],
+      "id": "gaius-meet",
+      "category": "WorkEconomy",
+      "requires": [
+        "capability:metrology:Reproducible"
+      ],
+      "regard": {
+        "Gaius": 1
+      },
+      "text": "The bronzesmith from the Clivus who argued longest over your foot comes to find you. Gaius Fabius Crispus, he says, as if you should know it. \"I cut twenty seats to your bar this month and every one fitted. I don't like being told how to cut. I like losing work less.\" He wants to know what else you can measure."
+    },
+    {
+      "id": "livia-meet",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Gaius",
+        "monthsIn:14"
+      ],
+      "regard": {
+        "Gaius": 1
+      },
+      "text": "Gaius has you to dinner above the shop: lentils, sausage, a jug of Sabine wine. His wife Livia has a green ribbon in her hair for the races and asks whether foreigners are allowed to have opinions about chariots. When you say the Blues looked strong she tells Gaius to stop inviting you. She refills your cup anyway."
+    },
+    {
+      "id": "marcus-meet",
+      "category": "Personal",
+      "requires": [
+        "knows:Gaius",
+        "monthsIn:14"
+      ],
+      "text": "Gaius's nephew Marcus is at the bench, filing a bearing shell that is already round. He tells you he could run the shop better than his uncle. Then he asks what the marks on your wax tablet mean, and when you tell him he says he knew that already."
+    },
+    {
+      "id": "marcus-tally",
+      "category": "Personal",
+      "requires": [
+        "knows:Marcus",
+        "challenge:power:Working"
+      ],
+      "regard": {
+        "Marcus": 2
+      },
+      "text": "You find Marcus scratching a tally on the shop wall: every time the shaft stops, a mark, and the reason beside it in letters that slope downhill. Nobody asked him to. You show him how to keep it in a wax book instead, one line a day. He says a man who writes things down is a clerk. The next morning the book is full."
+    },
+    {
+      "id": "aulus-meet",
+      "category": "Exploration",
+      "requires": [
+        "capability:gauges:Reproducible",
+        "knows:Gaius"
+      ],
+      "regard": {
+        "Aulus": 1
+      },
+      "text": "Gaius takes you up the Janiculum to the mills, where the water of the Aqua Traiana comes down in a race and turns wheel after wheel. The millwright, Aulus Septimius Crispus, is up to his knees in the tail race clearing mud. He looks at your drawing of one wheel driving four machines. \"Where does a man stand to grease that one?\" he says, and goes back to the mud."
+    },
+    {
+      "id": "lucan-advice",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Gaius",
+        "challenge:power:Open|challenge:power:Working"
+      ],
+      "regard": {
+        "Lucan": 1
+      },
+      "text": "Old Lucan, who taught Gaius, watches you explain the shaft at the tavern with a finger in spilled wine. When you finish he turns your cup upside down. \"Do not become a man who only has ideas,\" he says. \"Come to my forge tomorrow. I'll show you why your cutters will break.\" They break exactly where he said."
+    },
+    {
+      "id": "gaius-naming-day",
+      "category": "RomanLife",
+      "requires": [
+        "challenge:power:Working",
+        "regard:Gaius:2"
+      ],
+      "delays": {
+        "challenge": "power",
+        "months": 1
+      },
+      "text": "Livia has had a son. On the ninth day Gaius closes the shop for the naming: the household gods garlanded, a sow sacrificed, the boy given a bulla to wear against the evil eye and the name Lucius. The shaft can wait, Gaius says, and when you look at the race he says it again, more slowly."
+    },
+    {
+      "id": "sextus-meet",
+      "category": "WorkEconomy",
+      "requires": [
+        "stage:power:5"
+      ],
+      "text": "A finishing-shop owner, Sextus Nerius, comes to watch the grinder. Twelve men polish and fit bronze in his shop by hand, some of them for twenty years. He watches the wheel take the rough off a casting in the time it takes one of his men to find his file. He doesn't say anything. He comes back the next day and watches again."
+    },
+    {
+      "id": "r17-mill",
+      "category": "MachineMystery",
+      "requires": [
+        "scene:r17-link",
+        "challenge:power:Open|challenge:power:Working"
+      ],
+      "text": "Up at the mills before dawn, you hear the wheel start, and at the same moment, back at the workshop, the machine's panel wakes on its own. The log shows a short burst of signal and an answer: the same pattern as the last second before the crash, a request and an acceptance. Nothing in Rome is sending anything."
+    },
+    {
+      "id": "r17-request",
+      "category": "MachineMystery",
+      "requires": [
+        "machine:assessed",
+        "monthsIn:3"
+      ],
       "text": "Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch."
     },
     {
-      "id": "r17-link", "category": "MachineMystery",
-      "requires": ["scene:r17-request", "machine:steps:3"],
+      "id": "r17-link",
+      "category": "MachineMystery",
+      "requires": [
+        "scene:r17-request",
+        "machine:steps:3"
+      ],
       "text": "With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out."
     },
     {
-      "id": "r17-acknowledged", "category": "MachineMystery",
-      "requires": ["scene:r17-link", "machine:steps:6"],
+      "id": "r17-acknowledged",
+      "category": "MachineMystery",
+      "requires": [
+        "scene:r17-link",
+        "machine:steps:6"
+      ],
       "text": "You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it."
     },
     {
-      "id": "r17-active", "category": "MachineMystery",
-      "requires": ["scene:r17-acknowledged", "machine:steps:9"],
+      "id": "r17-active",
+      "category": "MachineMystery",
+      "requires": [
+        "scene:r17-acknowledged",
+        "machine:steps:9"
+      ],
       "text": "The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go."
     }
   ]

@@ -85,7 +85,7 @@ namespace Butterfly.Core.Tests
             foreach (var e in events)
             {
                 Assert.True(e.Options.Count >= 2);
-                Assert.InRange(e.Year, 155, 175);
+                if (!e.Triggered) Assert.InRange(e.Year, 155, 175);       // triggered consequence events (P1) are not dated
             }
         }
     

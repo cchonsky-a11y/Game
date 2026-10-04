@@ -77,6 +77,8 @@ namespace Butterfly.Core
         public List<string> ReadyLife { get; } = new List<string>();
         /// <summary>The turn each life event first became possible (for its window and declining hazard).</summary>
         public Dictionary<string, int> LifeEligibleSince { get; } = new Dictionary<string, int>();
+        /// <summary>P1 consequence events waiting to be offered (Rome's dated choices go first in their month).</summary>
+        public List<string> TriggeredEvents { get; } = new List<string>();
         /// <summary>Echo lines already shown on an arrival (P1: never repeated word for word).</summary>
         public List<string> EchoesShown { get; } = new List<string>();
         /// <summary>Authored scenes that have happened, in order.</summary>

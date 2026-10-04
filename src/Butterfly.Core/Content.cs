@@ -288,6 +288,9 @@ namespace Butterfly.Core
         public double Value { get; }
         public string? Domain { get; }
         public string? Institution { get; }
+        /// <summary>For "regard" and "status" effects (P1 people): the person, and for status the new line.</summary>
+        public string? Person { get; }
+        public string? Text { get; }
         /// <summary>Only when this holds (P0-33, answers that stack): a flag set by an earlier answer, or "own:&lt;id&gt;" for an institution you founded that stands.</summary>
         public string? If { get; }
 
@@ -298,6 +301,8 @@ namespace Butterfly.Core
             Value = o.Num("value");
             Domain = o.StrOr("domain", null);
             Institution = o.StrOr("institution", null);
+            Person = o.StrOr("person", null);
+            Text = o.StrOr("text", null);
         }
     }
 
@@ -345,6 +350,8 @@ namespace Butterfly.Core
         public string Text { get; }
         public IReadOnlyList<EventOptionDef> Options { get; }
         public SimTime Time => SimTime.FromYear(Year, Month - 1);
+        /// <summary>P1: not dated; offered when the game's own consequences call for it (a Grand Challenge's aftermath).</summary>
+        public bool Triggered { get; }
 
         public EventDef(JsonObject o)
         {
@@ -352,6 +359,7 @@ namespace Butterfly.Core
             Year = (int)o.Num("year");
             Month = (int)o.Num("month");
             Requires = o.StrOr("requires", "any") ?? "any";
+            Triggered = o.BoolOr("trigger", false);
             Title = o.Str("title");
             Text = o.Str("text");
             Options = o.Arr("options").Cast<JsonObject>().Select(x => new EventOptionDef(x)).ToList();

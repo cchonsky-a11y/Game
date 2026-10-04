@@ -140,6 +140,12 @@ namespace Butterfly.Core
                     return World.CompletedProjects.Contains(parts[1]);
                 case "regard":
                     return (PersonOf(parts[1])?.Regard ?? 0) >= int.Parse(parts[2]);
+                case "regardBelow":
+                    return (PersonOf(parts[1])?.Regard ?? 0) < int.Parse(parts[2]);
+                case "challenge":
+                    return FindChallenge(parts[1]) is ChallengeState ch && ch.Status.ToString() == parts[2];
+                case "stage":
+                    return FindChallenge(parts[1]) is ChallengeState cs && cs.StageIndex >= int.Parse(parts[2]);
                 case "invented":
                     return World.Invented.Contains(parts[1]);
                 case "join":

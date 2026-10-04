@@ -36,6 +36,11 @@ namespace Butterfly.Core
         public IReadOnlyList<string> Needs { get; }
         public string NeedsPerson { get; }
         public string NeedsText { get; }
+        /// <summary>Months added when the first person named in "needsPerson" ("a|b") isn't there and the second stands in.</summary>
+        public int SlowerWithout { get; }
+        public string SlowerText { get; }
+        /// <summary>Further capabilities the stage moves, in order, after its own.</summary>
+        public IReadOnlyList<KeyValuePair<string, CapabilityLevel>> Also { get; }
         public string Text { get; }
 
         public ChallengeStageDef(JsonObject o)
@@ -52,6 +57,11 @@ namespace Butterfly.Core
             Needs = o.Has("needs") ? o.Arr("needs").Cast<string>().ToList() : new List<string>();
             NeedsPerson = o.StrOr("needsPerson", "") ?? "";
             NeedsText = o.StrOr("needsText", "") ?? "";
+            SlowerWithout = (int)o.NumOr("slowerWithout", 0);
+            SlowerText = o.StrOr("slowerText", "") ?? "";
+            Also = o.Has("also") ? o.Arr("also").Cast<JsonObject>().Select(x => new KeyValuePair<string, CapabilityLevel>(x.Str("capability"),
+                       Enum.TryParse<CapabilityLevel>(x.Str("to"), out var lv) ? lv : throw new FormatException("Unknown capability level: " + x.Str("to")))).ToList()
+                 : new List<KeyValuePair<string, CapabilityLevel>>();
             Text = o.Str("text");
         }
     }
@@ -72,6 +82,8 @@ namespace Butterfly.Core
         public CapabilityLevel GoalLevel { get; }
         public IReadOnlyList<ChallengeStageDef> Stages { get; }
         public string CompleteText { get; }
+        /// <summary>A triggered event (events.json) offered when the challenge is done: its human consequence.</summary>
+        public string Consequence { get; }
 
         public ChallengeDef(JsonObject o)
         {
@@ -86,6 +98,7 @@ namespace Butterfly.Core
             GoalLevel = Enum.TryParse<CapabilityLevel>(g.Str("level"), out var l) ? l : throw new FormatException("Unknown capability level: " + g.Str("level"));
             Stages = o.Arr("stages").Cast<JsonObject>().Select(x => new ChallengeStageDef(x)).ToList();
             CompleteText = o.Str("completeText");
+            Consequence = o.StrOr("consequence", "") ?? "";
         }
     }
 

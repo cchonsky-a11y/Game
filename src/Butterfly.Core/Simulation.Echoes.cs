@@ -52,7 +52,8 @@ namespace Butterfly.Core
         {
             int arrivalNumber = JumpsMade;          // already counts this jump
             int shown = 0;
-            foreach (var p in KnownPeople())
+            // Prefer people not yet featured on an earlier arrival (unresolved lives first), then the rest, in authored order.
+            foreach (var p in KnownPeople().OrderBy(p => World.EchoesShown.Contains("person:" + p.Id) ? 1 : 0))
             {
                 if (shown >= T.GetInt("echoes.peoplePerArrival")) yield break;
                 var echo = p.Echoes.Where(e => e.FromJump <= arrivalNumber && !World.EchoesShown.Contains(e.Text) && e.Requires.All(Holds))
@@ -60,6 +61,7 @@ namespace Butterfly.Core
                 if (echo == null) continue;
                 shown++;
                 arrival.P1Echoes.Add("person:" + p.Id);
+                if (!World.EchoesShown.Contains("person:" + p.Id)) World.EchoesShown.Add("person:" + p.Id);
                 yield return Fresh(echo.Text)!;
             }
         }

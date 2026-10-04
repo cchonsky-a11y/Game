@@ -47,8 +47,20 @@ namespace Butterfly.Core
                 var e = PendingEvent!;
                 Resolve(e, e.Options[e.Options.Count - 1], lapsed: true);
             }
+            if (World.TriggeredEvents.Count > 0)
+            {
+                var t = Data.Content.Events.First(x => x.Id == World.TriggeredEvents[0]);
+                World.TriggeredEvents.RemoveAt(0);
+                _eventsSeen.Add(t.Id);
+                _pendingEvent = t.Id;
+                _pendingSinceTurn = Turn;
+                World.ScenePacing.Record(SceneCategory.WorkEconomy);   // a consequence of your own work: it comes, unrouted
+                Record("event.offer", t.Id, null, new[] { "world" }, null,
+                    t.Title + ". " + t.Text + " (" + string.Join(" / ", t.Options.Select(o => "decide " + o.Id)) + ")");
+                return;
+            }
             var horizon = Now.AddMonths(MonthsPerTurn - 1).TotalMonths;
-            foreach (var e in Data.Content.Events.Where(x => !_eventsSeen.Contains(x.Id) && x.Time.TotalMonths <= horizon))
+            foreach (var e in Data.Content.Events.Where(x => !x.Triggered && !_eventsSeen.Contains(x.Id) && x.Time.TotalMonths <= horizon))
             {
                 _eventsSeen.Add(e.Id);
                 if (!EventRequirementHolds(e)) continue;          // it passes: you weren't in a position to be asked
@@ -212,6 +224,21 @@ namespace Butterfly.Core
                     case "workshopSize":
                         if (OwnsWorkshop && WorkshopSize < (int)fx.Value) SetWorkshopSize((int)fx.Value, causes, title + ".");
                         break;
+                    case "regard":
+                    {
+                        var p = PersonOf(fx.Person ?? "") ?? throw new InvalidOperationException("Unknown person in an event: " + fx.Person);
+                        int before = p.Regard;
+                        p.Regard += (int)fx.Value;
+                        Record("person.regard", "person." + p.Id, causes, new[] { "player", p.Id }, new[] { new Effect("person." + p.Id + ".regard", before, p.Regard) },
+                            title + ": " + PersonDefOf(p.Id)!.Name + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+                        break;
+                    }
+                    case "status":
+                    {
+                        var p = PersonOf(fx.Person ?? "") ?? throw new InvalidOperationException("Unknown person in an event: " + fx.Person);
+                        p.Status = fx.Text ?? p.Status;
+                        break;
+                    }
                     case "smith":
                         ChangeSmithRegard(fx.Value, causes, title + ": " + Data.Content.Smith + (fx.Value >= 0 ? " thinks better of you." : " thinks less of you."));
                         break;
@@ -245,7 +272,9 @@ namespace Butterfly.Core
                     }
                 }
                 else line = later ? o.Mark2 ?? o.Mark : o.Mark;
-                if (line == null) continue;
+                // Never the same line twice across arrivals (Corey, 2026-10-04).
+                if (line == null || World.EchoesShown.Contains(line)) continue;
+                World.EchoesShown.Add(line);
                 _marksShown.Add(e.Id);
                 lines.Add(line);
             }

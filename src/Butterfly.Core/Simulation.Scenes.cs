@@ -115,6 +115,13 @@ namespace Butterfly.Core
                 if (!actors.Contains(kv.Key)) actors.Add(kv.Key);
             }
             var played = Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, s.Text);
+            if (s.DelaysChallenge.Length > 0 && FindChallenge(s.DelaysChallenge) is ChallengeState ch && ch.Status == ChallengeStatus.Working)
+            {
+                int before = ch.MonthsLeft;
+                ch.MonthsLeft += s.DelayMonths;
+                Record("challenge.delayed", ch.ProjectId, new[] { played.Id }, actors, new[] { new Effect(ch.ProjectId + ".monthsLeft", before, ch.MonthsLeft) },
+                    NextStage(ch)!.Name + " slips " + s.DelayMonths + " month" + (s.DelayMonths == 1 ? "" : "s") + ".");
+            }
             if (s.KnowsInstitution.Length > 0)
             {
                 var access = World.AccessTo(s.KnowsInstitution);

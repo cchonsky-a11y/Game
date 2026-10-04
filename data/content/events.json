@@ -1,5 +1,5 @@
 {
-  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Styles and stacking (decided 2026-09-28, Corey): each option has a style (generous, profit, principled, loyal, aloof); an option can set flags (sets) that later effects check (if: a flag, not:<flag>, or own:<id> for an institution you founded that stands); stake effects give members of the institution percentage points of stake, resilience adds to plague resilience. Profiteer twice and the street turns against you; give generously three times and it seeks you out (tuning events.street). Amounts are PROPOSED P0-33 and P0-36.",
+  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Styles and stacking (decided 2026-09-28, Corey): each option has a style (generous, profit, principled, loyal, aloof); an option can set flags (sets) that later effects check (if: a flag, not:<flag>, or own:<id> for an institution you founded that stands); stake effects give members of the institution percentage points of stake, resilience adds to plague resilience. Profiteer twice and the street turns against you; give generously three times and it seeks you out (tuning events.street). Amounts are PROPOSED P0-33 and P0-36. P1 (2026-10-04): an event with 'trigger': true is not dated; it is offered when the game's own consequences call for it (a Grand Challenge's aftermath). Its options may use 'regard' and 'status' effects on recurring people.",
   "events": [
     {
       "id": "designs",
@@ -1013,6 +1013,146 @@
           "mark2": "'We answer to our depositors' is written over the counting tables at {inst}. The ledger it came from has been lost.",
           "markGone": "The honest counting house you spoke for is gone; its ledgers were sold for scrap papyrus.",
           "markGone2": "No one in Rome remembers the house of Octavius, honest or otherwise."
+        }
+      ]
+    },
+    {
+      "id": "nerius",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "title": "Sextus Nerius's twelve men",
+      "text": "Sextus Nerius comes to you at Gaius's shop with his hat in his hands, which he has never done before. \"If I buy one of these wheels,\" he says, \"what happens to my men?\"",
+      "options": [
+        {
+          "id": "change",
+          "label": "say the machines change the work more than they end it",
+          "style": "generous",
+          "text": "You tell him the wheel takes the rough; his men take the fine. He buys a grinder and keeps all twelve, for now, polishing what the wheel roughs out. In a year his shop does twice the work and four of the men grumble that it isn't the same trade.",
+          "effects": [
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 0.5
+            },
+            {
+              "type": "regard",
+              "person": "Sextus",
+              "value": 1
+            },
+            {
+              "type": "status",
+              "person": "Sextus",
+              "text": "runs a grinder and keeps his twelve men on the fine work",
+              "value": 0
+            }
+          ],
+          "mark": "Sextus Nerius's old shop still polishes by hand what a water wheel roughs out. The men there say their trade was saved by a foreigner who lied to their grandfathers' master, and that it was a kind lie."
+        },
+        {
+          "id": "honest",
+          "label": "admit some of his men may lose their work",
+          "style": "principled",
+          "text": "You tell him the truth as you see it: with a grinder he will need fewer men. He thanks you and goes home. A month later he buys one and lets four go. The four go to Priscus, who doesn't have a grinder yet.",
+          "effects": [
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 1
+            },
+            {
+              "type": "debt",
+              "domain": "governance",
+              "value": 2
+            },
+            {
+              "type": "regard",
+              "person": "Sextus",
+              "value": 1
+            },
+            {
+              "type": "status",
+              "person": "Sextus",
+              "text": "runs a grinder with eight men; four went to Priscus",
+              "value": 0
+            }
+          ],
+          "mark": "The finishers' burial club on the Clivus keeps a list of members who lost their places to the wheels. Sextus Nerius paid into it every year until he died, and nobody knew why."
+        },
+        {
+          "id": "workers",
+          "label": "tell him to ask his men",
+          "style": "loyal",
+          "text": "He asks them. The oldest says he is too old to learn a wheel. Two of the young ones ask to be taught to run it. Sextus puts off buying for a year, and when he buys, the two young men run it and the old one teaches them to judge a finish by eye.",
+          "effects": [
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 0.25
+            },
+            {
+              "type": "regard",
+              "person": "Sextus",
+              "value": 2
+            },
+            {
+              "type": "status",
+              "person": "Sextus",
+              "text": "bought a grinder a year late; two of his own men run it",
+              "value": 0
+            }
+          ],
+          "mark": "In the finishers' quarter the men who run the grinders are called Nerius's boys, though none of them ever worked for him."
+        },
+        {
+          "id": "motive",
+          "label": "ask whether he wants more work or lower wages",
+          "style": "profit",
+          "text": "He thinks about it longer than you expect. More work, he says, if the guild will buy it; lower wages, if it won't. The guild buys. He keeps his men and undersells Priscus for a year, until Priscus buys two wheels.",
+          "effects": [
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 0.75
+            },
+            {
+              "type": "loyalty",
+              "institution": "guild",
+              "value": 2
+            },
+            {
+              "type": "status",
+              "person": "Sextus",
+              "text": "underselling Priscus with a grinder, until Priscus bought two",
+              "value": 0
+            }
+          ],
+          "mark": "Two families on the Clivus, the Nerii and the house of Priscus, have been undercutting each other with water wheels for as long as anyone remembers."
+        },
+        {
+          "id": "inspect",
+          "label": "go and see which of his tasks the wheel would change first",
+          "style": "aloof",
+          "text": "You spend a day in his shop. The wheel would take the roughing, half the drilling and none of the fitting. You tell him so, task by task. He writes nothing down and remembers all of it. He buys a smaller grinder than he meant to.",
+          "effects": [
+            {
+              "type": "level",
+              "domain": "economy",
+              "value": 0.5
+            },
+            {
+              "type": "regard",
+              "person": "Sextus",
+              "value": 1
+            },
+            {
+              "type": "status",
+              "person": "Sextus",
+              "text": "runs a small grinder for the roughing; his men do the rest",
+              "value": 0
+            }
+          ],
+          "mark": "Sextus Nerius's grandsons still run a small grinder for the roughing and nothing else. They say a foreigner once spent a whole day in the shop and told their grandfather exactly what to leave alone."
         }
       ]
     }
