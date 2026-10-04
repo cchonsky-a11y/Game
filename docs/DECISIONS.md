@@ -515,3 +515,8 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - Arrivals now prefer people not yet featured, then those you were closest to.
 - **Result (scripted):** first arrivals now remember Felix, Serenus, Gaius, Aulus and Diodoros; second arrivals Gaius, Aulus, Diodoros, Cassianus, Serenus, Livia and others. Still at most two people an arrival. No repeated lines.
 - **Open:** echoes are keyed by arrival number, not years elapsed; see the jump-range note in the strategy-matrix report.
+
+## 2026-10-04 — P1 hardening: unintended echoes from more than one thread
+- **Evidence (scripted):** unintended echoes came only from Pollio's copy of the pump, so 37 of 300 first arrivals had none, against the P1 target of technical, personal, institutional and unintended echoes.
+- **Implemented (PROPOSED P1-22):** three more bad copies in people's lives, each with its own arrival line: Vettius's drawings traced at the wrong scale, Serenus's tables kept with horoscopes instead of water, and brass bearing blocks. Maturity is never raised; spread, distortion and misattribution are recorded.
+- **Result:** 298 of 300 first arrivals now show all four kinds.

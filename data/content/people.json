@@ -670,6 +670,64 @@
         "Sextus": "proud and baffled: his son has argued his first case in the Basilica Julia"
       },
       "text": "Sextus's son argues his first case in the Basilica Julia, a dispute over a party wall. Sextus sits at the back in his best tunic and understands one word in five. The son loses. Sextus tells everyone on the Clivus he won."
+    },
+    {
+      "id": "vettius-copies",
+      "person": "Felix",
+      "fromMonth": 0,
+      "chance": 0.1,
+      "windowMonths": 24,
+      "decay": 0.98,
+      "requires": [
+        "commission:drawings:Done"
+      ],
+      "category": "WorkEconomy",
+      "capability": {
+        "id": "drawings",
+        "spread": "Copied",
+        "distorted": true,
+        "misattributed": true
+      },
+      "text": "Felix brings you a copy of Vettius's fitting drawings bought from a stall at Ostia, traced by a clerk who didn't know what the marks meant. The scale is wrong on half the sheets. A shipwright at Portus has built a hull from one, and when it sags he blames the Greek's drawings."
+    },
+    {
+      "id": "serenus-tables-copied",
+      "person": "Serenus",
+      "fromMonth": 0,
+      "chance": 0.08,
+      "windowMonths": 36,
+      "decay": 0.98,
+      "requires": [
+        "commission:fevers:Done"
+      ],
+      "category": "Personal",
+      "capability": {
+        "id": "records",
+        "spread": "Copied",
+        "distorted": true,
+        "misattributed": false
+      },
+      "text": "A physician on the Esquiline has started keeping Serenus's tables: one column for each patient's horoscope, one for the phase of the moon, none for the water. Serenus comes to you shaking with rage and, you suspect, a little pleasure at being copied at all."
+    },
+    {
+      "id": "brass-bearings",
+      "person": "Aulus",
+      "fromMonth": 0,
+      "chance": 0.08,
+      "windowMonths": 36,
+      "decay": 0.98,
+      "requires": [
+        "knows:Aulus",
+        "capability:bearings:Reproducible"
+      ],
+      "category": "Exploration",
+      "capability": {
+        "id": "bearings",
+        "spread": "Copied",
+        "distorted": true,
+        "misattributed": true
+      },
+      "text": "A millwright on the far side of the hill has copied the split blocks in soft brass to save the owner money. They wear through in a month, and he tells the mill owners the foreigner's bearings are no good. Aulus spits in the race and goes back to work."
     }
   ]
 }

@@ -36,5 +36,17 @@ namespace Butterfly.Core.Tests
             Assert.True(a.P1Echoes.Count(e => e.StartsWith("person:")) <= sim.Data.Tuning.GetInt("echoes.peoplePerArrival"));
             Assert.Contains(a.Beats, b => b.Text.Contains("Crispi foundry"));
         }
+    
+        [Fact]
+        public void UnintendedEchoesHaveSeveralSources()
+        {
+            // The strategy matrix found unintended echoes came only from Pollio's copy of the pump (missing in 37 of 300 first
+            // arrivals). Bad copies now come from several threads, each with its own words on arrival.
+            var c = TestData.Load().Content;
+            var copies = c.Lives.Where(l => l.Capability.Length > 0 && l.Distorted).ToList();
+            Assert.True(copies.Select(l => l.Capability).Distinct().Count() >= 3);
+            Assert.True(copies.Select(l => l.Person).Distinct().Count() >= 3);
+            foreach (var l in copies) Assert.True(c.Capabilities.First(n => n.Id == l.Capability).Echo.ContainsKey("distorted"), l.Id);
+        }
     }
 }

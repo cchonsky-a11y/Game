@@ -136,6 +136,11 @@ namespace Butterfly.Batch
                           string.Join(", ", all.GroupBy(r => r.R17Reached).OrderBy(g => g.Key).Select(g => g.Key + " × " + g.Count())) + ".");
             sb.AppendLine("- Echo kinds on the first arrival: " + string.Join(", ", all.SelectMany(r => r.Echoes1.Select(e => e.Split(':')[0])).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) +
                           "; second: " + string.Join(", ", all.SelectMany(r => r.Echoes2.Select(e => e.Split(':')[0])).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
+            bool Four(List<string> e, string inst) => e.Any(x => x.StartsWith("person:")) && e.Any(x => x.StartsWith("technical:")) && e.Any(x => x.StartsWith("unintended:"))
+                                                       && (inst.Length > 0 || e.Any(x => x.StartsWith("access:")));
+            sb.AppendLine("- First arrivals showing all four echo kinds (personal, technical, institutional, unintended): " + all.Count(r => Four(r.Echoes1, r.Institutions1)) + " of " + all.Count +
+                          "; missing unintended: " + all.Count(r => !r.Echoes1.Any(x => x.StartsWith("unintended:"))) + "; missing institutional: " + all.Count(r => r.Institutions1.Length == 0 && !r.Echoes1.Any(x => x.StartsWith("access:"))) +
+                          "; second arrivals with all four: " + all.Count(r => Four(r.Echoes2, r.Institutions2)) + ".");
             sb.AppendLine("- People remembered on the first arrival: " + string.Join(", ", all.SelectMany(r => r.Echoes1.Where(e => e.StartsWith("person:")).Select(e => e.Substring(7)))
                               .GroupBy(x => x).OrderByDescending(g => g.Count()).Select(g => g.Key + " " + g.Count())) + "; second: " +
                           string.Join(", ", all.SelectMany(r => r.Echoes2.Where(e => e.StartsWith("person:")).Select(e => e.Substring(7)))

@@ -14,41 +14,41 @@ Progression routing weight: 3.0 (the game's tuning).
 
 | Profile | Opening | Runs | First commission (month) | Odd-job months / era | Commissions offered / accepted / walked / declined / done | Challenge stages / done | Members | Gold at departure | Min gold | First jump (yrs) | Quiet months | Attention conflicts |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Cooperative | fountain | 30 | 5.7 (5.0–11.0) | 17.3 (6.0–33.0) / 96.0 | 13.6 / 13.6 / 0.0 / 0.0 / 13.6 | 8.3 / 2.0 | 2.0 | 57.1 (11.6–167.2) | 0.0 | 32.0 (25.0–40.0) | 0.0 (0.0–0.0) | 0 |
-| Cooperative | workshop | 30 | 5.4 (5.0–7.0) | 15.5 (11.0–23.0) / 96.0 | 10.5 / 10.5 / 0.0 / 0.0 / 10.4 | 8.8 / 2.0 | 1.0 | 187.2 (75.3–341.7) | 0.0 | 32.5 (25.0–40.0) | 0.1 (0.0–2.0) | 0 |
-| Negotiator | fountain | 30 | 5.7 (5.0–11.0) | 28.8 (12.0–49.0) / 96.0 | 12.6 / 9.4 / 3.1 / 0.0 / 9.4 | 8.4 / 1.9 | 1.9 | 48.0 (7.4–165.5) | 0.0 | 33.3 (25.0–40.0) | 0.1 (0.0–2.0) | 0 |
-| Negotiator | workshop | 30 | 5.4 (5.0–7.0) | 21.2 (8.0–32.0) / 96.0 | 10.3 / 7.7 / 2.6 / 0.0 / 7.7 | 8.2 / 1.9 | 1.0 | 185.7 (40.0–359.3) | 0.1 | 30.5 (25.0–40.0) | 0.8 (0.0–20.0) | 0 |
-| Selective | fountain | 30 | 5.7 (5.0–11.0) | 28.4 (13.0–45.0) / 96.0 | 12.0 / 8.1 / 0.0 / 3.9 / 8.1 | 5.5 / 1.3 | 2.0 | 44.7 (18.8–111.2) | 0.0 | 31.0 (25.0–40.0) | 0.1 (0.0–1.0) | 0 |
-| Selective | workshop | 30 | 5.4 (5.0–7.0) | 19.4 (10.0–38.0) / 96.0 | 10.5 / 7.4 / 0.0 / 3.1 / 7.4 | 7.9 / 2.0 | 1.0 | 159.5 (41.3–306.5) | 0.1 | 32.3 (25.0–40.0) | 0.2 (0.0–3.0) | 0 |
-| Engineering | fountain | 30 | 5.7 (5.0–11.0) | 38.5 (22.0–49.0) / 96.0 | 11.5 / 7.0 / 0.0 / 4.5 / 7.0 | 8.4 / 2.0 | 2.0 | 31.9 (6.4–56.8) | 0.0 | 34.7 (25.0–45.0) | 0.0 (0.0–1.0) | 0 |
-| Engineering | workshop | 30 | 5.4 (5.0–7.0) | 22.5 (13.0–36.0) / 96.0 | 10.1 / 7.0 / 0.0 / 3.1 / 7.0 | 8.2 / 2.0 | 1.0 | 81.2 (40.7–169.6) | 0.0 | 42.7 (35.0–55.0) | 0.3 (0.0–3.0) | 0 |
-| Relationship | fountain | 30 | 5.7 (5.0–11.0) | 21.4 (11.0–33.0) / 96.0 | 13.4 / 13.4 / 0.0 / 0.0 / 13.4 | 8.1 / 1.9 | 2.0 | 30.4 (9.9–49.2) | 0.0 | 32.7 (25.0–40.0) | 0.0 (0.0–0.0) | 0 |
-| Relationship | workshop | 30 | 5.5 (5.0–9.0) | 15.4 (7.0–20.0) / 96.0 | 10.6 / 10.6 / 0.0 / 0.0 / 10.4 | 8.1 / 1.9 | 1.0 | 106.0 (44.1–204.8) | 0.2 | 30.2 (25.0–40.0) | 0.3 (0.0–2.0) | 0 |
+| Cooperative | fountain | 30 | 5.7 (5.0–11.0) | 18.6 (4.0–34.0) / 96.0 | 13.5 / 13.5 / 0.0 / 0.0 / 13.4 | 8.3 / 2.0 | 1.9 | 55.7 (8.6–161.0) | 0.0 | 32.7 (25.0–40.0) | 0.0 (0.0–0.0) | 0 |
+| Cooperative | workshop | 30 | 5.4 (5.0–7.0) | 14.5 (10.0–25.0) / 96.0 | 10.5 / 10.5 / 0.0 / 0.0 / 10.4 | 8.0 / 2.0 | 1.0 | 197.6 (80.3–367.0) | 0.0 | 34.2 (25.0–40.0) | 0.1 (0.0–1.0) | 0 |
+| Negotiator | fountain | 30 | 5.7 (5.0–11.0) | 29.4 (13.0–48.0) / 96.0 | 12.4 / 9.3 / 3.1 / 0.0 / 9.2 | 8.5 / 1.8 | 1.9 | 43.3 (0.0–147.2) | 0.0 | 33.3 (25.0–40.0) | 0.0 (0.0–1.0) | 0 |
+| Negotiator | workshop | 30 | 5.4 (5.0–7.0) | 21.3 (8.0–33.0) / 96.0 | 10.4 / 7.6 / 2.8 / 0.0 / 7.6 | 8.8 / 1.8 | 1.0 | 159.8 (30.6–306.4) | 0.1 | 32.7 (25.0–40.0) | 0.7 (0.0–20.0) | 0 |
+| Selective | fountain | 30 | 5.7 (5.0–11.0) | 28.4 (14.0–45.0) / 96.0 | 12.3 / 8.2 / 0.0 / 4.0 / 8.2 | 5.9 / 1.3 | 2.0 | 39.0 (15.3–119.7) | 0.0 | 31.5 (25.0–40.0) | 0.1 (0.0–1.0) | 0 |
+| Selective | workshop | 30 | 5.4 (5.0–7.0) | 19.4 (10.0–38.0) / 96.0 | 10.3 / 7.3 / 0.0 / 3.0 / 7.3 | 7.6 / 2.0 | 1.0 | 161.6 (41.3–306.4) | 0.1 | 32.0 (25.0–40.0) | 0.2 (0.0–3.0) | 0 |
+| Engineering | fountain | 30 | 5.7 (5.0–11.0) | 38.9 (21.0–52.0) / 96.0 | 11.5 / 6.9 / 0.0 / 4.6 / 6.9 | 8.2 / 1.9 | 2.0 | 33.8 (10.8–60.1) | 0.0 | 37.7 (25.0–50.0) | 0.0 (0.0–0.0) | 0 |
+| Engineering | workshop | 30 | 5.4 (5.0–7.0) | 21.1 (12.0–34.0) / 96.0 | 10.1 / 7.0 / 0.0 / 3.1 / 7.0 | 7.8 / 2.0 | 1.0 | 82.2 (40.3–161.8) | 0.0 | 45.0 (30.0–55.0) | 0.3 (0.0–3.0) | 0 |
+| Relationship | fountain | 30 | 5.7 (5.0–11.0) | 21.5 (10.0–34.0) / 96.0 | 13.5 / 13.5 / 0.0 / 0.0 / 13.5 | 7.9 / 2.0 | 2.0 | 29.7 (13.3–39.8) | 0.0 | 33.0 (25.0–40.0) | 0.0 (0.0–0.0) | 0 |
+| Relationship | workshop | 30 | 5.5 (5.0–9.0) | 15.9 (9.0–23.0) / 96.0 | 10.2 / 10.2 / 0.0 / 0.0 / 10.1 | 7.5 / 2.0 | 1.0 | 116.5 (41.6–209.2) | 0.0 | 32.8 (25.0–40.0) | 0.1 (0.0–1.0) | 0 |
 
 ## Income by source (era totals, aurei at the prices of the day; mean per run)
 
 | Profile | Opening | Commissions (incl. shares) | Workshop | Odd jobs | Profit-share payments |
 |---|---|---|---|---|---|
-| Cooperative | fountain | 350.5 | 0.0 | 87.6 | 2.0 |
-| Cooperative | workshop | 283.7 | 145.9 | 72.7 | 2.0 |
-| Negotiator | fountain | 270.3 | 0.0 | 146.3 | 1.8 |
-| Negotiator | workshop | 232.5 | 155.9 | 99.4 | 1.8 |
-| Selective | fountain | 209.8 | 0.0 | 144.2 | 0.0 |
-| Selective | workshop | 206.7 | 145.5 | 92.7 | 0.0 |
-| Engineering | fountain | 228.2 | 0.0 | 196.0 | 2.0 |
-| Engineering | workshop | 227.0 | 130.4 | 107.9 | 2.0 |
-| Relationship | fountain | 347.6 | 0.0 | 114.0 | 1.9 |
-| Relationship | workshop | 282.9 | 148.5 | 72.2 | 2.0 |
+| Cooperative | fountain | 345.4 | 0.0 | 94.2 | 1.9 |
+| Cooperative | workshop | 284.1 | 147.3 | 67.9 | 2.0 |
+| Negotiator | fountain | 268.6 | 0.0 | 147.3 | 1.8 |
+| Negotiator | workshop | 220.2 | 153.8 | 100.0 | 1.8 |
+| Selective | fountain | 211.8 | 0.0 | 144.0 | 0.0 |
+| Selective | workshop | 203.1 | 146.9 | 92.5 | 0.0 |
+| Engineering | fountain | 225.9 | 0.0 | 199.2 | 2.0 |
+| Engineering | workshop | 226.9 | 130.7 | 100.4 | 2.0 |
+| Relationship | fountain | 348.3 | 0.0 | 114.0 | 1.9 |
+| Relationship | workshop | 280.3 | 147.7 | 74.5 | 2.0 |
 
 ## Scene routing (all runs)
 
 | Profile | Engineering | Personal | RomanLife | WorkEconomy | MachineMystery | CityHistory | Exploration | InstitutionsPolitics | Routed / run | Longest routed run (max) | Longest all-scene run (max) | Progression waiting (months / era) | Longest wait for one progression scene (months, max) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Cooperative | 1.8% (13.5%) | 13.1% (13.5%) | 49.0% (31.5%) | 7.2% (16.6%) | 5.0% (4.3%) | 7.0% (6.5%) | 5.0% (3.8%) | 11.8% (10.3%) | 96.0 | 9 | 6 (RomanLife) | 66.6 (40.0–84.0) | 53 |
-| Negotiator | 1.9% (11.8%) | 12.2% (12.0%) | 50.4% (30.8%) | 7.1% (21.7%) | 5.4% (4.6%) | 7.5% (6.3%) | 4.5% (3.2%) | 11.0% (9.6%) | 95.5 | 9 | 9 (RomanLife) | 62.2 (2.0–87.0) | 60 |
-| Selective | 1.8% (11.5%) | 12.0% (12.0%) | 51.0% (33.6%) | 6.5% (17.3%) | 5.2% (4.8%) | 7.4% (7.1%) | 4.2% (3.4%) | 11.8% (10.5%) | 95.9 | 9 | 6 (RomanLife) | 59.3 (37.0–80.0) | 33 |
-| Engineering | 1.9% (13.0%) | 11.2% (10.8%) | 50.5% (33.0%) | 7.5% (17.4%) | 5.4% (4.9%) | 7.3% (6.5%) | 5.0% (4.1%) | 11.2% (10.3%) | 95.8 | 8 | 7 (RomanLife) | 61.1 (28.0–81.0) | 37 |
-| Relationship | 1.9% (13.4%) | 12.2% (13.1%) | 50.5% (32.5%) | 6.8% (16.1%) | 5.2% (4.5%) | 6.8% (6.4%) | 4.7% (3.6%) | 11.9% (10.4%) | 95.9 | 12 | 8 (RomanLife) | 69.7 (41.0–88.0) | 55 |
+| Cooperative | 1.8% (13.4%) | 13.2% (13.6%) | 48.0% (31.1%) | 7.9% (16.7%) | 4.9% (4.3%) | 7.1% (6.5%) | 5.1% (3.9%) | 11.9% (10.5%) | 96.0 | 8 | 7 (RomanLife) | 67.1 (42.0–89.0) | 49 |
+| Negotiator | 2.0% (11.9%) | 13.1% (12.4%) | 48.8% (29.9%) | 8.0% (22.4%) | 5.3% (4.5%) | 7.0% (6.2%) | 4.6% (3.2%) | 11.2% (9.6%) | 95.6 | 9 | 9 (RomanLife) | 67.6 (2.0–87.0) | 48 |
+| Selective | 1.8% (11.5%) | 12.5% (12.2%) | 50.3% (33.2%) | 6.4% (17.2%) | 5.3% (4.8%) | 7.4% (7.1%) | 4.4% (3.5%) | 11.8% (10.4%) | 95.9 | 9 | 7 (RomanLife) | 63.0 (37.0–87.0) | 42 |
+| Engineering | 1.8% (12.8%) | 10.8% (10.5%) | 49.8% (32.6%) | 8.5% (18.0%) | 5.2% (4.8%) | 7.5% (6.7%) | 5.2% (4.2%) | 11.1% (10.3%) | 95.8 | 8 | 7 (RomanLife) | 62.6 (39.0–81.0) | 40 |
+| Relationship | 1.8% (13.3%) | 12.3% (13.0%) | 49.7% (32.2%) | 7.7% (16.5%) | 5.1% (4.4%) | 6.9% (6.5%) | 5.0% (3.8%) | 11.4% (10.2%) | 95.9 | 12 | 8 (RomanLife) | 69.9 (40.0–88.0) | 48 |
 
 Cells: share of routed optional scenes (share of all meaningful scenes, including the player's own work and interruptions, in brackets). "Progression waiting" counts months in which a commission, invitation, challenge or life development was a router candidate as the month ended; "longest wait" is the most months any one such candidate waited before it was picked.
 
@@ -56,58 +56,59 @@ Longest waits by candidate (max months as a candidate before it was picked; mean
 
 | Candidate | Max wait | Mean wait | Runs picked | Still waiting at departure (runs; mean months waited) |
 |---|---|---|---|---|
-| invitation:circle | 60 | 11.8 | 150 | 1; 8.0 |
-| commission:crane | 55 | 7.3 | 242 | 0 |
-| invitation:guild | 53 | 9.4 | 294 | 0 |
-| commission:drawings | 53 | 7.5 | 265 | 0 |
-| life:felix-son | 46 | 6.7 | 211 | 0 |
-| commission:fountainworks | 42 | 7.1 | 283 | 0 |
-| commission:jars | 42 | 7.1 | 161 | 1; 14.0 |
-| commission:fevers | 40 | 6.8 | 238 | 0 |
-| challenge:power | 37 | 5.8 | 287 | 2; 7.0 |
-| life:felix-quaestor | 37 | 6.5 | 231 | 0 |
-| life:serenus-rival | 37 | 7.2 | 156 | 3; 5.0 |
-| life:pollio-copy | 36 | 6.0 | 218 | 0 |
-| commission:bilges | 35 | 4.4 | 297 | 0 |
-| commission:millbearing | 35 | 6.1 | 288 | 1; 1.0 |
-| life:diodoros-deliveries | 34 | 6.8 | 134 | 0 |
-| life:cassianus-betrothal | 33 | 6.4 | 189 | 0 |
-| commission:drains | 33 | 7.5 | 255 | 0 |
-| commission:households | 33 | 6.6 | 168 | 3; 7.3 |
-| commission:argiletum | 31 | 6.7 | 76 | 0 |
-| commission:baths | 29 | 5.9 | 259 | 0 |
+| invitation:circle | 49 | 12.1 | 148 | 1; 17.0 |
+| commission:crane | 48 | 7.7 | 245 | 0 |
+| life:cassianus-betrothal | 48 | 6.5 | 196 | 0 |
+| commission:drains | 46 | 8.3 | 259 | 0 |
+| commission:drawings | 45 | 7.9 | 268 | 0 |
+| invitation:guild | 43 | 9.5 | 294 | 0 |
+| commission:fountainworks | 43 | 7.2 | 285 | 0 |
+| life:serenus-tables-copied | 42 | 7.9 | 119 | 4; 9.3 |
+| life:felix-son | 40 | 7.1 | 210 | 0 |
+| commission:jars | 38 | 6.6 | 167 | 0 |
+| commission:fevers | 38 | 6.5 | 231 | 1; 1.0 |
+| life:pollio-copy | 37 | 6.0 | 220 | 0 |
+| commission:households | 36 | 7.4 | 158 | 3; 12.0 |
+| commission:argiletum | 36 | 7.9 | 80 | 0 |
+| life:vettius-copies | 34 | 6.5 | 173 | 0 |
+| commission:bilges | 33 | 4.5 | 297 | 0 |
+| life:serenus-rival | 33 | 6.1 | 157 | 4; 4.8 |
+| life:diodoros-deliveries | 32 | 6.5 | 141 | 1; 11.0 |
+| commission:sluice | 32 | 5.9 | 204 | 6; 6.0 |
+| life:diodoros-antioch | 32 | 7.5 | 59 | 1; 31.0 |
 
 ## Attention (era months)
 
 | Profile | Opening | Months ending with 0 free | 1 free | 2+ free | Idle Attention / month | Overbooking refusals (future months) | Challenge stages refused for Attention |
 |---|---|---|---|---|---|---|---|
-| Cooperative | fountain | 33.4 | 14.5 | 48.1 | 1.8 | 0.0 | 4.8 |
-| Cooperative | workshop | 36.4 | 16.9 | 42.7 | 1.6 | 0.0 | 2.9 |
-| Negotiator | fountain | 30.6 | 17.2 | 48.2 | 1.8 | 0.0 | 3.0 |
-| Negotiator | workshop | 35.7 | 17.7 | 42.6 | 1.6 | 0.0 | 2.2 |
-| Selective | fountain | 29.8 | 13.0 | 53.1 | 2.0 | 0.0 | 1.2 |
-| Selective | workshop | 33.7 | 17.2 | 45.1 | 1.7 | 0.0 | 1.1 |
-| Engineering | fountain | 31.6 | 16.1 | 48.3 | 1.7 | 0.0 | 2.6 |
-| Engineering | workshop | 41.0 | 18.9 | 36.1 | 1.2 | 0.0 | 2.5 |
-| Relationship | fountain | 30.7 | 16.0 | 49.3 | 1.8 | 0.0 | 1.8 |
-| Relationship | workshop | 33.8 | 19.3 | 42.9 | 1.6 | 0.0 | 1.0 |
+| Cooperative | fountain | 33.1 | 15.2 | 47.8 | 1.8 | 0.0 | 4.9 |
+| Cooperative | workshop | 36.1 | 16.1 | 43.8 | 1.7 | 0.0 | 2.7 |
+| Negotiator | fountain | 30.9 | 16.4 | 48.7 | 1.8 | 0.0 | 2.8 |
+| Negotiator | workshop | 35.5 | 17.8 | 42.6 | 1.6 | 0.0 | 2.3 |
+| Selective | fountain | 30.2 | 12.9 | 52.9 | 1.9 | 0.0 | 1.1 |
+| Selective | workshop | 33.4 | 17.5 | 45.2 | 1.7 | 0.0 | 1.1 |
+| Engineering | fountain | 31.2 | 16.4 | 48.4 | 1.7 | 0.0 | 2.6 |
+| Engineering | workshop | 39.8 | 20.1 | 36.1 | 1.2 | 0.0 | 2.2 |
+| Relationship | fountain | 31.1 | 14.9 | 50.0 | 1.8 | 0.0 | 1.9 |
+| Relationship | workshop | 33.5 | 19.3 | 43.2 | 1.7 | 0.0 | 1.0 |
 
 ## Jumps (measured, not changed)
 
 - Runs that jumped: 300 of 300; jumped twice: 300.
 - Departure years: AD 163 × 300.
-- First jump distances: 25 yrs × 84, 30 yrs × 54, 35 yrs × 74, 40 yrs × 71, 45 yrs × 11, 50 yrs × 4, 55 yrs × 2; ranges offered at departure: 25–40 × 250, 30–45 × 19, 35–50 × 21, 40–55 × 10.
-- Second jump distances: 25 yrs × 66, 30 yrs × 69, 35 yrs × 74, 40 yrs × 64, 45 yrs × 11, 50 yrs × 13, 55 yrs × 3; ranges offered: 25–40 × 250, 30–45 × 19, 35–50 × 21, 40–55 × 10.
-- First arrival years: 196.2 (188.0–218.0); second arrival years: 230.1 (213.0–268.0).
-- Machine upgrades bought (Engineering profile): 1.5 (0.0–3.0).
+- First jump distances: 25 yrs × 58, 30 yrs × 60, 35 yrs × 80, 40 yrs × 75, 45 yrs × 15, 50 yrs × 8, 55 yrs × 4; ranges offered at departure: 25–40 × 251, 30–45 × 17, 35–50 × 19, 40–55 × 13.
+- Second jump distances: 25 yrs × 64, 30 yrs × 64, 35 yrs × 79, 40 yrs × 70, 45 yrs × 9, 50 yrs × 7, 55 yrs × 7; ranges offered: 25–40 × 251, 30–45 × 17, 35–50 × 19, 40–55 × 13.
+- First arrival years: 197.5 (188.0–218.0); second arrival years: 231.6 (213.0–273.0).
+- Machine upgrades bought (Engineering profile): 1.6 (0.0–3.0).
 
 ## Integrity
 
 - Measurement and standards opened by: allotment × 3, hoist × 8, never × 1, pump × 288; by opening: workshop hoist × 4, never × 1, pump × 145; fountain allotment × 3, hoist × 4, pump × 143.
-- Grand Challenges completed: both in 272 runs, one in 19, none in 9.
+- Grand Challenges completed: both in 267 runs, one in 26, none in 7.
 - Ledger reconciles at departure: 300 of 300.
 - Lowest gold in any run: 0.0.
 - Duplicate scene texts in an era: 0; repeated sentences between arrivals: 0.
-- R-17: reached the warning in 296 of 300 runs; furthest scene: r17-acknowledged × 1, r17-active × 9, r17-again × 36, r17-dark × 53, r17-link × 2, r17-notebook × 199.
-- Echo kinds on the first arrival: access 4, person 598, technical 1418, unintended 263; second: person 598, technical 1252, unintended 263.
-- People remembered on the first arrival: Felix 275, Serenus 176, Gaius 65, Aulus 60, Diodoros 21, Cassianus 1; second: Gaius 188, Aulus 167, Diodoros 80, Cassianus 61, Serenus 49, Livia 27, Felix 22, Lucan 2, Marcus 2.
+- R-17: reached the warning in 293 of 300 runs; furthest scene: r17-acknowledged × 1, r17-active × 13, r17-again × 35, r17-dark × 60, r17-link × 4, r17-notebook × 186, r17-request × 1.
+- Echo kinds on the first arrival: access 4, person 598, technical 1392, unintended 692; second: person 598, technical 1232, unintended 266.
+- First arrivals showing all four echo kinds (personal, technical, institutional, unintended): 298 of 300; missing unintended: 2; missing institutional: 1; second arrivals with all four: 266.
+- People remembered on the first arrival: Felix 277, Serenus 168, Gaius 64, Aulus 59, Diodoros 26, Cassianus 4; second: Gaius 186, Aulus 155, Diodoros 79, Cassianus 72, Serenus 54, Livia 27, Felix 18, Marcus 6, Lucan 1.

@@ -69,7 +69,10 @@
       "baseline": "Craft trial and error, and physicians' case histories in the Hippocratic tradition.",
       "bottleneck": "Results live in one man's head and die with him.",
       "leap": "formalize",
-      "prerequisites": []
+      "prerequisites": [],
+      "echo": {
+        "distorted": "Physicians in Rome keep case tables now, column by column, as Serenus did. Most of them record the patient's stars and the wind on the day, and none of them the water."
+      }
     },
     {
       "id": "drawings",
@@ -80,7 +83,10 @@
       "leap": "standardize",
       "prerequisites": [
         "metrology"
-      ]
+      ],
+      "echo": {
+        "distorted": "At Ostia you can buy Vettius's drawings from a stall by the lighthouse: copies of copies, the scale long wrong. The yards that build from them pack every joint with tow and blame the Greeks."
+      }
     },
     {
       "id": "alloys",
@@ -153,7 +159,8 @@
       ],
       "echo": {
         "Reproducible": "Millwrights on the hill carry spare bearing shells cut to one size and change a worn one between dawn and the first grinding.",
-        "Economical": "Bearing shells are sold by the basket at Ostia, cheap enough that nobody waits for a worn one to fail."
+        "Economical": "Bearing shells are sold by the basket at Ostia, cheap enough that nobody waits for a worn one to fail.",
+        "distorted": "Up and down the river the mills run on split bearing blocks. The cheap ones are cast in soft brass, wear through in a season, and are called foreign blocks by the men who curse them."
       }
     },
     {
