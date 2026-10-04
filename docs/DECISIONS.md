@@ -497,7 +497,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 
 ## 2026-10-04 — P1 hardening: strategy matrix, routing and economy stress (scripted, not human)
 - **Implemented:** `--p1-matrix <from>-<to> [--weight W]` runs each seed with five scripted profiles (cooperative, negotiator, selective, engineering-focused, relationship/Roman-life; odd seeds workshop, even fountain) through an era and two jumps. It measures routing and waits, Attention use, income by source, odd jobs, challenges, institutions, R-17, jumps and integrity. `--weight` is a counterfactual run in memory only. Report: playtests/ai/live/2026-10-04-p1-strategy-matrix.md (60 seeds, 300 runs).
-- **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 133 progression scenes unplayed at departure on the final content, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits come from same-category exclusion; an age bonus is an option for Corey, not implemented.
+- **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 133 progression scenes unplayed at departure on the final content, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits were first attributed to same-category exclusion; the polish pass traced them to a crowded pool instead (see below).
 - **Fixed from evidence:**
   - Profit shares were promised in terms and text but never paid; they are now paid on schedule, once each, and lapse at departure (PROPOSED P1-21).
   - Unconverted denarii in hand survived the jump automatically, against SYSTEMS §9 and the briefing (wealth meant to reach the future, the carried purse, bank deposits, the jar and institutions' holdings, was never affected); denarii in hand are now left behind, logged and ledgered.
@@ -545,3 +545,23 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - denarii stay behind;
   - institutional holdings never come back as coin;
   - the briefing names each kind of money.
+
+## 2026-10-04 — P1 polish: the long progression waits
+- **Investigated (scripted, not human):** all 149 waits of 25 or more months in the 300-run matrix, traced month by month.
+  - The waiting scene was barred by the two-in-a-row rule in only 2.4% of its waiting months, and player focus wasn't involved for the cooperative players.
+  - The long tail is a crowded pool: 15–25 candidates a month, progression at weight 3, and no memory of how long something has waited.
+  - The worst case: the Circle's guest-supper invitation (seed 52) waited 49 months after Serenus's conditions held. Meanwhile the guild's invitations came four times.
+  - Other long waits: Lollius's crane, the Clivus drain, Vettius's drawings, Felix's son, Cassianus's daughter's betrothal.
+- **Player experience:**
+  - A person who should have come back to you for three or four years reads as the game forgetting. That is clearest for invitations, whose conditions the player can see met.
+  - Late-era commissions and offscreen lives arriving a year late matter less.
+- **Built, off (PROPOSED P1-23):** `scenes.progressionAgePerMonth`, a waiting progression candidate's weight × (1 + rate × months waited).
+  - At the default 0, routing is exactly as before (deterministic outputs byte-identical).
+  - Counterfactual at 0.10: longest wait 49 → 31, mean 7.3 → 5.9; Roman-life share, commissions done and odd jobs unchanged; the two-in-a-row rule untouched.
+  - At 0.25: longest 26, mean 4.9.
+  - Turning it on changes every seeded game and the snapshot, so it waits for Corey.
+- **Not chosen:**
+  - Exempting long-waiting scenes from the two-in-a-row rule would not help, since exclusion isn't the cause.
+  - Re-categorizing scenes is for the same reason a mismatch.
+  - 3:1 stays the working default.
+

@@ -50,18 +50,18 @@ namespace Butterfly.Core
             double pw = T.Get("scenes.progressionWeight");
             var list = new List<RoutedScene>();
             foreach (var c in CommissionsDue().ToList())
-                list.Add(new RoutedScene("commission:" + c.Id, CommissionDefOf(c).Encounter.Category, pw, () => OpenCommission(c)));
+                list.Add(new RoutedScene("commission:" + c.Id, CommissionDefOf(c).Encounter.Category, Aged(pw, "commission:" + c.Id), () => OpenCommission(c)));
             foreach (var (d, offer) in InvitationOffersDue().ToList())
-                list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), pw, () => OfferInvitation(d, offer)));
+                list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), Aged(pw, "invitation:" + d.Institution), () => OfferInvitation(d, offer)));
             foreach (var c in ChallengesDue().ToList())
             {
                 var route = OpeningRoute(c)!;
-                list.Add(new RoutedScene("challenge:" + c.Id, route.Category, pw, () => OpenChallenge(c, route)));
+                list.Add(new RoutedScene("challenge:" + c.Id, route.Category, Aged(pw, "challenge:" + c.Id), () => OpenChallenge(c, route)));
             }
             foreach (var id in World.ReadyLife.ToList())
             {
                 var e = Data.Content.Lives.First(l => l.Id == id);
-                list.Add(new RoutedScene("life:" + id, e.Category, pw, () => Happen(e, PersonOf(e.Person)!)));
+                list.Add(new RoutedScene("life:" + id, e.Category, Aged(pw, "life:" + id), () => Happen(e, PersonOf(e.Person)!)));
             }
             foreach (var s in Data.Content.Scenes.Where(s => !s.Interrupt && !World.ScenesSeen.Contains(s.Id) && Rested(s) && s.Requires.All(Holds)))
                 list.Add(new RoutedScene("scene:" + s.Id, s.Category, s.Weight > 0 ? s.Weight : w, () => PlayAuthoredScene(s)));
@@ -77,11 +77,34 @@ namespace Butterfly.Core
             int slots = T.GetInt("scenes.optionalPerMonth");
             for (int n = 0; n < slots; n++)
             {
-                var chosen = ChooseScene(SceneCandidates());
+                var candidates = SceneCandidates();
+                TrackWaiting(candidates);
+                var chosen = ChooseScene(candidates);
                 if (chosen == null) return;
                 World.RoutedScenes.Add((Turn, chosen.Candidate.Category, chosen.Candidate.Id));
+                World.CandidateSince.Remove(chosen.Candidate.Id);
                 chosen.Fire();
             }
+        }
+
+        /// <summary>
+        /// A progression candidate's weight, raised by <c>scenes.progressionAgePerMonth</c> for each month it has waited
+        /// (P1 polish pass: the long waits came from a crowded pool, not from category exclusion). At the default 0 the
+        /// weight is exactly the progression weight, so routing is unchanged until Corey decides (PROPOSED P1-23).
+        /// </summary>
+        private double Aged(double weight, string id)
+        {
+            double perMonth = T.Get("scenes.progressionAgePerMonth");
+            if (perMonth <= 0 || !World.CandidateSince.TryGetValue(id, out int since)) return weight;
+            return weight * (1 + perMonth * (Turn - since));
+        }
+
+        /// <summary>Remembers when each progression candidate began waiting; forgets those no longer waiting.</summary>
+        private void TrackWaiting(List<RoutedScene> candidates)
+        {
+            var waiting = candidates.Select(c => c.Candidate.Id).Where(id => !id.StartsWith("scene:", StringComparison.Ordinal)).ToList();
+            foreach (var id in World.CandidateSince.Keys.Where(k => !waiting.Contains(k)).ToList()) World.CandidateSince.Remove(id);
+            foreach (var id in waiting) if (!World.CandidateSince.ContainsKey(id)) World.CandidateSince[id] = Turn;
         }
 
         /// <summary>

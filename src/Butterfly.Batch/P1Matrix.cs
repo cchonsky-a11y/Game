@@ -24,7 +24,7 @@ namespace Butterfly.Batch
         private static string Range(IEnumerable<double> xs) { var l = xs.ToList(); return l.Count == 0 ? "–" : F(l.Average()) + " (" + F(l.Min()) + "–" + F(l.Max()) + ")"; }
         private static string Range(IEnumerable<int> xs) => Range(xs.Select(x => (double)x));
 
-        public static string Report(IReadOnlyList<P1Campaign.Result> all, double weight = 3)
+        public static string Report(IReadOnlyList<P1Campaign.Result> all, double weight = 3, double age = 0)
         {
             var sb = new StringBuilder();
             var cats = Enum.GetValues(typeof(SceneCategory)).Cast<SceneCategory>().ToList();
@@ -32,6 +32,7 @@ namespace Butterfly.Batch
             sb.AppendLine("# P1 strategy matrix: " + seeds + " seeds × " + Profiles.Length + " scripted profiles (" + all.Count + " runs)");
             sb.AppendLine();
             sb.AppendLine("Progression routing weight: " + F(weight) + (Math.Abs(weight - 3) > 1e-9 ? " (**counterfactual experiment, in memory only; the game's tuning is 3**)" : " (the game's tuning)") + ".");
+            if (age > 0) sb.AppendLine("Progression age bonus: +" + F(age * 100) + "% weight per month waited (**counterfactual experiment, in memory only; the game's tuning is 0, off**).");
             sb.AppendLine();
             sb.AppendLine("**Automated, scripted runs of the actual build (`dotnet run --project src/Butterfly.Batch -- --p1-matrix ...`). Not human playtests, not persona feedback.** Odd seeds open with the workshop, even seeds with the fountain. Every profile assesses and repairs the machine, restores its gold, opens the R-17 channel when it can, takes workshop orders when it has a workshop, does odd jobs only when no commission is under way and money is short (below 30 aurei at AD 155 prices), and jumps once the machine is ready and the year is at least AD 163, then jumps again.");
             sb.AppendLine();

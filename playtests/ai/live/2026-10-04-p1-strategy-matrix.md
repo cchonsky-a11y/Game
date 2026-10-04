@@ -62,7 +62,7 @@ The asymmetry is kept:
 - **All meaningful scenes, including the player's own work:** Roman life 30–33%, Work 17–22%, Personal 11–14%, Engineering 12–13%, Institutions 10%. Engineering stays well under a third of what the player experiences.
 - **Longest runs.** All-scene runs of one category (always Roman life) reached 7–9. Those happen when nothing but Roman life can happen: no progression candidate waits, and most authored texture is Roman life. In an earlier build of this pass, a Negotiator who had lost three jobs ran 11 in a row. The 12-long routed run belongs to the Relationship profile, which stays focused on Roman life by choice. Neither breaks the rule ("a third in a row only when nothing else can happen, or the player stays focused").
 - **Progression waits:** a commission, invitation or life development waits for the router about 7 months on average. The longest single wait was 49 months (the Circle's invitation averages 12).
-  - The long tail comes from same-category exclusion, not the weight. Roman life fills half the routed slots, so a RomanLife-category progression scene (such as the baths job) is often barred by the two-in-a-row rule.
+  - **Corrected in the polish pass (2026-10-04):** the long tail does **not** come from the two-in-a-row exclusion. A month-by-month trace of all 149 waits of 25+ months found the waiting scene excluded in only 2.4% of its waiting months. It is a crowded pool: 15–25 candidates a month, each progression scene at weight 3, with no memory of how long it has waited. The 49-month case is the Circle's guest-supper invitation (seed 52, Cooperative), excluded 3 times in 49 months while the guild's own invitations were picked four times.
 
 ### Is 3:1 right? Counterfactual weights (in memory only; the game still uses 3)
 
@@ -78,9 +78,7 @@ The asymmetry is kept:
 
 - **Below 3 the plot starves.** At weight 1, 133 progression scenes are still unplayed at departure, there are 5 more odd-job months, and commissions done drop. Going from 2 to 3 still more than halves the unplayed progression scenes (52 to 21).
 - **Above 3 nothing the player keeps changes.** Waits shorten, but commissions done, odd jobs and the Roman-life share stay the same.
-- **The long-tail waits come from category exclusion, not the weight.** If Corey wants them shorter, the targeted options (not implemented) are:
-  - give a waiting progression candidate an age bonus;
-  - let a progression candidate count as its own category for the two-in-a-row rule.
+- **The long-tail waits come from a crowded pool, not the weight or the exclusion rule** (corrected; see above). The fitting remedy is an age bonus: built in the polish pass, **off by default** (PROPOSED P1-23). Counterfactual: at +10% a month, the longest wait falls from 49 to 31 months and the mean from 7.3 to 5.9, with Roman-life share, commissions done and odd jobs unchanged.
 
 ## Attention (measured, not retuned)
 

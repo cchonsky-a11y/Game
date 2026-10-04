@@ -1901,6 +1901,10 @@
       "value": 3,
       "ref": "P1 scene pacing (revised 2026-10-04 after content density tests showed invitations and work starved by texture): the weight of a commission, invitation, Grand Challenge or life-event candidate (PROPOSED P1-11)"
     },
+    "progressionAgePerMonth": {
+      "value": 0,
+      "ref": "P1 polish pass (2026-10-04): a waiting progression candidate's weight grows by this fraction per month waited; 0 = off, routing unchanged (PROPOSED P1-23, awaiting Corey)"
+    },
     "baseWeight": {
       "value": 1,
       "ref": "P1 scene pacing: the weight of each optional scene candidate unless its content gives one (PROPOSED P1-11)"

@@ -83,6 +83,8 @@ namespace Butterfly.Core
         public List<string> EchoesShown { get; } = new List<string>();
         /// <summary>Every optional scene the router picked: the turn, its category and its candidate id (for reports and tests).</summary>
         public List<(int Turn, SceneCategory Category, string Id)> RoutedScenes { get; } = new List<(int, SceneCategory, string)>();
+        /// <summary>The month each waiting progression candidate (commission, invitation, challenge, life) first became a router candidate.</summary>
+        public Dictionary<string, int> CandidateSince { get; } = new Dictionary<string, int>();
         /// <summary>Reusable scenes: how often each has played and the turn it last did.</summary>
         public Dictionary<string, int> ScenePlays { get; } = new Dictionary<string, int>();
         public Dictionary<string, int> SceneLastTurn { get; } = new Dictionary<string, int>();
