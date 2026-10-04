@@ -109,4 +109,5 @@ Longest waits by candidate (max months as a candidate before it was picked; mean
 - Lowest gold in any run: 0.0.
 - Duplicate scene texts in an era: 0; repeated sentences between arrivals: 0.
 - R-17: reached the warning in 296 of 300 runs; furthest scene: r17-acknowledged × 1, r17-active × 9, r17-again × 36, r17-dark × 53, r17-link × 2, r17-notebook × 199.
-- Echo kinds on the first arrival: access 4, person 597, technical 1418, unintended 263; second: person 597, technical 1252, unintended 263.
+- Echo kinds on the first arrival: access 4, person 598, technical 1418, unintended 263; second: person 598, technical 1252, unintended 263.
+- People remembered on the first arrival: Felix 275, Serenus 176, Gaius 65, Aulus 60, Diodoros 21, Cassianus 1; second: Gaius 188, Aulus 167, Diodoros 80, Cassianus 61, Serenus 49, Livia 27, Felix 22, Lucan 2, Marcus 2.

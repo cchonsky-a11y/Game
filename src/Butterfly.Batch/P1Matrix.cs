@@ -136,6 +136,10 @@ namespace Butterfly.Batch
                           string.Join(", ", all.GroupBy(r => r.R17Reached).OrderBy(g => g.Key).Select(g => g.Key + " × " + g.Count())) + ".");
             sb.AppendLine("- Echo kinds on the first arrival: " + string.Join(", ", all.SelectMany(r => r.Echoes1.Select(e => e.Split(':')[0])).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) +
                           "; second: " + string.Join(", ", all.SelectMany(r => r.Echoes2.Select(e => e.Split(':')[0])).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
+            sb.AppendLine("- People remembered on the first arrival: " + string.Join(", ", all.SelectMany(r => r.Echoes1.Where(e => e.StartsWith("person:")).Select(e => e.Substring(7)))
+                              .GroupBy(x => x).OrderByDescending(g => g.Count()).Select(g => g.Key + " " + g.Count())) + "; second: " +
+                          string.Join(", ", all.SelectMany(r => r.Echoes2.Where(e => e.StartsWith("person:")).Select(e => e.Substring(7)))
+                              .GroupBy(x => x).OrderByDescending(g => g.Count()).Select(g => g.Key + " " + g.Count())) + ".");
             return sb.ToString();
         }
     }

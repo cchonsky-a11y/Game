@@ -180,6 +180,21 @@
             "challenge:power:Done"
           ],
           "text": "The Fabian works by the river are a dozen sheds now, all on one race. A carved relief over the gate shows a bronze worker at a lathe and a woman holding a green ribbon; nobody there knows who she was."
+        },
+        {
+          "requires": [
+            "commission:allotment:Done",
+            "!challenge:power:Done"
+          ],
+          "fromJump": 1,
+          "text": "The water office's calices in the Subura are cast to one pattern now, and the plumbers swear by the Crispi foundry on the Clivus. The basin is full at noon. The wall where your numbers were painted has been whitewashed for an election."
+        },
+        {
+          "requires": [
+            "commission:allotment:Done"
+          ],
+          "fromJump": 2,
+          "text": "The Subura's magistrates read the water allotment aloud every year at the Compitalia, tap by tap, before the sacrifice. The custom is older than anyone's grandfather, they tell you, and it began with a dyer who stole."
         }
       ]
     },
@@ -196,7 +211,23 @@
       "status": "a craftsman's wife, sharp, known on the street",
       "opinion": "the Greens will win when the Blues run out of bribes",
       "interest": "the Circus, the Greens, and every piece of gossip on the Clivus",
-      "voice": "teasing, quick, never says the serious thing straight"
+      "voice": "teasing, quick, never says the serious thing straight",
+      "echoes": [
+        {
+          "requires": [
+            "knows:Livia"
+          ],
+          "fromJump": 1,
+          "text": "The bakery on the Clivus has been in one family for three generations, the baker's son Livia chose for her daughter. A ribbon hangs over the oven, faded from green to grey, and nobody has dared take it down."
+        },
+        {
+          "requires": [
+            "knows:Livia"
+          ],
+          "fromJump": 2,
+          "text": "Livia's great-granddaughters keep the accounts of three businesses between them and say the women of the family always did. The men's names are the ones painted on the walls."
+        }
+      ]
     },
     {
       "id": "Marcus",
@@ -211,7 +242,30 @@
       "status": "an apprentice who thinks he should be a journeyman",
       "opinion": "a man who writes things down is a clerk, and he will not be a clerk",
       "interest": "wrestling at the baths",
-      "voice": "eager, defensive, finishes other people's sentences wrong"
+      "voice": "eager, defensive, finishes other people's sentences wrong",
+      "echoes": [
+        {
+          "requires": [
+            "life:marcus-foreman"
+          ],
+          "fromJump": 1,
+          "text": "A works on the river keeps a tally board by the door, every stoppage chalked in columns. The foreman's grandson says the board was his grandfather Marcus's idea, and that Marcus learned it from old Priscus."
+        },
+        {
+          "requires": [
+            "life:marcus-shop"
+          ],
+          "fromJump": 1,
+          "text": "The lathe-turners of the Clivus light a lamp for Marcus Fabius Tertius every year at their burial club's feast. Their book says he trained forty men. It does not mention his uncle."
+        },
+        {
+          "requires": [
+            "knows:Marcus"
+          ],
+          "fromJump": 2,
+          "text": "Every wheel on the Janiculum keeps a tally of its stoppages now, in columns the millwrights call Marcus's book. Asked which Marcus, they name three different men."
+        }
+      ]
     },
     {
       "id": "Lucan",
@@ -226,7 +280,23 @@
       "status": "respected, poor",
       "opinion": "steel is honest; men aren't",
       "interest": "the old soldiers' stories at the tavern",
-      "voice": "few words, each one weighed"
+      "voice": "few words, each one weighed",
+      "echoes": [
+        {
+          "requires": [
+            "life:lucan-death"
+          ],
+          "fromJump": 1,
+          "text": "In the smiths' burial ground by the Porta Trigemina, Lucan's stone has a hammer, a cat and the names of eleven apprentices. Someone has scratched a twelfth name under them in another hand: yours, spelled wrong."
+        },
+        {
+          "requires": [
+            "knows:Lucan"
+          ],
+          "fromJump": 1,
+          "text": "The smiths by the Porta Trigemina still tell a boy his iron is too cold, in an old man's voice. None of them knew Lucan. They learned it from men who did."
+        }
+      ]
     },
     {
       "id": "Aulus",
@@ -241,7 +311,23 @@
       "status": "a craftsman every mill owner on the hill knows",
       "opinion": "water does the work; men only spoil it",
       "interest": "his garden of beans",
-      "voice": "short orders, concrete, never explains twice"
+      "voice": "short orders, concrete, never explains twice",
+      "echoes": [
+        {
+          "requires": [
+            "knows:Aulus"
+          ],
+          "fromJump": 1,
+          "text": "Aulus's grandsons keep the mills on the Janiculum. Over the door of the third mill a split bearing block is nailed up like a horseshoe, and they tell you their grandfather invented it."
+        },
+        {
+          "requires": [
+            "knows:Aulus"
+          ],
+          "fromJump": 2,
+          "text": "The Janiculum race was rebuilt in stone after a great flood. One of Aulus's mills still turns. The others are tenements now, with millstones set into their walls for luck."
+        }
+      ]
     },
     {
       "id": "Sextus",

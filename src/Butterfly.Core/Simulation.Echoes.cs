@@ -52,8 +52,10 @@ namespace Butterfly.Core
         {
             int arrivalNumber = JumpsMade;          // already counts this jump
             int shown = 0;
-            // Prefer people not yet featured on an earlier arrival (unresolved lives first), then the rest, in authored order.
-            foreach (var p in KnownPeople().OrderBy(p => World.EchoesShown.Contains("person:" + p.Id) ? 1 : 0))
+            // Prefer people not yet featured on an earlier arrival (unresolved lives first), then the people you were closest to
+            // (regard), then authored order (hardening pass, 2026-10-04: authored order alone always led with Felix and Cassianus).
+            foreach (var p in KnownPeople().OrderBy(p => World.EchoesShown.Contains("person:" + p.Id) ? 1 : 0)
+                                           .ThenByDescending(p => PersonOf(p.Id)?.Regard ?? 0))
             {
                 if (shown >= T.GetInt("echoes.peoplePerArrival")) yield break;
                 var echo = p.Echoes.Where(e => e.FromJump <= arrivalNumber && !World.EchoesShown.Contains(e.Text) && e.Requires.All(Holds))

@@ -507,3 +507,11 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Measured, not changed:** Attention (a third of months end at 0, 40–55% end with 2+ unused, no future overbooking attempted) and the jump range (first jumps 25–55 years, second 25–55, arrivals AD 188–268). Three jump-range models are written up for Corey; the question stays OPEN.
 - **Tests:** ten economy stress tests; a second sponsorship in other words; Felix's life without the guild. The fragile "some games have neither branch" assertion is now a deterministic window check. Challenge tests wait for the router instead of assuming the opening month.
 - Snapshot reset (deliberate: Felix's fever can now come earlier): the reference game arrives in AD 247 with Index 127.7.
+
+## 2026-10-04 — P1 hardening: later human echoes
+- **Audit:** the existing lines cover aging and death, descendants, changed trades, family quarrels, institutional memory, disagreement, misattribution and forgotten people. But Livia, Marcus, Lucan and Aulus had no echo at all; the fountain player's Gaius was remembered only through powered workshops; and arrivals always led with Felix and Cassianus (authored order). In 300 scripted runs, first arrivals had remembered almost only those two.
+- **Implemented:**
+  - Echoes for Livia (her daughter's bakery; great-granddaughters keeping the accounts), Marcus (foreman's tally board credited to Priscus, or the burial club that forgets his uncle; "Marcus's book" with three claimants), Lucan (his stone with your name misspelled; "too cold" said by men who never knew him) and Aulus (a bearing block nailed up like a horseshoe and credited to him; the race rebuilt, millstones in tenement walls), and two allotment echoes for Gaius (the Crispi calices; the water allotment read aloud at the Compitalia, which began with a dyer).
+  - Arrivals now prefer people not yet featured, then those you were closest to.
+- **Result (scripted):** first arrivals now remember Felix, Serenus, Gaius, Aulus and Diodoros; second arrivals Gaius, Aulus, Diodoros, Cassianus, Serenus, Livia and others. Still at most two people an arrival. No repeated lines.
+- **Open:** echoes are keyed by arrival number, not years elapsed; see the jump-range note in the strategy-matrix report.
