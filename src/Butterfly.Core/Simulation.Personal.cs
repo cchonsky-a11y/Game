@@ -111,8 +111,6 @@ namespace Butterfly.Core
 
         internal void SpendAttention(int amount) => World.Attention -= amount;
 
-        private void OnProjectStarted(ActiveProject p) { }
-
         // ---- personal action ------------------------------------------------
 
         /// <summary>The one personal action per turn: practice your trade for gold.</summary>

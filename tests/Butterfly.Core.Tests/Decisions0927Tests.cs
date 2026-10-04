@@ -57,7 +57,6 @@ namespace Butterfly.Core.Tests
             while (sim.PendingEvent == null && sim.Turn < opens + 12) sim.AdvanceUntilDecision();
             Assert.Equal(opens, sim.Turn);                  // never fast-forwarded past the month it opened
             Assert.NotNull(sim.PendingEvent);
-            Assert.False(sim.NoActionPossible());
         }
 
         [Fact]

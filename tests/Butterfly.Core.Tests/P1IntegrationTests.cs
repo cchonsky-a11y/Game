@@ -32,38 +32,20 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void WorldInterruptIsNotPenalizedByRepeatedCategory()
+        public void TheLedgerSumsIncomeAndExpensesByProject()
         {
-            var pacing = ScenePacingState.FromTuning(TestData.Load().Tuning);
-            pacing.Record(SceneCategory.Engineering);
-            pacing.Record(SceneCategory.Engineering);
-            var router = SceneRouter.FromTuning(new Rng(1), TestData.Load().Tuning);
-            var accident = new SceneCandidate("accident", SceneCategory.Engineering, 1, isInterrupt: true);
-
-            Assert.Equal(1.0, router.EffectiveWeight(accident, pacing), 6);
-        }
-
-        [Fact]
-        public void ProjectAccountingMakesPaymentAndMaterialsVisible()
-        {
+            // The ledger itself (production fills it from logged gold effects; see P1EconomyStressTests for play).
             var ledger = new EconomyLedger();
-            var terms = new ProjectTerms(
-                ProjectFundingModel.ClientPaid,
-                payer: "Publius",
-                materialsPayer: "Inventor",
-                upfrontGold: 12,
-                completionGold: 20,
-                playerMaterialCost: 5);
-            var project = new ProjectState("pump", "Pump", "Repair pump.", "Publius", terms, 2, ProjectStage.Agreed);
+            ledger.Record(new LedgerEntry("a", LedgerEntryKind.Payment, 12, "Publius", "Upfront.", "pump"));
+            ledger.Record(new LedgerEntry("b", LedgerEntryKind.Materials, -5, "", "Bronze.", "pump"));
+            ledger.Record(new LedgerEntry("c", LedgerEntryKind.Payment, 20, "Publius", "On completion.", "pump"));
+            ledger.Record(new LedgerEntry("d", LedgerEntryKind.Payment, 3, "", "Odd job."));
 
-            ProjectAccounting.RecordAgreement(ledger, project);
-            project.Complete();
-            ProjectAccounting.RecordCompletion(ledger, project);
-
-            Assert.Equal(27, ledger.Net);
-            Assert.Equal(32, ledger.Income);
+            Assert.Equal(30, ledger.Net);
+            Assert.Equal(35, ledger.Income);
             Assert.Equal(5, ledger.Expenses);
             Assert.Equal(3, ledger.ForProject("pump").Count);
+            Assert.Throws<System.InvalidOperationException>(() => ledger.Record(new LedgerEntry("a", LedgerEntryKind.Payment, 1, "", "")));
         }
 
         [Fact]

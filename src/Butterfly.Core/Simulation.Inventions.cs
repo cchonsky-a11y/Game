@@ -11,9 +11,6 @@ namespace Butterfly.Core
     /// </summary>
     public sealed partial class Simulation
     {
-        public IEnumerable<InventionDef> AvailableInventions() =>
-            Data.Content.Inventions.Where(i => !World.Invented.Contains(i.Id) && World.ActiveInventions.All(a => a.Def.Id != i.Id));
-
         public static readonly string[] InventionBranches = { "mechanics", "accounts", "hygiene", "workshop" };
 
         private static readonly Dictionary<string, string> InventionGroupNames = new Dictionary<string, string>

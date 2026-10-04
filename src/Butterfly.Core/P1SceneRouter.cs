@@ -10,10 +10,8 @@ namespace Butterfly.Core
         public string Id { get; }
         public SceneCategory Category { get; }
         public double BaseWeight { get; }
-        public bool IsAvailable { get; }
-        public bool IsInterrupt { get; }
 
-        public SceneCandidate(string id, SceneCategory category, double baseWeight = 1, bool isAvailable = true, bool isInterrupt = false)
+        public SceneCandidate(string id, SceneCategory category, double baseWeight = 1)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException("Scene id is required.", nameof(id));
             if (baseWeight < 0) throw new ArgumentOutOfRangeException(nameof(baseWeight));
@@ -21,8 +19,6 @@ namespace Butterfly.Core
             Id = id;
             Category = category;
             BaseWeight = baseWeight;
-            IsAvailable = isAvailable;
-            IsInterrupt = isInterrupt;
         }
     }
 
@@ -57,7 +53,7 @@ namespace Butterfly.Core
             if (pacing == null) throw new ArgumentNullException(nameof(pacing));
 
             var weighted = candidates
-                .Where(c => c.IsAvailable && c.BaseWeight > 0)
+                .Where(c => c.BaseWeight > 0)
                 .Select(c => new WeightedScene(c, EffectiveWeight(c, pacing, explicitlyFocusedCategory)))
                 .Where(c => c.Weight > 0)
                 .ToList();
@@ -89,8 +85,7 @@ namespace Butterfly.Core
             ScenePacingState pacing,
             SceneCategory? explicitlyFocusedCategory = null)
         {
-            if (!candidate.IsAvailable || candidate.BaseWeight <= 0) return 0;
-            if (candidate.IsInterrupt) return candidate.BaseWeight;
+            if (candidate.BaseWeight <= 0) return 0;
 
             bool explicitFocus = explicitlyFocusedCategory == candidate.Category;
             return pacing.ShouldDeprioritize(candidate.Category, explicitFocus)

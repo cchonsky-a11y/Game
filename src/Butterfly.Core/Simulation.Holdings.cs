@@ -53,7 +53,7 @@ namespace Butterfly.Core
         {
             if (!Holds(i)) return;
             if (Rng.Chance(1 - Math.Pow(1 - CorruptionChance(i), StepFraction))) Corrupt(i, arrival);
-            PayDebtFromHoldings(i, arrival);
+            PayDebtFromHoldings(i);
         }
 
         /// <summary>End of a decade inside the window: holdings grow with the economy (never a fixed rate).</summary>
@@ -112,7 +112,7 @@ namespace Butterfly.Core
             return share;
         }
 
-        private void PayDebtFromHoldings(Institution i, Arrival arrival)
+        private void PayDebtFromHoldings(Institution i)
         {
             var d = World[i.Def.Maintains];
             double share = PaymentShare(i);

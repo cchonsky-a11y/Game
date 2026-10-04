@@ -742,8 +742,6 @@ internal sealed partial class ConsoleGame
         else Console.WriteLine(_sim.CanJumpAgain ? "'visit <place>', 'learn more', 'jump' to go on (then 'deposit' or 'bury' gold you can't carry), or 'quit'." : "The test is over. 'visit <place>', 'learn more' or 'quit'.");
     }
 
-    private static string Signed(double v) => (v >= 0 ? "+" : "") + v.ToString("0.#", CultureInfo.InvariantCulture);
-
     private static string Wrap(string text, int width = 100)
     {
         var words = text.Split(' ');

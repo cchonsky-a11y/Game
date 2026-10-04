@@ -89,14 +89,6 @@ namespace Butterfly.Core
         private bool Can(double gold, string attentionKey) => World.Gold >= gold && World.Attention >= T.GetInt(attentionKey);
 
         /// <summary>
-        /// No action is possible this turn: no Attention is free and no prompt is open, Rome's choices included (tester 6: a
-        /// treasury loan opened and lapsed while fully committed turns passed on their own). (Changing a priority or paying
-        /// down debt is a standing setting the player can adjust in any turn, so it doesn't count.)
-        /// </summary>
-        public bool NoActionPossible() =>
-            !Arrived && World.Attention == 0 && !SeededChoiceOpen && World.Promise.Status != PromiseStatus.Offered && !OutbreakAwaitingResponse && PendingEvent == null && !EraOver;
-
-        /// <summary>
         /// "End Month" (decided 2026-10-02, Corey, P1): exactly one month, always. No month passes on its own, even when
         /// no Attention is free; the player ends each one, or fast-forwards.
         /// </summary>

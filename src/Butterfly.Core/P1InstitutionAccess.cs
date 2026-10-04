@@ -12,7 +12,6 @@ namespace Butterfly.Core
         public InstitutionAccessStage Stage { get; private set; }
         public string KnownMemberId { get; private set; } = string.Empty;
         public string SponsorId { get; private set; } = string.Empty;
-        public string LastInviterId { get; private set; } = string.Empty;
         public int GuestVisits { get; private set; }
 
         public InstitutionAccessState(string institutionId)
@@ -40,7 +39,6 @@ namespace Butterfly.Core
             if (!Matches(invitation) || !invitation.IsWarranted) return false;
             if (Stage < InstitutionAccessStage.KnowsMember || Stage >= InstitutionAccessStage.Member) return false;
 
-            LastInviterId = invitation.InviterId;
             GuestVisits++;
             Stage = GuestVisits == 1 ? InstitutionAccessStage.Guest : InstitutionAccessStage.InvitedBack;
             return true;
@@ -52,7 +50,6 @@ namespace Butterfly.Core
             if (Stage < InstitutionAccessStage.InvitedBack || Stage >= InstitutionAccessStage.Member) return false;
 
             SponsorId = invitation.InviterId;
-            LastInviterId = invitation.InviterId;
             Stage = InstitutionAccessStage.SponsoredCandidate;
             return true;
         }
@@ -71,13 +68,6 @@ namespace Butterfly.Core
             if (Stage != InstitutionAccessStage.SponsoredCandidate) return false;
             SponsorId = null;
             Stage = InstitutionAccessStage.InvitedBack;
-            return true;
-        }
-
-        public bool PromoteToOfficer()
-        {
-            if (Stage != InstitutionAccessStage.Member) return false;
-            Stage = InstitutionAccessStage.Officer;
             return true;
         }
 

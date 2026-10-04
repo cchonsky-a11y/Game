@@ -16,9 +16,6 @@ namespace Butterfly.Core
             _state = seed;
         }
 
-        /// <summary>Current internal state, so a run can be inspected or resumed.</summary>
-        public ulong State => _state;
-
         public ulong NextULong()
         {
             ulong z = unchecked(_state += 0x9E3779B97F4A7C15UL);

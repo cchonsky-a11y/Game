@@ -206,8 +206,6 @@ namespace Butterfly.Batch
 
         /// <summary>Gates A–C. The timing gate (D) is reported but not applicable to P0 (deferred to P3, decided 2026-09-27).</summary>
         public static readonly string[] InvestingStrategies = { "Balanced", "Specialized", "Endow", "Split", "FreeMarket", "Interventionist" };
-        public static readonly string[] PolicyStrategies = { "FreeMarket", "Interventionist" };
-
         private static double StdDev(IEnumerable<double> xs)
         {
             var l = xs.ToList();

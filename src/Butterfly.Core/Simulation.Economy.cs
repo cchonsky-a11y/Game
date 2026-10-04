@@ -195,7 +195,6 @@ namespace Butterfly.Core
                 "Work begins: " + def.Name + " (" + Money(gold) + (partner == null ? "" : ", " + partner.Def.ShortName + " pays the other " + Money(def.Gold * World.PriceLevel - gold)) + ", " + def.DurationMonths + " month" + (def.DurationMonths == 1 ? "" : "s") + ").");
             var active = new ActiveProject(def, e.Id);
             World.ActiveProjects.Add(active);
-            OnProjectStarted(active);
             return CommandResult.Success("Started: " + def.Name + ".");
         }
 

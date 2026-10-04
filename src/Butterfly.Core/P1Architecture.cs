@@ -125,33 +125,22 @@ namespace Butterfly.Core
         public string MaterialsPayer { get; }
         public double UpfrontGold { get; }
         public double CompletionGold { get; }
-        public double PlayerMaterialCost { get; }
-        public double ProfitShare { get; }
-        public string NonCashConsideration { get; }
 
         public ProjectTerms(
             ProjectFundingModel fundingModel,
             string payer,
             string materialsPayer,
             double upfrontGold = 0,
-            double completionGold = 0,
-            double playerMaterialCost = 0,
-            double profitShare = 0,
-            string nonCashConsideration = "")
+            double completionGold = 0)
         {
             if (upfrontGold < 0) throw new ArgumentOutOfRangeException(nameof(upfrontGold));
             if (completionGold < 0) throw new ArgumentOutOfRangeException(nameof(completionGold));
-            if (playerMaterialCost < 0) throw new ArgumentOutOfRangeException(nameof(playerMaterialCost));
-            if (profitShare < 0 || profitShare > 1) throw new ArgumentOutOfRangeException(nameof(profitShare));
 
             FundingModel = fundingModel;
             Payer = payer ?? string.Empty;
             MaterialsPayer = materialsPayer ?? string.Empty;
             UpfrontGold = upfrontGold;
             CompletionGold = completionGold;
-            PlayerMaterialCost = playerMaterialCost;
-            ProfitShare = profitShare;
-            NonCashConsideration = nonCashConsideration ?? string.Empty;
         }
     }
 
@@ -169,9 +158,7 @@ namespace Butterfly.Core
         public int DurationMonths { get; }
         public int MonthsRemaining { get; private set; }
         public ProjectStage Stage { get; private set; }
-        public bool CanContinueWithoutPlayer { get; set; }
         public List<string> Collaborators { get; } = new List<string>();
-        public List<string> Dependencies { get; } = new List<string>();
 
         public bool IsFinished => Stage == ProjectStage.Complete || Stage == ProjectStage.Abandoned;
 
