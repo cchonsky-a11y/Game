@@ -67,6 +67,71 @@
       }
     },
     {
+      "id": "hoist",
+      "title": "Aemilius's slipping hoist",
+      "client": "Aemilius",
+      "clientRole": "a warehouse owner at the Emporium below the Aventine",
+      "introducer": "Felix",
+      "opensAfterMonths": 9,
+      "requires": [
+        "commission:cellarpump:Walked|commission:cellarpump:Declined"
+      ],
+      "encounter": {
+        "category": "WorkEconomy",
+        "text": "Felix finds you again, which he didn't have to. \"Cassianus went elsewhere. Fine. Aemilius at the Emporium has a hoist that drops a load a week into the river. He's angrier than Cassianus and richer. Look at it before you say no.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Aemilius's hoist is a treadwheel crane, two men walking inside the wheel, and a good one. The pawl that should stop the drum running back is worn round, and the rope is spliced in three places. When a man stumbles in the wheel, the load runs away. Aemilius tells you about every load he has lost, with prices."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Aemilius",
+        "materialsPayer": "Aemilius",
+        "upfront": 8,
+        "completion": 16,
+        "text": "\"Two hundred now,\" Aemilius says, \"four hundred when a month goes by without anything in the river. I pay for the iron and the rope. If I lose a load while you're working, it comes off the four hundred.\""
+      },
+      "counter": {
+        "completion": 22,
+        "acceptWeight": 4,
+        "standFirmWeight": 5,
+        "walkWeight": 1,
+        "acceptText": "Aemilius snorts. \"Five hundred and fifty. And nothing in the river.\"",
+        "standFirmText": "\"Four hundred,\" Aemilius says. \"Felix said you'd ask.\" The offer stands.",
+        "walkText": "Aemilius says he'll keep losing loads rather than be robbed on land, and does."
+      },
+      "declineText": "You tell Aemilius you can't. Felix shrugs; he has done what he can.",
+      "work": [
+        {
+          "stage": "Prototype",
+          "category": "Engineering",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "A new pawl forged hard and a ratchet cut deeper on the drum, so the wheel can't run back more than a hand's breadth. The smith grumbles at the hardness you ask for and makes it anyway."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "A month of loads go up and nothing goes in the river. The men in the wheel sing a song with a rude verse about Aemilius. He pays you on the quay and pours a little wine for Portunus, god of harbors, before he counts the money."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Felix": 1
+        }
+      },
+      "referral": {
+        "institution": "guild",
+        "member": "Felix",
+        "text": "Felix was there when Aemilius paid. \"The men at Ostia have hoists too,\" he says, \"and pumps, and every kind of trouble. Come out to one of our suppers sometime.\""
+      }
+    },
+    {
       "id": "bilges",
       "title": "Lollius's bilge pumps",
       "client": "Lollius",
@@ -75,7 +140,7 @@
       "opensAfterMonths": 0,
       "requires": [
         "access:guild:Guest",
-        "commission:cellarpump:Done"
+        "commission:cellarpump:Done|commission:hoist:Done"
       ],
       "encounter": {
         "category": "WorkEconomy",
@@ -448,6 +513,317 @@
       },
       "referral": {
         "text": "The mill grinds through the season. Two other owners on the race ask Aulus who cut the spare shell. He tells them, which, for Aulus, is a speech."
+      }
+    },
+    {
+      "id": "crane",
+      "title": "Lollius's loading crane",
+      "client": "Lollius",
+      "clientRole": "a shipper at Ostia, back with a bigger trouble",
+      "introducer": "",
+      "opensAfterMonths": 30,
+      "requires": [
+        "commission:bilges:Done"
+      ],
+      "encounter": {
+        "category": "WorkEconomy",
+        "text": "Lollius again, louder than before. \"The pumps are perfect. Now the crane on my quay drops amphorae into the harbor. My men call it the god of breakage. Come and look; you know the way.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "The crane is a big treadwheel on the quay, and the trouble is the jib: it swings when a load lifts, and the men steadying it with ropes let go when it swings hard. Two of them have lost fingers. Lollius knows exactly how many amphorae he has lost, and doesn't know the men's names."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Lollius",
+        "materialsPayer": "Lollius",
+        "upfront": 12,
+        "completion": 24,
+        "text": "\"Three hundred now, six hundred when a month of grain ships go through without a jar in the harbor,\" Lollius says. \"I buy the timber and the iron.\""
+      },
+      "counter": {
+        "completion": 32,
+        "acceptWeight": 3,
+        "standFirmWeight": 5,
+        "walkWeight": 2,
+        "acceptText": "Lollius laughs. \"Eight hundred. You've learned to haggle at Ostia.\"",
+        "standFirmText": "\"Six hundred,\" Lollius says. \"Even for you.\" The offer stands.",
+        "walkText": "Lollius says he'll ask the Greek on the next quay, and does, and the Greek's crane works almost as well."
+      },
+      "declineText": "You tell Lollius you can't. He goes off to shout at his crane.",
+      "work": [
+        {
+          "stage": "Refinement",
+          "category": "Engineering",
+          "durationMonths": 2,
+          "attention": 1,
+          "text": "A slewing ring under the jib with a brake you can set with a lever, so the jib turns when the men want it to and not when the load does. The men steady the load with long poles instead of ropes wrapped round their hands."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "WorkEconomy",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "A month of grain ships through Lollius's quay and not one jar lost. The men in the wheel still call the crane the god of breakage, but now they mean it fondly. One of them gives you a little clay figure of it."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Felix": 1
+        }
+      },
+      "referral": {
+        "text": "Lollius brags about his crane at the next supper. A shipper asks Felix whether the foreigner works for anyone who isn't a member. Felix says he works for whoever pays."
+      }
+    },
+    {
+      "id": "sluice",
+      "title": "The race that loses its water",
+      "client": "Statius",
+      "clientRole": "owner of a grain mill on the Janiculum race",
+      "introducer": "Aulus",
+      "opensAfterMonths": 36,
+      "requires": [
+        "commission:millbearing:Done"
+      ],
+      "encounter": {
+        "category": "Exploration",
+        "text": "Aulus sends the same boy. This time it isn't Statius's bearing: the whole race leaks, and the three mills below get half the water they should. The owners are blaming each other. \"Come up,\" the message says. \"Bring nothing. Listen.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "You walk the race with Aulus from the aqueduct branch to the last wheel. The boards are rotten at two joints and the upper owner has cut a notch to feed a garden. The water arrives at the third mill uneven, in surges, and the wheel stutters with it. Aulus points at each fault without a word."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "the three mill owners, shared",
+        "materialsPayer": "the mill owners",
+        "upfront": 0,
+        "completion": 30,
+        "text": "The owners agree, after an afternoon of shouting, to split it three ways: seven hundred and fifty denarii between them when the third wheel turns steady. Timber and lead on their account."
+      },
+      "counter": {
+        "completion": 40,
+        "acceptWeight": 2,
+        "standFirmWeight": 5,
+        "walkWeight": 3,
+        "acceptText": "The owners grumble and agree to a thousand, a third each, and argue about whose third goes first.",
+        "standFirmText": "\"Seven hundred and fifty,\" the oldest owner says. \"Aulus would do it for less.\" The offer stands.",
+        "walkText": "The owners decide to fix it themselves, each his own stretch, which is how it got this way."
+      },
+      "declineText": "You tell the owners you can't take it. Aulus says nothing and starts on the joints himself.",
+      "work": [
+        {
+          "stage": "Refinement",
+          "category": "Exploration",
+          "durationMonths": 2,
+          "attention": 1,
+          "text": "New boards at the joints, sealed with pitch, a stilling pool above the third mill so the water arrives smooth, and a stone over the garden notch with Aulus sitting on it while the upper owner complains."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The three wheels turn together for a month. The owners hold a small sacrifice at the head of the race to the nymph of the spring, and argue during it about who paid for the lamb."
+        }
+      ],
+      "capability": "lineshaft",
+      "onComplete": {
+        "regard": {
+          "Aulus": 1
+        }
+      }
+    },
+    {
+      "id": "households",
+      "title": "Comparing two households",
+      "client": "Pomponia's sister",
+      "clientRole": "Iunia, who keeps a larger house on the Esquiline and a physician who disapproves of Serenus",
+      "introducer": "Serenus",
+      "opensAfterMonths": 34,
+      "requires": [
+        "commission:fevers:Done"
+      ],
+      "encounter": {
+        "category": "Personal",
+        "text": "Serenus, with a tablet in his hand: \"Pomponia's sister wants the same counting done in her house. Her physician says it's nonsense. Which makes me want to do it more. She pays better than Pomponia, and complains less.\""
+      },
+      "diagnosis": {
+        "category": "WorkEconomy",
+        "attention": 1,
+        "text": "Iunia's house on the Esquiline is twice Pomponia's and better drained. Fever comes there too, but in the stables and the slaves' quarters by the old well, not upstairs. Her physician follows you about, saying everything you write down is obvious."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "Iunia",
+        "materialsPayer": "Iunia",
+        "upfront": 8,
+        "completion": 18,
+        "text": "\"Two hundred now, four hundred and fifty when you show me something my physician didn't already know,\" Iunia says. \"He'll be the judge of that, which is a joke.\""
+      },
+      "counter": {
+        "completion": 24,
+        "acceptWeight": 4,
+        "standFirmWeight": 5,
+        "walkWeight": 1,
+        "acceptText": "Iunia smiles. \"Six hundred. If he squirms.\"",
+        "standFirmText": "\"Four hundred and fifty,\" she says. \"I'm paying for the squirming already.\" The offer stands.",
+        "walkText": "Iunia decides her physician is cheaper."
+      },
+      "declineText": "You tell Serenus you can't take it. He goes alone, without the columns, and comes back with nothing.",
+      "work": [
+        {
+          "stage": "Repeatability",
+          "category": "Personal",
+          "durationMonths": 2,
+          "attention": 1,
+          "capability": "records",
+          "capabilityTo": "Reproducible",
+          "text": "Two houses side by side now, the same questions in both, kept by Iunia's steward and Pomponia's freedman without you there. The old well on the Esquiline matches Pomponia's cistern case for case. Iunia's physician says it proves nothing, then has the well closed."
+        },
+        {
+          "stage": "Adoption",
+          "category": "InstitutionsPolitics",
+          "durationMonths": 1,
+          "attention": 1,
+          "capability": "casenotes",
+          "capabilityTo": "Prototype",
+          "text": "Serenus reads both households to the Circle. Two physicians ask for blank tablets ruled the same way. He makes you rule them."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Serenus": 1
+        }
+      }
+    },
+    {
+      "id": "fountainworks",
+      "title": "A senator's garden fountain",
+      "client": "Gaius",
+      "clientRole": "for a senator's freedman who wants a fountain that plays tunes",
+      "introducer": "",
+      "opensAfterMonths": 30,
+      "requires": [
+        "knows:Gaius"
+      ],
+      "encounter": {
+        "category": "WorkEconomy",
+        "text": "Gaius sends Marcus with a message: a senator's freedman wants a garden fountain that sings like the ones in Alexandria, and Gaius has said yes without knowing how. \"Come and tell him it can't be done,\" the message says, \"or tell me how.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "Hero of Alexandria wrote down how to make water sing: a cistern filling, air forced through pipes, little bronze birds that whistle in turn. Gaius has the book in a bad copy. The freedman wants four birds and an owl that turns its head. The water pressure in the garden is half what the book assumes."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "SharedDevelopment",
+        "payer": "the freedman",
+        "materialsPayer": "Gaius",
+        "upfront": 10,
+        "completion": 20,
+        "text": "The freedman pays Gaius two hundred and fifty now and five hundred when the birds sing, and Gaius pays you half of it and buys the bronze. \"Half,\" Gaius says, \"because it's my name on the job.\""
+      },
+      "counter": {
+        "completion": 26,
+        "acceptWeight": 3,
+        "standFirmWeight": 5,
+        "walkWeight": 2,
+        "acceptText": "Gaius looks at you for a long time. \"Six hundred and fifty, then. Livia will say I'm a fool.\"",
+        "standFirmText": "\"Half,\" Gaius says. \"My name. My bronze.\" The offer stands.",
+        "walkText": "Gaius says he'll tell the freedman it can't be done, and does, and doesn't ask you for anything for a season."
+      },
+      "declineText": "You tell Gaius you can't. He tells the freedman the owl is impossible, and makes the birds himself, two of them, badly.",
+      "work": [
+        {
+          "stage": "Prototype",
+          "category": "Engineering",
+          "durationMonths": 2,
+          "attention": 1,
+          "capability": "drawings",
+          "capabilityTo": "Prototype",
+          "text": "You redraw Hero's birds with sizes, for the pressure there actually is, and Gaius casts them. The first bird gargles. The third whistles. The owl turns its head once and sticks, and the freedman loves it anyway."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The fountain sings at the freedman's dinner, all four birds in turn, and the owl turns its head twice. The guests applaud the freedman. Nobody asks who made it. Gaius, at the back with the slaves, is grinning."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Gaius": 1
+        }
+      }
+    },
+    {
+      "id": "drains",
+      "title": "The drain under the Clivus",
+      "client": "the street magistrates",
+      "clientRole": "of the vicus where Gaius's shop stands",
+      "introducer": "",
+      "opensAfterMonths": 40,
+      "requires": [
+        "knows:Gaius",
+        "monthsIn:40"
+      ],
+      "encounter": {
+        "category": "CityHistory",
+        "text": "After a storm the drain under the Clivus backs up, and the street runs knee deep with everything the drain should have carried away. The magistrates of the vicus, a baker and two freedmen, come to Gaius's shop to find you. \"They say you know about water,\" the baker says. \"The aediles say it's our drain.\""
+      },
+      "diagnosis": {
+        "category": "Engineering",
+        "attention": 1,
+        "text": "The drain is old brick, built for half the houses now on the street, and choked where a new insula's foundations cut into it. The magistrates have a little money from the street's collection for the crossroads shrine, and none from anyone else."
+      },
+      "terms": {
+        "category": "WorkEconomy",
+        "fundingModel": "ClientPaid",
+        "payer": "the vicus magistrates",
+        "materialsPayer": "the vicus magistrates",
+        "upfront": 6,
+        "completion": 10,
+        "text": "\"We have four hundred,\" the baker says. \"A hundred and fifty now, the rest when the street stays dry. Bricks from the shrine fund. Don't tell the Lares.\""
+      },
+      "counter": {
+        "completion": 14,
+        "acceptWeight": 2,
+        "standFirmWeight": 4,
+        "walkWeight": 4,
+        "acceptText": "The baker counts the shrine money again. \"Five hundred and fifty. The Lares can do without a new coat of paint.\"",
+        "standFirmText": "\"Four hundred,\" the baker says. \"There isn't any more. Look.\" He shows you the box. The offer stands.",
+        "walkText": "The magistrates go to the aediles instead, who promise to look at it next year."
+      },
+      "declineText": "You tell the magistrates you can't. The street floods again at the next storm.",
+      "work": [
+        {
+          "stage": "Refinement",
+          "category": "CityHistory",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "A new run of drain round the insula's foundation, wider, with a trap where the gutters come in so the rubbish stops before it chokes the brick. The whole street turns out to watch, and the baker brings bread."
+        },
+        {
+          "stage": "Repeatability",
+          "category": "RomanLife",
+          "durationMonths": 1,
+          "attention": 1,
+          "text": "The next storm comes and the street stays dry. The magistrates paint a little notice by the crossroads shrine, thanking the Lares and, in smaller letters, the foreigner from Gaius's shop."
+        }
+      ],
+      "onComplete": {
+        "regard": {
+          "Livia": 1
+        }
       }
     }
   ]

@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Butterfly.Batch;
 using Butterfly.Core;
 
@@ -18,6 +19,17 @@ for (int i = 0; i < args.Length - 1; i++)
 }
 
 var data = GameData.LoadDefault();
+for (int i = 0; i < args.Length - 1; i++)
+{
+    if (args[i] != "--p1-validate") continue;
+    // Executable P1 validation through two jumps (scripted, not human): --p1-validate 1,2,3 [--out file]
+    var seeds = args[i + 1].Split(',').Select(x => ulong.Parse(x, CultureInfo.InvariantCulture)).ToList();
+    var played = seeds.Select(s => P1Campaign.Play(data, s)).ToList();
+    string p1 = P1Campaign.Report(played);
+    Console.WriteLine(p1);
+    if (outPath != null) { File.WriteAllText(outPath, p1); Console.WriteLine("Saved to " + outPath); }
+    return;
+}
 int trace = 0;
 for (int i = 0; i < args.Length - 1; i++) if (args[i] == "--trace") trace = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
 if (trace > 0)

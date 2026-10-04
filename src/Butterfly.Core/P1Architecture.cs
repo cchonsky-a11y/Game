@@ -53,8 +53,12 @@ namespace Butterfly.Core
         public SceneCategory? LastCategory { get; private set; }
         public int ConsecutiveCount { get; private set; }
 
+        /// <summary>Every meaningful scene recorded, in order (for reports and validation runs).</summary>
+        public List<SceneCategory> History { get; } = new List<SceneCategory>();
+
         public void Record(SceneCategory category)
         {
+            History.Add(category);
             if (LastCategory == category)
             {
                 ConsecutiveCount++;

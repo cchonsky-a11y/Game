@@ -5,9 +5,15 @@
       "institution": "guild",
       "inviter": "Felix",
       "evidence": {
-        "relationship": ["knows:Felix"],
-        "work": ["commission:cellarpump:Done"],
-        "usefulness": ["capability:valveseats:Reproducible"]
+        "relationship": [
+          "knows:Felix"
+        ],
+        "work": [
+          "commission:cellarpump:Done|commission:hoist:Done"
+        ],
+        "usefulness": [
+          "capability:valveseats:Reproducible|regard:Felix:1"
+        ]
       },
       "guestAfterMonths": 2,
       "againAfterMonths": 3,
@@ -43,9 +49,15 @@
       "institution": "circle",
       "inviter": "Serenus",
       "evidence": {
-        "relationship": ["knows:Serenus"],
-        "work": ["join:circle"],
-        "usefulness": ["regard:Serenus:2"]
+        "relationship": [
+          "knows:Serenus"
+        ],
+        "work": [
+          "join:circle"
+        ],
+        "usefulness": [
+          "regard:Serenus:2"
+        ]
       },
       "guestAfterMonths": 1,
       "againAfterMonths": 3,

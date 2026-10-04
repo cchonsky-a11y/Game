@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>, flag:<name>; '!x' for not, 'a|b' for either). Reusable texture: 'cooldownMonths' and 'variants' (each variant's text used once, never the same words twice). Effects: 'gold' (aurei at AD 155 prices), 'triggers' (a choice from events.json), 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
+  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>, flag:<name>; '!x' for not, 'a|b' for either). Reusable texture: 'cooldownMonths' and 'variants' (each variant's text used once, never the same words twice). Effects: 'gold' (aurei at AD 155 prices), 'triggers' (a choice from events.json), 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight. 'interrupt': true marks a critical moment that happens the month it becomes possible, outside the router (R-17 ACTIVE when the last repair holds).",
   "scenes": [
     {
       "id": "baths-wet-cellar",
@@ -755,7 +755,8 @@
         "scene:r17-acknowledged",
         "machine:steps:9"
       ],
-      "text": "The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go."
+      "text": "The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.",
+      "interrupt": true
     },
     {
       "id": "r17-again",

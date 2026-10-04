@@ -204,7 +204,7 @@ namespace Butterfly.Core
                 int rb = p.Regard;
                 p.Regard += kv.Value;
                 Record("person.regard", "person." + p.Id, new[] { paid.Id }, new[] { "player", p.Id }, new[] { new Effect("person." + p.Id + ".regard", rb, p.Regard) },
-                    PersonDefOf(p.Id)!.Name + (kv.Value >= 0 ? " thinks better of you." : " thinks less of you."));
+                    Cap(d.Title) + ": " + PersonDefOf(p.Id)!.Name + (kv.Value >= 0 ? " thinks better of you." : " thinks less of you."));
             }
             foreach (var kv in d.OnCompleteStatus) (PersonOf(kv.Key) ?? throw new FormatException("Commission " + d.Id + " names an unknown person: " + kv.Key)).Status = kv.Value;
             foreach (var f in d.OnCompleteSets) World.Flags.Add(f);

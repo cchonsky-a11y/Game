@@ -137,5 +137,22 @@ namespace Butterfly.Core.Tests
             Assert.Equal(regard + 1, sim.PersonOf("Aulus")!.Regard);
             Assert.Contains(sim.World.Ledger.Entries, e => e.ProjectId == "commission:millbearing" && e.Amount > 0);
         }
+
+        [Fact]
+        public void LosingTheFirstJobIsNotADeadEnd()
+        {
+            // Executable validation (seed 3) found that walking away from the pump closed the guild and all later work.
+            var sim = At();
+            Assert.DoesNotContain("commission:hoist", sim.SceneCandidateIds());
+            sim.FindCommission("cellarpump")!.Status = CommissionStatus.Walked;
+            for (int m = 0; m < 12 && sim.FindCommission("hoist")!.Status == CommissionStatus.NotYet; m++) sim.EndMonth();
+            Assert.Equal(CommissionStatus.Offered, sim.FindCommission("hoist")!.Status);
+            Terms(sim, "hoist");
+            Finish(sim, "hoist");
+            Assert.Equal(InstitutionAccessStage.KnowsMember, sim.World.AccessTo("guild").Stage);
+            var gate = sim.InvitationGate(sim.InvitationPathDefFor("guild")!);
+            Assert.True(gate.HasRelevantWork);
+            Assert.True(gate.DemonstratedUsefulness);                                 // Felix saw it work (regard), not the same fact as the work
+        }
     }
 }

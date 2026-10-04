@@ -169,6 +169,8 @@ namespace Butterfly.Core
         public IReadOnlyList<string> Variants { get; }
         /// <summary>Money the scene costs or brings, in aurei at AD 155 prices (scaled by the price level).</summary>
         public double Gold { get; }
+        /// <summary>A critical moment that interrupts rather than waits for the router (the panel lighting R-17 ACTIVE).</summary>
+        public bool Interrupt { get; }
 
         public AuthoredSceneDef(JsonObject o)
         {
@@ -191,6 +193,7 @@ namespace Butterfly.Core
             CooldownMonths = (int)o.NumOr("cooldownMonths", 0);
             Variants = o.Has("variants") ? o.Arr("variants").Cast<string>().ToList() : new List<string>();
             Gold = o.NumOr("gold", 0);
+            Interrupt = o.BoolOr("interrupt", false);
         }
     }
 }

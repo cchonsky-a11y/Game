@@ -489,7 +489,14 @@ namespace Butterfly.Core
                 if (outcome == InstitutionOutcome.Thriving && i.HasDrifted && i.DriftPath != null) template = "discovery.generic.thrivingAs";
                 // L10 (tester 2): the Circle's own thriving line mentions your charter; only if you gave it one.
                 else if (key == "circle.thriving" && !i.Chartered) template = "discovery.circle.thrivingUnchartered";
-                parts.Add(Cap(text.Template(template, v)));
+                string found = Cap(text.Template(template, v));
+                // A later arrival never repeats a line word for word (2026-10-04): an unchanged house says so instead.
+                // Same house, same fate, same new name as last time: say it's unchanged rather than describe it again.
+                string fate = "inst:" + key + ":" + CurrentName(i);
+                if (World.EchoesShown.Contains(found) || World.EchoesShown.Contains(fate))
+                    found = text.Template("discovery.again", new Dictionary<string, string>(v) { { "Name", Cap(CurrentName(i)) } });
+                else { World.EchoesShown.Add(found); World.EchoesShown.Add(fate); }
+                parts.Add(found);
                 // Your office and your parting words (P0-32).
                 if (i.DepartureOffice.Length > 0 && !i.Def.IsOwn) parts.Add(text.Template("discovery.office", new Dictionary<string, string>(v) { { "office", i.DepartureOffice } }));
                 if (i.OrderCamp >= 0 && outcome != InstitutionOutcome.Dissolved)
@@ -506,7 +513,10 @@ namespace Butterfly.Core
             }
             if (parts.Count == 0)
             {
-                parts.Add(text.Template("discovery.none", values));
+                string none = text.Template("discovery.none", values);
+                if (World.EchoesShown.Contains(none)) none = text.Template("discovery.none.again", values);
+                else World.EchoesShown.Add(none);
+                parts.Add(none);
                 keys.Add("none");
             }
             parts.AddRange(WorkEchoes(arrival));

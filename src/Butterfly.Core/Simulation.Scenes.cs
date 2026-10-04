@@ -60,7 +60,7 @@ namespace Butterfly.Core
                 var e = Data.Content.Lives.First(l => l.Id == id);
                 list.Add(new RoutedScene("life:" + id, e.Category, pw, () => Happen(e, PersonOf(e.Person)!)));
             }
-            foreach (var s in Data.Content.Scenes.Where(s => !World.ScenesSeen.Contains(s.Id) && Rested(s) && s.Requires.All(Holds)))
+            foreach (var s in Data.Content.Scenes.Where(s => !s.Interrupt && !World.ScenesSeen.Contains(s.Id) && Rested(s) && s.Requires.All(Holds)))
                 list.Add(new RoutedScene("scene:" + s.Id, s.Category, s.Weight > 0 ? s.Weight : w, () => PlayAuthoredScene(s)));
             return list;
         }
@@ -68,6 +68,9 @@ namespace Butterfly.Core
         /// <summary>At the start of each month: the router picks the optional scenes this month brings.</summary>
         private void RouteScenes()
         {
+            // Critical authored moments interrupt: they happen the month they become possible, outside the router.
+            foreach (var s in Data.Content.Scenes.Where(s => s.Interrupt && !World.ScenesSeen.Contains(s.Id) && s.Requires.All(Holds)).ToList())
+                PlayAuthoredScene(s);
             int slots = T.GetInt("scenes.optionalPerMonth");
             for (int n = 0; n < slots; n++)
             {
