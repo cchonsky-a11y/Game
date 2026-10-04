@@ -38,13 +38,19 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void AnAnswerWinsStakeInTheInstitutionsItTouchesIfYouAreAMember()
+        public void AnAnswerWinsStandingNotSharesInTheInstitutionsItTouches()
         {
+            // P1 (2026-10-04): favor with an institution, never a share of it (only the bank sells real shares).
             var sim = At("flood", 72, s => { s.World.Institution("circle").Stake = 0.05; s.World.Institution("circle").Rank = Simulation.Member; });
-            int circle = sim.StakePercent(sim.World.Institution("circle"));
+            var circle = sim.World.Institution("circle");
+            var sanctuary = sim.World.Institution("sanctuary");
+            int stake = sim.StakePercent(circle);
+            double loyalty = circle.Loyalty, regard = sanctuary.Regard;
             Assert.True(sim.Decide("relief").Ok);
-            Assert.Equal(circle + 2, sim.StakePercent(sim.World.Institution("circle")));
-            Assert.Equal(0, sim.StakePercent(sim.World.Institution("sanctuary")));     // favor, not stake, where you aren't a member
+            Assert.Equal(stake, sim.StakePercent(circle));                              // no share handed out
+            Assert.True(circle.Loyalty > loyalty);                                       // a member's leader thinks better of you
+            Assert.Equal(0, sim.StakePercent(sanctuary));
+            Assert.True(sanctuary.Regard > regard);                                      // a house you don't belong to takes notice
         }
 
         [Fact]

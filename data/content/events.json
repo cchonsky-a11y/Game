@@ -1,5 +1,5 @@
 {
-  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Styles and stacking (decided 2026-09-28, Corey): each option has a style (generous, profit, principled, loyal, aloof); an option can set flags (sets) that later effects check (if: a flag, not:<flag>, or own:<id> for an institution you founded that stands); stake effects give members of the institution percentage points of stake, resilience adds to plague resilience. Profiteer twice and the street turns against you; give generously three times and it seeks you out (tuning events.street). Amounts are PROPOSED P0-33 and P0-36. P1 (2026-10-04): an event with 'trigger': true is not dated; it is offered when the game's own consequences call for it (a Grand Challenge's aftermath). Its options may use 'regard' and 'status' effects on recurring people.",
+  "_readme": "Decision events (decided 2026-09-28, P0-33) and leaders' requests (P0-32). Each comes on its date (month 1-12) if its requirement holds then (otherwise it passes), waits for the player's choice (decide <option>), and lapses to its last option after events.lapseTurns turns. Effects: gold (in AD 155 aurei, scaled by prices; negative is a cost), level and debt (domain), loyalty (institution; remembered as a grievance if you aren't a member), lean (institution: + toward its first camp, - toward its second), income (a year), aurei (gold coins). Marks (P0-33, revised 2026-09-28): what a choice you made yourself leaves in Rome, shown in the Personal echo at arrival (mark on the first, mark2 on the second; present conditions only). With markInstitution, the mark needs that institution still standing ({inst} is its present name) and markGone / markGone2 show instead when it is gone. Lapsed choices leave no mark. Styles and stacking (decided 2026-09-28, Corey): each option has a style (generous, profit, principled, loyal, aloof); an option can set flags (sets) that later effects check (if: a flag, not:<flag>, or own:<id> for an institution you founded that stands); stake effects give members of the institution percentage points of stake, resilience adds to plague resilience. Profiteer twice and the street turns against you; give generously three times and it seeks you out (tuning events.street). Amounts are PROPOSED P0-33 and P0-36. P1 (2026-10-04): an event with 'trigger': true is not dated; it is offered when the game's own consequences call for it (a Grand Challenge's aftermath). Its options may use 'regard' and 'status' effects on recurring people. P1 (2026-10-04): 'standing' is favor with an institution (members' leaders think better of you; a house you don't belong to takes an interest), not a share of it. Only the banking house still gives 'stake', because in a bank a share is real financial ownership.",
   "events": [
     {
       "id": "designs",
@@ -38,9 +38,9 @@
               "value": 1.5
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "guild",
-              "value": 2
+              "value": 4
             }
           ],
           "mark": "Every forge at Ostia still makes the ship fittings you once drew on wax. The shipwrights call them 'Successan' after the smith; nobody has heard your name.",
@@ -124,7 +124,7 @@
               "value": 1.5
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "guild",
               "value": 2
             }
@@ -180,9 +180,9 @@
               "value": 8
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "circle",
-              "value": 2
+              "value": 3
             },
             {
               "type": "loyalty",
@@ -190,14 +190,19 @@
               "value": 4
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "sanctuary",
-              "value": 1
+              "value": 2
             },
             {
               "type": "loyalty",
               "institution": "junian",
               "value": 4
+            },
+            {
+              "type": "regard",
+              "person": "Serenus",
+              "value": 1
             }
           ],
           "mark": "In the Subura the flood line of AD 161 is still painted on a wall at the height of a man's chest, and beside it someone has scratched a boat and a word you can just read: hospes, the stranger.",
@@ -278,9 +283,9 @@
               "value": 4
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "sanctuary",
-              "value": 2
+              "value": 3
             },
             {
               "type": "resilience",
@@ -310,7 +315,7 @@
               "value": -1.5
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "circle",
               "value": 3
             }
@@ -354,9 +359,9 @@
               "value": 6
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "members",
-              "value": 1
+              "value": 2
             }
           ],
           "mark": "On a bronze tablet in the Forum, among those who gave for the Parthian war, is a name spelled wrong: yours.",
@@ -405,9 +410,9 @@
               "value": 5
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "faction",
-              "value": 1
+              "value": 2
             },
             {
               "type": "loyalty",
@@ -444,9 +449,9 @@
               "value": 6
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "sanctuary",
-              "value": 2
+              "value": 3
             },
             {
               "type": "loyalty",
@@ -499,9 +504,9 @@
               "value": 4
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "guild",
-              "value": 2
+              "value": 3
             },
             {
               "type": "loyalty",
@@ -584,9 +589,9 @@
               "value": 6
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "circle",
-              "value": 1
+              "value": 2
             },
             {
               "type": "loyalty",
@@ -594,7 +599,7 @@
               "value": 6
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "junian",
               "value": 2
             },
@@ -726,9 +731,9 @@
               "value": -0.15
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "faction",
-              "value": 3
+              "value": 4
             }
           ],
           "markInstitution": "faction",
@@ -796,9 +801,9 @@
               "value": -0.25
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "sanctuary",
-              "value": 3
+              "value": 4
             }
           ],
           "markInstitution": "sanctuary",
@@ -828,9 +833,9 @@
               "value": 0.25
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "sanctuary",
-              "value": 1
+              "value": 2
             },
             {
               "type": "loyalty",
@@ -900,7 +905,7 @@
               "value": -0.3
             },
             {
-              "type": "stake",
+              "type": "standing",
               "institution": "guild",
               "value": 3
             }

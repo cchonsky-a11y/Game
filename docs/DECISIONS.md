@@ -463,3 +463,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Tuning (PROPOSED P1-11, revised):** with this much texture the plot was starved (an invitation and a commission waited many months), so progression candidates now weigh 3 against texture's 1.
 - **Tests:** no authored text repeats; a reusable scene returns only after its cooldown with new words; in plain runs (seeds 1–3) through AD 164, Roman life appears every year, engineering stays under 35% of routed scenes, and at least six kinds of scene appear.
 - Snapshot reset: the reference game arrives in AD 232 with Index 127.3.
+
+## 2026-10-04 — P1: institution access cleaned up
+- **Implemented:** sixteen event rewards that handed out percentage stakes in the guild, the Circle, the sanctuary and the factions now give **standing**, interpreted per event (flood relief: physicians and sanctuary; backing a client: the faction; selling designs or signing the arrangement: the guild; the river forge's loan becomes guild standing, since the guild gets a say in your business, not you in theirs). Flood relief also raises Serenus's regard. The bank keeps its two financial stakes (vouching for the treasury loan; buying what others dump).
+- **Implemented:** institutions carry an access kind. Factions (patronage) can't be bought into from the console or menu; the sanctuary (gifts) takes `give` and lists you as a benefactor; the bank (shares) is unchanged.
+- **Open (Corey):** the patron's-introduction path into a senator's following, within the six-month "socially minor" rule; until then Governance policy comes from advocacy or the player's own club.
+- **Legacy compatibility (documented):** the stake field still drives offices, voice and policy internally; batch strategies, explorer and snapshot still use the old purchase.

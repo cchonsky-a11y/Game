@@ -32,11 +32,14 @@ namespace Butterfly.Core.Tests
         public void InstitutionMenuLabelsNameTheCommandTheyRun()
         {
             // Tester 7: the menu said "join sanctuary", but typing "join sanctuary" was an unknown command.
-            string output = Play(42, "choose workshop", "exchange 20 aurei", "menu");
-            Assert.Contains("buy into sanctuary, 1%", output);
+            string output = Play(42, "exchange 20 aurei", "menu");
+            // P1 (2026-10-04): the sanctuary takes gifts, not purchases; the label names the command it runs.
+            Assert.Contains("give the sanctuary a gift (", output);
             Assert.DoesNotContain("] join ", output);
-            string typed = Play(42, "choose workshop", "exchange 20 aurei", "buy sanctuary 1");
+            Assert.DoesNotContain("buy into faction", output);                          // a senator's following isn't bought
+            string typed = Play(42, "exchange 20 aurei", "give sanctuary");
             Assert.DoesNotContain("Unknown command", typed);
+            Assert.Contains("benefactors", typed);
         }
     
         /// <summary>A real first jump (the machine repaired), arriving with more gold than the machine can carry.</summary>

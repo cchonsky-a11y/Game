@@ -213,6 +213,18 @@ namespace Butterfly.Core
                                     title + ": " + (YouLead(i) ? "your say in " + i.Def.ShortName + " grows" : i.Leader + " gives you a larger say in " + i.Def.ShortName) + ": " + StakePercent(i) + "%." + Crossed(before, i.Stake));
                         }
                         break;
+                    case "standing":
+                        // P1 (2026-10-04): favor with an institution, not a share of it. Members' leaders think better of them;
+                        // a house you don't belong to takes an interest in you (its regard), which its people remember.
+                        foreach (var i in EventInstitutions(fx.Institution))
+                        {
+                            if (i.Backed) { Grieve(i, fx.Value, "institution.loyalty", causes, new[] { i.Leader }, title + ": " + (YouLead(i) ? "the members of " + i.Def.ShortName + " think better of you." : i.Leader + " of " + i.Def.ShortName + " thinks better of you.")); continue; }
+                            double before = i.Regard;
+                            i.Regard += fx.Value;
+                            Record("institution.regard", i.Key, causes, new[] { i.Leader }, new[] { new Effect(i.Key + ".regard", before, i.Regard) },
+                                title + ": " + Cap(i.Def.ShortName) + " takes notice of you.");
+                        }
+                        break;
                     case "resilience":
                     {
                         double before = World.PlagueResilienceBonus;

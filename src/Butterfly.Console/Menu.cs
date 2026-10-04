@@ -198,14 +198,25 @@ internal sealed partial class ConsoleGame
             foreach (var i in w.Institutions.Where(x => !x.Def.IsOwn && x.Exists))
             {
                 if (!i.Backed && _sim.OnInvitationPath(i)) continue;   // P1: by invitation only, nothing to buy
+                if (_sim.PatronageOnly(i) && !i.Backed) continue;      // P1: a patron's introduction, not a purchase (not built yet)
+                if (_sim.TakesGifts(i))
+                {
+                    if (_sim.JoinBlocker(i) == null && w.Attention >= _sim.T.GetInt("stakes.buyAttention") && _sim.GiftCost(i) + (i.Backed ? 0 : _sim.EntryFee(i)) <= w.Gold) inst.Item2.Add(("give the " + i.Def.ShortName.Replace("the ", "") + " a gift (" + M(_sim.GiftCost(i)) + ")", "give " + i.Key));
+                    if (i.Backed && i.AttendedTurn != _sim.Turn)
+                        for (int c = 0; c < 2; c++) inst.Item2.Add(("attend " + i.Key + ", vote " + _sim.CampName(i, c), "attend " + i.Key + " " + i.Def.DriftPaths[c].Id));
+                    continue;
+                }
                 if (!i.Backed)
                 {
                     int first = i.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                     if (_sim.JoinBlocker(i) == null && _sim.BuyCost(i, first) <= w.Gold) inst.Item2.Add(("buy into " + i.Key + ", " + first + "% (" + M(_sim.BuyCost(i, first)) + ")", "buy " + i.Key + " " + first));
                     continue;
                 }
-                if (_sim.BuyCost(i, 1) <= w.Gold) inst.Item2.Add((i.Key + " +1% (" + M(_sim.BuyCost(i, 1)) + ")", "buy " + i.Key + " 1"));
-                if (_sim.BuyCost(i, 5) <= w.Gold) inst.Item2.Add((i.Key + " +5% (" + M(_sim.BuyCost(i, 5)) + ")", "buy " + i.Key + " 5"));
+                if (!_sim.PatronageOnly(i))   // the bank's shares, and legacy stakes elsewhere; a senator's following is not bought
+                {
+                    if (_sim.BuyCost(i, 1) <= w.Gold) inst.Item2.Add((i.Key + " +1% (" + M(_sim.BuyCost(i, 1)) + ")", "buy " + i.Key + " 1"));
+                    if (_sim.BuyCost(i, 5) <= w.Gold) inst.Item2.Add((i.Key + " +5% (" + M(_sim.BuyCost(i, 5)) + ")", "buy " + i.Key + " 5"));
+                }
                 if (i.AttendedTurn != _sim.Turn)
                     for (int c = 0; c < 2; c++) inst.Item2.Add(("attend " + i.Key + ", vote " + _sim.CampName(i, c), "attend " + i.Key + " " + i.Def.DriftPaths[c].Id));
             }

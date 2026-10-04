@@ -1,5 +1,5 @@
 {
-  "_readme": "Institutions (SYSTEMS §7). Each domain has two established institutions you can buy into (origin 'established', they exist from the start) and one you can found yourself (origin 'own'). Each has a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Stakes and rivalry: DECIDED 2026-09-27, numbers PROPOSED P0-18. Joining requirements (joinRequirement, exclusiveWith) apply to your first purchase only: DECIDED 2026-09-28 (Corey), a first version to be built out later. Offices and successors (decided 2026-09-28, P0-32): 'offices' are the period titles from member to head, 'officeCeiling' the highest a foreigner can reach (the factions stop at the consilium, the sanctuary at its warden); 'successors' are the candidates you can name from the head's seat or in your own institution. Where sources are thin (the Circle's and the bank's inner ranks) the ladders are reconstructions.",
+  "_readme": "Institutions (SYSTEMS §7). Each domain has two established institutions you can buy into (origin 'established', they exist from the start) and one you can found yourself (origin 'own'). Each has a named leader, a pre-authored leader integrity (honest / average / venal, DECIDED 2026-09-26) and 2 pre-authored drift paths. No general identity engine. Stakes and rivalry: DECIDED 2026-09-27, numbers PROPOSED P0-18. Joining requirements (joinRequirement, exclusiveWith) apply to your first purchase only: DECIDED 2026-09-28 (Corey), a first version to be built out later. Offices and successors (decided 2026-09-28, P0-32): 'offices' are the period titles from member to head, 'officeCeiling' the highest a foreigner can reach (the factions stop at the consilium, the sanctuary at its warden); 'successors' are the candidates you can name from the head's seat or in your own institution. Where sources are thin (the Circle's and the bank's inner ranks) the ladders are reconstructions. P1 'access' (2026-10-04): how a newcomer gets in. 'patronage' (the Senate factions: through a patron's introduction; that path is not built yet, so the factions take no new members in P1 play), 'gifts' (the Tiber Island sanctuary: you give, and become one of its benefactors; no shares), 'shares' (the banking house: a real financial stake). Institutions on an invitation path (invitations.json) take members by invitation. Legacy: the simulation's stake still records standing internally for P0 systems.",
   "institutions": [
     {
       "id": "circle",
@@ -96,7 +96,8 @@
         "benefactor",
         "aedituus"
       ],
-      "officeCeiling": 2
+      "officeCeiling": 2,
+      "access": "gifts"
     },
     {
       "id": "school",
@@ -194,7 +195,8 @@
         "amicus",
         "member of his consilium"
       ],
-      "officeCeiling": 2
+      "officeCeiling": 2,
+      "access": "patronage"
     },
     {
       "id": "junian",
@@ -237,7 +239,8 @@
         "amicus",
         "member of his consilium"
       ],
-      "officeCeiling": 2
+      "officeCeiling": 2,
+      "access": "patronage"
     },
     {
       "id": "club",
@@ -402,7 +405,8 @@
           "integrity": "venal",
           "note": "his son, who lends to the treasury at any rate it asks"
         }
-      ]
+      ],
+      "access": "shares"
     },
     {
       "id": "house",

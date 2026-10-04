@@ -182,6 +182,7 @@ internal sealed partial class ConsoleGame
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   listen                         reopen the machine's reference channel (once the panel shows R-17 ACTIVE; 1 Attention)
+  give <inst>                    a gift to an institution that takes gifts (the Tiber Island sanctuary): you become a benefactor
   focus <kind|off>               stay with one kind of scene (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery,
                                  CityHistory, Exploration, InstitutionsPolitics); the world can still interrupt
   view [section]                 the eight sections: now, projects, people, institutions, knowledge, civilization, machine, journal
@@ -222,6 +223,7 @@ internal sealed partial class ConsoleGame
             case "people": case "who": People(); return true;
             case "view": case "section": View(arg); return true;
             case "focus": r = _sim.SetSceneFocus(arg); break;
+            case "give": r = _sim.Give(arg); break;
             case "listen": r = _sim.Listen(); break;
             case "challenge": case "challenges":
                 if (arg.ToLowerInvariant() == "begin") { r = _sim.StartChallengeStage(parts.Length > 2 ? parts[2] : ""); break; }
@@ -344,6 +346,8 @@ internal sealed partial class ConsoleGame
                 var target = _sim.FindInstitution(arg);
                 // P1 (decided 2026-10-02): an institution on an invitation path doesn't sell seats.
                 if (target != null && _sim.OnInvitationPath(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell seats: members bring you in. " + AccessText(target)); return false; }
+                if (target != null && _sim.PatronageOnly(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell places: a senator's following takes clients through a patron's introduction. (Not open to you in this prototype yet.)"); return false; }
+                if (target != null && _sim.TakesGifts(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell shares; it takes gifts. Type 'give " + target.Key + "' (" + _sim.Money(_sim.GiftCost(target)) + ")."); return false; }
                 int pct = target != null && !target.Backed && target.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 r = _sim.Buy(arg, pct);
@@ -547,12 +551,14 @@ internal sealed partial class ConsoleGame
                 {
                     line += ": strength " + F(i.Strength) + " (" + F(_sim.DomainShare(i) * 100) + "%)";
                     if (_sim.OnInvitationPath(i)) line += "; " + AccessText(i);
-                    if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
+                    if (_sim.TakesGifts(i)) line += i.Stake > 0 ? "; you are among its benefactors" : "; it takes gifts (give " + i.Key + ", " + _sim.Money(_sim.GiftCost(i)) + ")";
+                    else if (_sim.PatronageOnly(i)) line += i.Stake > 0 ? "; you are in its following" : "; it takes clients through a patron's introduction (not yet open)";
+                    else if (i.Stake > 0) line += ", you hold " + _sim.StakePercent(i) + "%" + StakeLabel(i);
                     else if (_sim.OnInvitationPath(i)) { }
                     else if (!i.Def.IsOwn)
                         line += "; to join: " + _sim.JoinRequirementText(i) + (_sim.JoinBlocker(i) == null ? " (you qualify)" : " (not yet)");
                     int next = _sim.NextThresholdPercent(i);
-                    if (!i.Def.IsOwn && next > 0 && !_sim.OnInvitationPath(i))
+                    if (!i.Def.IsOwn && next > 0 && !_sim.OnInvitationPath(i) && !_sim.TakesGifts(i) && !_sim.PatronageOnly(i))
                         line += "; next 1% " + _sim.Money(_sim.BuyCost(i, 1)) + (i.Stake <= 0 && _sim.EntryFee(i) > 0 ? " incl. " + _sim.Money(_sim.EntryFee(i)) + " entry fee" : "") +
                                 ", to " + next + "% " + _sim.Money(_sim.BuyCost(i, next - _sim.StakePercent(i))) + "; dues " + _sim.Money(_sim.T.Get("joining.duesBasePerYear." + i.Key)) + "/yr + " +
                                 _sim.Money(_sim.T.Get("joining.duesPerStakePercentPerYear")) + " per %";

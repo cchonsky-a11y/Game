@@ -119,6 +119,8 @@ namespace Butterfly.Core
         public IReadOnlyList<SuccessorDef> Successors { get; }
         /// <summary>What you must have done before your first purchase (decided 2026-09-28).</summary>
         public string JoinRequirement { get; }
+        /// <summary>P1: how a newcomer gets in: "patronage" (not built yet; no new members), "gifts", or "shares" (financial stake).</summary>
+        public string Access { get; }
         /// <summary>A rival that won't share a member with this one, if any.</summary>
         public string? ExclusiveWith { get; }
 
@@ -138,6 +140,7 @@ namespace Butterfly.Core
             Tags = o.Arr("tags").Cast<string>().ToList();
             FoundText = o.StrOr(Origin == "own" ? "foundText" : "joinText", null) ?? "";
             JoinRequirement = o.StrOr("joinRequirement", "none") ?? "none";
+            Access = o.StrOr("access", "shares") ?? "shares";
             ExclusiveWith = o.StrOr("exclusiveWith", null);
             DriftPaths = o.Arr("driftPaths").Cast<JsonObject>().Select(x => new DriftPathDef(x)).ToList();
             Offices = o.Has("offices") ? o.Arr("offices").Cast<string>().ToList() : new List<string> { "member", "officer", "deputy", "head" };
