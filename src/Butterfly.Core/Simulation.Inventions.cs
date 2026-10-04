@@ -137,9 +137,6 @@ namespace Butterfly.Core
             return CommandResult.Success("Started: " + def.Name + ".");
         }
 
-        private int ReservedInventionAttention() =>
-            World.ActiveInventions.Where(a => a.TurnsRemaining < a.Def.DurationMonths).Sum(a => a.Def.AttentionPerTurn);
-
         private void ProgressInventions()
         {
             foreach (var a in World.ActiveInventions.ToList())

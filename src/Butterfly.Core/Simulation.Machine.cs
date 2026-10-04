@@ -203,10 +203,6 @@ namespace Butterfly.Core
             }
         }
 
-        /// <summary>Attention pledged to machine steps already under way.</summary>
-        private int ReservedMachineAttention() =>
-            World.ActiveMachineSteps.Where(a => a.TurnsRemaining < a.Def.DurationMonths).Sum(a => a.Def.AttentionPerTurn);
-
         /// <summary>What still stands between you and the jump.</summary>
         public IEnumerable<string> MachineStatus()
         {

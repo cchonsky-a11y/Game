@@ -206,7 +206,7 @@ namespace Butterfly.Core
             {
                 string? unmet = JoinBlocker(inst);
                 if (unmet != null) return CommandResult.Fail(unmet);
-                int minFirst = inst.Def.JoinRequirement == "deposit" ? T.GetInt("joining.bankMinFirstPercent") : 1;
+                int minFirst = inst.Def.JoinRequirement == "deposit" ? T.GetInt("joining.bankMinFirstPercent") : T.GetInt("stakes.firstBuyPercent");
                 if (points < minFirst)
                     return CommandResult.Fail(Cap(inst.Def.ShortName) + " takes new partners only with a deposit of at least " + minFirst + "% (" +
                                               Money(BuyCost(inst, minFirst)) + "): buy " + inst.Key + " " + minFirst + ".");

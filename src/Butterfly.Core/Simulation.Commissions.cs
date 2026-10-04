@@ -249,10 +249,6 @@ namespace Butterfly.Core
             return Record(type, c.ProjectId, cause.HasValue ? new[] { cause.Value } : null, new[] { "player", CommissionDefOf(c).Client }, null, text);
         }
 
-        /// <summary>Attention the current work stages hold this month (from the month after they were agreed).</summary>
-        private int ReservedCommissionAttention() =>
-            World.Commissions.Where(c => c.Status == CommissionStatus.Working && Turn >= c.ReservedFromTurn).Sum(c => CommissionDefOf(c).Work[c.WorkIndex].Attention);
-
         /// <summary>Attention the commissions will hold k months from now: whichever stage is running then.</summary>
         private int CommissionAttentionInMonth(int k) =>
             World.Commissions.Where(c => c.Status == CommissionStatus.Working).Sum(c => StageAttentionAt(CommissionDefOf(c), c.WorkIndex, c.MonthsLeftInStage, k));

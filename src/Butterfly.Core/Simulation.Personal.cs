@@ -14,15 +14,11 @@ namespace Butterfly.Core
 
         public int AttentionPerTurn => T.GetInt("attention.perTurn");
 
-        /// <summary>Attention already pledged to multi-turn projects and commitments for this turn.</summary>
-        public int ReservedAttention() =>
-            World.ActiveProjects.Where(p => p.TurnsRemaining < p.Def.DurationMonths).Sum(p => p.Def.AttentionPerTurn)
-            + World.Commitments.Sum(c => T.GetInt("commitments.mentor.attentionPerTurn"))
-            + ReservedMachineAttention()
-            + ReservedInventionAttention()
-            + ReservedCommissionAttention()
-            + ReservedChallengeAttention()
-            + OfficeDuties();
+        /// <summary>
+        /// Attention already pledged to multi-month work and duties this month: the sum of <see cref="ReservedAttentionParts"/>,
+        /// so the total the month uses and the parts the header shows can't disagree.
+        /// </summary>
+        public int ReservedAttention() => ReservedAttentionParts().Sum(p => p.Attention);
 
         /// <summary>What holds this month's reserved Attention, by name (P1 header: "2 reserved — Machine Assessment").</summary>
         public List<(string What, int Attention)> ReservedAttentionParts()
@@ -45,8 +41,8 @@ namespace Butterfly.Core
         }
 
         /// <summary>
-        /// Attention already pledged for next turn: work that is still running then, and office duties. When it takes all of
-        /// it, next turn has nothing free and passes on its own (L3: the console warns the moment that happens).
+        /// Attention already pledged for next month: work that is still running then, and office duties. When it takes all
+        /// of it, next month has nothing free (L3: the console warns the moment that happens); only End Month moves time.
         /// </summary>
         public int AttentionCommittedNextTurn() => ReservedInMonth(1);
 

@@ -31,7 +31,7 @@ namespace Butterfly.Core
 
         /// <summary>
         /// Why the player is needed this turn: an open prompt, something notable just happened, a new
-        /// investment is affordable, or the era's turns are used up. Empty means the turn can pass on its own.
+        /// investment is affordable, or the era's turns are used up. Empty means fast-forward can carry on (P1: a month never ends on its own).
         /// </summary>
         public List<string> PendingDecisions()
         {

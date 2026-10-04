@@ -143,9 +143,6 @@ namespace Butterfly.Core
             }
         }
 
-        private int ReservedChallengeAttention() =>
-            World.Challenges.Where(c => c.Status == ChallengeStatus.Working && Turn >= c.ReservedFromTurn).Sum(c => NextStage(c)!.Attention);
-
         private int ChallengeAttentionInMonth(int k) =>
             World.Challenges.Where(c => c.Status == ChallengeStatus.Working && c.MonthsLeft > k).Sum(c => NextStage(c)!.Attention);
 
