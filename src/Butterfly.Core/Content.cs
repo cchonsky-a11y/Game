@@ -546,6 +546,10 @@ namespace Butterfly.Core
                 content.Orders = w.Arr("orders").Cast<JsonObject>().Select(o => new OrderDef(o)).ToList();
                 content.WorkshopSizes = w.Arr("sizes").Cast<JsonObject>().Select(o => new WorkshopSizeDef(o)).OrderBy(x => x.Size).ToList();
             }
+            // Fail at load, with every problem listed, rather than silently or halfway through a campaign.
+            var problems = ContentValidation.Problems(content);
+            if (problems.Count > 0)
+                throw new System.FormatException("Content in " + contentDirectory + " has " + problems.Count + " problem(s):\n  " + string.Join("\n  ", problems));
             return content;
         }
 

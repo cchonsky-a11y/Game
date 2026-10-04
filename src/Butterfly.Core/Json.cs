@@ -124,7 +124,14 @@ namespace Butterfly.Core
 
         private static FormatException Error(string s, int i, string message)
         {
-            return new FormatException("JSON error at offset " + i + ": " + message);
+            // Line and column as an editor shows them, so a bad comma in a long content file can be found.
+            int line = 1, column = 1;
+            for (int k = 0; k < i && k < s.Length; k++)
+            {
+                if (s[k] == '\n') { line++; column = 1; }
+                else column++;
+            }
+            return new FormatException("JSON error at line " + line + ", column " + column + " (offset " + i + "): " + message);
         }
     }
 
