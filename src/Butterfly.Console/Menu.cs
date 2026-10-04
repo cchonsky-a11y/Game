@@ -208,11 +208,12 @@ internal sealed partial class ConsoleGame
                 }
                 if (!i.Backed)
                 {
+                    if (_sim.AccessRefusal(i) != null) continue;
                     int first = i.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                     if (_sim.JoinBlocker(i) == null && _sim.BuyCost(i, first) <= w.Gold) inst.Item2.Add(("buy into " + i.Key + ", " + first + "% (" + M(_sim.BuyCost(i, first)) + ")", "buy " + i.Key + " " + first));
                     continue;
                 }
-                if (!_sim.PatronageOnly(i))   // the bank's shares, and legacy stakes elsewhere; a senator's following is not bought
+                if (_sim.AccessRefusal(i) == null)   // only shares really for sale (the bank); the simulation decides
                 {
                     if (_sim.BuyCost(i, 1) <= w.Gold) inst.Item2.Add((i.Key + " +1% (" + M(_sim.BuyCost(i, 1)) + ")", "buy " + i.Key + " 1"));
                     if (_sim.BuyCost(i, 5) <= w.Gold) inst.Item2.Add((i.Key + " +5% (" + M(_sim.BuyCost(i, 5)) + ")", "buy " + i.Key + " 5"));

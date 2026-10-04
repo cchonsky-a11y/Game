@@ -140,7 +140,7 @@ namespace Butterfly.Core.Tests
             // Tester 6: voting for the Free Traders was answered "the Ostia Grain Cartel lead, as you want."
             var sim = new Simulation(TestData.Load(), 42);
             sim.World.Gold = 5000;
-            Assert.True(sim.Buy("sanctuary", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("sanctuary", 1).Ok);
             var inst = sim.World.Institution("sanctuary");
             string msg = "";
             for (int k = 0; k < 6; k++)

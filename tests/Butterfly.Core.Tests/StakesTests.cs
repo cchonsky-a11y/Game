@@ -33,7 +33,7 @@ namespace Butterfly.Core.Tests
             Assert.Equal(b * newcomer, sim.StakeCost(circle, 1), 6);            // the first 1%, at the newcomer premium
             double g = sim.T.Get("stakes.costGrowthPerPercent");
             Assert.Equal(b * (50 + g * 1225), sim.ControlCost(Domain.Medicine), 6); // 0→50%: Σ b(1 + g·k), k = 0..49 (normal price)
-            Assert.True(sim.Buy("circle", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 1).Ok);
             Assert.Equal(b * (1 + g) * newcomer, sim.StakeCost(circle, 1), 6);  // the second 1%
             Assert.Equal(0.01, circle.Stake, 6);
         }
@@ -63,18 +63,18 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             var circle = sim.World.Institution("circle");
-            Assert.True(sim.Buy("circle", 1).Ok);                                 // a member
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 1).Ok);                                 // a member
             Assert.False(sim.SetPriority(Domain.Medicine, Priority.Protect).Ok);
             Assert.Equal(0, sim.Influence(Domain.Medicine), 6);
-            Assert.True(sim.Buy("circle", 9).Ok);                                 // 10%: influence, no say
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 9).Ok);                                 // 10%: influence, no say
             Assert.True(sim.Influence(Domain.Medicine) > 0);
             Assert.False(sim.SetPriority(Domain.Medicine, Priority.Protect).Ok);
             Assert.False(sim.Oversee("circle").Ok);
-            Assert.True(sim.Buy("circle", 15).Ok);                                // 25%: a voice
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 15).Ok);                                // 25%: a voice
             Assert.True(sim.SetPriority(Domain.Medicine, Priority.Protect).Ok);
             Assert.False(sim.Oversee("circle").Ok);
             Assert.False(sim.Charter("circle").Ok);
-            Assert.True(sim.Buy("circle", 25).Ok);                                // 50%: control
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 25).Ok);                                // 50%: control
             Assert.True(sim.Oversee("circle").Ok);
             Assert.True(sim.Charter("circle").Ok);
             Assert.True(sim.Controls(circle));
@@ -87,7 +87,7 @@ namespace Butterfly.Core.Tests
             sim.World.Gold = 1000;
             MeetJoinRequirements(sim);
             int before = sim.World.Attention;
-            Assert.True(sim.Buy("guild", 5).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 5).Ok);
             Assert.Equal(before - sim.T.GetInt("stakes.buyAttention"), sim.World.Attention);
         }
 
@@ -270,35 +270,35 @@ namespace Butterfly.Core.Tests
         public void TheCircleWantsMedicineWorkOrThePromise()
         {
             var sim = Bare();
-            Assert.False(sim.Buy("circle", 1).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("circle", 1).Ok);
             sim.World.CompletedProjects.Add("physician");
-            Assert.True(sim.Buy("circle", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 1).Ok);
             var promised = Bare();
             promised.World.Promise.Status = PromiseStatus.Active;
-            Assert.True(promised.Buy("circle", 1).Ok);
+            Assert.True(promised.BuyLegacyStakeForP0Regression("circle", 1).Ok);
         }
 
         [Fact]
-        public void TheSanctuaryAsksNothing() => Assert.True(Bare().Buy("sanctuary", 1).Ok);
+        public void TheSanctuaryAsksNothing() => Assert.True(Bare().BuyLegacyStakeForP0Regression("sanctuary", 1).Ok);
 
         [Fact]
         public void TheGuildAndTheJuniansWantABusinessOrProperty()
         {
             var sim = Bare();
-            Assert.False(sim.Buy("guild", 1).Ok);
-            Assert.False(sim.Buy("junian", 1).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("junian", 1).Ok);
             sim.World.CompletedProjects.Add("warehouses");
-            Assert.True(sim.Buy("guild", 1).Ok);
-            Assert.True(sim.Buy("junian", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("junian", 1).Ok);
         }
 
         [Fact]
         public void TheCaeciliansWantPatronage()
         {
             var sim = Bare();
-            Assert.False(sim.Buy("faction", 1).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("faction", 1).Ok);
             sim.World.ConsultJobs = sim.T.GetInt("joining.patronageConsultJobs");
-            Assert.True(sim.Buy("faction", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("faction", 1).Ok);
         }
 
         [Fact]
@@ -314,9 +314,9 @@ namespace Butterfly.Core.Tests
         {
             var sim = Bare();
             int min = sim.T.GetInt("joining.bankMinFirstPercent");
-            Assert.False(sim.Buy("bank", min - 1).Ok);
-            Assert.True(sim.Buy("bank", min).Ok);
-            Assert.True(sim.Buy("bank", 1).Ok); // only the first purchase has a minimum
+            Assert.False(sim.BuyLegacyStakeForP0Regression("bank", min - 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("bank", min).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("bank", 1).Ok); // only the first purchase has a minimum
         }
 
         [Fact]
@@ -325,13 +325,13 @@ namespace Butterfly.Core.Tests
             var sim = Bare();
             sim.World.CompletedProjects.Add("workshop");
             sim.World.ConsultJobs = 5;
-            Assert.True(sim.Buy("junian", 10).Ok);
-            Assert.False(sim.Buy("faction", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("junian", 10).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("faction", 1).Ok);
             var small = Bare();
             small.World.CompletedProjects.Add("workshop");
             small.World.ConsultJobs = 5;
-            Assert.True(small.Buy("junian", 9).Ok);
-            Assert.True(small.Buy("faction", 1).Ok); // under 10% doesn't count
+            Assert.True(small.BuyLegacyStakeForP0Regression("junian", 9).Ok);
+            Assert.True(small.BuyLegacyStakeForP0Regression("faction", 1).Ok); // under 10% doesn't count
         }
 
         [Fact]
@@ -346,11 +346,11 @@ namespace Butterfly.Core.Tests
             var guild = sim.World.Institution("guild");
             double fee = sim.T.Get("joining.entryFee.guild");
             double gold = sim.World.Gold;
-            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
             Assert.Equal(fee + sim.T.Get("stakes.costPerPercent.economy") * sim.T.Get("stakes.newcomerPremium"), gold - sim.World.Gold, 6);
             gold = sim.World.Gold;
             double next = sim.StakeCost(guild, 1);
-            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
             Assert.Equal(next, gold - sim.World.Gold, 6); // no fee the second time
         }
 
@@ -397,7 +397,7 @@ namespace Butterfly.Core.Tests
             var sim = Rich();
             var guild = sim.World.Institution("guild");
             Assert.Equal(sim.T.Get("stakes.newcomerPremium"), sim.NewcomerPremium(guild), 6);
-            sim.Buy("guild", 1);
+            sim.BuyLegacyStakeForP0Regression("guild", 1);
             double atJoin = sim.NewcomerPremium(guild);
             while (sim.YearsAsMember(guild) < 2.5) sim.EndTurn();
             Assert.True(sim.NewcomerPremium(guild) < atJoin && sim.NewcomerPremium(guild) > 1);
@@ -411,7 +411,7 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             var guild = sim.World.Institution("guild");
-            sim.Buy("guild", 23);
+            sim.BuyLegacyStakeForP0Regression("guild", 23);
             int before = sim.StakePercent(guild);
             while (sim.YearsAsMember(guild) < 1.5) sim.EndTurn();
             Assert.Equal(before + sim.T.GetInt("stakes.seniorityPercentPerYear"), sim.StakePercent(guild));
@@ -426,7 +426,7 @@ namespace Butterfly.Core.Tests
             var sim = new Simulation(TestData.Load(), 5);
             MeetJoinRequirements(sim);
             sim.World.Gold = 100;
-            Assert.True(sim.Buy("sanctuary", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("sanctuary", 1).Ok);
             var sanctuary = sim.World.Institution("sanctuary");
             while (sim.YearsAsMember(sanctuary) < 2.5) { sim.World.Gold = 0; sim.EndTurn(); }
             Assert.Equal(1, sim.StakePercent(sanctuary));
@@ -437,10 +437,10 @@ namespace Butterfly.Core.Tests
         {
             var sim = Rich();
             var guild = sim.World.Institution("guild");
-            sim.Buy("guild", 1);
+            sim.BuyLegacyStakeForP0Regression("guild", 1);
             var idle = Rich();
             var idleGuild = idle.World.Institution("guild");
-            idle.Buy("guild", 1);
+            idle.BuyLegacyStakeForP0Regression("guild", 1);
             while (sim.YearsAsMember(guild) < 1.5)
             {
                 sim.World.Attention = 100;
@@ -458,7 +458,7 @@ namespace Butterfly.Core.Tests
         public void AttendingOncePerTurn()
         {
             var sim = Rich();
-            sim.Buy("guild", 1);
+            sim.BuyLegacyStakeForP0Regression("guild", 1);
             Assert.True(sim.Attend("guild").Ok);
             Assert.False(sim.Attend("guild").Ok);
         }

@@ -31,8 +31,8 @@ namespace Butterfly.Core.Tests
             Hold(sim, "faction", 0.10);
             Hold(sim, "junian", 0.05);
             Assert.Equal(9, sim.ExclusiveCapPercent(sim.World.Institution("junian")));
-            Assert.False(sim.Buy("junian", 5).Ok);                 // would reach 10%
-            Assert.True(sim.Buy("junian", 4).Ok);                  // up to 9% is allowed
+            Assert.False(sim.BuyLegacyStakeForP0Regression("junian", 5).Ok);                 // would reach 10%
+            Assert.True(sim.BuyLegacyStakeForP0Regression("junian", 4).Ok);                  // up to 9% is allowed
             // Seniority can't carry it past the lock-out either.
             int year = sim.Now.Year;
             while (sim.Now.Year < year + 2) sim.EndTurn();
@@ -122,7 +122,7 @@ namespace Butterfly.Core.Tests
             var sim = Rich();
             var guild = sim.World.Institution("guild");
             guild.Regard = -10;
-            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
             Assert.Equal(sim.T.Get("stakes.memberLoyalty") - 10, guild.Loyalty, 6);
             Assert.Equal(0, guild.Regard, 6);
         }

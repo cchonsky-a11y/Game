@@ -32,7 +32,7 @@ namespace Butterfly.Core
             var i = FindInstitution(id);
             if (i == null || !TakesGifts(i)) return CommandResult.Fail("They don't take gifts in that way.");
             int stakeBefore = StakePercent(i);
-            var r = Buy(i.Key, 1);
+            var r = BuyStake(i, 1);
             if (!r.Ok) return r;
             return CommandResult.Success(stakeBefore == 0
                 ? "You give to " + i.Def.Name + ". " + i.Leader + " names you among its benefactors; your name goes on the board by the door."

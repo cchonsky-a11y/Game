@@ -192,11 +192,48 @@ namespace Butterfly.Core
         /// Buys <paramref name="points"/> more percent of an established institution (1 Attention). Your first
         /// purchase makes you a member with 1%; stake gives influence at 10%, a voice at 25%, control at 50%.
         /// </summary>
+        /// <remarks>
+        /// P1 access is decided here, not in the console (P1 correctness pass, 2026-10-04): only an institution whose ownership
+        /// is really for sale (the banking house) sells shares. A senator's house takes clients through an introduction, an
+        /// invitation path admits members through its inviter, a sanctuary takes gifts (<see cref="Give"/>), and your own
+        /// institutions are founded. The P0 stake purchase survives only as <see cref="BuyLegacyStakeForP0Regression"/>.
+        /// </remarks>
         public CommandResult Buy(string id, int points)
         {
             var inst = FindInstitution(id);
             if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
             if (inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.Name) + " would be your own: found it instead (found " + inst.Key + ").");
+            if (AccessRefusal(inst) is string refusal) return CommandResult.Fail(refusal);
+            return BuyStake(inst, points);
+        }
+
+        /// <summary>Why the P1 player can't buy into this institution, or null if its shares are really for sale.</summary>
+        public string? AccessRefusal(Institution inst)
+        {
+            if (inst.Def.IsOwn) return Cap(inst.Def.Name) + " would be your own: found it instead (found " + inst.Key + ").";
+            if (OnInvitationPath(inst)) return Cap(inst.Def.ShortName) + " doesn't sell seats: members bring you in.";
+            if (PatronageOnly(inst)) return Cap(inst.Def.ShortName) + " doesn't sell places: a senator's following takes clients through a patron's introduction. (" + Cap(PatronageStanding(inst)) + ".)";
+            if (TakesGifts(inst)) return Cap(inst.Def.ShortName) + " doesn't sell shares; it takes gifts. Type 'give " + inst.Key + "' (" + Money(GiftCost(inst)) + ").";
+            return null;
+        }
+
+        /// <summary>
+        /// LEGACY, REGRESSION ONLY: the P0 stake purchase into any established institution, for the P0 batch strategies, the
+        /// explorer and the snapshot game, which still exercise the P0 stake model (SYSTEMS §7, legacy compatibility). Internal,
+        /// so the console and any future UI can't call it; players go through <see cref="Buy"/>, <see cref="Give"/> and the
+        /// invitation and patronage paths.
+        /// </summary>
+        internal CommandResult BuyLegacyStakeForP0Regression(string id, int points)
+        {
+            var inst = FindInstitution(id);
+            if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
+            if (inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.Name) + " would be your own: found it instead (found " + inst.Key + ").");
+            return BuyStake(inst, points);
+        }
+
+        /// <summary>The stake purchase itself, once access has been decided.</summary>
+        private CommandResult BuyStake(Institution inst, int points)
+        {
             if (!inst.Exists) return CommandResult.Fail(Cap(inst.Def.Name) + " is gone.");
             if (points <= 0) return CommandResult.Fail("Buy how many percent?");
             int from = StakePercent(inst);
@@ -313,7 +350,7 @@ namespace Butterfly.Core
         {
             var inst = FindInstitution(id);
             if (inst == null) return CommandResult.Fail("No institution called '" + id + "'.");
-            if (!inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.Name) + " already exists; buy into it instead (buy " + inst.Key + ").");
+            if (!inst.Def.IsOwn) return CommandResult.Fail(Cap(inst.Def.Name) + " already exists" + (AccessRefusal(inst) == null ? "; buy into it instead (buy " + inst.Key + ")." : "; you can't found it."));
             if (inst.Exists) return CommandResult.Fail(Cap(inst.Def.Name) + " already exists.");
             if (inst.Collapsed) return CommandResult.Fail(Cap(inst.Def.Name) + " failed; you can't found it again this era.");
             double cost = FoundCost(inst.Def.Maintains);

@@ -168,7 +168,7 @@ namespace Butterfly.Core.Tests
             Assert.Equal(bronze.AltGold, sim.MachineStepGold(bronze)); // no trade contacts: the open market
             sim.World.CompletedProjects.Add("workshop");
             sim.World.Attention = 100;
-            Assert.True(sim.Buy("guild", 1).Ok);
+            Assert.True(sim.BuyLegacyStakeForP0Regression("guild", 1).Ok);
             Assert.Equal(bronze.Gold, sim.MachineStepGold(bronze));
         }
 

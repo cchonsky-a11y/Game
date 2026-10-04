@@ -97,7 +97,7 @@ namespace Butterfly.Core
         public CommandResult SetPolicy(PolicyIssue issue, int stance)
         {
             if (!PolicyHold()) return CommandResult.Fail("You have no voice in Rome's policy yet. You need " + F(VoiceAt * 100) +
-                                                         "% of a Governance institution (buy faction / buy junian, or found club).");
+                                                         "% of a Governance institution (found club; a senator's house doesn't sell places).");
             if (Stance(issue) == stance) return CommandResult.Fail(issue + " is already " + StanceWord(issue, stance) + ".");
             var attention = CheckAttention(T.GetInt("policy.attention"));
             if (attention != null) return attention;

@@ -428,7 +428,7 @@ namespace Butterfly.Batch
                 if (i.Stake <= 0)
                 {
                     int first = id == "bank" ? 5 : 1;
-                    if (sim.JoinBlocker(i) == null && sim.BuyCost(i, first) <= w.Gold - Reserve(sim)) actions.Add((2, () => Do(sim, res, () => sim.Buy(id, first))));
+                    if (sim.JoinBlocker(i) == null && sim.BuyCost(i, first) <= w.Gold - Reserve(sim)) actions.Add((2, () => Do(sim, res, () => sim.BuyLegacyStakeForP0Regression(id, first))));
                 }
                 else
                 {
@@ -436,7 +436,7 @@ namespace Butterfly.Batch
                     {
                         int pts = 1 + r.NextInt(0, 3);
                         while (pts > 1 && sim.BuyCost(i, pts) > w.Gold - Reserve(sim)) pts--;
-                        actions.Add((1, () => Do(sim, res, () => sim.Buy(id, pts))));
+                        actions.Add((1, () => Do(sim, res, () => sim.BuyLegacyStakeForP0Regression(id, pts))));
                     }
                     if (i.MeetingsThisYear < 2 && r.Chance(p.AttendRate))
                     {

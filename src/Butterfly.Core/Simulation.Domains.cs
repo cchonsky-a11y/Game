@@ -35,7 +35,7 @@ namespace Butterfly.Core
             // Influence over a domain comes only through a voice (25%+) in an institution that maintains it (decided 2026-09-27).
             if (!HasHold(d))
                 return CommandResult.Fail("You have no voice in " + d + " yet. You need " + F(VoiceAt * 100) + "% of an institution that maintains it " +
-                                          "(buy into one, or found your own); until then Rome runs it without you.");
+                                          "(join one, or found your own); until then Rome runs it without you.");
             if (s.Priority == p) return CommandResult.Fail(d + " is already set to " + p.Label() + ".");
             var before = s.Priority;
             s.Priority = p;

@@ -69,8 +69,8 @@ namespace Butterfly.Core.Tests
             var sim = Rich();
             Assert.False(sim.Charter("circle").Ok);
             Assert.False(sim.Found("circle").Ok);          // established: you buy into it, you don't found it
-            Assert.True(sim.Buy("circle", 50).Ok);
-            Assert.False(sim.Buy("school", 1).Ok);         // your own: you found it, you don't buy it
+            Assert.True(sim.BuyLegacyStakeForP0Regression("circle", 50).Ok);
+            Assert.False(sim.BuyLegacyStakeForP0Regression("school", 1).Ok);         // your own: you found it, you don't buy it
             Assert.True(sim.Charter("circle").Ok);
             Assert.True(sim.Endow("circle").Ok);
             var c = sim.World.Institution("circle");

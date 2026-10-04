@@ -58,7 +58,7 @@ namespace Butterfly.Core.Tests
                 foreach (var id in new[] { "guild", "circle" })
                 {
                     var i = w.Institution(id);
-                    if (!i.Backed) { if (sim.JoinBlocker(i) == null && sim.BuyCost(i, 1) <= w.Gold / 2) sim.Buy(id, 1); }
+                    if (!i.Backed) { if (sim.JoinBlocker(i) == null && sim.BuyCost(i, 1) <= w.Gold / 2) sim.BuyLegacyStakeForP0Regression(id, 1); }
                     else if (i.MeetingsThisYear < 2) sim.Attend(id, i.Def.DriftPaths[0].Id);
                 }
                 if (sim.OwnsWorkshop && sim.OrdersLeftThisSeason > 0 && sim.OrderBoard().FirstOrDefault(o => o.Attention <= w.Attention - 1) is OrderDef order) sim.TakeOrder(order.Id);

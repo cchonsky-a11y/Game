@@ -152,7 +152,9 @@ internal sealed partial class ConsoleGame
   priority <domain> <protect|maintain|accept>   (needs a 25% voice in an institution of that domain)
   paydown <domain> <points>      pay down debt (costs 1.5× what prevention would have)
   institutions                   who holds each domain, your stakes, and what the next step costs
-  buy <inst> [percent]           buy into an established institution (2 Attention; entry fee on joining, each 1% costs more):
+  buy <inst> [percent]           buy shares where they are for sale (the banking house; 2 Attention, each 1% costs more).
+                                   Others: the guild and the Circle by invitation, a senator's house by introduction,
+                                   the sanctuary by gifts ('give'), your own by founding ('found'):
                                    10% counts toward influence · 25% a voice (priorities, policy) · 50% control
   attend <inst> [camp]           attend a meeting and vote for one of its two camps (1 Attention; twice a year earns extra seniority)
   office accept|decline <inst>   answer an offer of office (offices weigh more in votes and cost Attention in duties)
@@ -344,10 +346,9 @@ internal sealed partial class ConsoleGame
                 if (parts.Length < 2) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 // L8 (tester 6): with no percent, a first purchase buys what joining takes (the bank's first is 5%, not 1%).
                 var target = _sim.FindInstitution(arg);
-                // P1 (decided 2026-10-02): an institution on an invitation path doesn't sell seats.
-                if (target != null && _sim.OnInvitationPath(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell seats: members bring you in. " + AccessText(target)); return false; }
-                if (target != null && _sim.PatronageOnly(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell places: a senator's following takes clients through a patron's introduction. (" + Simulation.Cap(_sim.PatronageStanding(target)) + ".)"); return false; }
-                if (target != null && _sim.TakesGifts(target)) { Console.WriteLine(Simulation.Cap(target.Def.ShortName) + " doesn't sell shares; it takes gifts. Type 'give " + target.Key + "' (" + _sim.Money(_sim.GiftCost(target)) + ")."); return false; }
+                // P1 access is decided by the simulation (Buy refuses); the console only adds the invitation path's progress.
+                if (target != null && !target.Def.IsOwn && _sim.AccessRefusal(target) is string refusal)
+                { Console.WriteLine(refusal + (_sim.OnInvitationPath(target) ? " " + AccessText(target) : "")); return false; }
                 int pct = target != null && !target.Backed && target.Def.JoinRequirement == "deposit" ? _sim.T.GetInt("joining.bankMinFirstPercent") : 1;
                 if (parts.Length > 2 && !int.TryParse(parts[2].TrimEnd('%'), out pct)) { Console.WriteLine("Usage: buy <institution> [percent]"); return false; }
                 r = _sim.Buy(arg, pct);
@@ -511,7 +512,7 @@ internal sealed partial class ConsoleGame
             Console.WriteLine("  " + p.Id.PadRight(12) + p.Domain.ToString().PadRight(11) + _sim.Money(_sim.ProjectGold(p)).PadLeft(14) + "  " + p.DurationMonths + "t  +" + F(p.LevelGain) + "  " + p.Name +
                               (blocked != null ? "\n                (" + blocked + ")" : p.Authority != null ? "   (public: you have the backing)" : ""));
         }
-        Console.WriteLine("  Institutions: see 'institutions' (buy into one, or found your own).");
+        Console.WriteLine("  Institutions: see 'institutions' (members bring you in; the bank sells shares; or found your own).");
     }
 
     private string StakeLabel(Institution i) =>
