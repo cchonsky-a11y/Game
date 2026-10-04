@@ -39,14 +39,17 @@ namespace Butterfly.Core
             {
                 var person = PersonOf(e.Person);
                 if (person == null || person.Happened.Contains(e.Id) || MonthsSinceStart < e.FromMonth) continue;
-                if (!e.Requires.All(Holds)) continue;
+                if (!e.Requires.All(Holds) || World.ReadyLife.Contains(e.Id)) continue;
                 if (!Rng.Chance(e.Chance)) continue;
-                Happen(e, person);
+                // A world interruption happens now; anything else waits its turn with the scene router (P1 pacing).
+                if (e.Interrupt) Happen(e, person);
+                else World.ReadyLife.Add(e.Id);
             }
         }
 
         private void Happen(LifeEventDef e, PersonState person)
         {
+            World.ReadyLife.Remove(e.Id);
             person.Happened.Add(e.Id);
             World.ScenePacing.Record(e.Category);
             var effects = new List<Effect>();
@@ -92,7 +95,11 @@ namespace Butterfly.Core
             }
         }
 
-        /// <summary>A requirement from people.json: commission:id:Status, access:inst:Stage (or later), capability:id:Level (or later), life:id.</summary>
+        /// <summary>
+        /// A requirement from people.json or scenes.json: commission:id:Status, access:inst:Stage (or later), capability:id:Level
+        /// (or later), life:id, knows:person, scene:id, month:1-12 (calendar), monthsIn:n, machine:assessed, machine:steps:n,
+        /// project:id:done.
+        /// </summary>
         internal bool Holds(string requirement)
         {
             var parts = requirement.Split(':');
@@ -107,6 +114,18 @@ namespace Butterfly.Core
                     return CapabilityLevelOf(parts[1]) >= (CapabilityLevel)Enum.Parse(typeof(CapabilityLevel), parts[2]);
                 case "life":
                     return World.People.Any(p => p.Happened.Contains(parts[1]));
+                case "knows":
+                    return Knows(parts[1]);
+                case "scene":
+                    return World.ScenesSeen.Contains(parts[1]);
+                case "month":
+                    return Now.Month + 1 == int.Parse(parts[1]);
+                case "monthsIn":
+                    return MonthsSinceStart >= int.Parse(parts[1]);
+                case "machine":
+                    return parts[1] == "assessed" ? MachineAssessed : MachineStepsDone >= int.Parse(parts[2]);
+                case "project":
+                    return World.CompletedProjects.Contains(parts[1]);
                 default:
                     throw new FormatException("Unknown requirement: " + requirement);
             }

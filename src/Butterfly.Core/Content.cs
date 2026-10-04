@@ -440,6 +440,7 @@ namespace Butterfly.Core
         public IReadOnlyList<CapabilityDef> Capabilities { get; private set; } = new List<CapabilityDef>();
         public IReadOnlyList<PersonDef> People { get; private set; } = new List<PersonDef>();
         public IReadOnlyList<ChallengeDef> Challenges { get; private set; } = new List<ChallengeDef>();
+        public IReadOnlyList<AuthoredSceneDef> Scenes { get; private set; } = new List<AuthoredSceneDef>();
         public IReadOnlyList<LifeEventDef> Lives { get; private set; } = new List<LifeEventDef>();
         /// <summary>The workshop (P0-34): the smith's name and the kinds of order.</summary>
         public string Smith { get; private set; } = "the smith";
@@ -508,6 +509,8 @@ namespace Butterfly.Core
                 content.InvitationPaths = Read(contentDirectory, "invitations.json").Arr("paths").Cast<JsonObject>().Select(o => new InvitationPathDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "capabilities.json")))
                 content.Capabilities = Read(contentDirectory, "capabilities.json").Arr("capabilities").Cast<JsonObject>().Select(o => new CapabilityDef(o)).ToList();
+            if (File.Exists(Path.Combine(contentDirectory, "scenes.json")))
+                content.Scenes = Read(contentDirectory, "scenes.json").Arr("scenes").Cast<JsonObject>().Select(o => new AuthoredSceneDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "challenges.json")))
                 content.Challenges = Read(contentDirectory, "challenges.json").Arr("challenges").Cast<JsonObject>().Select(o => new ChallengeDef(o)).ToList();
             if (File.Exists(Path.Combine(contentDirectory, "people.json")))

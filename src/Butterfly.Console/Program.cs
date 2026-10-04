@@ -79,7 +79,7 @@ internal sealed partial class ConsoleGame
         _harness?.Finish(_script);
     }
 
-    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "view", "challenge", "challenges", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
+    private static readonly string[] LookCommands = { "help", "?", "status", "s", "news", "n", "why", "log", "ledger", "people", "view", "focus", "challenge", "challenges", "commissions", "inventions", "institutions", "i", "machine", "m", "workshop", "projects", "p" };
 
     /// <summary>One command line. False means quit.</summary>
     private bool ProcessLine(string line, bool showMenu = true)
@@ -181,6 +181,8 @@ internal sealed partial class ConsoleGame
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
+  focus <kind|off>               stay with one kind of scene (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery,
+                                 CityHistory, Exploration, InstitutionsPolitics); the world can still interrupt
   view [section]                 the eight sections: now, projects, people, institutions, knowledge, civilization, machine, journal
   challenge [begin <id>]         Grand Challenges: the question, the next stage and what holds it up; begin the next stage
   people                         the people you know, and how their lives stand now
@@ -218,6 +220,7 @@ internal sealed partial class ConsoleGame
             case "log": Log(parts.Length > 1 && int.TryParse(arg, out var n) ? n : 12); return true;
             case "people": case "who": People(); return true;
             case "view": case "section": View(arg); return true;
+            case "focus": r = _sim.SetSceneFocus(arg); break;
             case "challenge": case "challenges":
                 if (arg.ToLowerInvariant() == "begin") { r = _sim.StartChallengeStage(parts.Length > 2 ? parts[2] : ""); break; }
                 Challenges();
@@ -418,7 +421,7 @@ internal sealed partial class ConsoleGame
                             "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
                             "invitation.offer", "institution.join", "invitation.wait",
                             "person.life", "person.return", "challenge.open", "challenge.stage", "challenge.complete" };
-        foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type)))
+        foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type) || e.Type.StartsWith("scene.", StringComparison.Ordinal)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
         if (settle != null && settle.Text.Contains("could pay only")) Console.WriteLine("  • " + settle.Text);

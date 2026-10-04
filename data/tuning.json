@@ -1889,6 +1889,14 @@
     }
   },
   "scenes": {
+    "optionalPerMonth": {
+      "value": 1,
+      "ref": "P1 scene pacing (Corey, locked 2026-10-02; implemented 2026-10-04): at most this many optional scenes a month from all systems' candidates; world interruptions are extra (PROPOSED P1-11)"
+    },
+    "baseWeight": {
+      "value": 1,
+      "ref": "P1 scene pacing: the weight of each optional scene candidate unless its content gives one (PROPOSED P1-11)"
+    },
     "consecutiveSoftCap": {
       "value": 2,
       "ref": "P1_SCOPE Scene routing (decided by Corey, P1): after two consecutive meaningful scenes of one category, a third is strongly deprioritized"

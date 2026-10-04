@@ -64,6 +64,8 @@ namespace Butterfly.Core
         public string Capability { get; }
         public CapabilityLevel CapabilityTo { get; }
         public bool Distorted { get; }
+        /// <summary>A world interruption (illness, fire): it happens when it happens, not when the scene router allows.</summary>
+        public bool Interrupt { get; }
 
         public LifeEventDef(JsonObject o)
         {
@@ -83,6 +85,7 @@ namespace Butterfly.Core
             CapabilityTo = c == null ? CapabilityLevel.None
                 : Enum.TryParse<CapabilityLevel>(c.Str("to"), out var l) ? l : throw new FormatException("Unknown capability level: " + c.Str("to"));
             Distorted = c != null && c.BoolOr("distorted", false);
+            Interrupt = o.BoolOr("interrupt", false);
         }
     }
 
@@ -94,8 +97,41 @@ namespace Butterfly.Core
         /// <summary>Away (ill, travelling) until the start of this turn; 0 if here.</summary>
         public int AwayUntilTurn { get; set; }
         public string ReturnText { get; set; } = "";
+        /// <summary>How this person regards the inventor (P1): small whole steps from shared life and work.</summary>
+        public int Regard { get; set; }
         public List<string> Happened { get; } = new List<string>();
 
         public PersonState(string id, string status) { Id = id; Status = status; }
+    }
+}
+
+namespace Butterfly.Core
+{
+    /// <summary>
+    /// An authored optional scene (Roman life, the machine mystery, relationship moments): data/content/scenes.json. It happens
+    /// once, when its requirements hold and the scene router picks it.
+    /// </summary>
+    public sealed class AuthoredSceneDef
+    {
+        public string Id { get; }
+        public SceneCategory Category { get; }
+        public IReadOnlyList<string> Requires { get; }
+        public double Weight { get; }
+        public string Text { get; }
+        public IReadOnlyList<KeyValuePair<string, int>> Regard { get; }
+        public IReadOnlyList<KeyValuePair<string, string>> StatusChanges { get; }
+
+        public AuthoredSceneDef(JsonObject o)
+        {
+            Id = o.Str("id");
+            Category = CommissionSceneDef.ParseCategory(o.Str("category"));
+            Requires = o.Arr("requires").Cast<string>().ToList();
+            Weight = o.NumOr("weight", 0);
+            Text = o.Str("text");
+            var r = o.Has("regard") ? o.Obj("regard") : null;
+            Regard = r == null ? new List<KeyValuePair<string, int>>() : r.Keys.Select(k => new KeyValuePair<string, int>(k, (int)r.Num(k))).ToList();
+            var s = o.Has("status") ? o.Obj("status") : null;
+            StatusChanges = s == null ? new List<KeyValuePair<string, string>>() : s.Keys.Select(k => new KeyValuePair<string, string>(k, s.Str(k))).ToList();
+        }
     }
 }

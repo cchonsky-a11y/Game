@@ -50,7 +50,8 @@ namespace Butterfly.Core
         public SceneCandidate? Choose(
             IEnumerable<SceneCandidate> candidates,
             ScenePacingState pacing,
-            SceneCategory? explicitlyFocusedCategory = null)
+            SceneCategory? explicitlyFocusedCategory = null,
+            bool recordChoice = true)
         {
             if (candidates == null) throw new ArgumentNullException(nameof(candidates));
             if (pacing == null) throw new ArgumentNullException(nameof(pacing));
@@ -72,14 +73,14 @@ namespace Butterfly.Core
                 cursor += item.Weight;
                 if (roll < cursor)
                 {
-                    pacing.Record(item.Scene.Category);
+                    if (recordChoice) pacing.Record(item.Scene.Category);
                     return item.Scene;
                 }
             }
 
             // Floating-point guard: the final candidate owns the closed upper edge.
             var last = weighted[weighted.Count - 1].Scene;
-            pacing.Record(last.Category);
+            if (recordChoice) pacing.Record(last.Category);
             return last;
         }
 

@@ -44,6 +44,7 @@ namespace Butterfly.Core
             p.StageEnteredYear = Now.Year;
             var causes = new List<int> { p.LastStageEventId };
             string text = PlagueStageText(p.Stage);
+            World.ScenePacing.Record(SceneCategory.CityHistory);   // an interruption: it counts for pacing, never waits for it
             var e = Record(p.Stage == PlagueState.Outbreak ? "plague.outbreak" : "plague.warning", "plague", causes,
                 new[] { "world" }, new[] { new Effect("plague.stage", before, p.Stage) }, text);
             p.LastStageEventId = e.Id;

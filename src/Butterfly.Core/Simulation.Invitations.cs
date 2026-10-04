@@ -37,7 +37,7 @@ namespace Butterfly.Core
             return new InstitutionInvitationContext(d.Institution, d.Inviter, access.KnownMemberId == d.Inviter, worked, worked, risk);
         }
 
-        /// <summary>At the start of each month: the inviter makes the next offer when its time has come and the gate holds.</summary>
+        /// <summary>At the start of each month: the referral month is noted, and a sponsored candidate's vote is held.</summary>
         private void AdvanceInvitations()
         {
             foreach (var d in Data.Content.InvitationPaths)
@@ -46,18 +46,38 @@ namespace Butterfly.Core
                 var access = World.AccessTo(d.Institution);
                 if (state.Pending != InvitationOffer.None) continue;
                 if (access.Stage == InstitutionAccessStage.KnowsMember && state.StepTurn == 0) state.StepTurn = Turn;   // the referral month
+                if (access.Stage == InstitutionAccessStage.SponsoredCandidate && Turn - state.StepTurn >= d.AdmitAfterMonths) Admit(d, state, access);
+            }
+        }
+
+        /// <summary>The next invitation each inviter is ready to make (its time come, the gate holding), waiting for the scene router.</summary>
+        private IEnumerable<(InvitationPathDef Def, InvitationOffer Offer)> InvitationOffersDue()
+        {
+            foreach (var d in Data.Content.InvitationPaths)
+            {
+                var state = InvitationState(d.Institution)!;
+                var access = World.AccessTo(d.Institution);
+                if (state.Pending != InvitationOffer.None) continue;
                 int months = Turn - state.StepTurn;
                 InvitationOffer next = access.Stage == InstitutionAccessStage.KnowsMember && months >= d.GuestAfterMonths ? InvitationOffer.Guest
                     : access.Stage == InstitutionAccessStage.Guest && months >= d.AgainAfterMonths ? InvitationOffer.Again
                     : access.Stage == InstitutionAccessStage.InvitedBack && months >= d.SponsorAfterMonths ? InvitationOffer.Sponsor
                     : InvitationOffer.None;
-                if (access.Stage == InstitutionAccessStage.SponsoredCandidate && months >= d.AdmitAfterMonths) { Admit(d, state, access); continue; }
                 if (next == InvitationOffer.None || !InvitationGate(d).IsWarranted) continue;
-                state.Pending = next;
-                var step = next == InvitationOffer.Guest ? d.Guest : next == InvitationOffer.Again ? d.Again : d.Sponsor;
-                Record("invitation.offer", d.Institution, null, new[] { d.Inviter, "player" }, null,
-                    step.Offer + " " + InvitationLine(d, next));
+                yield return (d, next);
             }
+        }
+
+        private SceneCategory OfferCategory(InvitationPathDef d, InvitationOffer offer) =>
+            (offer == InvitationOffer.Guest ? d.Guest : offer == InvitationOffer.Again ? d.Again : d.Sponsor).Category;
+
+        private void OfferInvitation(InvitationPathDef d, InvitationOffer next)
+        {
+            var state = InvitationState(d.Institution)!;
+            state.Pending = next;
+            var step = next == InvitationOffer.Guest ? d.Guest : next == InvitationOffer.Again ? d.Again : d.Sponsor;
+            World.ScenePacing.Record(step.Category);
+            Record("invitation.offer", d.Institution, null, new[] { d.Inviter, "player" }, null, step.Offer + " " + InvitationLine(d, next));
         }
 
         private string InvitationLine(InvitationPathDef d, InvitationOffer offer) =>

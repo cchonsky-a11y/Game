@@ -21,18 +21,17 @@ namespace Butterfly.Core
             foreach (var d in Data.Content.Challenges) World.Challenges.Add(new ChallengeState(d.Id));
         }
 
-        /// <summary>At the start of each month: a challenge whose question the work has raised opens.</summary>
-        private void OpenChallengesDue()
+        /// <summary>Challenges whose question the work has raised, waiting for the scene router.</summary>
+        private IEnumerable<ChallengeState> ChallengesDue() =>
+            World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet && ChallengeDefOf(c).Opens.All(Holds));
+
+        private void OpenChallenge(ChallengeState c)
         {
-            foreach (var c in World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet))
-            {
-                var d = ChallengeDefOf(c);
-                if (!d.Opens.All(Holds)) continue;
-                c.Status = ChallengeStatus.Open;
-                World.ScenePacing.Record(d.OpenCategory);
-                Record("challenge.open", c.ProjectId, null, new[] { "player" }, null,
-                    d.OpenText + " Grand Challenge: " + d.Name + ". " + d.Question + " (challenge " + d.Id + ")");
-            }
+            var d = ChallengeDefOf(c);
+            c.Status = ChallengeStatus.Open;
+            World.ScenePacing.Record(d.OpenCategory);
+            Record("challenge.open", c.ProjectId, null, new[] { "player" }, null,
+                d.OpenText + " Grand Challenge: " + d.Name + ". " + d.Question + " (challenge " + d.Id + ")");
         }
 
         public ChallengeStageDef? NextStage(ChallengeState c) =>

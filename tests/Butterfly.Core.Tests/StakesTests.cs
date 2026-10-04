@@ -143,15 +143,16 @@ namespace Butterfly.Core.Tests
         public void YoungInstitutionsCanFailButEstablishedOnesDoNot()
         {
             int collapsed = 0;
-            for (ulong seed = 1; seed <= 30; seed++)
+            // Two years each over 60 seeds: at 7% a year, none collapsing would be a 1-in-6,000 draw (monthly turns, P1).
+            for (ulong seed = 1; seed <= 60; seed++)
             {
                 var sim = Rich(seed);
                 sim.Found("school");
                 sim.World.Institution("school").Loyalty = 0; // no growth: it stays fragile
-                for (int t = 0; t < 12 && !sim.EraOver; t++) sim.EndTurn();
+                for (int t = 0; t < 24 && !sim.EraOver; t++) sim.EndTurn();
                 if (sim.World.Institution("school").Collapsed) collapsed++;
             }
-            Assert.InRange(collapsed, 1, 29);
+            Assert.InRange(collapsed, 1, 59);
 
             for (ulong seed = 1; seed <= 10; seed++)
             {

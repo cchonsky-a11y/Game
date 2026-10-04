@@ -40,17 +40,20 @@ namespace Butterfly.Core
             foreach (var d in Data.Content.Commissions) World.Commissions.Add(new CommissionState(d.Id));
         }
 
-        /// <summary>At the start of each month: a commission whose time has come is brought to you.</summary>
-        private void OpenCommissionsDue()
-        {
-            int monthsIn = Now.TotalMonths - SimTime.FromYear(T.GetInt("time.startYear"), T.GetInt("time.startMonth")).TotalMonths;
-            foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.NotYet))
+        /// <summary>Commissions whose time has come (their introducer about), waiting for the scene router.</summary>
+        private IEnumerable<CommissionState> CommissionsDue() =>
+            World.Commissions.Where(c => c.Status == CommissionStatus.NotYet).Where(c =>
             {
                 var d = CommissionDefOf(c);
-                if (monthsIn < d.OpensAfterMonths || d.Introducer.Length > 0 && IsPersonAway(d.Introducer)) continue;
-                c.Status = CommissionStatus.Offered;
-                Scene(d.Encounter.Category, "commission.encounter", c, d.Encounter.Text + " " + PayLine(d));
-            }
+                return MonthsSinceStart >= d.OpensAfterMonths && !(d.Introducer.Length > 0 && IsPersonAway(d.Introducer));
+            });
+
+        /// <summary>The encounter: someone brings you the problem.</summary>
+        private void OpenCommission(CommissionState c)
+        {
+            var d = CommissionDefOf(c);
+            c.Status = CommissionStatus.Offered;
+            Scene(d.Encounter.Category, "commission.encounter", c, d.Encounter.Text + " " + PayLine(d));
         }
 
         /// <summary>The explicit money rule before the first step: looking is unpaid, and may lead to a paid commission.</summary>

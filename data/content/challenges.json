@@ -5,7 +5,7 @@
       "id": "standards",
       "name": "Measurement and standards",
       "question": "Can another workshop make a part that fits without seeing the original?",
-      "opens": ["capability:valveseats:Reproducible"],
+      "opens": ["capability:valveseats:Reproducible", "commission:cellarpump:Done"],
       "openCategory": "Engineering",
       "openText": "Cassianus's pump has a seat that wore out. The bronzesmith on the Clivus cut a new one by eye, and it leaks. Your seats were cut to your own foot and your own rule; his are cut to his. Until two shops measure the same way, every repair is a new pump.",
       "goal": { "capability": "gauges", "level": "Reproducible" },

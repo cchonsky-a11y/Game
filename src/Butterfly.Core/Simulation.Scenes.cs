@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Butterfly.Core
+{
+    /// <summary>
+    /// The P1 scene router in play (Corey, locked; implemented 2026-10-04). Each month every system offers its optional
+    /// meaningful scenes as candidates: a commission's encounter, an inviter's next invitation, a Grand Challenge whose
+    /// question the work has raised, a person's offscreen development, Roman life, the machine mystery. The router picks at
+    /// most <c>scenes.optionalPerMonth</c> of them. A category that has had two scenes in a row is left out while any other
+    /// category could happen; only if nothing else can is it allowed, and then at the deprioritized weight. The player's
+    /// explicit focus lifts that for its category. World interruptions (illness, fire, Rome's dated events, the plague) are
+    /// never routed or delayed: they happen and count for pacing. A candidate not picked waits for a later month.
+    /// </summary>
+    public sealed partial class Simulation
+    {
+        private sealed class RoutedScene
+        {
+            public SceneCandidate Candidate { get; }
+            public Action Fire { get; }
+            public RoutedScene(string id, SceneCategory category, double weight, Action fire)
+            {
+                Candidate = new SceneCandidate(id, category, weight);
+                Fire = fire;
+            }
+        }
+
+        /// <summary>Stay with one kind of scene (P1: the player may explicitly remain focused), or null to let pacing run.</summary>
+        public CommandResult SetSceneFocus(string category)
+        {
+            string c = (category ?? "").Trim();
+            if (c.Length == 0 || c.Equals("off", StringComparison.OrdinalIgnoreCase) || c.Equals("none", StringComparison.OrdinalIgnoreCase))
+            {
+                World.SceneFocus = null;
+                return CommandResult.Success("No focus: the month brings whatever comes.");
+            }
+            if (!Enum.TryParse<SceneCategory>(c, true, out var cat))
+                return CommandResult.Fail("Focus on one of: " + string.Join(", ", Enum.GetNames(typeof(SceneCategory))) + " (or 'focus off').");
+            World.SceneFocus = cat;
+            return CommandResult.Success("You keep your mind on " + cat + " for now; the world can still interrupt.");
+        }
+
+        /// <summary>Every optional scene that could happen this month, in a fixed order (deterministic).</summary>
+        private List<RoutedScene> SceneCandidates()
+        {
+            double w = T.Get("scenes.baseWeight");
+            var list = new List<RoutedScene>();
+            foreach (var c in CommissionsDue().ToList())
+                list.Add(new RoutedScene("commission:" + c.Id, CommissionDefOf(c).Encounter.Category, w, () => OpenCommission(c)));
+            foreach (var (d, offer) in InvitationOffersDue().ToList())
+                list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), w, () => OfferInvitation(d, offer)));
+            foreach (var c in ChallengesDue().ToList())
+                list.Add(new RoutedScene("challenge:" + c.Id, ChallengeDefOf(c).OpenCategory, w, () => OpenChallenge(c)));
+            foreach (var id in World.ReadyLife.ToList())
+            {
+                var e = Data.Content.Lives.First(l => l.Id == id);
+                list.Add(new RoutedScene("life:" + id, e.Category, w, () => Happen(e, PersonOf(e.Person)!)));
+            }
+            foreach (var s in Data.Content.Scenes.Where(s => !World.ScenesSeen.Contains(s.Id) && s.Requires.All(Holds)))
+                list.Add(new RoutedScene("scene:" + s.Id, s.Category, s.Weight > 0 ? s.Weight : w, () => PlayAuthoredScene(s)));
+            return list;
+        }
+
+        /// <summary>At the start of each month: the router picks the optional scenes this month brings.</summary>
+        private void RouteScenes()
+        {
+            int slots = T.GetInt("scenes.optionalPerMonth");
+            for (int n = 0; n < slots; n++)
+            {
+                var chosen = ChooseScene(SceneCandidates());
+                if (chosen == null) return;
+                chosen.Fire();
+            }
+        }
+
+        /// <summary>
+        /// The routing rule: drop a category that would make a third scene in a row whenever another category is available
+        /// (unless the player is focused on it); then a seeded weighted pick (SceneRouter, which still deprioritizes it if
+        /// it is all there is).
+        /// </summary>
+        private RoutedScene? ChooseScene(List<RoutedScene> candidates)
+        {
+            if (candidates.Count == 0) return null;
+            var pacing = World.ScenePacing;
+            var focus = World.SceneFocus;
+            var fresh = candidates.Where(c => !pacing.ShouldDeprioritize(c.Candidate.Category, focus == c.Candidate.Category)).ToList();
+            var pool = fresh.Count > 0 ? fresh : candidates;
+            var picked = Scenes.Choose(pool.Select(c => c.Candidate), pacing, focus, recordChoice: false);
+            return picked == null ? null : pool.First(c => c.Candidate.Id == picked.Id);
+        }
+
+        /// <summary>For tests: what the router would pick from this month's candidates, without firing it.</summary>
+        internal string? PeekRoutedScene() => ChooseScene(SceneCandidates())?.Candidate.Id;
+
+        internal IReadOnlyList<string> SceneCandidateIds() => SceneCandidates().Select(c => c.Candidate.Id).ToList();
+
+        private void PlayAuthoredScene(AuthoredSceneDef s)
+        {
+            World.ScenesSeen.Add(s.Id);
+            World.ScenePacing.Record(s.Category);
+            var effects = new List<Effect>();
+            var actors = new List<string> { "player" };
+            foreach (var kv in s.Regard)
+            {
+                var p = PersonOf(kv.Key) ?? throw new FormatException("Scene " + s.Id + " names an unknown person: " + kv.Key);
+                effects.Add(new Effect("person." + kv.Key + ".regard", p.Regard, p.Regard + kv.Value));
+                p.Regard += kv.Value;
+                actors.Add(kv.Key);
+            }
+            foreach (var kv in s.StatusChanges)
+            {
+                var p = PersonOf(kv.Key) ?? throw new FormatException("Scene " + s.Id + " names an unknown person: " + kv.Key);
+                p.Status = kv.Value;
+                if (!actors.Contains(kv.Key)) actors.Add(kv.Key);
+            }
+            Record("scene." + s.Category.ToString().ToLowerInvariant(), "scene:" + s.Id, null, actors, effects.Count > 0 ? effects : null, s.Text);
+        }
+    }
+}

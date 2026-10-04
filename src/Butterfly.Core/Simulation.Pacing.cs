@@ -16,7 +16,9 @@ namespace Butterfly.Core
             "plague.warning", "plague.outbreak", "plague.passed", "debt.tier", "project.complete", "seeded.payoff",
             "seeded.choice", "commitment.complete", "institution.unpaid", "promise.offer", "promise.kept", "plague.opening",
             "bust.warning", "bust.outbreak", "bust.toll", "machine.step", "machine.assessed", "invention.complete", "office.offer", "event.offer", "workshop.orders",
-            "commission.encounter", "commission.stage", "commission.complete", "invitation.offer", "institution.join", "person.life", "challenge.open", "challenge.stage", "challenge.complete"
+            "commission.encounter", "commission.stage", "commission.complete", "invitation.offer", "institution.join", "person.life", "challenge.open", "challenge.stage", "challenge.complete",
+            "scene.romanlife", "scene.personal", "scene.machinemystery", "scene.institutionspolitics", "scene.engineering", "scene.workeconomy",
+            "scene.cityhistory", "scene.exploration"
         };
 
         private int _turnEventStart = 1;

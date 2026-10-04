@@ -54,6 +54,7 @@ namespace Butterfly.Core
                 if (!EventRequirementHolds(e)) continue;          // it passes: you weren't in a position to be asked
                 _pendingEvent = e.Id;
                 _pendingSinceTurn = Turn;
+                World.ScenePacing.Record(SceneCategory.CityHistory);   // Rome's dated choices interrupt; they are never routed
                 Record("event.offer", e.Id, null, new[] { "world" }, null,
                     e.Title + ". " + e.Text + " (" + string.Join(" / ", e.Options.Select(o => "decide " + o.Id)) + ")");
                 return;

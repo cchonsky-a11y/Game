@@ -89,9 +89,8 @@ namespace Butterfly.Core
             AdvanceEvents();
             AdvanceWorkshop();
             AdvancePeople();
-            OpenCommissionsDue();
             AdvanceInvitations();
-            OpenChallengesDue();
+            RouteScenes();
         }
 
         private void YearTick()

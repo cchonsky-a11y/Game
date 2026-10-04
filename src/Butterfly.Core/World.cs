@@ -73,6 +73,12 @@ namespace Butterfly.Core
         public List<PersonState> People { get; } = new List<PersonState>();
         /// <summary>The log event of each life event that has happened (for causes).</summary>
         public Dictionary<string, int> LifeEventLog { get; } = new Dictionary<string, int>();
+        /// <summary>Life events whose time has come (chance rolled) and wait for the scene router (optional ones only), in order.</summary>
+        public List<string> ReadyLife { get; } = new List<string>();
+        /// <summary>Authored scenes that have happened, in order.</summary>
+        public List<string> ScenesSeen { get; } = new List<string>();
+        /// <summary>The scene category the player chose to stay focused on (P1 pacing), or null.</summary>
+        public SceneCategory? SceneFocus { get; set; }
 
         public InstitutionAccessState AccessTo(string institutionId) => Access.First(a => a.InstitutionId == institutionId);
 

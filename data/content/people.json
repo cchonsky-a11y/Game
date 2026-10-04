@@ -56,14 +56,14 @@
     {
       "id": "felix-fever", "person": "Felix", "fromMonth": 6, "chance": 0.06,
       "requires": ["access:guild:KnowsMember"],
-      "awayMonths": 2, "category": "Personal",
+      "awayMonths": 2, "category": "Personal", "interrupt": true,
       "text": "Prima sends a boy: the marsh fever has Felix again. No suppers and no quays for him for a month or two.",
       "returnText": "Felix is back on the quays, thinner, asking after your work before his own."
     },
     {
       "id": "warehouse-fire", "person": "Cassianus", "fromMonth": 14, "chance": 0.03,
       "requires": ["commission:cellarpump:Done"],
-      "category": "CityHistory",
+      "category": "CityHistory", "interrupt": true,
       "status": { "Cassianus": "rebuilding after the fire; he lost a season's oil", "Diodoros": "his right hand burned in the fire; he can't carry" },
       "text": "Fire in the warehouses under the Aventine in the night. Cassianus loses a season's oil. His porter Diodoros burns his hand dragging jars out of the smoke. Below it all, in the wet cellar, your pump still draws."
     },

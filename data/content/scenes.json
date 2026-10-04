@@ -1,0 +1,77 @@
+{
+  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>). Effects: 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
+  "scenes": [
+    {
+      "id": "baths-wet-cellar", "category": "RomanLife",
+      "requires": ["monthsIn:1", "commission:cellarpump:NotYet"],
+      "text": "At the small baths behind the Circus Maximus you sit in the warm room between a fuller and a man selling olives. The olive man complains that a merchant under the Aventine pays porters to bail his cellar every morning, and still the jars go green. The fuller says the merchant should sacrifice to the river and stop complaining."
+    },
+    {
+      "id": "felix-lares", "category": "RomanLife",
+      "requires": ["commission:cellarpump:Done"],
+      "regard": { "Felix": 1 },
+      "text": "Felix has you to dinner on the Kalends. Before anyone eats, his boys put a pinch of meal and a drop of wine before the little shrine by the door, where two dancing Lares stand on either side of a painted snake. Prima asks where your household gods are. Felix answers for you: in a box, travelling. Everyone laughs, and Prima keeps looking at you."
+    },
+    {
+      "id": "guild-funeral", "category": "RomanLife",
+      "requires": ["access:guild:Guest"],
+      "regard": { "Felix": 1 },
+      "text": "A rope-maker of the guild has died. The members walk behind the bier to the tombs on the Ostia road, with flute players and a woman paid to wail. The guild pays for the burial out of the box you saw passed round at supper. Felix walks beside you and names the men as they pass: who owes whom, who will want the dead man's yard."
+    },
+    {
+      "id": "cassianus-saturnalia", "category": "RomanLife",
+      "requires": ["knows:Cassianus", "month:12", "commission:cellarpump:Done"],
+      "regard": { "Cassianus": 1 },
+      "text": "Saturnalia. Cassianus wears a felt cap like a freed slave and serves his own porters at table, badly, while his sister keeps an eye on the good cups. A porter is king of the feast and orders Cassianus to sing. He sings. He gives you a wax candle and a clay figure of a dog, and expects nothing so grand in return."
+    },
+    {
+      "id": "felix-circus", "category": "RomanLife",
+      "requires": ["knows:Felix", "commission:cellarpump:Done", "monthsIn:9"],
+      "regard": { "Felix": 1 },
+      "text": "Felix drags you to the Circus Maximus to watch the Blues. Two hundred thousand people, the smell of roasting chickpeas, men laying bets, a baker scratching a curse against the Green driver onto a strip of lead. The Blue chariot clips the turning post on the fourth lap and the Greens take it. Felix does not speak to you until you are back across the river."
+    },
+    {
+      "id": "pollio-lawsuit", "category": "InstitutionsPolitics",
+      "requires": ["life:pollio-copy"],
+      "status": { "Cassianus": "suing Pollio before the praetor over the pump" },
+      "text": "In the Forum, under an awning, Cassianus's advocate argues before the praetor's man that Pollio's pump slanders his client's goods. Pollio's advocate says nobody owns the shape of a pump. Both name you. The case is put off until after the games, as most cases are."
+    },
+    {
+      "id": "felix-vow", "category": "RomanLife",
+      "requires": ["life:felix-fever"],
+      "regard": { "Felix": 1 },
+      "text": "Prima has made a vow at the sanctuary of Aesculapius on the Tiber Island: a clay leg, because the fever settled in Felix's knee, and a cockerel if he walks to the quays by the Ides. You carry broth to their room and find two physicians arguing over him. He walks to the quays on the twelfth. Prima buys the cockerel."
+    },
+    {
+      "id": "diodoros-letter", "category": "RomanLife",
+      "requires": ["life:diodoros-deliveries"],
+      "regard": { "Diodoros": 1 },
+      "text": "Diodoros asks you to come with him to a letter-writer in the Forum, a Greek with ink on his fingers who charges by the line. Diodoros dictates to his mother in Antioch: the hand is healing, the work is better, he is not gambling. The letter-writer looks at you over the last line and writes it anyway."
+    },
+    {
+      "id": "smith-tavern", "category": "RomanLife",
+      "requires": ["project:workshop:done", "monthsIn:5"],
+      "text": "The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension."
+    },
+    {
+      "id": "r17-request", "category": "MachineMystery",
+      "requires": ["machine:assessed", "monthsIn:3"],
+      "text": "Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch."
+    },
+    {
+      "id": "r17-link", "category": "MachineMystery",
+      "requires": ["scene:r17-request", "machine:steps:3"],
+      "text": "With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out."
+    },
+    {
+      "id": "r17-acknowledged", "category": "MachineMystery",
+      "requires": ["scene:r17-link", "machine:steps:6"],
+      "text": "You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it."
+    },
+    {
+      "id": "r17-active", "category": "MachineMystery",
+      "requires": ["scene:r17-acknowledged", "machine:steps:9"],
+      "text": "The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go."
+    }
+  ]
+}
