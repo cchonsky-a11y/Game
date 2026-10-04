@@ -66,7 +66,6 @@ namespace Butterfly.Core.Tests
         public void IncomeAndUpkeepSettleEachTurnScaledPerYear()
         {
             var sim = NewSim();
-            var t = sim.T;
             double gold = sim.World.Gold;
             double expected = gold + (sim.YearlyIncome() - sim.YearlyUpkeepTotal()) * sim.YearsPerTurn;
             sim.EndTurn();

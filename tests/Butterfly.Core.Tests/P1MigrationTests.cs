@@ -14,25 +14,12 @@ namespace Butterfly.Core.Tests
     {
         private static Simulation AfterThePump(ulong seed = 42, GameData? data = null)
         {
-            var sim = new Simulation(data ?? TestData.Load(), seed);
-            sim.ChooseSeeded("workshop");
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet) sim.EndMonth();
-            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();
-            Assert.True(sim.LookAtCommission("cellarpump").Ok);
-            Assert.True(sim.AcceptCommission("cellarpump").Ok);
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
+            var sim = P1Play.AfterThePump(seed, data);
             sim.World.Gold = 5000;
             return sim;
         }
 
-        private static void FollowFelix(Simulation sim, InstitutionAccessStage until)
-        {
-            for (int m = 0; m < 60 && sim.World.AccessTo("guild").Stage < until; m++)
-            {
-                if (sim.InvitationState("guild")!.Pending != InvitationOffer.None) Assert.True(sim.AcceptInvitation("guild").Ok);
-                if (sim.World.AccessTo("guild").Stage < until) sim.EndMonth();
-            }
-        }
+        private static void FollowFelix(Simulation sim, InstitutionAccessStage until) => P1Play.FollowFelix(sim, until);
 
         [Fact]
         public void ThePhysiciansCircleNoLongerSellsSeats()

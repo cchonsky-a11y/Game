@@ -72,7 +72,7 @@ namespace Butterfly.Core.Tests
             sim.EndMonth();
             Assert.Equal(0, sim.World.Attention);                                 // legal
             int turn = sim.Turn;
-            string output = ConsoleTests.Play(sim, "status", "news");
+            ConsoleTests.Play(sim, "status", "news");
             Assert.Equal(turn, sim.Turn);                                         // nothing passes on its own
             ConsoleTests.Play(sim, "end");
             Assert.Equal(turn + 1, sim.Turn);

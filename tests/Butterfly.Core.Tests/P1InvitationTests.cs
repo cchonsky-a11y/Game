@@ -13,13 +13,7 @@ namespace Butterfly.Core.Tests
         /// <summary>The cellar-pump commission done, so Felix knows your work.</summary>
         private static Simulation AfterThePump(ulong seed = 42)
         {
-            var sim = new Simulation(TestData.Load(), seed);
-            sim.ChooseSeeded("workshop");
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet) sim.EndMonth();
-            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();
-            Assert.True(sim.LookAtCommission("cellarpump").Ok);
-            Assert.True(sim.AcceptCommission("cellarpump").Ok);
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
+            var sim = P1Play.AfterThePump(seed);
             sim.World.Gold = 2000;
             return sim;
         }

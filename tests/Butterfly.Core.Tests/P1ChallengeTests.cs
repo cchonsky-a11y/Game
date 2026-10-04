@@ -12,13 +12,7 @@ namespace Butterfly.Core.Tests
     {
         private static Simulation AfterThePump(ulong seed = 42)
         {
-            var sim = new Simulation(TestData.Load(), seed);
-            sim.ChooseSeeded("workshop");
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet) sim.EndMonth();
-            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();
-            Assert.True(sim.LookAtCommission("cellarpump").Ok);
-            Assert.True(sim.AcceptCommission("cellarpump").Ok);
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
+            var sim = P1Play.AfterThePump(seed);
             // The question comes through the scene router, one optional scene a month: wait for it.
             for (int m = 0; m < 24 && sim.FindChallenge("standards")!.Status == ChallengeStatus.NotYet; m++) sim.EndMonth();
             sim.PersonOf("Felix")!.AwayUntilTurn = 0;                          // these tests aren't about Felix's fever
@@ -26,14 +20,7 @@ namespace Butterfly.Core.Tests
             return sim;
         }
 
-        private static void FollowFelix(Simulation sim, InstitutionAccessStage until)
-        {
-            for (int m = 0; m < 60 && sim.World.AccessTo("guild").Stage < until; m++)
-            {
-                if (sim.InvitationState("guild")!.Pending != InvitationOffer.None) Assert.True(sim.AcceptInvitation("guild").Ok);
-                if (sim.World.AccessTo("guild").Stage < until) sim.EndMonth();
-            }
-        }
+        private static void FollowFelix(Simulation sim, InstitutionAccessStage until) => P1Play.FollowFelix(sim, until);
 
         private static void RunStage(Simulation sim)
         {

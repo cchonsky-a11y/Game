@@ -13,27 +13,13 @@ namespace Butterfly.Core.Tests
     {
         private static Simulation AfterThePump(ulong seed = 42)
         {
-            var sim = new Simulation(TestData.Load(), seed);
-            sim.ChooseSeeded("workshop");
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet) sim.EndMonth();
-            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();
-            Assert.True(sim.LookAtCommission("cellarpump").Ok);
-            Assert.True(sim.AcceptCommission("cellarpump").Ok);
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
+            var sim = P1Play.AfterThePump(seed);
             sim.World.Gold = 2000;
             return sim;
         }
 
         /// <summary>Accepts every guild invitation until the access reaches the stage (Felix's fever may slow it).</summary>
-        private static void FollowFelix(Simulation sim, InstitutionAccessStage until)
-        {
-            for (int m = 0; m < 60 && sim.World.AccessTo("guild").Stage < until; m++)
-            {
-                if (sim.InvitationState("guild")!.Pending != InvitationOffer.None) Assert.True(sim.AcceptInvitation("guild").Ok);
-                if (sim.World.AccessTo("guild").Stage < until) sim.EndMonth();
-            }
-            Assert.True(sim.World.AccessTo("guild").Stage >= until);
-        }
+        private static void FollowFelix(Simulation sim, InstitutionAccessStage until) => P1Play.FollowFelix(sim, until, mustReach: true);
 
         private static string Beat(Arrival a, string name) => a.Beats.First(b => b.Name == name).Text;
 

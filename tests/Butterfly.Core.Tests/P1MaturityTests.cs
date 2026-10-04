@@ -12,19 +12,9 @@ namespace Butterfly.Core.Tests
     {
         private static Simulation GuildMemberAfterThePump(ulong seed = 42)
         {
-            var sim = new Simulation(TestData.Load(), seed);
-            sim.ChooseSeeded("workshop");
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.NotYet) sim.EndMonth();
-            while (sim.World.ActiveProjects.Count > 0) sim.EndMonth();
-            Assert.True(sim.LookAtCommission("cellarpump").Ok);
-            Assert.True(sim.AcceptCommission("cellarpump").Ok);
-            while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
+            var sim = P1Play.AfterThePump(seed);
             sim.World.Gold = 5000;
-            for (int m = 0; m < 60 && sim.World.AccessTo("guild").Stage < InstitutionAccessStage.Member; m++)
-            {
-                if (sim.InvitationState("guild")!.Pending != InvitationOffer.None) Assert.True(sim.AcceptInvitation("guild").Ok);
-                if (sim.World.AccessTo("guild").Stage < InstitutionAccessStage.Member) sim.EndMonth();
-            }
+            P1Play.FollowFelix(sim, InstitutionAccessStage.Member);
             Assert.Equal(InstitutionAccessStage.Member, sim.World.AccessTo("guild").Stage);
             return sim;
         }
