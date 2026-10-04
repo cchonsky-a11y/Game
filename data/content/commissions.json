@@ -272,11 +272,11 @@
       "introducer": "",
       "opensAfterMonths": 10,
       "requires": [
-        "scene:baths-wet-cellar"
+        "scene:baths-wet-cellar|scene:baths-regular"
       ],
       "encounter": {
         "category": "RomanLife",
-        "text": "The bath-keeper Philippus remembers you from the warm room. \"You're the one who talked about the merchant's cellar. My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet.\""
+        "text": "The bath-keeper Philippus has seen you in his warm room often enough to know your accent. \"They say you fix water,\" he says. \"My hot room hasn't been hot since the Kalends, and the customers are going to the big baths. Look at my pipes. Look, I said; nobody's paying yet.\""
       },
       "diagnosis": {
         "category": "Engineering",

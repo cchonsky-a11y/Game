@@ -1,16 +1,38 @@
 {
-  "_readme": "P1 Grand Challenges (decided 2026-10-02; master handoff §14, capability ladder §4.1 and §26): small problems prove principles, big projects change capability. A challenge opens when the work has raised its question; each stage is a chunky project (months, Attention a month, gold in aurei at AD 155 prices) that moves a capability, never a run of micro-scenes. A stage may need a resource Rome doesn't hand a stranger: the 'source' requirements (people.json syntax) get it at the stated price, otherwise it costs 'withoutSource' times as much. Stages may name 'also' (further capabilities moved, in order) and 'needsPerson' as 'a|b' (the first if here, else the second, with 'slowerWithout' extra months). 'consequence' names a triggered event (events.json) offered when the challenge is done. Amounts PROPOSED P1-10 and P1-15.",
+  "_readme": "P1 Grand Challenges (decided 2026-10-02; master handoff §14, capability ladder §4.1 and §26): small problems prove principles, big projects change capability. A challenge opens when the work has raised its question: 'routes' lists the ways it can come up (each route's 'requires' must all hold; any route will do; the first that holds, in order, opens it, once), so no Grand Challenge hangs on a single client (hardening pass 2026-10-04). The single-route form 'opens'/'openCategory'/'openText' still loads; each stage is a chunky project (months, Attention a month, gold in aurei at AD 155 prices) that moves a capability, never a run of micro-scenes. A stage may need a resource Rome doesn't hand a stranger: the 'source' requirements (people.json syntax) get it at the stated price, otherwise it costs 'withoutSource' times as much. Stages may name 'also' (further capabilities moved, in order) and 'needsPerson' as 'a|b' (the first if here, else the second, with 'slowerWithout' extra months). 'consequence' names a triggered event (events.json) offered when the challenge is done. Amounts PROPOSED P1-10 and P1-15.",
   "challenges": [
     {
       "id": "standards",
       "name": "Measurement and standards",
       "question": "Can another workshop make a part that fits without seeing the original?",
-      "opens": [
-        "capability:valveseats:Reproducible",
-        "commission:cellarpump:Done"
+      "routes": [
+        {
+          "id": "pump",
+          "requires": [
+            "capability:valveseats:Reproducible",
+            "commission:cellarpump:Done"
+          ],
+          "category": "Engineering",
+          "text": "Cassianus's pump has a seat that wore out. The bronzesmith on the Clivus cut a new one by eye, and it leaks. Your seats were cut to your own foot and your own rule; his are cut to his. Until two shops measure the same way, every repair is a new pump."
+        },
+        {
+          "id": "hoist",
+          "requires": [
+            "commission:hoist:Done"
+          ],
+          "category": "Engineering",
+          "text": "A tooth breaks off the ratchet on Aemilius's drum. The smith at the Emporium cuts a new pawl from your drawing, and it rides up over the ratchet instead of catching. Your drawing says a finger and a half; his finger is not yours, and nor is his foot. Until two shops measure the same way, every repair is a new hoist."
+        },
+        {
+          "id": "baths",
+          "requires": [
+            "commission:baths:Done",
+            "monthsIn:14"
+          ],
+          "category": "Engineering",
+          "text": "Philippus's stopcock sticks, and the plumber who knows the fuller turns him a new plug. It won't seat in your bronze body. Both of you cut to a finger's width; his plumber's rule is a hair longer than yours, and the water finds the hair. Until two shops measure the same way, every repair is a new stopcock."
+        }
       ],
-      "openCategory": "Engineering",
-      "openText": "Cassianus's pump has a seat that wore out. The bronzesmith on the Clivus cut a new one by eye, and it leaks. Your seats were cut to your own foot and your own rule; his are cut to his. Until two shops measure the same way, every repair is a new pump.",
       "goal": {
         "capability": "gauges",
         "level": "Reproducible"
@@ -49,7 +71,7 @@
           ],
           "needsPerson": "Felix",
           "needsText": "Another shop has to agree to work to your foot, and no shop will take a stranger's word for it. You need someone who knows the shops.",
-          "text": "Felix brings the bronzesmith from the Clivus and a fitter from Ostia to your bench. They check their rules against your bar, argue for an afternoon, and go home with copies. A month later their seats match yours."
+          "text": "Felix brings the bronzesmith from the Clivus and a fitter from Ostia to your bench. They check their rules against your bar, argue for an afternoon, and go home with copies. A month later the parts they cut match yours."
         },
         {
           "id": "gauges",
@@ -79,7 +101,7 @@
           "attention": 1,
           "gold": 12,
           "category": "Engineering",
-          "text": "The fitter at Ostia cuts a seat to the gauges and sends it up the river in a box. It drops into Cassianus's pump without a file touching it. The bronzesmith asks for a set of gauges of his own and pays for them."
+          "text": "The fitter at Ostia cuts a part to the gauges and sends it up the river in a box. It drops into its place at your bench without a file touching it. The bronzesmith asks for a set of gauges of his own and pays for them."
         }
       ],
       "completeText": "Three shops now cut seats to one set of gauges, and a seat from one fits a pump from another. Nobody calls it a standard. They say the parts are cut to the foreigner's foot."

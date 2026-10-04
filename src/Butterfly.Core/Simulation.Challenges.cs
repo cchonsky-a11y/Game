@@ -23,15 +23,20 @@ namespace Butterfly.Core
 
         /// <summary>Challenges whose question the work has raised, waiting for the scene router.</summary>
         private IEnumerable<ChallengeState> ChallengesDue() =>
-            World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet && ChallengeDefOf(c).Opens.All(Holds));
+            World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet && OpeningRoute(c) != null);
 
-        private void OpenChallenge(ChallengeState c)
+        /// <summary>The first route (in authored order) whose requirements all hold now, or null.</summary>
+        public ChallengeRoute? OpeningRoute(ChallengeState c) => ChallengeDefOf(c).Routes.FirstOrDefault(r => r.Requires.All(Holds));
+
+        private void OpenChallenge(ChallengeState c, ChallengeRoute route)
         {
+            if (c.Status != ChallengeStatus.NotYet) return;
             var d = ChallengeDefOf(c);
             c.Status = ChallengeStatus.Open;
-            World.ScenePacing.Record(d.OpenCategory);
+            c.OpenedBy = route.Id;
+            World.ScenePacing.Record(route.Category);
             Record("challenge.open", c.ProjectId, null, new[] { "player" }, null,
-                d.OpenText + " Grand Challenge: " + d.Name + ". " + d.Question + " (challenge " + d.Id + ")");
+                route.Text + " Grand Challenge: " + d.Name + ". " + d.Question + " (challenge " + d.Id + ")");
         }
 
         public ChallengeStageDef? NextStage(ChallengeState c) =>

@@ -54,7 +54,10 @@ namespace Butterfly.Core
             foreach (var (d, offer) in InvitationOffersDue().ToList())
                 list.Add(new RoutedScene("invitation:" + d.Institution, OfferCategory(d, offer), pw, () => OfferInvitation(d, offer)));
             foreach (var c in ChallengesDue().ToList())
-                list.Add(new RoutedScene("challenge:" + c.Id, ChallengeDefOf(c).OpenCategory, pw, () => OpenChallenge(c)));
+            {
+                var route = OpeningRoute(c)!;
+                list.Add(new RoutedScene("challenge:" + c.Id, route.Category, pw, () => OpenChallenge(c, route)));
+            }
             foreach (var id in World.ReadyLife.ToList())
             {
                 var e = Data.Content.Lives.First(l => l.Id == id);

@@ -75,9 +75,11 @@ namespace Butterfly.Core
         public string Id { get; }
         public string Name { get; }
         public string Question { get; }
-        public IReadOnlyList<string> Opens { get; }
-        public SceneCategory OpenCategory { get; }
-        public string OpenText { get; }
+        /// <summary>
+        /// The ways the work can raise the question (any one will do; each route's requirements must all hold). Several routes
+        /// keep a challenge from hanging on one client: they converge on the same challenge, which opens once.
+        /// </summary>
+        public IReadOnlyList<ChallengeRoute> Routes { get; }
         public string GoalCapability { get; }
         public CapabilityLevel GoalLevel { get; }
         public IReadOnlyList<ChallengeStageDef> Stages { get; }
@@ -90,15 +92,32 @@ namespace Butterfly.Core
             Id = o.Str("id");
             Name = o.Str("name");
             Question = o.Str("question");
-            Opens = o.Arr("opens").Cast<string>().ToList();
-            OpenCategory = CommissionSceneDef.ParseCategory(o.Str("openCategory"));
-            OpenText = o.Str("openText");
+            // "routes": [{ id, requires, category, text }]; or the single-route form "opens", "openCategory", "openText".
+            Routes = o.Has("routes")
+                ? o.Arr("routes").Cast<JsonObject>().Select(r => new ChallengeRoute(r.Str("id"), r.Arr("requires").Cast<string>().ToList(),
+                      CommissionSceneDef.ParseCategory(r.Str("category")), r.Str("text"))).ToList()
+                : new List<ChallengeRoute> { new ChallengeRoute("main", o.Arr("opens").Cast<string>().ToList(),
+                      CommissionSceneDef.ParseCategory(o.Str("openCategory")), o.Str("openText")) };
+            if (Routes.Count == 0) throw new FormatException("Challenge " + Id + " has no way to open.");
             var g = o.Obj("goal");
             GoalCapability = g.Str("capability");
             GoalLevel = Enum.TryParse<CapabilityLevel>(g.Str("level"), out var l) ? l : throw new FormatException("Unknown capability level: " + g.Str("level"));
             Stages = o.Arr("stages").Cast<JsonObject>().Select(x => new ChallengeStageDef(x)).ToList();
             CompleteText = o.Str("completeText");
             Consequence = o.StrOr("consequence", "") ?? "";
+        }
+    }
+
+    /// <summary>One way a Grand Challenge's question comes up: what must all hold, and the scene that raises it.</summary>
+    public sealed class ChallengeRoute
+    {
+        public string Id { get; }
+        public IReadOnlyList<string> Requires { get; }
+        public SceneCategory Category { get; }
+        public string Text { get; }
+        public ChallengeRoute(string id, IReadOnlyList<string> requires, SceneCategory category, string text)
+        {
+            Id = id; Requires = requires; Category = category; Text = text;
         }
     }
 
@@ -113,6 +132,8 @@ namespace Butterfly.Core
         public int StageIndex { get; set; }
         public int MonthsLeft { get; set; }
         public int ReservedFromTurn { get; set; }
+        /// <summary>The route by which the question came up (empty until it opens).</summary>
+        public string OpenedBy { get; set; } = "";
         public ChallengeState(string id) => Id = id;
         public string ProjectId => "challenge:" + Id;
     }
