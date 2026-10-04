@@ -143,7 +143,7 @@ namespace Butterfly.Core
             double pay = WorkPay(kind);
             double tax = pay * WorkTaxRate();
             World.Gold += pay - tax;
-            string text = kind == "odd" ? "You spend the month mending tools and running errands for pay."
+            string text = kind == "odd" ? OddJobText()
                         : kind == "craft" ? "You take a builder's commission: a crane gear, a better pump."
                         : "You advise a wealthy household on its baths and its books.";
             var workEvent = Record("personal.work", GoldKey, null, new[] { "player" }, new[] { new Effect(GoldKey, before, World.Gold) }, text);
@@ -158,6 +158,21 @@ namespace Butterfly.Core
             int members = Memberships();
             return CommandResult.Success("You earn " + Money(pay) + (members > 0 ? " (" + Money(WorkGold(kind) * WageLevel() * T.Get("joining.workBonusPerMembership") * members) + " of it through your " + members +
                                          " membership" + (members == 1 ? "" : "s") + ")" : "") + "; tax takes " + Money(tax) + ", you keep " + Money(pay - tax) + ".");
+        }
+
+        /// <summary>
+        /// What a month of odd jobs looks like (P1 polish pass): the lines rotate in a fixed order (no random draw), and grow
+        /// with the hour-one choice and the people you know, so fallback work stops reading as the same sentence every month.
+        /// </summary>
+        private string OddJobText()
+        {
+            var keys = new List<string> { "oddjob.generic1", "oddjob.generic2", "oddjob.generic3", "oddjob.generic4" };
+            if (OwnsWorkshop) keys.Add("oddjob.workshop");
+            if (World.CompletedProjects.Contains("fountain")) keys.Add("oddjob.fountain");
+            foreach (var who in new[] { "Felix", "Diodoros", "Gaius", "Serenus" })
+                if (Knows(who) && !IsPersonAway(who)) keys.Add("oddjob." + who);
+            int done = Log.Events.Count(e => e.Type == "personal.work");
+            return Data.Content.Template(keys[done % keys.Count], new Dictionary<string, string> { { "smith", Data.Content.Smith } });
         }
 
         // ---- multi-turn commitments -----------------------------------------

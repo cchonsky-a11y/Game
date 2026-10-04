@@ -205,5 +205,18 @@
     "gold": "The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out {aurei} aurei worth of it. Every piece will have to go back before the machine could ever run again.",
     "money": "Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).",
     "choice": "Two things on this street could use your money, and you can afford only one:"
+  },
+  "oddjob": {
+    "_note": "Fallback odd jobs (P1 polish pass, 2026-10-04): what a month of small paid work looks like. Lines rotate in order, never by chance, so pay and seeded results are untouched. Generic lines always; 'workshop' and 'fountain' after the hour-one choice is built; a person's line once you know them. Pay is unchanged.",
+    "generic1": "You spend the month mending tools and running errands for pay.",
+    "generic2": "A month of small jobs: a hinge for a wine shop, a cart axle, a lock rusted shut. The money comes in coppers.",
+    "generic3": "You carry the measuring rods for a surveyor on the Via Appia for a week, then rehang a widow's shutters on your street.",
+    "generic4": "A baker pays you to mend the lever on his kneading trough, and pays again when it breaks the same way.",
+    "workshop": "{smith} passes you the jobs he can't be bothered with: nails straightened, a pot riveted, a sickle ground.",
+    "fountain": "The women at the fountain send work your way: a cracked jar to rivet, a door that won't shut, a new well rope.",
+    "Felix": "Felix finds you two days' work at Ostia fitting cleats, and pays you on the quay out of his own purse.",
+    "Diodoros": "Diodoros needs a cart wheel trued before market day and pays in bread and a little silver.",
+    "Gaius": "Gaius lets you file castings at his bench for a week at a journeyman's rate, and watches how you hold the file.",
+    "Serenus": "Serenus pays you to copy two of his casebooks fair. You learn more about Roman fevers than you wanted to."
   }
 }

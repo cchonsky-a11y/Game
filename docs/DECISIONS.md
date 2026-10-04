@@ -565,3 +565,15 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - Re-categorizing scenes is for the same reason a mismatch.
   - 3:1 stays the working default.
 
+
+## 2026-10-04 — P1 polish: fallback work reviewed
+- **Audit (scripted, not human):**
+  - Odd jobs are the safety net for cooperative players: 14–21% of era income, 15–19 of 96 months.
+  - They become a main economy only for players who turn down or lose the work offered: 35% of income for the Negotiator on the fountain, 47% for the Engineering-focused fountain player who refuses civic and neighborhood jobs. That is a deliberate consequence, kept.
+  - No content disappears unexpectedly any more (Felix's life no longer waits on the guild).
+  - Players have alternatives in those months (Roman life, institutions, the machine, challenge stages when affordable).
+- **What made it feel like a grind:** every odd job printed the same sentence.
+- **Changed (presentation only):** odd-job months now rotate, in a fixed order (no random draw), through generic lines, a line for the opening built, and lines for people the inventor knows (Felix at Ostia, Diodoros's cart, Gaius's bench, Serenus's casebooks).
+- **Unchanged:** pay, Attention, the economy and every seeded outcome.
+- **Snapshot:** hash updated for the new text only; the reference game still arrives in AD 247 with Index 127.7, and p1-validate, p1-matrix, batch and explorer outputs are byte-identical.
+- **Not added:** new commissions. The existing referral and repeat chains already cover each opening.
