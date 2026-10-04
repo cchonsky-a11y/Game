@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="Butterfly.Core.Tests" />
+    <InternalsVisibleTo Include="Butterfly.Batch" />
   </ItemGroup>
 
 </Project>

@@ -79,6 +79,37 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void FelixsLifeGoesOnWithoutTheGuild()
+        {
+            // The strategy matrix found a player who lost the pump, the hoist and the baths and then met no one new for six
+            // years: Felix's fever (and so the vow and Serenus) waited on a guild referral. His life doesn't.
+            var sim = new Simulation(TestData.Load(), 42);
+            sim.ChooseSeeded("workshop");
+            sim.FindCommission("cellarpump")!.Status = CommissionStatus.Walked;
+            sim.FindCommission("hoist")!.Status = CommissionStatus.Walked;
+            Assert.True(sim.Knows("Felix"));
+            Assert.True(sim.World.AccessTo("guild").Stage < InstitutionAccessStage.KnowsMember);
+            var fever = sim.Data.Content.Lives.First(l => l.Id == "felix-fever");
+            Assert.True(fever.Requires.All(sim.Holds));
+        }
+
+        [Fact]
+        public void ASecondSponsorshipAfterARefusalIsInOtherWords()
+        {
+            // The strategy matrix (seed 9) showed Felix's sponsorship word for word twice after a refused vote.
+            var data = TestData.Load().WithTuning(new Dictionary<string, double> { { "invitations.vote.base", 0 }, { "invitations.vote.perSponsorRegard", 0 } });
+            var sim = AfterThePump(42, data);
+            FollowFelix(sim, InstitutionAccessStage.SponsoredCandidate);
+            for (int m = 0; m < 6 && !sim.Log.Events.Any(e => e.Type == "invitation.refused"); m++) sim.EndMonth();
+            Assert.Equal(InstitutionAccessStage.InvitedBack, sim.World.AccessTo("guild").Stage);
+            FollowFelix(sim, InstitutionAccessStage.SponsoredCandidate);
+            var sponsor = sim.Log.Events.Where(e => e.Type == "invitation.sponsor" && e.Target == "guild").Select(e => e.Text).ToList();
+            Assert.Equal(2, sponsor.Count);
+            Assert.NotEqual(sponsor[0], sponsor[1]);
+            Assert.DoesNotContain(sim.Log.Events.Where(e => e.Type == "invitation.offer").GroupBy(e => e.Text), g => g.Count() > 1);
+        }
+
+        [Fact]
         public void AnAffordableStakeNoLongerStopsFastForward()
         {
             var sim = new Simulation(TestData.Load(), 42);
@@ -140,8 +171,15 @@ namespace Butterfly.Core.Tests
                     if (sim.World.LifeEligibleSince.TryGetValue(id, out int since) && sim.World.LifeEventLog.TryGetValue(id, out int ev))
                         Assert.True(sim.Log.Get(ev).Time.TotalMonths - sim.Log.Events.First(e => e.Type == "turn.start").Time.TotalMonths < since + 24 + 1);
             }
-            Assert.True(deliveries > 0 && antioch > 0);                         // both lives happen in some games
-            Assert.True(deliveries + antioch < 40);                              // and in some, neither: the window closes
+            Assert.True(deliveries > 0 && antioch > 0, "deliveries " + deliveries + ", antioch " + antioch);   // both lives happen in some games
+            // And the window closes: once it has passed with nothing happening, neither branch can come (deterministic, not by luck:
+            // with 10% and 5% a month over 24 months "neither" is about 2% of games, too rare to rely on in 40 seeds).
+            var late = new Simulation(TestData.Load(), 1);
+            late.PersonOf("Cassianus")!.Happened.Add("warehouse-fire");
+            late.World.LifeEventLog["warehouse-fire"] = 1;
+            foreach (var id in new[] { "diodoros-deliveries", "diodoros-antioch" }) late.World.LifeEligibleSince[id] = late.Turn - 30;
+            for (int m = 0; m < 36; m++) late.EndMonth();
+            Assert.False(late.World.LifeEventLog.ContainsKey("diodoros-deliveries") || late.World.LifeEventLog.ContainsKey("diodoros-antioch"));
         }
 
         [Fact]

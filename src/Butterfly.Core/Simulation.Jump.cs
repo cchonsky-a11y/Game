@@ -62,6 +62,15 @@ namespace Butterfly.Core
             _leftRome = TakeSnapshot();
             SettlePromiseOnDeparture(depart.Id);
             SavingsAtDeparture(arrival);
+            // Coin in hand stays behind (SYSTEMS §9; the briefing says so): only the machine's purse, the bank and the jar carry
+            // value across. Found missing in the hardening pass (2026-10-04): denarii used to cross the jump untouched.
+            if (World.Gold > 1e-9)
+            {
+                double left = World.Gold;
+                World.Gold = 0;
+                Record("jump.coin.left", GoldKey, new[] { depart.Id }, new[] { "player" }, new[] { new Effect(GoldKey, left, 0) },
+                    "The " + Money(left) + " you never changed into gold stay behind in Rome.");
+            }
             TagEchoes(arrival, depart.Id);
             // Last orders (P0-32): given once, when you first leave Rome; on a later jump they are older and weigh less.
             LapsePendingEvent();
@@ -482,6 +491,11 @@ namespace Butterfly.Core
                     { "pathName", i.DriftPath?.Name ?? i.Def.Name },
                     { "pathDescription", i.DriftPath?.Description ?? "" },
                 };
+                // A drift path described on an earlier arrival isn't described again word for word (hardening pass, 2026-10-04):
+                // the guild that drifted into the Grain Cartel and was later captured kept repeating the Cartel's description.
+                string described = "desc:" + i.Key + ":" + (i.DriftPath?.Name ?? "");
+                if (i.DriftPath != null && World.EchoesShown.Contains(described)) v["pathDescription"] = text.Template("discovery.descriptionAgain", v);
+                else if (i.DriftPath != null) World.EchoesShown.Add(described);
                 // Institutions without their own templates use the generic ones.
                 string template = text.Text.ContainsKey("discovery." + key) ? "discovery." + key : "discovery.generic." + state;
                 // L6 (tester 6): thriving because it became the camp you ordered, it is that camp now, not its old self

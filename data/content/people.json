@@ -268,7 +268,7 @@
       "windowMonths": 36,
       "decay": 0.97,
       "requires": [
-        "access:guild:KnowsMember"
+        "knows:Felix"
       ],
       "awayMonths": 2,
       "category": "Personal",

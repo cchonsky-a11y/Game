@@ -30,6 +30,22 @@ for (int i = 0; i < args.Length - 1; i++)
     if (outPath != null) { File.WriteAllText(outPath, p1); Console.WriteLine("Saved to " + outPath); }
     return;
 }
+for (int i = 0; i < args.Length - 1; i++)
+{
+    if (args[i] != "--p1-matrix") continue;
+    // The P1 strategy matrix (scripted, not human): --p1-matrix 1-60 [--weight W] [--out file]
+    var bounds = args[i + 1].Split('-').Select(x => ulong.Parse(x, CultureInfo.InvariantCulture)).ToArray();
+    var range = Enumerable.Range((int)bounds[0], (int)(bounds[bounds.Length - 1] - bounds[0] + 1)).Select(x => (ulong)x);
+    // --weight W: a counterfactual experiment with scenes.progressionWeight = W in memory only (data/tuning.json is untouched).
+    var run = data;
+    for (int k = 0; k < args.Length - 1; k++)
+        if (args[k] == "--weight")
+            run = data.WithTuning(new System.Collections.Generic.Dictionary<string, double> { { "scenes.progressionWeight", double.Parse(args[k + 1], CultureInfo.InvariantCulture) } });
+    string m = P1Matrix.Report(P1Matrix.Run(run, range), run.Tuning.Get("scenes.progressionWeight"));
+    Console.WriteLine(m);
+    if (outPath != null) { File.WriteAllText(outPath, m); Console.WriteLine("Saved to " + outPath); }
+    return;
+}
 int trace = 0;
 for (int i = 0; i < args.Length - 1; i++) if (args[i] == "--trace") trace = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
 if (trace > 0)

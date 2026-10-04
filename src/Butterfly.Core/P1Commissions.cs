@@ -71,6 +71,11 @@ namespace Butterfly.Core
         public string MaterialsPayer { get; }
         public double Upfront { get; }
         public double Completion { get; }
+        /// <summary>A profit share's later payments: aurei each (AD 155 prices), how many, how far apart, and one text per payment.</summary>
+        public double ShareAmount { get; }
+        public int SharePayments { get; }
+        public int ShareEveryMonths { get; }
+        public IReadOnlyList<string> ShareTexts { get; }
         public double CounterCompletion { get; }
         public double AcceptWeight { get; }
         public double StandFirmWeight { get; }
@@ -108,6 +113,13 @@ namespace Butterfly.Core
             MaterialsPayer = t.Str("materialsPayer");
             Upfront = t.NumOr("upfront", 0);
             Completion = t.NumOr("completion", 0);
+            var sh = t.Has("share") ? t.Obj("share") : null;
+            ShareAmount = sh?.Num("amount") ?? 0;
+            ShareEveryMonths = sh == null ? 0 : (int)sh.Num("everyMonths");
+            ShareTexts = sh == null ? new List<string>() : sh.Arr("texts").Cast<string>().ToList();
+            SharePayments = ShareTexts.Count;
+            if (FundingModel == ProjectFundingModel.ProfitShare && SharePayments == 0)
+                throw new FormatException("Commission " + Id + " is a profit share but names no share payments.");
             var c = o.Obj("counter");
             CounterCompletion = c.Num("completion");
             AcceptWeight = c.Num("acceptWeight");
@@ -157,6 +169,10 @@ namespace Butterfly.Core
         public int MonthsLeftInStage { get; set; }
         /// <summary>From this turn on, the current work stage holds its Attention at the start of each month.</summary>
         public int ReservedFromTurn { get; set; }
+        /// <summary>A finished profit share: payments still to come, and the turn the next is due.</summary>
+        public int SharesLeft { get; set; }
+        public int NextShareTurn { get; set; }
+        public int CompletedEventId { get; set; }
 
         public CommissionState(string id) => Id = id;
         public string ProjectId => "commission:" + Id;

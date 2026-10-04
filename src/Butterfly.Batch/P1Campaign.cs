@@ -14,9 +14,24 @@ namespace Butterfly.Batch
     /// </summary>
     public static class P1Campaign
     {
+        /// <summary>
+        /// Scripted strategy profiles (hardening pass, 2026-10-04). Scripted profiles of the build's own API, not people:
+        /// Legacy = the original validation script (asks for more on every third seed).
+        /// </summary>
+        public enum Profile { Legacy, Cooperative, Negotiator, Selective, Engineering, Relationship }
+
         public sealed class Result
         {
             public ulong Seed;
+            public Profile Profile;
+            public int FreeAttention0, FreeAttention1, FreeAttention2Plus, IdleAttention;
+            public int StageAttentionRefusals, ProgressionPendingMonths, LongestProgressionWait, QuietMonths;
+            public int UpgradesDone, RangeMin, RangeMax, Range2Min, Range2Max, Countered;
+            public int ProfitSharePayments;
+            public string LongestWaitId = "";
+            public string StandardsRoute = "";
+            public Dictionary<string, int> Waits = new Dictionary<string, int>();
+            public double OddJobIncome, CommissionIncome, OrderIncome;
             public string Choice = "";
             public int FirstCommissionTurn = -1, FirstPaidTurn = -1;
             public int OddJobMonths, EraMonths, AttentionConflicts;
@@ -43,34 +58,55 @@ namespace Butterfly.Batch
 
         private static void Count(Dictionary<SceneCategory, int> d, SceneCategory c) => d[c] = d.TryGetValue(c, out int n) ? n + 1 : 1;
 
-        public static Result Play(GameData data, ulong seed, int departYear = 163)
+        public static Result Play(GameData data, ulong seed, int departYear = 163) => Play(data, seed, Profile.Legacy, seed % 2 == 1 ? "workshop" : "fountain", departYear);
+
+        public static Result Play(GameData data, ulong seed, Profile profile, string opening, int departYear = 163)
         {
             var sim = new Simulation(data, seed);
-            var r = new Result { Seed = seed };
-            bool counter = seed % 3 == 0;
+            var r = new Result { Seed = seed, Profile = profile };
+            bool counter = profile == Profile.Negotiator || profile == Profile.Legacy && seed % 3 == 0;
             void Note(CommandResult res) { if (!res.Ok && res.Message.Contains("would reserve")) r.AttentionConflicts++; }
             int quiet = 0, lastScenes = 0;
+            var waiting = new Dictionary<string, int>();
             double startGold = sim.World.Gold;
-            r.Choice = seed % 2 == 1 ? "workshop" : "fountain";
+            r.Choice = opening;
             sim.ChooseSeeded(r.Choice);
+            if (profile == Profile.Engineering) sim.SetSceneFocus("Engineering");
+            if (profile == Profile.Relationship) sim.SetSceneFocus("RomanLife");
             while (!sim.EraOver)
             {
                 var w = sim.World;
                 if (w.Gold < 2 && w.Aurei >= 5 && sim.MachineGoldRestored < 1) sim.SellAurei(5);
-                if (sim.PendingEvent is EventDef ev) sim.Decide(ev.Options[(int)(seed % (ulong)ev.Options.Count)].Id);
+                if (sim.PendingEvent is EventDef ev)
+                    sim.Decide(ev.Options[profile == Profile.Relationship ? 0 : (int)(seed % (ulong)ev.Options.Count)].Id);
                 foreach (var c in w.Commissions.ToList())
                 {
                     if (c.Status == CommissionStatus.Offered) { if (r.FirstCommissionTurn < 0) r.FirstCommissionTurn = sim.Turn; Note(sim.LookAtCommission(c.Id)); }
                     if (c.Status == CommissionStatus.TermsOffered)
                     {
-                        if (counter && !c.Countered) sim.CounterCommission(c.Id);
+                        var d = sim.CommissionDefOf(c);
+                        bool decline = profile == Profile.Selective && (d.FundingModel != ProjectFundingModel.ClientPaid || sim.ReservedInMonth(1) >= 3)
+                                    || profile == Profile.Engineering && (d.Encounter.Category == SceneCategory.RomanLife || d.Encounter.Category == SceneCategory.CityHistory
+                                                                          || d.Encounter.Category == SceneCategory.Personal);
+                        if (decline) { sim.DeclineCommission(c.Id); continue; }
+                        if (counter && !c.Countered) { sim.CounterCommission(c.Id); r.Countered++; }
                         if (c.Status == CommissionStatus.TermsOffered) Note(sim.AcceptCommission(c.Id));
                     }
                 }
                 foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None).ToList()) sim.AcceptInvitation(p.Institution);
-                foreach (var ch in w.Challenges.Where(ch => ch.Status == ChallengeStatus.Open).ToList()) Note(sim.StartChallengeStage(ch.Id));
+                bool busy = w.Commissions.Any(c => c.Status == CommissionStatus.Working);
+                foreach (var ch in w.Challenges.Where(ch => ch.Status == ChallengeStatus.Open).ToList())
+                {
+                    if (profile == Profile.Relationship && busy) continue;                             // people and work first
+                    if (profile == Profile.Selective && sim.NextStage(ch) is ChallengeStageDef st && w.Gold < 2 * sim.StageGold(st)) continue;
+                    var res = sim.StartChallengeStage(ch.Id);
+                    Note(res);
+                    if (!res.Ok && res.Message.Contains("Attention")) r.StageAttentionRefusals++;
+                }
                 if (!sim.MachineAssessed) Note(sim.Assess());
                 foreach (var system in Simulation.MachineSystems) Note(sim.Repair(system));
+                if (profile == Profile.Engineering && sim.MachineAssessed && w.Gold > sim.Priced(60))
+                    foreach (var u in data.Content.MachineUpgrades) if (!w.MachineDone.Contains(u.Id)) { Note(sim.Upgrade(u.Id)); break; }
                 if (sim.MachineStepsDone >= sim.MachineStepsTotal && sim.MachineGoldRestored < sim.MachineGoldNeeded)
                 {
                     double missing = Math.Ceiling(sim.MachineGoldNeeded - sim.MachineGoldRestored);
@@ -83,13 +119,42 @@ namespace Butterfly.Batch
                 if (!working && w.Gold < sim.Priced(30) && w.Attention >= 1 && sim.Work("odd").Ok) r.OddJobMonths++;
                 r.MinGold = Math.Min(r.MinGold, w.Gold);
                 if (sim.MachineReady && sim.Now.Year >= departYear) break;
+                // Attention left unused as the month ends (after everything the script wanted to do).
+                if (w.Attention <= 0) r.FreeAttention0++; else if (w.Attention == 1) r.FreeAttention1++; else r.FreeAttention2Plus++;
+                r.IdleAttention += Math.Max(0, w.Attention);
+                // Progression candidates waiting for the router: how long each waits before it is picked.
+                var pending = sim.SceneCandidateIds().Where(id => !id.StartsWith("scene:")).ToList();
+                if (pending.Count > 0) r.ProgressionPendingMonths++;
+                foreach (var id in pending) waiting[id] = waiting.TryGetValue(id, out int n) ? n + 1 : 1;
+                int routedBefore = w.RoutedScenes.Count;
                 sim.EndMonth();
                 r.EraMonths++;
+                foreach (var picked in w.RoutedScenes.Skip(routedBefore))
+                    if (waiting.TryGetValue(picked.Id, out int waited))
+                    {
+                        if (waited > r.LongestProgressionWait) { r.LongestProgressionWait = waited; r.LongestWaitId = picked.Id; }
+                        r.Waits[picked.Id] = Math.Max(r.Waits.TryGetValue(picked.Id, out int w0) ? w0 : 0, waited);
+                        waiting.Remove(picked.Id);
+                    }
                 int scenes = sim.World.ScenePacing.History.Count;
                 quiet = scenes == lastScenes ? quiet + 1 : 0;
+                if (quiet > 0) r.QuietMonths++;
                 r.LongestQuietStretch = Math.Max(r.LongestQuietStretch, quiet);
                 lastScenes = scenes;
             }
+            // Income by source, from the log's gold effects (the ledger is built from the same events).
+            foreach (var kv in waiting) r.Waits["never:" + kv.Key] = kv.Value;   // still waiting at departure
+            foreach (var e in sim.Log.Events)
+            {
+                double gain = e.Effects.Where(f => f.Key == "gold").Sum(f => f.After - f.Before);
+                if (gain <= 0) continue;
+                if (e.Type == "personal.work") r.OddJobIncome += gain;
+                else if (e.Type.StartsWith("workshop.")) r.OrderIncome += gain;
+                else if (e.Type.StartsWith("commission.")) r.CommissionIncome += gain;
+            }
+            r.ProfitSharePayments = sim.Log.Events.Count(e => e.Type == "commission.share");
+            r.UpgradesDone = sim.MachineUpgradesDone;
+            (r.RangeMin, r.RangeMax) = sim.JumpRange();
             r.GoldAtDeparture = sim.World.Gold;
             var l = sim.World.Ledger;
             r.LedgerReconciles = Math.Abs(startGold + l.Income - l.Expenses - sim.World.Gold) < 0.01;
@@ -112,6 +177,7 @@ namespace Butterfly.Batch
             r.CommissionsDeclined = sim.World.Commissions.Count(c => c.Status == CommissionStatus.Declined);
             r.ChallengeStages = sim.Log.Events.Count(e => e.Type == "challenge.stage");
             r.ChallengesDone = sim.World.Challenges.Count(c => c.Status == ChallengeStatus.Done);
+            r.StandardsRoute = sim.FindChallenge("standards")?.OpenedBy ?? "";
             r.LifeEvents = sim.World.LifeEventLog.Count;
             r.PeopleKnown = sim.KnownPeople().Count();
             var texts = sim.Log.Events.Where(e => e.Type.StartsWith("scene.") || e.Type.StartsWith("person.") || e.Type.StartsWith("commission.") ||
@@ -125,6 +191,7 @@ namespace Butterfly.Batch
             r.Arrive1 = a1.ArrivalYear; r.Jump1 = a1.JumpYears; r.Echoes1 = a1.P1Echoes.ToList();
             r.Institutions1 = string.Join("; ", a1.Institutions.Select(i => i.Name.Replace("the ", "") + " " + i.Outcome));
             if (!sim.CanJumpAgain) return r;
+            (r.Range2Min, r.Range2Max) = sim.JumpRange();
             var a2 = sim.Jump();
             r.Arrive2 = a2.ArrivalYear; r.Jump2 = a2.JumpYears; r.Echoes2 = a2.P1Echoes.ToList();
             r.Institutions2 = string.Join("; ", a2.Institutions.Select(i => i.Name.Replace("the ", "") + " " + i.Outcome));

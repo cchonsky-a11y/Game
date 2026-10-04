@@ -19,7 +19,9 @@ namespace Butterfly.Core.Tests
             Assert.True(sim.LookAtCommission("cellarpump").Ok);
             Assert.True(sim.AcceptCommission("cellarpump").Ok);
             while (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Working) sim.EndMonth();
-            sim.EndMonth();
+            // The question comes through the scene router, one optional scene a month: wait for it.
+            for (int m = 0; m < 24 && sim.FindChallenge("standards")!.Status == ChallengeStatus.NotYet; m++) sim.EndMonth();
+            sim.PersonOf("Felix")!.AwayUntilTurn = 0;                          // these tests aren't about Felix's fever
             sim.World.Gold = 5000;
             return sim;
         }

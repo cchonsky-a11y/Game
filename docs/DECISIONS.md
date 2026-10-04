@@ -494,3 +494,16 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Fixed:** the standards "two shops agree" stage needed a guild contact that only Felix's two jobs gave, so a player who came in by the allotment or the baths could open the challenge and stall at stage 2. Gaius can now vouch and do it, with his own text (`standInText`), and the person doing a stage is logged as an actor.
 - **Kept, by judgment:** Aulus's single introducer (Gaius never leaves), powered workshops' single route (the sequel to standards), the guild closing if both of Felix's jobs are refused (nothing required sits behind it), Diodoros's thread hanging on the pump (a favor, no money).
 - **Legacy:** the chronometer archives step asks for faction membership, which P1 never grants, so it always costs its gold alternative (OPEN, tied to the patron's-introduction question).
+
+## 2026-10-04 — P1 hardening: strategy matrix, routing and economy stress (scripted, not human)
+- **Implemented:** `--p1-matrix <from>-<to> [--weight W]` runs each seed with five scripted profiles (cooperative, negotiator, selective, engineering-focused, relationship/Roman-life; odd seeds workshop, even fountain) through an era and two jumps. It measures routing and waits, Attention use, income by source, odd jobs, challenges, institutions, R-17, jumps and integrity. `--weight` is a counterfactual run in memory only. Report: playtests/ai/live/2026-10-04-p1-strategy-matrix.md (60 seeds, 300 runs).
+- **3:1 routing:** recommended for locking. Below 3 the plot starves (weight 1: 110 progression scenes unplayed at departure, more odd jobs, fewer commissions); above 3 waits shorten but nothing the player keeps changes. Long-tail waits come from same-category exclusion; an age bonus is an option for Corey, not implemented.
+- **Fixed from evidence:**
+  - Profit shares were promised in terms and text but never paid; they are now paid on schedule, once each, and lapse at departure (PROPOSED P1-21).
+  - Coin in hand crossed the jump, against SYSTEMS §9 and the briefing; it is now left behind, logged and ledgered.
+  - A second sponsorship after a refused vote repeated the first word for word; it now has its own words, and the guild's sponsor scene no longer assumes the pump.
+  - A drift description repeated across arrivals; a path already described now says it has gone further down the same road.
+  - Felix's fever (and so the vow and Serenus) waited on a guild referral; a player who lost three jobs met no one for six years. It now needs only that you know him.
+- **Measured, not changed:** Attention (a third of months end at 0, 40–55% end with 2+ unused, no future overbooking attempted) and the jump range (first jumps 25–55 years, second 25–55, arrivals AD 188–268). Three jump-range models are written up for Corey; the question stays OPEN.
+- **Tests:** ten economy stress tests; a second sponsorship in other words; Felix's life without the guild. The fragile "some games have neither branch" assertion is now a deterministic window check. Challenge tests wait for the router instead of assuming the opening month.
+- Snapshot reset (deliberate: Felix's fever can now come earlier): the reference game arrives in AD 247 with Index 127.7.

@@ -40,6 +40,8 @@ namespace Butterfly.Core
         public InvitationStepDef Guest { get; }
         public InvitationStepDef Again { get; }
         public InvitationStepDef Sponsor { get; }
+        /// <summary>The sponsor's words the second time, after a refused vote (optional; else the first words again).</summary>
+        public InvitationStepDef? SponsorAgain { get; }
         public InvitationStepDef Admit { get; }
         public string DeclineText { get; }
         /// <summary>The members put the vote off; the members refuse.</summary>
@@ -65,6 +67,7 @@ namespace Butterfly.Core
             Guest = new InvitationStepDef(o.Obj("guest"));
             Again = new InvitationStepDef(o.Obj("again"));
             Sponsor = new InvitationStepDef(o.Obj("sponsor"));
+            SponsorAgain = o.Has("sponsorAgain") ? new InvitationStepDef(o.Obj("sponsorAgain")) : null;
             Admit = new InvitationStepDef(o.Obj("admit"));
             DeclineText = o.Str("decline");
             EchoGuest = o.StrOr("echoGuest", "") ?? "";

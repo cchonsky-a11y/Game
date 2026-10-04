@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05. P1 (2026-10-04): 'requires' (people.json syntax) gates when the work can come; 'fundingModel' may be Favor (no one pays) or ProfitShare; a work stage may name its own 'capability' and 'capabilityTo'; 'onComplete' gives regard, status and flags; 'referral' is optional and may be only a lead (no institution). Amounts PROPOSED P1-05, P1-14, P1-17, P1-19, P1-20.",
+  "_readme": "P1 commissions (decided 2026-10-02): encounter -> help/diagnosis -> agreed terms -> staged work -> paid completion -> referral. Amounts are in aurei (1 = 25 denarii at AD 155 prices; scaled by the price level). Categories are P1 scene categories (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery, CityHistory, Exploration, InstitutionsPolitics). Roman baseline first: Rome already has bronze force pumps; the inventor brings true, replaceable valve seats cut to a gauge. Amounts PROPOSED P1-05. P1 (2026-10-04): 'requires' (people.json syntax) gates when the work can come; 'fundingModel' may be Favor (no one pays) or ProfitShare (terms 'share': aurei per payment, months apart, one text per payment; paid only while you are in Rome, each once; P1-21); a work stage may name its own 'capability' and 'capabilityTo'; 'onComplete' gives regard, status and flags; 'referral' is optional and may be only a lead (no institution). Amounts PROPOSED P1-05, P1-14, P1-17, P1-19, P1-20.",
   "commissions": [
     {
       "id": "cellarpump",
@@ -492,7 +492,15 @@
         "materialsPayer": "Vettius",
         "upfront": 5,
         "completion": 16,
-        "text": "\"A hundred and twenty-five now,\" Vettius says, \"four hundred when my second yard builds a hull from your drawings without my master in it. And a tenth of what I get for selling copies to the other yards, if anyone will buy them.\""
+        "text": "\"A hundred and twenty-five now,\" Vettius says, \"four hundred when my second yard builds a hull from your drawings without my master in it. And a tenth of what I get for selling copies to the other yards, if anyone will buy them.\"",
+        "share": {
+          "amount": 3,
+          "everyMonths": 6,
+          "texts": [
+            "Vettius sends your tenth of what the copies fetched at Ostia, counted out in a cloth bag, with a note in a clerk's hand.",
+            "Vettius sends your tenth again and says it is the last: the copies going round the yards now aren't his, and he won't pay on what he doesn't sell."
+          ]
+        }
       },
       "counter": {
         "completion": 22,
@@ -530,7 +538,7 @@
         ]
       },
       "referral": {
-        "text": "Copies of the drawings go round the Ostia yards within the year. Vettius pays your tenth twice, then stops, and says the copies people are selling aren't his."
+        "text": "Copies of the drawings go round the Ostia yards within the year, some of them Vettius's and some of them not."
       }
     },
     {

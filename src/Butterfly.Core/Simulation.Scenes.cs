@@ -103,7 +103,7 @@ namespace Butterfly.Core
         /// <summary>For tests: what the router would pick from this month's candidates, without firing it.</summary>
         internal string? PeekRoutedScene() => ChooseScene(SceneCandidates())?.Candidate.Id;
 
-        internal IReadOnlyList<string> SceneCandidateIds() => SceneCandidates().Select(c => c.Candidate.Id).ToList();
+        public IReadOnlyList<string> SceneCandidateIds() => SceneCandidates().Select(c => c.Candidate.Id).ToList();
 
         /// <summary>A reusable scene comes back only after its cooldown.</summary>
         private bool Rested(AuthoredSceneDef s) =>

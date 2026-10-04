@@ -72,13 +72,13 @@ namespace Butterfly.Core
         }
 
         private SceneCategory OfferCategory(InvitationPathDef d, InvitationOffer offer) =>
-            (offer == InvitationOffer.Guest ? d.Guest : offer == InvitationOffer.Again ? d.Again : d.Sponsor).Category;
+            (offer == InvitationOffer.Guest ? d.Guest : offer == InvitationOffer.Again ? d.Again : SponsorStep(d)).Category;
 
         private void OfferInvitation(InvitationPathDef d, InvitationOffer next)
         {
             var state = InvitationState(d.Institution)!;
             state.Pending = next;
-            var step = next == InvitationOffer.Guest ? d.Guest : next == InvitationOffer.Again ? d.Again : d.Sponsor;
+            var step = next == InvitationOffer.Guest ? d.Guest : next == InvitationOffer.Again ? d.Again : SponsorStep(d);
             World.ScenePacing.Record(step.Category);
             Record("invitation.offer", d.Institution, null, new[] { d.Inviter, "player" }, null, step.Offer + " " + InvitationLine(d, next));
         }
@@ -112,12 +112,12 @@ namespace Butterfly.Core
             else
             {
                 if (!access.TryBecomeSponsoredCandidate(gate)) return CommandResult.Fail("The offer no longer stands.");
-                World.ScenePacing.Record(d.Sponsor.Category);
-                Record("invitation.sponsor", d.Institution, null, new[] { "player", d.Inviter }, new[] { AccessEffect(d, offer) }, d.Sponsor.Scene);
+                World.ScenePacing.Record(SponsorStep(d).Category);
+                Record("invitation.sponsor", d.Institution, null, new[] { "player", d.Inviter }, new[] { AccessEffect(d, offer) }, SponsorStep(d).Scene);
             }
             state.Pending = InvitationOffer.None;
             state.StepTurn = Turn;
-            return CommandResult.Success(offer == InvitationOffer.Sponsor ? d.Sponsor.Scene : (offer == InvitationOffer.Guest ? d.Guest : d.Again).Scene);
+            return CommandResult.Success(offer == InvitationOffer.Sponsor ? SponsorStep(d).Scene : (offer == InvitationOffer.Guest ? d.Guest : d.Again).Scene);
         }
 
         private Effect AccessEffect(InvitationPathDef d, InvitationOffer offer)
@@ -125,6 +125,10 @@ namespace Butterfly.Core
             int before = offer == InvitationOffer.Guest ? (int)InstitutionAccessStage.KnowsMember : offer == InvitationOffer.Again ? (int)InstitutionAccessStage.Guest : (int)InstitutionAccessStage.InvitedBack;
             return new Effect("access." + d.Institution, before, (int)World.AccessTo(d.Institution).Stage);
         }
+
+        /// <summary>The sponsor's step: the second time round (after a refused vote) in other words, if the content has them.</summary>
+        private InvitationStepDef SponsorStep(InvitationPathDef d) =>
+            d.SponsorAgain != null && Log.Events.Any(e => e.Type == "invitation.sponsor" && e.Target == d.Institution) ? d.SponsorAgain : d.Sponsor;
 
         public CommandResult DeclineInvitation(string institution)
         {

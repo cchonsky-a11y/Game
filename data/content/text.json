@@ -88,7 +88,8 @@
     "orders.weak.held": "No one at {short} remembers the foreigner's advice, but {camp} lead it all the same.",
     "orders.weak.lost": "No one at {short} remembers the foreigner's advice; {camp} lost the argument long ago.",
     "again": "{Name} is much as you found it last time, only older: the same people in charge of it, and fewer who remember why.",
-    "none.again": "Again you ask whether anyone remembers you, and again no one does."
+    "none.again": "Again you ask whether anyone remembers you, and again no one does.",
+    "descriptionAgain": "It has only gone further down the road it was on when you last came."
   },
   "walk": {
     "intro": "You can walk around Rome: visit market, changers, forges, curia or subura (no Attention).",

@@ -165,6 +165,18 @@ namespace Butterfly.Core
         /// <summary>At the end of each month: the work stage advances; when the last is done, the client pays and refers you on.</summary>
         private void ProgressCommissions()
         {
+            // A finished profit share pays its later shares on schedule, each once, while you are in Rome.
+            foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Done && c.SharesLeft > 0 && Turn >= c.NextShareTurn))
+            {
+                var d = CommissionDefOf(c);
+                double amount = Priced(d.ShareAmount), before = World.Gold;
+                World.Gold += amount;
+                string text = d.ShareTexts[d.SharePayments - c.SharesLeft];
+                c.SharesLeft--;
+                c.NextShareTurn = Turn + d.ShareEveryMonths;
+                Record("commission.share", c.ProjectId, new[] { c.CompletedEventId }, new[] { "player", d.Payer },
+                    new[] { new Effect(GoldKey, before, World.Gold) }, text + " (" + Money(amount) + ")");
+            }
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Working).ToList())
             {
                 var d = CommissionDefOf(c);
@@ -194,9 +206,12 @@ namespace Butterfly.Core
             World.Gold += project.Terms.CompletionGold;
             project.Complete();
             c.Status = CommissionStatus.Done;
+            c.SharesLeft = d.SharePayments;
+            c.NextShareTurn = Turn + d.ShareEveryMonths;
             var paid = Record("commission.complete", c.ProjectId, new[] { causeId }, new[] { "player", d.Client },
                 project.Terms.CompletionGold > 0 ? new[] { new Effect(GoldKey, before, World.Gold) } : null,
                 (project.Terms.CompletionGold > 0 ? d.Client + " pays " + Money(project.Terms.CompletionGold) + ": " : "") + Cap(d.Title) + " is done.");
+            c.CompletedEventId = paid.Id;
             // What the work leaves besides money (regard, standing, flags), logged with the payment as cause.
             foreach (var kv in d.OnCompleteRegard)
             {
@@ -256,6 +271,13 @@ namespace Butterfly.Core
 
         private void AbandonCommissionsOnDeparture(int departId)
         {
+            // A share still owing stops when you leave: no one carries it to you across the years.
+            foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Done && c.SharesLeft > 0))
+            {
+                c.SharesLeft = 0;
+                Record("commission.share.lapsed", c.ProjectId, new[] { departId }, new[] { "player", CommissionDefOf(c).Payer }, null,
+                    CommissionDefOf(c).Payer + "'s share stops when you leave.");
+            }
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Working || c.Status == CommissionStatus.Offered || c.Status == CommissionStatus.TermsOffered))
             {
                 bool working = c.Status == CommissionStatus.Working;

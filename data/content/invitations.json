@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 institution access (decided 2026-10-02): aware → knows a member → guest → invited back → sponsored candidate → member. A forward step needs the five-part gate: a specific inviter (who must know you as a member's acquaintance), an existing relationship, relevant work in the domain and demonstrated usefulness, each with its own requirements in 'evidence' (people.json syntax), and an inviter willing to take the risk. Fame never counts. After sponsorship the members vote (P1-13): they may put it off once ('postponed') and then refuse ('refused'). Months and costs PROPOSED P1-06.",
+  "_readme": "P1 institution access (decided 2026-10-02): aware → knows a member → guest → invited back → sponsored candidate → member. A forward step needs the five-part gate: a specific inviter (who must know you as a member's acquaintance), an existing relationship, relevant work in the domain and demonstrated usefulness, each with its own requirements in 'evidence' (people.json syntax), and an inviter willing to take the risk. Fame never counts. After sponsorship the members vote (P1-13): they may put it off once ('postponed') and then refuse ('refused'). Months and costs PROPOSED P1-06. Optional 'sponsorAgain' (offer, category, scene): the sponsor's words when they put your name up a second time after a refused vote (hardening pass, 2026-10-04).",
   "paths": [
     {
       "institution": "guild",
@@ -34,7 +34,7 @@
       "sponsor": {
         "offer": "Felix walks you to the river after supper. \"I'll put my name to you, if you want it. If you shame me, it's my name they remember.\"",
         "category": "InstitutionsPolitics",
-        "scene": "Felix stands up at the next supper and says your name, your trade and what you did for Cassianus. Two men speak for you. One speaks against: foreigners take work from members. The vote is put off a month, as these things are."
+        "scene": "Felix stands up at the next supper and says your name, your trade and the work he has seen you do on the river. Two men speak for you. One speaks against: foreigners take work from members. The vote is put off a month, as these things are."
       },
       "admit": {
         "category": "InstitutionsPolitics",
@@ -43,7 +43,12 @@
       "postponed": "The guild puts your vote off again. A shipper who lost a contract to a foreigner last year talks for a long time about foreigners. Felix says it means nothing; he says it twice.",
       "refused": "The guild votes, and you are not in. Felix tells you on the quay, not looking at you: the shipper had friends, and some of the older families don't like a freedman's man. He will try again, but not soon.",
       "echoGuest": "The guild at Ostia keeps a book of its suppers. Your name is in it as a guest, in Felix's hand, and then not again.",
-      "decline": "You send word to Felix that you can't come. He doesn't ask again for a while."
+      "decline": "You send word to Felix that you can't come. He doesn't ask again for a while.",
+      "sponsorAgain": {
+        "offer": "Felix doesn't raise it for a long while. Then, on the quay: \"The shipper's friend has gone to Alexandria for a year. I'll put your name up again, if you'll let me.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "Felix puts your name up a second time. Fewer men speak against you, and the one who spoke longest last time says nothing at all. The vote is put off a month again; the guild likes to be seen thinking."
+      }
     },
     {
       "institution": "circle",
@@ -87,7 +92,12 @@
       "postponed": "The Circle puts your vote off. The senator's physician has friends, and the friends want to know what exactly you are. Serenus says they will forget by next month. He doesn't sound sure.",
       "refused": "The Circle votes you down. Serenus comes to tell you himself, which costs him something. \"They don't like what they can't place,\" he says. \"Neither do I, usually.\"",
       "echoGuest": "The Circle's dining book still lists you twice as Serenus's guest, under a name spelled two different ways.",
-      "decline": "You send word to Serenus that you can't come. He sends back a jar of honey from his roof and nothing else."
+      "decline": "You send word to Serenus that you can't come. He sends back a jar of honey from his roof and nothing else.",
+      "sponsorAgain": {
+        "offer": "Serenus, a season later, with a new casebook under his arm: \"The senator's physician has a new patient who is a senator. He'll be busy. I'll put your name up again.\"",
+        "category": "InstitutionsPolitics",
+        "scene": "Serenus puts your name to the Circle again and reads out your fever tables instead of making a speech. Demetria asks two questions. The senator's physician isn't there. The vote is set for next month."
+      }
     }
   ]
 }
