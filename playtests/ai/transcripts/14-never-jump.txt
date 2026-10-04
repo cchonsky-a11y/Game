@@ -1,17 +1,25 @@
-THE BUTTERFLY EFFECT — P0 Butterfly Test
-========================================
-Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
-machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
-You don't yet know what broke. Something is coming from the East within ten years.
-Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
-Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
+THE BUTTERFLY EFFECT
 
-This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
+The machine stops screaming before you do.
 
-First, a choice. You can afford only one:
+You sit strapped in, sweating, your hands shaking on the armrests. It was a systems test. Nothing was
+supposed to go anywhere. The panels are dark and the controls are dead.
+
+You open the hatch expecting the concrete floor of the test bay. You get dirt. A mule cart rattles
+past close enough to touch, and the driver shouts at you in Latin. You understand him.
+
+Thank God I took that in college.
+
+Ancient Rome. Not ruins. Alive.
+
+The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out
+60 aurei worth of it. Every piece will have to go back before the machine could ever run again.
+Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).
+
+Two things on this street could use your money, and you can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
-Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
+Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
 == Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
@@ -36,6 +44,7 @@ There is no outbreak to respond to.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
 
 > end
+  • At the small baths behind the Circus Maximus you sit in the warm room between a fuller and a man selling olives. The olive man complains that a merchant under the Aventine pays porters to bail his cellar every morning, and still the jars go green. The fuller says the merchant should sacrifice to the river and stop complaining.
 
 == Month 2 · Februarius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
   Attention: 2 free / 4 total · 2 reserved — Repair the district fountain
@@ -95,6 +104,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
 
 > end
   • Clean water runs again in the district fountain. Medicine +1.
+  • Felix finds you at the smith's at first light. "There's a man under the Aventine with water to his knees," he says. "Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised." (commission look cellarpump: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 5 · Maius, AD 155 ==  450 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
@@ -135,6 +145,8 @@ There is no outbreak to respond to.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
+  • A physician called Serenus finds you at the fountain, a short man with ink on his cuffs. He has heard you talk about fevers as if you'd counted them. "Have you?" he asks. You say not yet. "Neither has anyone else," he says. "Come and see my casebooks. Bring wine; my sister won't buy any."
+  • You know Serenus, a member of the Physicians' Circle of the Subura.
 
 == Month 7 · Iulius, AD 155 ==  675 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
@@ -194,6 +206,7 @@ There is no outbreak to respond to.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. "The bleeding," he says. "I bled eleven of them."
 
 == Month 10 · October, AD 155 ==  1,012 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
@@ -213,12 +226,14 @@ There is no outbreak to respond to.
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Serenus: "The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet." (invitation accept circle: 1 Attention and 50 denarii for the wine / decline circle)
 
 == Month 11 · November, AD 155 ==  1,125 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100.7
   Attention: 4 free / 4 total
   Medicine      51  expect   51  (no voice)  debt     0 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -239,6 +254,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       55  expect   55  (no voice)  debt     0 Stable
   On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -262,6 +278,7 @@ You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention le
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
   On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -282,6 +299,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -302,6 +320,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -322,6 +341,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -343,6 +363,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -363,6 +384,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -383,6 +405,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -403,6 +426,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -424,6 +448,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
   On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -444,6 +469,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -464,6 +490,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -484,6 +511,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.9  expect 54.9  (no voice)  debt     0 Stable
   Prices: +1.5% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -507,6 +535,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -527,6 +556,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -547,6 +577,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -567,6 +598,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -588,6 +620,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -608,6 +641,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -628,6 +662,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -648,6 +683,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -669,6 +705,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
   On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -689,6 +726,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -709,6 +747,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -729,6 +768,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.8  expect 54.8  (no voice)  debt     0 Stable
   Prices: +3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -751,6 +791,7 @@ You earn 127 denarii; tax takes 13 denarii, you keep 114 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -771,6 +812,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -791,6 +833,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -811,6 +854,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -832,6 +876,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -852,6 +897,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -872,6 +918,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -892,6 +939,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -913,6 +961,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
   On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -933,6 +982,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -953,6 +1003,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -973,6 +1024,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
   Prices: +4.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -995,6 +1047,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1015,6 +1068,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1035,6 +1089,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1055,6 +1110,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1076,6 +1132,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1096,6 +1153,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1116,6 +1174,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1136,6 +1195,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1157,6 +1217,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
   On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1177,6 +1238,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1197,6 +1259,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1217,6 +1280,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.6  expect 54.6  (no voice)  debt     0 Stable
   Prices: +6.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1239,6 +1303,7 @@ You earn 129 denarii; tax takes 13 denarii, you keep 116 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1259,6 +1324,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1279,6 +1345,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1299,6 +1366,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1320,6 +1388,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1340,6 +1409,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1360,6 +1430,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1380,6 +1451,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1402,6 +1474,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1422,6 +1495,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1442,6 +1516,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1462,6 +1537,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1484,6 +1560,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1504,6 +1581,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1525,6 +1603,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1546,6 +1625,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1567,6 +1647,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1587,6 +1668,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1607,6 +1689,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1628,6 +1711,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1649,6 +1733,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1674,6 +1759,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1698,6 +1784,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1723,6 +1810,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1749,6 +1837,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1773,6 +1862,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1797,6 +1887,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1817,6 +1908,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1839,6 +1931,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Prices: +11% since AD 155 (1.5% a year)
   News: Lucius Verus leaves Rome to take command against Parthia.   (news)
   On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1859,6 +1952,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1879,6 +1973,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1904,6 +1999,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1929,6 +2025,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1953,6 +2050,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -1977,6 +2075,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2001,6 +2100,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide sponsor  sponsor his demonstrations (694 denarii)
       decide circle   side with the Circle against him
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2027,6 +2127,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2047,6 +2148,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2067,6 +2169,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2087,6 +2190,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2108,6 +2212,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2128,6 +2233,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2148,6 +2254,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2168,6 +2275,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2190,6 +2298,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Prices: +12.6% since AD 155 (1.5% a year)
   News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
   On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2210,6 +2319,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2230,6 +2340,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2250,6 +2361,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2272,6 +2384,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2292,6 +2405,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2312,6 +2426,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2332,6 +2447,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2353,6 +2469,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2374,6 +2491,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2394,6 +2512,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2414,6 +2533,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2435,6 +2555,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2455,6 +2576,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2475,6 +2597,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2495,6 +2618,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2517,6 +2641,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2537,6 +2662,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2557,6 +2683,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2577,6 +2704,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2598,6 +2726,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2618,6 +2747,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2641,6 +2771,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
@@ -2663,6 +2794,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2685,6 +2817,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2706,6 +2839,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2727,6 +2861,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2749,6 +2884,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2773,6 +2909,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2794,6 +2931,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2815,6 +2953,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2836,6 +2975,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2857,6 +2997,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2878,6 +3019,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2900,6 +3042,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2922,6 +3065,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2943,6 +3087,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -2967,6 +3112,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Pestilence: Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
   News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
   On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
   ► Waiting: respond none   (no one will take orders from you: a response needs 10% of a Medicine or Governance institution)
@@ -2982,17 +3128,18 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
   • The pestilence is severe: about 83 thousand dead, 8% of Rome.
-  • Opening: with so many dead, surviving laborers command higher wages; the district's workshops reorganize.
+  • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
   • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Month 143 · November, AD 166 ==  15,969 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 99.3
+== Month 143 · November, AD 166 ==  15,969 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 99.5
   Attention: 4 free / 4 total
-  Medicine      46  expect   50  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect   55  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3007,13 +3154,14 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 144 · December, AD 166 ==  16,092 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 102
+== Month 144 · December, AD 166 ==  16,092 denarii (+0/month) · 20 aurei (1 = 29.4 den.)   Index 102.2
   Attention: 4 free / 4 total
-  Medicine      46  expect   50  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect   55  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3029,14 +3177,15 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 > end
   • The year AD 167 begins.
 
-== Month 145 · Ianuarius, AD 167 ==  16,214 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 145 · Ianuarius, AD 167 ==  16,214 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3051,13 +3200,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 146 · Februarius, AD 167 ==  16,338 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 146 · Februarius, AD 167 ==  16,338 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3072,13 +3222,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 147 · Martius, AD 167 ==  16,461 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 147 · Martius, AD 167 ==  16,461 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3093,13 +3244,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 148 · Aprilis, AD 167 ==  16,585 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 148 · Aprilis, AD 167 ==  16,585 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3114,13 +3266,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 149 · Maius, AD 167 ==  16,708 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 149 · Maius, AD 167 ==  16,708 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3135,13 +3288,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 150 · Iunius, AD 167 ==  16,832 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 150 · Iunius, AD 167 ==  16,832 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3156,13 +3310,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 151 · Iulius, AD 167 ==  16,955 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 151 · Iulius, AD 167 ==  16,955 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3177,13 +3332,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 152 · Augustus, AD 167 ==  17,079 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 152 · Augustus, AD 167 ==  17,079 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3198,14 +3354,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 153 · September, AD 167 ==  17,202 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 153 · September, AD 167 ==  17,202 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3220,13 +3377,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 154 · October, AD 167 ==  17,326 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 154 · October, AD 167 ==  17,326 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3241,13 +3399,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 155 · November, AD 167 ==  17,449 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 155 · November, AD 167 ==  17,449 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3262,13 +3421,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 156 · December, AD 167 ==  17,573 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 104.8
+== Month 156 · December, AD 167 ==  17,573 denarii (+0/month) · 20 aurei (1 = 29.9 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3284,13 +3444,14 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 > end
   • The year AD 168 begins.
 
-== Month 157 · Ianuarius, AD 168 ==  17,696 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 157 · Ianuarius, AD 168 ==  17,696 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3305,13 +3466,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 158 · Februarius, AD 168 ==  17,821 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 158 · Februarius, AD 168 ==  17,821 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3326,13 +3488,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 159 · Martius, AD 168 ==  17,945 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 159 · Martius, AD 168 ==  17,945 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3347,14 +3510,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 160 · Aprilis, AD 168 ==  18,070 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 160 · Aprilis, AD 168 ==  18,070 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Both emperors leave for Aquileia and the northern frontier.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3369,13 +3533,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 161 · Maius, AD 168 ==  18,194 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 161 · Maius, AD 168 ==  18,194 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3390,13 +3555,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 162 · Iunius, AD 168 ==  18,319 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 162 · Iunius, AD 168 ==  18,319 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3411,13 +3577,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 163 · Iulius, AD 168 ==  18,443 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 163 · Iulius, AD 168 ==  18,443 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3432,13 +3599,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 164 · Augustus, AD 168 ==  18,568 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 164 · Augustus, AD 168 ==  18,568 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3453,13 +3621,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 165 · September, AD 168 ==  18,692 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 165 · September, AD 168 ==  18,692 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3474,13 +3643,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 166 · October, AD 168 ==  18,817 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 166 · October, AD 168 ==  18,817 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3495,13 +3665,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 167 · November, AD 168 ==  18,941 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 167 · November, AD 168 ==  18,941 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3516,13 +3687,14 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 168 · December, AD 168 ==  19,066 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 104.8
+== Month 168 · December, AD 168 ==  19,066 denarii (+0/month) · 20 aurei (1 = 30.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3538,14 +3710,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 > end
   • The year AD 169 begins.
 
-== Month 169 · Ianuarius, AD 169 ==  19,190 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 169 · Ianuarius, AD 169 ==  19,190 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3560,13 +3733,14 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 170 · Februarius, AD 169 ==  19,316 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 170 · Februarius, AD 169 ==  19,316 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3581,14 +3755,15 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 171 · Martius, AD 169 ==  19,441 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 171 · Martius, AD 169 ==  19,441 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3603,13 +3778,14 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 172 · Aprilis, AD 169 ==  19,567 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 172 · Aprilis, AD 169 ==  19,567 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3624,13 +3800,14 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 173 · Maius, AD 169 ==  19,692 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 173 · Maius, AD 169 ==  19,692 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3645,11 +3822,11 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 174 · Iunius, AD 169 ==  19,818 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 174 · Iunius, AD 169 ==  19,818 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Rather than raise taxes for the war, Marcus auctions the palace's treasures in Trajan's Forum: gold cups, crystal, silk robes, his wife's jewels. The sale runs for two months.   (news)
@@ -3657,6 +3834,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3671,17 +3849,18 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 175 · Iulius, AD 169 ==  19,943 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 175 · Iulius, AD 169 ==  19,943 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3696,17 +3875,18 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 176 · Augustus, AD 169 ==  20,069 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 176 · Augustus, AD 169 ==  20,069 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3721,17 +3901,18 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 177 · September, AD 169 ==  20,195 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 177 · September, AD 169 ==  20,195 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3746,17 +3927,18 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 178 · October, AD 169 ==  20,320 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 178 · October, AD 169 ==  20,320 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3771,17 +3953,18 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 179 · November, AD 169 ==  20,446 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 179 · November, AD 169 ==  20,446 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   ► Marcus auctions the palace treasures. Rather than raise taxes for the war, the emperor is selling the palace's gold cups, crystal and silk in Trajan's Forum. Prices are good; the city is short of relief.
       decide buy      buy a gold cup at a bargain (1,540 denarii)
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3796,13 +3979,14 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 180 · December, AD 169 ==  20,571 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 104.8
+== Month 180 · December, AD 169 ==  20,571 denarii (+0/month) · 20 aurei (1 = 30.8 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3818,13 +4002,14 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 > end
   • The year AD 170 begins.
 
-== Month 181 · Ianuarius, AD 170 ==  20,697 denarii (+0/month) · 20 aurei (1 = 31.3 den.)   Index 104.8
+== Month 181 · Ianuarius, AD 170 ==  20,697 denarii (+0/month) · 20 aurei (1 = 31.3 den.)   Index 105.1
   Attention: 4 free / 4 total
-  Medicine      46  expect   46  (no voice)  debt     0 Stable
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
   Governance  53.3  expect 53.3  (no voice)  debt     0 Stable
-  Economy     54.7  expect 54.7  (no voice)  debt     0 Stable
+  Economy     50.7  expect 50.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: not yet assessed, gold 0/60 aurei   (machine)
 
@@ -3832,19 +4017,21 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 Unknown command. Type 'help'.
 
 > why medicine
-Medicine is at 46. You have no voice in it, so it follows Rome's real history (+0 last year). Only your projects and their consequences move it.
+Medicine is at 50. You have no voice in it, so it follows Rome's real history (+0 last year). Only your projects and their consequences move it.
 Your influence over it: 0%, so your priorities and policy take 0% effect. Who holds it:
   The healers of the Tiber Island sanctuary: strength 50, 62.5% of Medicine
   The Physicians' Circle of the Subura: strength 30, 37.5% of Medicine
-People expect 46: they remember your recent peak of 46 (the memory fades 5 a year).
+People expect 50: they remember your recent peak of 50 (the memory fades 5 a year).
 Debt 0 (Stable). Debt grows 5% a year until paid down, which costs 75 denarii per point. Each point of it makes the plague hit harder (hazard +0.3 a point).
-Index sub-score 104.6 (100 = as in real history).
+Index sub-score 113.7 (100 = as in real history).
 Recent changes:
   AD 155-04  Clean water runs again in the district fountain. Medicine +1. [+1]
       because: Work begins: Repair the district fountain (1,000 denarii, 4 months). (AD 155-01)
   AD 166-10  The pestilence strikes Medicine. [-5]
       because: The pestilence is severe: about 83 thousand dead, 8% of Rome. (AD 166-10)
+  AD 166-10  Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick. [+4]
+      because: The pestilence is severe: about 83 thousand dead, 8% of Rome. (AD 166-10)
 
 > quit
 
-Run fingerprint (seed 114): 38e83eb89186ca1a
+Run fingerprint (seed 114): 0d5be08843ed0679

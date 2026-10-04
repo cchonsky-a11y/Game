@@ -1,17 +1,25 @@
-THE BUTTERFLY EFFECT — P0 Butterfly Test
-========================================
-Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
-machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
-You don't yet know what broke. Something is coming from the East within ten years.
-Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
-Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
+THE BUTTERFLY EFFECT
 
-This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
+The machine stops screaming before you do.
 
-First, a choice. You can afford only one:
+You sit strapped in, sweating, your hands shaking on the armrests. It was a systems test. Nothing was
+supposed to go anywhere. The panels are dark and the controls are dead.
+
+You open the hatch expecting the concrete floor of the test bay. You get dirt. A mule cart rattles
+past close enough to touch, and the driver shouts at you in Latin. You understand him.
+
+Thank God I took that in college.
+
+Ancient Rome. Not ruins. Alive.
+
+The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out
+60 aurei worth of it. Every piece will have to go back before the machine could ever run again.
+Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).
+
+Two things on this street could use your money, and you can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
-Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
+Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
 == Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100

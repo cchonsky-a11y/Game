@@ -1,0 +1,5161 @@
+THE BUTTERFLY EFFECT
+
+The machine stops screaming before you do.
+
+You sit strapped in, sweating, your hands shaking on the armrests. It was a systems test. Nothing was
+supposed to go anywhere. The panels are dark and the controls are dead.
+
+You open the hatch expecting the concrete floor of the test bay. You get dirt. A mule cart rattles
+past close enough to touch, and the driver shouts at you in Latin. You understand him.
+
+Thank God I took that in college.
+
+Ancient Rome. Not ruins. Alive.
+
+The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out
+60 aurei worth of it. Every piece will have to go back before the machine could ever run again.
+Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).
+
+Two things on this street could use your money, and you can afford only one:
+  choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
+  choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
+Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
+Type 'help' for commands.
+
+== Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
+  Attention: 4 free / 4 total
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Antoninus Pius has ruled for seventeen years and hasn't left Italy in all that time. People call it the quietest reign anyone can remember.   (news)
+  Machine: not yet assessed, gold 0/60 aurei   (machine)
+  ► Waiting: choose fountain or choose workshop (before the end of turn 8).
+
+> choose workshop
+You chose the workshop.  [Attention left this month: 2/4]
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+Started: Assess the machine.  [Attention left this month: 1/4]
+
+> take ship
+You have no workshop to take orders.
+
+> take tools
+You have no workshop to take orders.
+
+> take instruments
+You have no workshop to take orders.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • At the small baths behind the Circus Maximus you sit in the warm room between a fuller and a man selling olives. The olive man complains that a merchant under the Aventine pays porters to bail his cellar every morning, and still the jars go green. The fuller says the merchant should sacrifice to the river and stop complaining.
+
+== Month 2 · Februarius, AD 155 ==  112 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 1 free / 4 total · 3 reserved — Buy into the smith's workshop, Assess the machine
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Under way: Buy into the smith's workshop (3 month(s) left)
+  Machine: not yet assessed, gold 0/60 aurei; under way: Assess the machine (1 month(s) left)   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You are already assessing the machine.
+
+> take ship
+You have no workshop to take orders.
+
+> take tools
+You have no workshop to take orders.
+
+> take instruments
+You have no workshop to take orders.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • You strip the panels and trace every circuit by lamplight. Now you know what's wrong: the coil housing is cracked, the coolant has boiled away, and the chronometer has lost the date. (Machine: assessed; the repairs are known.)
+
+== Month 3 · Martius, AD 155 ==  225 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Buy into the smith's workshop
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  News: Marcus Aurelius, the emperor's adopted son and heir, shares his father's work. People say he'd rather read philosophy than watch the games.   (news)
+  Under way: Buy into the smith's workshop (2 month(s) left)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+You have no workshop to take orders.
+
+> take tools
+You have no workshop to take orders.
+
+> take instruments
+You have no workshop to take orders.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
+
+> end
+  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch.
+
+== Month 4 · Aprilis, AD 155 ==  338 denarii (+0/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 2 free / 4 total · 2 reserved — Buy into the smith's workshop
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Under way: Buy into the smith's workshop (1 month(s) left)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+You have no workshop to take orders.
+
+> take tools
+You have no workshop to take orders.
+
+> take instruments
+You have no workshop to take orders.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
+
+> end
+  • The smith's second forge is lit, and part of the workshop is now yours.
+  • You own a share of it: about 138 denarii a year, rising and falling with the Economy.
+  • Felix finds you at the smith's at first light. "There's a man under the Aventine with water to his knees," he says. "Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised." (commission look cellarpump: 1 Attention · Pay: none initially · may lead to paid commission)
+
+== Month 5 · Maius, AD 155 ==  461 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100
+  Attention: 4 free / 4 total
+  Medicine      50  expect   50  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Floralia: the games run for days, the theatre is rowdier than usual, and someone lets hares and goats loose in the Circus.   (news)
+  On your street: The smith at the forges tells anyone who'll listen about his odd new partner, who draws machines on wax tablets and never says where he learned it.   (news)
+  Workshop orders: take instruments (162 denarii, 2 Att.); take fittings (200 denarii, 2 Att.)   (workshop)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+Cassianus's cellar smells of wet sacking. The pump is a good bronze force pump, two cylinders and a rocking beam, the kind the fire watch carries. The plungers are sound. Water spurts back past the leather flaps on every stroke: the seats are worn into ovals, and the last man who fixed them packed the gaps with wax. Cassianus watches you trace the leak with a finger. "Can you fix it, or do I buy another pump?"
+"Here is what I'll do," he says. "I buy the bronze and the leather. You make it pump. Three hundred denarii now, five hundred when my cellar is dry." (Cassianus pays 300 denarii now, 500 denarii on completion; Cassianus buys the materials. Work: about 3 months, 1 Attention a month. commission accept cellarpump / counter cellarpump / decline cellarpump)  [Attention left this month: 3/4]
+
+> commission accept cellarpump
+Agreed. Cassianus pays 800 denarii in all (300 denarii now, 500 denarii on completion); Cassianus buys the materials. You receive 300 denarii now.  [Attention left this month: 2/4]
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+You earn 146 denarii after tax. Probes, scalpels and a bone saw, polished bright, for the physicians.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • You turn a new valve seat on the smith's lathe, true and flat, and cut the leather flap to sit on it. The first one leaks at one edge. The second holds.
+  • The smith takes you to the tavern by the Porta Trigemina after the forge is banked. Dice, cheap wine cut with sea water, a painted Mercury on the wall with a purse in his hand. A veteran of the German wars wins every throw and shows everyone the scar that pays his pension.
+
+== Month 6 · Iunius, AD 155 ==  919 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.3
+  Attention: 3 free / 4 total · 1 reserved — Cassianus's flooded cellar
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Commission: Cassianus's flooded cellar (teaching the shop to make it, 1 month(s) left in this stage)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
+
+> end
+  • The smith's apprentice learns to cut seats to your gauge. He spoils two, then makes four that fit. Cassianus has two more pumps at his warehouse by the river and wants them done the same way.
+
+== Month 7 · Iulius, AD 155 ==  1,043 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.3
+  Attention: 3 free / 4 total · 1 reserved — Cassianus's flooded cellar
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Commission: Cassianus's flooded cellar (proving it works every time, 1 month(s) left in this stage)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
+
+> end
+  • The cellar drains in an afternoon. Cassianus pours wine for the workmen on the wet steps, gives a cup to the Lares by the door, and pays you on the spot.
+  • Cassianus pays 500 denarii: Cassianus's flooded cellar is done.
+  • Felix was at the drinking. "The men at Ostia have pumps too," he says, "and worse ones. Come out to one of our suppers sometime."
+  • You know Felix, a member of the Merchants' Guild of Ostia.
+  • Felix has you to dinner on the Kalends. Before anyone eats, his boys put a pinch of meal and a drop of wine before the little shrine by the door, where two dancing Lares stand on either side of a painted snake. Prima asks where your household gods are. Felix answers for you: in a box, travelling. Everyone laughs, and Prima keeps looking at you.
+
+== Month 8 · Augustus, AD 155 ==  1,667 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.3
+  Attention: 4 free / 4 total
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+No such challenge has come up yet.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
+
+> end
+  • Cassianus's pump has a seat that wore out. The bronzesmith on the Clivus cut a new one by eye, and it leaks. Your seats were cut to your own foot and your own rule; his are cut to his. Until two shops measure the same way, every repair is a new pump. Grand Challenge: Measurement and standards. Can another workshop make a part that fits without seeing the original? (challenge standards)
+
+== Month 9 · September, AD 155 ==  1,791 denarii (+11/month) · 20 aurei (1 = 25 den.)   Index 100.3
+  Attention: 4 free / 4 total
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       55  expect   55  (no voice)  debt     0 Stable
+  On your street: The Ludi Romani open with a procession from the Capitol to the Circus Maximus. The whole street empties to watch.   (news)
+  On your street: A five-storey tenement near the Circus Flaminius collapses in the night. The landlord says it was the rain; the tenants say it was the landlord.   (news)
+  Workshop orders: take ironwork (400 denarii, 3 Att.); take tools (162 denarii, 2 Att.)   (workshop)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+You begin a master foot in hard bronze (2 months; 800 denarii). Good tin comes through Ostia, and the guild's shippers sell it to men they've eaten with. A stranger pays twice.  [Attention left this month: 3/4]
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork, tools.
+
+> take tools
+You earn 146 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 1/4]
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • Felix sends a boy with a message: the men of the guild eat together at Ostia on the Ides, and he has told them about Cassianus's pump. "Come as my guest. Bring nothing but an appetite and a coin for the wine." (invitation accept guild: 1 Attention and 50 denarii for the wine / decline guild)
+
+== Month 10 · October, AD 155 ==  1,261 denarii (+12/month) · 20 aurei (1 = 25 den.)   Index 100.6
+  Attention: 3 free / 4 total · 1 reserved — A master foot in hard bronze
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.4  expect 55.4  (no voice)  debt     0 Stable
+  ► Felix's invitation: invitation accept|decline guild   (institutions)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+The supper is in a long room above a warehouse at Ostia, the couches set by rank. You are at the bottom, next to a rope-maker who talks about nothing but hemp. A shipper complains that his pumps leak like Cassianus's did. Felix catches your eye across the room and does not come over.  [Attention left this month: 2/4]
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (1 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 1/4]
+
+> end
+  • The founder pours the bar twice before it comes out without a flaw. You file the ends square and mark the foot and its sixteen fingers. It is heavier than anything it will ever measure.
+  • Felix drags you to the Circus Maximus to watch the Blues. Two hundred thousand people, the smell of roasting chickpeas, men laying bets, a baker scratching a curse against the Green driver onto a strip of lead. The Blue chariot clips the turning post on the fourth lap and the Greens take it. Felix does not speak to you until you are back across the river.
+
+== Month 11 · November, AD 155 ==  1,335 denarii (+12/month) · 20 aurei (1 = 25 den.)   Index 100.6
+  Attention: 4 free / 4 total
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.4  expect 55.4  (no voice)  debt     0 Stable
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+You begin two shops agree on the foot (3 months; 200 denarii).  [Attention left this month: 3/4]
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
+
+> end
+  • A rope-maker of the guild has died. The members walk behind the bier to the tombs on the Ostia road, with flute players and a woman paid to wail. The guild pays for the burial out of the box you saw passed round at supper. Felix walks beside you and names the men as they pass: who owes whom, who will want the dead man's yard.
+
+== Month 12 · December, AD 155 ==  1,259 denarii (+12/month) · 20 aurei (1 = 25 den.)   Index 100.6
+  Attention: 3 free / 4 total · 1 reserved — Two shops agree on the foot
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.4  expect 55.4  (no voice)  debt     0 Stable
+  On your street: The Saturnalia: masters serve at table, everyone wears the felt cap, and your neighbour gives you a candle and a very small cheese.   (news)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (2 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
+
+> end
+  • The year AD 156 begins.
+  • Felix again: "They asked whether you'd come back. Not all of them kindly. Come anyway." (invitation accept guild: 1 Attention and 50 denarii for the wine / decline guild)
+
+== Month 13 · Ianuarius, AD 156 ==  1,383 denarii (+12/month) · 20 aurei (1 = 25.4 den.)   Index 100.5
+  Attention: 3 free / 4 total · 1 reserved — Two shops agree on the foot
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.3  expect 55.3  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The Compitalia: every crossroads shrine in the city is hung with wool dolls, and the street associations feast until late.   (news)
+  On your street: Fire in the Subura: the night watch passes buckets along the street for hours and pulls down two houses to stop it.   (news)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take tools (165 denarii, 2 Att.)   (workshop)
+  ► Felix's invitation: invitation accept|decline guild   (institutions)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+This time the shipper with the leaking pumps saves you a place. The guild's quaestor reads out who owes dues and who has died; the members pass a box for a widow. Someone asks where you are from, and does not believe the answer.  [Attention left this month: 2/4]
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (1 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings, tools.
+
+> take tools
+You earn 148 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • Felix brings the bronzesmith from the Clivus and a fitter from Ostia to your bench. They check their rules against your bar, argue for an afternoon, and go home with copies. A month later their seats match yours.
+  • The shipper who complained at the guild supper finds you on the quay at Ostia. Lollius, three hulls, all of them wet. "Felix says you fixed the oil man's pump. Mine are worse. Come and look before I lose a cargo of grain to my own bilge." (commission look bilges: 1 Attention · Pay: none initially · may lead to paid commission)
+
+== Month 14 · Februarius, AD 156 ==  1,494 denarii (+12/month) · 20 aurei (1 = 25.4 den.)   Index 100.8
+  Attention: 4 free / 4 total
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  ► Lollius: commission look bilges (unpaid)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+Lollius's pumps are chain pumps and one bronze force pump, all clogged with sand and pitch. The force pump has the same oval seats as Cassianus's. The chain pumps are a different trouble: the buckets jam where the chain bends. Lollius stands over you the whole time and talks about the price of grain in Alexandria.
+"I pay for the bronze," Lollius says. "Four hundred now, eight hundred and fifty when all three ships go a week without bailing. And if they leak after, I tell every shipper on the river." (Lollius pays 405 denarii now, 862 denarii on completion; Lollius buys the materials. Work: about 4 months, 1 Attention a month. commission accept bilges / counter bilges / decline bilges)  [Attention left this month: 3/4]
+
+> commission accept bilges
+Agreed. Lollius pays 1,268 denarii in all (405 denarii now, 862 denarii on completion); Lollius buys the materials. You receive 405 denarii now.  [Attention left this month: 2/4]
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+You begin fit and no-fit gauges in hard steel (2 months; 1,220 denarii). The best steel comes over the Alps from Noricum, and the merchants who carry it sell to guild members first.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 15 · Martius, AD 156 ==  690 denarii (+12/month) · 20 aurei (1 = 25.4 den.)   Index 100.8
+  Attention: 1 free / 4 total · 3 reserved — Lollius's bilge pumps, Fit and no-fit gauges in hard steel
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Commission: Lollius's bilge pumps (teaching the shop to make it, 1 month(s) left in this stage)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (1 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • The smith's apprentice cuts three sets of seats to the gauge without you. You spend your days at Ostia rebuilding the chain pumps' bends so the buckets ride clear, while Lollius's crew watches and offers advice.
+  • Two plugs for every bore: one that must go in, one that must not. The smith hardens them in oil and swears at the one that cracks. The second pair holds.
+
+== Month 16 · Aprilis, AD 156 ==  815 denarii (+12/month) · 20 aurei (1 = 25.4 den.)   Index 100.8
+  Attention: 3 free / 4 total · 1 reserved — Lollius's bilge pumps
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  Commission: Lollius's bilge pumps (proving it works every time, 2 month(s) left in this stage)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+You begin a part made in another shop fits (3 months; 305 denarii).  [Attention left this month: 2/4]
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention left this month: 1/4]
+
+> end
+  • Felix walks you to the river after supper. "I'll put my name to you, if you want it. If you shame me, it's my name they remember." (invitation accept guild / decline guild)
+
+== Month 17 · Maius, AD 156 ==  635 denarii (+12/month) · 20 aurei (1 = 25.4 den.)   Index 100.8
+  Attention: 2 free / 4 total · 2 reserved — Lollius's bilge pumps, A part made in another shop fits
+  Medicine    50.4  expect 50.4  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: The aediles seize a baker's loaves on the Vicus Tuscus: his loaves were a quarter short of the weight he sold them at.   (news)
+  Workshop orders: take fittings (203 denarii, 2 Att.); take instruments (165 denarii, 2 Att.)   (workshop)
+  ► Felix's invitation: invitation accept|decline guild   (institutions)
+  Commission: Lollius's bilge pumps (proving it works every time, 1 month(s) left in this stage)   (commission)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+Felix stands up at the next supper and says your name, your trade and what you did for Cassianus. Two men speak for you. One speaks against: foreigners take work from members. The vote is put off a month, as these things are.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (2 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings, instruments.
+
+> take tools
+Take one of: fittings, instruments.
+
+> take instruments
+You earn 148 denarii after tax. Probes, scalpels and a bone saw, polished bright, for the physicians.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • All three ships go out to Puteoli and back. Lollius's steersman pours a libation to Neptune at the stern before each one sails, and swears it is the libation that keeps them dry. Lollius pays you anyway.
+  • Lollius pays 862 denarii: Lollius's bilge pumps is done.
+  • Lollius tells the shippers at the next supper. Two of them ask Felix where to find you; one asks what you charge, and whistles.
+  • The guild takes you in. You swear by the guild's genius before the shrine in the hall, pay your entry, and hear what you owe: dues each year, your place at the suppers, a share when a member is buried, help when a member is in trouble, and the guild's word in your disputes. Felix pours the first cup. (Entry 508 denarii; dues 102 denarii a year.)
+
+== Month 18 · Iunius, AD 156 ==  1,150 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101
+  Attention: 3 free / 4 total · 1 reserved — A part made in another shop fits
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+A stage is already under way (1 month(s) left).
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 2/4]
+
+> end
+  • The fitter at Ostia cuts a seat to the gauges and sends it up the river in a box. It drops into Cassianus's pump without a file touching it. The bronzesmith asks for a set of gauges of his own and pays for them.
+  • Three shops now cut seats to one set of gauges, and a seat from one fits a pump from another. Nobody calls it a standard. They say the parts are cut to the foreigner's foot.
+
+== Month 19 · Iulius, AD 156 ==  1,279 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 20 · Augustus, AD 156 ==  1,408 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101.1
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 21 · September, AD 156 ==  1,537 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101.1
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     55.7  expect 55.7  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  On your street: Publius Aelius Sabinus complains at the baths that the grain ships from Alexandria are late again, and that the guild's warehouses at Ostia are half empty.   (news)
+  Workshop orders: take tools (165 denarii, 2 Att.); take fittings (203 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+You earn 148 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 1/4]
+
+> end
+  • Prima sends a boy: the marsh fever has Felix again. No suppers and no quays for him for a month or two.
+  • Prima has made a vow at the sanctuary of Aesculapius on the Tiber Island: a clay leg, because the fever settled in Felix's knee, and a cockerel if he walks to the quays by the Ides. You carry broth to their room and find two physicians arguing over him. He walks to the quays on the twelfth. Prima buys the cockerel.
+
+== Month 22 · October, AD 156 ==  1,814 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101.3
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.1  expect 56.1  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+  • A physician called Serenus finds you at the fountain, a short man with ink on his cuffs. He has heard you talk about fevers as if you'd counted them. "Have you?" he asks. You say not yet. "Neither has anyone else," he says. "Come and see my casebooks. Bring wine; my sister won't buy any."
+  • You know Serenus, a member of the Physicians' Circle of the Subura.
+
+== Month 23 · November, AD 156 ==  1,943 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101.3
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.1  expect 56.1  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+  • Felix is back on the quays, thinner, asking after your work before his own.
+  • Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. "The bleeding," he says. "I bled eleven of them."
+
+== Month 24 · December, AD 156 ==  2,072 denarii (+4/month) · 20 aurei (1 = 25.4 den.)   Index 101.3
+  Attention: 4 free / 4 total
+  Medicine    50.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.1  expect 56.1  (no voice)  debt     0 Stable
+  Prices: +1.5% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 139 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 125 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The year AD 157 begins.
+  • Fever in the district: children who drink from the broken fountain fall sick. You remember choosing the workshop over the fountain.
+
+== Month 25 · Ianuarius, AD 157 ==  2,201 denarii (+4/month) · 20 aurei (1 = 25.8 den.)   Index 100.7
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.2  expect 56.2  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The guild's feast for its patron god runs late into the night. Publius Aelius Sabinus makes a long speech about honest weights; half the room is laughing.   (news)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+You earn 151 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 26 · Februarius, AD 157 ==  2,482 denarii (+4/month) · 20 aurei (1 = 25.8 den.)   Index 100.9
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.6  expect 56.6  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 27 · Martius, AD 157 ==  2,612 denarii (+4/month) · 20 aurei (1 = 25.8 den.)   Index 101
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.6  expect 56.6  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 28 · Aprilis, AD 157 ==  2,742 denarii (+4/month) · 20 aurei (1 = 25.8 den.)   Index 101
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.6  expect 56.6  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 29 · Maius, AD 157 ==  2,872 denarii (+4/month) · 20 aurei (1 = 25.8 den.)   Index 101
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     56.6  expect 56.6  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: The Greens win four races in a row at the Circus Maximus. A Blue supporter is found tied to a statue the next morning, unharmed but furious.   (news)
+  Workshop orders: take ironwork (412 denarii, 3 Att.); take tools (167 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork, tools.
+
+> take tools
+You earn 151 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 30 · Iunius, AD 157 ==  3,153 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.2
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 31 · Iulius, AD 157 ==  3,283 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.2
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 32 · Augustus, AD 157 ==  3,413 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.2
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 33 · September, AD 157 ==  3,543 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.2
+  Attention: 4 free / 4 total
+  Medicine    49.8  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  On your street: A retiarius nobody had heard of beats the crowd's favourite at the games; the betting shops are paying out for days.   (news)
+  Workshop orders: take instruments (167 denarii, 2 Att.); take fittings (206 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+You earn 151 denarii after tax. Probes, scalpels and a bone saw, polished bright, for the physicians.  [Attention left this month: 2/4]
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 34 · October, AD 157 ==  3,824 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.5
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 35 · November, AD 157 ==  3,954 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.5
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+  • Saturnalia. Cassianus wears a felt cap like a freed slave and serves his own porters at table, badly, while his sister keeps an eye on the good cups. A porter is king of the feast and orders Cassianus to sing. He sings. He gives you a wax candle and a clay figure of a dog, and expects nothing so grand in return.
+
+== Month 36 · December, AD 157 ==  4,084 denarii (+5/month) · 20 aurei (1 = 25.8 den.)   Index 101.5
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.8  (no voice)  debt     0 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       57  expect   57  (no voice)  debt     0 Stable
+  Prices: +3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 10% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look cellarpump
+No one is waiting for you to look at that.
+
+> commission accept cellarpump
+No terms are waiting for your answer.
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 140 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 126 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The year AD 158 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 11%.
+
+== Month 37 · Ianuarius, AD 158 ==  4,214 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: Someone at the Baths of Trajan has scratched a curse on a lead tablet: 'To whoever stole my tunic: may you lose your sleep and your eyes.'   (news)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+Started: Source bronze for the coil housing.  [Attention left this month: 3/4]
+
+> repair coolant
+Started: Borrow glassware and a still.  [Attention left this month: 2/4]
+
+> repair chronometer
+Started: Get into the state archives.  [Attention left this month: 1/4]
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • Pollio, across the lane from Cassianus, has had a pump made like his by a bronzesmith on the Clivus who saw it once. The seats are cut by eye and it leaks back on every stroke. Pollio tells everyone the design is yours.
+
+== Month 38 · Februarius, AD 158 ==  3,045 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 1 free / 4 total · 3 reserved — Source bronze for the coil housing, Borrow glassware and a still, Get into the state archives
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (5 month(s) left); under way: Borrow glassware and a still (5 month(s) left); under way: Get into the state archives (5 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • In the Forum, under an awning, Cassianus's advocate argues before the praetor's man that Pollio's pump slanders his client's goods. Pollio's advocate says nobody owns the shape of a pump. Both name you. The case is put off until after the games, as most cases are.
+
+== Month 39 · Martius, AD 158 ==  3,176 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 1 free / 4 total · 3 reserved — Source bronze for the coil housing, Borrow glassware and a still, Get into the state archives
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (4 month(s) left); under way: Borrow glassware and a still (4 month(s) left); under way: Get into the state archives (4 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 40 · Aprilis, AD 158 ==  3,307 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 1 free / 4 total · 3 reserved — Source bronze for the coil housing, Borrow glassware and a still, Get into the state archives
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take tools (170 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (3 month(s) left); under way: Borrow glassware and a still (3 month(s) left); under way: Get into the state archives (3 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 41 · Maius, AD 158 ==  3,437 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 1 free / 4 total · 3 reserved — Source bronze for the coil housing, Borrow glassware and a still, Get into the state archives
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The grain dole is handed out at the Porticus Minucia; the line stretches past the Theatre of Balbus.   (news)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (2 month(s) left); under way: Borrow glassware and a still (2 month(s) left); under way: Get into the state archives (2 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+Take one of: tools, fittings.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 42 · Iunius, AD 158 ==  3,568 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 1 free / 4 total · 3 reserved — Source bronze for the coil housing, Borrow glassware and a still, Get into the state archives
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 0/9 repair steps, gold 0/60 aurei; under way: Source bronze for the coil housing (1 month(s) left); under way: Borrow glassware and a still (1 month(s) left); under way: Get into the state archives (1 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+Take one of: tools, fittings.
+
+> work odd
+You earn 141 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • Your trade contacts find you good bronze from the Campanian foundries. (Machine: 1/9 steps.)
+  • A glassblower sells you flasks and a crude still at a stranger's price. (Machine: 2/9 steps.)
+  • A clerk pockets your coins and lets you into the archives after dark. (Machine: 3/9 steps.)
+  • With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out.
+
+== Month 43 · Iulius, AD 158 ==  3,699 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+Started: Commission the casting at Ostia.  [Attention left this month: 3/4]
+
+> repair coolant
+Started: Distil the coolant.  [Attention left this month: 1/4]
+
+> repair chronometer
+Started: Copy the star tables.  [Attention left this month: 0/4]
+  (All your Attention is pledged for the months ahead, until that work finishes.)
+  (No Attention left this month. Type 'end' to end the month.)
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+Take one of: tools, fittings.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 44 · Augustus, AD 158 ==  2,528 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take tools (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (11 month(s) left); under way: Distil the coolant (9 month(s) left); under way: Copy the star tables (17 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+Take one of: tools, fittings.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 45 · September, AD 158 ==  2,532 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  On your street: The price of Spanish olive oil jumps after a ship goes down off Sardinia. The oil sellers of the Velabrum say they'll recover; the cooks don't believe them.   (news)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (10 month(s) left); under way: Distil the coolant (8 month(s) left); under way: Copy the star tables (16 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 46 · October, AD 158 ==  2,537 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (9 month(s) left); under way: Distil the coolant (7 month(s) left); under way: Copy the star tables (15 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 47 · November, AD 158 ==  2,541 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (8 month(s) left); under way: Distil the coolant (6 month(s) left); under way: Copy the star tables (14 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 48 · December, AD 158 ==  2,545 denarii (+4/month) · 20 aurei (1 = 26.1 den.)   Index 101.6
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.1  expect 57.1  (no voice)  debt     0 Stable
+  Prices: +4.6% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (170 denarii, 2 Att.); take fittings (209 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 11% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (7 month(s) left); under way: Distil the coolant (5 month(s) left); under way: Copy the star tables (13 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, fittings.
+
+> take tools
+Take one of: instruments, fittings.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • The year AD 159 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 12%.
+
+== Month 49 · Ianuarius, AD 159 ==  2,549 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: The moneychangers on the Via Sacra weigh every coin twice now. One shows you a denarius that's more copper than silver.   (news)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (6 month(s) left); under way: Distil the coolant (4 month(s) left); under way: Copy the star tables (12 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 50 · Februarius, AD 159 ==  2,553 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (5 month(s) left); under way: Distil the coolant (3 month(s) left); under way: Copy the star tables (11 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 51 · Martius, AD 159 ==  2,557 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (4 month(s) left); under way: Distil the coolant (2 month(s) left); under way: Copy the star tables (10 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 52 · Aprilis, AD 159 ==  2,561 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Commission the casting at Ostia, Distil the coolant, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 3/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (3 month(s) left); under way: Distil the coolant (1 month(s) left); under way: Copy the star tables (9 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 4/9 steps.)
+
+== Month 53 · Maius, AD 159 ==  2,565 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 2 free / 4 total · 2 reserved — Commission the casting at Ostia, Copy the star tables
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: A new bathhouse opens on the Esquiline with heated floors and a painted ceiling of sea creatures. Entry is a quadrans; the queue goes round the block.   (news)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (2 month(s) left); under way: Copy the star tables (8 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+Started: Seal and test the coolant.  [Attention left this month: 1/4]
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 142 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 128 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 54 · Iunius, AD 159 ==  2,697 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 1 free / 4 total · 3 reserved — Commission the casting at Ostia, Copy the star tables, Seal and test the coolant
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 4/9 repair steps, gold 0/60 aurei; under way: Commission the casting at Ostia (1 month(s) left); under way: Copy the star tables (7 month(s) left); under way: Seal and test the coolant (5 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 1 left this month.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 142 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 128 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • A founder at Ostia casts the housing to your drawing and asks no questions. (Machine: 5/9 steps.)
+
+== Month 55 · Iulius, AD 159 ==  2,828 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 2 free / 4 total · 2 reserved — Copy the star tables, Seal and test the coolant
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (6 month(s) left); under way: Seal and test the coolant (4 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+Started: Fit and test the coil housing.  [Attention left this month: 0/4]
+  (All your Attention is pledged for the months ahead, until that work finishes.)
+  (No Attention left this month. Type 'end' to end the month.)
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 56 · Augustus, AD 159 ==  2,832 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Seal and test the coolant, Fit and test the coil housing
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take tools (172 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (5 month(s) left); under way: Seal and test the coolant (3 month(s) left); under way: Fit and test the coil housing (5 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, tools.
+
+> take tools
+That needs 2 Attention; you have 0 left this month.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 57 · September, AD 159 ==  2,836 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Seal and test the coolant, Fit and test the coil housing
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  On your street: Two neighbours on the Aventine have been in court for a year over a shared wall. The wall has now fallen down on its own.   (news)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (4 month(s) left); under way: Seal and test the coolant (2 month(s) left); under way: Fit and test the coil housing (4 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, ironwork.
+
+> take tools
+Take one of: instruments, ironwork.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 58 · October, AD 159 ==  2,840 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 0 free / 4 total · 4 reserved — Copy the star tables, Seal and test the coolant, Fit and test the coil housing
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 5/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (3 month(s) left); under way: Seal and test the coolant (1 month(s) left); under way: Fit and test the coil housing (3 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+You are already working on the coolant.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, ironwork.
+
+> take tools
+Take one of: instruments, ironwork.
+
+> take instruments
+That needs 2 Attention; you have 0 left this month.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • The coolant holds its seal; the gauge needle settles. (Machine: 6/9 steps.)
+  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
+
+== Month 59 · November, AD 159 ==  2,844 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Fit and test the coil housing
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (2 month(s) left); under way: Fit and test the coil housing (2 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, ironwork.
+
+> take tools
+Take one of: instruments, ironwork.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 142 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 128 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 60 · December, AD 159 ==  2,976 denarii (+4/month) · 20 aurei (1 = 26.5 den.)   Index 101.7
+  Attention: 1 free / 4 total · 3 reserved — Copy the star tables, Fit and test the coil housing
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.6 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +6.1% since AD 155 (1.5% a year)
+  Workshop orders: take instruments (172 denarii, 2 Att.); take ironwork (425 denarii, 3 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 12% (influence), strength 40 (44.4% of Economy)
+  Machine: 6/9 repair steps, gold 0/60 aurei; under way: Copy the star tables (1 month(s) left); under way: Fit and test the coil housing (1 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+You are already working on the coil.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, ironwork.
+
+> take tools
+Take one of: instruments, ironwork.
+
+> take instruments
+That needs 2 Attention; you have 1 left this month.
+
+> work odd
+You earn 142 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 128 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+  • You copy a season of star tables by lamplight, checking every column twice. (Machine: 7/9 steps.)
+  • The new housing seats cleanly; the coil hums when you close the circuit. (Machine: 8/9 steps.)
+  • The year AD 160 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 13%.
+
+== Month 61 · Ianuarius, AD 160 ==  3,107 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 101.8
+  Attention: 4 free / 4 total
+  Medicine    50.2  expect 50.2  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: A sailor at Ostia swears he saw an elephant loaded onto a grain ship bound for Rome. Nobody believes him until it's walked up the Via Ostiensis.   (news)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take instruments (175 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+Started: Recalibrate the chronometer.  [Attention left this month: 2/4]
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings, instruments.
+
+> take tools
+Take one of: fittings, instruments.
+
+> take instruments
+You earn 158 denarii after tax. Probes, scalpels and a bone saw, polished bright, for the physicians.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+  • Fire in the warehouses under the Aventine in the night. Cassianus loses a season's oil. His porter Diodoros burns his hand dragging jars out of the smoke. Below it all, in the wet cellar, your pump still draws.
+
+== Month 62 · Februarius, AD 160 ==  2,994 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.1
+  Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (5 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 63 · Martius, AD 160 ==  3,126 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.1
+  Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (4 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 64 · Aprilis, AD 160 ==  3,258 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.1
+  Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (3 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 65 · Maius, AD 160 ==  3,391 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.1
+  Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.2  expect 57.2  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  On your street: The Tiber rises to the steps of the Emporium and stops there. The warehousemen move everything to the upper floors anyway.   (news)
+  Workshop orders: take ironwork (431 denarii, 3 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (2 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork, tools.
+
+> take tools
+You earn 158 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+That needs 1 Attention; you have 0 left this month.
+
+> end
+
+== Month 66 · Iunius, AD 160 ==  3,552 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.3
+  Attention: 2 free / 4 total · 2 reserved — Recalibrate the chronometer
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.6  expect 57.6  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 8/9 repair steps, gold 0/60 aurei; under way: Recalibrate the chronometer (1 month(s) left)   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+You are already working on the chronometer.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 1/4]
+
+> end
+  • The chronometer's dial agrees with the stars to the hour. (Machine: 9/9 steps; 60 aurei still to put back.)
+  • The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.
+
+== Month 67 · Iulius, AD 160 ==  3,685 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.3
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.6  expect 57.6  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 68 · Augustus, AD 160 ==  3,818 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.3
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.6  expect 57.6  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 69 · September, AD 160 ==  3,950 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.3
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     57.6  expect 57.6  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
+  On your street: A seller of garum from Pompeii swears his fish sauce is the best in Italy. He's been saying it for thirty years; his competitors say it's the same barrel.   (news)
+  Workshop orders: take fittings (215 denarii, 2 Att.); take tools (175 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings, tools.
+
+> take tools
+You earn 158 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 1/4]
+
+> end
+  • Diodoros comes to the workshop to say goodbye. A porter with one good hand is no porter, and his mother has written that his uncle needs a man in his shop in Antioch. He has his pay in a knotted cloth and a place on a grain ship back east. He shakes your hand with the left.
+
+== Month 70 · October, AD 160 ==  4,240 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.6
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       58  expect   58  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 71 · November, AD 160 ==  4,373 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.6
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       58  expect   58  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 72 · December, AD 160 ==  4,506 denarii (+4/month) · 20 aurei (1 = 26.9 den.)   Index 102.6
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       58  expect   58  (no voice)  debt     0 Stable
+  Prices: +7.7% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 13% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 143 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 129 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The year AD 161 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 14%.
+
+== Month 73 · Ianuarius, AD 161 ==  4,638 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 102.6
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.1  expect 58.1  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A philosopher in a filthy cloak lectures outside the Library of Trajan on how possessions are a burden. He asks for coins afterward.   (news)
+  Workshop orders: take tools (178 denarii, 2 Att.); take instruments (178 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, instruments.
+
+> take tools
+You earn 160 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 74 · Februarius, AD 161 ==  4,932 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 102.9
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 75 · Martius, AD 161 ==  5,065 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 102.9
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 76 · Aprilis, AD 161 ==  5,199 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 102.9
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 77 · Maius, AD 161 ==  5,332 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 102.9
+  Attention: 4 free / 4 total
+  Medicine    50.6  expect 50.6  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  Workshop orders: take instruments (178 denarii, 2 Att.); take ironwork (437 denarii, 3 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: instruments, ironwork.
+
+> take tools
+Take one of: instruments, ironwork.
+
+> take instruments
+You earn 160 denarii after tax. Probes, scalpels and a bone saw, polished bright, for the physicians.  [Attention left this month: 2/4]
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 78 · Iunius, AD 161 ==  5,625 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 79 · Iulius, AD 161 ==  5,759 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 80 · Augustus, AD 161 ==  5,892 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: ironwork.
+
+> take tools
+Take one of: ironwork.
+
+> take instruments
+Take one of: ironwork.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 81 · September, AD 161 ==  6,026 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.5  expect 58.5  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  Workshop orders: take fittings (219 denarii, 2 Att.); take tools (178 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings, tools.
+
+> take tools
+You earn 160 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 82 · October, AD 161 ==  6,319 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.4
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.9  expect 58.9  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: The Tiber floods: houses collapse, grain stores are spoiled, and bread is dear. The emperors see to the relief themselves.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 83 · November, AD 161 ==  6,453 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.4
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.9  expect 58.9  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 84 · December, AD 161 ==  6,587 denarii (+4/month) · 20 aurei (1 = 27.3 den.)   Index 103.4
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     58.9  expect 58.9  (no voice)  debt     0 Stable
+  Prices: +9.3% since AD 155 (1.5% a year)
+  News: Bad news from the East: the Parthian king has seized Armenia and destroyed a Roman legion at Elegeia.   (news)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,093 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 14% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 144 denarii (13 denarii of it through your 1 membership); tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The year AD 162 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 15%.
+
+== Month 85 · Ianuarius, AD 162 ==  6,720 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 103.5
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       59  expect   59  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  Workshop orders: take fittings (222 denarii, 2 Att.); take tools (180 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings, tools.
+
+> take tools
+You earn 162 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 86 · Februarius, AD 162 ==  7,017 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 103.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.4  expect 59.4  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 87 · Martius, AD 162 ==  7,151 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 103.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.4  expect 59.4  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► The Tiber floods. The river rises over the Campus Martius and into the Subura. Granaries along the bank are soaked; bread doubles in price overnight.
+      decide relief   pay for relief in the Subura (1,110 denarii)
+      decide profit   buy the spoiled grain cheap and sell it dear
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide relief (pay for relief in the Subura), profit (buy the spoiled grain cheap and sell it dear), none (stay out of it).
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 88 · Aprilis, AD 162 ==  7,286 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 103.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.4  expect 59.4  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: fittings.
+
+> take tools
+Take one of: fittings.
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 89 · Maius, AD 162 ==  7,420 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 103.7
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.4  expect 59.4  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: Lucius Verus leaves Rome to take command against Parthia.   (news)
+  On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  Workshop orders: take tools (180 denarii, 2 Att.); take instruments (180 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Nothing is waiting for your decision.
+
+> take ship
+Take one of: tools, instruments.
+
+> take tools
+You earn 162 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 90 · Iunius, AD 162 ==  7,717 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.8  expect 59.8  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 91 · Iulius, AD 162 ==  7,852 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.8  expect 59.8  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 92 · Augustus, AD 162 ==  7,986 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.8  expect 59.8  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  News: A physician from Pergamum named Galen has arrived. He cuts open animals in public to show how the body works, and has already quarrelled with half the Physicians' Circle.   (news)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 93 · September, AD 162 ==  8,121 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     59.8  expect 59.8  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  Workshop orders: take tools (180 denarii, 2 Att.); take instruments (180 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: tools, instruments.
+
+> take tools
+You earn 162 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 2/4]
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 94 · October, AD 162 ==  8,418 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     60.2  expect 60.2  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 95 · November, AD 162 ==  8,552 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     60.2  expect 60.2  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► A levy for the Parthian war. Lucius Verus is leaving for the East, and every association in Rome is asked to contribute. Your institutions look to their members.
+      decide pay      pay your share of the levy (694 denarii)
+      decide duck     find a reason not to
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide pay (pay your share of the levy), duck (find a reason not to).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+
+== Month 96 · December, AD 162 ==  8,687 denarii (+4/month) · 20 aurei (1 = 27.7 den.)   Index 104.2
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.7 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     60.2  expect 60.2  (no voice)  debt     0 Stable
+  Prices: +11% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (694 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 15% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> commission look bilges
+No one is waiting for you to look at that.
+
+> commission accept bilges
+No terms are waiting for your answer.
+
+> invitation accept guild
+No one has invited you there.
+
+> invitation accept circle
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> decide 1
+Decide sponsor (sponsor his demonstrations), circle (side with the Circle against him), none (stay out of it).
+
+> take ship
+Take one of: instruments.
+
+> take tools
+Take one of: instruments.
+
+> take instruments
+The workshop has taken all it can this season; more apprentices or a bigger workshop would let it take more.
+
+> work odd
+You earn 145 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 131 denarii.  [Attention left this month: 3/4]
+
+> end
+  • The year AD 163 begins.
+  • Another year as a member of the Merchants' Guild of Ostia: your seniority raises your stake to 16%.
+
+== Month 97 · Ianuarius, AD 163 ==  8,822 denarii (+4/month) · 20 aurei (1 = 28.2 den.)   Index 104.3
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.8 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     60.2  expect 60.2  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (704 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
+  Workshop orders: take tools (183 denarii, 2 Att.); take fittings (225 denarii, 2 Att.)   (workshop)
+  The Guild (Publius Aelius Sabinus): you hold 16% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> exchange 1500 denarii
+You buy 51 aurei for 1,472 denarii.  [Attention left this month: 3/4]
+
+> restore 60
+Machine gold: 60/60 aurei.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> invitation accept guild
+No one has invited you there.
+
+> challenge begin standards
+That challenge is over.
+
+> take ship
+Take one of: tools, fittings.
+
+> take tools
+You earn 165 denarii after tax. Picks, trowels and barrow wheels go out to the builders of the Subura.  [Attention left this month: 1/4]
+
+> take instruments
+Take one of: fittings.
+
+> work odd
+You earn 146 denarii (13 denarii of it through your 1 membership); tax takes 15 denarii, you keep 132 denarii.  [Attention left this month: 0/4]
+  (No Attention left this month. Type 'end' to end the month.)
+
+> end
+
+== Month 98 · Februarius, AD 163 ==  7,650 denarii (+4/month) · 11 aurei (1 = 28.2 den.)   Index 104.5
+  Attention: 4 free / 4 total
+  Medicine      51  expect   51  (no voice)  debt   0.8 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy     60.6  expect 60.6  (no voice)  debt     0 Stable
+  Prices: +12.6% since AD 155 (1.5% a year)
+  ► Galen comes to Rome. A young physician from Pergamum is cutting open animals in public to show how the body works. The Physicians' Circle calls him a showman and a butcher.
+      decide sponsor  sponsor his demonstrations (704 denarii)
+      decide circle   side with the Circle against him
+      decide none     stay out of it
+  The Guild (Publius Aelius Sabinus): you hold 16% (influence), strength 40 (44.4% of Economy)
+  Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
+
+> people
+  Felix, a freedman who fits out ships at Ostia and in Rome, and a member of the guild. Known on the quays; a member of the guild, not yet an officer.
+      household: a wife, two sons, a slave-born clerk he freed last year; cares about his wife Prima and the two boys he is putting through a grammarian; wants to be the man two shops send for when they can't agree.
+  Cassianus, a grain and oil merchant with warehouses under the Aventine. Rebuilding after the fire; he lost a season's oil.
+      household: a widowed sister who keeps his accounts, a daughter, porters; cares about his daughter's dowry; wants to keep his oil dry and his name good with the Ostia shippers.
+  Diodoros, Cassianus's porter, freeborn, from Antioch. Gone home to Antioch. Laid up or away for now.
+      household: a room above a bakery with two other porters; cares about a mother in Antioch he sends money to; wants more responsibility and more pay than carrying jars.
+  Titus Aelius Serenus, a physician of the Subura, a member of the Physicians' Circle. A member of the Circle, not one of its leading men.
+      household: his sister, a freedman who grinds his drugs, and a cat that sleeps on the casebooks; cares about a sister in the Subura who keeps his house and his casebooks; wants to show that a physician can know which treatment works, not just argue for one.
+
+> view civilization
+== Civilization
+  Active:
+    Shared measures: reproducible
+    Gauges and fits: reproducible
+    True valve seats: reproducible, copied, badly
+    Medicine 51 (Stable)   (why medicine)
+    Governance 55 (Stable)   (why governance)
+    Economy 60.6 (Stable)   (why economy)
+  Emerging:
+    Dimensioned drawings: Drawings show the shape but not the sizes another shop would need.
+    Graded tool steel: Hardness varies from batch to batch and nobody writes down why. Knowing is not making: graded tool steel needs recorded trials first.
+    Rigid lathe work: Hand power and a cutter held by hand can't hold a size in hard metal. Knowing is not making: rigid lathe work needs graded tool steel first.
+    Line shafts: One wheel drives one machine.
+    Interchangeable parts: Metal parts are still fitted one by one. Knowing is not making: interchangeable parts needs dimensioned drawings and rigid lathe work first.
+    The hydraulic press: Seals and cylinders give way long before the pressure a press needs. Knowing is not making: the hydraulic press needs recipes for bronze first.
+
+> view journal
+== Journal
+  Available now:
+    ledger   (ledger)
+    news   (news)
+  Archived:
+    October, AD 160: Diodoros comes to the workshop to say goodbye. A porter with one good hand is no porter, and his mother has written that his uncle needs a man in his shop in Antioch. He has his pay in a knotted cloth and a place on a grain ship back east. He shakes your hand with the left.
+    Februarius, AD 160: Fire in the warehouses under the Aventine in the night. Cassianus loses a season's oil. His porter Diodoros burns his hand dragging jars out of the smoke. Below it all, in the wet cellar, your pump still draws.
+    Februarius, AD 158: Pollio, across the lane from Cassianus, has had a pump made like his by a bronzesmith on the Clivus who saw it once. The seats are cut by eye and it leaks back on every stroke. Pollio tells everyone the design is yours.
+    October, AD 156: Prima sends a boy: the marsh fever has Felix again. No suppers and no quays for him for a month or two.
+    Iunius, AD 156: The guild takes you in. You swear by the guild's genius before the shrine in the hall, pay your entry, and hear what you owe: dues each year, your place at the suppers, a share when a member is buried, help when a member is in trouble, and the guild's word in your disputes. Felix pours the first cup. (Entry 508 denarii; dues 102 denarii a year.)
+    Maius, AD 156: Lollius pays 862 denarii: Lollius's bilge pumps is done.
+    Iulius, AD 155: Cassianus pays 500 denarii: Cassianus's flooded cellar is done.
+    Aprilis, AD 155: The smith's second forge is lit, and part of the workshop is now yours.
+    Ianuarius, AD 155: You can afford only one: you choose the smith's workshop over the district fountain.
+
+> ledger 20
+  +      14 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      10 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  +     162 denarii  Payment        Tertius: The workshop takes an order: tools and barrows for the builders. Picks, trowels and barrow wheels go out to the builders of the Subura. It pays 180 denarii; tax takes 18 denarii.
+  +     131 denarii  Payment        You spend the month mending tools and running errands for pay.
+  +      15 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      10 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  +     131 denarii  Payment        You spend the month mending tools and running errands for pay.
+  +      15 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      10 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  +     131 denarii  Payment        You spend the month mending tools and running errands for pay.
+  +      15 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      10 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  +     131 denarii  Payment        You spend the month mending tools and running errands for pay.
+  +      15 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      10 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  −   1,472 denarii  Adjustment     At the money changers' tables you buy 51 aurei for 1,472 denarii (28.2 denarii an aureus, plus their 2.5%).
+  +     165 denarii  Payment        Tertius: The workshop takes an order: tools and barrows for the builders. Picks, trowels and barrow wheels go out to the builders of the Subura. It pays 183 denarii; tax takes 18 denarii.
+  +     132 denarii  Payment        You spend the month mending tools and running errands for pay.
+  +      15 denarii  Payment        Income this month (property, work bonuses, institutions' shares).
+  −      11 denarii  InstitutionDuesDues and your share of institutions' costs this month.
+  In: 16,758 denarii · out: 9,108 denarii · now: 7,650 denarii.
+
+> jump
+You will leave AD 163 and arrive somewhere between AD 188 and AD 203: the machine's range is 25–40 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
+What you leave behind (7,650 denarii and 11 aurei in hand):
+  • Medicine debt 0.8 keeps growing 5% a year for 30 years after you leave (about 1.2 in a decade, 3.3 after 30 years) unless a crisis clears it. Paying it down now costs 57 denarii.
+  • No last orders for the Guild (leading now: the Ostia Grain Cartel): orders guild freetraders|cartel.
+  • The Merchants' Guild of Ostia would be left bare, losing 10% of its strength each decade (now 40).
+  •   It holds no money, so it can't pay down Economy debt while you're away. (Only someone who controls it, with 50%, can endow it.)
+  • The machine will carry you 25–40 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
+  • The 7,650 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
+  • Your gold: the machine can carry 10 aurei; you hold 11 aurei, so 1 aureus would be left behind and lost (deposit <n> or bury <n>, 1 Attention each; the bank takes up to 100 aurei, a jar holds 50 aurei).
+  •   Denarii can't be carried, banked or buried usefully: change them into gold first (exchange <n> denarii).
+Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst> · exchange <n> denarii · deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
+
+> jump
+
+The machine shudders. Decades pass in the dark... It carries you 30 years.
+
+— Recognition —
+You climb out of the machine in AD 193. The Tiber smells the same. Near the Porta Trigemina you hear
+a single hammer: the smith's workshop you funded is still working, sooty and a little larger, with a
+boy asleep by the bellows. Down the street, the fountain you didn't choose was filled in long ago. An
+old woman calls the spot 'fever corner'.
+
+— Wrongness —
+Something is wrong. The cattle market has spilled over its walls; you hear six languages haggling
+over bales from half the world. The coins are lighter and paler than you remember, barely half silver
+now. Prices have climbed with every cut, and soldiers grumble that their pay buys less each year.
+
+— Personal echo —
+You left before the first rumors came from the East. In the city's records, the pestilence of 166
+fills page after page: about 98 thousand dead in Rome. You aren't in any of them. In the guild hall
+at Ostia the old contracts on the wall have one witness over and over: Felix. The fitters call him
+Felix who connected the shops. One says he once sponsored a foreign craftsman; no one remembers the
+name. The warehouses under the Aventine were rebuilt in brick after a fire, long ago. The cellar
+under the third one is still dry.
+
+— Discovery —
+The Merchants' Guild of Ostia still meets at the harbor, still arguing for open markets and honest
+coin. Its head is a successor of Publius Aelius Sabinus. A founder by the river casts bronze rules
+from the one master and sells them stamped. Every new shop on the river buys one before it buys an
+anvil. One shop at Ostia makes nothing but gauges, hardened plugs in pairs, and sells them to fitters
+up and down the river. A bronze shop on the Clivus casts seats by the dozen from one pattern and
+sells them in straw, ready to fit. A fitter buys three and keeps two for the next job. You see the
+other kind, too: seats cut by eye to look like the good ones, leaking back on every stroke. The men
+who sell them say the design is the foreigner's. In your purse: the 10 aurei you carried, as good as
+the day you left. The gold you couldn't carry, and didn't hide or bank (1 aureus), is long gone.
+
+You can walk around Rome: visit market, changers, forges, curia or subura (no Attention).
+Type 'learn more' for the Index and what became of your institutions, 'jump' to go on another 25–40 years, or 'quit'.
+
+(after arrival) > learn more
+Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
+  Departure, AD 163: 104   Medicine 102  Governance 100  Economy 112
+  Arrival,   AD 193: 101   Medicine 94  Governance 100  Economy 111
+Institutions
+  The Merchants' Guild of Ostia: Thriving (left bare; strength 29, loyalty 23)
+Your gold: carried 10, deposited 0 (0 back), buried 0 (0 recovered), left behind 1; you hold 10 aurei now.
+Crises while you were away
+  AD 166: the Antonine pestilence (severe, about 98 thousand dead; response: none)
+  AD 189: the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is severe: about 50 thousand dead, 5% of Rome.
+
+
+(after arrival) > jump
+You will leave AD 193 and arrive somewhere between AD 218 and AD 233: the machine's range is 25–40 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
+What you leave behind (6,834 denarii and 10 aurei in hand):
+  • The machine will carry you 25–40 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive.
+  • Your gold: the machine can carry 10 aurei; you hold 10 aurei.
+Prepare: deposit <aurei> · bury <aurei>. Type 'jump' again to go, or anything else to stay.
+
+(after arrival) > jump
+
+The machine shudders. Decades pass in the dark... It carries you 40 years.
+
+— Recognition —
+You climb out again in AD 233, 40 years after your last visit. The forge by the Porta Trigemina still
+smokes; the family who run it now have never heard of a partner who drew machines on wax. 'Fever
+corner' is still what they call the spot where the fountain was.
+
+— Wrongness —
+The markets have grown past anything you left: new warehouses along the river, and moneychangers who
+quote rates for cities you've never heard of. The coins are worse again: grey, light, barely silver
+at all. Prices are quoted in bundles of coins now, not single ones.
+
+— Personal echo —
+The pestilence of 166 is an old story now, told to frighten children. Your name was never part of it.
+The guild at Ostia keeps a feast for its founders now. Felix is on the list, though he founded
+nothing; the speech calls him the man who taught the shops to trust each other's measures. An
+apprentice tells you the foreigner Felix sponsored was really a Greek from Alexandria. A stone in the
+lane under the Aventine settles an old lawsuit: the heirs of Cassianus and of Pollio share a wall and
+a well by the praetor's order. The two families still don't marry.
+
+— Discovery —
+The guild you backed at Ostia is now the Ostia Grain Cartel. A handful of houses that decide who may
+land grain at Ostia and at what price, and pay the magistrates to keep it so. Its head is Gaius
+Sabinus Magnus, Master of the Cartel. Every fitter on the river works to one foot now, and the guild
+keeps the bronze master in its hall. Fitters on the quays carry fit and no-fit plugs in a leather
+roll, and buy seats from whichever shop is nearest. The pumps on the Ostia quays have seats cut to a
+gauge now. The guild's fitters carry the gauges in a box, and a pump that leaks back is a joke. The
+cheap seats are still sold at the market gates, and still leak. People call them Pollio's seats now,
+and say the good ones were stolen from him by a foreigner. In your purse: the 10 aurei you carried,
+as good as the day you left.
+
+You can walk around Rome: visit market, changers, forges, curia or subura (no Attention).
+Type 'learn more' for the Index and what became of your institutions or 'quit'.
+
+(after arrival) > quit
+
+Run fingerprint (seed 42): 6ab075939874f0ea

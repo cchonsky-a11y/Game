@@ -1,0 +1,17 @@
+# P1 vertical slice (2026-10-04): the workshop, the cellar pump, the guild by invitation, repeat work, the Grand Challenge,
+# the machine repaired and its gold put back, then two jumps. Answers every open choice it can; otherwise ends the month.
+# seed: 42
+choose workshop
+@until 158: commission look cellarpump; commission accept cellarpump; commission look bilges; commission accept bilges; invitation accept guild; invitation accept circle; challenge begin standards; assess; take ship; take tools; take instruments; work odd; end
+@until 163: commission look bilges; commission accept bilges; invitation accept guild; invitation accept circle; challenge begin standards; repair coil; repair coolant; repair chronometer; decide 1; take ship; take tools; take instruments; work odd; end
+@until ready: exchange 1500 denarii; restore 60; repair coil; repair coolant; repair chronometer; invitation accept guild; challenge begin standards; take ship; take tools; take instruments; work odd; end
+people
+view civilization
+view journal
+ledger 20
+jump
+jump
+learn more
+jump
+jump
+quit

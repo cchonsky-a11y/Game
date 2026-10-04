@@ -490,9 +490,11 @@ work
 end
 exchange 1300 denarii
 restore 60
+work consult
 end
 exchange 1300 denarii
 restore 60
+work consult
 end
 jump
 jump

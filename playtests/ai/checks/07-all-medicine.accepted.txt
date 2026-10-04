@@ -499,10 +499,10 @@ end
 end
 work consult
 end
+work consult
+end
 exchange 1300 denarii
 restore 60
-end
-work consult
 end
 work consult
 end

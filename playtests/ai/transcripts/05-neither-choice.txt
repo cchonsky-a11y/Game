@@ -1,17 +1,25 @@
-THE BUTTERFLY EFFECT — P0 Butterfly Test
-========================================
-Rome, AD 155. Your time machine malfunctioned and stranded you here. You have a pouch of gold you scavenged from the
-machine (every bit of it must go back before it can fly), what you know, and no one who owes you anything.
-You don't yet know what broke. Something is coming from the East within ten years.
-Rome runs on silver denarii, not gold: change your aurei at the money changers (exchange <n> aurei). Gold holds its value; the denarius doesn't.
-Once you repair it, the machine can carry you forward, 25 to 60 years depending on how well you repair it. What you leave behind will go on without you.
+THE BUTTERFLY EFFECT
 
-This prototype covers one era, a jump and your arrival, and then, if you like, one more jump to see how it all aged. The test ends there.
+The machine stops screaming before you do.
 
-First, a choice. You can afford only one:
+You sit strapped in, sweating, your hands shaking on the armrests. It was a systems test. Nothing was
+supposed to go anywhere. The panels are dark and the controls are dead.
+
+You open the hatch expecting the concrete floor of the test bay. You get dirt. A mule cart rattles
+past close enough to touch, and the driver shouts at you in Latin. You understand him.
+
+Thank God I took that in college.
+
+Ancient Rome. Not ruins. Alive.
+
+The machine is dead weight. Its contacts and couplings are gold, and gold you can carry: you pry out
+60 aurei worth of it. Every piece will have to go back before the machine could ever run again.
+Rome pays in silver denarii. Gold has to be changed at the money changers (exchange <n> aurei).
+
+Two things on this street could use your money, and you can afford only one:
   choose fountain  — The Subura's fountain runs brown. Clear the lead pipe and reline the basin.
   choose workshop  — Pay for a second forge and paid apprentices at the smith's by the Porta Trigemina, in exchange for a share of the business.
-Your ears still ring from the crash. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
+Your ears are still ringing. Before anything else you could walk and get your bearings: visit market, changers, forges, curia or subura (no Attention).
 Type 'help' for commands.
 
 == Month 1 · Ianuarius, AD 155 ==  0 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
@@ -69,6 +77,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 2/4]
 
 > end
+  • At the small baths behind the Circus Maximus you sit in the warm room between a fuller and a man selling olives. The olive man complains that a merchant under the Aventine pays porters to bail his cellar every morning, and still the jars go green. The fuller says the merchant should sacrifice to the river and stop complaining.
 
 == Month 2 · Februarius, AD 155 ==  112 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Assess the machine
@@ -181,6 +190,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch.
 
 == Month 4 · Aprilis, AD 155 ==  338 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -236,6 +246,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 125 denarii; tax takes 12 denarii, you keep 112 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Felix finds you at the smith's at first light. "There's a man under the Aventine with water to his knees," he says. "Cassianus. Grain and oil. His pump coughs more than it pumps. He'll feed you lunch to look at it, and that's all he's promised." (commission look cellarpump: 1 Attention · Pay: none initially · may lead to paid commission)
 
 == Month 5 · Maius, AD 155 ==  450 denarii (+0/month) · 60 aurei (1 = 25 den.)   Index 100
   Attention: 4 free / 4 total
@@ -1141,6 +1152,7 @@ You earn 126 denarii; tax takes 13 denarii, you keep 113 denarii.  [Attention le
 
 > end
   • A glassblower sells you flasks and a crude still at a stranger's price. (Machine: 3/9 steps.)
+  • With the coil housing sealed, the panel stays lit for a full night. Near dawn it prints, unprompted, LINK QUALITY: DEGRADED, and a little bar half filled. Nothing in Rome is linked to anything. You sit with the panel until the light goes out.
 
 == Month 21 · September, AD 156 ==  757 denarii (+0/month) · 60 aurei (1 = 25.4 den.)   Index 100
   Attention: 3 free / 4 total · 1 reserved — Copy the star tables
@@ -1943,6 +1955,7 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • Three nights at the still give you a clear spirit, cold to the touch. (Machine: 6/9 steps.)
+  • You run a reference test, the kind you ran a hundred times in the lab. The answer comes back faster than the machine could compute it: REMOTE REFERENCE ACKNOWLEDGED. You run it again with a wrong value on purpose. It acknowledges that too, and corrects it.
 
 == Month 35 · November, AD 157 ==  542 denarii (+0/month) · 60 aurei (1 = 25.8 den.)   Index 99.4
   Attention: 2 free / 4 total · 2 reserved — Fit and test the coil housing
@@ -2515,6 +2528,7 @@ You earn 128 denarii; tax takes 13 denarii, you keep 115 denarii.  [Attention le
 
 > end
   • The chronometer's dial agrees with the stars to the hour. (Machine: 9/9 steps; 60 aurei still to put back.)
+  • The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go.
 
 == Month 45 · September, AD 158 ==  1,441 denarii (+0/month) · 60 aurei (1 = 26.1 den.)   Index 99.4
   Attention: 4 free / 4 total
@@ -3482,6 +3496,8 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
 
 > end
   • A physician now keeps open hours in the Subura. Medicine +10.
+  • A physician called Serenus finds you at the fountain, a short man with ink on his cuffs. He has heard you talk about fevers as if you'd counted them. "Have you?" he asks. You say not yet. "Neither has anyone else," he says. "Come and see my casebooks. Bring wine; my sister won't buy any."
+  • You know Serenus, a member of the Physicians' Circle of the Subura.
 
 == Month 62 · Februarius, AD 160 ==  1,009 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 105.7
   Attention: 4 free / 4 total
@@ -3538,6 +3554,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Serenus spreads two years of fever cases across his sister's table: the purge, the bleeding, the cold baths, who lived. You show him how to rule the wax into columns, one case to a line, the same questions for every patient. He tries it on the last month's cases and goes quiet. "The bleeding," he says. "I bled eleven of them."
 
 == Month 63 · Martius, AD 160 ==  1,126 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 105.7
   Attention: 4 free / 4 total
@@ -3594,6 +3611,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention left this month: 3/4]
 
 > end
+  • Serenus: "The Circle dines on the Nones, at Demetria's. Come as my guest. Wear something clean and don't tell anyone about the columns yet." (invitation accept circle: 1 Attention and 55 denarii for the wine / decline circle)
 
 == Month 64 · Aprilis, AD 160 ==  1,243 denarii (+0/month) · 60 aurei (1 = 26.9 den.)   Index 105.7
   Attention: 4 free / 4 total
@@ -3601,6 +3619,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3658,6 +3677,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
   On your street: The vigiles arrest a gang who'd been renting out the same room in a tenement to four families at once.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3714,6 +3734,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3770,6 +3791,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3826,6 +3848,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3884,6 +3907,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Prices: +7.7% since AD 155 (1.5% a year)
   News: Herodes Atticus, the richest man in Greece, is accused in Rome over the death of his wife Regilla. He is acquitted.   (news)
   On your street: A wedding procession comes down your street: torches, flute players, walnuts thrown to the children, and a lot of very crude songs.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3940,6 +3964,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -3996,6 +4021,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4052,6 +4078,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.5  expect 54.5  (no voice)  debt     0 Stable
   Prices: +7.7% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4110,6 +4137,7 @@ You earn 130 denarii; tax takes 13 denarii, you keep 117 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A burial club on the Via Appia holds its monthly dinner. Members pay a little each month so that none of them is thrown in a common pit.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4166,6 +4194,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4223,6 +4252,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: Antoninus Pius is dead at his villa at Lorium. His last watchword to the guard was 'equanimity'. Marcus Aurelius takes his place and makes his adoptive brother Lucius Verus co-emperor: two emperors at once, for the first time.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4280,6 +4310,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The new emperors find the treasury full: Antoninus left 2,700 million sesterces, and the money changers say it shows in the coin.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4337,6 +4368,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A letter-writer at the Forum reads and writes for those who can't: two asses a letter, more for love letters.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4393,6 +4425,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4449,6 +4482,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4506,6 +4540,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   News: The empress Faustina gives birth to twin boys, Commodus and Antoninus.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4563,6 +4598,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
   Economy     54.4  expect 54.4  (no voice)  debt     0 Stable
   Prices: +9.3% since AD 155 (1.5% a year)
   On your street: A new book-seller opens by the Argiletum. The latest poems are copied while you wait; the scribes are fast and not always accurate.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4624,6 +4660,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4684,6 +4721,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4745,6 +4783,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,093 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4807,6 +4846,7 @@ You earn 131 denarii; tax takes 13 denarii, you keep 118 denarii.  [Attention le
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
   On your street: The wine merchants say this year's Falernian is the best in a decade. They said the same last year.   (news)
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4867,6 +4907,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4927,6 +4968,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide relief   pay for relief in the Subura (1,110 denarii)
       decide profit   buy the spoiled grain cheap and sell it dear
       decide none     stay out of it
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -4985,6 +5027,7 @@ That needs 1 Attention; you have 0 left this month.
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 12 (13% of Medicine), loyalty 78
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5044,6 +5087,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   News: Lucius Verus leaves Rome to take command against Parthia.   (news)
   On your street: A dog found asleep on the steps of the Temple of Saturn every morning is now being fed by half the Forum. Someone has named it Quaestor.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 14 (14.9% of Medicine), loyalty 86
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5101,6 +5145,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 16 (16.7% of Medicine), loyalty 94
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5158,6 +5203,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
   Economy     54.3  expect 54.3  (no voice)  debt     0 Stable
   Prices: +11% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 18 (18.4% of Medicine), loyalty 100
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5220,6 +5266,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 20 (20% of Medicine), loyalty 100
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5282,6 +5329,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide none     stay out of it
   On your street: A mime show at the Theatre of Marcellus mocks a magistrate so openly that he walks out. The audience cheers louder.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 22 (21.6% of Medicine), loyalty 100
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5343,6 +5391,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 24 (23.1% of Medicine), loyalty 100
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5393,7 +5442,7 @@ Fund the district magistrates is public business: you need 10% of an institution
 That needs 1 Attention; you have 0 left this month.
 
 > end
-  • You couldn't pay what you owe the School this season (your dues or your share of its costs); no seniority this year. Loyalty 100 → 97.
+  • You couldn't pay what you owe the School this month (your dues or your share of its costs); no seniority this year. Loyalty 100 → 97.
 
 == Month 95 · November, AD 162 ==  0 denarii (−6/month) · 60 aurei (1 = 27.7 den.)   Index 105.7
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
@@ -5406,6 +5455,7 @@ That needs 1 Attention; you have 0 left this month.
       decide circle   side with the Circle against him
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 24 (23.1% of Medicine), loyalty 97, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5467,6 +5517,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide circle   side with the Circle against him
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 26 (24.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5530,6 +5581,7 @@ You earn 132 denarii; tax takes 13 denarii, you keep 119 denarii.  [Attention le
       decide none     stay out of it
   On your street: Your landlord raises the rent again and blames the price of bread. The baker blames the price of wheat. Nobody blames the mint out loud.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 32 (28.6% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5587,6 +5639,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 34 (29.8% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5644,6 +5697,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 36 (31% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5701,6 +5755,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 38 (32.2% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5759,6 +5814,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Prices: +12.6% since AD 155 (1.5% a year)
   On your street: A glassblower near the Porta Capena is selling cups so thin you can see your fingers through them. The rich are buying them by the dozen.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 40 (33.3% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5816,6 +5872,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 42 (34.4% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5873,6 +5930,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 44 (35.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5930,6 +5988,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 46 (36.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -5989,6 +6048,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   News: Statius Priscus takes Artaxata, the capital of Armenia.   (news)
   On your street: The aqueduct at the Porta Maggiore is closed for repairs; the fountains on the Esquiline run slow for a month.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 48 (37.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6046,6 +6106,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 50 (38.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6103,6 +6164,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 52 (39.4% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6160,6 +6222,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Economy     54.2  expect 54.2  (no voice)  debt     0 Stable
   Prices: +12.6% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 54 (40.3% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6221,6 +6284,7 @@ You earn 133 denarii; tax takes 13 denarii, you keep 120 denarii.  [Attention le
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A soothsayer in the Forum Boarium predicts the end of the world for the third time this year. His business is doing fine.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 54 (40.3% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6278,6 +6342,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 56 (41.2% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6335,6 +6400,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 58 (42% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6392,6 +6458,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 60 (42.9% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6450,6 +6517,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: Brick stamps tell you who owns the kilns: half the new bricks in Rome carry the marks of a few senatorial families.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 62 (43.7% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6508,6 +6576,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Prices: +14.3% since AD 155 (1.5% a year)
   News: Lucius Verus marries Lucilla, Marcus's daughter, at Ephesus.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 64 (44.4% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6565,6 +6634,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 66 (45.2% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6622,6 +6692,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 68 (45.9% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6680,6 +6751,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Prices: +14.3% since AD 155 (1.5% a year)
   On your street: A man sues a barber whose razor slipped while a ball hit his hand from the street game next door. The lawyers argue over who's to blame.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 70 (46.7% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6737,6 +6809,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 72 (47.4% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6794,6 +6867,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 74 (48.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6851,6 +6925,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Economy     54.1  expect 54.1  (no voice)  debt     0 Stable
   Prices: +14.3% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 76 (48.7% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6912,6 +6987,7 @@ You earn 134 denarii; tax takes 13 denarii, you keep 121 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   On your street: A rich freedman's funeral goes down the Sacred Way with hired mourners, a mime wearing the dead man's mask, and a band.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 76 (48.7% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -6969,6 +7045,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 78 (49.4% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7026,6 +7103,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 80 (50% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7083,6 +7161,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 82 (50.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7140,6 +7219,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 84 (51.2% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7197,6 +7277,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +16.1% since AD 155 (1.5% a year)
   The School (Theon of Alexandria): you hold 100% (control), strength 86 (51.8% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7257,6 +7338,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   The School (Theon of Alexandria): you hold 100% (control), strength 88 (52.4% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
   ► Waiting: Demetria asks you to stay until the sickness has passed. promise yes / promise no
@@ -7316,6 +7398,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   The School (Theon of Alexandria): you hold 100% (control), strength 90 (52.9% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7375,6 +7458,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   On your street: A fuller's family on the next street is down with a fever. The neighbours keep their children indoors and leave bread at the door.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 92 (53.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7433,6 +7517,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7491,6 +7576,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +16.1% since AD 155 (1.5% a year)
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7550,6 +7636,7 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Pestilence: Warning 1 of 3 — Rumors from the East: letters from the legions besieging Seleucia speak of a pestilence in the camps.
   News: Avidius Cassius's army has sacked Seleucia and burned the palace at Ctesiphon. Soldiers say something was let loose when they looted a temple at Seleucia.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7600,10 +7687,11 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
 
 > end
   • The year AD 166 begins.
-  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
+  • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
+  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
   • Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
 
-== Month 133 · Ianuarius, AD 166 ==  4,745 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 133 · Ianuarius, AD 166 ==  4,745 denarii (+13/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -7611,7 +7699,8 @@ You earn 135 denarii; tax takes 14 denarii, you keep 122 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   On your street: Amulet sellers in the Subura have sold out of everything with a picture of Apollo on it. The price of a sprig of rue has tripled.   (news)
-  The School (Theon of Alexandria): you hold 100% (control), strength 97 (54.8% of Medicine), loyalty 90, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7643,7 +7732,7 @@ The School of the Fountain already exists.
 The School already has a charter.
 
 > oversee school
-Loyalty 98, strength 99.  [Attention left this month: 2/4]
+Loyalty 98, strength 96.  [Attention left this month: 2/4]
 
 > start physician
 Fund a physician for the district is already done.
@@ -7662,14 +7751,15 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 134 · Februarius, AD 166 ==  4,882 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 134 · Februarius, AD 166 ==  4,881 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
-  The School (Theon of Alexandria): you hold 100% (control), strength 99 (55.3% of Medicine), loyalty 98, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7701,7 +7791,7 @@ The School of the Fountain already exists.
 The School already has a charter.
 
 > oversee school
-Loyalty 100, strength 100.  [Attention left this month: 2/4]
+Loyalty 100, strength 98.  [Attention left this month: 2/4]
 
 > start physician
 Fund a physician for the district is already done.
@@ -7720,72 +7810,15 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 135 · Martius, AD 166 ==  5,019 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 135 · Martius, AD 166 ==  5,018 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
   Economy       54  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
-  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> respond quarantine
-There is no outbreak to respond to.
-
-> found school
-The School of the Fountain already exists.
-
-> charter school
-The School already has a charter.
-
-> oversee school
-Loyalty 100, strength 100.  [Attention left this month: 2/4]
-
-> start physician
-Fund a physician for the district is already done.
-
-> start market
-Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
-
-> start census
-Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
-
-> start magistrates
-Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
-
-> work
-You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 1/4]
-
-> end
-
-== Month 136 · Aprilis, AD 166 ==  5,157 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
-  Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
-  Governance    55  expect   55  (no voice)  debt     0 Stable
-  Economy       54  expect   54  (no voice)  debt     0 Stable
-  Prices: +17.8% since AD 155 (1.5% a year)
-  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
-  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7836,7 +7869,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 137 · Maius, AD 166 ==  5,294 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 136 · Aprilis, AD 166 ==  5,155 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -7844,6 +7877,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7894,7 +7928,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 138 · Iunius, AD 166 ==  5,432 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 137 · Maius, AD 166 ==  5,293 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -7902,6 +7936,66 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found school
+The School of the Fountain already exists.
+
+> charter school
+The School already has a charter.
+
+> oversee school
+Loyalty 100, strength 100.  [Attention left this month: 2/4]
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start census
+Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
+
+> start magistrates
+Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
+
+> work
+You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 138 · Iunius, AD 166 ==  5,430 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+  Attention: 3 free / 4 total · 1 reserved — Duties at the School
+  Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
+  Governance    55  expect   55  (no voice)  debt     0 Stable
+  Economy       54  expect   54  (no voice)  debt     0 Stable
+  Prices: +17.8% since AD 155 (1.5% a year)
+  Pestilence: Warning 2 of 3 — The army comes home: the legions march back from the East, and towns along their road bury their dead.
+  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -7953,7 +8047,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 > end
   • Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
 
-== Month 139 · Iulius, AD 166 ==  5,570 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 139 · Iulius, AD 166 ==  5,568 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -7961,6 +8055,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8011,7 +8106,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 140 · Augustus, AD 166 ==  5,707 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 140 · Augustus, AD 166 ==  5,705 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -8020,6 +8115,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   News: Galen has left Rome for Pergamum, suddenly. His rivals say he ran from the sickness.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8070,7 +8166,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 141 · September, AD 166 ==  5,845 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 141 · September, AD 166 ==  5,843 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -8078,6 +8174,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: Warning 3 of 3 — Fever at Ostia and in the Subura: physicians report fever, rash and black stools among the poor.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8129,7 +8226,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 > end
   • Outbreak — the pestilence breaks out across Rome as the city celebrates the army's triumph.
 
-== Month 142 · October, AD 166 ==  5,982 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
+== Month 142 · October, AD 166 ==  5,980 denarii (+15/month) · 60 aurei (1 = 29.4 den.)   Index 108.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
   Medicine    63.5  expect 63.5  Maintain    debt   4.2 Stable
   Governance    55  expect   55  (no voice)  debt     0 Stable
@@ -8139,6 +8236,7 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   News: Marcus and Lucius celebrate their triumph over Parthia. The crowds are thinner than anyone expected.   (news)
   On your street: Carts go through the Subura at dawn now. Nobody on your street talks about what's in them.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
   ► Waiting: respond quarantine / respond hospice / respond none
@@ -8191,18 +8289,19 @@ That needs 1 Attention; you have 0 left this month.
 
 > end
   • The pestilence is contained: about 33 thousand dead, 3% of Rome.
-  • Opening: an orphaned apprentice physician, Iulia, begins treating the district's sick.
+  • Opening: in the hospice, physicians compare treatments and record what works.
   • The sickness burns itself out. Nothing is fixed; there are simply fewer people left, and the survivors expect less.
   • You stayed through the pestilence, as you promised Demetria of Pergamon.
 
-== Month 143 · November, AD 166 ==  4,975 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 111
+== Month 143 · November, AD 166 ==  4,973 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 111.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    65.5  expect 65.5  Maintain    debt     0 Stable
+  Medicine    66.5  expect 66.5  Maintain    debt     0 Stable
   Governance  54.3  expect   55  (no voice)  debt     0 Stable
   Economy     52.7  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8253,14 +8352,15 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
 
 > end
 
-== Month 144 · December, AD 166 ==  5,112 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 114
+== Month 144 · December, AD 166 ==  5,110 denarii (+14/month) · 60 aurei (1 = 29.4 den.)   Index 114.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    65.5  expect 65.5  Maintain    debt     0 Stable
+  Medicine    66.5  expect 66.5  Maintain    debt     0 Stable
   Governance  54.3  expect   55  (no voice)  debt     0 Stable
   Economy     52.7  expect   54  (no voice)  debt     0 Stable
   Prices: +17.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8313,15 +8413,16 @@ You earn 136 denarii; tax takes 14 denarii, you keep 123 denarii.  [Attention le
   • The year AD 167 begins.
   • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
 
-== Month 145 · Ianuarius, AD 167 ==  5,249 denarii (+13/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 145 · Ianuarius, AD 167 ==  5,247 denarii (+13/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   On your street: Workshops are hiring again, and paying more than before the sickness: there are fewer hands to go round.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 97 (54.8% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8372,14 +8473,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 146 · Februarius, AD 167 ==  5,386 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 146 · Februarius, AD 167 ==  5,384 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 99 (55.3% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8430,14 +8532,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 147 · Martius, AD 167 ==  5,524 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 147 · Martius, AD 167 ==  5,522 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8488,14 +8591,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 148 · Aprilis, AD 167 ==  5,661 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 148 · Aprilis, AD 167 ==  5,660 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8546,14 +8650,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 149 · Maius, AD 167 ==  5,799 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 149 · Maius, AD 167 ==  5,797 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8604,14 +8709,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 150 · Iunius, AD 167 ==  5,937 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 150 · Iunius, AD 167 ==  5,935 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8662,14 +8768,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 151 · Iulius, AD 167 ==  6,074 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 151 · Iulius, AD 167 ==  6,073 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8720,14 +8827,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 152 · Augustus, AD 167 ==  6,212 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 152 · Augustus, AD 167 ==  6,210 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8778,15 +8886,16 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 153 · September, AD 167 ==  6,350 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 153 · September, AD 167 ==  6,348 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Tribes from beyond the Danube have crossed into Pannonia. They were driven back, but the frontier is uneasy.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8837,14 +8946,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 154 · October, AD 167 ==  6,487 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 154 · October, AD 167 ==  6,486 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8895,14 +9005,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 155 · November, AD 167 ==  6,625 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 155 · November, AD 167 ==  6,623 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -8953,14 +9064,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
 
 > end
 
-== Month 156 · December, AD 167 ==  6,763 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 117.9
+== Month 156 · December, AD 167 ==  6,761 denarii (+14/month) · 60 aurei (1 = 29.9 den.)   Index 118.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    66.6  expect 66.6  Maintain    debt     0 Stable
+  Medicine    67.6  expect 67.6  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +19.6% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9014,14 +9126,15 @@ You earn 137 denarii; tax takes 14 denarii, you keep 124 denarii.  [Attention le
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
   • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 157 · Ianuarius, AD 168 ==  6,901 denarii (+12/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 157 · Ianuarius, AD 168 ==  6,899 denarii (+12/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9072,14 +9185,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 158 · Februarius, AD 168 ==  7,038 denarii (+13/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 158 · Februarius, AD 168 ==  7,036 denarii (+13/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9130,14 +9244,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 159 · Martius, AD 168 ==  7,176 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 159 · Martius, AD 168 ==  7,174 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9188,15 +9303,16 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 160 · Aprilis, AD 168 ==  7,315 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 160 · Aprilis, AD 168 ==  7,313 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Both emperors leave for Aquileia and the northern frontier.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9247,14 +9363,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 161 · Maius, AD 168 ==  7,453 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 161 · Maius, AD 168 ==  7,452 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9305,14 +9422,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 162 · Iunius, AD 168 ==  7,592 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 162 · Iunius, AD 168 ==  7,590 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9363,14 +9481,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 163 · Iulius, AD 168 ==  7,731 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 163 · Iulius, AD 168 ==  7,729 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9421,14 +9540,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 164 · Augustus, AD 168 ==  7,869 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 164 · Augustus, AD 168 ==  7,868 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9479,14 +9599,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 165 · September, AD 168 ==  8,008 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 165 · September, AD 168 ==  8,006 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9537,14 +9658,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 166 · October, AD 168 ==  8,147 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 166 · October, AD 168 ==  8,145 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9595,14 +9717,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 167 · November, AD 168 ==  8,286 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 167 · November, AD 168 ==  8,284 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9653,14 +9776,15 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
 
 > end
 
-== Month 168 · December, AD 168 ==  8,424 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 118.5
+== Month 168 · December, AD 168 ==  8,423 denarii (+14/month) · 60 aurei (1 = 30.3 den.)   Index 119.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    67.8  expect 67.8  Maintain    debt     0 Stable
+  Medicine    68.8  expect 68.8  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +21.4% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9714,15 +9838,16 @@ You earn 138 denarii; tax takes 14 denarii, you keep 125 denarii.  [Attention le
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
   • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 169 · Ianuarius, AD 169 ==  8,563 denarii (+12/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 169 · Ianuarius, AD 169 ==  8,561 denarii (+12/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Lucius Verus is dead, struck down on the road home at Altinum. Marcus rules alone.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9773,14 +9898,15 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 170 · Februarius, AD 169 ==  8,701 denarii (+13/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 170 · Februarius, AD 169 ==  8,700 denarii (+13/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9831,15 +9957,16 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 171 · Martius, AD 169 ==  8,840 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 171 · Martius, AD 169 ==  8,839 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Galen is back in Rome at the emperor's command, to look after young Commodus.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9890,14 +10017,15 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 172 · Aprilis, AD 169 ==  8,980 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 172 · Aprilis, AD 169 ==  8,978 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -9948,14 +10076,15 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 173 · Maius, AD 169 ==  9,120 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 173 · Maius, AD 169 ==  9,118 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10006,9 +10135,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 174 · Iunius, AD 169 ==  9,260 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 174 · Iunius, AD 169 ==  9,258 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10019,6 +10148,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10069,9 +10199,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 175 · Iulius, AD 169 ==  9,399 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 175 · Iulius, AD 169 ==  9,398 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10081,6 +10211,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10131,9 +10262,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 176 · Augustus, AD 169 ==  9,539 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 176 · Augustus, AD 169 ==  9,537 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10143,6 +10274,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10193,9 +10325,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 177 · September, AD 169 ==  9,679 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 177 · September, AD 169 ==  9,677 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10205,6 +10337,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10255,9 +10388,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 178 · October, AD 169 ==  9,818 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 178 · October, AD 169 ==  9,817 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10267,6 +10400,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10317,9 +10451,9 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 179 · November, AD 169 ==  9,958 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 179 · November, AD 169 ==  9,957 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
@@ -10329,6 +10463,7 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
       decide relief   fund bread and physicians for the poor instead (1,232 denarii)
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10379,14 +10514,15 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 
 > end
 
-== Month 180 · December, AD 169 ==  10,098 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.2
+== Month 180 · December, AD 169 ==  10,096 denarii (+14/month) · 60 aurei (1 = 30.8 den.)   Index 119.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      69  expect   69  Maintain    debt     0 Stable
+  Medicine      70  expect   70  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +23.2% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10438,16 +10574,16 @@ You earn 139 denarii; tax takes 14 denarii, you keep 126 denarii.  [Attention le
 > end
   • The year AD 170 begins.
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
-  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 181 · Ianuarius, AD 170 ==  10,238 denarii (+12/month) · 60 aurei (1 = 31.3 den.)   Index 119.9
+== Month 181 · Ianuarius, AD 170 ==  10,236 denarii (+13/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 97 (54.8% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10479,7 +10615,7 @@ The School of the Fountain already exists.
 The School already has a charter.
 
 > oversee school
-Loyalty 98, strength 96.  [Attention left this month: 2/4]
+Loyalty 98, strength 99.  [Attention left this month: 2/4]
 
 > start physician
 Fund a physician for the district is already done.
@@ -10498,72 +10634,15 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 182 · Februarius, AD 170 ==  10,377 denarii (+13/month) · 60 aurei (1 = 31.3 den.)   Index 119.9
+== Month 182 · Februarius, AD 170 ==  10,376 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> respond quarantine
-There is no outbreak to respond to.
-
-> found school
-The School of the Fountain already exists.
-
-> charter school
-The School already has a charter.
-
-> oversee school
-Loyalty 100, strength 98.  [Attention left this month: 2/4]
-
-> start physician
-Fund a physician for the district is already done.
-
-> start market
-Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
-
-> start census
-Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
-
-> start magistrates
-Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
-
-> work
-You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 1/4]
-
-> end
-
-== Month 183 · Martius, AD 170 ==  10,517 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 119.9
-  Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
-  Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
-  Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
-  Prices: +25% since AD 155 (1.5% a year)
-  Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 99 (55.3% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10614,14 +10693,15 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 184 · Aprilis, AD 170 ==  10,658 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 119.9
+== Month 183 · Martius, AD 170 ==  10,517 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10672,14 +10752,15 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 185 · Maius, AD 170 ==  10,799 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120
+== Month 184 · Aprilis, AD 170 ==  10,658 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10730,14 +10811,15 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 186 · Iunius, AD 170 ==  10,939 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120
+== Month 185 · Maius, AD 170 ==  10,799 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10788,9 +10870,68 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 187 · Iulius, AD 170 ==  11,080 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120
+== Month 186 · Iunius, AD 170 ==  10,939 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
+  Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
+  Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
+  Prices: +25% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found school
+The School of the Fountain already exists.
+
+> charter school
+The School already has a charter.
+
+> oversee school
+Loyalty 100, strength 100.  [Attention left this month: 2/4]
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start census
+Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
+
+> start magistrates
+Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
+
+> work
+You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 187 · Iulius, AD 170 ==  11,080 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.6
+  Attention: 3 free / 4 total · 1 reserved — Duties at the School
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -10801,6 +10942,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10851,9 +10993,9 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 188 · Augustus, AD 170 ==  11,221 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120
+== Month 188 · Augustus, AD 170 ==  11,221 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -10863,6 +11005,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10913,9 +11056,9 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 189 · September, AD 170 ==  11,362 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120
+== Month 189 · September, AD 170 ==  11,362 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -10925,6 +11068,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -10975,9 +11119,9 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 190 · October, AD 170 ==  11,503 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.1
+== Month 190 · October, AD 170 ==  11,502 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -10987,6 +11131,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11037,9 +11182,9 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 191 · November, AD 170 ==  11,643 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.1
+== Month 191 · November, AD 170 ==  11,643 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -11049,6 +11194,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11099,9 +11245,9 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
 
-== Month 192 · December, AD 170 ==  11,784 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.1
+== Month 192 · December, AD 170 ==  11,784 denarii (+14/month) · 60 aurei (1 = 31.3 den.)   Index 120.7
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    70.2  expect 70.2  Maintain    debt     0 Stable
+  Medicine    71.2  expect 71.2  Maintain    debt     0 Stable
   Governance  54.3  expect 54.3  (no voice)  debt     0 Stable
   Economy     52.7  expect 52.7  (no voice)  debt     0 Stable
   Prices: +25% since AD 155 (1.5% a year)
@@ -11111,6 +11257,7 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
       decide sell     sell out while you still can
       decide none     wait it out
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11161,16 +11308,17 @@ You earn 141 denarii; tax takes 14 denarii, you keep 127 denarii.  [Attention le
 
 > end
   • The year AD 171 begins.
-  • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
+  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
 
-== Month 193 · Ianuarius, AD 171 ==  11,925 denarii (+13/month) · 60 aurei (1 = 31.7 den.)   Index 120.6
+== Month 193 · Ianuarius, AD 171 ==  11,925 denarii (+13/month) · 60 aurei (1 = 31.7 den.)   Index 121.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 97 (54.8% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11221,14 +11369,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 194 · Februarius, AD 171 ==  12,066 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.6
+== Month 194 · Februarius, AD 171 ==  12,066 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.1
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 99 (55.3% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11279,14 +11428,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 195 · Martius, AD 171 ==  12,208 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.6
+== Month 195 · Martius, AD 171 ==  12,208 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11337,14 +11487,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 196 · Aprilis, AD 171 ==  12,350 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.6
+== Month 196 · Aprilis, AD 171 ==  12,350 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11395,14 +11546,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 197 · Maius, AD 171 ==  12,492 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.6
+== Month 197 · Maius, AD 171 ==  12,491 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11453,14 +11605,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 198 · Iunius, AD 171 ==  12,633 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.7
+== Month 198 · Iunius, AD 171 ==  12,633 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11511,14 +11664,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 199 · Iulius, AD 171 ==  12,775 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.7
+== Month 199 · Iulius, AD 171 ==  12,775 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11569,14 +11723,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 200 · Augustus, AD 171 ==  12,917 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.7
+== Month 200 · Augustus, AD 171 ==  12,917 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11627,14 +11782,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 201 · September, AD 171 ==  13,059 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.7
+== Month 201 · September, AD 171 ==  13,059 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11685,14 +11841,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 202 · October, AD 171 ==  13,200 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.7
+== Month 202 · October, AD 171 ==  13,200 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11743,14 +11900,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 203 · November, AD 171 ==  13,342 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.8
+== Month 203 · November, AD 171 ==  13,342 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11801,14 +11959,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
 
 > end
 
-== Month 204 · December, AD 171 ==  13,484 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 120.8
+== Month 204 · December, AD 171 ==  13,484 denarii (+14/month) · 60 aurei (1 = 31.7 den.)   Index 121.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    71.5  expect 71.5  Maintain    debt     0 Stable
+  Medicine    72.5  expect 72.5  Maintain    debt     0 Stable
   Governance    54  expect   54  (no voice)  debt     0 Stable
   Economy     52.6  expect 52.6  (no voice)  debt     0 Stable
   Prices: +26.9% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11862,14 +12021,15 @@ You earn 142 denarii; tax takes 14 denarii, you keep 128 denarii.  [Attention le
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
   • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 205 · Ianuarius, AD 172 ==  13,626 denarii (+12/month) · 60 aurei (1 = 32.2 den.)   Index 121.2
+== Month 205 · Ianuarius, AD 172 ==  13,626 denarii (+12/month) · 60 aurei (1 = 32.2 den.)   Index 121.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11920,14 +12080,15 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 206 · Februarius, AD 172 ==  13,767 denarii (+13/month) · 60 aurei (1 = 32.2 den.)   Index 121.3
+== Month 206 · Februarius, AD 172 ==  13,767 denarii (+13/month) · 60 aurei (1 = 32.2 den.)   Index 121.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -11978,14 +12139,15 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 207 · Martius, AD 172 ==  13,909 denarii (+13/month) · 60 aurei (1 = 32.2 den.)   Index 121.3
+== Month 207 · Martius, AD 172 ==  13,909 denarii (+13/month) · 60 aurei (1 = 32.2 den.)   Index 121.8
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12036,14 +12198,15 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 208 · Aprilis, AD 172 ==  14,052 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.3
+== Month 208 · Aprilis, AD 172 ==  14,052 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12094,9 +12257,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 209 · Maius, AD 172 ==  14,195 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.3
+== Month 209 · Maius, AD 172 ==  14,195 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12107,6 +12270,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12157,9 +12321,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 210 · Iunius, AD 172 ==  14,338 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.3
+== Month 210 · Iunius, AD 172 ==  14,338 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12169,6 +12333,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12219,9 +12384,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 211 · Iulius, AD 172 ==  14,480 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.4
+== Month 211 · Iulius, AD 172 ==  14,480 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12231,6 +12396,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12281,9 +12447,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 212 · Augustus, AD 172 ==  14,623 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.4
+== Month 212 · Augustus, AD 172 ==  14,623 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12293,6 +12459,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12343,9 +12510,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 213 · September, AD 172 ==  14,766 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.4
+== Month 213 · September, AD 172 ==  14,766 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 122
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12355,6 +12522,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12405,9 +12573,9 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 214 · October, AD 172 ==  14,909 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.4
+== Month 214 · October, AD 172 ==  14,909 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 122
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
@@ -12417,6 +12585,7 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
       decide hoard    hold your grain and sell at the top
       decide none     stay out of it
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12467,14 +12636,15 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 215 · November, AD 172 ==  15,051 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.4
+== Month 215 · November, AD 172 ==  15,051 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 122
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12525,14 +12695,15 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 
 > end
 
-== Month 216 · December, AD 172 ==  15,194 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 121.5
+== Month 216 · December, AD 172 ==  15,194 denarii (+14/month) · 60 aurei (1 = 32.2 den.)   Index 122
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    72.8  expect 72.8  Maintain    debt     0 Stable
+  Medicine    73.8  expect 73.8  Maintain    debt     0 Stable
   Governance  53.7  expect 53.7  (no voice)  debt     0 Stable
   Economy     52.5  expect 52.5  (no voice)  debt     0 Stable
   Prices: +28.8% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12584,16 +12755,16 @@ You earn 143 denarii; tax takes 14 denarii, you keep 129 denarii.  [Attention le
 > end
   • The year AD 173 begins.
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
-  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 217 · Ianuarius, AD 173 ==  15,337 denarii (+12/month) · 60 aurei (1 = 32.7 den.)   Index 121.9
+== Month 217 · Ianuarius, AD 173 ==  15,337 denarii (+13/month) · 60 aurei (1 = 32.7 den.)   Index 122.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 97 (54.8% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12625,7 +12796,7 @@ The School of the Fountain already exists.
 The School already has a charter.
 
 > oversee school
-Loyalty 98, strength 96.  [Attention left this month: 2/4]
+Loyalty 98, strength 99.  [Attention left this month: 2/4]
 
 > start physician
 Fund a physician for the district is already done.
@@ -12644,72 +12815,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 218 · Februarius, AD 173 ==  15,480 denarii (+13/month) · 60 aurei (1 = 32.7 den.)   Index 122
+== Month 218 · Februarius, AD 173 ==  15,480 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
-  ► Cassianus: commission look cellarpump (unpaid)   (commission)
-  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
-
-> assess
-You have already assessed the machine; see 'machine'.
-
-> repair coil
-The coil is finished.
-
-> repair coolant
-The coolant is finished.
-
-> repair chronometer
-The chronometer is finished.
-
-> promise yes
-No promise is waiting for an answer.
-
-> respond hospice
-There is no outbreak to respond to.
-
-> respond quarantine
-There is no outbreak to respond to.
-
-> found school
-The School of the Fountain already exists.
-
-> charter school
-The School already has a charter.
-
-> oversee school
-Loyalty 100, strength 98.  [Attention left this month: 2/4]
-
-> start physician
-Fund a physician for the district is already done.
-
-> start market
-Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
-
-> start census
-Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
-
-> start magistrates
-Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
-
-> work
-You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 1/4]
-
-> end
-
-== Month 219 · Martius, AD 173 ==  15,623 denarii (+13/month) · 60 aurei (1 = 32.7 den.)   Index 122
-  Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
-  Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
-  Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
-  Prices: +30.7% since AD 155 (1.5% a year)
-  Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 99 (55.3% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12760,14 +12874,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 220 · Aprilis, AD 173 ==  15,766 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122
+== Month 219 · Martius, AD 173 ==  15,624 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12818,14 +12933,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 221 · Maius, AD 173 ==  15,910 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122
+== Month 220 · Aprilis, AD 173 ==  15,768 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.5
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12876,14 +12992,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 222 · Iunius, AD 173 ==  16,054 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122
+== Month 221 · Maius, AD 173 ==  15,912 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12934,14 +13051,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 223 · Iulius, AD 173 ==  16,198 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 222 · Iunius, AD 173 ==  16,056 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -12992,14 +13110,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 224 · Augustus, AD 173 ==  16,342 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 223 · Iulius, AD 173 ==  16,200 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13050,14 +13169,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 225 · September, AD 173 ==  16,486 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 224 · Augustus, AD 173 ==  16,343 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13108,14 +13228,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 226 · October, AD 173 ==  16,629 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 225 · September, AD 173 ==  16,487 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.6
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13166,14 +13287,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 227 · November, AD 173 ==  16,773 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 226 · October, AD 173 ==  16,631 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.7
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13224,14 +13346,74 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
 
 > end
 
-== Month 228 · December, AD 173 ==  16,917 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.1
+== Month 227 · November, AD 173 ==  16,775 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.7
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    74.2  expect 74.2  Maintain    debt     0 Stable
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
   Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +30.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
+  ► Cassianus: commission look cellarpump (unpaid)   (commission)
+  Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
+
+> assess
+You have already assessed the machine; see 'machine'.
+
+> repair coil
+The coil is finished.
+
+> repair coolant
+The coolant is finished.
+
+> repair chronometer
+The chronometer is finished.
+
+> promise yes
+No promise is waiting for an answer.
+
+> respond hospice
+There is no outbreak to respond to.
+
+> respond quarantine
+There is no outbreak to respond to.
+
+> found school
+The School of the Fountain already exists.
+
+> charter school
+The School already has a charter.
+
+> oversee school
+Loyalty 100, strength 100.  [Attention left this month: 2/4]
+
+> start physician
+Fund a physician for the district is already done.
+
+> start market
+Honest weights and free prices at the Forum Boarium is public business: you need 10% of an institution in Economy to push it through.
+
+> start census
+Sponsor a household census is public business: you need 10% of an institution in Governance to push it through.
+
+> start magistrates
+Fund the district magistrates is public business: you need 10% of an institution in Governance to push it through.
+
+> work
+You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention left this month: 1/4]
+
+> end
+
+== Month 228 · December, AD 173 ==  16,919 denarii (+14/month) · 60 aurei (1 = 32.7 den.)   Index 122.7
+  Attention: 3 free / 4 total · 1 reserved — Duties at the School
+  Medicine    75.2  expect 75.2  Maintain    debt     0 Stable
+  Governance  53.4  expect 53.4  (no voice)  debt     0 Stable
+  Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
+  Prices: +30.7% since AD 155 (1.5% a year)
+  Pestilence: The pestilence has passed.
+  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13285,14 +13467,15 @@ You earn 144 denarii; tax takes 14 denarii, you keep 130 denarii.  [Attention le
   • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
   • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 229 · Ianuarius, AD 174 ==  17,061 denarii (+12/month) · 60 aurei (1 = 33.2 den.)   Index 122.6
+== Month 229 · Ianuarius, AD 174 ==  17,062 denarii (+12/month) · 60 aurei (1 = 33.2 den.)   Index 123.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13343,14 +13526,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 230 · Februarius, AD 174 ==  17,204 denarii (+13/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 230 · Februarius, AD 174 ==  17,206 denarii (+13/month) · 60 aurei (1 = 33.2 den.)   Index 123.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 96 (54.5% of Medicine), loyalty 98, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13401,14 +13585,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 231 · Martius, AD 174 ==  17,349 denarii (+13/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 231 · Martius, AD 174 ==  17,350 denarii (+13/month) · 60 aurei (1 = 33.2 den.)   Index 123.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 98 (55.1% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13459,14 +13644,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 232 · Aprilis, AD 174 ==  17,493 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 232 · Aprilis, AD 174 ==  17,495 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13517,14 +13703,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 233 · Maius, AD 174 ==  17,638 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 233 · Maius, AD 174 ==  17,640 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.2
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13575,15 +13762,16 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 234 · Iunius, AD 174 ==  17,783 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 234 · Iunius, AD 174 ==  17,785 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   News: Marcus is still on the Danube, and has been for six years. Rome runs on letters from the front.   (news)
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13634,14 +13822,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 235 · Iulius, AD 174 ==  17,928 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.7
+== Month 235 · Iulius, AD 174 ==  17,930 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13692,14 +13881,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 236 · Augustus, AD 174 ==  18,073 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.8
+== Month 236 · Augustus, AD 174 ==  18,074 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13750,14 +13940,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 237 · September, AD 174 ==  18,218 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.8
+== Month 237 · September, AD 174 ==  18,219 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13808,14 +13999,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 238 · October, AD 174 ==  18,363 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.8
+== Month 238 · October, AD 174 ==  18,364 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.3
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13866,14 +14058,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 239 · November, AD 174 ==  18,507 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.8
+== Month 239 · November, AD 174 ==  18,509 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13924,14 +14117,15 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
 
-== Month 240 · December, AD 174 ==  18,652 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 122.8
+== Month 240 · December, AD 174 ==  18,654 denarii (+14/month) · 60 aurei (1 = 33.2 den.)   Index 123.4
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine    75.6  expect 75.6  Maintain    debt     0 Stable
+  Medicine    76.6  expect 76.6  Maintain    debt     0 Stable
   Governance  53.1  expect 53.1  (no voice)  debt     0 Stable
   Economy     52.4  expect 52.4  (no voice)  debt     0 Stable
   Prices: +32.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
   The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 100, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
 
@@ -13982,15 +14176,18 @@ You earn 145 denarii; tax takes 15 denarii, you keep 131 denarii.  [Attention le
 
 > end
   • The year AD 175 begins.
+  • The Physicians' Circle of the Subura works against the School of the Fountain, which now holds 55.6% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 100 → 97.
+  • The healers of the Tiber Island sanctuary works against the School of the Fountain, which now holds 54.8% of Medicine: rumors that its remedies kill, and patients poached with free cures. Strength 97 → 94.
 
-== Month 241 · Ianuarius, AD 175 ==  18,797 denarii (+14/month) · 60 aurei (1 = 33.7 den.)   Index 123.3
+== Month 241 · Ianuarius, AD 175 ==  18,799 denarii (+12/month) · 60 aurei (1 = 33.7 den.)   Index 123.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      77  expect   77  Maintain    debt     0 Stable
+  Medicine      78  expect   78  Maintain    debt     0 Stable
   Governance  52.8  expect 52.8  (no voice)  debt     0 Stable
   Economy     52.3  expect 52.3  (no voice)  debt     0 Stable
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 90, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 0/60 aurei   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
@@ -14018,14 +14215,15 @@ That needs 3 Attention; you have 2 left this month.
 
 > end
 
-== Month 242 · Februarius, AD 175 ==  17,534 denarii (+14/month) · 37 aurei (1 = 33.7 den.)   Index 123.4
+== Month 242 · Februarius, AD 175 ==  17,534 denarii (+12/month) · 37 aurei (1 = 33.7 den.)   Index 123.9
   Attention: 3 free / 4 total · 1 reserved — Duties at the School
-  Medicine      77  expect   77  Maintain    debt     0 Stable
+  Medicine      78  expect   78  Maintain    debt     0 Stable
   Governance  52.8  expect 52.8  (no voice)  debt     0 Stable
   Economy     52.3  expect 52.3  (no voice)  debt     0 Stable
   Prices: +34.7% since AD 155 (1.5% a year)
   Pestilence: The pestilence has passed.
-  The School (Theon of Alexandria): you hold 100% (control), strength 100 (55.6% of Medicine), loyalty 90, chartered
+  The School (Theon of Alexandria): you hold 100% (control), strength 94 (54% of Medicine), loyalty 90, chartered
+  ► Serenus's invitation: invitation accept|decline circle   (institutions)
   ► Cassianus: commission look cellarpump (unpaid)   (commission)
   Machine: 9/9 repair steps, gold 60/60 aurei — ready to jump   (machine)
   ► The era's 20 years are over. Jump when you're ready (you can also stay).
@@ -14034,7 +14232,7 @@ That needs 3 Attention; you have 2 left this month.
 You will leave AD 175 and arrive somewhere between AD 210 and AD 225: the machine's range is 35–50 years (repairs, 0 of 3 upgrades, and your time in this era). You can't come back.
 What you leave behind (17,534 denarii and 37 aurei in hand):
   • No last orders for the School (leading now: the Academy of the Fountain): orders school academy|secret [1|2 to name who succeeds you: 1 Theon of Alexandria, your first teacher at the school, careful and slow; 2 Hermogenes the Younger, brilliant and ambitious, and eager to take the school into the great houses].
-  • The School of the Fountain would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 100).
+  • The School of the Fountain would be left bare (chartered but not endowed, so it counts as bare), losing 10% of its strength each decade (now 94).
   •   It holds no money, so it can't pay down Medicine debt while you're away. (endow school <denarii>)
   • The machine will carry you 35–50 years (repairs, 0 of 3 upgrades, and your time in this era); exactly how far, you'll know when you arrive. Upgrades and more time here would lengthen it.
   • The 17,534 denarii in your hands stay behind and are lost unless you spend them, pay down debt or endow an institution.
@@ -14044,10 +14242,10 @@ Prepare: paydown <domain> <points> · endow <inst> <denarii|all> · audit <inst>
 
 > jump
 
-The machine shudders. Decades pass in the dark... It carries you 40 years.
+The machine shudders. Decades pass in the dark... It carries you 45 years.
 
 — Recognition —
-You climb out of the machine in AD 215. The Tiber smells the same. You pass the corner where the
+You climb out of the machine in AD 220. The Tiber smells the same. You pass the corner where the
 smith worked and the fountain ran foul. Neither is there. You remember letting both chances pass.
 
 — Wrongness —
@@ -14059,7 +14257,9 @@ their pay buys less each year.
 — Personal echo —
 In an old house in the Subura you find a line carved over a door, in Demetria's Greek: 'For the one
 who stayed.' They don't know it means you. Over the door of the School of the Fountain someone has
-painted its beginning in red letters: 'Begun by a stranger from the East.'
+painted its beginning in red letters: 'Begun by a stranger from the East.' In the Circle's library a
+casebook in a careful hand sits chained to the shelf: Serenus's fevers, set side by side, with notes
+in three later hands arguing with him.
 
 — Discovery —
 The School of the Fountain, which you founded, is still there and still itself. Its head is a
@@ -14071,18 +14271,18 @@ Type 'learn more' for the Index and what became of your institutions, 'jump' to 
 
 (after arrival) > learn more
 Index (100 = matches real history; geometric mean of Medicine, Governance, Economy)
-  Departure, AD 175: 123   Medicine 173  Governance 103  Economy 105
-  Arrival,   AD 215: 134   Medicine 222  Governance 103  Economy 105
+  Departure, AD 175: 124   Medicine 176  Governance 103  Economy 105
+  Arrival,   AD 220: 134   Medicine 224  Governance 103  Economy 105
 Institutions
-  The School of the Fountain: Thriving (left bare; strength 66, loyalty 59)
+  The School of the Fountain: Thriving (left bare; strength 59, loyalty 56)
 Your gold: carried 10, deposited 0 (0 back), buried 0 (0 recovered), left behind 27; you hold 10 aurei now.
 Crises while you were away
   AD 189: the pestilence returns to Rome under Commodus. At its worst two thousand die in a day; the emperor goes to Laurentum for the clean air. It is contained: about 7 thousand dead, 1% of Rome.
 
 
 (after arrival) > why medicine
-You have been away for 40 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
+You have been away for 45 years. What happened in between is lost to you; the world simply is what it is now. (Try 'learn more'.)
 
 (after arrival) > quit
 
-Run fingerprint (seed 105): 98f8b01caea9f3e9
+Run fingerprint (seed 105): 1039cceccea3c4ee
