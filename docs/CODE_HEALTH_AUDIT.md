@@ -61,10 +61,69 @@ Every cleanup commit is checked against all six. The expectation is identical ou
 
 **Deletion evidence standard.** Each SAFE REMOVE above has no production caller (reference scan plus the compiler after removal), no content or tuning reference, no reflection or data-loader use (the loader reads JSON into explicit constructors; nothing binds by name), and no batch or playtest use.
 
-## Results
-
-The results are filled in after implementation; see "Final results" below.
-
 ## Final results
 
-_(updated at the end of the pass)_
+### Commits
+
+| Commit | What it does |
+|---|---|
+| `dc9bbf8` | Document code health audit (audit only) |
+| `364770e` | Remove proven dead code: findings 1–7 and the unused `arrival` parameter (#8) |
+| `5171dd0` | Simplify duplicated core logic: findings 9, 10 and 13 |
+| `6476d24` | Strengthen content validation: finding 11, plus JSON line and column (#8) |
+| `8322c4f` | Clean test infrastructure: finding 12, plus two dead test assignments |
+
+### Status of every finding
+
+| Status | Findings |
+|---|---|
+| Implemented | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 |
+| Reported, not changed | 14, 15, 16, 17, 24, 25, 27, 28 (need Corey's decision, or the change is too costly to be worth it) |
+| Kept by design | 18, 19, 20, 21, 22, 23, 26 |
+
+### Verification, after every commit
+
+| Check | Result |
+|---|---|
+| `dotnet test` | **488 total, 488 passed, 0 failed, 0 skipped** (baseline 482). Removed 2 tests of deleted scaffolding; added a ledger unit test and 7 content-validation tests. |
+| `--p1-validate 1,2,3`, `--p1-matrix 1-60`, `--runs 20`, `--explore 200` | Byte-identical to the baseline |
+| Snapshot reference hash | Unchanged (`b108741…`) |
+| Deterministic outputs | Not changed. No RNG call, iteration order or event order was altered. |
+
+### Line counts (from `74b8cf8`)
+
+| | Added | Removed |
+|---|---|---|
+| Production (`src/`) | 252 | 132 |
+| Tests (`tests/`) | 167 | 102 |
+
+The added production lines are almost all the new validator (225). Without it, production code shrank by 105 lines.
+
+### Assessment
+
+**Overall code health: GOOD.**
+
+- **Strengths.** The core is deterministic, data-driven and well-tested: 488 tests, including the snapshot, a determinism check, and four byte-identical batch outputs used as regression references. Dead code was small and concentrated in P1 Sprint 1 scaffolding. Each system lives in its own partial file, and the rules map one-to-one to SYSTEMS.md.
+- **Weaknesses.**
+  - Two models run side by side during migration: P0 stakes beside P1 access, and `ProjectState` beside the commission and challenge states.
+  - Two condition grammars (P1 `Holds`; P0 event and workshop conditions).
+  - Logic keyed by strings (requirement strings, effect types, event-type names). It is now validated at load, but is still untyped in code.
+
+### Top technical-debt risks
+
+1. **The dual institution model.** Offices, voice and policy read the P0 stake while access runs on P1 stages. Each migration step can desynchronize them.
+2. **Stringly-typed requirements and effects.** They are validated at load now, but `Holds` and the validator are two switches that must stay in step; a test guards that. Effect `type` strings and event-type names in `NotableEvents` are not validated.
+3. **Redundant state:** `World.Projects` beside the commission and challenge states; `PersonState.Happened` beside `World.LifeEventLog`.
+4. **The test-only RNG-consuming hook** `PeekRoutedScene`, and other test hooks, in production code.
+5. **About 9.5 MB of generated playtest output** in git (transcripts, explore reports). It slows clones and blurs evidence with regenerable output.
+
+### Recommendation
+
+**B: one more targeted refactoring pass, with Corey's approval:**
+
+- fold `ProjectState` into the views or retire it (#14);
+- unify life-event state (#15);
+- validate effect types and notable-event names;
+- archive the generated playtest output (#25).
+
+No significant architectural refactor is needed before more features.
