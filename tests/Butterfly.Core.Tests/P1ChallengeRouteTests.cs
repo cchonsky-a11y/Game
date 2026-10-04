@@ -135,9 +135,44 @@ namespace Butterfly.Core.Tests
             for (int m = 0; m < 12; m++) sim.EndMonth();
             Assert.Equal(1, sim.Log.Events.Count(e => e.Type == "challenge.open" && e.Target == c.ProjectId));
             Assert.Equal("pump", c.OpenedBy);                                           // the first route that holds, in authored order
+            Assert.Equal("pump", c.FirstEligibleRoute);                                 // routes eligible in one month: authored order
             Assert.DoesNotContain("challenge:standards", sim.SceneCandidateIds());
         }
     
+        [Fact]
+        public void TheFirstRouteToBecomeEligibleKeepsTheCredit()
+        {
+            // Strict route causality (Corey, 2026-10-04): the allotment raises the question first; the pump's route (first in
+            // authored order) holds only later, while the challenge still waits in the router. The allotment keeps the credit.
+            foreach (ulong seed in new ulong[] { 42, 1, 2, 3, 4, 5, 6, 7, 8, 9 })
+            {
+                var sim = At("fountain", seed);
+                while (!sim.Holds("monthsIn:12")) sim.EndMonth();
+                if (sim.FindCommission("cellarpump")!.Status == CommissionStatus.Offered) Close(sim, "cellarpump", CommissionStatus.NotYet);
+                Close(sim, "allotment", CommissionStatus.Done);
+                var c = sim.FindChallenge("standards")!;
+                Assert.Equal("", c.FirstEligibleRoute);
+                sim.EndMonth();
+                Assert.Equal("allotment", c.FirstEligibleRoute);
+                Assert.Equal(sim.Turn, c.FirstEligibleTurn);
+                if (c.Status != ChallengeStatus.NotYet) continue;                       // the router took it at once: try another seed
+
+                Close(sim, "cellarpump", CommissionStatus.Done);
+                Assert.True(sim.AdvanceCapability("valveseats", CapabilityLevel.Reproducible, null, "test"));
+                Assert.Equal("allotment", sim.OpeningRoute(c)!.Id);                     // the later route doesn't take over
+                RunUntilOpen(sim);
+                for (int m = 0; m < 6; m++) sim.EndMonth();
+                Assert.Equal("allotment", c.OpenedBy);
+                Assert.Equal("allotment", c.FirstEligibleRoute);
+                var opened = sim.Log.Events.Where(e => e.Type == "challenge.open" && e.Target == c.ProjectId).ToList();
+                Assert.Single(opened);                                                  // still opens once
+                Assert.Contains("Two calices on your bench", opened[0].Text);
+                Assert.DoesNotContain("Cassianus's pump", opened[0].Text);
+                return;
+            }
+            Assert.Fail("No seed left the challenge waiting after the allotment raised it.");
+        }
+
         [Fact]
         public void WithoutAGuildContactGaiusCanVouchForTheSharedFoot()
         {

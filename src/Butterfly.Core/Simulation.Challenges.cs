@@ -25,8 +25,32 @@ namespace Butterfly.Core
         private IEnumerable<ChallengeState> ChallengesDue() =>
             World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet && OpeningRoute(c) != null);
 
-        /// <summary>The first route (in authored order) whose requirements all hold now, or null.</summary>
-        public ChallengeRoute? OpeningRoute(ChallengeState c) => ChallengeDefOf(c).Routes.FirstOrDefault(r => r.Requires.All(Holds));
+        /// <summary>
+        /// The route that raised the question: the first one that became eligible, once remembered; until then the first
+        /// route (in authored order) whose requirements all hold now, or null.
+        /// </summary>
+        public ChallengeRoute? OpeningRoute(ChallengeState c)
+        {
+            var routes = ChallengeDefOf(c).Routes;
+            if (c.FirstEligibleRoute.Length > 0) return routes.First(r => r.Id == c.FirstEligibleRoute);
+            return routes.FirstOrDefault(r => r.Requires.All(Holds));
+        }
+
+        /// <summary>
+        /// Each month, before routing, a waiting challenge remembers the first route that has become eligible (strict route
+        /// causality, Corey 2026-10-04). Routes that first hold in the same month are settled by authored order; no chance
+        /// is involved, and a later route never replaces the one remembered.
+        /// </summary>
+        private void NoteEligibleRoutes()
+        {
+            foreach (var c in World.Challenges.Where(c => c.Status == ChallengeStatus.NotYet && c.FirstEligibleRoute.Length == 0))
+            {
+                var route = OpeningRoute(c);
+                if (route == null) continue;
+                c.FirstEligibleRoute = route.Id;
+                c.FirstEligibleTurn = Turn;
+            }
+        }
 
         private void OpenChallenge(ChallengeState c, ChallengeRoute route)
         {

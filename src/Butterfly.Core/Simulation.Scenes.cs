@@ -74,6 +74,7 @@ namespace Butterfly.Core
             // Critical authored moments interrupt: they happen the month they become possible, outside the router.
             foreach (var s in Data.Content.Scenes.Where(s => s.Interrupt && !World.ScenesSeen.Contains(s.Id) && s.Requires.All(Holds)).ToList())
                 PlayAuthoredScene(s);
+            NoteEligibleRoutes();
             int slots = T.GetInt("scenes.optionalPerMonth");
             for (int n = 0; n < slots; n++)
             {

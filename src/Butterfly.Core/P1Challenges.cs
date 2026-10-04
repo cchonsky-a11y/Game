@@ -137,6 +137,10 @@ namespace Butterfly.Core
         public int ReservedFromTurn { get; set; }
         /// <summary>The route by which the question came up (empty until it opens).</summary>
         public string OpenedBy { get; set; } = "";
+        /// <summary>The first route that became eligible, and the turn it did (Corey, 2026-10-04: strict route causality).
+        /// Fixed once set, so a route that holds later never takes the credit while the challenge waits in the router.</summary>
+        public string FirstEligibleRoute { get; set; } = "";
+        public int FirstEligibleTurn { get; set; } = -1;
         /// <summary>Who is doing the stage under way (from "needsPerson"), fixed when it starts.</summary>
         public string DoneBy { get; set; } = "";
         public ChallengeState(string id) => Id = id;
