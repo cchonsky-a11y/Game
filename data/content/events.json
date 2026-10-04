@@ -6,8 +6,8 @@
       "year": 163,
       "month": 4,
       "requires": "workshop",
-      "title": "Tertius wants to sell your designs",
-      "text": "The guild's shipwrights have seen what comes out of your workshop, and they'll pay well for the patterns. Tertius wants to sell. 'We'd still make them,' he says. 'Just not only us.'",
+      "title": "Successus wants to sell your designs",
+      "text": "The guild's shipwrights have seen what comes out of your workshop, and they'll pay well for the patterns. Successus wants to sell. 'We'd still make them,' he says. 'Just not only us.'",
       "options": [
         {
           "id": "sell",
@@ -43,14 +43,14 @@
               "value": 2
             }
           ],
-          "mark": "Every forge at Ostia still makes the ship fittings you once drew on wax. The shipwrights call them 'Tertian' after the smith; nobody has heard your name.",
-          "mark2": "Ship fittings of the old Tertian pattern are made from Ostia to Carthage now. The pattern has a guild of its own."
+          "mark": "Every forge at Ostia still makes the ship fittings you once drew on wax. The shipwrights call them 'Successan' after the smith; nobody has heard your name.",
+          "mark2": "Ship fittings of the old Successan pattern are made from Ostia to Carthage now. The pattern has a guild of its own."
         },
         {
           "id": "keep",
           "label": "keep the designs in the workshop",
           "style": "loyal",
-          "text": "Tertius takes it badly. 'You want to be rich, or you want to be the only one?' He locks the patterns away all the same.",
+          "text": "Successus takes it badly. 'You want to be rich, or you want to be the only one?' He locks the patterns away all the same.",
           "effects": [
             {
               "type": "smith",
@@ -65,8 +65,8 @@
       "year": 168,
       "month": 4,
       "requires": "workshopBelow:3",
-      "title": "Tertius wants a forge on the river",
-      "text": "Tertius has found a yard on the river with room for a third forge and a water wheel to work the bellows. He can't afford it alone. The guild would lend, for a say in the business.",
+      "title": "Successus wants a forge on the river",
+      "text": "Successus has found a yard on the river with room for a third forge and a water wheel to work the bellows. He can't afford it alone. The guild would lend, for a say in the business.",
       "options": [
         {
           "id": "fund",
@@ -136,7 +136,7 @@
           "id": "refuse",
           "label": "tell him no",
           "style": "aloof",
-          "text": "Tertius stays where he is. He doesn't mention it again, and he doesn't forget it. (You could still build the works yourself, with a water right from the Curia.)",
+          "text": "Successus stays where he is. He doesn't mention it again, and he doesn't forget it. (You could still build the works yourself, with a water right from the Curia.)",
           "effects": [
             {
               "type": "smith",
@@ -1047,7 +1047,10 @@
               "value": 0
             }
           ],
-          "mark": "Sextus Nerius's old shop still polishes by hand what a water wheel roughs out. The men there say their trade was saved by a foreigner who lied to their grandfathers' master, and that it was a kind lie."
+          "mark": "Sextus Nerius's old shop still polishes by hand what a water wheel roughs out. The men there say their trade was saved by a foreigner who lied to their grandfathers' master, and that it was a kind lie.",
+          "sets": [
+            "nerius-answered"
+          ]
         },
         {
           "id": "honest",
@@ -1077,7 +1080,10 @@
               "value": 0
             }
           ],
-          "mark": "The finishers' burial club on the Clivus keeps a list of members who lost their places to the wheels. Sextus Nerius paid into it every year until he died, and nobody knew why."
+          "mark": "The finishers' burial club on the Clivus keeps a list of members who lost their places to the wheels. Sextus Nerius paid into it every year until he died, and nobody knew why.",
+          "sets": [
+            "nerius-answered"
+          ]
         },
         {
           "id": "workers",
@@ -1102,7 +1108,10 @@
               "value": 0
             }
           ],
-          "mark": "In the finishers' quarter the men who run the grinders are called Nerius's boys, though none of them ever worked for him."
+          "mark": "In the finishers' quarter the men who run the grinders are called Nerius's boys, though none of them ever worked for him.",
+          "sets": [
+            "nerius-answered"
+          ]
         },
         {
           "id": "motive",
@@ -1127,7 +1136,10 @@
               "value": 0
             }
           ],
-          "mark": "Two families on the Clivus, the Nerii and the house of Priscus, have been undercutting each other with water wheels for as long as anyone remembers."
+          "mark": "Two families on the Clivus, the Nerii and the house of Priscus, have been undercutting each other with water wheels for as long as anyone remembers.",
+          "sets": [
+            "nerius-answered"
+          ]
         },
         {
           "id": "inspect",
@@ -1152,7 +1164,10 @@
               "value": 0
             }
           ],
-          "mark": "Sextus Nerius's grandsons still run a small grinder for the roughing and nothing else. They say a foreigner once spent a whole day in the shop and told their grandfather exactly what to leave alone."
+          "mark": "Sextus Nerius's grandsons still run a small grinder for the roughing and nothing else. They say a foreigner once spent a whole day in the shop and told their grandfather exactly what to leave alone.",
+          "sets": [
+            "nerius-answered"
+          ]
         }
       ]
     },
@@ -1195,6 +1210,95 @@
             "r17-warned"
           ],
           "text": "You copy the three lines onto a tablet, put it with the crash log, and go back to Gaius's shop. The machine can wait. So can whatever is on the other end.",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "witness",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "category": "InstitutionsPolitics",
+      "title": "The seventh seal",
+      "text": "Cassianus needs a seventh witness for his daughter's marriage contract, and he has asked you.",
+      "options": [
+        {
+          "id": "witness",
+          "label": "seal it as his seventh witness",
+          "style": "loyal",
+          "sets": [
+            "witnessed-contract"
+          ],
+          "text": "You press your ring into the wax beside the others. A foreigner's seal on a Roman contract: the factor's brother looks at it twice. Cassianus gives you the place of honor at the feast and talks about you to everyone.",
+          "effects": [
+            {
+              "type": "regard",
+              "person": "Cassianus",
+              "value": 2
+            }
+          ],
+          "mark": "In a family archive at Ostia a marriage contract survives with seven seals. One is a device nobody can identify: a little wheel inside a square."
+        },
+        {
+          "id": "decline",
+          "label": "tell him a foreigner's seal would weaken it",
+          "style": "principled",
+          "text": "Cassianus is stung, then thinks about it, then finds a retired centurion who seals anything for a dinner. The wedding goes ahead. He doesn't ask you for anything for a while.",
+          "effects": [
+            {
+              "type": "regard",
+              "person": "Cassianus",
+              "value": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "felixloan",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "category": "Personal",
+      "title": "Felix's boy's fees",
+      "text": "Felix needs a hundred and fifty denarii for his son's rhetor by the Ides, and the moneylender wants a third again.",
+      "options": [
+        {
+          "id": "lend",
+          "label": "lend him the money yourself, without interest",
+          "style": "generous",
+          "sets": [
+            "lent-felix"
+          ],
+          "text": "You count it out on the bench. Felix doesn't thank you; he names the month he'll pay it back, and he pays it back a month late, with a jar of good Falernian you didn't ask for.",
+          "effects": [
+            {
+              "type": "regard",
+              "person": "Felix",
+              "value": 2
+            }
+          ],
+          "mark": "The guild hall at Ostia has a list of members' loans from its box. One, in a hand that looks like Felix's, records a loan to a foreigner, which is the wrong way round."
+        },
+        {
+          "id": "advise",
+          "label": "tell him to take the boy out of the rhetor's school",
+          "style": "profit",
+          "text": "Felix listens and goes home. The boy stays in school; Felix borrows from the Velabrum after all. He doesn't bring it up with you again, and he doesn't sit next to you at the next supper.",
+          "effects": [
+            {
+              "type": "regard",
+              "person": "Felix",
+              "value": -1
+            }
+          ]
+        },
+        {
+          "id": "stayout",
+          "label": "say it's between him and Prima",
+          "style": "aloof",
+          "text": "Felix nods as if that were the answer he expected. Prima pawns a bracelet. The boy stays in school.",
           "effects": []
         }
       ]

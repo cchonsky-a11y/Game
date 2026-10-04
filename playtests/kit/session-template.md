@@ -14,7 +14,7 @@
 - When did they jump (year)? Did they read the pre-jump briefing? Did they pay down, endow or audit? Did they leave last orders?
 - Did they found an institution? Which, and when? Did they join others, rise to an office?
 - Policy: did they find `policy` or `advocate`? Which stances, and why?
-- Workshop (if they had it): orders vs odd work, apprentices, expanding; what they said about Tertius's requests.
+- Workshop (if they had it): orders vs odd work, apprentices, expanding; what they said about Successus's requests.
 - Rome's choices (flood, Galen, the levy, the auction, the invasion scare, the grain fleet, leaders' requests): what they chose and why.
 - Menu: numbers or typed commands?
 - Reaction to each arrival beat (first arrival):

@@ -161,6 +161,8 @@ namespace Butterfly.Core
         /// <summary>Life gets in the way: the named Grand Challenge's stage under way takes this many more months.</summary>
         public string DelaysChallenge { get; }
         public int DelayMonths { get; }
+        /// <summary>A choice the scene puts to the player: a triggered event (events.json) offered the next month.</summary>
+        public string Triggers { get; }
 
         public AuthoredSceneDef(JsonObject o)
         {
@@ -179,6 +181,7 @@ namespace Butterfly.Core
             var dl = o.Has("delays") ? o.Obj("delays") : null;
             DelaysChallenge = dl?.Str("challenge") ?? "";
             DelayMonths = dl == null ? 0 : (int)dl.Num("months");
+            Triggers = o.StrOr("triggers", "") ?? "";
         }
     }
 }

@@ -122,6 +122,7 @@ namespace Butterfly.Core
                 Record("challenge.delayed", ch.ProjectId, new[] { played.Id }, actors, new[] { new Effect(ch.ProjectId + ".monthsLeft", before, ch.MonthsLeft) },
                     NextStage(ch)!.Name + " slips " + s.DelayMonths + " month" + (s.DelayMonths == 1 ? "" : "s") + ".");
             }
+            if (s.Triggers.Length > 0) World.TriggeredEvents.Add(s.Triggers);
             if (s.KnowsInstitution.Length > 0)
             {
                 var access = World.AccessTo(s.KnowsInstitution);

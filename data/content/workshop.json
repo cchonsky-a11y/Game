@@ -1,13 +1,13 @@
 {
   "_readme": "The workshop (decided 2026-09-28, P0-34): orders to choose between each season, the smith as a person, and free, paid apprentices (never enslaved, SYSTEMS §14). Pay is in AD 155 aurei, scaled by prices, the workshop's inventions and its apprentices, and taxed like work. Effects use the decision events' types. Amounts are PROPOSED P0-34. Sizes (decided 2026-09-28, Corey: upgrade the workshop, a ladder of sizes): each step up costs gold (AD 155 aurei, scaled by prices), Attention once, and turns to build, needs something from Rome, and adds yearly upkeep; an upkeep you can't pay shrinks the workshop one size. requires: 'member:a|b' (a member of either), 'influence:<domain>' (10% of an institution in that domain), 'invented:<id>'. Orders with minSize come only to a workshop that big. Trimmed 2026-09-28 (Corey): size output +7/+20/+33% (was +10/+30/+50); orders take more Attention (2, ironwork and contracts 3) and pay a little more, so per Attention they pay less than odd work but bring standing and effects. requires may list alternatives separated by '||'; 'stake:<id>' means 10% of that institution.",
-  "smith": "Tertius",
+  "smith": "Successus",
   "orders": [
     {
       "id": "fittings",
       "name": "ship fittings for the guild",
       "attention": 2,
       "pay": 8,
-      "text": "Tertius forges cleats, chain and rudder pins for a guild ship at Ostia.",
+      "text": "Successus forges cleats, chain and rudder pins for a guild ship at Ostia.",
       "effects": [
         {
           "type": "loyalty",

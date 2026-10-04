@@ -382,6 +382,208 @@
         "Marcus": "keeping the shaft's tally book, and still wanting a shop of his own"
       },
       "text": "Priscus offers Marcus half again his pay. Marcus tells him no, then tells everyone on the Clivus he said no. He asks you to show him how to keep the tally of the shaft properly, every hour of it, as if it had been his idea."
+    },
+    {
+      "id": "felix-quaestor",
+      "person": "Felix",
+      "fromMonth": 24,
+      "chance": 0.06,
+      "windowMonths": 36,
+      "requires": [
+        "access:guild:Member"
+      ],
+      "category": "InstitutionsPolitics",
+      "status": {
+        "Felix": "quaestor of the guild this year, keeping its box and its grudges"
+      },
+      "text": "The guild elects Felix quaestor. The older families vote for a shipper's cousin; the younger members carry it for Felix by four votes. He spends the first month learning who owes dues and the second month learning why they don't pay."
+    },
+    {
+      "id": "felix-son",
+      "person": "Felix",
+      "fromMonth": 18,
+      "chance": 0.04,
+      "windowMonths": 48,
+      "requires": [
+        "knows:Felix"
+      ],
+      "category": "Personal",
+      "status": {
+        "Felix": "paying a rhetor for his elder boy, and borrowing to do it"
+      },
+      "text": "Felix's elder boy has gone to a rhetor at the Forum of Trajan. The fees are more than Felix makes in a good month. He tells you about it with his arms folded, daring you to say it's too much. Prima has already said it."
+    },
+    {
+      "id": "cassianus-betrothal",
+      "person": "Cassianus",
+      "fromMonth": 20,
+      "chance": 0.05,
+      "windowMonths": 36,
+      "requires": [
+        "commission:cellarpump:Done"
+      ],
+      "category": "Personal",
+      "status": {
+        "Cassianus": "marrying his daughter to an Ostia grain factor, and counting the dowry twice"
+      },
+      "text": "Cassianus has found a husband for his daughter: a grain factor at Ostia, older, solid, with a house near the harbor. The dowry will take two years of oil. His sister thinks the man drinks. Cassianus thinks everyone drinks."
+    },
+    {
+      "id": "diodoros-mother",
+      "person": "Diodoros",
+      "fromMonth": 0,
+      "chance": 0.04,
+      "windowMonths": 36,
+      "requires": [
+        "life:diodoros-deliveries"
+      ],
+      "category": "Personal",
+      "status": {
+        "Diodoros": "running Cassianus's deliveries; his mother in Antioch has died"
+      },
+      "text": "A letter comes from Antioch, months old: Diodoros's mother has died. He reads it in the street, folds it into his tunic and finishes the morning's deliveries. That evening he spends a week's pay on a funeral meal for porters who never met her."
+    },
+    {
+      "id": "serenus-rival",
+      "person": "Serenus",
+      "fromMonth": 0,
+      "chance": 0.05,
+      "windowMonths": 36,
+      "requires": [
+        "regard:Serenus:2"
+      ],
+      "category": "InstitutionsPolitics",
+      "status": {
+        "Serenus": "in a public quarrel with a fashionable physician who treats senators"
+      },
+      "text": "A fashionable physician who treats senators calls Serenus's casebooks 'the accounts of a grocer' at a public lecture. Serenus stands up in the audience and asks him how many of his patients died last summer. The Circle talks of nothing else for a month, and two senators' households stop calling Serenus at all."
+    },
+    {
+      "id": "gaius-no",
+      "person": "Gaius",
+      "fromMonth": 0,
+      "chance": 0.15,
+      "windowMonths": 12,
+      "requires": [
+        "challenge:power:Done"
+      ],
+      "category": "Personal",
+      "status": {
+        "Gaius": "running one powered shop and refusing to open a second"
+      },
+      "text": "Priscus offers to go halves with Gaius on a second powered shop by the river. Gaius says no. You argue the numbers with him all evening. \"One shop I can watch,\" he says. \"Two shops, I'm a man who walks between them.\" Livia agrees with him, which settles it."
+    },
+    {
+      "id": "livia-betrothal",
+      "person": "Livia",
+      "fromMonth": 30,
+      "chance": 0.04,
+      "windowMonths": 48,
+      "requires": [
+        "knows:Livia"
+      ],
+      "category": "Personal",
+      "status": {
+        "Livia": "arranging her elder daughter's betrothal to a Green-supporting baker's son"
+      },
+      "text": "Livia has settled her elder daughter's betrothal: a baker's son from the next street, a Green like her. Gaius wanted a bronze worker. Livia says a baker's son will always eat. The betrothal ring is iron, the custom, and the girl wears it on the fourth finger and looks at it all day."
+    },
+    {
+      "id": "marcus-shop",
+      "person": "Marcus",
+      "fromMonth": 0,
+      "chance": 0.06,
+      "windowMonths": 36,
+      "requires": [
+        "life:marcus-stays",
+        "challenge:power:Done"
+      ],
+      "category": "WorkEconomy",
+      "status": {
+        "Marcus": "running his own small shop on the Clivus, with Gaius's old lathe and a tally book on the wall"
+      },
+      "text": "Marcus rents a narrow shop three doors from Gaius and takes Gaius's old lathe with him. Gaius gives it without a word and then, on the first day, sends Livia with bread. Marcus's tally book hangs on a nail by the door where customers can see it."
+    },
+    {
+      "id": "marcus-foreman",
+      "person": "Marcus",
+      "fromMonth": 0,
+      "chance": 0.06,
+      "windowMonths": 36,
+      "requires": [
+        "life:marcus-priscus"
+      ],
+      "category": "WorkEconomy",
+      "status": {
+        "Marcus": "foreman at Priscus's shop, keeping tallies the way he learned at Gaius's"
+      },
+      "text": "Word on the Clivus: Priscus has made Marcus his foreman. He has six men under him and keeps a tally of every stoppage, the way he learned at Gaius's bench. He doesn't come back to visit. Gaius says he doesn't care, and asks every week whether anyone has seen him."
+    },
+    {
+      "id": "lucan-eyes",
+      "person": "Lucan",
+      "fromMonth": 0,
+      "chance": 0.05,
+      "windowMonths": 48,
+      "requires": [
+        "knows:Lucan",
+        "monthsIn:30"
+      ],
+      "category": "Personal",
+      "status": {
+        "Lucan": "nearly blind, sitting by his old forge and telling the apprentices when the iron is right by its sound"
+      },
+      "text": "Lucan's eyes have gone. He sits on a stool by the forge he gave to his best apprentice and listens to the hammering. \"Too cold,\" he says, without looking. The apprentice puts the iron back in the fire."
+    },
+    {
+      "id": "lucan-death",
+      "person": "Lucan",
+      "fromMonth": 0,
+      "chance": 0.04,
+      "windowMonths": 60,
+      "requires": [
+        "life:lucan-eyes"
+      ],
+      "category": "Personal",
+      "leaves": true,
+      "status": {
+        "Lucan": "dead; buried by his burial club on the Via Ostiensis"
+      },
+      "text": "Lucan dies in the winter, in his sleep, with a cat on his feet. His burial club, the smiths of the Porta Trigemina, pays for the pyre and a small stone. His granddaughter asks you to say something at the tomb. You say what he said to you."
+    },
+    {
+      "id": "aulus-back",
+      "person": "Aulus",
+      "fromMonth": 0,
+      "chance": 0.05,
+      "windowMonths": 36,
+      "requires": [
+        "knows:Aulus",
+        "monthsIn:24"
+      ],
+      "category": "Personal",
+      "awayMonths": 3,
+      "interrupt": true,
+      "status": {
+        "Aulus": "laid up with his back; his younger son is keeping the mills"
+      },
+      "text": "Aulus's back gives out lifting a stone that his sons told him to leave. He is on a board in his kitchen for a season, giving orders through the window. His younger son keeps the mills and does everything slightly differently, on purpose.",
+      "returnText": "Aulus is back on the race, slower, with a stick he pretends is for poking the sluices."
+    },
+    {
+      "id": "sextus-son",
+      "person": "Sextus",
+      "fromMonth": 0,
+      "chance": 0.06,
+      "windowMonths": 36,
+      "requires": [
+        "knows:Sextus"
+      ],
+      "category": "Personal",
+      "status": {
+        "Sextus": "proud and baffled: his son has argued his first case in the Basilica Julia"
+      },
+      "text": "Sextus's son argues his first case in the Basilica Julia, a dispute over a party wall. Sextus sits at the back in his best tunic and understands one word in five. The son loses. Sextus tells everyone on the Clivus he won."
     }
   ]
 }

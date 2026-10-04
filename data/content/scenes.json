@@ -257,6 +257,101 @@
       "text": "Serenus reads Pomponia's tablets to the Circle and says the fever came from bad air rising off the cistern. You say it was the water. He says water is water, and air is where fever lives, and Hippocrates agrees with him. You argue until his sister throws you both out. The next week he sends you a jar of honey and the tablets from another household, with the cisterns marked."
     },
     {
+      "id": "cassianus-contract",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "life:cassianus-betrothal"
+      ],
+      "triggers": "witness",
+      "text": "Cassianus comes to you with the marriage contract, a wax tablet in a wooden case. Seven witnesses must seal it. He has six: his sister's husband, two shippers, a neighbor, the grain factor's brother, his own accountant. \"You are respectable now,\" he says, not quite a question."
+    },
+    {
+      "id": "felix-loan",
+      "category": "Personal",
+      "requires": [
+        "life:felix-son",
+        "regard:Felix:2"
+      ],
+      "triggers": "felixloan",
+      "text": "Felix comes to the workshop after dark and talks about the weather, the Blues and a shipment of cordage for ten minutes before he gets to it. The rhetor wants another term's fees, and the moneylender in the Velabrum wants a third of it back again by the Ides."
+    },
+    {
+      "id": "diodoros-meal",
+      "category": "RomanLife",
+      "requires": [
+        "life:diodoros-mother"
+      ],
+      "regard": {
+        "Diodoros": 1
+      },
+      "text": "You go to Diodoros's funeral meal for his mother: bread, lentils, a jug of wine, a dozen porters in a cookshop by the river. Someone has drawn a little face on the wall above the table and written her name in Greek letters. The porters toast her nine times and Diodoros tells stories about Antioch that may not be true."
+    },
+    {
+      "id": "serenus-lecture",
+      "category": "InstitutionsPolitics",
+      "requires": [
+        "life:serenus-rival"
+      ],
+      "regard": {
+        "Serenus": 1
+      },
+      "text": "Serenus asks you to stand at the back of the hall while he reads his fevers to anyone who will come. Eleven people come, three of them physicians, one of them asleep. He reads every case. Afterward a young woman from the Subura asks him to come and see her children, and he goes."
+    },
+    {
+      "id": "livia-races",
+      "category": "RomanLife",
+      "requires": [
+        "knows:Livia",
+        "month:9"
+      ],
+      "regard": {
+        "Livia": 1
+      },
+      "text": "Livia takes you to the Circus for the September games and makes you wear a green ribbon. The Greens win the first race and she throws a whole bag of sunflower seeds over the heads of the Blues in the row below. Gaius, beside her, keeps his hands in his lap and smiles at nothing."
+    },
+    {
+      "id": "marcus-quarrel",
+      "category": "Personal",
+      "requires": [
+        "knows:Marcus",
+        "regardBelow:Marcus:2",
+        "monthsIn:16"
+      ],
+      "regard": {
+        "Marcus": -1
+      },
+      "text": "Marcus files a shell down too far and blames the gauge. You show him the gauge is right. He throws the file across the shop and says his father was a clerk and he will not be talked to like one. Gaius sends him home. The shell goes in the scrap bin and nobody mentions it for a week."
+    },
+    {
+      "id": "aulus-no",
+      "category": "Exploration",
+      "requires": [
+        "knows:Aulus",
+        "stage:power:2"
+      ],
+      "regard": {
+        "Aulus": 1
+      },
+      "text": "You show Aulus a drawing with a gear train to change the speed of the grinder. He looks at it for a long time. \"Mud,\" he says. \"Every one of those teeth fills with mud in March, and the man who cleans them loses a finger in April. Use a bigger pulley.\" You use a bigger pulley."
+    },
+    {
+      "id": "lucan-funeral",
+      "category": "RomanLife",
+      "requires": [
+        "life:lucan-death"
+      ],
+      "text": "The smiths walk Lucan's ashes out the Porta Ostiensis to the burial club's tomb, a little house of brick with niches like a dovecote. Each man drops a nail into the urn's niche before it is closed. His granddaughter sells eggs to the mourners afterward; Lucan would have approved."
+    },
+    {
+      "id": "sextus-shop",
+      "category": "WorkEconomy",
+      "requires": [
+        "knows:Sextus",
+        "flag:nerius-answered"
+      ],
+      "text": "You pass Sextus Nerius's shop on the Clivus. Through the door you can hear the grinder and, under it, men talking as they work. One of the old finishers is teaching a boy to judge a polish by the way it holds the light. Sextus sees you and nods, and doesn't come out."
+    },
+    {
       "id": "r17-request",
       "category": "MachineMystery",
       "requires": [
