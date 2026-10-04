@@ -44,7 +44,14 @@ python3 playtests/ai/live/play.py setup                                     # li
 - `data/tuning.json`: all numbers. `data/content/`: events, workshop, inventions, institutions, text templates.
 - `tests/Butterfly.Core.Tests/`: formula tests, determinism, snapshot (reference hash in `SnapshotTests`; a deliberate rule change updates it, and the commit says so).
 
-## 5. Where things stand (2026-09-28)
+## 5. Where things stand
+
+### P1 status (2026-10-04)
+- **IMPLEMENTED:** 1-month turns, End Month, fast-forward that stops on interruptions (and no longer for stake purchases); the hard future-Attention limit; one numbered choice at a time; the scene router over a monthly candidate pool (commissions, invitations, Grand Challenges, people's lives, Roman life, the machine mystery), with `focus` and unrouted interruptions; the ledger; two commissions (the cellar pump, Lollius's bilges); the guild and the Physicians' Circle by invitation (separate evidence, a vote that can refuse); the capability network (19 nodes, edge levels, maturity apart from spread, the full ladder); recurring people with bounded, branching lives; jump echoes on every arrival without repeats; the eight section views (`view`); the Roman-baseline check; old inventions as practical projects (regard, capability links); Grand Challenges: Measurement and standards, Powered workshops (with Sextus Nerius's consequence).
+- **PROPOSED (numbers and readings awaiting Corey):** P1-01 to P1-15 in `docs/P1_PROPOSALS.md`.
+- **NOT YET IMPLEMENTED:** the sanctuary and the two Senate factions still sell seats (P0 legacy; open question); craft/consult remain typed fallback commands; the batch strategies, explorer and snapshot still use the legacy stake purchase; enough commissions and Roman-life scenes to fill a whole era (the scripted session runs thin after about AD 158); a P1 batch strategy set.
+
+### P0 status (2026-09-28)
 - **Built:** everything in PROTOTYPE_SCOPE's in-scope table, including:
   - two jumps with a walk around Rome on each arrival;
   - the workshop's ladder of sizes (smithy → yard → works → foundry);

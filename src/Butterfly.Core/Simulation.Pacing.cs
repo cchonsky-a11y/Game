@@ -50,8 +50,8 @@ namespace Butterfly.Core
         }
 
         /// <summary>
-        /// A project or institution step that gold and Attention allow now: founding your own, buying up to the next
-        /// stake threshold (10%, 25%, 50%), or a charter, audit or minimum endowment for one you control.
+        /// A project, machine step or institution step that gold and Attention allow now: founding your own, or a charter,
+        /// audit or minimum endowment for one you control (P1: stake purchases no longer count).
         /// </summary>
         public bool AffordableInvestment()
         {
