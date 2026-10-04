@@ -627,3 +627,24 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - Archives: a note in 0 runs, a bribe in 300. The note route is covered by the focused test and the explorer.
   - Standards credit: pump 287, hoist 8, allotment 3, baths 1, never 1. One fountain run moves from the pump to the baths because the baths raised the question first. The freeze pass's "routes unchanged" figure came from the deferred profile, and this entry corrects it.
 - **Documentation:** the archive-access rule is no longer listed as OPEN anywhere. The earlier OPEN entries are marked superseded. It is APPROVED and IMPLEMENTED: senator-client access through the salutatio, with the bribe fallback kept.
+
+## 2026-10-04 — P1 correctness pass (independent review findings)
+- **Confirmed and fixed:**
+  - **Powered Workshops short-circuit.** Completion fired on "goal capability reached OR stages done". The sluice commission (line shafts to reproducible) finished the challenge after one to five of its six stages in 148 of 300 matrix runs. Now a challenge is complete when its authored stages are. The goal is checked as a postcondition, and content validation requires some stage to reach it.
+  - **Silent capability failures.** Commission, challenge and practical-project completions ignored a refused advance. Now:
+    - a commission isn't offered or accepted while an advance its work declares is out of reach;
+    - a challenge stage checks all its advances in order;
+    - a refused advance at completion throws instead of finishing as if Rome had moved;
+    - work already at its level finishes without claiming an advance.
+    The one shipped case was fountainworks (dimensioned drawings without shared measures, reachable through the allotment). Life events only spread capabilities, and absence carriers climb only when they can (a rule, not a claim).
+  - **Unreachable capabilities**, classified as future scope and hidden from the Civilization view's next steps: alloys, lathework, interchange, hydraulicpress, governor, steam, electricity, copying. Every other node is reachable in P1. None was accidentally unreachable.
+  - **Access in the interface, not the simulation.** `Buy` now refuses patronage, invitation, gift and founded institutions; only the bank sells shares. The P0 purchase is the internal `BuyLegacyStakeForP0Regression`, used by the P0 batch, the explorer and the snapshot, whose outputs are unchanged. Stale "buy faction / buy into one" text is fixed.
+  - **Preview consumed randomness.** `PeekRoutedScene` drew from the game's generator. It now uses `Rng.Clone()`. No other view or query draws.
+- **Deliberate, unchanged (Corey's decision, not a bug):** the archive's senator's note needs the salutatio, not the later favor.
+- **Consequences (scripted, not human):**
+  - both challenges completed in 234 of 300 runs (was 266);
+  - players do about 1.5 more challenge stages a run, have somewhat less gold at departure and do slightly more odd jobs;
+  - one validation seed (2) does 10 stages instead of 5;
+  - jumps (300 of 300 twice), the ledger, overbooking, route tallies and the archive tally are unchanged;
+  - P0 batch, explorer and snapshot unchanged.
+- **Documented:** docs/SAVE_STATE_BOUNDARY.md (not built). No tuning value changed.

@@ -44,7 +44,7 @@ The two are meant to differ. The workshop earns from craft, the fountain from ne
 | drawings (Vettius) | guild Member + metrology reproducible | Guild (2 ways) + standards (4 ways) | profit share; copies | Relationship + capability |
 | millbearing (Statius) | knows Aulus | Through Gaius and gauges | sluice | Relationship + capability |
 | sluice (three mills) | millbearing done; month 36 | — | — | Repeat work |
-| fountainworks (Gaius's freedman) | knows Gaius; month 30 | Gaius (2 ways) | — | Relationship |
+| fountainworks (Gaius's freedman) | knows Gaius; month 30; shared measures prototype (its drawings need them; correctness pass) | Gaius (2 ways) | — | Relationship + capability |
 | drains (Clivus magistrates) | knows Gaius; month 40 | Gaius (2 ways) | Livia's regard | Relationship |
 
 Generic odd jobs are the fallback. The menu offers them only while no commission or challenge stage is under way. Craft and consult are typed legacy commands.
@@ -79,7 +79,7 @@ Stages:
 | gauges | Noric steel through the guild (Member), else ×2; metrology reproducible | Capability + economic |
 | fits | — | — |
 
-**Powered workshops** opens on gauges reproducible + knows Aulus (one route). This is an intended capability gate: it builds on standards, which now has four entrances. Stages need Aulus or Gaius (relationship). Endurance takes Marcus, else Gaius two months slower. Resources are ×2 without the guild. Life can delay it (the naming day; Aulus's back). The consequence is Sextus and his twelve men (a triggered choice).
+**Powered workshops** opens on gauges reproducible + knows Aulus (one route). It is completed only by its six stages; the sluice taking line shafts to reproducible no longer finishes it early (correctness pass). This is an intended capability gate: it builds on standards, which now has four entrances. Stages need Aulus or Gaius (relationship). Endurance takes Marcus, else Gaius two months slower. Resources are ×2 without the guild. Life can delay it (the naming day; Aulus's back). The consequence is Sextus and his twelve men (a triggered choice).
 
 ## 6. Machine, R-17 and the jump
 
@@ -125,3 +125,10 @@ Stages:
 - **Powered workshops has one route.** It is the intended sequel to standards (capability), and its question needs gauges.
 - **The guild closes if the player refuses both of Felix's jobs.** This is a consequence, and nothing it gates is required.
 - **Diodoros and the jars favor depend on the pump.** This is Cassianus's household thread, with no money in it.
+
+## 11. Correctness pass (2026-10-04)
+
+- A Grand Challenge finishes when its authored stages do. The goal capability is checked after the last stage, never used as an early exit.
+- A commission is not offered while an advance its work declares is out of reach. This affects only fountainworks, which now waits on shared measures.
+- A challenge stage checks every advance it declares, including its "also" advances, in order.
+- Capabilities no P1 work moves are future scope and are hidden from the Civilization view's next steps: recipes for bronze, the hydraulic press, lathe work, interchangeable parts, the governor, steam, electricity and copying.

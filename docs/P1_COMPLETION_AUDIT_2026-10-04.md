@@ -99,3 +99,11 @@ See `docs/P1_POLISH_2026-10-04.md` for the full findings. Changes since the audi
 - **9. A Grand Challenge through more than one path:** the credit now goes to the first route that became eligible (strict causality). With the benchmark profiles restored: pump 287, hoist 8, allotment 3, baths 1, never 1 (one run moved from the pump to the baths, as intended).
 - **P1-20, P1-21, P1-22:** approved provisionally. **P1-23** (age bonus) stays off. Attention is not retuned and needs human validation. The jump range is unchanged; its redesign is deferred.
 - Evidence after the pass: 510 tests pass; 300 of 300 matrix runs jump twice; the ledger reconciles in 300; no overbooking; 0 repeated arrival sentences; both challenges done in 266 runs once the Relationship benchmark profile was restored to its pre-freeze definition (259 while it waited on the salutatio, a script change, since reverted).
+
+## Correctness-pass update (2026-10-04)
+
+- **9. A Grand Challenge through more than one path:** still PASS, with a correction. The earlier "both challenges completed" counts (267, then 266) included Powered Workshops finishing early: the sluice took line shafts to reproducible, and the old rule ended the challenge on the goal capability. That happened in 148 of 300 runs. Completion now requires every authored stage. Both challenges are completed in 234 of 300 runs.
+- **8. Technology problems:** authored capability advances can no longer fail silently. The one shipped case was fountainworks without shared measures. Future-scope capabilities are no longer shown as goals.
+- **10. Institution access:** the access rules now live in the simulation, not the console. The P0 purchase is an internal regression-only seam.
+- Read-only previews no longer move the generator.
+- Evidence after the pass: 535 tests pass. 300 of 300 matrix runs jump twice, the ledger reconciles in all 300, and nothing is overbooked. The P0 batch, the explorer and the snapshot (AD 247, Index 127.1) are unchanged.

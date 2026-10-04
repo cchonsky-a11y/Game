@@ -48,6 +48,15 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, correctness pass)
+- **FIXED:**
+  - Grand Challenges complete by their authored stages (Powered Workshops used to finish early in 148 of 300 runs);
+  - authored capability advances can't fail silently (fountainworks now waits on shared measures);
+  - P1 institution access is enforced in `Simulation.Buy`, and the P0 purchase is `BuyLegacyStakeForP0Regression` (internal, batch, explorer and snapshot only);
+  - scene previews draw from a copy of the generator.
+- **Documented:** `docs/SAVE_STATE_BOUNDARY.md`, what a future save must hold beyond `World`.
+- **Unchanged:** the archive rule (the salutatio is enough; the later favor is not required, by decision), Attention, routing, the age bonus (0), the jump range, the economy, human-testing policy. The first-return prototype is not started.
+
 ### P1 status (2026-10-04, freeze pass)
 - **APPROVED / IMPLEMENTED:**
   - Hermogenes and the political-client foundation, as built;
