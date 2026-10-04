@@ -398,6 +398,17 @@ namespace Butterfly.Core
                 "No one maintains the district fountain.");
         }
 
+        /// <summary>
+        /// The closing line for a house that has turned against you: each wording once per game, in order, so two rogue houses
+        /// (or the same one on a later arrival) don't repeat it (polish pass, 2026-10-04). Only consumed when a template uses it.
+        /// </summary>
+        private string Unwelcome(Content text)
+        {
+            for (int n = 1; text.Text.ContainsKey("discovery.unwelcome" + n); n++)
+                if (!World.EchoesShown.Contains("unwelcome:" + n)) return "{unwelcome" + n + "}";
+            return "{unwelcome1}";
+        }
+
         private string CurrentName(Institution i) => i.HasDrifted && i.DriftPath != null ? i.DriftPath.Name : i.Def.Name;
 
         // ---- the four beats -------------------------------------------------
@@ -489,6 +500,7 @@ namespace Butterfly.Core
                     { "how", i.Def.IsOwn ? "you founded" : "you held " + StakePercent(i) + "% of" },
                     { "pathName", i.DriftPath?.Name ?? i.Def.Name },
                     { "pathDescription", i.DriftPath?.Description ?? "" },
+                    { "unwelcome", Unwelcome(text) },
                 };
                 // A drift path described on an earlier arrival isn't described again word for word (hardening pass, 2026-10-04):
                 // the guild that drifted into the Grain Cartel and was later captured kept repeating the Cartel's description.
@@ -503,9 +515,19 @@ namespace Butterfly.Core
                 // L10 (tester 2): the Circle's own thriving line mentions your charter; only if you gave it one.
                 else if (key == "circle.thriving" && !i.Chartered) template = "discovery.circle.thrivingUnchartered";
                 string found = Cap(text.Template(template, v));
+                // Resolve the closing line chosen above, and remember it only if it was used.
+                for (int n = 1; text.Text.ContainsKey("discovery.unwelcome" + n); n++)
+                    if (found.Contains("{unwelcome" + n + "}"))
+                    {
+                        found = found.Replace("{unwelcome" + n + "}", text.Text["discovery.unwelcome" + n]);
+                        if (!World.EchoesShown.Contains("unwelcome:" + n)) World.EchoesShown.Add("unwelcome:" + n);
+                    }
                 // A later arrival never repeats a line word for word (2026-10-04): an unchanged house says so instead.
                 // Same house, same fate, same new name as last time: say it's unchanged rather than describe it again.
-                string fate = "inst:" + key + ":" + CurrentName(i);
+                // Keyed on the name the line actually shows: a rogue or drifted line names the drift path even before the
+                // house counts as drifted, and keying on its old name let the same line come back (polish pass, 2026-10-04).
+                string shownName = text.Text[template].Contains("{pathName}") ? (i.DriftPath?.Name ?? i.Def.Name) : CurrentName(i);
+                string fate = "inst:" + key + ":" + shownName;
                 if (World.EchoesShown.Contains(found) || World.EchoesShown.Contains(fate))
                     found = text.Template("discovery.again", new Dictionary<string, string>(v) { { "Name", Cap(CurrentName(i)) } });
                 else { World.EchoesShown.Add(found); World.EchoesShown.Add(fate); }
