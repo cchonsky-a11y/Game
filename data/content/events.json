@@ -1155,6 +1155,49 @@
           "mark": "Sextus Nerius's grandsons still run a small grinder for the roughing and nothing else. They say a foreigner once spent a whole day in the shop and told their grandfather exactly what to leave alone."
         }
       ]
+    },
+    {
+      "id": "r17-warning",
+      "year": 9999,
+      "month": 1,
+      "trigger": true,
+      "category": "MachineMystery",
+      "title": "The channel answers",
+      "text": "Two nights after you open the reference channel, the panel wakes. REQUEST RECEIVED. SOURCE: R-17. Then, a little over four seconds later, one more line: DO NOT JUMP. You set the crash log beside it. The same request, the same acceptance, nearly the same interval. Then, the destination lock. Now, this.",
+      "options": [
+        {
+          "id": "shutdown",
+          "label": "shut the panel down and cover it",
+          "style": "aloof",
+          "sets": [
+            "r17-warned",
+            "r17-shutdown"
+          ],
+          "text": "You pull the panel's feed and throw sacking over it. The machine is quiet. The repairs are still sound; nothing stops you from waking it again.",
+          "effects": []
+        },
+        {
+          "id": "listen",
+          "label": "keep the channel open and listen",
+          "style": "principled",
+          "sets": [
+            "r17-warned",
+            "r17-listening"
+          ],
+          "text": "You leave the channel open and sit up with it. Nothing more comes that night. You start sleeping next to the machine.",
+          "effects": []
+        },
+        {
+          "id": "carryon",
+          "label": "leave it and go back to work",
+          "style": "loyal",
+          "sets": [
+            "r17-warned"
+          ],
+          "text": "You copy the three lines onto a tablet, put it with the crash log, and go back to Gaius's shop. The machine can wait. So can whatever is on the other end.",
+          "effects": []
+        }
+      ]
     }
   ]
 }

@@ -441,3 +441,8 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Fix:** event marks are never repeated word for word on a later arrival, and later arrivals prefer people not yet featured.
 - **Open (for Corey):** the P0 smith is named Tertius and the arc's Marcus is Marcus Fabius Tertius; the text calls him Marcus throughout. Rename one?
 - Docs: SYSTEMS §13, P1_PROPOSALS P1-15, content readmes (challenges, events, capabilities, people).
+
+## 2026-10-04 — R-17: DO NOT JUMP restored (approved design, omitted by accident)
+- **Implemented:** the crash log now shows the handshake (REQUEST; REFERENCE REQUEST ACCEPTED — R-17; four seconds, then the 155-03-ROMA lock). After R-17 ACTIVE, `listen` reopens the channel; a month later the interruption: REQUEST RECEIVED / SOURCE: R-17 / DO NOT JUMP, with the inventor laying it beside the crash log (same request, same acceptance, nearly the same interval; then the lock, now this). Three answers (shut down, keep listening, carry on), each with its own later scene; the notebook breadcrumb ("R17", temporal-reference stability, "reciprocal lock"). The warning appears in the departure briefing and never blocks the jump.
+- **Open (Corey):** what R-17 is; whether a later deliberate contact or the second arrival should say more.
+- Snapshot hash updated for the crash-log wording only (same arrival, AD 242, Index 127.6).

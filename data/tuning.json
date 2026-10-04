@@ -1463,6 +1463,10 @@
     }
   },
   "machine": {
+    "listenAttention": {
+      "value": 1,
+      "ref": "P1 machine mystery (approved R-17 thread, restored 2026-10-04): Attention to reopen the reference channel (PROPOSED P1-16)"
+    },
     "restoreGold": {
       "value": 60,
       "ref": "DECIDED 2026-09-28 (Corey): all the gold you scavenged from the machine at the start (gold.start) goes back in before it can jump; fixed, since the machine's gold is not debased"

@@ -54,7 +54,7 @@ namespace Butterfly.Core
                 _eventsSeen.Add(t.Id);
                 _pendingEvent = t.Id;
                 _pendingSinceTurn = Turn;
-                World.ScenePacing.Record(SceneCategory.WorkEconomy);   // a consequence of your own work: it comes, unrouted
+                World.ScenePacing.Record(t.Category);   // a consequence of your own actions: it comes, unrouted
                 Record("event.offer", t.Id, null, new[] { "world" }, null,
                     t.Title + ". " + t.Text + " (" + string.Join(" / ", t.Options.Select(o => "decide " + o.Id)) + ")");
                 return;

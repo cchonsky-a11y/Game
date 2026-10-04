@@ -1,5 +1,5 @@
 {
-  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>). Effects: 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
+  "_readme": "P1 authored optional scenes (decided 2026-10-02; implemented 2026-10-04). Each month the scene router picks at most one optional scene from every system's eligible candidates (commissions, invitations, Grand Challenges, people's lives and these), keeping any category from a third scene in a row while something else could happen (SYSTEMS §2, scene pacing). A scene here happens once, when all its 'requires' hold (people.json syntax plus month:<1-12>, monthsIn:<n>, machine:assessed, machine:steps:<n>, project:<id>:done, knows:<person>, scene:<id>, flag:<name>). Effects: 'regard' (a person's regard for you) and 'status' (a person's standing line). Roman life is woven into routine and tied to the people and work of the game, never free-floating filler. The machine mystery keeps the R-17 thread alive and is not explained early. Weights default to scenes.baseWeight.",
   "scenes": [
     {
       "id": "baths-wet-cellar",
@@ -233,7 +233,7 @@
         "machine:assessed",
         "monthsIn:3"
       ],
-      "text": "Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then a line you didn't write. REFERENCE REQUEST ACCEPTED — R-17. Then the destination: 155-03-ROMA. The timestamp is a second before you threw the switch."
+      "text": "Cleaning the navigation panel, you wake the event log. The last entries before the crash scroll past: a stability check, a field warm-up you never started, and then two lines you didn't write. REQUEST. REFERENCE REQUEST ACCEPTED — R-17. Four seconds later, the destination locks: 155-03-ROMA. The timestamp is a second before you threw the switch."
     },
     {
       "id": "r17-link",
@@ -261,6 +261,33 @@
         "machine:steps:9"
       ],
       "text": "The last repair holds. Every light on the panel comes up together, and one you have never seen lit: R-17 ACTIVE. You go back through the crash log line by line. The destination was set before the field came up. The machine didn't pick Rome when it failed. It had already been told where to go."
+    },
+    {
+      "id": "r17-again",
+      "category": "MachineMystery",
+      "requires": [
+        "flag:r17-listening",
+        "monthsIn:2"
+      ],
+      "text": "You leave the channel open. Every few nights, at no hour you can predict, the panel wakes and prints the same three lines, REQUEST RECEIVED, SOURCE: R-17, DO NOT JUMP, and goes dark. You start keeping the times on a wax tablet. The gaps between them are not random, and they are not anything you recognize."
+    },
+    {
+      "id": "r17-dark",
+      "category": "MachineMystery",
+      "requires": [
+        "flag:r17-shutdown",
+        "monthsIn:2"
+      ],
+      "text": "The panel stays dark under its sacking. Some nights you lie awake listening for it anyway. Once you lift the cloth and the indicator under it, the one you never saw lit before the crash, is glowing faintly on its own."
+    },
+    {
+      "id": "r17-notebook",
+      "category": "MachineMystery",
+      "requires": [
+        "flag:r17-warned",
+        "monthsIn:3"
+      ],
+      "text": "In the bottom of your pack, under the spare gloves, is your old lab notebook. Most of it is load tables. On a page from the month before the crash, in your own hand, is a citation you don't remember writing down: R17, a paper on temporal-reference stability, and underlined twice, the words 'reciprocal lock'. Nothing else on the page. You read it until the lamp runs out."
     }
   ]
 }

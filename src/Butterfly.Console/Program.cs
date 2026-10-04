@@ -181,6 +181,7 @@ internal sealed partial class ConsoleGame
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
+  listen                         reopen the machine's reference channel (once the panel shows R-17 ACTIVE; 1 Attention)
   focus <kind|off>               stay with one kind of scene (Engineering, Personal, RomanLife, WorkEconomy, MachineMystery,
                                  CityHistory, Exploration, InstitutionsPolitics); the world can still interrupt
   view [section]                 the eight sections: now, projects, people, institutions, knowledge, civilization, machine, journal
@@ -221,6 +222,7 @@ internal sealed partial class ConsoleGame
             case "people": case "who": People(); return true;
             case "view": case "section": View(arg); return true;
             case "focus": r = _sim.SetSceneFocus(arg); break;
+            case "listen": r = _sim.Listen(); break;
             case "challenge": case "challenges":
                 if (arg.ToLowerInvariant() == "begin") { r = _sim.StartChallengeStage(parts.Length > 2 ? parts[2] : ""); break; }
                 Challenges();

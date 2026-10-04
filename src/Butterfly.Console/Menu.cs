@@ -136,6 +136,7 @@ internal sealed partial class ConsoleGame
                 foreach (var up in _sim.Data.Content.MachineUpgrades.Where(u => !w.MachineDone.Contains(u.Id) && w.ActiveMachineSteps.All(a => a.Def.Id != u.Id)))
                     machine.Item2.Add(("upgrade " + up.Id, "upgrade " + up.Id));
         }
+        if (att && _sim.CanListen) machine.Item2.Add(("open the reference channel", "listen"));
         double missing = _sim.MachineGoldNeeded - _sim.MachineGoldRestored;
         if (missing >= 1)
         {

@@ -172,6 +172,7 @@ namespace Butterfly.Core
                 if (MachineStepGold(step) <= World.Gold) v.AvailableNow.Add(new ViewItem(step.Name + " (" + Money(MachineStepGold(step)) + ")", "repair " + system));
                 else v.Blocked.Add(new ViewItem(step.Name + ": needs " + Money(MachineStepGold(step))));
             }
+            if (CanListen) v.AvailableNow.Add(new ViewItem("open the reference channel", "listen"));
             if (MachineReady) v.AvailableNow.Add(new ViewItem("The machine is ready. You can leave now, or remain in Rome and continue your work.", "jump"));
             foreach (var id in World.MachineDone) v.Archived.Add(new ViewItem(Data.Content.MachineSteps.FirstOrDefault(s => s.Id == id)?.Name ?? id));
         }

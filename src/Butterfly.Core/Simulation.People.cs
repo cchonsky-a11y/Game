@@ -126,6 +126,8 @@ namespace Butterfly.Core
                     return CapabilityLevelOf(parts[1]) >= (CapabilityLevel)Enum.Parse(typeof(CapabilityLevel), parts[2]);
                 case "life":
                     return World.People.Any(p => p.Happened.Contains(parts[1]));
+                case "flag":
+                    return World.Flags.Contains(parts[1]);
                 case "knows":
                     return Knows(parts[1]);
                 case "scene":

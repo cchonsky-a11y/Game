@@ -141,6 +141,8 @@ namespace Butterfly.Core
                 foreach (var line in SavingsBriefing()) yield return line;
                 yield break;
             }
+            // The warning is shown, never enforced: the player may jump anyway (approved R-17 thread).
+            if (World.Flags.Contains("r17-warned")) yield return "The last thing the panel said was DO NOT JUMP. Nothing in the machine stops you.";
             double rate = T.Get("debt.compoundRate");
             int cap = T.GetInt("debt.compoundingCapYearsAfterDeparture");
             foreach (var d in World.Domains.Where(x => x.Debt > 0))
