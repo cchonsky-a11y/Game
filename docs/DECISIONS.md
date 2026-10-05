@@ -698,3 +698,10 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
   - 556 tests pass.
   - Matrix: core metrics unchanged. People found shifted toward threaded people: Aulus 282, Felix 235, Serenus 60, Marcus 16, Gaius 6, Cassianus 1. 68 threaded sites were named in the briefing and 795 were not.
   - Validation, P0 batch, explorer and snapshot are unchanged.
+
+## 2026-10-05 — Change of direction: the P2 graphical vertical slice
+- **Decision (Corey):** real human first-return testing is deferred until the minimal graphical vertical slice is playable. This changes the direction recorded on 2026-10-04 (a console human test of the return before any graphical UI); that entry stands as the history of the earlier plan.
+- **Reason:** the return is meant to be experienced as places, people and evidence. A console stand-in risks testing the console rather than the return.
+- **Scope:** the P2 graphical vertical slice: Unity 6 presentation over the existing Butterfly.Core, from AD 155 to the end of the first return. P1 gameplay is frozen. Core is the game; Unity is presentation only, through a thin engine-free adapter. No second era, new systems or balance changes.
+- **Naming:** "P2" now means the graphical vertical slice. The fuel puzzle, formerly P2, moves later; its number is Corey's call. BUILD_GUIDE §6, PROTOTYPE_SCOPE and CLAUDE.md rule 7 are amended to match.
+

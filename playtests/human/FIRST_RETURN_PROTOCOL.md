@@ -2,6 +2,8 @@
 
 > Authorized by Corey on 2026-10-04 (PROTOTYPE_SCOPE.md, "Authorized: first-return experience validation"). **This test evaluates the game concept, not final UI usability.** The console is a stand-in: don't score menus, readability, onboarding or accessibility from it. AI simulations, scripted personas and language models are never testers for this milestone.
 
+> **2026-10-05 (Corey):** this test now waits for the playable P2 graphical vertical slice and runs on it instead of the console. The questions and the decision below stand; the Setup will name the graphical build once it is playable.
+
 ## Who and how many
 
 - About **5 real people**, ideally strategy or history players who haven't seen the design.

@@ -1,5 +1,7 @@
 # PROTOTYPE_SCOPE.md — Current Milestone: P1 Playable Game Structure
 
+> **Change of direction (Corey, 2026-10-05): the P2 graphical vertical slice is now in scope.** Real human first-return testing is deferred until the minimal graphical vertical slice is playable. P1 gameplay is frozen: the slice is a Unity 6 presentation over the existing Butterfly.Core, never a second simulation. See "P2 graphical vertical slice" below and `docs/P2_GRAPHICAL_VERTICAL_SLICE.md`. Naming: "P2" now means this graphical slice; the fuel puzzle (formerly P2) moves later, its number Corey's call.
+
 > This file defines the **only** work in scope right now. It replaces the P0 scope (kept at `docs/archive/PROTOTYPE_SCOPE_P0.md`).
 > Decided by Corey (handoff of 2026-10-02, `docs/handoff/2026-10-02/`): P0 is complete. The five-human test is deferred to a later graphical milestone, except the narrow first-return experience validation authorized on 2026-10-04 (below). The project is in **P1**.
 > VISION.md and SYSTEMS.md describe the long-term game; they are not a build list.
@@ -44,12 +46,12 @@ P1 is architecture, not content volume. The P0 executable keeps running while it
 Everything in `docs/archive/PROTOTYPE_SCOPE_P0.md` that P1 has not yet replaced keeps working and keeps its tests: domains and debt, the plague and its recurrences, policy, the workshop, Rome's dated choices, the machine repair track, two jumps and the walk. Each is reviewed when its P1 replacement lands; an old bug item is fixed only if its system survives.
 
 ## Out of scope (do not build)
-- Unity, graphics, audio, a UI beyond the console (P1 builds view models a later UI will consume).
+- Unity, graphics, audio, a UI beyond the console (P1 builds view models a later UI will consume). **Superseded 2026-10-05 for the P2 graphical vertical slice only** (below); audio and graphics beyond replaceable placeholders stay out.
 - Eras after Rome as playable eras, multiple regions, diplomacy, warfare.
-- The fuel puzzle (P2), repair tiers, malfunctions.
+- The fuel puzzle (formerly numbered P2; moved later, 2026-10-05), repair tiers, malfunctions.
 - Saves, iCloud, purchases, analytics, networking.
 - Any language-model integration.
-- General human usability testing (deferred to a graphical milestone). **One narrow exception (Corey, 2026-10-04):** a console experience validation of the first return; see "Authorized: first-return experience validation" below. AI or persona testing is advisory and is never called human testing.
+- General human usability testing (deferred to a graphical milestone). **2026-10-05: the first-return human test also waits for the playable graphical slice.** **One narrow exception (Corey, 2026-10-04):** a console experience validation of the first return; see "Authorized: first-return experience validation" below. AI or persona testing is advisory and is never called human testing.
 
 ## Authorized: first-return experience validation (Corey, 2026-10-04)
 General usability testing still waits for a graphical UI. A limited console test with **about 5 real human testers** is authorized for one purpose: to test the first-return hypothesis, using the protocol in `playtests/human/FIRST_RETURN_PROTOCOL.md`. It asks whether players:
@@ -65,7 +67,15 @@ It is **not** evidence about final UI usability, menu clarity, graphical informa
 
 **What the result decides.** If testers generally don't hesitate before leaving, don't care whom they leave, can't find any plausible cause for what they see, read the return as a status report, or don't want to explore further, the return is reworked **before** major graphical UI development. If it works emotionally and strategically, graphical UI work proceeds with the return as a primary design target. Five people give patterns, not scores.
 
-Building for it (the first-return prototype, Part II, 2026-10-04) stays a prototype: one first return, no second era, no long-jump or generational model. **Built** (2026-10-04): the return chapter, the departure briefing's unresolved threads, elapsed time for six people and the journal (docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). Graphical UI work is **not** authorized yet; the next decision depends on how human testers respond to the return.
+Building for it (the first-return prototype, Part II, 2026-10-04) stays a prototype: one first return, no second era, no long-jump or generational model. **Built** (2026-10-04): the return chapter, the departure briefing's unresolved threads, elapsed time for six people and the journal (docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). Graphical UI work is **not** authorized yet; the next decision depends on how human testers respond to the return. *(Superseded 2026-10-05, Corey: the P2 graphical vertical slice is authorized, and the human test of the return runs on it once it is playable.)*
 
 ## Hard constraints (SYSTEMS.md §14) still apply
 Player institutions never use enslaved labor. No atrocity verbs. Religious founders are never depicted, nudged or erased. No weapon of mass destruction as a player tool. Exploitation always costs the Index. Roman slavery may be depicted as part of Roman life, never as a player tool.
+
+## P2 graphical vertical slice (Corey, 2026-10-05)
+**In scope:** a Unity 6 presentation of the existing game, playable without a command line from AD 155 through Roman life, relationships and work, machine repair, the decision to leave, the jump and the first return, through: a Rome/main view with a HUD (date, Attention, money, machine readiness); a narrative view (speaker, text, portrait slot, clickable choices); a stylized Rome map of the supported locations; People, Journal, Machine and Projects/Work views; a departure screen of its own; and the first return as places (recognition → contradiction → look closer). Replaceable placeholder art with portrait slots and an art asset manifest. Mac landscape first, then iPad landscape; adaptable to phone.
+
+**Rules:** Core is the game; Unity is presentation only. Gameplay (Attention, commissions, challenges, people, machine, institutions, jump, return selection, journal, causality, economy, scene routing) is never duplicated; a thin presentation adapter (`src/Butterfly.Presentation`) may translate. Any Core change is minimal, presentation-neutral and documented. Don't change gameplay because the UI makes something awkward; report it. The console and every test keep working; determinism is kept. Return sites are marked only as unvisited / visited / looked closer, never true, false, player-caused or important.
+
+**Not in this slice:** a second era, Mediterranean expansion, a political campaign, new invention trees or Grand Challenges, propagation mechanics, theory-locking, deduction scoring, family trees, a giant quest log, 3D movement, combat, minigames, balance changes, audio, saves.
+
