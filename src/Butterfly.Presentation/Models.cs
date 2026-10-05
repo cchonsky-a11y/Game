@@ -98,7 +98,7 @@ namespace Butterfly.Presentation
         public string Household { get; set; } = "";
         public string CaresAbout { get; set; } = "";
         public string Wants { get; set; } = "";
-        public string Portrait => "portrait." + Id;
+        public string Portrait => ArtManifest.Portrait(Id);
     }
 
     public sealed class JournalModel
@@ -199,7 +199,7 @@ namespace Butterfly.Presentation
         public string Finding { get; set; } = "";
         /// <summary>A person's portrait slot when the place follows someone's life, else "".</summary>
         public string Portrait { get; set; } = "";
-        public string Art => "site." + Id;
+        public string Art => "site." + Id.ToLowerInvariant();
         public string VisitCommand => "visit " + Number;
         public string LookCloserCommand => "look closer " + Number;
     }

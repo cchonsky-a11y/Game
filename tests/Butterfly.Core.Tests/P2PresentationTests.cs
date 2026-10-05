@@ -80,6 +80,7 @@ namespace Butterfly.Core.Tests
             }
             Click("journal");
             Click("done");
+            s.LearnMore();
             return clicked;
         }
 
@@ -124,7 +125,7 @@ namespace Butterfly.Core.Tests
             for (int k = 0; k < 6; k++) s.Do("end");
             string before = s.Sim.Log.Hash();
             var rngBefore = s.Sim.World.Gold;
-            s.Hud(); s.Actions(); s.CurrentDecision(); s.People(); s.Journal(); s.Machine(); s.Work(); s.Departure(); s.Return(); s.Arrival();
+            s.Hud(); s.Actions(); s.CurrentDecision(); s.News(); s.ReadyLine(); s.Opening(); s.People(); s.Journal(); s.Machine(); s.Work(); s.Departure(); s.Return(); s.Arrival();
             foreach (var p in RomeMap.Places) s.LookAround(p.Id);
             foreach (var p in RomeMap.Places) s.ActionsAt(p.Id);
             Assert.Equal(before, s.Sim.Log.Hash());
@@ -224,6 +225,47 @@ namespace Butterfly.Core.Tests
         }
 
         /// <summary>The same game as <paramref name="s"/>, rebuilt from the same seed and commands (no save system exists).</summary>
+        [Fact]
+        public void EveryPersonPlaceAndReturnSiteHasAnArtSlot()
+        {
+            var data = TestData.Load();
+            var slots = ArtManifest.Slots(data);
+            Assert.Equal(slots.Count, slots.Select(x => x.Key).Distinct().Count());
+            foreach (var p in data.Content.People) Assert.Contains(slots, x => x.Key == ArtManifest.Portrait(p.Id));
+            foreach (var id in new[] { "gaius", "marcus", "livia", "aulus", "felix", "cassianus", "serenus" }) Assert.Contains(slots, x => x.Key == "portrait." + id);
+            foreach (var s in data.Content.ReturnSites) Assert.Contains(slots, x => x.Key == "site." + s.Id.ToLowerInvariant());
+            foreach (var p in RomeMap.Places) Assert.Contains(slots, x => x.Key == p.ArtKey);
+            Assert.Equal("Art/portraits/felix", slots.First(x => x.Key == "portrait.felix").ResourcePath);
+            // Only places the simulation can describe are on the map (and the lodging, where the machine stands).
+            Assert.All(RomeMap.Places.Where(p => p.Id != RomeMap.Lodging), p => Assert.Contains(p.Id, Simulation.WalkPlaces));
+        }
+
+        /// <summary>
+        /// Where the Unity client shows each catalog group (unity/…/Screens.cs). A new group must be given a home here and there,
+        /// so no P1 action is reachable only from the console.
+        /// </summary>
+        internal static readonly Dictionary<string, string> GraphicalHome = new Dictionary<string, string>
+        {
+            { "decide", "decision card" }, { "invitations", "decision card, Everything" }, { "commissions", "decision card (terms), map: market, Work" },
+            { "money", "map: changers, Everything" }, { "challenges", "map: forges, Work" }, { "work", "map: market, Work" }, { "shop", "map: forges, Work" },
+            { "projects", "map: curia, Work" }, { "institutions", "map: curia, Everything" }, { "inventions", "map: lodging, Work" },
+            { "policy", "map: curia, Everything" }, { "priorities", "map: curia, Everything" }, { "machine", "map: lodging, Machine" },
+            { "leave", "Prepare to leave → Departure" }, { "look", "HUD sections" }, { "month", "HUD: End Month, Fast-forward" },
+            { "return", "Return screen" }, { "walk", "Return screen: walk around" }, { "then", "Return screen: learn more (the second jump is not offered: the slice ends with the return)" },
+        };
+
+        [Fact]
+        public void EveryActionGroupHasAGraphicalHome()
+        {
+            var s = new GameSession(new Simulation(TestData.Load(), 42));
+            var keys = new HashSet<string>(s.Actions().Select(g => g.Key));
+            ClickThrough(s);
+            keys.UnionWith(s.Actions().Select(g => g.Key));
+            Assert.Empty(keys.Where(k => !GraphicalHome.ContainsKey(k)));
+            // Groups tied to a place are on the map; the map shows only supported places.
+            Assert.All(ActionCatalog.Era(new Simulation(TestData.Load(), 1)).Where(g => g.Place.Length > 0), g => Assert.NotNull(RomeMap.Find(g.Place)));
+        }
+
         private static Simulation CloneByReplay(GameSession s)
         {
             var copy = new GameSession(new Simulation(TestData.Load(), s.Sim.Seed));

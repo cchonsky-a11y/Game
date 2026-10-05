@@ -1,0 +1,17 @@
+{
+    "name": "Butterfly.Unity",
+    "rootNamespace": "Butterfly.Unity",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Butterfly.Core.dll",
+        "Butterfly.Presentation.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

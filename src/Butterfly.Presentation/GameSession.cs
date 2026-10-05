@@ -158,7 +158,7 @@ namespace Butterfly.Presentation
             if (string.IsNullOrEmpty(actor)) return ("", "");
             var d = Sim.Data.Content.People.FirstOrDefault(p => string.Equals(p.Id, actor, StringComparison.OrdinalIgnoreCase) || string.Equals(p.Name, actor, StringComparison.OrdinalIgnoreCase) ||
                                                                 p.Name.StartsWith(actor + " ", StringComparison.OrdinalIgnoreCase));
-            return d == null ? (actor, "") : (d.Name, "portrait." + d.Id);
+            return d == null ? (actor, "") : (d.Name, ArtManifest.Portrait(d.Id));
         }
 
         // ---- views ------------------------------------------------------------------------------------------------------
@@ -169,6 +169,13 @@ namespace Butterfly.Presentation
             if (place == RomeMap.Lodging) return string.Join("\n", Sim.MachineStatus());
             return RomeMap.IsWalkPlace(place) ? Sim.Visit(place) : "";
         }
+
+        /// <summary>The talk of the Forum and the market (free; changes nothing).</summary>
+        public List<string> News() => Sim.News();
+
+        /// <summary>The machine's readiness in the simulation's words ("The machine is ready. You can leave now, or remain…"), or "".</summary>
+        public string ReadyLine() =>
+            Sim.Arrived ? "" : Sim.ViewOf(MenuSection.Machine).AvailableNow.FirstOrDefault(i => i.Command == "jump")?.Label ?? "";
 
         public List<PersonCard> People() =>
             Sim.KnownPeople().Select(d => new PersonCard
@@ -272,6 +279,9 @@ namespace Butterfly.Presentation
             return m;
         }
 
+        /// <summary>After an arrival: the Index and what became of your institutions (free; changes nothing).</summary>
+        public string LearnMore() => Sim.Arrival?.LearnMore() ?? "";
+
         /// <summary>The player has read the arrival; the city is next.</summary>
         public void FinishArrival() => ShowingArrival = false;
 
@@ -294,7 +304,7 @@ namespace Butterfly.Presentation
                     State = closer ? SiteState.LookedCloser : seen ? SiteState.Seen : SiteState.Unvisited,
                     Recognition = seen ? s.Recognition : "", Contradiction = seen ? s.Contradiction : "", Lead = seen ? Cap(s.Lead) : "",
                     Finding = closer ? s.Investigation : "",
-                    Portrait = s.Person.Length > 0 ? "portrait." + s.Person : "",
+                    Portrait = s.Person.Length > 0 ? ArtManifest.Portrait(s.Person) : "",
                 });
             }
             return m;
