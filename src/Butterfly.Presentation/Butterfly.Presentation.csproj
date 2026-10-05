@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- P2 graphical vertical slice (2026-10-05): the engine-free presentation adapter over Butterfly.Core.
+         Unity consumes it as a DLL, so it must stay Unity-compatible: .NET Standard 2.1, C# 9, no external dependencies.
+         It holds screen models and the action catalog; it never holds gameplay. -->
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Butterfly.Presentation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Butterfly.Core\Butterfly.Core.csproj" />
+  </ItemGroup>
+
+</Project>

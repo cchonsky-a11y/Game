@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Butterfly.Core\Butterfly.Core.csproj" />
+    <ProjectReference Include="..\Butterfly.Presentation\Butterfly.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
