@@ -3,6 +3,8 @@
 > For any AI assistant (or person) continuing work on The Butterfly Effect without the earlier conversation.
 > Read this first, then `CLAUDE.md`, which is binding. Last updated 2026-09-28; P1 note 2026-10-03.
 
+> **2026-10-05: the P2 graphical vertical slice (Corey).** P1 gameplay is frozen; a Unity 6 client over the same Core is being built, and the first-return human test waits until it is playable. Read `docs/P2_GRAPHICAL_VERTICAL_SLICE.md` first. New: `src/Butterfly.Presentation` (engine-free adapter; the action catalog the console now shares), `unity/ButterflyEffect` (presentation only), `tools/sync-unity.sh`. Gameplay never goes in Unity or Presentation.
+
 > **The project is now in P1 (decided 2026-10-02).** The current authority is the owner's handoff in `docs/handoff/2026-10-02/` (start with `00_READ_THIS_FIRST.md` and `01_MASTER_HANDOFF_CURRENT.md`) and the P1 `docs/PROTOTYPE_SCOPE.md`. The five-human test is deferred to a graphical milestone. The P0 notes below remain accurate for the systems still running from P0; where they conflict with the P1 handoff, the handoff wins.
 
 ## 1. What this is
@@ -34,6 +36,7 @@ dotnet run --project src/Butterfly.Batch -c Release -- --idle 1000          # a 
 dotnet run --project src/Butterfly.Batch -- --p1-validate 1,2,3             # P1 scripted two-jump validation (not human)
 dotnet run --project src/Butterfly.Batch -- --p1-matrix 1-60 [--weight W]  # P1 strategy matrix, 5 scripted profiles (not human)
 playtests/ai/run.sh                                                         # 24 scripted playthroughs + harness checks
+tools/sync-unity.sh                                                         # P2: copy Core, Presentation and data/ into the Unity project
 python3 playtests/ai/live/play.py setup                                     # live blind AI testers (see §6)
 ```
 

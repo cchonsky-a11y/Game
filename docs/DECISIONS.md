@@ -705,3 +705,11 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Scope:** the P2 graphical vertical slice: Unity 6 presentation over the existing Butterfly.Core, from AD 155 to the end of the first return. P1 gameplay is frozen. Core is the game; Unity is presentation only, through a thin engine-free adapter. No second era, new systems or balance changes.
 - **Naming:** "P2" now means the graphical vertical slice. The fuel puzzle, formerly P2, moves later; its number is Corey's call. BUILD_GUIDE §6, PROTOTYPE_SCOPE and CLAUDE.md rule 7 are amended to match.
 
+## 2026-10-05 — P2 graphical vertical slice: first build
+- **Built:** `src/Butterfly.Presentation` (engine-free adapter: one GameSession over one Simulation, screen models, the action catalog) and `unity/ButterflyEffect` (Unity 6, UI Toolkit built in code: HUD, opening, decision cards, Rome map, People, Work, Machine, Journal, Everything, departure, arrival, the return as places). Replaceable art slots with an art manifest derived from content. See docs/P2_GRAPHICAL_VERTICAL_SLICE.md.
+- **One catalog, not two:** the console's action menu moved into Presentation unchanged and the console draws from it (25 menu-on transcripts byte-identical). Clicks run the console's commands, so a clicked game and the same commands typed give the same log hash.
+- **Core gameplay unchanged;** the snapshot hash is unchanged.
+- **Presentation choices (not gameplay):** the departure screen opens only on the player's request; return places are marked only not yet visited / seen / looked closer; the graphical client ends at the finished first return (no second jump offered); each run writes its seed and commands as a console inputs file for replay (not a save).
+- **Evidence (scripted, not human):** 570 tests pass, including a click-only playthrough from AD 155 to the finished first return on six seeds. Unity itself could not be run where this was built; the runtime scripts compile against Unity reference assemblies. The first open in Unity 6 is the real smoke test.
+- **Open for Corey:** whether the typed-only actions (paydown, endow, audit, last orders, mentor, craft/consult work, `why`) belong on a screen; a wording pass on the catalog's labels for both clients; how much art before the five-person test.
+
