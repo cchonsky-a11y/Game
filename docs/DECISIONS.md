@@ -685,3 +685,16 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Inventions:** kept, not expanded, under design review. The capability network is the primary P1 implementation of "knowing is not making".
 - **Not built:** a second era, long jumps or a generational model, a lead network, elapsed time beyond six people, a save system, graphical UI, R-17's explanation.
 - **Next:** the limited console human test of the return (about 5 people). Its result decides whether the return is reworked before graphical UI or becomes a primary UI design target.
+
+## 2026-10-04 — First return: sharpening before the human test
+- **Principle (design):** a return exposes **primary sources, not omniscient history**. The simulation knows the causal chain, for grounding, testing and consistency; the player sees what plausibly survived (people, objects, records, inscriptions, copied lines). Causes may be obvious, contested or lost, and records may be self-serving or incomplete. It must not become incoherence: a plausible interpretation should usually be possible.
+- **Changed:**
+  - **Threads first:** a person whose site carries a departure thread (Marcus's path, Aulus's shaft, Cassianus's pump against Pollio's copy) takes the first human place. It is the closest such person, not a fixed character; the rest go by closeness, and without a threaded person nothing changes.
+  - **The briefing warns, it doesn't predict:** the return records the threads the briefing named, and a site whose thread it didn't name is a grounded consequence nobody warned of.
+  - **Content:** three institutional variants were rewritten as records (the guild's article on measures in marble and its charter's later hand, the Circle's dining book, the fountain's plaque). Aulus's never-started "grain" variant lost its thread tag, and Cassianus's copied pump gained the copies thread.
+- **P1-24 and P1-25:** provisionally approved for human validation, not locked; no number changed.
+- **Not built (candidates pending human evidence):** Obra-Dinn-style hypothesis locking, "three clues confirm" rules, correctness badges, player-written conclusions that change later eras, hidden countdowns, family trees, roll calls, a manuscript UI, second-era mechanics. The human test watches whether players ask for them.
+- **Evidence (scripted, not human):**
+  - 556 tests pass.
+  - Matrix: core metrics unchanged. People found shifted toward threaded people: Aulus 282, Felix 235, Serenus 60, Marcus 16, Gaius 6, Cassianus 1. 68 threaded sites were named in the briefing and 795 were not.
+  - Validation, P0 batch, explorer and snapshot are unchanged.

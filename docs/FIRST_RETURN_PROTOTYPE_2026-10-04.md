@@ -51,6 +51,8 @@ The commands reuse the console's arrival handling (`visit` takes a number or a s
 
 Each pattern has requirements (does the site exist in this run) and state-conditioned variants: the first variant whose requirements hold decides the recognition, the contradiction, the lead, the investigation, the evidence level (obvious, plausible, contested or lost) and whether credit went to someone else. Every site has an unconditional last variant, so a site that exists always has words.
 
+**Thread first (sharpening pass, 2026-10-04):** if any person's site carries a departure thread (their story turned on what you left resolved or unresolved: Marcus's path, Aulus's shaft, Cassianus's cellar pump against Pollio's copy), the closest such person takes the first human place. The other human place keeps the closeness order. No one is hard-coded, and without a threaded person the old order applies.
+
 **Selection** draws no randomness:
 - every candidate whose requirements hold is collected, with people closest first (regard, then authored order);
 - the category order in returns.json (Human, Technical, Institutional, Human, Unintended, Journal, Mystery, then the rest) takes the next unused candidate of each kind;
@@ -58,6 +60,32 @@ Each pattern has requirements (does the site exist in this run) and state-condit
 Mystery comes late, so it appears rarely (8 of 300 matrix runs).
 
 **Content limit:** 21 patterns, within the 15–25 target and well under the 30 stop line.
+
+## 4a. Primary sources, not omniscient history (design principle, sharpening pass 2026-10-04)
+
+**A return exposes primary sources, not omniscient history.** The player meets what plausibly survived:
+- people, and objects;
+- account books and day-books;
+- workshop marks and inscriptions;
+- charters and minutes;
+- copied journal lines;
+- an institution's own records;
+- physical evidence.
+
+The simulation knows the true causal chain and uses it for grounding, testing and consistency. The player sees only the surviving traces. So:
+- some causes are obvious, some contested, some lost;
+- witnesses may disagree;
+- records may be self-serving or incomplete, or accurate but missing context;
+- an institution may keep the rule and forget the reason.
+
+This is not deliberate incoherence: the player should usually be able to form a plausible interpretation.
+
+Institutions speak through their records where the text allows:
+- the guild's article on measures, cut in marble, gives the rule and the fine but not the reason;
+- the charter's article is in a later hand, "added by vote of the members";
+- the members' roll reads "peregrinus, absent, dues unpaid";
+- the Circle's dining book has a later hand writing "guest — not of the Circle" and striking through Serenus's "who counts fevers";
+- the fountain's plaque credits the street's magistrates.
 
 ## 5. Causal grounding
 
@@ -118,6 +146,12 @@ Four threads, all from existing state. Each has a first-life source, an unresolv
 
 **The reference playthrough** (seed 2, leaving in AD 159 against staying until AD 170) shows five sites changing: the fittings, the guild hall, Felix's yard, the market gates and the journal.
 
+**The briefing warns, it doesn't predict (sharpening pass, 2026-10-04).** The departure briefing shows what you knowingly leave unresolved, not every consequence. The return records which threads the briefing named (`ReturnChapter.WarnedThreads`; `ReturnSite.Warned`). A site whose thread wasn't named, or that has no thread, is a grounded consequence nobody warned of.
+
+For example, the briefing names Pollio and Marcus. The return also finds the shared foot credited to "the Fabian foot", grounded in the gauges' advance, which the briefing never mentioned. Or the player stays to finish the gauges, the briefing names nothing about the foot, and the return finds the guild owning the foot and charging for its stamp.
+
+In the matrix, 68 threaded sites were named in the briefing and 795 were not. Nothing is a random surprise: every site keeps its grounding.
+
 ## 8. The journal
 
 When the work behind a journal anchor first holds, the player's own sentence is written once and never changed, logged as `journal.note`:
@@ -142,17 +176,20 @@ The public `Jump()` enforces the gate. `JumpForTests` (tests of the absence) byp
 - **Return:** started in 300 of 300 first jumps and completed in 300; the second jump was never offered early.
 - **Sites:** 6 in 299 runs and 4 in 1; none below the minimum of 4.
 - **Kinds:** Human 600, Institutional 300, Technical 299, Journal 299, Unintended 292, Mystery 8. Every run has 3 or more kinds.
-- **People by band:**
+- **People by band**, after the sharpening pass put threaded people first:
 
   | Person | Bands found |
   |---|---|
-  | Felix | heirs 264, memory 12 |
-  | Serenus | elder 80, heirs 92 |
-  | Aulus | heirs 59, memory 29 |
-  | Gaius | elder 25, heirs 36 |
-  | Cassianus | heirs 3 |
+  | Felix | heirs 223, memory 12 |
+  | Aulus | heirs 197, memory 85 |
+  | Serenus | elder 30, heirs 30 |
+  | Marcus | self 11, elder 4, heirs 1 |
+  | Gaius | elder 2, heirs 4 |
+  | Cassianus | heirs 1 |
 
-- **Threads:** foot (guildfoot 292, drift 5, fabianfoot 2), copies (outsold 266), shaft (shafts 83, idle 5).
+  A threaded person comes first in 298 of 300 runs. It is mostly Aulus, because every scripted profile works on his shaft.
+
+- **Threads:** foot (guildfoot 292, drift 5, fabianfoot 2), copies (outsold 266), shaft (shafts 228, idle 54), marcus (undecided 9, priscus 4, stayed 3).
 - **Misattribution:** 4.4 sites per return on average.
 - **Journal:** 2.3 lines written on average; a journal comparison among the sites in 299 runs.
 - **Core metrics unchanged by the return:** 300 of 300 runs jumped twice; both challenges completed in 234; route tallies, the ledger (300 of 300), overbooking (0) and the archive (0 notes, 300 bribes) all as before.

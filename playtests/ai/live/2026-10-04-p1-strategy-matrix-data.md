@@ -107,9 +107,10 @@ Longest waits by candidate (max months as a candidate before it was picked; mean
 - First return: started in 300 of 300 first jumps; completed in 300; second jump offered before the return was seen: 0.
 - Return sites per arrival: 4 × 1, 6 × 299; below return.sitesMin (4): 0; visited by the protocol: 3.0 (3.0–3.0).
 - Return site categories: Human 600, Institutional 300, Journal 299, Mystery 8, Technical 299, Unintended 292; runs with 3+ kinds: 300; runs with only one kind: 0.
-- People found, by band: Aulus heirs 59, Aulus memory 29, Cassianus heirs 3, Felix heirs 264, Felix memory 12, Gaius elder 25, Gaius heirs 36, Serenus elder 80, Serenus heirs 92.
-- Departure threads found: copies:outsold 266, foot:drift 5, foot:fabianfoot 2, foot:guildfoot 292, shaft:idle 5, shaft:shafts 83.
-- Misattribution sites per return: 4.4 (1.0–5.0); journal lines written: 2.3 (0.0–3.0); journal comparisons among the sites: 299 runs.
+- People found, by band: Aulus heirs 197, Aulus memory 85, Cassianus heirs 1, Felix heirs 223, Felix memory 12, Gaius elder 2, Gaius heirs 4, Marcus elder 4, Marcus heirs 1, Marcus self 11, Serenus elder 30, Serenus heirs 30.
+- Departure threads found: copies:outsold 266, foot:drift 5, foot:fabianfoot 2, foot:guildfoot 292, marcus:priscus 4, marcus:stayed 3, marcus:undecided 9, shaft:idle 54, shaft:shafts 228.
+- Threaded sites the briefing had named: 68; threaded sites it had not named: 795; runs whose first person found carries a thread: 298.
+- Misattribution sites per return: 4.5 (1.0–5.0); journal lines written: 2.3 (0.0–3.0); journal comparisons among the sites: 299 runs.
 - Machine archive step: a senator's note in 0 runs, a bribed clerk in 300.
 - Grand Challenges completed: both in 234 runs, one in 60, none in 6.
 - Ledger reconciles at departure: 300 of 300.

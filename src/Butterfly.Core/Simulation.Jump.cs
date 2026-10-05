@@ -61,6 +61,8 @@ namespace Butterfly.Core
             foreach (var d in DomainInfo.All) arrival.SubScoresBefore[d] = SubScore(d);
             arrival.IndexBefore = SphereIndex();
 
+            // What the briefing named as unresolved, kept for the return (before departure settles jobs and challenges).
+            if (JumpsMade == 0) _warnedAtDeparture = UnresolvedStakes().Select(s => s.Thread).Where(t => t.Length > 0).Distinct().ToList();
             var depart = Record("jump.depart", "machine", null, new[] { "player" }, null,
                 "You start the machine and leave AD " + Now.Year + ".");
             _leftRome = TakeSnapshot();

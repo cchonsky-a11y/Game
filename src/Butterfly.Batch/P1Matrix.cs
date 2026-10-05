@@ -139,6 +139,9 @@ namespace Butterfly.Batch
                               "; runs with 3+ kinds: " + started.Count(r => r.ReturnCategories.Distinct().Count() >= 3) + "; runs with only one kind: " + started.Count(r => r.ReturnCategories.Distinct().Count() == 1) + ".");
                 sb.AppendLine("- People found, by band: " + string.Join(", ", started.SelectMany(r => r.ReturnBands).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
                 sb.AppendLine("- Departure threads found: " + string.Join(", ", started.SelectMany(r => r.ReturnThreads).GroupBy(x => x).OrderBy(g => g.Key).Select(g => g.Key + " " + g.Count())) + ".");
+                sb.AppendLine("- Threaded sites the briefing had named: " + started.Sum(r => r.Sites.Count(s => s.Thread.Length > 0 && s.Warned)) +
+                              "; threaded sites it had not named: " + started.Sum(r => r.Sites.Count(s => s.Thread.Length > 0 && !s.Warned)) +
+                              "; runs whose first person found carries a thread: " + started.Count(r => r.Sites.FirstOrDefault(s => s.Category == ReturnCategory.Human)?.Thread.Length > 0) + ".");
                 sb.AppendLine("- Misattribution sites per return: " + Range(started.Select(r => r.ReturnMisattributed)) + "; journal lines written: " + Range(all.Select(r => r.JournalWritten)) +
                               "; journal comparisons among the sites: " + started.Count(r => r.JournalSites > 0) + " runs.");
             }

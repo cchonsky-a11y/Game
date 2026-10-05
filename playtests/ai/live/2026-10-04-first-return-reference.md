@@ -38,30 +38,30 @@
 
 ## The return: places to look
 
-- 1. The bronze shop on the Clivus
+- 1. Cassianus's warehouses under the Aventine
 - 2. The fitting yards below the Clivus
 - 3. The guild hall at Ostia
-- 4. Felix's yard on the quays at Ostia
+- 4. The bronze shop on the Clivus
 - 5. The market gates
 - 6. Painted on the wall of a fitter's shop on the Clivus
 
 Second jump allowed before looking: no.
 
-### 1. The bronze shop on the Clivus
+### 1. Cassianus's warehouses under the Aventine
 
-*Human, Gaius: heirs; variant foot; evidence contested; misattributed; grounded in log events 82, 216 (hidden from the player).*
+*Human, Cassianus: heirs; variant copied; thread copies (named in the briefing); evidence plausible; grounded in log events 30, 47, 78 (hidden from the player).*
 
 > visit 1
 
-The bronze shop on the Clivus. Gaius died 2 years ago. The shop is his grandsons' now. One of them has his hands and none of his patience. The fitters on the Clivus call the shared foot “the Fabian foot”. Gaius's grandsons sell rules stamped with it. (Look closer: the shop's first bronze bar.)
+Cassianus's warehouses under the Aventine. Cassianus's name is still on the lintel. His daughter's son keeps the books there. Cassianus died 19 years ago, and the family is still arguing about his will. The pump you fitted in the cellar is gone. Its replacement is one of Pollio's, and it leaks back on every stroke. The porter bails every morning, as his grandfather did before you came. (Look closer: the porter's grandmother.)
 
 > look closer 1
 
-The shop's first bronze bar. The first bar is in the back room, scratched with two marks where you and Gaius signed it. The grandsons think the second mark is a slip of the graver.
+The porter's grandmother. She remembers the first pump. “It worked. Then the foreigner went away, and it wore, and Pollio's men said theirs was the same thing and cheaper.”
 
 ### 2. The fitting yards below the Clivus
 
-*Technical; variant fabianfoot; thread foot; evidence contested; misattributed; grounded in log events 217, 216 (hidden from the player).*
+*Technical; variant fabianfoot; thread foot (not named in the briefing); evidence contested; misattributed; grounded in log events 217, 216 (hidden from the player).*
 
 > visit 2
 
@@ -85,21 +85,21 @@ The steward of the hall. The steward's father served at that supper. He says the
 
 Second jump allowed now: no, not until 'done'.
 
-### 4. Felix's yard on the quays at Ostia
+### 4. The bronze shop on the Clivus
 
-*Human, Felix: heirs; variant yard; evidence plausible; grounded in log events 48 (hidden from the player).*
+*Human, Gaius: heirs; variant foot; evidence contested; misattributed; grounded in log events 82, 216 (hidden from the player).*
 
 > visit 4
 
-Felix's yard on the quays at Ostia. FELICIS is still cut over the yard gate. His son runs it now, a big man with Felix's voice and none of his jokes. Felix died 16 years ago, the son says, owing a rope-maker money and still talking about a cellar pump. The fitters have never heard of you. They say Felix learned the seat from a Greek who drowned off the lighthouse. (Look closer: the yard's old day-book.)
+The bronze shop on the Clivus. Gaius died 2 years ago. The shop is his grandsons' now. One of them has his hands and none of his patience. The fitters on the Clivus call the shared foot “the Fabian foot”. Gaius's grandsons sell rules stamped with it. (Look closer: the shop's first bronze bar.)
 
 > look closer 4
 
-The yard's old day-book. Felix's day-book for your years lists “the cellar pump, Cassianus, with the foreigner” and, a page later, “the foreigner, a supper at the guild”. After that you are not in it.
+The shop's first bronze bar. The first bar is in the back room, scratched with two marks where you and Gaius signed it. The grandsons think the second mark is a slip of the graver.
 
 ### 5. The market gates
 
-*Unintended; variant everywhere; thread copies; evidence contested; misattributed; grounded in log events 78 (hidden from the player).*
+*Unintended; variant everywhere; thread copies (named in the briefing); evidence contested; misattributed; grounded in log events 78 (hidden from the player).*
 
 > visit 5
 
@@ -133,7 +133,7 @@ The same scripted player and seed, but it keeps living in Rome after the machine
 
 - Unresolved at departure (left in AD 159): Pollio is selling seats cut by eye, and nothing on a pump says yours are different. / Marcus still thinks he should be a journeyman, and hasn't decided whose.
 - Unresolved at departure (stayed until AD 170): nothing listed
-- Departure threads found: foot:fabianfoot, copies:everywhere (left) vs foot:guildfoot, copies:outsold (stayed).
+- Departure threads found: copies:copied, foot:fabianfoot, copies:everywhere (left) vs shaft:shafts, foot:guildfoot, copies:outsold (stayed).
 
 **The fitting yards below the Clivus** (fabianfoot → guildfoot)
 
@@ -143,12 +143,7 @@ The same scripted player and seed, but it keeps living in Rome after the machine
 **The guild hall at Ostia** (guest → rule)
 
 - Left early: The guest book for the founders' supper has your name once, in Felix's hand. Beside it, in another hand: “did not return.”
-- Stayed: The master foot hangs in a locked case in the hall, and members' rules are tried against it every year. Ask why and the officers say it is the rule. The reason, that a worn gauge passes bad work and nobody can tell, isn't written anywhere.
-
-**Felix's yard on the quays at Ostia** (yard → founder)
-
-- Left early: FELICIS is still cut over the yard gate. His son runs it now, a big man with Felix's voice and none of his jokes. Felix died 16 years ago, the son says, owing a rope-maker money and still talking about a cellar pump. The fitters have never heard of you. They say Felix learned the seat from a Greek who drowned off the lighthouse.
-- Stayed: There is a yard on the quays with FELICIS cut over the gate, though nobody in it is called Felix. The fitters think the word means luck. Over the guild hall door the founders' list is cut in marble, and Felix is on it, with a line about “the true seat, which Felix brought to the quays.” There is no line about you.
+- Stayed: Cut into the marble by the hall door, the guild's article on measures: “Every member's rule shall be tried against the master foot in this hall at the Kalends of January. A rule found short is broken, and the member pays two denarii to the common chest.” That is the whole article. The officer showing you the stone says it was the founders' wish.
 
 **The market gates** (everywhere → outsold)
 
@@ -160,4 +155,4 @@ The same scripted player and seed, but it keeps living in Rome after the machine
 - Left early: In your journal, AD 157, you wrote: “The master foot is the bronze bar we cut together. Every gauge is tried against it at the Kalends. A worn gauge is broken, not filed: a filed gauge passes bad work and nobody can tell.” What survives here: “Gaius's rule: try your gauge at the Kalends, and break it when it wears.”
 - Stayed: In your journal, AD 157, you wrote: “The master foot is the bronze bar we cut together. Every gauge is tried against it at the Kalends. A worn gauge is broken, not filed: a filed gauge passes bad work and nobody can tell.” What survives here: “TRY EVERY GAUGE AT THE KALENDS. BREAK, DO NOT FILE. BY ORDER OF THE GUILD.”
 
-Only in the later return: The physicians' rooms in the Subura.
+Only in the later return: The mills on the Janiculum; Felix's yard on the quays at Ostia.

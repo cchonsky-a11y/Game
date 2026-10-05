@@ -48,6 +48,16 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, pre-human-test sharpening)
+- **Changes:**
+  - a threaded person takes the first human place in the return;
+  - the return records which threads the briefing named (an unwarned but grounded consequence is expected);
+  - institutional sites speak through records: the article in marble, the charter's later hand, the dining book;
+  - principle: primary sources, not omniscient history;
+  - the human protocol gains reconstruction and investigation observations.
+- **P1-24 / P1-25:** provisionally approved for human validation (not locked).
+- **Not built:** a deduction system, hypothesis locking, theory notes in the journal, family trees, a manuscript UI. These are candidates pending human evidence.
+
 ### P1 status (2026-10-04, first-return prototype, Part II)
 - **IMPLEMENTED (prototype):**
   - after the first jump, a return chapter: 4–6 places from 21 authored patterns (returns.json), chosen from what happened; `visit <n>`, `look closer <n>`, `journal`, `done`; the second jump after 3 places and `done`;

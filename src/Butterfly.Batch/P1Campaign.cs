@@ -338,7 +338,7 @@ namespace Butterfly.Batch
                 sb.AppendLine("### " + k + ". " + s.Place);
                 sb.AppendLine();
                 sb.AppendLine("*" + s.Category + (s.Band != null ? ", " + s.Person + ": " + s.Band.ToString()!.ToLowerInvariant() : "") + "; variant " + s.Variant +
-                              (s.Thread.Length > 0 ? "; thread " + s.Thread : "") + "; evidence " + s.Evidence + (s.Misattributed ? "; misattributed" : "") +
+                              (s.Thread.Length > 0 ? "; thread " + s.Thread + (s.Warned ? " (named in the briefing)" : " (not named in the briefing)") : "") + "; evidence " + s.Evidence + (s.Misattributed ? "; misattributed" : "") +
                               "; grounded in log events " + string.Join(", ", s.Grounds) + " (hidden from the player).*");
                 sb.AppendLine();
                 sb.AppendLine("> visit " + key);

@@ -146,6 +146,8 @@ namespace Butterfly.Core
         public string Thread { get; set; } = "";
         /// <summary>The first-life events that justify this site (hidden from the player; the log's causes for its visit).</summary>
         public List<int> Grounds { get; } = new List<int>();
+        /// <summary>True if this site's thread was named in the departure briefing; false for a consequence nobody warned of.</summary>
+        public bool Warned { get; set; }
         /// <summary>Arrival echo lines this site tells instead (see <see cref="ReturnSiteDef.Covers"/>).</summary>
         public List<string> Covers { get; } = new List<string>();
     }
@@ -160,5 +162,7 @@ namespace Butterfly.Core
         public List<string> Visited { get; } = new List<string>();
         public List<string> Investigated { get; } = new List<string>();
         public bool Completed { get; set; }
+        /// <summary>The departure threads the briefing named when you left (sharpening pass, 2026-10-04).</summary>
+        public List<string> WarnedThreads { get; } = new List<string>();
     }
 }

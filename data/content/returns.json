@@ -46,6 +46,7 @@
       "variants": [
         {
           "id": "copied",
+          "thread": "copies",
           "requires": [ "commission:cellarpump:Done", "life:pollio-copy", "!access:guild:Member" ],
           "contradiction": "The pump you fitted in the cellar is gone. Its replacement is one of Pollio's, and it leaks back on every stroke. The porter bails every morning, as his grandfather did before you came.",
           "lead": "the porter's grandmother",
@@ -242,7 +243,6 @@
         },
         {
           "id": "grain",
-          "thread": "shaft",
           "requires": [],
           "contradiction": "The mills grind grain, as they always did. His sons remember a foreigner who stood looking at the race for a long time and never came back.",
           "lead": "the race's founding stone",
@@ -402,10 +402,10 @@
         {
           "id": "rule",
           "requires": [ "access:guild:Member", "capability:metrology:Reproducible" ],
-          "recognition": "The master foot hangs in a locked case in the hall, and members' rules are tried against it every year.",
-          "contradiction": "Ask why and the officers say it is the rule. The reason, that a worn gauge passes bad work and nobody can tell, isn't written anywhere.",
+          "recognition": "Cut into the marble by the hall door, the guild's article on measures: “Every member's rule shall be tried against the master foot in this hall at the Kalends of January. A rule found short is broken, and the member pays two denarii to the common chest.”",
+          "contradiction": "That is the whole article. The officer showing you the stone says it was the founders' wish.",
           "lead": "the guild's charter",
-          "investigation": "The article on measures is in a later hand than the rest of the charter. It gives the rule and the fine. It doesn't give the reason.",
+          "investigation": "In the charter the article on measures is in a later hand than the rest, squeezed into the margin. It gives the rule and the fine, and against it a note: “added by vote of the members.” It doesn't give the reason.",
           "evidence": "plausible",
           "misattributed": false
         },
@@ -451,10 +451,10 @@
         {
           "id": "supper",
           "requires": [],
-          "recognition": "The Circle still dines on the first of the month in the room above the hall.",
-          "contradiction": "Nobody there remembers that a foreigner once sat at the end of the table as Serenus's guest.",
-          "lead": "the Circle's guest list",
-          "investigation": "Your name is on it once, misspelled, with Serenus's name beside it as host.",
+          "recognition": "The Circle's dining book lies open on a stand by the door: each month's supper, who came, who paid.",
+          "contradiction": "Your name is in it once, misspelled, as Serenus's guest. In the column for what was paid someone has written, in a later hand: “guest — not of the Circle.”",
+          "lead": "the page facing your name",
+          "investigation": "Serenus's own hand, the same evening: “the foreigner who counts fevers, my guest; he asked about the water.” The later hand has struck through “who counts fevers”.",
           "evidence": "obvious",
           "misattributed": false
         }
@@ -482,7 +482,7 @@
           "requires": [ "project:fountain:done" ],
           "place": "The district fountain in the Subura",
           "recognition": "The fountain still runs at the crossroads, and the women still fill their jars there before the sun is up.",
-          "contradiction": "A plaque on the basin says the street's magistrates restored it, at their own cost, in the year you paid for it.",
+          "contradiction": "The plaque on the basin reads: “THE MAGISTRATES OF THE STREET RESTORED THIS FOUNTAIN AT THEIR OWN COST.” The year cut under it is the year you paid for it.",
           "lead": "the street magistrates' book",
           "investigation": "The entry for that year reads “the fountain, mended by the foreigner at his own cost”. The plaque was cut ten years later, under different magistrates.",
           "evidence": "contested",

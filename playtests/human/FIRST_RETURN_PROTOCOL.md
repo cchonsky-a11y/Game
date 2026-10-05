@@ -47,6 +47,32 @@
 14. Did you want to continue the campaign?
 15. Was returning more rewarding than simply advancing technology?
 
+### Reconstruction and investigation (added before the test, 2026-10-04)
+
+Don't tell testers there is a "correct" history to reconstruct, and don't steer them toward an interpretation.
+
+**Observe, during the return:**
+- Did they spontaneously propose a theory about what happened?
+- Did they compare two pieces of evidence?
+- Did they distrust a person or a record?
+- Did they open the journal without being told?
+- Did they ask for another source?
+- Did they separate "I know this happened" from "I think this happened"?
+- Did they want somewhere to record their theory?
+- Did contradiction raise their curiosity, or only confuse them?
+
+**Ask, after the return** (after the 15 core questions):
+1. What do you think happened here?
+2. What evidence made you think that?
+3. Which source did you trust most?
+4. Was any source suspicious or self-serving?
+5. Was there anything you could not know for sure?
+6. Did that uncertainty feel interesting or frustrating?
+7. Did you want another piece of evidence before deciding?
+8. Would you want the journal to let you record your own theory?
+
+These observations decide whether larger investigation ideas earn a place later: hypothesis locking, theory notes, correctness feedback. None is built now.
+
 **Then ask them to reconstruct what they think happened while they were gone, in their own words.** Afterward, compare it with the run's log, which you can get from the tester's seed and commands. Note what they got right, what they guessed plausibly, and what they missed.
 
 ## Record

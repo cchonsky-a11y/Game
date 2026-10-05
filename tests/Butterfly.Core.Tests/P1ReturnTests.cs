@@ -288,6 +288,103 @@ namespace Butterfly.Core.Tests
             Assert.Contains("AD " + foot.Year, string.Join(" ", sim.JournalLines()));
         }
 
+        // ---- sharpening pass (2026-10-04): threads first, unwarned consequences, institutions in their own words ----------
+
+        private static List<ReturnSite> Humans(Simulation sim) => sim.ReturnSitesAt(163 + 25).Where(s => s.Category == ReturnCategory.Human).ToList();
+
+        [Fact]
+        public void APersonWhoseStoryTurnedOnYourDepartureIsFoundFirstEvenIfLessClose()
+        {
+            var sim = MidStandards();
+            sim.World.ScenesSeen.Add("marcus-meet");
+            sim.PersonOf("Gaius")!.Regard = 9;                                            // far closer than Marcus
+            sim.PersonOf("Marcus")!.Regard = 0;
+            var humans = Humans(sim);
+            Assert.Equal("Marcus", humans[0].Person);                                      // undecided when you left: a thread
+            Assert.Equal("marcus", humans[0].Thread);
+            Assert.Equal("Gaius", humans[1].Person);                                       // the rest by closeness, as before
+            Assert.Equal(humans.Count, humans.Select(h => h.Id).Distinct().Count());
+        }
+
+        [Fact]
+        public void TheThreadedPersonIsWhoeverTheThreadBelongsTo()
+        {
+            var sim = MidStandards();
+            sim.World.ScenesSeen.Add("aulus-meet");
+            sim.PersonOf("Gaius")!.Regard = 9;
+            var power = sim.FindChallenge("power")!;
+            power.Status = ChallengeStatus.Open;
+            power.StageIndex = 2;                                                          // the shaft part-built
+            var humans = Humans(sim);
+            Assert.Equal("Aulus", humans[0].Person);
+            Assert.Equal("shaft", humans[0].Thread);
+        }
+
+        [Fact]
+        public void WithoutAThreadedPersonTheClosestComeFirstAsBefore()
+        {
+            var sim = MidStandards();
+            sim.PersonOf("Gaius")!.Regard = 9;
+            var all = sim.ReturnCandidates(new ReturnChapter { ArrivalYear = 163 + 25 }).Where(s => s.Category == ReturnCategory.Human).ToList();
+            Assert.DoesNotContain(all, s => s.Thread.Length > 0);
+            var expected = all.OrderByDescending(s => sim.PersonOf(s.Person)!.Regard).Take(sim.T.GetInt("return.maxPerCategory")).Select(s => s.Person).ToList();
+            Assert.Equal(expected, Humans(sim).Select(s => s.Person).ToList());
+            var sites = sim.ReturnSitesAt(163 + 25);
+            Assert.True(sites.Count <= sim.T.GetInt("return.sitesMax"));
+            Assert.All(sites.GroupBy(s => s.Category), g => Assert.True(g.Count() <= sim.T.GetInt("return.maxPerCategory")));
+        }
+
+        [Fact]
+        public void ThreadPriorityIsDeterministic()
+        {
+            string Pick() { var s = MidStandards(); s.World.ScenesSeen.Add("marcus-meet"); s.World.ScenesSeen.Add("aulus-meet"); return string.Join(",", s.ReturnSitesAt(190).Select(x => x.Id + "/" + x.Variant)); }
+            Assert.Equal(Pick(), Pick());
+        }
+
+        [Fact]
+        public void TheBriefingWarnsOfWhatYouLeaveNotOfEverythingItLeadsTo()
+        {
+            // Staying to finish the gauges, nothing about the foot is left unresolved, so the briefing names nothing about it.
+            // The return still holds a grounded consequence of that work nobody warned of: the guild owns the foot and sells the stamp.
+            var sim = MidStandards();
+            MachineReady(sim);
+            Stage(sim, "standards");
+            Stage(sim, "standards");
+            var briefing = sim.DepartureBriefing().ToList();
+            sim.Jump();
+            var r = sim.World.Return!;
+            Assert.DoesNotContain("foot", r.WarnedThreads);
+            var fittings = r.Sites.Single(s => s.Id == "fittings");
+            Assert.Equal("guildfoot", fittings.Variant);
+            Assert.False(fittings.Warned);
+            Assert.DoesNotContain(briefing, l => l.Contains("seal") || l.Contains("stamp") || l.Contains("foot"));
+            int depart = sim.Log.Events.First(e => e.Type == "jump.depart").Id;
+            Assert.Contains(fittings.Grounds, id => id < depart && sim.Log.Events.First(e => e.Id == id).Type == "capability.advance");
+        }
+
+        [Fact]
+        public void AThreadTheBriefingNamedIsMarkedWarned()
+        {
+            var sim = MidStandards();
+            MachineReady(sim);
+            Assert.Contains(sim.DepartureBriefing(), l => l.Contains("The shared foot isn't finished"));
+            sim.Jump();
+            Assert.Contains("foot", sim.World.Return!.WarnedThreads);
+            Assert.True(sim.World.Return.Sites.Single(s => s.Id == "fittings").Warned);
+            Assert.Contains(sim.World.Return.Sites, s => !s.Warned && s.Grounds.Count > 0);   // and something it didn't name
+        }
+
+        [Fact]
+        public void TheGuildSpeaksThroughItsOwnRecord()
+        {
+            var sim = Arrived();
+            var hall = sim.World.Return!.Sites.Single(s => s.Id == "guildhall");
+            Assert.Equal("rule", hall.Variant);
+            Assert.Contains("Cut into the marble", hall.Recognition);
+            Assert.Contains("“Every member's rule shall be tried", hall.Recognition);      // the article itself, in its words
+            Assert.DoesNotContain("isn't written anywhere", hall.Recognition + hall.Contradiction);
+        }
+
         // ---- when you leave matters ----------------------------------------------------------------------------------------
 
         [Fact]

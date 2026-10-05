@@ -80,7 +80,9 @@ namespace Butterfly.Core
         private void PrepareReturnChapter(Arrival arrival, int departId)
         {
             var r = new ReturnChapter { DepartureYear = arrival.DepartureYear, ArrivalYear = Now.Year, JumpYears = arrival.JumpYears };
+            r.WarnedThreads.AddRange(_warnedAtDeparture);
             foreach (var site in ChooseReturnSites(r, departId)) r.Sites.Add(site);
+            foreach (var site in r.Sites) site.Warned = site.Thread.Length > 0 && r.WarnedThreads.Contains(site.Thread);
             _preparingReturn = r;
         }
 
@@ -105,6 +107,14 @@ namespace Butterfly.Core
         private List<ReturnSite> ChooseReturnSites(ReturnChapter r, int departId)
         {
             var candidates = ReturnCandidates(r);
+            // Thread first (sharpening pass, 2026-10-04): if someone's story turned on what you left resolved or unresolved, the
+            // first person found is the closest such person; the other human places keep the closeness order.
+            var threaded = candidates.FirstOrDefault(s => s.Category == ReturnCategory.Human && s.Thread.Length > 0);
+            if (threaded != null)
+            {
+                candidates.Remove(threaded);
+                candidates.Insert(candidates.FindIndex(s => s.Category == ReturnCategory.Human) is int at && at >= 0 ? at : 0, threaded);
+            }
             // A site whose requirements are all unconditional (where you came down, where you began) is grounded in the jump itself.
             foreach (var s in candidates.Where(s => s.Grounds.Count == 0)) s.Grounds.Add(departId);
 
@@ -313,22 +323,31 @@ namespace Butterfly.Core
         /// What you would leave unresolved (the departure briefing): facts, never what they will lead to. Only before the first
         /// jump; staying long enough to settle one changes what the return holds.
         /// </summary>
-        public IEnumerable<string> DepartureStakes()
+        public IEnumerable<string> DepartureStakes() => UnresolvedStakes().Select(s => s.Line);
+
+        /// <summary>The unresolved stakes with the departure thread each names ("" for a half-done job, which has no thread).</summary>
+        private IEnumerable<(string Thread, string Line)> UnresolvedStakes()
         {
             if (JumpsMade > 0 || Arrived) yield break;
             var standards = FindChallenge("standards");
             if (standards != null && standards.Status != ChallengeStatus.NotYet && standards.Status != ChallengeStatus.Done
                 && CapabilityLevelOf("gauges") < CapabilityLevel.Reproducible)
-                yield return "The shared foot isn't finished: there is one set of gauges, tried against nothing but your word.";
+                yield return ("foot", "The shared foot isn't finished: there is one set of gauges, tried against nothing but your word.");
             if (Holds("life:pollio-copy") && !Holds("access:guild:Member"))
-                yield return "Pollio is selling seats cut by eye, and nothing on a pump says yours are different.";
+                yield return ("copies", "Pollio is selling seats cut by eye, and nothing on a pump says yours are different.");
             if (Knows("Marcus") && !Holds("life:marcus-stays") && !Holds("life:marcus-priscus"))
-                yield return "Marcus still thinks he should be a journeyman, and hasn't decided whose.";
+                yield return ("marcus", "Marcus still thinks he should be a journeyman, and hasn't decided whose.");
             var power = FindChallenge("power");
             if (power != null && power.StageIndex > 0 && power.Status != ChallengeStatus.Done)
-                yield return "Aulus's shaft has run " + power.StageIndex + " of its " + ChallengeDefOf(power).Stages.Count + " stages. Nobody else knows why it is built the way it is.";
+                yield return ("shaft", "Aulus's shaft has run " + power.StageIndex + " of its " + ChallengeDefOf(power).Stages.Count + " stages. Nobody else knows why it is built the way it is.");
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.Working))
-                yield return Cap(CommissionDefOf(c).Client) + "'s job is half done.";
+                yield return ("", Cap(CommissionDefOf(c).Client) + "'s job is half done.");
         }
+
+        /// <summary>
+        /// The threads the briefing named when you left (sharpening pass, 2026-10-04). The briefing shows what you knowingly leave
+        /// unresolved, not every consequence: a site whose thread wasn't named is a grounded consequence nobody warned you about.
+        /// </summary>
+        private List<string> _warnedAtDeparture = new List<string>();
     }
 }
