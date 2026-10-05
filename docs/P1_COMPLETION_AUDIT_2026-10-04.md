@@ -107,3 +107,10 @@ See `docs/P1_POLISH_2026-10-04.md` for the full findings. Changes since the audi
 - **10. Institution access:** the access rules now live in the simulation, not the console. The P0 purchase is an internal regression-only seam.
 - Read-only previews no longer move the generator.
 - Evidence after the pass: 535 tests pass. 300 of 300 matrix runs jump twice, the ledger reconciles in all 300, and nothing is overbooked. The P0 batch, the explorer and the snapshot (AD 247, Index 127.1) are unchanged.
+
+## First-return update (Part II prototype, 2026-10-04)
+
+- **14. A first jump with technical, personal, institutional and unintended echoes:** still PASS, and it is now an experience rather than a list. After the first jump a return chapter offers 4–6 places, chosen from what happened, with recognition, contradiction and a lead. In the matrix, 298 of 300 first arrivals show all four kinds in the beats and the return together; every run has 3 or more kinds among its sites.
+- **15. Continuing:** PARTIAL → the return chapter is the continuation: explore, compare the journal, then choose to finish and jump again. A playable second era stays out of scope.
+- **New:** when you leave matters. The briefing lists what is unresolved, and four threads change the return by the state at departure (same-seed test and reference playthrough). The six core people are found by elapsed time.
+- **Still to judge with people:** whether the return is compelling. That is the limited console human test (`playtests/human/FIRST_RETURN_PROTOCOL.md`). No scripted run counts.

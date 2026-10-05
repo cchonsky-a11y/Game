@@ -79,7 +79,7 @@ namespace Butterfly.Core
                 var def = CapabilityDefOf(c.Id)!;
                 var level = def.Echo.Keys.Where(k => Enum.TryParse<CapabilityLevel>(k, out var l) && l <= c.Level)
                     .OrderByDescending(k => (int)Enum.Parse(typeof(CapabilityLevel), k)).FirstOrDefault();
-                if (level != null && Fresh(def.Echo[level]) is string line) { arrival.P1Echoes.Add("technical:" + c.Id); yield return line; }
+                if (level != null && !CoveredByReturn("technical:" + c.Id) && Fresh(def.Echo[level]) is string line) { arrival.P1Echoes.Add("technical:" + c.Id); yield return line; }
             }
             // The bad copies, separately: what spread without the method (never the method's own maturity).
             foreach (var c in World.Capabilities.Where(c => c.Distorted))
@@ -87,12 +87,13 @@ namespace Butterfly.Core
                 var def = CapabilityDefOf(c.Id)!;
                 string? bad = def.Echo.TryGetValue("distorted", out var b1) && !World.EchoesShown.Contains(b1) ? b1
                             : def.Echo.TryGetValue("distorted.later", out var b2) && !World.EchoesShown.Contains(b2) ? b2 : null;
-                if (bad != null) { arrival.P1Echoes.Add("unintended:" + c.Id); yield return Fresh(bad)!; }
+                if (bad != null && !CoveredByReturn("unintended:" + c.Id)) { arrival.P1Echoes.Add("unintended:" + c.Id); yield return Fresh(bad)!; }
             }
             foreach (var d in Data.Content.InvitationPaths)
             {
                 var stage = World.AccessTo(d.Institution).Stage;
-                if (stage >= InstitutionAccessStage.Guest && stage < InstitutionAccessStage.Member && d.EchoGuest.Length > 0 && !World.EchoesShown.Contains(d.EchoGuest))
+                if (stage >= InstitutionAccessStage.Guest && stage < InstitutionAccessStage.Member && d.EchoGuest.Length > 0 && !World.EchoesShown.Contains(d.EchoGuest)
+                    && !CoveredByReturn("access:" + d.Institution))
                 {
                     Fresh(d.EchoGuest);
                     arrival.P1Echoes.Add("access:" + d.Institution);

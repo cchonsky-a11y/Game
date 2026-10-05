@@ -134,10 +134,11 @@ namespace Butterfly.Core
                     Corruption = i.Corruption,
                 });
             }
+            if (JumpsMade == 1) PrepareReturnChapter(arrival, depart.Id);
             BuildBeats(arrival);
             Record("jump.arrive", "machine", new[] { depart.Id }, new[] { "player" }, null,
                 "You arrive in AD " + Now.Year + ".");
-            if (JumpsMade == 1) StartReturnChapter(arrival, depart.Id);
+            if (JumpsMade == 1) StartReturnChapter(depart.Id);
             Arrival = arrival;
             return arrival;
         }

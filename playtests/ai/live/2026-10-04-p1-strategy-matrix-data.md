@@ -104,12 +104,18 @@ Longest waits by candidate (max months as a candidate before it was picked; mean
 ## Integrity
 
 - Measurement and standards opened by: allotment × 3, baths × 1, hoist × 8, never × 1, pump × 287; by opening: workshop hoist × 4, never × 1, pump × 145; fountain allotment × 3, baths × 1, hoist × 4, pump × 142.
+- First return: started in 300 of 300 first jumps; completed in 300; second jump offered before the return was seen: 0.
+- Return sites per arrival: 4 × 1, 6 × 299; below return.sitesMin (4): 0; visited by the protocol: 3.0 (3.0–3.0).
+- Return site categories: Human 600, Institutional 300, Journal 299, Mystery 8, Technical 299, Unintended 292; runs with 3+ kinds: 300; runs with only one kind: 0.
+- People found, by band: Aulus heirs 59, Aulus memory 29, Cassianus heirs 3, Felix heirs 264, Felix memory 12, Gaius elder 25, Gaius heirs 36, Serenus elder 80, Serenus heirs 92.
+- Departure threads found: copies:outsold 266, foot:drift 5, foot:fabianfoot 2, foot:guildfoot 292, shaft:idle 5, shaft:shafts 83.
+- Misattribution sites per return: 4.4 (1.0–5.0); journal lines written: 2.3 (0.0–3.0); journal comparisons among the sites: 299 runs.
 - Machine archive step: a senator's note in 0 runs, a bribed clerk in 300.
 - Grand Challenges completed: both in 234 runs, one in 60, none in 6.
 - Ledger reconciles at departure: 300 of 300.
 - Lowest gold in any run: 0.0.
 - Duplicate scene texts in an era: 0; repeated sentences between arrivals: 0.
 - R-17: reached the warning in 285 of 300 runs; furthest scene: r17-acknowledged × 1, r17-active × 9, r17-again × 34, r17-dark × 63, r17-link × 9, r17-notebook × 182, r17-request × 2.
-- Echo kinds on the first arrival: access 11, person 598, technical 1629, unintended 763; second: person 598, technical 1315, unintended 266.
-- First arrivals showing all four echo kinds (personal, technical, institutional, unintended): 298 of 300; missing unintended: 2; missing institutional: 1; second arrivals with all four: 266.
-- People remembered on the first arrival: Felix 272, Serenus 162, Aulus 86, Gaius 47, Diodoros 27, Cassianus 4; second: Gaius 170, Aulus 144, Diodoros 79, Cassianus 60, Serenus 56, Hermogenes 30, Felix 24, Livia 23, Marcus 8, Lucan 4.
+- Echo kinds on the first arrival: access 11, person 587, technical 1629, unintended 471; second: person 598, technical 1315, unintended 292.
+- First arrivals showing all four kinds (personal, technical, institutional, unintended) in the beats and the return together: 298 of 300; in the beats alone: 277; missing unintended (both): 2; missing institutional (both): 0; second arrivals with all four: 292.
+- People remembered on the first arrival: Livia 196, Diodoros 185, Hermogenes 141, Lucan 65; second: Felix 275, Serenus 172, Aulus 89, Gaius 58, Cassianus 4.

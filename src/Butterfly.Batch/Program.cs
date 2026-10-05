@@ -34,7 +34,14 @@ for (int i = 0; i < args.Length - 1; i++)
 {
     if (args[i] != "--p1-return") continue;
     // A readable reference first return for one seed (scripted, not human): --p1-return 1 [--out file]
-    string ret = P1Campaign.ReferenceReturn(data, ulong.Parse(args[i + 1], CultureInfo.InvariantCulture));
+    // --leave Y: leave once the machine is ready and the year is at least Y; --stay Z: compare with staying until Z.
+    int leave = 163, stay = 0;
+    for (int k = 0; k < args.Length - 1; k++)
+    {
+        if (args[k] == "--leave") leave = int.Parse(args[k + 1], CultureInfo.InvariantCulture);
+        if (args[k] == "--stay") stay = int.Parse(args[k + 1], CultureInfo.InvariantCulture);
+    }
+    string ret = P1Campaign.ReferenceReturn(data, ulong.Parse(args[i + 1], CultureInfo.InvariantCulture), P1Campaign.Profile.Legacy, leave, stay);
     Console.WriteLine(ret);
     if (outPath != null) { File.WriteAllText(outPath, ret); Console.WriteLine("Saved to " + outPath); }
     return;

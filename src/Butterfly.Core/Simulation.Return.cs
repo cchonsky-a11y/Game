@@ -73,11 +73,25 @@ namespace Butterfly.Core
 
         // ---- starting the return ------------------------------------------------------------------------------------------
 
-        /// <summary>At the first arrival: choose the sites from what happened, fix their words, and open the chapter.</summary>
-        private void StartReturnChapter(Arrival arrival, int departId)
+        /// <summary>The first return being prepared during the arrival (its sites decide which beat lines they replace).</summary>
+        private ReturnChapter? _preparingReturn;
+
+        /// <summary>At the first arrival, before the beats: choose the sites from what happened and fix their words.</summary>
+        private void PrepareReturnChapter(Arrival arrival, int departId)
         {
             var r = new ReturnChapter { DepartureYear = arrival.DepartureYear, ArrivalYear = Now.Year, JumpYears = arrival.JumpYears };
             foreach (var site in ChooseReturnSites(r, departId)) r.Sites.Add(site);
+            _preparingReturn = r;
+        }
+
+        /// <summary>True if a site of the return being prepared tells this arrival echo line instead (kind:id).</summary>
+        private bool CoveredByReturn(string echoKey) => _preparingReturn != null && _preparingReturn.Sites.Any(s => s.Covers.Contains(echoKey));
+
+        /// <summary>After the beats: open the chapter.</summary>
+        private void StartReturnChapter(int departId)
+        {
+            var r = _preparingReturn!;
+            _preparingReturn = null;
             World.Return = r;
             Record("return.begin", "return", new[] { departId }, new[] { "world" }, null,
                 "AD " + Now.Year + ". There are " + r.Sites.Count + " places to look: " + string.Join("; ", r.Sites.Select(s => s.Place)) + ".");
@@ -153,10 +167,12 @@ namespace Butterfly.Core
                 Recognition = v.Recognition, Contradiction = v.Contradiction, Lead = v.Lead, Investigation = v.Investigation,
                 Evidence = v.Evidence, Misattributed = v.Misattributed, Thread = v.Thread,
             };
+            site.Covers.AddRange(d.Covers);
             if (d.Person.Length > 0 && PersonDefOf(d.Person) is PersonDef p && HumanBandAt(p, r.ArrivalYear) is var band && band != null)
             {
                 site.Band = band.Value.Band;
-                values["sinceDeath"] = band.Value.SinceDeath.ToString(CultureInfo.InvariantCulture);
+                int since = band.Value.SinceDeath;
+                values["sinceDeath"] = since == 0 ? "this year" : since == 1 ? "a year ago" : since.ToString(CultureInfo.InvariantCulture) + " years ago";
                 values["age"] = band.Value.Age.ToString(CultureInfo.InvariantCulture);
                 site.Recognition = BandText(d, band.Value.Band);
             }

@@ -48,6 +48,17 @@ python3 playtests/ai/live/play.py setup                                     # li
 
 ## 5. Where things stand
 
+### P1 status (2026-10-04, first-return prototype, Part II)
+- **IMPLEMENTED (prototype):**
+  - after the first jump, a return chapter: 4–6 places from 21 authored patterns (returns.json), chosen from what happened; `visit <n>`, `look closer <n>`, `journal`, `done`; the second jump after 3 places and `done`;
+  - the departure briefing lists what you'd leave unresolved;
+  - four departure threads change the return by when you leave;
+  - elapsed time for six core people (self / elder / heirs / memory);
+  - journal lines then and now.
+- **Commands:** `--p1-return <seed> [--leave Y] [--stay Z]` for a readable reference return. The reference file is `playtests/ai/live/2026-10-04-first-return-reference.md` (scripted, not human).
+- **Product hypothesis under test:** the return is the signature experience. Next comes the limited console human test (`playtests/human/FIRST_RETURN_PROTOCOL.md`, about 5 people). Graphical UI is **not** authorized until then.
+- **Unchanged:** Attention 4; age bonus 0; jump range 25–60; economy; 234/300 both challenges; archive (salutatio is enough); guild and Circle stakes not for sale; no political expansion; no long-jump or generational model; no second era; inventions kept, under review (the capability network is primary).
+
 ### P1 status (2026-10-04, after the correctness pass)
 - **Corey's decisions:**
   - guild and Circle members can't buy more stake (only the bank sells ownership);

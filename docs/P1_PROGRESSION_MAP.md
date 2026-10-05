@@ -132,3 +132,23 @@ Stages:
 - A commission is not offered while an advance its work declares is out of reach. This affects only fountainworks, which now waits on shared measures.
 - A challenge stage checks every advance it declares, including its "also" advances, in order.
 - Capabilities no P1 work moves are future scope and are hidden from the Civilization view's next steps: recipes for bronze, the hydraulic press, lathe work, interchangeable parts, the governor, steam, electricity and copying.
+
+## 12. The first return (Part II prototype, 2026-10-04)
+
+The first return's sites are gated by the same requirement grammar. Each needs only what actually happened:
+
+| Site | Exists when | Departure thread |
+|---|---|---|
+| felix, cassianus, serenus, gaius, marcus, aulus | you know the person (band by elapsed years) | marcus (Marcus), shaft (Aulus) |
+| fittings | the standards challenge came up | foot: gauges reproducible or not; guild member or not |
+| pumps | true valve seats reproducible | copies: guild member or not |
+| mills | Powered Workshops started | shaft: done or not; what you told Sextus Nerius |
+| drawings | dimensioned drawings prototype | — |
+| guildhall / circle | at least a guest there | — |
+| opening | always (the workshop, the fountain, or neither) | — |
+| varro | you stood at the salutatio | — |
+| copyseats / copydrawings / copybearings | that bad copy happened | copies (Pollio's seats) |
+| journal-foot / journal-seat / journal-calix | the line was written (shared measures reproducible / valve seats reproducible / the allotment done) | foot, copies |
+| landing | always (an R XVII mark only after the R-17 warning) | — |
+
+The second jump is gated by the return: 3 places seen, then `done`.

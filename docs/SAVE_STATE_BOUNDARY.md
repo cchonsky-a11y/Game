@@ -11,6 +11,7 @@ Most game state lives here. It includes some state that is easy to mistake for a
 - **Grand Challenges**, including `FirstEligibleRoute` / `FirstEligibleTurn` (route credit) and the stage in progress (`MonthsLeft`, `ReservedFromTurn`, `DoneBy`);
 - **scene routing:** `ScenePacing` (the recent categories), `RoutedScenes`, `CandidateSince` (how long progression candidates have waited), `ScenesSeen`, `ScenePlays`, `SceneLastTurn`, `SceneFocus`, `ReadyLife`, `TriggeredEvents`;
 - machine work in progress (`ActiveMachineSteps`, `MachineDone`, gold restored), active practical projects and inventions, reserved Attention, flags, the promise.
+- **the first return (2026-10-04):** `World.Return` holds the departure and arrival years, the jump years, the chosen sites with their fixed words, variant, band, thread, evidence and grounding event ids, the sites visited and looked into, and whether the return is finished (the second-jump gate). `World.Journal` holds the entries as written: id, year, text and event id. Site words are fixed when chosen, so a loaded game must not re-choose them.
 
 ## 2. On `Simulation`, outside `World`
 
@@ -19,7 +20,8 @@ Most game state lives here. It includes some state that is easy to mistake for a
 | **The generator's position** | `Rng._state` (private) | Every later draw. The seed alone is not enough mid-game. There is no accessor for the raw state yet; `Rng.Clone()` copies it in memory only. |
 | Calendar | `Now`, `Turn`, `MonthsPerTurn` | Time, durations, reservations |
 | Era and jumps | `_eraStart`, `_firstDepartureYear`, `DepartureYear`, `JumpsMade`, `IsAway`, `Arrived`, `Arrival`, `_leftRome` (snapshot at departure), `_warningsBeforeDeparture`, `_stepYears` | Arrival beats, echoes, the walk, jump range |
-| The pending decision | `_pendingEvent`, `_pendingSinceTurn`, `_eventsSeen`, `_marksShown` | Rome's choices and lapses |
+| The pending decision and past answers | `_pendingEvent`, `_pendingSinceTurn`, `_eventsSeen`, `_marksShown`, `_eventChoices` | Rome's choices and lapses; `answered:` requirements and return sites read past answers |
+| The first return in preparation | `_preparingReturn` | Only set during an arrival; empty between commands |
 | News and pacing | `_localHeard`, `_localSlot`, `_localThisTurnFrom`, `_turnEventStart`, `_lastChange` | What has been said, what is new this month |
 | Workshop | `_orderBoard`, `_orderSlot`, `_ordersTakenThisSeason` | Craft orders |
 | Savings across a jump | `_depositSince`, `_depositReturned`, `_depositLost`, `_hoardLost` | The bank and the jar |

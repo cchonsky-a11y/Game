@@ -162,6 +162,12 @@ namespace Butterfly.Core
                     if (!d.Bands.ContainsKey(HumanBand.Heirs) || !d.Bands.ContainsKey(HumanBand.Memory)) p.Add(w + ": needs heirs and memory bands");
                 }
                 else if (d.Person.Length > 0) p.Add(w + ": only human sites follow a person");
+                foreach (var k in d.Covers)
+                {
+                    var kp = k.Split(':');
+                    bool known = kp.Length == 2 && (kp[0] == "technical" || kp[0] == "unintended" ? c.Capabilities.Any(x => x.Id == kp[1]) : kp[0] == "access" && c.Institutions.Any(x => x.Id == kp[1]));
+                    if (!known) p.Add(w + ": covers an unknown echo '" + k + "'");
+                }
             }
             foreach (var a in c.JournalAnchors)
             {

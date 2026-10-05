@@ -659,3 +659,29 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Not evidence about:** final UI usability, menu clarity, graphical hierarchy, accessibility, onboarding or readability of the eventual product. AI, scripted or model runs never count as human testers.
 - **Milestone consequence:** if the return fails those tests (no hesitation, nobody matters, no plausible causes, a status report, no wish to explore), rework it before major graphical UI work. If it works, graphical UI proceeds with the return as a primary design target.
 - **Updated:** PROTOTYPE_SCOPE.md (out-of-scope line and a new "Authorized" section), CLAUDE.md, BUILD_GUIDE §6, HANDOFF.md. The protocol will be `playtests/human/FIRST_RETURN_PROTOCOL.md`.
+
+## 2026-10-04 — First-return prototype (Part II)
+- **Built:** the return chapter after the first jump.
+  - 4–6 places in the changed city, chosen without randomness from what actually happened. There are 21 authored patterns in returns.json: 6 human, 4 technical, 4 institutional, 3 unintended, 3 journal, 1 mystery.
+  - A visit shows recognition and contradiction; "look closer" follows a lead. Every site keeps the first-life events that justify it as the logged causes of its visit.
+  - The second jump waits for 3 places and "done".
+  - The departure briefing lists what you'd leave unresolved, as facts only.
+  - Four departure threads (foot, copies, marcus, shaft) differ by the state at departure.
+  - Six core people have an age and a deterministic lifespan (self / elder / heirs / memory).
+  - Journal anchors are written once in the player's words and compared with what survives.
+  - On the first arrival the core cast leaves the Personal echo beat, and a site replaces the beat line it tells.
+- **Proposed numbers:** P1-24 (return sites: max 6, 2 a kind, min 4 checked, 3 visits) and P1-25 (elapsed time: elder at 60, heirs for 25 years, the six ages and lifespans).
+- **Reused, not rebuilt:**
+  - the armed-jump briefing (extended);
+  - the arrival handling and the walk (`visit` takes a site number or id first);
+  - the polish design's elapsed-time bands;
+  - the event log for grounding;
+  - the requirement grammar, plus `journal:id` and `answered:event:option`.
+- **Evidence (scripted, not human):**
+  - 549 tests, including a same-seed test: leaving with the gauges unfinished against staying to finish them changes the fittings site (drift → guild's foot, misattributed) and the journal line (luck → the guild's order).
+  - 300-run matrix: the return was started and completed in 300 of 300 runs, with 3 or more kinds every run and the second jump never offered early. Jumps, challenges (234), routes, ledger, overbooking and archive are unchanged.
+  - The P0 batch is unchanged. The explorer finds no bugs and replays deterministically.
+  - The snapshot hash was reset: the reference game still arrives in AD 247 with Index 127.1; the log gains journal notes and return events.
+- **Inventions:** kept, not expanded, under design review. The capability network is the primary P1 implementation of "knowing is not making".
+- **Not built:** a second era, long jumps or a generational model, a lead network, elapsed time beyond six people, a save system, graphical UI, R-17's explanation.
+- **Next:** the limited console human test of the return (about 5 people). Its result decides whether the return is reworked before graphical UI or becomes a primary UI design target.

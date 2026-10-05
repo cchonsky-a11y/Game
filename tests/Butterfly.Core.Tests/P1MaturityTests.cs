@@ -82,9 +82,20 @@ namespace Butterfly.Core.Tests
             sim.SpreadCapability("valveseats", CapabilitySpread.Copied, true, true, null, "test", "Pollio");
             var arrival = sim.JumpForTests();
             Assert.Contains("technical:valveseats", arrival.P1Echoes);
-            Assert.Contains("unintended:valveseats", arrival.P1Echoes);
             var discovery = arrival.Beats.First(b => b.Name == "Discovery").Text;
-            Assert.Contains(sim.CapabilityDefOf("valveseats")!.Echo["distorted"], discovery);
+            // The bad copies are found apart from the true lineage: in the Discovery beat, or (since the first return) at the
+            // market gates, which then tells them instead of the beat.
+            var gates = sim.World.Return!.Sites.FirstOrDefault(x => x.Id == "copyseats");
+            if (gates != null)
+            {
+                Assert.Equal("copies", gates.Thread);
+                Assert.DoesNotContain(sim.CapabilityDefOf("valveseats")!.Echo["distorted"], discovery);
+            }
+            else
+            {
+                Assert.Contains("unintended:valveseats", arrival.P1Echoes);
+                Assert.Contains(sim.CapabilityDefOf("valveseats")!.Echo["distorted"], discovery);
+            }
         }
 
         [Fact]

@@ -50,8 +50,11 @@ namespace Butterfly.Core.Tests
             var before = sim.CapabilityLevelOf("valveseats");
             var arrival = sim.JumpForTests();
             Assert.Equal(before, sim.CapabilityLevelOf("valveseats"));                   // no member, no carrier
-            Assert.Contains("access:guild", arrival.P1Echoes);
-            Assert.Contains(sim.InvitationPathDefFor("guild")!.EchoGuest, Beat(arrival, "Discovery"));
+            // The guest book is now found in the first return's guild hall, so the beat line it would repeat is left out.
+            var hall = Assert.Single(sim.World.Return!.Sites, s => s.Id == "guildhall");
+            Assert.Equal("guest", hall.Variant);
+            Assert.DoesNotContain("access:guild", arrival.P1Echoes);
+            Assert.DoesNotContain(sim.InvitationPathDefFor("guild")!.EchoGuest, Beat(arrival, "Discovery"));
             Assert.Contains(sim.World.Return!.Sites, s => s.Person == "Cassianus");      // found in the return, not the beats
         }
 

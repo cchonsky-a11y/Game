@@ -1,5 +1,5 @@
 {
-  "_readme": "The first return (Part II prototype, 2026-10-04; docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). After the first jump the player finds a few places in the changed city (return.sitesMax, PROPOSED P1-24). A site exists only if its 'requires' hold for what actually happened; its first variant whose 'requires' hold decides what is there. Visiting shows recognition then contradiction; 'look closer' follows the lead to the investigation. Present conditions and evidence only, never 'because you did X'. Human sites take their recognition from the person's band (self / elder / heirs / memory) by years away and the person's age and lifespan in people.json (PROPOSED P1-25). Journal anchors are written in the player's journal during the first life when their 'requires' first hold; each anchor is also a return site comparing what you wrote then with what survives now. 'order' is the category sequence selection follows (at most return.maxPerCategory a category). Placeholders: {sinceDeath} years since the person died, {years} years away, {year} the arrival year, {departed} the year you left, {then} the year the journal line was written.",
+  "_readme": "The first return (Part II prototype, 2026-10-04; docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). After the first jump the player finds a few places in the changed city (return.sitesMax, PROPOSED P1-24). A site exists only if its 'requires' hold for what actually happened; its first variant whose 'requires' hold decides what is there. Visiting shows recognition then contradiction; 'look closer' follows the lead to the investigation. Present conditions and evidence only, never 'because you did X'. Human sites take their recognition from the person's band (self / elder / heirs / memory) by years away and the person's age and lifespan in people.json (PROPOSED P1-25). Journal anchors are written in the player's journal during the first life when their 'requires' first hold; each anchor is also a return site comparing what you wrote then with what survives now. 'covers' names the arrival echo lines (kind:id) a site tells instead: when it is chosen they are left out of the first arrival's beats. 'order' is the category sequence selection follows (at most return.maxPerCategory a category). Placeholders: {sinceDeath} years since the person died, {years} years away, {year} the arrival year, {departed} the year you left, {then} the year the journal line was written.",
   "order": [ "Human", "Technical", "Institutional", "Human", "Unintended", "Journal", "Mystery", "Technical", "Institutional", "Unintended", "Journal" ],
   "sites": [
     {
@@ -9,7 +9,7 @@
       "place": "Felix's yard on the quays at Ostia",
       "requires": [ "knows:Felix" ],
       "bands": {
-        "heirs": "FELICIS is still cut over the yard gate. His son runs it now, a big man with Felix's voice and none of his jokes. Felix died {sinceDeath} years ago, the son says, owing a rope-maker money and still talking about a cellar pump.",
+        "heirs": "FELICIS is still cut over the yard gate. His son runs it now, a big man with Felix's voice and none of his jokes. Felix died {sinceDeath}, the son says, owing a rope-maker money and still talking about a cellar pump.",
         "memory": "There is a yard on the quays with FELICIS cut over the gate, though nobody in it is called Felix. The fitters think the word means luck."
       },
       "variants": [
@@ -40,7 +40,7 @@
       "place": "Cassianus's warehouses under the Aventine",
       "requires": [ "knows:Cassianus" ],
       "bands": {
-        "heirs": "Cassianus's name is still on the lintel. His daughter's son keeps the books there. Cassianus died {sinceDeath} years ago, and the family is still arguing about his will.",
+        "heirs": "Cassianus's name is still on the lintel. His daughter's son keeps the books there. Cassianus died {sinceDeath}, and the family is still arguing about his will.",
         "memory": "The warehouses under the Aventine have changed hands three times. By the third door a stone is cut CASSIANUS, half under new plaster."
       },
       "variants": [
@@ -81,7 +81,7 @@
       "requires": [ "knows:Serenus" ],
       "bands": {
         "elder": "Serenus is alive, nearly blind, in a room above the Circle's hall. A boy reads him cases aloud and he corrects the boy's arithmetic. He knows your voice before he can see your face.",
-        "heirs": "Serenus died {sinceDeath} years ago. His pupil, an old man himself now, keeps the casebooks in a chest and lets you look, because you knew the hand.",
+        "heirs": "Serenus died {sinceDeath}. His pupil, an old man himself now, keeps the casebooks in a chest and lets you look, because you knew the hand.",
         "memory": "The Circle's library has a shelf of casebooks in a careful hand, labelled SERENUS. The young physicians copy them for the Greek."
       },
       "variants": [
@@ -122,7 +122,7 @@
       "requires": [ "knows:Gaius" ],
       "bands": {
         "elder": "Gaius is at the shop, white-haired and deaf in one ear from the hammers. His grandsons do the casting now. He looks at you a long time and asks where you have been, in a voice that expects a lie.",
-        "heirs": "Gaius died {sinceDeath} years ago. The shop is his grandsons' now. One of them has his hands and none of his patience.",
+        "heirs": "Gaius died {sinceDeath}. The shop is his grandsons' now. One of them has his hands and none of his patience.",
         "memory": "The shop on the Clivus is FABIUS AND SONS, though nobody there ever knew a Gaius. A bronze rule hangs on the wall by the shrine like a household god."
       },
       "variants": [
@@ -173,7 +173,7 @@
       "bands": {
         "self": "Marcus is at a bench by the river, broad now, a man of about fifty with three apprentices of his own. He stares at you, then laughs, because you look exactly as you did.",
         "elder": "Marcus is old. He sits in the sun outside the shop and watches younger men work a shaft he could build in his sleep. He knows you, and he doesn't get up.",
-        "heirs": "Marcus died {sinceDeath} years ago. His son keeps Marcus's tally book on the shelf with the household gods.",
+        "heirs": "Marcus died {sinceDeath}. His son keeps Marcus's tally book on the shelf with the household gods.",
         "memory": "Nobody by the river remembers Marcus. A shop there keeps an old tally board whose first marks are in a hand you know."
       },
       "variants": [
@@ -216,7 +216,7 @@
       "place": "The mills on the Janiculum",
       "requires": [ "knows:Aulus" ],
       "bands": {
-        "heirs": "Aulus died {sinceDeath} years ago, bent like a hook from his back. His sons keep the mills.",
+        "heirs": "Aulus died {sinceDeath}, bent like a hook from his back. His sons keep the mills.",
         "memory": "Aulus's grandsons keep the mills on the Janiculum. They know his name from the race's founding stone."
       },
       "variants": [
@@ -394,6 +394,7 @@
     },
     {
       "id": "guildhall",
+      "covers": [ "access:guild" ],
       "category": "Institutional",
       "place": "The guild hall at Ostia",
       "requires": [ "access:guild:Guest" ],
@@ -432,6 +433,7 @@
     },
     {
       "id": "circle",
+      "covers": [ "access:circle" ],
       "category": "Institutional",
       "place": "The Physicians' Circle in the Subura",
       "requires": [ "access:circle:Guest" ],
@@ -538,6 +540,7 @@
     },
     {
       "id": "copyseats",
+      "covers": [ "unintended:valveseats" ],
       "category": "Unintended",
       "place": "The market gates",
       "requires": [ "life:pollio-copy" ],
@@ -568,6 +571,7 @@
     },
     {
       "id": "copydrawings",
+      "covers": [ "unintended:drawings" ],
       "category": "Unintended",
       "place": "A stall by the lighthouse at Ostia",
       "requires": [ "life:vettius-copies" ],
@@ -586,6 +590,7 @@
     },
     {
       "id": "copybearings",
+      "covers": [ "unintended:bearings" ],
       "category": "Unintended",
       "place": "The river mills below the Janiculum",
       "requires": [ "life:brass-bearings" ],

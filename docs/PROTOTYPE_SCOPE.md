@@ -65,7 +65,7 @@ It is **not** evidence about final UI usability, menu clarity, graphical informa
 
 **What the result decides.** If testers generally don't hesitate before leaving, don't care whom they leave, can't find any plausible cause for what they see, read the return as a status report, or don't want to explore further, the return is reworked **before** major graphical UI development. If it works emotionally and strategically, graphical UI work proceeds with the return as a primary design target. Five people give patterns, not scores.
 
-Building for it (the first-return prototype, Part II, 2026-10-04) stays a prototype: one first return, no second era, no long-jump or generational model.
+Building for it (the first-return prototype, Part II, 2026-10-04) stays a prototype: one first return, no second era, no long-jump or generational model. **Built** (2026-10-04): the return chapter, the departure briefing's unresolved threads, elapsed time for six people and the journal (docs/FIRST_RETURN_PROTOTYPE_2026-10-04.md). Graphical UI work is **not** authorized yet; the next decision depends on how human testers respond to the return.
 
 ## Hard constraints (SYSTEMS.md §14) still apply
 Player institutions never use enslaved labor. No atrocity verbs. Religious founders are never depicted, nudged or erased. No weapon of mass destruction as a player tool. Exploitation always costs the Index. Roman slavery may be depicted as part of Roman life, never as a player tool.

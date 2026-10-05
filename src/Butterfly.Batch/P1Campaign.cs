@@ -60,6 +60,8 @@ namespace Butterfly.Batch
             public int ReturnSites, ReturnVisited, ReturnMisattributed;
             public List<string> ReturnCategories = new List<string>(), ReturnBands = new List<string>(), ReturnThreads = new List<string>();
             public int JournalWritten, JournalSites, SitesMin;
+            public List<ReturnSite> Sites = new List<ReturnSite>();
+            public List<string> Briefing = new List<string>();
             /// <summary>Return gate failures: the second jump offered before the return was seen.</summary>
             public int Bugs;
         }
@@ -87,11 +89,44 @@ namespace Butterfly.Batch
         /// A readable reference return for one seed (scripted, not human): the first life in brief, what was written in the
         /// journal, the departure briefing, the arrival, every return site visited and looked into, then finishing the return.
         /// </summary>
-        public static string ReferenceReturn(GameData data, ulong seed, Profile profile = Profile.Legacy)
+        public static string ReferenceReturn(GameData data, ulong seed, Profile profile = Profile.Legacy, int departYear = 163, int stayYear = 0)
         {
             var sb = new StringBuilder();
-            Play(data, seed, profile, seed % 2 == 1 ? "workshop" : "fountain", 163, sb);
+            string opening = seed % 2 == 1 ? "workshop" : "fountain";
+            var left = Play(data, seed, profile, opening, departYear, sb);
+            if (stayYear <= departYear) return sb.ToString();
+            // The same life, but staying in Rome until AD stayYear before leaving: what the return holds instead.
+            var stayed = Play(data, seed, profile, opening, stayYear, null);
+            sb.AppendLine();
+            sb.AppendLine("## When you leave matters: the same seed, staying until AD " + stayed.Depart1);
+            sb.AppendLine();
+            sb.AppendLine("The same scripted player and seed, but it keeps living in Rome after the machine is ready and leaves in AD " + stayed.Depart1 + " instead of AD " + left.Depart1 + ".");
+            sb.AppendLine();
+            sb.AppendLine("- Unresolved at departure (left in AD " + left.Depart1 + "): " + Stakes(left.Briefing));
+            sb.AppendLine("- Unresolved at departure (stayed until AD " + stayed.Depart1 + "): " + Stakes(stayed.Briefing));
+            sb.AppendLine("- Departure threads found: " + string.Join(", ", left.ReturnThreads) + " (left) vs " + string.Join(", ", stayed.ReturnThreads) + " (stayed).");
+            sb.AppendLine();
+            foreach (var a in left.Sites)
+            {
+                var b = stayed.Sites.FirstOrDefault(s => s.Id == a.Id);
+                if (b == null || b.Variant == a.Variant) continue;
+                sb.AppendLine("**" + a.Place + "** (" + a.Variant + " → " + b.Variant + ")");
+                sb.AppendLine();
+                sb.AppendLine("- Left early: " + a.Recognition + " " + a.Contradiction);
+                sb.AppendLine("- Stayed: " + b.Recognition + " " + b.Contradiction);
+                sb.AppendLine();
+            }
+            var only = stayed.Sites.Where(s => left.Sites.All(x => x.Id != s.Id)).Select(s => s.Place).ToList();
+            if (only.Count > 0) sb.AppendLine("Only in the later return: " + string.Join("; ", only) + ".");
             return sb.ToString();
+        }
+
+        private static readonly string[] StakeOpenings = { "The shared foot isn't finished", "Pollio is selling", "Marcus still thinks", "Aulus's shaft has run", "'s job is half done" };
+
+        private static string Stakes(IEnumerable<string> briefing)
+        {
+            var lines = briefing.Where(l => StakeOpenings.Any(l.Contains)).ToList();
+            return lines.Count == 0 ? "nothing listed" : string.Join(" / ", lines);
         }
 
         private static Result Play(GameData data, ulong seed, Profile profile, string opening, int departYear, StringBuilder? story)
@@ -224,6 +259,7 @@ namespace Butterfly.Batch
             r.DuplicateList = texts.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key.Substring(0, Math.Min(90, g.Key.Length))).ToList();
             if (!sim.MachineReady) return r;
             r.Depart1 = sim.Now.Year;
+            r.Briefing = sim.DepartureBriefing().ToList();
             if (story != null) StoryBeforeJump(sim, story, seed, profile);
             var a1 = sim.Jump();
             if (story != null) StoryReturn(sim, a1, story);
@@ -234,6 +270,7 @@ namespace Butterfly.Batch
             if (ret != null)
             {
                 r.ReturnStarted = true;
+                r.Sites = ret.Sites.ToList();
                 r.SitesMin = sim.T.GetInt("return.sitesMin");
                 r.ReturnSites = ret.Sites.Count;
                 r.ReturnCategories = ret.Sites.Select(s => s.Category.ToString()).ToList();

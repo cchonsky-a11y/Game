@@ -191,6 +191,8 @@ namespace Butterfly.Core
         {
             var notable = new HashSet<string> { "project.complete", "commission.complete", "institution.join", "person.life", "plague.outbreak", "seeded.choice", "invention.complete", "jump.arrive" };
             foreach (var e in Log.Events.Where(e => notable.Contains(e.Type)).Reverse().Take(12)) v.Archived.Add(new ViewItem(e.Time.Display + ": " + e.Text));
+            // The journal as written (first return, 2026-10-04): the player's own words, which the return compares with what survives.
+            foreach (var line in JournalLines()) v.Active.Add(new ViewItem(line, "journal"));
             v.AvailableNow.Add(new ViewItem("ledger", "ledger"));
             v.AvailableNow.Add(new ViewItem("news", "news"));
         }
