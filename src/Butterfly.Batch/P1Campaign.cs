@@ -18,7 +18,9 @@ namespace Butterfly.Batch
         /// Scripted strategy profiles (hardening pass, 2026-10-04). Scripted profiles of the build's own API, not people:
         /// Legacy = the original validation script (asks for more on every third seed).
         /// </summary>
-        public enum Profile { Legacy, Cooperative, Negotiator, Selective, Engineering, Relationship }
+        public enum Profile { Legacy, Cooperative, Negotiator, Selective, Engineering, Relationship,
+            /// <summary>Baseline for the outcome-spread report (2026-11-10): repairs the machine and does odd jobs; takes no commission, challenge or invitation.</summary>
+            Idle }
 
         public sealed class Result
         {
@@ -62,6 +64,10 @@ namespace Butterfly.Batch
             public int JournalWritten, JournalSites, SitesMin;
             public List<ReturnSite> Sites = new List<ReturnSite>();
             public List<string> Briefing = new List<string>();
+            // Outcome spread (2026-11-10): what the world looks like at departure and on the first arrival.
+            public double IndexAtDeparture, IndexAtArrival1;
+            public Dictionary<string, CapabilityLevel> Capabilities = new Dictionary<string, CapabilityLevel>();
+            public bool Jumped;
             /// <summary>Return gate failures: the second jump offered before the return was seen.</summary>
             public int Bugs;
         }
@@ -157,15 +163,18 @@ namespace Butterfly.Batch
                         bool decline = profile == Profile.Selective && (d.FundingModel != ProjectFundingModel.ClientPaid || sim.ReservedInMonth(1) >= 3)
                                     || profile == Profile.Engineering && (d.Encounter.Category == SceneCategory.RomanLife || d.Encounter.Category == SceneCategory.CityHistory
                                                                           || d.Encounter.Category == SceneCategory.Personal);
+                        if (profile == Profile.Idle) decline = true;
                         if (decline) { sim.DeclineCommission(c.Id); continue; }
                         if (counter && !c.Countered) { sim.CounterCommission(c.Id); r.Countered++; }
                         if (c.Status == CommissionStatus.TermsOffered) Note(sim.AcceptCommission(c.Id));
                     }
                 }
-                foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None).ToList()) sim.AcceptInvitation(p.Institution);
+                if (profile != Profile.Idle)
+                    foreach (var p in w.Invitations.Where(p => p.Pending != InvitationOffer.None).ToList()) sim.AcceptInvitation(p.Institution);
                 bool busy = w.Commissions.Any(c => c.Status == CommissionStatus.Working);
                 foreach (var ch in w.Challenges.Where(ch => ch.Status == ChallengeStatus.Open).ToList())
                 {
+                    if (profile == Profile.Idle) continue;
                     if (profile == Profile.Relationship && busy) continue;                             // people and work first
                     if (profile == Profile.Selective && sim.NextStage(ch) is ChallengeStageDef st && w.Gold < 2 * sim.StageGold(st)) continue;
                     var res = sim.StartChallengeStage(ch.Id);
@@ -257,12 +266,16 @@ namespace Butterfly.Batch
                                       .Select(e => e.Text).ToList();
             r.DuplicateTexts = texts.Count - texts.Distinct().Count();
             r.DuplicateList = texts.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key.Substring(0, Math.Min(90, g.Key.Length))).ToList();
+            r.IndexAtDeparture = sim.SphereIndex();
+            foreach (var c in sim.World.Capabilities) r.Capabilities[c.Id] = c.Level;
             if (!sim.MachineReady) return r;
+            r.Jumped = true;
             r.Depart1 = sim.Now.Year;
             r.Briefing = sim.DepartureBriefing().ToList();
             if (story != null) StoryBeforeJump(sim, story, seed, profile);
             var a1 = sim.Jump();
             if (story != null) StoryReturn(sim, a1, story);
+            r.IndexAtArrival1 = a1.IndexAfter;
             r.Arrive1 = a1.ArrivalYear; r.Jump1 = a1.JumpYears; r.Echoes1 = a1.P1Echoes.ToList();
             r.Institutions1 = string.Join("; ", a1.Institutions.Select(i => i.Name.Replace("the ", "") + " " + i.Outcome));
             var ret = sim.World.Return;

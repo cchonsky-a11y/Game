@@ -66,6 +66,17 @@ for (int i = 0; i < args.Length - 1; i++)
     if (outPath != null) { File.WriteAllText(outPath, m); Console.WriteLine("Saved to " + outPath); }
     return;
 }
+for (int i = 0; i < args.Length - 1; i++)
+{
+    if (args[i] != "--p1-spread") continue;
+    // The P1 outcome-spread baseline (scripted, not human): --p1-spread 1-30 [--out file]
+    var b = args[i + 1].Split('-').Select(x => ulong.Parse(x, CultureInfo.InvariantCulture)).ToArray();
+    var seeds = Enumerable.Range((int)b[0], (int)(b[b.Length - 1] - b[0] + 1)).Select(x => (ulong)x);
+    string sp = P1Spread.Report(P1Spread.Run(data, seeds));
+    Console.WriteLine(sp);
+    if (outPath != null) { File.WriteAllText(outPath, sp); Console.WriteLine("Saved to " + outPath); }
+    return;
+}
 int trace = 0;
 for (int i = 0; i < args.Length - 1; i++) if (args[i] == "--trace") trace = int.Parse(args[i + 1], CultureInfo.InvariantCulture);
 if (trace > 0)

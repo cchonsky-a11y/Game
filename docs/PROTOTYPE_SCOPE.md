@@ -1,6 +1,6 @@
 # PROTOTYPE_SCOPE.md — Current Milestone: P1 Playable Game Structure
 
-> **Direction (Corey, 2026-11-10): a Stakes and Impact pass on gameplay is approved in direction** (time that costs, ways to lose, jump failure, leverage, rooted achievements, divergence, wonders). It reopens frozen P1 gameplay. Nothing from it is in scope to build until Corey rules on the conflicts and approves each slice: see `docs/STAKES_AND_IMPACT_PROPOSAL.md` §9–10.
+> **Stakes and Impact pass (Corey, 2026-11-10): in scope.** The P1 gameplay freeze is lifted for this pass only, built one slice at a time in the order of `docs/STAKES_AND_IMPACT_PROPOSAL.md` §9: time that costs and Notice; machine repair choices, early jumps at stated risk and jump malfunctions; rooted achievements that may outlast the long-run fade rule; leverage and pacing; wonders; holders and divergence (human events may move off their historical dates; natural ones keep them). Each slice's rules and numbers are proposed (`PROPOSED` entries) and go SYSTEMS → GDD Appendix A → tuning → DECISIONS → content → tests. The five-person first-return test runs after this pass. Everything else below stands, and the P2 slice's "not in this slice" list still binds the Unity client.
 
 > **Change of direction (Corey, 2026-10-05): the P2 graphical vertical slice is now in scope.** Real human first-return testing is deferred until the minimal graphical vertical slice is playable. P1 gameplay is frozen: the slice is a Unity 6 presentation over the existing Butterfly.Core, never a second simulation. See "P2 graphical vertical slice" below and `docs/P2_GRAPHICAL_VERTICAL_SLICE.md`. Naming: "P2" now means this graphical slice; the fuel puzzle (formerly P2) moves later, its number Corey's call.
 
@@ -50,7 +50,7 @@ Everything in `docs/archive/PROTOTYPE_SCOPE_P0.md` that P1 has not yet replaced 
 ## Out of scope (do not build)
 - Unity, graphics, audio, a UI beyond the console (P1 builds view models a later UI will consume). **Superseded 2026-10-05 for the P2 graphical vertical slice only** (below); audio and graphics beyond replaceable placeholders stay out.
 - Eras after Rome as playable eras, multiple regions, diplomacy, warfare.
-- The fuel puzzle (formerly numbered P2; moved later, 2026-10-05), repair tiers, malfunctions.
+- The fuel puzzle (formerly numbered P2; moved later, 2026-10-05). (Repair tiers and malfunctions: in scope from 2026-11-10 as slice 2 of the Stakes and Impact pass only.)
 - Saves, iCloud, purchases, analytics, networking.
 - Any language-model integration.
 - General human usability testing (deferred to a graphical milestone). **2026-10-05: the first-return human test also waits for the playable graphical slice.** **One narrow exception (Corey, 2026-10-04):** a console experience validation of the first return; see "Authorized: first-return experience validation" below. AI or persona testing is advisory and is never called human testing.

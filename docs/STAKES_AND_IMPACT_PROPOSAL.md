@@ -1,6 +1,6 @@
 # Stakes and Impact pass: proposal
 
-> **Status: direction approved by Corey (2026-11-10); rules and numbers NOT yet approved.** This is a design proposal, not canon. Nothing here is in SYSTEMS.md, tuning.json or code yet. Each slice (§9) goes through the normal path when it is built: SYSTEMS → GDD Appendix A → tuning (as `PROPOSED` entries) → DECISIONS → content → tests.
+> **Status: direction approved and the five rulings of §10 given by Corey (2026-11-10: yes to all). Slice 0 is done (§9). Each later slice's rules and numbers are still to be proposed and approved.** This is a design proposal, not canon. Nothing here is in SYSTEMS.md, tuning.json or code yet. Each slice (§9) goes through the normal path when it is built: SYSTEMS → GDD Appendix A → tuning (as `PROPOSED` entries) → DECISIONS → content → tests.
 > Historical details are from memory and must be checked before they become content.
 
 ## 1. Why
@@ -17,7 +17,17 @@ Corey's read after playing more than ten years of game time: the impact was mini
 | There is no way to lose | No death, arrest, bankruptcy or loss of the machine in code. Leaving late beats leaving early in 92% of runs: staying costs nothing. |
 | The inventor's work is small | Ceiling in Rome: a shared unit of measure and one wheel driving two machines. Steam, electricity, the press, the governor and printing are in the capability graph but no work moves them. |
 
-Caveat: the numbers are from the P0 strategy-level batch. The P1 layer (people, commissions, capabilities, the return) has no outcome-spread measurement yet. Slice 0 fixes that.
+Those numbers are from the P0 strategy-level batch. **Slice 0 measured the P1 layer** (`playtests/ai/live/2026-11-10-p1-outcome-spread.md`; 30 seeds × 6 scripted profiles, leaving in AD 163; scripted, not human):
+
+| P1 finding | Measured |
+|---|---|
+| No run can be lost | 180 of 180 runs jumped |
+| Playing is worth about 4 Index points | Active profiles arrive at 103.3 on average; a player who only repairs the machine arrives at 99.2 |
+| Active players end close together | 97.1–108.5 on arrival |
+| Nothing gets past "reproducible" | No capability in any run reached manufacturable or beyond |
+| Half the capability graph never moves | 9 of 19 nodes stay at None in every run (alloys, copying, electricity, governor, hydraulic press, interchangeable parts, lathe work, steam, graded steel) |
+| A third to a half of Attention goes unused | 1.4–1.8 of 4 unused a month for active profiles |
+| Returns do differ in what they show | An idle player's return shares nothing with an active one's; two active players share 59–90% of places and variants |
 
 ## 2. What this pass is for
 
@@ -168,7 +178,7 @@ Small slices, each ending with passing tests and proposed numbers for Corey.
 
 | # | Slice | Gives |
 |---|---|---|
-| 0 | Measure the P1 layer: scripted, very different players; compare their first returns | A baseline, so later slices can be shown to widen outcomes |
+| 0 | **Done 2026-11-10.** Measure the P1 layer: scripted, very different players; compare their first returns (`--p1-spread`) | A baseline, so later slices can be shown to widen outcomes |
 | 1 | Time costs and Notice: aging shown, the inventor can fall ill, readings, the first threat events | Tension, and the first ways to lose |
 | 2 | The machine: repair choices, risk bands, systems tests, jumping early, malfunctions | Jump failure; repairs as decisions |
 | 3 | Rooting: what lasts, what compounds, capability work reaching the domains | Real impact |
@@ -176,7 +186,9 @@ Small slices, each ending with passing tests and proposed numbers for Corey.
 | 5 | One wonder end to end, with its fates at the return | The genius fantasy; bets |
 | 6 | Holders and divergence: who has what while you're away; dated events that move | Variance; worse worlds |
 
-## 10. Conflicts with current canon: Corey's rulings needed
+## 10. Conflicts with current canon: ruled by Corey, 2026-11-10 (yes to all five asked: rows 1, 2, 3, 5, 7)
+
+Rows 4, 6 and 8 were not put to Corey as questions; they stand as proposals and are confirmed when their slice is built.
 
 | # | Conflict | Proposed ruling |
 |---|---|---|
