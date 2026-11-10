@@ -1,5 +1,7 @@
 # PROTOTYPE_SCOPE.md — Current Milestone: P1 Playable Game Structure
 
+> **Direction (Corey, 2026-11-10): a Stakes and Impact pass on gameplay is approved in direction** (time that costs, ways to lose, jump failure, leverage, rooted achievements, divergence, wonders). It reopens frozen P1 gameplay. Nothing from it is in scope to build until Corey rules on the conflicts and approves each slice: see `docs/STAKES_AND_IMPACT_PROPOSAL.md` §9–10.
+
 > **Change of direction (Corey, 2026-10-05): the P2 graphical vertical slice is now in scope.** Real human first-return testing is deferred until the minimal graphical vertical slice is playable. P1 gameplay is frozen: the slice is a Unity 6 presentation over the existing Butterfly.Core, never a second simulation. See "P2 graphical vertical slice" below and `docs/P2_GRAPHICAL_VERTICAL_SLICE.md`. Naming: "P2" now means this graphical slice; the fuel puzzle (formerly P2) moves later, its number Corey's call.
 
 > This file defines the **only** work in scope right now. It replaces the P0 scope (kept at `docs/archive/PROTOTYPE_SCOPE_P0.md`).
