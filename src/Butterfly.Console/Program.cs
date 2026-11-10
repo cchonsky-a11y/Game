@@ -484,6 +484,7 @@ internal sealed partial class ConsoleGame
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
         if (_sim.PlagueRiskLine.Length > 0) Console.WriteLine("  " + _sim.PlagueRiskLine + (_sim.CanWithdraw ? "   (withdraw: leave the city until it passes, " + _sim.Money(_sim.WithdrawGold) + ")" : ""));
+        if (_sim.CanWithdraw) Console.WriteLine("  " + _sim.WithdrawStigmaLine());
         foreach (var n in _sim.HistoryNewsThisTurn()) Console.WriteLine("  News: " + n.Text + "   (news)");
         if (_sim.PendingEvent is EventDef ev)
         {

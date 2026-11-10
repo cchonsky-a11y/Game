@@ -203,7 +203,7 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
-        public void LeavingTheCityCostsWorkStandingAndAPromiseAndCutsTheRisk()
+        public void LeavingTheCityCostsWorkAndAPromiseAndLastsUntilItHasPassed()
         {
             var sim = new Simulation(With(NoFever), 4);
             Assert.False(sim.Withdraw().Ok);                        // nothing to flee from yet
@@ -211,16 +211,12 @@ namespace Butterfly.Core.Tests
             sim.World.Promise.Status = PromiseStatus.Active;       // a promise to stay, however it was given
             Assert.True(sim.CanWithdraw);
             sim.World.Gold = 100;
-            var felix = sim.World.People.First(p => p.Id == "Felix");
-            felix.Regard = 2;
-            bool knowsFelix = sim.Knows("Felix");
             double before = sim.World.Gold;
             var r = sim.Withdraw();
             Assert.True(r.Ok, r.Message);
             Assert.Equal(before - sim.WithdrawGold, sim.World.Gold, 6);
             Assert.Equal(0, sim.World.Attention);
             Assert.Equal(PromiseStatus.Broken, sim.World.Promise.Status);
-            Assert.Equal(knowsFelix ? 1 : 2, felix.Regard);
             Assert.False(sim.Withdraw().Ok);                        // already away
             int months = 0;
             while (sim.Withdrawn && months++ < 40) { Assert.Equal(0, sim.AttentionThisMonth); sim.EndTurn(); }
@@ -228,6 +224,38 @@ namespace Butterfly.Core.Tests
             Assert.Equal(PlagueState.Passed, sim.World.Plague.Stage);   // back only once it has passed
             Assert.True(sim.World.WithdrawnMonths >= 6);
             Assert.Contains(sim.Log.Events, e => e.Type == "inventor.return");
+        }
+
+        [Fact]
+        public void AStrangerWhoLeavesTheCityIsNotBlamedButAHealerOrAnOfficerIs()
+        {
+            // No duty: leaving was ordinary for anyone who could pay for it.
+            var stranger = new Simulation(With(NoFever), 4);
+            PlayTo(stranger, () => stranger.World.Plague.Stage >= 2);
+            stranger.World.Gold = 100;
+            var felix = stranger.World.People.First(p => p.Id == "Felix");
+            felix.Regard = 3;
+            Assert.Empty(stranger.WithdrawDuties());
+            Assert.Equal("No one would hold it against you if you left the city.", stranger.WithdrawStigmaLine());
+            Assert.Contains("No one expects it of you to stay", stranger.Withdraw().Message);
+            Assert.Equal(3, felix.Regard);
+            Assert.DoesNotContain(stranger.Log.Events, e => e.Type == "person.regard" && e.Text.Contains("You didn't"));
+
+            // A member of the Physicians' Circle who also holds office in the guild: both are held against them.
+            var healer = new Simulation(With(NoFever), 4);
+            PlayTo(healer, () => healer.World.Plague.Stage >= 2);
+            healer.World.Gold = 100;
+            healer.GrantStake("circle", 0.1);
+            healer.GrantStake("guild", 0.1);
+            var guild = healer.World.Institution("guild");
+            guild.Rank = Simulation.Officer;
+            var circle = healer.World.Institution("circle");
+            double circleBefore = circle.Loyalty, guildBefore = guild.Loyalty;
+            Assert.Equal(2, healer.WithdrawDuties().Count);
+            Assert.StartsWith("Leaving the city would be held against you:", healer.WithdrawStigmaLine());
+            Assert.Contains("It is held against you", healer.Withdraw().Message);
+            Assert.Equal(Math.Max(0, circleBefore - 10), circle.Loyalty, 6);
+            Assert.Equal(Math.Max(0, guildBefore - 10), guild.Loyalty, 6);
         }
 
         [Fact]

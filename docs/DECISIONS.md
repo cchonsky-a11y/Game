@@ -744,3 +744,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 ## 2026-11-10 — S-09 approved; slice 1b proposed
 - **Corey:** the numbers of S-09 (a year per 5 Medicine points; floor 70; ceiling 100) are fine for now. tuning.json refs, SYSTEMS.md §3 and the GDD updated.
 - **Proposed, not built:** slice 1b, Notice (S-10 to S-17 in `docs/STAKES_PROPOSALS.md`): the Notice steps, six readings fed by acts the game already logs, protection, the accusation and the hearing, the trade's anger, being kept.
+
+## 2026-11-10 — Fleeing the plague: stigma by station
+- **Corey:** make fleeing match the social stigma of the station the player holds at the time. Reason: in the Antonine plague, leaving for the country was ordinary for those who could afford it and carried little shame among peers; it was held against those with a duty to stay (the physician Galen left Rome in 166 and was recalled by the emperors without lasting harm to his career). Historical detail from memory and a quick search; check before it becomes game text.
+- **Built:** S-05a (everyone who knows you well thinks less of you) is replaced by S-05b: no duty, no stigma; a known healer, an officer of a house and a workshop master with apprentices each pay for leaving in the regard or loyalty of those they left. The status screen says beforehand what would be held against the inventor. A promise to stay is still broken by leaving.
+- **Not built:** a reward for staying. Corey asked only for the stigma.
+- **Proposed number:** 10 loyalty (`health.withdraw.loyaltyLoss`, S-05b). Documents updated: SYSTEMS.md §3, GDD Appendix A, tuning.json, STAKES_PROPOSALS.md.

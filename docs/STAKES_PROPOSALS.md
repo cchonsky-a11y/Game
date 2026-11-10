@@ -21,7 +21,8 @@ Slice 1 is split in two. 1a is the inventor's own body: age, illness, death. 1b 
 
 | Id | Area | Proposal | Status |
 |---|---|---|---|
-| S-05a | Leaving the city | "People who know you well" = regard 2 or more (`health.withdraw.wellKnownRegard`). | **Approved 2026-11-10** |
+| S-05a | Leaving the city | "People who know you well" = regard 2 or more. | **Replaced 2026-11-10** by S-05b |
+| S-05b | Leaving the city: stigma by station | Corey, 2026-11-10: the stigma should match the station the inventor holds at the time. Built: no duty, no stigma (a stranger, a private client). Known for healing (Circle member, or medicine work people have seen): Serenus −1 regard, Circle −10 loyalty if a member. An officer of any house: −10 loyalty there. A workshop master with apprentices: the smith's regard. The game states beforehand what would be held against you. | Rule approved; **the 10 loyalty is proposed** (`health.withdraw.loyaltyLoss`) |
 | S-08a | Risk bands | Risk of falling ill shown as low under 10%, moderate under 25%, high from 25% (`health.band.*`). | **Approved 2026-11-10** |
 | S-09 | Healthy years follow medicine | Corey, 2026-11-10: 85 replaces the ~70 baseline, the tiers move up (~85 / ~100 / ~110), and medicine should give variation and impact. Built: in Rome the ceiling = 85 + 0.2 × (Medicine sub-score − 100), rounded, never under 70 or over 100. So a Rome whose medicine the player raised to 115 gives 88; one left to fall to 80 gives 81. The status line shows the difference ("Rome's medicine: +3"). | **Approved 2026-11-10** ("fine for now") |
 

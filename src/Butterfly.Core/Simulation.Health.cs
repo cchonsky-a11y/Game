@@ -192,22 +192,54 @@ namespace Butterfly.Core
                 new[] { new Effect(GoldKey, before, World.Gold) },
                 "You hire a cart and leave the city for the hills, as the rich are doing. Your work in Rome waits.");
             World.WithdrawEventId = e.Id;
-            // Those who stayed remember it.
-            int thinkLess = 0;
-            foreach (var p in World.People.Where(p => p.Regard >= T.GetInt("health.withdraw.wellKnownRegard") && Knows(p.Id)))
-            {
-                int rb = p.Regard;
-                p.Regard -= T.GetInt("health.withdraw.regardLoss");
-                Record("person.regard", "person." + p.Id, new[] { e.Id }, new[] { "player", p.Id }, new[] { new Effect("person." + p.Id + ".regard", rb, p.Regard) },
-                    PersonDefOf(p.Id)!.Name + " stayed in the city. You didn't.");
-                thinkLess++;
-            }
+            // The stigma follows the inventor's station at the time (Corey, 2026-11-10): only a duty to stay is held against them.
+            var duties = WithdrawDuties();
+            ApplyWithdrawStigma(e.Id);
             bool broke = World.Promise.Status == PromiseStatus.Active;
             // A promise to stay is broken by leaving, by cart as by machine.
             if (broke) BreakPromise(e.Id, "You leave the city before the sickness has passed. You promised " + PromiseInstitution.Def.Leader + " you would stay.");
             return CommandResult.Success("You leave for the country. You will come back when the sickness has passed." +
-                (thinkLess > 0 ? " " + thinkLess + " of the people who know you stayed, and think less of you." : "") +
+                (duties.Count > 0 ? " It is held against you: " + string.Join("; ", duties) + "." : " No one expects it of you to stay.") +
                 (broke ? " You promised " + PromiseInstitution.Def.Leader + " you would stay; that promise is broken." : ""));
+        }
+
+        /// <summary>
+        /// The duties to stay that the inventor's station carries now (Corey, 2026-11-10): leaving the city was ordinary for
+        /// anyone who could afford it, and was held only against those with a duty. Empty for a stranger or a private client.
+        /// Read-only.
+        /// </summary>
+        public List<string> WithdrawDuties()
+        {
+            var duties = new List<string>();
+            if (World.Institution("circle").Backed || PromiseMotive() != null) duties.Add("you are known for healing, and the sick are here");
+            foreach (var i in World.Institutions.Where(i => i.Exists && i.Rank >= Officer)) duties.Add("you hold office in " + i.Def.ShortName);
+            if (OwnsWorkshop && World.Apprentices > 0) duties.Add("your apprentices stay at the bench");
+            return duties;
+        }
+
+        /// <summary>"Leaving would be held against you: …" or that no one would mind; "" when there is nothing to flee.</summary>
+        public string WithdrawStigmaLine()
+        {
+            if (!CanWithdraw) return "";
+            var duties = WithdrawDuties();
+            return duties.Count == 0 ? "No one would hold it against you if you left the city." : "Leaving the city would be held against you: " + string.Join("; ", duties) + ".";
+        }
+
+        private void ApplyWithdrawStigma(int causeId)
+        {
+            bool healer = World.Institution("circle").Backed || PromiseMotive() != null;
+            if (healer && Knows("Serenus") && PersonOf("Serenus") is PersonState serenus)
+            {
+                int rb = serenus.Regard;
+                serenus.Regard -= T.GetInt("health.withdraw.regardLoss");
+                Record("person.regard", "person.Serenus", new[] { causeId }, new[] { "player", "Serenus" }, new[] { new Effect("person.Serenus.regard", rb, serenus.Regard) },
+                    PersonDefOf("Serenus")!.Name + " stayed with his patients. You didn't.");
+            }
+            foreach (var i in World.Institutions.Where(i => i.Exists && (i.Rank >= Officer || healer && i.Key == "circle" && i.Backed)))
+                ChangeLoyalty(i, -T.Get("health.withdraw.loyaltyLoss"), "institution.loyalty", new[] { causeId }, new[] { i.Leader },
+                    i.Leader + " notes who left the city and who stayed.");
+            if (OwnsWorkshop && World.Apprentices > 0)
+                ChangeSmithRegard(-T.Get("workshop.smith.regardPerApprentice"), new[] { causeId }, Data.Content.Smith + " keeps the shop open without you.");
         }
 
         // ---- death ----------------------------------------------------------

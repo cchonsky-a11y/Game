@@ -80,6 +80,7 @@ namespace Butterfly.Presentation
                 h.Life = Sim.LifeLine;
                 if (Sim.HealthLine.Length > 0) h.Health.Add(Sim.HealthLine);
                 if (Sim.PlagueRiskLine.Length > 0) h.Health.Add(Sim.PlagueRiskLine);
+                if (Sim.WithdrawStigmaLine().Length > 0) h.Health.Add(Sim.WithdrawStigmaLine());
             }
             h.Machine = Sim.MachineReady ? "ready"
                 : !Sim.MachineAssessed ? "not yet assessed"

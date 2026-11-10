@@ -2074,11 +2074,11 @@
       },
       "regardLoss": {
         "value": 1,
-        "ref": "SYSTEMS §3 (Stakes and Impact pass, approved 2026-11-10; STAKES_PROPOSALS S-05)"
+        "ref": "SYSTEMS §3 (S-05, revised 2026-11-10: a physician's regard when a known healer leaves)"
       },
-      "wellKnownRegard": {
-        "value": 2,
-        "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-05a, approved 2026-11-10)"
+      "loyaltyLoss": {
+        "value": 10,
+        "ref": "PROPOSED S-05b: loyalty lost in a house whose member-healer or officer leaves the city (between a refused promise, 5, and a broken one, 30)"
       }
     },
     "fever": {
