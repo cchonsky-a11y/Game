@@ -67,7 +67,7 @@ namespace Butterfly.Batch
             // Outcome spread (2026-11-10): what the world looks like at departure and on the first arrival.
             public double IndexAtDeparture, IndexAtArrival1;
             public Dictionary<string, CapabilityLevel> Capabilities = new Dictionary<string, CapabilityLevel>();
-            public bool Jumped;
+            public bool Jumped, Died;
             /// <summary>Return gate failures: the second jump offered before the return was seen.</summary>
             public int Bugs;
         }
@@ -148,7 +148,7 @@ namespace Butterfly.Batch
             sim.ChooseSeeded(r.Choice);
             if (profile == Profile.Engineering) sim.SetSceneFocus("Engineering");
             if (profile == Profile.Relationship) sim.SetSceneFocus("RomanLife");
-            while (!sim.EraOver)
+            while (!sim.EraOver && !sim.Dead)
             {
                 var w = sim.World;
                 if (w.Gold < 2 && w.Aurei >= 5 && sim.MachineGoldRestored < 1) sim.SellAurei(5);
@@ -268,7 +268,8 @@ namespace Butterfly.Batch
             r.DuplicateList = texts.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key.Substring(0, Math.Min(90, g.Key.Length))).ToList();
             r.IndexAtDeparture = sim.SphereIndex();
             foreach (var c in sim.World.Capabilities) r.Capabilities[c.Id] = c.Level;
-            if (!sim.MachineReady) return r;
+            r.Died = sim.Dead;
+            if (sim.Dead || !sim.MachineReady) return r;
             r.Jumped = true;
             r.Depart1 = sim.Now.Year;
             r.Briefing = sim.DepartureBriefing().ToList();

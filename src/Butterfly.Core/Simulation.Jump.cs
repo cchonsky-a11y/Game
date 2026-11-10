@@ -41,6 +41,9 @@ namespace Butterfly.Core
         private Arrival Jump(bool ignoreMachine)
         {
             if (IsAway || (Arrived && JumpsMade >= T.GetInt("jump.maxJumps"))) throw new InvalidOperationException("Already jumped.");
+            if (World.Dead && !_dying) throw new InvalidOperationException("The inventor is dead; the run is over.");
+            // Leaving by machine from the country: you ride back to it first.
+            World.Withdrawn = false;
             // The first return must be seen before the machine takes you on (first-return prototype, 2026-10-04). Test setups
             // that skip the machine (JumpForTests) skip this gate too: they test the absence, not the return.
             if (Arrived && ReturnPending && !ignoreMachine)
@@ -63,10 +66,12 @@ namespace Butterfly.Core
 
             // What the briefing named as unresolved, kept for the return (before departure settles jobs and challenges).
             if (JumpsMade == 0) _warnedAtDeparture = UnresolvedStakes().Select(s => s.Thread).Where(t => t.Length > 0).Distinct().ToList();
-            var depart = Record("jump.depart", "machine", null, new[] { "player" }, null,
-                "You start the machine and leave AD " + Now.Year + ".");
+            var depart = _dying
+                ? Record("inventor.absence", "inventor", null, new[] { "world" }, null, "Rome goes on without you.")
+                : Record("jump.depart", "machine", null, new[] { "player" }, null,
+                    "You start the machine and leave AD " + Now.Year + ".");
             _leftRome = TakeSnapshot();
-            SettlePromiseOnDeparture(depart.Id);
+            if (!_dying) SettlePromiseOnDeparture(depart.Id);
             SavingsAtDeparture(arrival);
             // Coin in hand stays behind (SYSTEMS §9; the briefing says so): only the machine's purse, the bank and the jar carry
             // value across. Found missing in the hardening pass (2026-10-04): denarii used to cross the jump untouched.
@@ -136,6 +141,8 @@ namespace Butterfly.Core
                     Corruption = i.Corruption,
                 });
             }
+            // A death is not an arrival: no beats, no return chapter (slice 1a, S-07).
+            if (_dying) { Arrival = arrival; return arrival; }
             if (JumpsMade == 1) PrepareReturnChapter(arrival, depart.Id);
             BuildBeats(arrival);
             Record("jump.arrive", "machine", new[] { depart.Id }, new[] { "player" }, null,
@@ -158,6 +165,9 @@ namespace Butterfly.Core
                 foreach (var line in SavingsBriefing()) yield return line;
                 yield break;
             }
+            // What Rome has cost in years, and what staying risks (slice 1a, S-01 and S-08): facts and a band, never an outcome.
+            yield return LifeSpentLine();
+            if (PlagueThreatensInventor) yield return "The sickness is coming. If you stay, you can catch it (risk of falling ill: " + PlagueRiskBand() + "). The machine would take you out of its reach.";
             // What you would leave unresolved, as facts (first return, 2026-10-04): never what it will lead to.
             foreach (var line in DepartureStakes()) yield return line;
             // The warning is shown, never enforced: the player may jump anyway (approved R-17 thread).
@@ -234,11 +244,17 @@ namespace Butterfly.Core
                 p.LastEventId = e.Id;
             }
             if (!LeavingBreaksPromise) return;
+            BreakPromise(departId, "You leave before the sickness has passed. You promised " + PromiseInstitution.Def.Leader + " you would stay.");
+        }
+
+        /// <summary>An active promise to stay is broken by leaving: by machine, or by cart (slice 1a, S-05).</summary>
+        private void BreakPromise(int causeId, string text)
+        {
+            var p = World.Promise;
             p.Status = PromiseStatus.Broken;
             var leader = PromiseInstitution.Def.Leader;
-            var broken = Record("promise.broken", "promise", new[] { p.LastEventId, departId }, new[] { "player", leader },
-                new[] { new Effect("promise.status", (int)PromiseStatus.Active, (int)PromiseStatus.Broken) },
-                "You leave before the sickness has passed. You promised " + leader + " you would stay.");
+            var broken = Record("promise.broken", "promise", new[] { p.LastEventId, causeId }, new[] { "player", leader },
+                new[] { new Effect("promise.status", (int)PromiseStatus.Active, (int)PromiseStatus.Broken) }, text);
             p.LastEventId = broken.Id;
             if (PromiseInstitution.Backed)
                 ChangeLoyalty(PromiseInstitution, -T.Get("promise.brokenLoyalty"), "institution.loyalty", new[] { broken.Id }, new[] { leader },

@@ -43,6 +43,7 @@ namespace Butterfly.Presentation
         {
             get
             {
+                if (Sim.Dead) return Phase.Ended;
                 if (Sim.Arrived)
                 {
                     if (ShowingArrival) return Phase.Arrival;
@@ -52,6 +53,15 @@ namespace Butterfly.Presentation
                 if (DepartureOpen) return Phase.Departure;
                 return Sim.Turn == 1 && Sim.SeededChoiceOpen ? Phase.Opening : Phase.Rome;
             }
+        }
+
+        /// <summary>What Rome kept, once the run has ended in the inventor's death; null otherwise.</summary>
+        public EndingModel? Ending()
+        {
+            if (!Sim.Dead) return null;
+            var m = new EndingModel { Title = Sim.Epitaph.FirstOrDefault() ?? "" };
+            m.Lines.AddRange(Sim.Epitaph.Skip(1));
+            return m;
         }
 
         public HudModel Hud()
@@ -65,6 +75,12 @@ namespace Butterfly.Presentation
                 MachineReady = Sim.MachineReady, Away = Sim.Arrived,
             };
             foreach (var (what, n) in Sim.ReservedAttentionParts()) h.Reserved.Add(n + " — " + what);
+            if (!Sim.Arrived)
+            {
+                h.Life = Sim.LifeLine;
+                if (Sim.HealthLine.Length > 0) h.Health.Add(Sim.HealthLine);
+                if (Sim.PlagueRiskLine.Length > 0) h.Health.Add(Sim.PlagueRiskLine);
+            }
             h.Machine = Sim.MachineReady ? "ready"
                 : !Sim.MachineAssessed ? "not yet assessed"
                 : Sim.MachineStepsDone + "/" + Sim.MachineStepsTotal + " repairs · gold " + F(Sim.MachineGoldRestored) + "/" + F(Sim.MachineGoldNeeded) + " aurei";
@@ -97,7 +113,7 @@ namespace Butterfly.Presentation
         /// </summary>
         public DecisionCard? CurrentDecision()
         {
-            if (Sim.Arrived) return null;
+            if (Sim.Arrived || Sim.Dead) return null;
             var groups = Actions();
             var w = Sim.World;
             var decide = groups.First(g => g.Key == "decide").Items;
@@ -114,7 +130,7 @@ namespace Butterfly.Presentation
             if (w.Promise.Status == PromiseStatus.Offered)
                 return WithChoices(Card("promise", "Demetria's request", LastText("promise.offer"), "Demetria"), decide, "promise ");
             if (Sim.OutbreakAwaitingResponse)
-                return WithChoices(Card("plague", "The pestilence", LastText("plague.outbreak"), ""), decide, "respond ");
+                return WithChoices(Card("plague", "The pestilence", LastText("plague.outbreak") + (Sim.PlagueRiskLine.Length > 0 ? "\n\n" + Sim.PlagueRiskLine : ""), ""), decide, "respond ");
             if (Sim.PendingEvent is EventDef ev)
                 return WithChoices(Card("event:" + ev.Id, ev.Title, ev.Text, ""), decide, "decide ");
             foreach (var i in w.Institutions.Where(x => x.OfferedRank > 0))
@@ -342,6 +358,7 @@ namespace Butterfly.Presentation
             "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
             "invitation.offer", "institution.join", "invitation.wait",
             "person.life", "person.return", "challenge.open", "challenge.stage", "challenge.complete",
+            "inventor.ill", "inventor.return", "inventor.death",
         };
 
         /// <summary>
@@ -353,6 +370,7 @@ namespace Butterfly.Presentation
             var o = new Outcome();
             var parts = (command ?? "").Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length == 0) return o;
+            if (Sim.Dead) { o.Message = "The run is over."; return o; }
             string cmd = parts[0].ToLowerInvariant(), arg = parts.Length > 1 ? parts[1] : "";
             if (cmd == "quit" || cmd == "exit") { o.Ok = true; o.Quit = true; return o; }
             _commands.Add(string.Join(" ", parts));
@@ -397,6 +415,7 @@ namespace Butterfly.Presentation
                 case "choose": return Sim.ChooseSeeded(arg.ToLowerInvariant());
                 case "promise": return Sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase));
                 case "respond": return Sim.RespondToPlague(arg.ToLowerInvariant());
+                case "withdraw": return Sim.Withdraw();
                 case "decide": return Sim.Decide(arg);
                 case "office": return arg == "accept" || arg == "decline" ? Sim.AnswerOffice(third, arg == "accept") : CommandResult.Fail("office accept|decline <institution>");
                 case "work": return Sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd");

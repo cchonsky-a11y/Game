@@ -210,6 +210,7 @@ namespace Butterfly.Core
 
             OnPlagueResolved(toll.Id);
             ChooseOpening(toll.Id);
+            PlagueReachesInventor(toll.Id, deaths / Math.Max(1e-9, World.Population + deaths));
 
             p.Stage = PlagueState.Passed;
             var passed = Record("plague.passed", "plague", new[] { toll.Id }, new[] { "world" },

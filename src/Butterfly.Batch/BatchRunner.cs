@@ -11,6 +11,8 @@ namespace Butterfly.Batch
     public sealed class RunResult
     {
         public ulong Seed;
+        /// <summary>The inventor died in Rome (slice 1a); the Index figures are the world the same absence later.</summary>
+        public bool Died;
         public string Strategy = "";
         public string Timing = "";
         public int DepartureYear;
@@ -68,20 +70,22 @@ namespace Butterfly.Batch
             CurrentJumpYear = jumpYear;
             var sim = new Simulation(data, seed);
             // Leave at the timing's year, or as soon after as the machine is repaired (at most 10 years later).
-            while ((sim.Now.Year < jumpYear || !sim.MachineReady) && sim.Now.Year < jumpYear + 10)
+            while (!sim.Dead && (sim.Now.Year < jumpYear || !sim.MachineReady) && sim.Now.Year < jumpYear + 10)
             {
                 Strategy.RepairMachine(sim);
                 strategy.PlayTurn(sim);
                 sim.EndTurn();
             }
-            if (!sim.MachineReady) throw new InvalidOperationException(strategy.Name + " never repaired the machine (seed " + seed + ").");
-            strategy.BeforeJump(sim);
+            // A death ends the run (slice 1a): the world is measured after the absence the machine would have made.
+            if (!sim.Dead && !sim.MachineReady) throw new InvalidOperationException(strategy.Name + " never repaired the machine (seed " + seed + ").");
+            if (!sim.Dead) strategy.BeforeJump(sim);
             double debtAtDeparture = sim.World.Domains.Sum(d => d.Debt);
-            var arrival = sim.Jump();
+            var arrival = sim.Dead ? sim.Arrival! : sim.Jump();
 
             var r = new RunResult
             {
                 Seed = seed,
+                Died = sim.Dead,
                 Strategy = strategy.Name,
                 Timing = timing,
                 DepartureYear = arrival.DepartureYear,
@@ -247,6 +251,9 @@ namespace Butterfly.Batch
             sb.AppendLine(runs + " seeded runs × " + names.Count + " strategies × 2 jump timings (every strategy repairs the machine; Early: leave at the start of AD 166, during the plague warnings, or as soon after as the machine is ready; Late: leave at the start of AD 175, when the era's " + data.Tuning.GetInt("time.eraYears") + " years end; " + data.Tuning.GetInt("time.monthsPerTurn") + "-month turns).");
             sb.AppendLine("A strategy **wins** a seed when it has the highest arrival Index among the compared strategies for that seed and timing (ties split).");
             sb.AppendLine("Balanced is the Pay-down variant; Endow and Split play the same era but leave debt to their institutions (Endow) or pay half of it (Split).");
+            sb.AppendLine();
+            sb.AppendLine("Deaths in Rome (slice 1a; the run ends, and its Index is the world after the absence): " +
+                          string.Join("; ", results.GroupBy(x => x.Timing).Select(g => g.Key + " " + g.Count(x => x.Died) + " of " + g.Count())) + ".");
             sb.AppendLine();
             sb.AppendLine("Attention (P0 pacing): demand " + F0(AttentionBudget.Demand(data)) + " vs supply " + F0(AttentionBudget.Supply(data)) +
                           " = " + F1(AttentionBudget.Demand(data) / AttentionBudget.Supply(data)) + "× (target ≥ " + F1(data.Tuning.Get("attention.demandTarget")) + "×).");

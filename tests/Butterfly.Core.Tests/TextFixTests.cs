@@ -58,7 +58,7 @@ namespace Butterfly.Core.Tests
         {
             for (ulong seed = 1; seed <= 40; seed++)
             {
-                var sim = new Simulation(TestData.Load(), seed);
+                var sim = new Simulation(TestData.NoIllness(), seed);
                 sim.World.Gold = 500;
                 sim.World.Attention = 100;
                 if (foundCircle) { sim.GrantStake("circle", 0.5); sim.Charter("circle"); sim.Endow("circle"); }
@@ -183,7 +183,7 @@ namespace Butterfly.Core.Tests
         public void WhenYouLeadAnInstitutionItsLinesNeverCallYouInTheThirdPerson()
         {
             // L5 (tester 6): "you of the Guild thinks better of you", "you gives you a larger say".
-            var sim = new Simulation(TestData.Load(), 616);
+            var sim = new Simulation(TestData.NoIllness(), 616);
             sim.ChooseSeeded("workshop");
             sim.GrantStake("guild", 0.6);
             sim.GrantStake("faction", 0.3);

@@ -72,6 +72,8 @@ Each run writes `runs/seed-<seed>.txt` under Unity's `Application.persistentData
 | **Arrival** | The jump art slot, "It carries you N years", the arrival's beats one by one | Then into the city |
 | **Return** | The changed city as place cards with art slots; each marked only *not yet visited*, *seen* or *looked closer*; a selected place shows what you recognize, what contradicts it, and "Look closer: …"; walking around; the journal; **Finish looking** once the simulation allows | Never marks a place true, false, important or your doing (the model has no such field; a test checks) |
 
+**Added 2026-11-10 (Stakes and Impact pass, slice 1a; Unity side not compiled or run):** the HUD also shows the inventor's age and healthy years left, and any health lines ("You are ill, in bed.", "You can catch this. Your risk of falling ill: high."); a `health` action group at the lodging offers leaving the city while the sickness is coming; and a new phase, **Ended**, shows what Rome kept when the inventor dies (`GameSession.Ending()`), with a button to start the same seed again.
+
 ### Navigation flow
 Opening → hour-one choice → Rome (map, sections, End Month) ⇄ decision cards as they come → … machine ready (the HUD says so; nothing opens by itself) → **Prepare to leave** → Departure (stay, or prepare and leave) → Arrival beats → Return (places, look closer, journal, walk) → Finish looking → the slice ends (walk on, learn more, or close). The second jump is not offered in the graphical client: nothing after the first return is built.
 

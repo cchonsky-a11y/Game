@@ -97,6 +97,7 @@ internal sealed partial class ConsoleGame
         }
         // Jump preparation: these commands keep the jump armed.
         if (cmd != "jump" && !(_jumpArmed && PrepCommands.Contains(cmd))) _jumpArmed = false;
+        if (_sim.Dead) return false;
         if (_sim.Arrived)
         {
             AfterArrival(cmd, arg, parts);
@@ -109,6 +110,7 @@ internal sealed partial class ConsoleGame
         int committedBefore = _sim.AttentionCommittedNextTurn();
         bool ok = Handle(cmd, arg, parts);
         _harness?.AfterCommand(line, ok);
+        if (_sim.Dead) return false;
         // L3 (tester 2): say so the moment all of next month's Attention is pledged.
         if (ok && !_sim.Arrived && committedBefore < _sim.AttentionPerTurn && _sim.AttentionCommittedNextTurn() >= _sim.AttentionPerTurn)
             Console.WriteLine("  (All your Attention is pledged for the months ahead, until that work finishes.)");
@@ -182,6 +184,7 @@ internal sealed partial class ConsoleGame
   choose <fountain|workshop>     the first choice
   promise <yes|no>               answer Demetria
   respond <quarantine|hospice|none>   when the pestilence breaks out
+  withdraw                            leave the city until the sickness has passed (no work while away)
   why <thing>                    medicine, governance, economy, gold, plague, policy, promise, index, attention, or an institution
   listen                         reopen the machine's reference channel (once the panel shows R-17 ACTIVE; 1 Attention)
   give <inst>                    a gift to an institution that takes gifts (the Tiber Island sanctuary): you become a benefactor
@@ -403,6 +406,7 @@ internal sealed partial class ConsoleGame
             case "work": r = _sim.Work(parts.Length > 1 ? arg.ToLowerInvariant() : "odd"); break;
             case "promise": r = _sim.AnswerPromise(arg.StartsWith("y", StringComparison.OrdinalIgnoreCase)); break;
             case "respond": r = _sim.RespondToPlague(arg.ToLowerInvariant()); break;
+            case "withdraw": r = _sim.Withdraw(); break;
             case "turns": Console.WriteLine("Each turn is one month (fixed). 'end' ends the month; 'wait' fast-forwards until something needs you."); return false;
             case "end": case "e": EndTurn(wait: false); return true;
             case "wait": case "w": EndTurn(wait: true); return true;
@@ -414,6 +418,15 @@ internal sealed partial class ConsoleGame
         // During jump preparation, show the updated briefing after each change.
         if (_jumpArmed && r.Ok && PrepCommands.Contains(cmd)) Briefing();
         return r.Ok;
+    }
+
+    /// <summary>The run ended in the inventor's death (slice 1a): what Rome kept, in the simulation's words.</summary>
+    private void Ending()
+    {
+        Console.WriteLine();
+        foreach (var line in _sim.Epitaph) Console.WriteLine(Wrap(line));
+        Console.WriteLine();
+        Console.WriteLine("The run is over. The same game can be started again with --seed " + _sim.Seed + ".");
     }
 
     private void EndTurn(bool wait)
@@ -431,11 +444,13 @@ internal sealed partial class ConsoleGame
                             // P1 commissions: the scenes as they happen.
                             "commission.encounter", "commission.stage", "commission.complete", "commission.referral", "institution.access",
                             "invitation.offer", "institution.join", "invitation.wait",
-                            "person.life", "person.return", "challenge.open", "challenge.stage", "challenge.complete" };
+                            "person.life", "person.return", "challenge.open", "challenge.stage", "challenge.complete",
+                            "inventor.ill", "inventor.return", "inventor.death" };
         foreach (var e in _sim.Log.Events.Skip(from).Where(e => shown.Contains(e.Type) || e.Type.StartsWith("scene.", StringComparison.Ordinal)))
             Console.WriteLine("  • " + e.Text);
         var settle = _sim.Log.Events.Skip(from).LastOrDefault(e => e.Type == "gold.settle");
         if (settle != null && settle.Text.Contains("could pay only")) Console.WriteLine("  • " + settle.Text);
+        if (_sim.Dead) { Ending(); return; }
         Status();
     }
 
@@ -456,6 +471,8 @@ internal sealed partial class ConsoleGame
                           _sim.Money(Math.Abs((_sim.YearlyIncome() - _sim.YearlyUpkeepTotal()) * _sim.YearsPerTurn)).Replace(" denarii", "") + "/month) · " +
                           _sim.AureiText(w.Aurei) + " (1 = " + F(Math.Round(_sim.AureusInDenarii, 1)) + " den.)   Index " + F(_sim.SphereIndex()));
         Console.WriteLine("  " + AttentionHeader());
+        Console.WriteLine("  " + _sim.LifeLine);
+        if (_sim.HealthLine.Length > 0) Console.WriteLine("  " + _sim.HealthLine);
         foreach (var d in w.Domains)
             Console.WriteLine("  " + d.Domain.ToString().PadRight(11) + F(d.Level).PadLeft(5) + "  expect " + F(_sim.Expectation(d.Domain)).PadLeft(4) +
                               "  " + (!_sim.HasHold(d.Domain) ? "(no voice)" : d.Priority.Label()).PadRight(11) + " debt " + F(d.Debt).PadLeft(5) + " " + d.Tier);
@@ -466,6 +483,7 @@ internal sealed partial class ConsoleGame
         if (w.Bust.Stage > 0) Console.WriteLine("  Economy: " + Simulation.BustStageText(w.Bust.Stage));
         var plague = w.Plague;
         if (plague.Stage > 0) Console.WriteLine("  Pestilence: " + Simulation.PlagueStageText(plague.Stage));
+        if (_sim.PlagueRiskLine.Length > 0) Console.WriteLine("  " + _sim.PlagueRiskLine + (_sim.CanWithdraw ? "   (withdraw: leave the city until it passes, " + _sim.Money(_sim.WithdrawGold) + ")" : ""));
         foreach (var n in _sim.HistoryNewsThisTurn()) Console.WriteLine("  News: " + n.Text + "   (news)");
         if (_sim.PendingEvent is EventDef ev)
         {

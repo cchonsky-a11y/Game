@@ -246,7 +246,7 @@ namespace Butterfly.Core.Tests
         /// </summary>
         internal static readonly Dictionary<string, string> GraphicalHome = new Dictionary<string, string>
         {
-            { "decide", "decision card" }, { "invitations", "decision card, Everything" }, { "commissions", "decision card (terms), map: market, Work" },
+            { "decide", "decision card" }, { "health", "map: lodging, Everything" }, { "invitations", "decision card, Everything" }, { "commissions", "decision card (terms), map: market, Work" },
             { "money", "map: changers, Everything" }, { "challenges", "map: forges, Work" }, { "work", "map: market, Work" }, { "shop", "map: forges, Work" },
             { "projects", "map: curia, Work" }, { "institutions", "map: curia, Everything" }, { "inventions", "map: lodging, Work" },
             { "policy", "map: curia, Everything" }, { "priorities", "map: curia, Everything" }, { "machine", "map: lodging, Machine" },

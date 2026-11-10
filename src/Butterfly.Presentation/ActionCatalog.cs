@@ -122,6 +122,10 @@ namespace Butterfly.Presentation
                 decide.Add("decline", "office decline " + i.Key);
             }
 
+            // The inventor's own body (slice 1a): leaving the city while the sickness is coming or here.
+            var health = new ActionGroup("health", "Now · your health", MenuSection.Now, RomeMap.Lodging);
+            if (sim.CanWithdraw) health.Add("leave the city until the sickness has passed (" + M(sim.WithdrawGold) + "; no work while away)", "withdraw");
+
             // P1 (Corey, 2026-10-04): generic work is a fallback, not the loop. The menu offers only odd jobs, and only while no
             // commission or Grand Challenge stage is under way; craft and consult stay typed commands (help) for compatibility.
             var work = new ActionGroup("work", "Now · get by", MenuSection.Projects, RomeMap.Market);
@@ -288,7 +292,7 @@ namespace Butterfly.Presentation
             turn.Add("fast-forward until something needs you", "wait");
 
             // Grouped by the eight P1 sections (Now, Projects, People, Institutions, Knowledge, Civilization, Machine, Journal).
-            return new List<ActionGroup> { decide, money, commissions, challenges, work, shop, projects, invitations, inst, inventions, policy, priorities, machine, leave, look, turn };
+            return new List<ActionGroup> { decide, health, money, commissions, challenges, work, shop, projects, invitations, inst, inventions, policy, priorities, machine, leave, look, turn };
         }
     }
 }

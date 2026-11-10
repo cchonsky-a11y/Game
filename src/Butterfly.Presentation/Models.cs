@@ -17,6 +17,8 @@ namespace Butterfly.Presentation
         Return,
         /// <summary>After the return is finished: walk, learn more, or stop. Nothing after this is built.</summary>
         AfterReturn,
+        /// <summary>The inventor died in Rome: the run is over, and the client shows what Rome kept (<see cref="EndingModel"/>).</summary>
+        Ended,
     }
 
     public sealed class HudModel
@@ -36,6 +38,17 @@ namespace Butterfly.Presentation
         public string Machine { get; set; } = "";
         public bool MachineReady { get; set; }
         public bool Away { get; set; }
+        /// <summary>"Age 36 · about 49 healthy years left" (shown with the date).</summary>
+        public string Life { get; set; } = "";
+        /// <summary>How the inventor is, and what can be caught, in the simulation's words; empty when there is nothing to say.</summary>
+        public List<string> Health { get; } = new List<string>();
+    }
+
+    /// <summary>The run ended in the inventor's death: what Rome kept, as the simulation words it.</summary>
+    public sealed class EndingModel
+    {
+        public string Title { get; set; } = "";
+        public List<string> Lines { get; } = new List<string>();
     }
 
     /// <summary>One line of what happened, with who it was (if anyone) so the client can show a portrait.</summary>

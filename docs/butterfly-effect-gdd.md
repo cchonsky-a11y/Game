@@ -122,6 +122,8 @@ Aging happens only within eras, never during jumps. The inventor starts at age 2
 | Well advanced | ~85 |
 | Heavily advanced | ~95 |
 
+**Rome prototype (Corey, 2026-11-10; SYSTEMS §3):** the inventor's healthy years are 85, shown with the date as a life budget. The inventor can catch the plague (35% at history's death toll, less with each precaution; 30% of the ill die, less with care), can leave the city until it passes, can lose a month to the late-summer fever, and dies for good: death ends the run and the game shows what Rome kept. Whether 85 replaces the ~70 baseline in the table above, or the tiers shift with it, is open.
+
 | Performance | Years needed per era |
 |---|---|
 | Standard | ~10 |
@@ -854,6 +856,11 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Eras | 8 playable; the 8th jump returns home |
 | Years per era | ~10 standard; ~7 good; ~5 or skip excellent |
 | Healthy years by medicine | ~70 / ~85 / ~95 |
+| Healthy years, Rome prototype | 85 (Corey, 2026-11-10) |
+| Plague: falling ill | 3.5 × Rome's death share, max 0.6; −a fifth per precaution (4); × 0.25 in the country |
+| Plague: illness | 2 months no Attention, 4 months −1, 3 healthy years lost; death 0.30 − care (0.08 / 0.05 / 0.04 / 0.03), min 0.05 |
+| Leaving the city | from the 2nd warning; 15 aurei; at least 6 months; regard −1 (regard 2+); breaks a promise to stay |
+| Roman fever | 6% each Sextilis, +1 point a year over 40; kills only from 50 (3%) |
 | Attention | 4 per turn |
 | Turns per standard era | 51 (P1, Rome: 1-month turns, fixed, 240 per 20-year era, decided 2026-10-02; P0 used 2-month turns) |
 | Economic policy (P0) | Austrian stance +1 Economy/yr each, backlash −8 faction loyalty and +8 Governance debt on adoption; interventionist +1.5/yr each and 8 malinvestment/yr; bust after 3 warnings from malinvestment 20 |

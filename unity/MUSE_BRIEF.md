@@ -47,8 +47,8 @@ Read `src/Butterfly.Presentation/Models.cs` and `GameSession.cs` for the exact t
 
 | Member | What it gives |
 |---|---|
-| `Phase Phase` | `Opening`, `Rome`, `Departure`, `Arrival`, `Return`, `AfterReturn`: which top-level screen to show |
-| `HudModel Hud()` | Date, Year, Month (1–12), MonthNumber, AttentionFree, AttentionTotal, Reserved, Money, Aurei, Machine, MachineReady, Away |
+| `Phase Phase` | `Opening`, `Rome`, `Departure`, `Arrival`, `Return`, `AfterReturn`, `Ended` (the inventor died: show `Ending()`): which top-level screen to show |
+| `HudModel Hud()` | Date, Year, Month (1–12), MonthNumber, AttentionFree, AttentionTotal, Reserved, Money, Aurei, Machine, MachineReady, Away, Life (age line), Health (lines; may be empty) |
 | `OpeningModel Opening()` | Title, Paragraphs |
 | `DecisionCard? CurrentDecision()` | Key, Title, Speaker, Portrait (art key), Text, Choices. Null when nothing waits |
 | `List<ActionGroup> Actions()` | Everything available now. `ActionGroup`: Key, Title, Section, Place, Items (`GameAction`: Label, Command) |
@@ -61,6 +61,7 @@ Read `src/Butterfly.Presentation/Models.cs` and `GameSession.cs` for the exact t
 | `MachineModel Machine()` | Assessed, StepsDone/Total, GoldRestored/Needed, Ready, Panel, Systems, UpgradesDone, Actions |
 | `WorkModel Work()` | Commissions, Challenges, UnderWay (`WorkItem`: Title, Who, Portrait, State), Actions |
 | `DepartureModel Departure()` | Range, Briefing, InHand, Prepare, CanLeave |
+| `EndingModel? Ending()` | Title, Lines: what Rome kept, once the inventor has died. Null otherwise |
 | `ArrivalModel? Arrival()` | JumpYears, DepartureYear, ArrivalYear, Beats (Name, Text) |
 | `ReturnModel? Return()` | ArrivalYear, YearsAway, Sites, Seen, VisitsRequired, CanFinish, Finished, HasJournal |
 | `string LearnMore()` | The optional "Learn more" text after arrival |

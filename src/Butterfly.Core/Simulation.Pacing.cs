@@ -40,6 +40,7 @@ namespace Butterfly.Core
             if (SeededChoiceOpen) reasons.Add("the first choice: fountain or workshop");
             if (World.Promise.Status == PromiseStatus.Offered) reasons.Add("Demetria's request");
             if (OutbreakAwaitingResponse) reasons.Add("the outbreak");
+            if (Bedridden) reasons.Add("you are ill");
             if (PendingEvent != null) reasons.Add(PendingEvent.Title.ToLowerInvariant());
             foreach (var c in World.Commissions.Where(c => c.Status == CommissionStatus.TermsOffered)) reasons.Add(CommissionDefOf(c).Client + "'s offer");
             foreach (var p in World.Invitations.Where(p => p.Pending != InvitationOffer.None)) reasons.Add(InvitationPathDefFor(p.Institution)!.Inviter + "'s invitation");
@@ -105,7 +106,7 @@ namespace Butterfly.Core
             {
                 EndTurn();
                 n++;
-            } while (n < maxTurns && PendingDecisions().Count == 0);
+            } while (n < maxTurns && !World.Dead && PendingDecisions().Count == 0);
             return n;
         }
 

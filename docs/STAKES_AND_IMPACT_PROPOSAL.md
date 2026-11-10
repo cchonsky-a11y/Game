@@ -179,7 +179,8 @@ Small slices, each ending with passing tests and proposed numbers for Corey.
 | # | Slice | Gives |
 |---|---|---|
 | 0 | **Done 2026-11-10.** Measure the P1 layer: scripted, very different players; compare their first returns (`--p1-spread`) | A baseline, so later slices can be shown to widen outcomes |
-| 1 | Time costs and Notice: aging shown, the inventor can fall ill, readings, the first threat events | Tension, and the first ways to lose |
+| 1a | **Done 2026-11-10.** A life that can be spent and lost: age and healthy years shown, catching the plague, the fever, leaving the city, death ends the run (STAKES_PROPOSALS S-01 to S-08) | The first way to lose; a reason to leave early |
+| 1b | Notice: readings, the first threat events | Tension from fame |
 | 2 | The machine: repair choices, risk bands, systems tests, jumping early, malfunctions | Jump failure; repairs as decisions |
 | 3 | Rooting: what lasts, what compounds, capability work reaching the domains | Real impact |
 | 4 | Leverage and pacing: handing work to people, shorter waits, small jobs taper off | More done per action |

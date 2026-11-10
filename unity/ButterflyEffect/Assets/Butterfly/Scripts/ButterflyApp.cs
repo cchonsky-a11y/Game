@@ -127,7 +127,8 @@ namespace Butterfly.Unity
             _root.Clear();
             var phase = Session.Phase;
             VisualElement page;
-            if (phase == Phase.Opening && !OpeningRead) page = Screens.Opening(this);
+            if (phase == Phase.Ended) page = Screens.Ended(this);
+            else if (phase == Phase.Opening && !OpeningRead) page = Screens.Opening(this);
             else if (phase == Phase.Departure) page = Screens.Departure(this);
             else if (phase == Phase.Arrival) page = Screens.Arrival(this);
             else if (phase == Phase.Return || phase == Phase.AfterReturn) page = Screen == Screen.Journal ? Screens.WithHud(this, Screens.Journal(this, true)) : Screens.Return(this);

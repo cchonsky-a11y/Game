@@ -66,14 +66,21 @@ namespace Butterfly.Core
         public void EndTurn()
         {
             if (IsAway || Arrived) throw new System.InvalidOperationException("The era is over; the inventor has jumped.");
+            if (World.Dead) throw new System.InvalidOperationException("The inventor is dead; the run is over.");
             MarkTurnEventStart(Log.NextId);
-            ProgressProjects();
-            ProgressMachine();
-            ProgressInventions();
-            ProgressWorkshop();
-            ProgressCommitments();
-            ProgressCommissions();
-            ProgressChallenges();
+            // In bed or away in the country, work under way waits (slice 1a, S-03 and S-05).
+            bool paused = Incapacitated;
+            TickHealth();
+            if (!paused)
+            {
+                ProgressProjects();
+                ProgressMachine();
+                ProgressInventions();
+                ProgressWorkshop();
+                ProgressCommitments();
+                ProgressCommissions();
+                ProgressChallenges();
+            }
             WriteJournal();
             LapseSeededChoiceIfDue();
             ResolvePendingOutbreak();
@@ -85,6 +92,7 @@ namespace Butterfly.Core
             AdvancePlagueToDate();
             Log.Record(Now, "turn.start", "clock", null, new[] { "world" }, null,
                 "Turn " + Turn + " begins: " + Now.Display + ".");
+            AdvanceHealth();
             RefreshAttention();
             AdvanceLocalNews();
             AdvanceEvents();
@@ -92,6 +100,7 @@ namespace Butterfly.Core
             AdvancePeople();
             AdvanceInvitations();
             RouteScenes();
+            DieIfDue();
         }
 
         private void YearTick()

@@ -18,6 +18,21 @@ namespace Butterfly.Core
         /// <summary>Condition of the repaired fountain (0–100); tracked for the arrival.</summary>
         public double FountainCondition { get; set; }
 
+        // ---- the inventor's body (Stakes and Impact pass, slice 1a; SYSTEMS §3) ----
+        /// <summary>Months lived in eras (never during a jump): the inventor's age comes from it.</summary>
+        public int MonthsLived { get; set; }
+        /// <summary>Healthy years illness has taken for good.</summary>
+        public int HealthyYearsLost { get; set; }
+        public int BedriddenMonths { get; set; }
+        public int WeakMonths { get; set; }
+        /// <summary>Away in the country until the sickness has passed.</summary>
+        public bool Withdrawn { get; set; }
+        public int WithdrawnMonths { get; set; }
+        public int WithdrawEventId { get; set; }
+        public bool Dead { get; set; }
+        /// <summary>What Rome kept of the inventor, once dead.</summary>
+        public List<string> Epitaph { get; } = new List<string>();
+
         /// <summary>Population of Rome in thousands (flavor and plague toll).</summary>
         public double Population { get; set; }
 

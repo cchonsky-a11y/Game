@@ -47,6 +47,8 @@ namespace Butterfly.Unity
                 if (h.Reserved.Count > 0) facts.Add(Fact("reserved: " + string.Join(", ", h.Reserved), 13));
                 facts.Add(Fact(h.Money + " · " + h.Aurei, 16));
                 facts.Add(Fact("Machine: " + h.Machine, 16, h.MachineReady));
+                if (h.Life.Length > 0) facts.Add(Fact(h.Life, 13));
+                foreach (var line in h.Health) facts.Add(Fact(line, 13, true));
             }
             bar.Add(facts);
 
@@ -150,6 +152,27 @@ namespace Butterfly.Unity
             row.Add(seed);
             row.Add(Ui.Button("New game with this seed", () => { if (ulong.TryParse(seed.value, out var n)) app.NewGame(n); }));
             scroll.Add(row);
+            page.Add(scroll);
+            return page;
+        }
+
+        /// <summary>The run ended in the inventor's death: what Rome kept, in the simulation's words. No game actions here.</summary>
+        public static VisualElement Ended(ButterflyApp app)
+        {
+            var page = Ui.Column();
+            page.style.backgroundColor = Ui.Night;
+            page.style.alignItems = Align.Center;
+            Ui.Pad(page, 30);
+            var scroll = Ui.Scroll();
+            scroll.style.maxWidth = 900;
+            var m = app.Session.Ending();
+            if (m != null)
+            {
+                scroll.Add(Ui.Text(m.Title, 26, Ui.Paper, true));
+                foreach (var line in m.Lines) scroll.Add(Ui.Text(line, 18, Ui.Paper));
+            }
+            scroll.Add(Ui.Text("Seed " + app.Seed, 14, Ui.PaperDark));
+            scroll.Add(Ui.Button("Start again with this seed", () => app.NewGame(app.Seed), true));
             page.Add(scroll);
             return page;
         }

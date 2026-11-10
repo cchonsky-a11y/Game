@@ -122,6 +122,8 @@ namespace Butterfly.Batch
         public int Actions, Refused;
         public string LogHash = "";
         public bool Stuck;
+        /// <summary>The inventor died in Rome (slice 1a): the run ends there.</summary>
+        public bool Died;
         public int BustsInAbsence;
         public string PolicyInForce = "";
         /// <summary>For the "why doesn't it show" cross-tabs: memberships at departure, the answers given.</summary>
@@ -189,8 +191,9 @@ namespace Butterfly.Batch
                                   " E " + F(sim.World[Domain.Economy].Level) + " stakes " + string.Join(",", sim.Backed().Select(i => i.Key + sim.StakePercent(i))) +
                                   " | " + string.Join(" / ", sim.Log.Events.Skip(logFrom).Where(e => e.Type != "gold.settle").Select(e => e.Type)));
                     sim.EndTurn();
+                    if (sim.Dead) { res.Died = true; break; }
                 }
-                if (res.Stuck) return Finish(sim, res);
+                if (res.Stuck || res.Died) return Finish(sim, res);
                 BeforeJump(sim, p, r, res);
                 for (int d = 0; d < 3; d++) res.SubDeparture[d] = sim.SubScore(DomainInfo.All[d]);
                 res.PriceLevelAtDeparture = sim.World.PriceLevel;
@@ -570,7 +573,7 @@ namespace Butterfly.Batch
 
         public static string Report(List<ExploreResult> results, List<string> determinism)
         {
-            var ok = results.Where(x => !x.Stuck && x.IndexArrival2 > 0).ToList();
+            var ok = results.Where(x => !x.Stuck && !x.Died && x.IndexArrival2 > 0).ToList();
             var sb = new StringBuilder();
             sb.AppendLine("# Exploration: " + results.Count + " randomized runs through two jumps");
             sb.AppendLine();

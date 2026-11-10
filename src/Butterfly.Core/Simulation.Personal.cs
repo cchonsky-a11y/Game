@@ -95,7 +95,7 @@ namespace Butterfly.Core
 
         private void RefreshAttention()
         {
-            World.Attention = Math.Max(0, AttentionPerTurn - ReservedAttention());
+            World.Attention = Math.Max(0, AttentionThisMonth - ReservedAttention());
         }
 
         internal CommandResult? CheckAttention(int amount)
