@@ -740,3 +740,7 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Built (numbers PROPOSED S-09):** in Rome the healthy years = 85 + 0.2 × (Medicine sub-score − 100), rounded, between 70 and 100. The status line shows the difference from 85. Read-only, no randomness.
 - **Documents updated:** SYSTEMS.md §3, GDD §4 (both tables and the worked examples, recomputed) and Appendix A, tuning.json (`inventor.healthyYearsPerMedicinePoint`, `healthyYearsMin`, `healthyYearsMax`), STAKES_PROPOSALS.md.
 - **Open for Corey:** the three numbers of S-09.
+
+## 2026-11-10 — S-09 approved; slice 1b proposed
+- **Corey:** the numbers of S-09 (a year per 5 Medicine points; floor 70; ceiling 100) are fine for now. tuning.json refs, SYSTEMS.md §3 and the GDD updated.
+- **Proposed, not built:** slice 1b, Notice (S-10 to S-17 in `docs/STAKES_PROPOSALS.md`): the Notice steps, six readings fed by acts the game already logs, protection, the accusation and the hearing, the trade's anger, being kept.

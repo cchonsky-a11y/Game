@@ -1987,15 +1987,15 @@
     },
     "healthyYearsPerMedicinePoint": {
       "value": 0.2,
-      "ref": "PROPOSED S-09: healthy years move 1 for every 5 points of the Medicine sub-score above or below 100 (Corey, 2026-11-10: variation and impact from medicine)"
+      "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-09, approved 2026-11-10: fine for now)"
     },
     "healthyYearsMin": {
       "value": 70,
-      "ref": "PROPOSED S-09"
+      "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-09, approved 2026-11-10: fine for now)"
     },
     "healthyYearsMax": {
       "value": 100,
-      "ref": "PROPOSED S-09: the 'well advanced' tier, shifted with the baseline"
+      "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-09, approved 2026-11-10: fine for now)"
     }
   },
   "health": {

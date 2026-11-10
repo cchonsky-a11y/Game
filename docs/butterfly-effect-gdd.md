@@ -856,7 +856,7 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Eras | 8 playable; the 8th jump returns home |
 | Years per era | ~10 standard; ~7 good; ~5 or skip excellent |
 | Healthy years by medicine | ~85 / ~100 / ~110 (Corey, 2026-11-10; were ~70 / ~85 / ~95) |
-| Healthy years, Rome prototype | 85 at Medicine sub-score 100; ±1 per 5 points; 70–100 (PROPOSED S-09) |
+| Healthy years, Rome prototype | 85 at Medicine sub-score 100; ±1 per 5 points; 70–100 (tune) |
 | Plague: falling ill | 3.5 × Rome's death share, max 0.6; −a fifth per precaution (4); × 0.25 in the country |
 | Plague: illness | 2 months no Attention, 4 months −1, 3 healthy years lost; death 0.30 − care (0.08 / 0.05 / 0.04 / 0.03), min 0.05 |
 | Leaving the city | from the 2nd warning; 15 aurei; at least 6 months; regard −1 (regard 2+); breaks a promise to stay |
