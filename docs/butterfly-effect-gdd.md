@@ -118,11 +118,11 @@ Aging happens only within eras, never during jumps. The inventor starts at age 2
 
 | Medicine level of the civilization | Healthy years (expected maximum age) |
 |---|---|
-| Historical baseline | ~70 |
-| Well advanced | ~85 |
-| Heavily advanced | ~95 |
+| Historical baseline | ~85 |
+| Well advanced | ~100 |
+| Heavily advanced | ~110 |
 
-**Rome prototype (Corey, 2026-11-10; SYSTEMS §3):** the inventor's healthy years are 85, shown with the date as a life budget. The inventor can catch the plague (35% at history's death toll, less with each precaution; 30% of the ill die, less with care), can leave the city until it passes, can lose a month to the late-summer fever, and dies for good: death ends the run and the game shows what Rome kept. Whether 85 replaces the ~70 baseline in the table above, or the tiers shift with it, is open.
+**Rome prototype (Corey, 2026-11-10; SYSTEMS §3):** the inventor's healthy years are 85, shown with the date as a life budget. The inventor can catch the plague (35% at history's death toll, less with each precaution; 30% of the ill die, less with care), can leave the city until it passes, can lose a month to the late-summer fever, and dies for good: death ends the run and the game shows what Rome kept. 85 replaces the old ~70 baseline and the tiers moved up with it (the tables here are updated). In Rome the ceiling follows the Medicine sub-score: a year for every 5 points from 100, between 70 and 100.
 
 | Performance | Years needed per era |
 |---|---|
@@ -132,10 +132,10 @@ Aging happens only within eras, never during jumps. The inventor starts at age 2
 
 | Player | Healthy years | Years in eras | Ending age | Result |
 |---|---|---|---|---|
-| Excellent | 95 | 7 eras × 6 = 42 | 28 + 42 = 70 | Home, with 25 spare years |
-| Good | 85 | 8 × 7 = 56 | 28 + 56 = 84 | Home, with 1 year of margin |
-| Standard | 85 | 8 × 10 = 80 | 108 | Successor needed around era 7 |
-| Neglectful | 70 | 8 × 10 = 80 | Dies at 70, during era 5 | Successor needed, or the run ends |
+| Excellent | 110 | 7 eras × 6 = 42 | 28 + 42 = 70 | Home, with 40 spare years |
+| Good | 100 | 8 × 7 = 56 | 28 + 56 = 84 | Home, with 16 years of margin |
+| Standard | 100 | 8 × 10 = 80 | 108 | Successor needed during era 8 |
+| Neglectful | 85 | 8 × 10 = 80 | Dies at 85, during era 6 | Successor needed, or the run ends |
 
 Neglecting medicine literally shortens the inventor's life. Making it home as the original inventor is the hardest achievement in the game.
 
@@ -855,8 +855,8 @@ Scope: end of Rome → time-lapse → Era 2 arrival → Era Report, institution 
 | Start | AD 155, inventor age 28 |
 | Eras | 8 playable; the 8th jump returns home |
 | Years per era | ~10 standard; ~7 good; ~5 or skip excellent |
-| Healthy years by medicine | ~70 / ~85 / ~95 |
-| Healthy years, Rome prototype | 85 (Corey, 2026-11-10) |
+| Healthy years by medicine | ~85 / ~100 / ~110 (Corey, 2026-11-10; were ~70 / ~85 / ~95) |
+| Healthy years, Rome prototype | 85 at Medicine sub-score 100; ±1 per 5 points; 70–100 (PROPOSED S-09) |
 | Plague: falling ill | 3.5 × Rome's death share, max 0.6; −a fifth per precaution (4); × 0.25 in the country |
 | Plague: illness | 2 months no Attention, 4 months −1, 3 healthy years lost; death 0.30 − care (0.08 / 0.05 / 0.04 / 0.03), min 0.05 |
 | Leaving the city | from the 2nd warning; 15 aurei; at least 6 months; regard −1 (regard 2+); breaks a promise to stay |

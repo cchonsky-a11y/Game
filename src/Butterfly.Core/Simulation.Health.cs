@@ -20,20 +20,34 @@ namespace Butterfly.Core
         /// <summary>The inventor's age: one year older for each year lived in an era, none during a jump (SYSTEMS §3).</summary>
         public int InventorAge => T.GetInt("inventor.startAge") + World.MonthsLived / 12;
 
+        /// <summary>
+        /// The healthy years Rome's medicine allows now (S-09): the baseline where Medicine is as history had it, a year more
+        /// or less for every few points of the Medicine sub-score above or below 100, within a floor and a ceiling. Read-only.
+        /// </summary>
+        public int HealthyYearsCeiling
+        {
+            get
+            {
+                double years = T.GetInt("inventor.healthyYears") + T.Get("inventor.healthyYearsPerMedicinePoint") * (SubScore(Domain.Medicine) - 100);
+                return (int)Math.Round(Math.Max(T.GetInt("inventor.healthyYearsMin"), Math.Min(T.GetInt("inventor.healthyYearsMax"), years)));
+            }
+        }
+
+        /// <summary>Years Rome's medicine adds to (or takes from) the baseline.</summary>
+        public int MedicineYears => HealthyYearsCeiling - T.GetInt("inventor.healthyYears");
+
         /// <summary>Healthy years still ahead: the ceiling, less the age, less the years illness took.</summary>
-        public int HealthyYearsLeft => Math.Max(0, T.GetInt("inventor.healthyYears") - InventorAge - World.HealthyYearsLost);
+        public int HealthyYearsLeft => Math.Max(0, HealthyYearsCeiling - InventorAge - World.HealthyYearsLost);
 
-        /// <summary>Healthy years the inventor had on arriving in Rome.</summary>
-        public int HealthyYearsAtStart => T.GetInt("inventor.healthyYears") - T.GetInt("inventor.startAge");
-
-        /// <summary>"Age 36 · about 49 healthy years left" (shown wherever the date is shown).</summary>
-        public string LifeLine => "Age " + InventorAge + " · about " + HealthyYearsLeft + " healthy years left";
+        /// <summary>"Age 36 · about 52 healthy years left (Rome's medicine: +3)" (shown wherever the date is shown).</summary>
+        public string LifeLine => "Age " + InventorAge + " · about " + HealthyYearsLeft + " healthy years left" +
+                                  (MedicineYears != 0 ? " (Rome's medicine: " + (MedicineYears > 0 ? "+" : "−") + Math.Abs(MedicineYears) + ")" : "");
 
         /// <summary>The departure briefing's fact: what Rome has cost in years.</summary>
         public string LifeSpentLine()
         {
             int spent = InventorAge - T.GetInt("inventor.startAge") + World.HealthyYearsLost;
-            return "You are " + InventorAge + ". You have spent " + spent + " of your " + HealthyYearsAtStart + " healthy years in Rome.";
+            return "You are " + InventorAge + ". You have spent " + spent + " of your " + (HealthyYearsCeiling - T.GetInt("inventor.startAge")) + " healthy years in Rome.";
         }
 
         // ---- state ----------------------------------------------------------

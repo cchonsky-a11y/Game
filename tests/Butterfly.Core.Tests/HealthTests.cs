@@ -45,6 +45,24 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void RomesMedicineMovesTheHealthyYearsAYearForEveryFivePoints()
+        {
+            var sim = new Simulation(With(NoFever), 1);
+            double history = sim.World[Domain.Medicine].Level;      // Medicine as history had it: sub-score 100
+            Assert.Equal(85, sim.HealthyYearsCeiling);
+            sim.World[Domain.Medicine].Level = history * 1.15;      // sub-score 115: three years more
+            Assert.Equal(88, sim.HealthyYearsCeiling);
+            Assert.Equal("Age 28 · about 60 healthy years left (Rome's medicine: +3)", sim.LifeLine);
+            sim.World[Domain.Medicine].Level = history * 0.80;      // sub-score 80: four years fewer
+            Assert.Equal(81, sim.HealthyYearsCeiling);
+            Assert.Equal("Age 28 · about 53 healthy years left (Rome's medicine: −4)", sim.LifeLine);
+            sim.World[Domain.Medicine].Level = history * 3;         // never above the ceiling
+            Assert.Equal(100, sim.HealthyYearsCeiling);
+            sim.World[Domain.Medicine].Level = history * 0.01;      // or below the floor
+            Assert.Equal(70, sim.HealthyYearsCeiling);
+        }
+
+        [Fact]
         public void IllnessChanceFollowsTheDeathShareAndThePrecautionsTaken()
         {
             var sim = new Simulation(TestData.Load(), 1);
@@ -91,7 +109,7 @@ namespace Butterfly.Core.Tests
             var free = new List<int>();
             for (int m = 0; m < 7; m++) { free.Add(sim.AttentionThisMonth); sim.EndTurn(); }
             Assert.Equal(new[] { 0, 0, 3, 3, 3, 3, 4 }, free);
-            Assert.Equal(85 - sim.InventorAge - 3, sim.HealthyYearsLeft);
+            Assert.Equal(sim.HealthyYearsCeiling - sim.InventorAge - 3, sim.HealthyYearsLeft);
         }
 
         [Fact]

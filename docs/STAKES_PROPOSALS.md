@@ -21,8 +21,9 @@ Slice 1 is split in two. 1a is the inventor's own body: age, illness, death. 1b 
 
 | Id | Area | Proposal | Status |
 |---|---|---|---|
-| S-05a | Leaving the city | "People who know you well" = regard 2 or more (`health.withdraw.wellKnownRegard`). | Proposed |
-| S-08a | Risk bands | Risk of falling ill shown as low under 10%, moderate under 25%, high from 25% (`health.band.*`). | Proposed |
+| S-05a | Leaving the city | "People who know you well" = regard 2 or more (`health.withdraw.wellKnownRegard`). | **Approved 2026-11-10** |
+| S-08a | Risk bands | Risk of falling ill shown as low under 10%, moderate under 25%, high from 25% (`health.band.*`). | **Approved 2026-11-10** |
+| S-09 | Healthy years follow medicine | Corey, 2026-11-10: 85 replaces the ~70 baseline, the tiers move up (~85 / ~100 / ~110), and medicine should give variation and impact. Built: in Rome the ceiling = 85 + 0.2 × (Medicine sub-score − 100), rounded, never under 70 or over 100. So a Rome whose medicine the player raised to 115 gives 88; one left to fall to 80 gives 81. The status line shows the difference ("Rome's medicine: +3"). | Direction approved; **numbers proposed** (0.2 a point, floor 70, ceiling 100) |
 
 Not built from S-03: people reacting to the illness (a client walking, a friend sitting with you). Work only waits. It needs authored scenes and is left for the slice that touches people.
 

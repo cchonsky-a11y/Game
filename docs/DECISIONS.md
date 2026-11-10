@@ -734,3 +734,9 @@ Asked 2026-10-03; implemented provisionally so P1 can proceed. Each is easy to r
 - **Legacy tools:** the P0 batch counts deaths (Late timing: 25 of 700 runs; Early: 0, they leave before the outbreak) and uses the world after the absence for a dead run's Index; the explorer ends a dead run; tests about other things that play through AD 166 switch illness off (`TestData.NoIllness()`).
 - **Open for Corey:** (1) S-05a and S-08a, two small numbers the approved text didn't give (who "knows you well"; the band thresholds). (2) The GDD ties healthy years to medicine (~70 / ~85 / ~95): does 85 replace the ~70 baseline, and do the tiers shift? Until ruled, Rome uses a flat 85. (3) People reacting to the inventor's illness (S-03) is not built: it needs authored scenes.
 - **Documents updated:** SYSTEMS.md §3, GDD §4 and Appendix A, tuning.json (`inventor.*`, `health.*`), STAKES_PROPOSALS.md, STAKES_AND_IMPACT_PROPOSAL.md §9, P2_GRAPHICAL_VERTICAL_SLICE.md, unity/MUSE_BRIEF.md.
+
+## 2026-11-10 — Healthy years follow medicine
+- **Corey:** S-05a and S-08a approved. 85 replaces the ~70 baseline and the tiers move up with it (~85 / ~100 / ~110; were ~70 / ~85 / ~95); medicine should give variation and impact.
+- **Built (numbers PROPOSED S-09):** in Rome the healthy years = 85 + 0.2 × (Medicine sub-score − 100), rounded, between 70 and 100. The status line shows the difference from 85. Read-only, no randomness.
+- **Documents updated:** SYSTEMS.md §3, GDD §4 (both tables and the worked examples, recomputed) and Appendix A, tuning.json (`inventor.healthyYearsPerMedicinePoint`, `healthyYearsMin`, `healthyYearsMax`), STAKES_PROPOSALS.md.
+- **Open for Corey:** the three numbers of S-09.

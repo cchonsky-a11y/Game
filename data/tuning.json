@@ -1983,7 +1983,19 @@
     },
     "healthyYears": {
       "value": 85,
-      "ref": "SYSTEMS §3 (Stakes and Impact pass, approved 2026-11-10; STAKES_PROPOSALS S-01: Corey set 85)"
+      "ref": "SYSTEMS §3 (Corey, 2026-11-10: 85 is the baseline, at Medicine as history had it)"
+    },
+    "healthyYearsPerMedicinePoint": {
+      "value": 0.2,
+      "ref": "PROPOSED S-09: healthy years move 1 for every 5 points of the Medicine sub-score above or below 100 (Corey, 2026-11-10: variation and impact from medicine)"
+    },
+    "healthyYearsMin": {
+      "value": 70,
+      "ref": "PROPOSED S-09"
+    },
+    "healthyYearsMax": {
+      "value": 100,
+      "ref": "PROPOSED S-09: the 'well advanced' tier, shifted with the baseline"
     }
   },
   "health": {
@@ -2066,7 +2078,7 @@
       },
       "wellKnownRegard": {
         "value": 2,
-        "ref": "PROPOSED S-05a: 'people who know you well' read as regard 2 or more"
+        "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-05a, approved 2026-11-10)"
       }
     },
     "fever": {
@@ -2106,11 +2118,11 @@
     "band": {
       "moderateFrom": {
         "value": 0.1,
-        "ref": "PROPOSED S-08a: risk shown as low under this chance of falling ill"
+        "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-08a, approved 2026-11-10)"
       },
       "highFrom": {
         "value": 0.25,
-        "ref": "PROPOSED S-08a: risk shown as high from this chance of falling ill"
+        "ref": "SYSTEMS §3 (STAKES_PROPOSALS S-08a, approved 2026-11-10)"
       }
     }
   }
