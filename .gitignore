@@ -18,3 +18,4 @@ unity/[Bb]uild/
 unity/[Ll]ogs/
 .export/
 build/
+art/out/

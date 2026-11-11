@@ -2,7 +2,7 @@
 // sends back the commands it offers. It never decides, computes or stores anything about the game.
 // What is the page's own: where the character stands, which district is drawn, which panel is open.
 import * as THREE from './lib/three.module.min.js';
-import { City, figure, beacon, sky, textures, sequence } from './city.js';
+import { City, figure, beacon, sky, textures, sequence, loadKit } from './city.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // The engine (Butterfly.Core + Butterfly.Presentation, compiled to WebAssembly)
@@ -20,6 +20,7 @@ async function boot() {
   const asked = new URLSearchParams(location.search).get('seed');
   const seed = asked && /^\d+$/.test(asked) ? asked : String(crypto.getRandomValues(new Uint32Array(1))[0] % 100000);
   boot.files = files;
+  await loadKit('kit.glb');
   state = await call('Start', files, seed);
   document.getElementById('boot').remove();
   render();
@@ -89,7 +90,7 @@ const PEOPLE = {
 };
 const DISTRICTS = {
   subura:   { name: 'The Subura', spots: [{ place: 'lodging', x: -11.5, z: -8.5 }, { place: 'subura', x: 9, z: 4.6 }] },
-  curia:    { name: 'The Forum and the Curia', spots: [{ place: 'curia', x: 0, z: -9.5 }] },
+  curia:    { name: 'The Forum and the Curia', spots: [{ place: 'curia', x: 0, z: -11 }] },
   market:   { name: 'The market', spots: [{ place: 'market', x: 0, z: 5.6 }] },
   changers: { name: 'The money changers', spots: [{ place: 'changers', x: 0, z: -4.5 }] },
   forges:   { name: 'The forges', spots: [{ place: 'forges', x: 3, z: 1 }] },
@@ -117,6 +118,7 @@ sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.04;
 const fill = new THREE.HemisphereLight(0xbcd4f0, 0x8a6f52, 1.25);
 scene.add(sun, sun.target, fill);
 let dome = null;
+const pmrem = new THREE.PMREMGenerator(renderer);
 
 let city = null, spots = [], walkers = [], beacons = [];
 const hero = figure(0x3d6b8e, { scale: 1.06, rnd: sequence('hero'), hair: 0x2a2018 });
@@ -132,6 +134,7 @@ function buildDistrict(id) {
   const later = !!(state && state.hud.away);          // after a jump the same streets are older
   const c = city = new City(id, later), rnd = c.rnd;
   dome = sky(later); scene.add(dome);
+  { const env = new THREE.Scene(); env.add(sky(later)); if (scene.environment) scene.environment.dispose(); scene.environment = pmrem.fromScene(env, 0, 1, 400).texture; scene.environmentIntensity = 0.45; }
   scene.fog = new THREE.Fog(later ? 0xc4c0b2 : 0xeeddc0, 60, 230);
   sun.color.set(later ? 0xdfe0e6 : 0xffe2b4); sun.intensity = later ? 2.3 : 3.1;
   c.ground(textures.earth(later), HALF * 2 + 90, 26);
@@ -139,20 +142,17 @@ function buildDistrict(id) {
   c.paving(6, HALF * 2, 0, 0);
 
   // The edge of the district: a wall of tenements, with the two gates left open.
-  for (let k = -4; k <= 4; k++) {
-    const bays = 2 + Math.floor(rnd() * 2), fl = () => 2 + Math.floor(rnd() * 3);
-    if (k !== 0) { c.insula(k * 6.6, -HALF + 2.5, bays, 6, fl(), false); c.insula(k * 6.6, HALF - 2.5, bays, 6, fl(), false); }
-    if (Math.abs(k * 6.6 - 12) > 5) { c.insula(-HALF + 2.5, k * 6.6, bays, 6, fl(), true); c.insula(HALF - 2.5, k * 6.6, bays, 6, fl(), true); }
-  }
+  const street = (mid, w) => Math.abs(mid) < w / 2 + 3.4, gate = (mid, w) => Math.abs(mid - 12) < w / 2 + 4.5;
+  c.insulaRow(-HALF - 1.5, -HALF - 5, HALF + 5, true, street); c.insulaRow(HALF + 1.5, -HALF - 5, HALF + 5, true, street);
+  c.insulaRow(-HALF - 1.5, -HALF + 4, HALF - 4, false, gate); c.insulaRow(HALF + 1.5, -HALF + 4, HALF - 4, false, gate);
   c.arch(-HALF + 7, 12, Math.PI / 2); c.arch(HALF - 7, 12, Math.PI / 2);
   c.skyline();
 
   if (id === 'subura') {
-    c.insula(-13, -14.5, 3, 7, 4, false);                              // the lodging house
+    c.insula(-13, -15.5, 3, 7, 4, false, 'insula_a');                  // the lodging house
     c.shed(-7.2, -8.6); c.machine(-7.2, -8.6, state && state.hud.machineReady);
-    for (const [x, z, b, f, t] of [[-21, -6, 2, 3, true], [-6, -19, 2, 5, false], [9, -17, 3, 4, false], [20, -13, 2, 5, true], [20, 0, 2, 3, true],
-                                   [-20, 4, 2, 4, true], [-12, 21, 3, 3, false], [14, 21, 3, 5, false], [20, 19, 2, 4, true], [-21, 20, 2, 3, true]]) c.insula(x, z, b, 6, f, t);
-    c.paving(11, 11, 9, 8.5); c.fountain(9, 8.5, true);
+    for (const [x, z, t, n] of [[12, -16.5, false, 'insula_b'], [20, -2, true, 'insula_e'], [-21, 3, true, 'insula_b'], [-13, 22, false, 'insula_d'], [14, 22, false, 'insula_f']]) c.insula(x, z, 0, 0, 0, t, n);
+    c.fountain(9, 8.5, true);
     c.cart(-4, 16.5, 0.3); c.brazier(-10, -10.2); c.brazier(4.2, 9);
     for (const [x, z] of [[-15.5, -10.4], [-15, -9.8], [4.5, -13], [5.2, -13.4], [16, 14]]) c.amphora(x, z, 0.9 + rnd() * 0.4);
     for (const [x, z] of [[-17, 9], [-16, 9.6], [15, -7]]) c.crate(x, z);
@@ -161,35 +161,35 @@ function buildDistrict(id) {
     c.laundry(-17.5, -6, -9.5, -11.5, 6.5); c.laundry(5.5, -14, 16, -10.5, 7.5); c.laundry(-17, 6, -8.5, 18.5, 7);
   } else if (id === 'curia') {
     c.paving(46, 40, 0, -2);
-    c.curia(0, -18); c.inscription('SENATVS POPVLVSQVE ROMANVS', 9, 1.1, 0, 11.6, -13.42);
-    c.temple(-20, 0, 6, Math.PI / 2); c.temple(20, 0, 6, -Math.PI / 2); c.rostra(12, -10.5); c.spiralColumn(-9, 5);
+    c.curia(0, -19.5); c.inscription('SENATVS POPVLVSQVE ROMANVS', 9, 1.1, 0, 11.6, -14.92);
+    c.temple(-18, -1, 6, Math.PI / 2); c.temple(18, -1, 6, -Math.PI / 2); c.rostra(0, 22.5); c.spiralColumn(-9, 5);
     for (let k = -3; k <= 3; k++) if (k) { c.column(k * 4.4, 24.5, 5.5); }
     c.column(9, 5, 6, 0.6); const statue = figure(0x8a7a4a, { rnd, scale: 1.5, toga: 0x8a7a4a, long: true, hair: 0x8a7a4a, skin: 0x8a7a4a }); statue.position.set(9, 6, 5); c.group.add(statue);   // a bronze
-    c.umbrellaPine(-15, 17); c.umbrellaPine(15, 17); c.brazier(-3, -11.5); c.brazier(3, -11.5);
+    c.umbrellaPine(-15, 17); c.umbrellaPine(15, 17); c.brazier(-3, -12.6); c.brazier(3, -12.6);
   } else if (id === 'market') {
     c.paving(48, 30, 0, 0);
     const awn = ['#a8482c', '#3f6077', '#7a6a3f', '#5a7a4a', '#8a4a6a'];
     for (let k = 0; k < 7; k++) { const x = -21 + k * 7; if (Math.abs(x) > 3.5) { c.stall(x, -8, awn[k % 5], 0); c.stall(x, 7, awn[(k + 2) % 5], Math.PI); } }
-    c.insula(-17, -19, 3, 6, 3, false); c.insula(16, -19, 3, 6, 4, false); c.insula(-17, 21, 3, 6, 3, false); c.insula(17, 21, 3, 6, 2, false);
+    c.insula(-17, -20, 0, 0, 0, false, 'insula_d'); c.insula(16, -20, 0, 0, 0, false, 'insula_b'); c.insula(-17, 22, 0, 0, 0, false, 'insula_b'); c.insula(17, 22, 0, 0, 0, false, 'insula_d');
     c.cart(9, 16.5, -0.4); c.cart(-12, -2, 1.2);
     for (let k = 0; k < 9; k++) c.amphora(-6 + rnd() * 2.4, -13 + rnd() * 2, 0.9 + rnd() * 0.5);
     for (let k = 0; k < 6; k++) c.crate(5 + rnd() * 3, -14 + rnd() * 2.5);
     c.umbrellaPine(22, 2); c.tholos(0, -0.5);
   } else if (id === 'changers') {
     c.paving(40, 24, 0, -4);
-    c.insula(0, -15.5, 9, 6, 2, false);
+    c.insula(-6.5, -17, 0, 0, 0, false, 'insula_f'); c.insula(6.4, -17, 0, 0, 0, false, 'insula_f');
     for (let k = -5; k <= 5; k++) c.column(k * 2.6, -11.2, 4.6, 0.3);
     c.box(31, 0.5, 2.6, stoneMat(), 0, 4.6, -11.9);
     for (let k = -2; k <= 2; k++) { c.box(1.9, 0.9, 1, woodMat(), k * 4.4, 0, -7.5, true); c.box(0.5, 0.25, 0.4, goldMat(), k * 4.4 + 0.3, 0.9, -7.5); }
-    c.insula(-18, 6, 3, 6, 3, true); c.insula(18, 6, 3, 6, 4, true); c.insula(-10, 21, 3, 6, 3, false); c.insula(12, 21, 3, 6, 4, false);
+    c.insula(-21, 0, 0, 0, 0, true, 'insula_b'); c.insula(21, 0, 0, 0, 0, true, 'insula_b'); c.insula(-11, 22, 0, 0, 0, false, 'insula_d'); c.insula(12, 22, 0, 0, 0, false, 'insula_a');
     c.brazier(-12, -9.5); c.brazier(12, -9.5); c.cypress(-22, -8); c.cypress(22, -8);
   } else if (id === 'forges') {
-    c.forge(-14, -12, false); c.forge(-2, -14, false); c.forge(11, -12, false); c.forge(-17, 3, true); c.forge(13, 21, false);
+    c.forge(-15, -15, false); c.forge(-4.5, -15, false); c.forge(12, -15, false); c.forge(-21, 2, true); c.forge(13, 22, false);
     c.wheel(23, -16);
     c.cart(-6, 16.5, 0.2);
     for (let k = 0; k < 7; k++) c.crate(-9 + rnd() * 3, 4 + rnd() * 3);
     for (const [x, z] of [[7, -6], [7.7, -6.5], [-10, -6]]) c.amphora(x, z, 1.1);
-    c.insula(-12, 21, 3, 6, 2, false);
+    c.insula(-12, 22, 0, 0, 0, false, 'insula_b');
   }
 
   // Passers-by: the streets are alive (cosmetic).
@@ -637,13 +637,26 @@ function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.asp
 addEventListener('resize', resize);
 resize();
 let before = performance.now();
+// The page watches its own frame rate and gives up detail before it gives up smoothness (a slow phone, or no graphics card).
+const quality = { level: new URLSearchParams(location.search).get('q') === 'low' ? 2 : 0, slow: 0, frames: 0 };
+function setQuality(level) {
+  quality.level = level;
+  renderer.setPixelRatio(level === 0 ? Math.min(devicePixelRatio, 1.75) : 1);
+  renderer.shadowMap.enabled = level < 2; sun.castShadow = level < 2;
+  sun.shadow.mapSize.set(level === 0 ? 2048 : 1024, level === 0 ? 2048 : 1024); if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; }
+  scene.traverse(o => { if (o.material) [].concat(o.material).forEach(m => { m.needsUpdate = true; }); });
+  resize();
+}
 function frame(now) {
-  const dt = Math.min(0.05, (now - before) / 1000);
+  const raw = (now - before) / 1000;
+  if (state && city && quality.level < 2 && ++quality.frames > 30) { quality.slow = raw > 0.045 ? quality.slow + 1 : Math.max(0, quality.slow - 1); if (quality.slow > 40) { quality.slow = 0; setQuality(quality.level + 1); } }
+  const dt = Math.min(0.05, raw);
   before = now;
   if (state && city) step(dt);
   renderer.render(scene, camera);
   requestAnimationFrame(frame);
 }
+if (quality.level) setQuality(quality.level);
 requestAnimationFrame(frame);
 window.butterfly = { get state() { return state; }, act, view, pos, travel, openPanel, walkTo };   // for the browser test only
 boot().catch(e => { $('boot').textContent = 'Could not start: ' + e; console.error(e); });

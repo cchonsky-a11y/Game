@@ -3,6 +3,23 @@
 // Nothing here knows anything about the game: game.js tells it which district to build and what stands in it.
 import * as THREE from './lib/three.module.min.js';
 
+import { GLTFLoader } from './lib/GLTFLoader.js';
+
+// The art pack (art/kit, modelled in Blender): loaded once, then copied wherever a piece stands.
+const KIT = {};
+export async function loadKit(url) {
+  const gltf = await new GLTFLoader().loadAsync(url);
+  gltf.scene.traverse(o => {
+    if (!o.isMesh) return;
+    o.castShadow = o.receiveShadow = true;
+    const tint = /#([0-9a-f]{6})/.exec(o.material.name);            // a painted texture multiplied by its material's colour
+    if (tint && o.material.map) o.material.color.set('#' + tint[1]);
+    if (o.material.name.startsWith('lamplight')) o.material.emissiveIntensity = 1.6;
+  });
+  for (const o of [...gltf.scene.children]) KIT[o.name] = o;
+}
+const INSULAE = ['insula_a', 'insula_b', 'insula_c', 'insula_d', 'insula_e', 'insula_f'];
+
 // A fixed sequence for layout and painting, so a street looks the same every time (cosmetic; never used for the game).
 export function sequence(seedText) {
   let a = 0; for (const c of seedText) a = (a * 31 + c.charCodeAt(0)) >>> 0;
@@ -176,8 +193,37 @@ export class City {
     this.group.add(m);
   }
 
-  // A tenement: painted sides, a tiled hip roof with eaves. `turned` puts its long side along z.
-  insula(x, z, bays, depth, floors, turned) {
+  // A piece of the art pack, set down facing `turn` (0 looks toward +z).
+  kit(name, x, z, turn = 0, scale = 1, solid = true) {
+    const o = KIT[name].clone();
+    o.position.set(x, 0, z); o.rotation.y = turn; o.scale.setScalar(scale);
+    this.group.add(o);
+    const hw = (KIT[name].userData.hw || 1) * scale, hd = (KIT[name].userData.hd || 1) * scale, side = Math.abs(Math.sin(turn)) > 0.5;
+    if (solid) this.solid(x, z, side ? hd : hw, side ? hw : hd);
+    return o;
+  }
+  // A tenement from the art pack, its shops facing the middle of the district.
+  insula(x, z, bays, depth, floors, turned, name) {
+    name = name || INSULAE[Math.floor(this.rnd() * INSULAE.length)];
+    const turn = turned ? (x < 0 ? Math.PI / 2 : -Math.PI / 2) : (z < 6 ? 0 : Math.PI);
+    const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = turn; this.group.add(g);
+    const o = KIT[name].clone(); g.add(o);
+    g.userData.hd = KIT[name].userData.hd;
+    const hw = KIT[name].userData.hw, hd = KIT[name].userData.hd;
+    this.solid(x, z, turned ? hd : hw, turned ? hw : hd);
+    return g;
+  }
+  // A row of tenements shoulder to shoulder along one edge. `skip(p)` leaves a gap (a gate).
+  insulaRow(fixed, from, to, alongX, skip) {
+    let p = from;
+    while (p < to - 4) {
+      const name = INSULAE[Math.floor(this.rnd() * INSULAE.length)], w = KIT[name].userData.hw * 2;
+      const mid = p + w / 2;
+      if (!skip || !skip(mid, w)) this.insula(alongX ? mid : fixed, alongX ? fixed : mid, 0, 0, 0, !alongX, name);
+      p += w + 0.05;
+    }
+  }
+  insulaCoded(x, z, bays, depth, floors, turned) {
     const style = Math.floor(this.rnd() * 6), w = bays * 2.6, h = floors * 2.9;
     const front = std({ map: facade(style, bays, floors, this.later) });
     const sideBays = Math.max(1, Math.round(depth / 2.6));
@@ -206,12 +252,17 @@ export class City {
   }
 
   column(x, z, h, r = 0.42, solid = true) {
+    const o = KIT.column_tuscan.clone(); o.position.set(x, 0, z); o.scale.set(r / 0.42, h / 6, r / 0.42); this.group.add(o);
+    if (solid) this.solid(x, z, r * 1.4, r * 1.4);
+  }
+  columnCoded(x, z, h, r = 0.42, solid = true) {
     const m = std({ map: marble(this.later) });
     this.cyl(r * 1.25, r * 1.35, 0.3, m, x, 0, z, 12, solid);
     this.cyl(r * 0.86, r, h - 0.7, m, x, 0.3, z, 14);
     this.box(r * 2.5, 0.4, r * 2.5, m, x, h - 0.4, z);
   }
-  temple(x, z, cols = 6, turn = 0) {
+  temple(x, z, cols = 6, turn = 0) { this.kit('temple', x, z, turn); }
+  templeCoded(x, z, cols = 6, turn = 0) {
     const m = std({ map: marble(this.later) }), g0 = this.group, g = new THREE.Group();
     this.group = g;
     const w = cols * 2.3, d = 11, colH = 6;
@@ -244,7 +295,8 @@ export class City {
     g.position.set(x, 0, z); g.rotation.y = turn; this.group.add(g);
     this.solid(x, z, 1.6, 1.2);
   }
-  amphora(x, z, s = 1) {
+  amphora(x, z, s = 1) { const o = this.kit(this.rnd() < 0.5 ? 'amphora_oil' : 'amphora_wine', x, z, this.rnd() * 6, s * 1.15, false); o.rotation.z = (this.rnd() - 0.5) * 0.5; if (Math.abs(o.rotation.z) > 0.15) o.rotation.z = (this.rnd() - 0.5) * 0.1; }
+  amphoraCoded(x, z, s = 1) {
     const pts = [[0.05, 0], [0.16, 0.05], [0.3, 0.35], [0.33, 0.6], [0.24, 0.85], [0.1, 0.98], [0.1, 1.15], [0.14, 1.2]].map(p => new THREE.Vector2(p[0] * s, p[1] * s));
     const m = this.add(new THREE.Mesh(new THREE.LatheGeometry(pts, 12), plain(0xb0683f)));
     m.position.set(x, 0, z); m.rotation.z = (this.rnd() - 0.5) * 0.12;
@@ -275,6 +327,10 @@ export class City {
     this.animated.push((dt, t) => { fire.scale.y = 1 + Math.sin(t * 11 + x) * 0.2; light.intensity = 5 + Math.sin(t * 13 + z) * 1.5; });
   }
   fountain(x, z, clean) {
+    const o = this.kit('street_fountain', x, z, 0, 1.5);
+    o.traverse(m => { if (m.isMesh && m.material.name === 'water') { m.material = m.material.clone(); m.material.transparent = true; m.material.opacity = 0.85; m.material.color.set(clean ? 0x4f96b8 : 0x6f7a4a); } });
+  }
+  fountainCoded(x, z, clean) {
     const stone = std({ map: marble(this.later) });
     this.cyl(2.5, 2.7, 0.75, stone, x, 0, z, 8, true);
     const wt = water().clone(); wt.needsUpdate = true;
@@ -390,8 +446,8 @@ export class City {
         const crown = far(new THREE.Mesh(new THREE.SphereGeometry(5, 8, 6), hazy(this.later ? 0x4a5f45 : 0x3d6a3a))); crown.scale.y = 0.36; crown.position.set(px, py + 9.5, pz); }
     }
     const g0 = this.group, g = new THREE.Group(); this.group = g;
-    this.temple(0, 0, 6, 0); this.group = g0; g.scale.setScalar(1.6); g.position.set(-95, 24.5, -40); g.rotation.y = 0.9; g.traverse(o => { o.castShadow = false; }); this.group.add(g); this.solids.pop();
-    const g2 = new THREE.Group(); this.group = g2; this.insula(0, 0, 5, 9, 2, false); this.group = g0; g2.scale.setScalar(2.2); g2.position.set(95, 22, 60); g2.traverse(o => { o.castShadow = false; }); this.group.add(g2); this.solids.pop();
+    this.kit('temple', 0, 0, 0, 1, false); this.group = g0; g.scale.setScalar(1.6); g.position.set(-95, 24.5, -40); g.rotation.y = 0.9; g.traverse(o => { o.castShadow = false; }); this.group.add(g);
+    const g2 = new THREE.Group(); this.group = g2; this.kit('insula_f', 0, 0, 0, 1, false); this.group = g0; g2.scale.setScalar(2.2); g2.position.set(95, 22, 60); g2.traverse(o => { o.castShadow = false; }); this.group.add(g2);
   }
   arch(x, z, turn = 0) {
     const m = std({ map: marble(this.later) }), g0 = this.group, g = new THREE.Group(); this.group = g;
@@ -422,13 +478,14 @@ export class City {
     this.animated.push((dt, t) => { rings.forEach((r, k) => { r.rotation.z += dt * (ready ? 1.4 : 0.25) * (k % 2 ? -1 : 1); }); core.rotation.y += dt * 0.4; light.intensity = (ready ? 14 : 4) * (0.8 + Math.sin(t * 3) * 0.2); });
   }
   forge(x, z, turned) {
-    const g = this.insula(x, z, 3, 6.5, 1, turned);
-    const ch = new THREE.Mesh(new THREE.BoxGeometry(1, 3.6, 1), plain(0x4a3d33)); ch.position.set(2.2, 4.2, -1.5); ch.castShadow = true; g.add(ch);
-    const glow = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.3), new THREE.MeshBasicMaterial({ color: 0xff7a2c, transparent: true, opacity: 0.85 })); glow.position.set(0, 1.3, 3.3); g.add(glow);
-    const light = new THREE.PointLight(0xff7a3c, 8, 10, 2); light.position.set(0, 1.6, 4); g.add(light);
+    const g = this.insula(x, z, 3, 6.5, 1, turned, 'insula_d');
+    const front = g.userData.hd;
+    const ch = new THREE.Mesh(new THREE.BoxGeometry(1, 3.6, 1), plain(0x4a3d33)); ch.position.set(2.2, 7.6, -1.5); ch.castShadow = true; g.add(ch);
+    const glow = new THREE.Mesh(new THREE.PlaneGeometry(7.5, 2.4), new THREE.MeshBasicMaterial({ color: 0xff7a2c, transparent: true, opacity: 0.85 })); glow.position.set(0, 1.4, front - 1.45); g.add(glow);
+    const light = new THREE.PointLight(0xff7a3c, 8, 10, 2); light.position.set(0, 1.6, front + 0.6); g.add(light);
     this.animated.push((dt, t) => { light.intensity = 7 + Math.sin(t * 9 + x) * 2; glow.material.opacity = 0.7 + Math.sin(t * 9 + x) * 0.15; });
-    const anvil = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.35), new THREE.MeshStandardMaterial({ color: 0x33363a, metalness: 0.8, roughness: 0.4 })); anvil.position.set(1.6, 0.75, 4.6); anvil.castShadow = true; g.add(anvil);
-    const block = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.35, 0.5, 8), plain(0x6b5240)); block.position.set(1.6, 0.25, 4.6); g.add(block);
+    const anvil = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.35), new THREE.MeshStandardMaterial({ color: 0x33363a, metalness: 0.8, roughness: 0.4 })); anvil.position.set(1.6, 0.75, front + 1.2); anvil.castShadow = true; g.add(anvil);
+    const block = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.35, 0.5, 8), plain(0x6b5240)); block.position.set(1.6, 0.25, front + 1.2); g.add(block);
   }
   wheel(x, z) {
     const g = new THREE.Group(), m = std({ map: wood() });
