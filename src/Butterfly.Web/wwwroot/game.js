@@ -638,7 +638,8 @@ addEventListener('resize', resize);
 resize();
 let before = performance.now();
 // The page watches its own frame rate and gives up detail before it gives up smoothness (a slow phone, or no graphics card).
-const quality = { level: new URLSearchParams(location.search).get('q') === 'low' ? 2 : 0, slow: 0, frames: 0 };
+const asked = new URLSearchParams(location.search).get('q');
+const quality = { level: asked === 'low' ? 2 : 0, slow: 0, frames: 0, off: asked === 'off' };   // q=off: play without drawing (scripted tests of the game's flow)
 function setQuality(level) {
   quality.level = level;
   renderer.setPixelRatio(level === 0 ? Math.min(devicePixelRatio, 1.75) : 1);
@@ -653,10 +654,10 @@ function frame(now) {
   const dt = Math.min(0.05, raw);
   before = now;
   if (state && city) step(dt);
-  renderer.render(scene, camera);
+  if (!quality.off) renderer.render(scene, camera);
   requestAnimationFrame(frame);
 }
 if (quality.level) setQuality(quality.level);
 requestAnimationFrame(frame);
-window.butterfly = { get state() { return state; }, act, view, pos, travel, openPanel, walkTo };   // for the browser test only
+window.butterfly = { get state() { return state; }, act, view, pos, travel, openPanel, walkTo, renderer, quality };   // for the browser test only
 boot().catch(e => { $('boot').textContent = 'Could not start: ' + e; console.error(e); });
