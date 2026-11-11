@@ -1,5 +1,7 @@
 # Brief for Muse: setting up and finishing the Unity client of The Butterfly Effect
 
+> **Paused 2026-11-11 (Corey).** The game is now presented as a walkable Rome in the browser (`src/Butterfly.Web`; see PROTOTYPE_SCOPE.md). The Unity client is kept but not maintained, and this document describes it as it stood.
+
 > Give Muse this whole brief, then one task (§9). Maintained alongside `docs/P2_GRAPHICAL_VERTICAL_SLICE.md`; if the two disagree, that document wins.
 
 ---

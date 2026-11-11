@@ -1,5 +1,7 @@
 # P2 graphical vertical slice
 
+> **Paused 2026-11-11 (Corey).** The game is now presented as a walkable Rome in the browser (`src/Butterfly.Web`; see PROTOTYPE_SCOPE.md). The Unity client is kept but not maintained, and this document describes it as it stood.
+
 > Decided by Corey, 2026-10-05: the project moves to a minimal graphical vertical slice, and real human first-return testing waits until it is playable. P1 gameplay is frozen. This file describes what was built, how to run it, and what remains before the five-person test. **Nothing here has been tested by a human, and Unity itself could not be run where this was built** (see "Limitations").
 
 ## 1. Architecture

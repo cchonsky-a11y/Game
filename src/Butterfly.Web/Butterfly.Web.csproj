@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <!-- The walkable-district test (Corey, 2026-11-11): Butterfly.Core and Butterfly.Presentation compiled to WebAssembly,
+         so a browser page can draw the game over the one simulation. Presentation only: no gameplay here.
+         Not part of Butterfly.sln (it needs the browser runtime pack); build with tools/build-web.sh. -->
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+    <RootNamespace>Butterfly.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.11" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Butterfly.Presentation\Butterfly.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

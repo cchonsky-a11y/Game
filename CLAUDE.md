@@ -20,7 +20,7 @@ Human testing waits for a graphical UI. (The 2026-10-04 console exception for th
 4. The simulation is deterministic. All randomness goes through the seeded generator in Butterfly.Core. No `DateTime.Now`, no unseeded `Random`, no iteration over unordered collections where order affects results.
 5. Every formula gets a unit test using the reference values in BUILD_GUIDE.md §8. Run all tests before finishing any task.
 6. Record every meaningful state change in the event log with its immediate causes, actors, and effects.
-7. Never add language-model integration, networking, or analytics. Graphics only as the P2 graphical vertical slice allows (PROTOTYPE_SCOPE.md, 2026-10-05): a Unity presentation over Butterfly.Core, never gameplay in Unity.
+7. Never add language-model integration, networking, or analytics. Graphics only as PROTOTYPE_SCOPE.md allows: since 2026-11-11 the walkable browser client (`src/Butterfly.Web`) over Butterfly.Core; the Unity client is paused. Never gameplay in a client.
 8. The hard constraints in SYSTEMS.md §14 must never be violated by any code or content.
 9. Work in small slices: one slice per task, ending with passing tests.
 10. If you change a number or rule, list the documents that must be updated (SYSTEMS.md, GDD Appendix A, tuning.json, DECISIONS.md) in your summary.
@@ -30,7 +30,8 @@ Human testing waits for a graphical UI. (The 2026-10-04 console exception for th
 - `src/Butterfly.Console/` — text game for human players
 - `src/Butterfly.Batch/` — automated strategy runner
 - `src/Butterfly.Presentation/` — engine-free presentation adapter over Core (.NET Standard 2.1; screen models, actions, no gameplay)
-- `unity/ButterflyEffect/` — Unity 6 project (presentation only; consumes Core and Presentation as DLLs)
+- `src/Butterfly.Web/` — the browser client (2026-11-11): Core and Presentation compiled to WebAssembly, a walkable Rome drawn with three.js; presentation only; not in `Butterfly.sln`
+- `unity/ButterflyEffect/` — Unity 6 project (paused 2026-11-11; presentation only; consumes Core and Presentation as DLLs)
 - `tests/Butterfly.Core.Tests/` — unit, determinism, and snapshot tests
 - `data/tuning.json` — all tuning values; each leaf is `{ "value", "ref" }`, where `ref` names its SYSTEMS.md section or a `PROPOSED P0-xx` entry in `docs/P0_PROPOSALS.md` (placeholders awaiting approval)
 - `data/content/` — projects, institutions, Echoes, text templates
@@ -40,6 +41,8 @@ Human testing waits for a graphical UI. (The 2026-10-04 console exception for th
 - Test: `dotnet test`
 - Play: `dotnet run --project src/Butterfly.Console -- --seed 42`
 - Batch: `dotnet run --project src/Butterfly.Batch -- --runs 100`
+- Browser client: `tools/build-web.sh`, then serve `build/web` (e.g. `python3 -m http.server 8080 --directory build/web`)
+- Browser playthrough test (scripted): `node tools/web-playthrough.js http://localhost:8080 42`
 
 ## Definition of done for a task
 - Tests pass, including the determinism test.

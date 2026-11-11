@@ -120,7 +120,7 @@ namespace Butterfly.Presentation
             var decide = groups.First(g => g.Key == "decide").Items;
             if (Sim.SeededChoiceOpen)
             {
-                var c = Card("seeded", Sim.Data.Content.Template("opening.choice"), "", Sim.Data.Content.Template("walk.intro.start"));
+                var c = Card("seeded", Sim.Data.Content.Template("opening.choice"), Sim.Data.Content.Template("walk.intro.start"), "");
                 foreach (var a in decide.Where(a => a.Command.StartsWith("choose ", StringComparison.Ordinal)))
                 {
                     string id = a.Command.Substring(7);

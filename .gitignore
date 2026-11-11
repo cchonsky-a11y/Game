@@ -17,3 +17,4 @@ unity/[Oo]bj/
 unity/[Bb]uild/
 unity/[Ll]ogs/
 .export/
+build/

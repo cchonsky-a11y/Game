@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>The Butterfly Effect</title>
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="labels"></div>
+
+<div id="hud" hidden>
+  <div id="facts"></div>
+  <div id="nav"></div>
+</div>
+<div id="health"></div>
+<div id="feed"></div>
+<button id="interact" hidden></button>
+<div id="stick" hidden><div id="knob"></div></div>
+
+<div id="panel" hidden><button id="panelClose" aria-label="Close">×</button><div id="panelBody"></div></div>
+<div id="card" hidden><div id="cardBody"></div></div>
+<div id="full" hidden><div id="fullBody"></div></div>
+<div id="boot">Rome is waking…</div>
+
+<script src="_framework/blazor.webassembly.js" autostart="false"></script>
+<script type="module" src="game.js"></script>
+</body>
+</html>

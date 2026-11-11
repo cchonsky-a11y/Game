@@ -54,7 +54,9 @@ Replaces the unbuilt single "Visibility" meter (SYSTEMS §10). No Roman can conc
 
 **What it does not do yet.** No wonders (slice 5), no theft or fire at the machine, no citizenship, no attribution verb ("let the guild take the credit"). Each needs content of its own.
 
-**Open questions for Corey.**
+**Settled 2026-11-11 (on Corey's behalf, under his delegation; he may overrule): S-10 to S-17 are approved as written; exile is 3 years and the machine stays reachable; death by hearing stays, rare; the palace only once notorious (Corey).**
+
+**The questions as they were asked.**
 1. S-14: is exile the right heavy penalty, and is 3 years the right size? During exile the inventor is outside Rome: no work, as in the country, but the machine is in Rome. Proposed: the inventor may still slip back to the machine and jump.
 2. S-13 and S-14: should death by hearing exist at all at this stage, or should the worst outcome be exile until wonders are in?
 3. S-16: is "the palace" too early for AD 155–175, given the rule that the first months are socially minor? Proposed: only once notorious, which no measured profile reaches before year 5.

@@ -698,7 +698,9 @@ Time skips; gold, resources, influence, or advancement bypasses; fuel puzzle sol
 ## 16. Art, UI, and Session Design
 
 ### Art
-- **Realistic isometric 3D** in the style of modern mobile strategy games like Rise of Kingdoms.
+> **Revised 2026-11-11 (Corey): the game is seen at the level of one person.** The player walks a character, seen from behind and above, through districts of the city, with fast travel between them. There is no god view, no isometric strategy map as the home screen, and no shift into a zoomed-out "Influence Mode" camera: growing influence shows as more doors open and more people who come to you, and the state of Rome is read in a journal or report screen. Time is unchanged: the month ends when the player ends it. The first build is a browser client with placeholder blocks (`src/Butterfly.Web`). The isometric plan below is kept for the record and is superseded where it conflicts.
+
+- (Superseded 2026-11-11) **Realistic isometric 3D** in the style of modern mobile strategy games like Rise of Kingdoms.
 
 | Scale | Technique |
 |---|---|
