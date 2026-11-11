@@ -5,7 +5,7 @@
 html, body { margin:0; height:100%; overflow:hidden; background:var(--night); color:var(--ink); font:16px/1.45 Georgia, 'Times New Roman', serif; -webkit-user-select:none; user-select:none; touch-action:none; }
 #view { position:fixed; inset:0; width:100%; height:100%; display:block; }
 #labels { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
-.label { position:absolute; transform:translate(-50%,-100%); background:rgba(41,33,28,.82); color:var(--paper); padding:3px 9px; border-radius:4px; font-size:14px; white-space:nowrap; }
+.label { pointer-events:auto; cursor:pointer; position:absolute; transform:translate(-50%,-100%); background:rgba(41,33,28,.82); color:var(--paper); padding:3px 9px; border-radius:4px; font-size:14px; white-space:nowrap; }
 .label.person { background:rgba(171,82,51,.9); }
 .label small { opacity:.75; margin-left:6px; }
 #hud { position:fixed; top:0; left:0; right:0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 14px; padding:8px max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left)); background:rgba(41,33,28,.9); color:var(--paper); }
@@ -41,3 +41,14 @@ p { margin:0 0 10px; white-space:pre-wrap; }
 .bar { height:8px; background:var(--paper2); border-radius:4px; overflow:hidden; margin:3px 0 8px; } .bar i { display:block; height:100%; background:var(--terra); }
 .muted { color:var(--soft); font-size:14px; }
 @media (max-width: 700px) { #facts b { font-size:16px; } #facts span { font-size:13px; } #panel { left:12px; width:auto; top:auto; height:62vh; } }
+
+.label.near { background:var(--terra); outline:2px solid var(--paper); }
+#facts .where { color:#f3c46b; font-size:15px; }
+#facts .att { display:inline-flex; align-items:center; gap:4px; }
+#facts .att i { width:12px; height:12px; border-radius:50%; border:2px solid var(--paper); display:inline-block; }
+#facts .att i.on { background:#f3c46b; border-color:#f3c46b; }
+#hint { position:fixed; left:50%; transform:translateX(-50%); top:calc(var(--hudh, 60px) + 12px); max-width:min(560px, calc(100vw - 32px)); text-align:center; background:rgba(41,33,28,.85); color:var(--paper); padding:8px 14px; border-radius:6px; font-size:14px; pointer-events:none; }
+#fade { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:var(--night); color:var(--paper); font-size:34px; letter-spacing:.04em; opacity:0; pointer-events:none; }
+#fade.show { animation: page 1.5s ease both; }
+@keyframes page { 0% { opacity:0; } 22% { opacity:1; } 62% { opacity:1; } 100% { opacity:0; } }
+@media (prefers-reduced-motion: reduce) { #fade.show { animation-duration:.01s; } }
