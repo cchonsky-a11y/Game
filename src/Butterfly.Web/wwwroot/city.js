@@ -213,6 +213,16 @@ export class City {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), kitMaterial('basalt', 3, w, d, this.later ? 0xd8d2c8 : 0xffffff));
     m.rotation.x = -Math.PI / 2; m.position.set(x, 0.03, z); m.receiveShadow = true; this.group.add(m);
   }
+  // A raised footway with a stone kerb, as Roman streets had.
+  pavement(x0, x1, z0, z1, h) {
+    const w = x1 - x0, d = z1 - z0;
+    const top = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), kitMaterial('travertine', 2.4, w, d, 0xb9b0a0)); top.position.set((x0 + x1) / 2, h / 2, (z0 + z1) / 2); top.receiveShadow = true; this.group.add(top);
+    const kerb = new THREE.Mesh(new THREE.BoxGeometry(w, h + 0.03, 0.28), kitMaterial('basalt', 3, w, 0.3, 0xc8c2b8)); kerb.position.set((x0 + x1) / 2, (h + 0.03) / 2, z1 - 0.1); kerb.castShadow = kerb.receiveShadow = true; this.group.add(kerb);
+  }
+  // A stepping stone for crossing the street dry-shod, worn round.
+  steppingStone(x, z) {
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.2, 10), kitMaterial('basalt', 3, 1, 1, 0xd8d2c8)); m.scale.z = 1.5; m.position.set(x, 0.1, z); m.castShadow = m.receiveShadow = true; this.group.add(m);
+  }
   // The firewall of the Forum of Augustus: a sheer face of grey stone blocks, far taller than the houses.
   firewall(x0, x1, z, height) {
     const w = x1 - x0;
@@ -574,41 +584,78 @@ export class City {
 // ---------------------------------------------------------------------------------------------------------------------
 // People: a small jointed figure that can walk
 
-const SKIN = [0xd9a880, 0xc79068, 0xb07a55, 0xe0b590];
-const HAIR = [0x2a2018, 0x4a3524, 0x6b5240, 0x9a9488, 0x1c1814];
+const SKIN = [0xd9a880, 0xc79068, 0xb07a55, 0xe0b590, 0x9a6a48];
+const HAIR = [0x2a2018, 0x4a3524, 0x6b5240, 0x9a9488, 0x1c1814, 0x5a3a22];
+// Cloth that hangs: a turned shape with folds deepening toward the hem.
+function draped(profile, folds, depth, material, squash = 0.74) {
+  const g = new THREE.LatheGeometry(profile.map(p => new THREE.Vector2(p[0], p[1])), 20);
+  const pos = g.attributes.position, y0 = profile[0][1], y1 = profile[profile.length - 1][1];
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), z = pos.getZ(i), a = Math.atan2(z, x), low = 1 - (pos.getY(i) - y0) / (y1 - y0);
+    const k = 1 + depth * low * Math.sin(a * folds + low * 2.5);
+    pos.setXYZ(i, x * k, pos.getY(i), z * k * squash);
+  }
+  g.computeVertexNormals();
+  return new THREE.Mesh(g, material);
+}
+// A person: rounded limbs, a body with shoulders and a waist, clothes that hang in folds, a face with a nose, hair or a
+// beard (beards were the fashion under the Antonines). Still a simple figure: the pack's rigged people will replace it.
 export function figure(tunic, opts = {}) {
   const rnd = opts.rnd || Math.random, g = new THREE.Group();
-  const cloth = new THREE.MeshStandardMaterial({ color: tunic, roughness: 1 });
-  const skin = new THREE.MeshStandardMaterial({ color: opts.skin ?? SKIN[Math.floor(rnd() * SKIN.length)], roughness: 0.9 });
-  const limb = (len, r, mat) => { const pivot = new THREE.Group(); const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r * 0.85, len, 7), mat); m.position.y = -len / 2; pivot.add(m); return pivot; };
-  const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.36, 0.95, 10), cloth); torso.position.y = 1.2;
-  const skirt = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.42, opts.long ? 0.75 : 0.3, 10), cloth); skirt.position.y = opts.long ? 0.42 : 0.62;
-  const belt = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.31, 0.07, 10), new THREE.MeshStandardMaterial({ color: 0x4a3524 })); belt.position.y = 0.98;
-  const head = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 10), skin); head.position.y = 1.9;
-  const hair = new THREE.Mesh(new THREE.SphereGeometry(0.21, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.55), new THREE.MeshStandardMaterial({ color: opts.hair ?? HAIR[Math.floor(rnd() * HAIR.length)], roughness: 1 })); hair.position.y = 1.92; hair.rotation.x = -0.25;
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.12, 6), skin); neck.position.y = 1.72;
-  const armL = limb(0.72, 0.075, skin), armR = limb(0.72, 0.075, skin); armL.position.set(-0.3, 1.6, 0); armR.position.set(0.3, 1.6, 0);
-  const legL = limb(0.72, 0.09, skin), legR = limb(0.72, 0.09, skin); legL.position.set(-0.13, 0.72, 0); legR.position.set(0.13, 0.72, 0);
-  g.add(torso, skirt, belt, head, hair, neck, armL, armR, legL, legR);
-  if (opts.toga) {                                                // a draped band over one shoulder
-    const drape = new THREE.Mesh(new THREE.TorusGeometry(0.33, 0.09, 6, 14, Math.PI * 1.2), new THREE.MeshStandardMaterial({ color: opts.toga, roughness: 1 }));
-    drape.position.set(0, 1.3, 0); drape.rotation.set(Math.PI / 2, 0.5, 0.9); g.add(drape);
+  const cloth = new THREE.MeshStandardMaterial({ color: tunic, roughness: 1, side: THREE.DoubleSide });
+  const skin = new THREE.MeshStandardMaterial({ color: opts.skin ?? SKIN[Math.floor(rnd() * SKIN.length)], roughness: 0.85 });
+  const hairM = new THREE.MeshStandardMaterial({ color: opts.hair ?? HAIR[Math.floor(rnd() * HAIR.length)], roughness: 1 });
+  const leather = new THREE.MeshStandardMaterial({ color: 0x4a3524, roughness: 0.9 });
+  const woman = !!opts.palla, build = 0.92 + rnd() * 0.2;
+  const hem = opts.long ? 0.16 : 0.62;
+  // The garment, shoulder to hem, in one hanging piece.
+  const gown = draped([[0.3 * build, hem], [0.27 * build, hem + 0.25], [0.2 * build, 1.02], [0.22 * build, 1.2], [0.25 * build, 1.42], [0.2 * build, 1.56], [0.09, 1.63]], opts.long ? 7 : 5, opts.long ? 0.13 : 0.08, cloth);
+  const belt = new THREE.Mesh(new THREE.TorusGeometry(0.2 * build, 0.022, 6, 18), leather); belt.rotation.x = Math.PI / 2; belt.scale.y = 0.76; belt.position.y = 1.04;
+  // Head and face.
+  const head = new THREE.Group(); head.position.y = 1.78;
+  const skull = new THREE.Mesh(new THREE.SphereGeometry(0.17, 16, 12), skin); skull.scale.set(0.92, 1.12, 1);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.03, 0.08, 6), skin); nose.rotation.x = Math.PI / 2 - 0.3; nose.position.set(0, -0.01, 0.17);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.075, 0.14, 8), skin); neck.position.y = -0.2;
+  head.add(skull, nose, neck);
+  for (const sx of [-1, 1]) { const ear = new THREE.Mesh(new THREE.SphereGeometry(0.035, 6, 5), skin); ear.position.set(sx * 0.155, 0, 0); head.add(ear); }
+  if (opts.palla) {
+    const veil = new THREE.Mesh(new THREE.SphereGeometry(0.2, 14, 10, 0, Math.PI * 2, 0, Math.PI * 0.66), new THREE.MeshStandardMaterial({ color: opts.palla, roughness: 1, side: THREE.DoubleSide })); veil.scale.set(1, 1.15, 1.08); veil.rotation.x = -0.32; veil.position.y = 0.03; head.add(veil);
+  } else {
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.178, 14, 9, 0, Math.PI * 2, 0, Math.PI * (0.42 + rnd() * 0.12)), hairM); hair.scale.set(0.95, 1.14, 1.02); hair.rotation.x = -0.28; hair.position.y = 0.012; head.add(hair);
+    if (!opts.scale || opts.scale > 0.8) if (rnd() < 0.55) { const beard = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 7, 0, Math.PI * 2, Math.PI * 0.5, Math.PI * 0.5), hairM); beard.scale.set(1, 0.9, 0.9); beard.position.set(0, -0.03, 0.05); head.add(beard); }
   }
-  if (opts.palla) {                                               // a woman's mantle drawn over the head
-    const veil = new THREE.Mesh(new THREE.SphereGeometry(0.25, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.62), new THREE.MeshStandardMaterial({ color: opts.palla, roughness: 1 })); veil.position.y = 1.92; veil.rotation.x = -0.35;
-    const wrap = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 0.7, 10, 1, true), new THREE.MeshStandardMaterial({ color: opts.palla, roughness: 1, side: THREE.DoubleSide })); wrap.position.y = 1.38;
-    g.add(veil, wrap);
+  // Limbs on pivots, so they can swing.
+  const limb = (len, r, mat, foot) => {
+    const pivot = new THREE.Group(), m = new THREE.Mesh(new THREE.CapsuleGeometry(r, len - 2 * r, 4, 8), mat); m.position.y = -len / 2; pivot.add(m);
+    if (foot) { const f = new THREE.Mesh(new THREE.SphereGeometry(0.075, 8, 6), leather); f.scale.set(0.85, 0.5, 1.7); f.position.set(0, -len + 0.03, 0.06); pivot.add(f); }
+    else { const h = new THREE.Mesh(new THREE.SphereGeometry(r * 1.15, 8, 6), skin); h.position.y = -len; pivot.add(h); }
+    return pivot;
+  };
+  const armL = limb(0.62, 0.052, skin), armR = limb(0.62, 0.052, skin); armL.position.set(-0.27 * build, 1.5, 0); armR.position.set(0.27 * build, 1.5, 0);
+  for (const [arm, sx] of [[armL, -1], [armR, 1]]) { const sleeve = new THREE.Mesh(new THREE.CapsuleGeometry(0.075, 0.12, 4, 8), cloth); sleeve.position.y = -0.1; arm.add(sleeve); arm.rotation.z = sx * 0.09; }
+  const legL = limb(0.74, 0.068, skin, true), legR = limb(0.74, 0.068, skin, true); legL.position.set(-0.1, 0.76, 0); legR.position.set(0.1, 0.76, 0);
+  g.add(gown, belt, head, armL, armR, legL, legR);
+  if (opts.toga) {                                                // a toga: a heavy fold over the left shoulder and round the body
+    const tm = new THREE.MeshStandardMaterial({ color: opts.toga, roughness: 1, side: THREE.DoubleSide });
+    const wrap = draped([[0.33 * build, 0.3], [0.3 * build, 0.7], [0.25 * build, 1.05], [0.27 * build, 1.2]], 6, 0.16, tm, 0.8);
+    const sash = new THREE.Mesh(new THREE.TorusGeometry(0.3 * build, 0.085, 7, 18, Math.PI * 1.25), tm); sash.scale.set(1, 1, 0.75); sash.position.set(0.02, 1.26, 0); sash.rotation.set(Math.PI / 2 - 0.2, 0.75, 1.0);
+    const fall = new THREE.Mesh(new THREE.CapsuleGeometry(0.075, 0.5, 4, 8), tm); fall.position.set(-0.24 * build, 1.2, -0.08);
+    g.add(wrap, sash, fall);
+  }
+  if (opts.palla) {                                               // a woman's mantle round the shoulders
+    const pm = new THREE.MeshStandardMaterial({ color: opts.palla, roughness: 1, side: THREE.DoubleSide });
+    g.add(draped([[0.31 * build, 0.75], [0.27 * build, 1.1], [0.27 * build, 1.42], [0.2 * build, 1.6]], 6, 0.12, pm, 0.8));
   }
   g.traverse(o => { if (o.isMesh) o.castShadow = true; });
-  const s = opts.scale ?? (0.95 + rnd() * 0.12); g.scale.setScalar(s);
+  const s = opts.scale ?? (0.96 + rnd() * 0.1); g.scale.setScalar(s);
   let phase = rnd() * 6;
   // Walks when `moving` is above zero; stands and breathes otherwise.
   g.userData.animate = (dt, moving) => {
-    phase += dt * (moving > 0 ? 9 * moving : 1.6);
-    const swing = moving > 0 ? Math.sin(phase) * 0.7 * Math.min(1, moving) : 0;
-    legL.rotation.x = swing; legR.rotation.x = -swing; armL.rotation.x = -swing * 0.8; armR.rotation.x = swing * 0.8;
-    if (moving > 0) { g.position.y = Math.abs(Math.sin(phase)) * 0.05; torso.rotation.z = 0; }
-    else { g.position.y = 0; armL.rotation.z = 0.06; armR.rotation.z = -0.06; torso.scale.x = 1 + Math.sin(phase) * 0.012; }
+    phase += dt * (moving > 0 ? 8.5 * moving : 1.5);
+    const stride = moving > 0 ? Math.sin(phase) * 0.6 * Math.min(1, moving) : 0;
+    legL.rotation.x = stride; legR.rotation.x = -stride; armL.rotation.x = -stride * 0.7; armR.rotation.x = stride * 0.7;
+    if (moving > 0) { g.position.y = (g.userData.ground || 0) + Math.abs(Math.sin(phase)) * 0.04; gown.rotation.y = Math.sin(phase) * 0.05; head.rotation.y = 0; }
+    else { g.position.y = g.userData.ground || 0; gown.scale.x = 1 + Math.sin(phase) * 0.01; head.rotation.y = Math.sin(phase * 0.37) * 0.25; }
   };
   return g;
 }

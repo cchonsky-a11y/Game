@@ -33,6 +33,12 @@ export function buildSubura(c, facts) {
   c.pave(4.9, 39, -18, -12.2); c.pave(4.9, 39, 14, -12.2);     // the two lanes
   c.pave(15, 14.4, 23.6, -10);                         // the fountain square
 
+  // Raised footways along the shop fronts, broken where the lanes and the alley come in, and stepping stones across.
+  const walks = [[-46, -20.3], [-15.7, -3.4], [-0.6, 11.7], [16.3, 46]], KERB = 8.45, UP = 0.18;
+  for (const [a, b] of walks) c.pavement(a, b, 7.0, KERB, UP);
+  for (const x of [-10.5, 21.5]) for (let k = 0; k < 3; k++) c.steppingStone(x, 9.3 + k * 1.3);
+  const ground = (x, z) => z > 6 && z < KERB && walks.some(([a, b]) => x > a && x < b) ? UP : 0;
+
   // A row of tenements, shoulder to shoulder. After a jump some have been rebuilt taller, and some are gone.
   const lots = [];
   function row(from, to, place, skip) {
@@ -114,7 +120,7 @@ export function buildSubura(c, facts) {
   if (facts.reproducible.includes('valveseats')) { c.standpipe(-12.4, 7.6); if (later) c.standpipe(33.5, 7.6); }
 
   people(c, facts, later, life, plan);
-  return { life };
+  return { life, ground };
 }
 
 function fountain(c, facts, later, life, plan) {
@@ -174,8 +180,9 @@ function people(c, facts, later, life, plan) {
 }
 
 // One frame of the street's life. `hero` is where the player stands, so people can look up as you pass.
-export function liveSubura(life, dt, time, hero) {
+export function liveSubura(life, dt, time, hero, ground) {
   for (const a of life) {
+    if (ground) a.fig.userData.ground = ground(a.fig.position.x, a.fig.position.z);
     if (a.kind === 'walk') {
       if (a.pause > 0) { a.pause -= dt; a.fig.userData.animate(dt, 0); continue; }
       const t = a.path[a.i], dx = t.x - a.fig.position.x, dz = t.z - a.fig.position.z, d = Math.hypot(dx, dz);

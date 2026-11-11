@@ -142,7 +142,8 @@ function buildDistrict(id) {
   life = [];
   if (id === 'subura') {
     c.skyline();
-    life = buildSubura(c, { ...state.street, machineReady: state.hud.machineReady }).life;
+    const built = buildSubura(c, { ...state.street, machineReady: state.hud.machineReady });
+    life = built.life; c.groundAt = built.ground;
   } else {
   c.ground(textures.earth(later), HALF * 2 + 90, 26);
   c.paving(HALF * 2, 6, 0, 12);
@@ -368,6 +369,7 @@ function step(dt) {
     let turn = Math.atan2(dx, dz) - pos.yaw; turn = Math.atan2(Math.sin(turn), Math.cos(turn)); pos.yaw += turn * Math.min(1, dt * 12);
   }
   pos.speed += ((moving > 0.05 ? 1 : 0) - pos.speed) * Math.min(1, dt * 10);
+  { const want = city.groundAt ? city.groundAt(pos.x, pos.z) : 0; hero.userData.ground = (hero.userData.ground || 0) + (want - (hero.userData.ground || 0)) * Math.min(1, dt * 12); }
   hero.userData.animate(dt, pos.speed > 0.1 ? pos.speed : 0);
   hero.position.x = pos.x; hero.position.z = pos.z; hero.rotation.y = pos.yaw;
 
@@ -391,7 +393,7 @@ function step(dt) {
     w.userData.animate(dt, Math.abs(u.speed) / 1.6);
   }
   for (const f of city.animated) f(dt, clock);
-  if (life.length) liveSubura(life, dt, clock, pos);
+  if (life.length) liveSubura(life, dt, clock, pos, city.groundAt);
 
   // What can be walked up to: labels, markers over what wants you, and the nearest one in reach.
   let best = null, bestD = 3.3;
