@@ -55,6 +55,27 @@ namespace Butterfly.Presentation
             }
         }
 
+        /// <summary>What a walk down the street would show now: facts the simulation holds, for a client that draws the city.</summary>
+        public StreetFacts Street()
+        {
+            var w = Sim.World;
+            var f = new StreetFacts
+            {
+                Fountain = Sim.Arrived ? (!w.CleanWater ? "foul" : w.FountainCondition <= 0 ? "dry" : w.FountainCondition < 60 ? "worn" : "clean")
+                         : w.CleanWater ? "clean" : w.ActiveProjects.Any(p => p.Def.Id == "fountain") ? "works" : "foul",
+                Plague = w.Plague.Stage >= PlagueState.Passed ? "passed" : w.Plague.Stage == PlagueState.Outbreak ? "outbreak" : w.Plague.Stage >= 1 ? "warned" : "none",
+                Workshop = Sim.WorkshopSize,
+                Indoors = !Sim.Arrived && Sim.Incapacitated,
+                YearsAway = Sim.Arrived && Sim.Arrival != null ? Sim.Arrival.JumpYears : 0,
+                PlagueDeadShare = w.Plague.Deaths > 0 ? w.Plague.Deaths / Math.Max(1e-9, w.Plague.Deaths + w.Population) : 0,
+            };
+            f.WorkDone.AddRange(w.Commissions.Where(c => c.Status == CommissionStatus.Done).Select(c => c.Id));
+            f.WorkUnderWay.AddRange(w.Commissions.Where(c => c.Status == CommissionStatus.Working).Select(c => c.Id));
+            f.WorkUnderWay.AddRange(w.Challenges.Where(c => c.Status == ChallengeStatus.Working).Select(c => c.Id));
+            f.Reproducible.AddRange(w.Capabilities.Where(c => c.Level >= CapabilityLevel.Reproducible).Select(c => c.Id));
+            return f;
+        }
+
         /// <summary>What Rome kept, once the run has ended in the inventor's death; null otherwise.</summary>
         public EndingModel? Ending()
         {

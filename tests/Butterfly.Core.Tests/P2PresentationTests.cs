@@ -106,6 +106,22 @@ namespace Butterfly.Core.Tests
         }
 
         [Fact]
+        public void TheStreetShowsTheFountainAsItIsAndLookingChangesNothing()
+        {
+            var s = new GameSession(new Simulation(TestData.NoIllness(), 42));
+            Assert.Equal("foul", s.Street().Fountain);
+            s.Do("choose fountain");
+            Assert.Equal("works", s.Street().Fountain);
+            string before = s.Sim.Log.Hash();
+            for (int k = 0; k < 20; k++) _ = s.Street();
+            Assert.Equal(before, s.Sim.Log.Hash());
+            for (int m = 0; m < 12 && s.Street().Fountain != "clean"; m++) s.Do("end");
+            Assert.Equal("clean", s.Street().Fountain);
+            Assert.Equal("none", s.Street().Plague);
+            Assert.Equal(0, s.Street().YearsAway);
+        }
+
+        [Fact]
         public void ClickingIsTheSameGameAsTypingIntoTheConsole()
         {
             var s = new GameSession(new Simulation(TestData.Load(), 7));

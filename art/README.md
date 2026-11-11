@@ -38,3 +38,17 @@ fittings, the mill wheel, carts, braziers, trees, the skyline, the machine, and 
 This is procedural modelling: consistent, historically grounded and light enough for a phone, but it is not sculpted by
 hand. Faces, cloth and ornament are simplified. A human artist could later replace any asset one for one: the game only
 needs the same names in `kit.glb`.
+
+## The Subura as drawn (2026-11-11): what is documented and what is reconstruction
+| Element | Standing in AD 155? | Basis |
+|---|---|---|
+| The firewall of the Forum of Augustus along the district's edge, with an arch through it | Yes | The great tufa wall separating the forum from the Subura survives; the arch is the one later called the Arco dei Pantani. Its exact stone colour and height here are approximate. |
+| The Temple of Mars the Avenger behind the wall | Yes (dedicated 2 BC) | Only its roof is shown above the wall. |
+| A main street along the wall with shops, and lanes running off it | Plausible reconstruction | The Argiletum ran through the Subura toward the Forum; this street plan is invented in its details. |
+| Tenements of two to five storeys with ground-floor shops | Yes | Insulae of Rome and Ostia. Building heights and fronts here are generic. |
+| A street fountain of stone slabs and a crossroads shrine | Yes in kind | Modelled on Pompeian examples; Rome's own are assumed similar. |
+| A street bar with jars set in the counter | Yes in kind | Pompeii and Ostia. |
+| The amphitheatre, an aqueduct and hills with pines on the skyline | Yes | The Colosseum (AD 80) and the aqueducts stood; their placing on the horizon is scenic, not surveyed. |
+| The Senate house in bare brick (in the Forum district) | **Wrong period** | The brick building seen today is a rebuilding after AD 283. To be redrawn with a faced front. |
+| The spiral column in the Forum district | Misplaced | Trajan's Column (AD 113) stood in Trajan's Forum. To be moved or removed. |
+All of this is from memory and must be checked against sources before release.

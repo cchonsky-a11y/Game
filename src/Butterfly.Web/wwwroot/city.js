@@ -17,6 +17,16 @@ export async function loadKit(url) {
     if (o.material.name.startsWith('lamplight')) o.material.emissiveIntensity = 1.6;
   });
   for (const o of [...gltf.scene.children]) KIT[o.name] = o;
+  gltf.scene.traverse(o => { if (o.isMesh) MATS[o.material.name.split('#')[0]] = o.material; });
+}
+const MATS = {};
+export const kitSize = name => ({ hw: KIT[name].userData.hw || 1, hd: KIT[name].userData.hd || 1 });
+// One of the pack's painted materials, repeated to cover a surface of the given size in metres.
+function kitMaterial(base, metres, w, h, color) {
+  const m = MATS[base].clone(), map = m.map.clone(), nrm = m.normalMap.clone(), orm = m.roughnessMap.clone();
+  for (const t of [map, nrm, orm]) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(w / metres, h / metres); t.needsUpdate = true; }
+  m.map = map; m.normalMap = nrm; m.roughnessMap = orm; m.metalnessMap = orm; m.color.set(color ?? 0xffffff);
+  return m;
 }
 const INSULAE = ['insula_a', 'insula_b', 'insula_c', 'insula_d', 'insula_e', 'insula_f'];
 
@@ -193,6 +203,58 @@ export class City {
     this.group.add(m);
   }
 
+  kitPiece(name) { return KIT[name].clone(); }
+  // Street paving in the pack's dark basalt polygons.
+  pave(w, d, x, z) {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), kitMaterial('basalt', 3, w, d, this.later ? 0xd8d2c8 : 0xffffff));
+    m.rotation.x = -Math.PI / 2; m.position.set(x, 0.03, z); m.receiveShadow = true; this.group.add(m);
+  }
+  // The firewall of the Forum of Augustus: a sheer face of grey stone blocks, far taller than the houses.
+  firewall(x0, x1, z, height) {
+    const w = x1 - x0;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, height, 3), kitMaterial('travertine', 4.8, w, height, this.later ? 0x8a857c : 0x9c9588));
+    m.position.set((x0 + x1) / 2, height / 2, z + 1.5); m.castShadow = m.receiveShadow = true; this.group.add(m);
+    const cap = new THREE.Mesh(new THREE.BoxGeometry(w + 0.6, 0.9, 3.6), kitMaterial('travertine', 4.8, w, 1, 0x8a8478)); cap.position.set((x0 + x1) / 2, height + 0.45, z + 1.5); this.group.add(cap);
+    this.solid((x0 + x1) / 2, z + 1.5, w / 2, 1.5);
+  }
+  // The arch through the firewall (a dark opening framed in travertine).
+  wallArch(x, z) {
+    const stone = kitMaterial('travertine', 2.4, 2, 9, 0xe6dcc6), dark = new THREE.MeshStandardMaterial({ color: 0x14100c, roughness: 1 });
+    const hole = new THREE.Mesh(new THREE.BoxGeometry(4.2, 6.4, 0.3), dark); hole.position.set(x, 3.2, z + 0.02); this.group.add(hole);
+    const top = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.3, 20, 1, false, 0, Math.PI), dark); top.rotation.set(Math.PI / 2, 0, Math.PI / 2); top.position.set(x, 6.4, z + 0.02); this.group.add(top);
+    for (const sx of [-2.6, 2.6]) { const j = new THREE.Mesh(new THREE.BoxGeometry(1, 6.6, 0.6), stone); j.position.set(x + sx, 3.3, z - 0.1); j.castShadow = true; this.group.add(j); }
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(2.6, 0.5, 6, 16, Math.PI), stone); ring.position.set(x, 6.5, z - 0.1); ring.castShadow = true; this.group.add(ring);
+  }
+  // A low yard wall of plastered rubble.
+  lowWall(x0, x1, z0, z1, alongZ) {
+    const len = alongZ ? Math.abs(z1 - z0) : Math.abs(x1 - x0), cx = alongZ ? x0 : (x0 + x1) / 2, cz = alongZ ? (z0 + z1) / 2 : z0;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(alongZ ? 0.45 : len, 1.5, alongZ ? len : 0.45), kitMaterial('plaster', 3, len, 1.5, 0xd9c7a8));
+    m.position.set(cx, 0.75, cz); m.castShadow = m.receiveShadow = true; this.group.add(m);
+    this.solid(cx, cz, alongZ ? 0.25 : len / 2, alongZ ? len / 2 : 0.25);
+  }
+  // A courtyard well: a stone ring, a timber frame, a bucket.
+  well(x, z) {
+    const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.95, 0.9, 14, 1, true), kitMaterial('travertine', 2.4, 5.6, 0.9)); ring.material.side = THREE.DoubleSide; ring.position.set(x, 0.45, z); ring.castShadow = true; this.group.add(ring);
+    const water = new THREE.Mesh(new THREE.CircleGeometry(0.85, 14), new THREE.MeshStandardMaterial({ color: 0x1c2a30, roughness: 0.1 })); water.rotation.x = -Math.PI / 2; water.position.set(x, 0.3, z); this.group.add(water);
+    const wood = kitMaterial('wood', 1.5, 0.3, 2.2);
+    for (const sx of [-1, 1]) { const p = new THREE.Mesh(new THREE.BoxGeometry(0.12, 2.2, 0.12), wood); p.position.set(x + sx, 1.1, z); p.castShadow = true; this.group.add(p); }
+    const beam = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.2, 8), wood); beam.rotation.z = Math.PI / 2; beam.position.set(x, 2.1, z); this.group.add(beam);
+    const bucket = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.14, 0.3, 10), wood); bucket.position.set(x + 0.2, 1.3, z); this.group.add(bucket);
+    this.solid(x, z, 1, 1);
+  }
+  // The shared foot: a bronze measure let into a wall for anyone to check a rule against.
+  bronzeFoot(x, z) {
+    const bronze = MATS.bronze.clone();
+    const plate = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.05), bronze); plate.position.set(x, 1.35, z); this.group.add(plate);
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.08), kitMaterial('marble', 3, 0.9, 0.5)); slab.position.set(x, 1.35, z - 0.04); this.group.add(slab);
+  }
+  // A street standpipe with a bronze tap.
+  standpipe(x, z) {
+    const stone = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.1, 0.45), kitMaterial('travertine', 2.4, 0.45, 1.1)); stone.position.set(x, 0.55, z); stone.castShadow = true; this.group.add(stone);
+    const tap = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8), MATS.bronze.clone()); tap.rotation.x = Math.PI / 2; tap.position.set(x, 0.85, z + 0.3); this.group.add(tap);
+    const basin = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.25, 0.5), kitMaterial('travertine', 2.4, 0.6, 0.25)); basin.position.set(x, 0.12, z + 0.5); this.group.add(basin);
+    this.solid(x, z, 0.4, 0.5);
+  }
   // A piece of the art pack, set down facing `turn` (0 looks toward +z).
   kit(name, x, z, turn = 0, scale = 1, solid = true) {
     const o = KIT[name].clone();
@@ -327,8 +389,12 @@ export class City {
     this.animated.push((dt, t) => { fire.scale.y = 1 + Math.sin(t * 11 + x) * 0.2; light.intensity = 5 + Math.sin(t * 13 + z) * 1.5; });
   }
   fountain(x, z, clean) {
+    const how = clean === true ? 'clean' : clean === false ? 'foul' : clean;       // 'clean', 'foul', 'worn' or 'dry'
     const o = this.kit('street_fountain', x, z, 0, 1.5);
-    o.traverse(m => { if (m.isMesh && m.material.name === 'water') { m.material = m.material.clone(); m.material.transparent = true; m.material.opacity = 0.85; m.material.color.set(clean ? 0x4f96b8 : 0x6f7a4a); } });
+    o.traverse(m => { if (m.isMesh && m.material.name === 'water') {
+      m.material = m.material.clone(); m.material.transparent = true; m.material.opacity = 0.85; m.material.roughness = how === 'clean' ? 0.08 : 0.5;
+      m.material.color.set(how === 'clean' ? 0x4f96b8 : how === 'worn' ? 0x5f7a5a : 0x6b6a3a); m.visible = how !== 'dry';
+    } });
   }
   fountainCoded(x, z, clean) {
     const stone = std({ map: marble(this.later) });

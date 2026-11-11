@@ -44,6 +44,32 @@ namespace Butterfly.Presentation
         public List<string> Health { get; } = new List<string>();
     }
 
+    /// <summary>
+    /// What a walk down the street would show (2026-11-11): present conditions the simulation already holds, as plain facts
+    /// for a client that draws the city. Read-only; never causes, never a judgement.
+    /// </summary>
+    public sealed class StreetFacts
+    {
+        /// <summary>The district fountain: "foul" (as found), "works" (being repaired), "clean", or after a jump "worn" or "dry".</summary>
+        public string Fountain { get; set; } = "foul";
+        /// <summary>The sickness in the city: "none", "warned", "outbreak", "passed".</summary>
+        public string Plague { get; set; } = "none";
+        /// <summary>The inventor's share in the smith's workshop: 0 none, else its size (1 and up).</summary>
+        public int Workshop { get; set; }
+        /// <summary>Jobs done for people, by id (a client may show their traces where they were done).</summary>
+        public List<string> WorkDone { get; } = new List<string>();
+        /// <summary>Work under way now, by id (commissions and Grand Challenges).</summary>
+        public List<string> WorkUnderWay { get; } = new List<string>();
+        /// <summary>Capabilities Rome can now reproduce or better, by id.</summary>
+        public List<string> Reproducible { get; } = new List<string>();
+        /// <summary>The inventor is ill in bed, or away in the country.</summary>
+        public bool Indoors { get; set; }
+        /// <summary>Years since the inventor left, after a jump; 0 before.</summary>
+        public int YearsAway { get; set; }
+        /// <summary>After a jump: the share of Rome the sickness killed while the inventor was in Rome or away (0 if it never struck).</summary>
+        public double PlagueDeadShare { get; set; }
+    }
+
     /// <summary>The run ended in the inventor's death: what Rome kept, as the simulation words it.</summary>
     public sealed class EndingModel
     {

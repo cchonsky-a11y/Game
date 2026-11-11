@@ -9,8 +9,8 @@ const [base, seed, shots] = [process.argv[2] || 'http://localhost:8765', process
   const errors = [];
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text().slice(0, 300)); });
   page.on('pageerror', e => errors.push('PAGE ' + String(e).slice(0, 300)));
-  const shot = async name => { if (shots) { await page.waitForTimeout(250); await page.screenshot({ path: shots + '/' + name + '.png' }); } };
-  await page.goto(base + '/index.html?q=off&seed=' + seed);
+  const shot = async name => { if (shots) { await page.waitForTimeout(process.env.Q ? 9000 : 250); await page.screenshot({ path: shots + '/' + name + '.png' }); } };
+  await page.goto(base + '/index.html?q=' + (process.env.Q || 'off') + '&seed=' + seed);   // Q=low draws (for screenshots); the default plays without drawing
   await page.waitForSelector('#boot', { state: 'detached', timeout: 90000 });
   await page.click('#fullBody button');                                   // read the opening
   // The first life, as the scripted clicker of P2PresentationTests plays it.

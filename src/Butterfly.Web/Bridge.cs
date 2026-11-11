@@ -54,6 +54,7 @@ namespace Butterfly.Web
                 phase = phase.ToString(),
                 seed = s.Sim.Seed.ToString(),
                 hud = s.Hud(),
+                street = s.Street(),
                 opening = phase == Phase.Opening ? s.Opening() : null,
                 decision = s.CurrentDecision(),
                 places = RomeMap.Places.Select(p => new

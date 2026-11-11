@@ -67,7 +67,7 @@ def plaster():
     fine, swell, stain = fbm(0.6, 1), fbm(2.2, 2), fbm(1.8, 3)
     streak = blur(np.tile(fbm(1.2, 4)[:1], (N, 1)) * fbm(1.5, 5), 2)
     worn = np.clip((fbm(2.0, 6) - 0.62) * 9, 0, 1)
-    col = mix(np.full((N, N, 3), 0.93) * np.array([1, 0.985, 0.95]), np.full((N, N, 3), 0.62) * np.array([1, 0.93, 0.82]), stain * 0.55 + streak * 0.6)
+    col = mix(np.full((N, N, 3), 0.93) * np.array([1, 0.985, 0.95]), np.full((N, N, 3), 0.62) * np.array([1, 0.93, 0.82]), stain * 0.28 + streak * 0.4)
     col = mix(col, np.full((N, N, 3), 0.72) * np.array([0.95, 0.9, 0.85]), worn * 0.8)
     col *= (0.94 + fine * 0.1)[..., None]
     height = swell * 0.5 + fine * 0.18 - worn * 0.35
@@ -125,7 +125,7 @@ def basalt():
     col = mix(np.tile(rgb(0x2a2622), (N, N, 1)), stone, edge ** 0.5)
     col = mix(col, np.tile(rgb(0x8a7f6c), (N, N, 1)), np.clip(fbm(1.8, 44) - 0.6, 0, 1) * 1.2 * edge)     # dust in the hollows
     height = np.sqrt(edge) * 0.9 + fbm(0.9, 45) * 0.15
-    return col, normal_map(height, 9), 0.62 + (1 - edge) * 0.3 - tone * 0.12
+    return col, normal_map(height, 4.5), 0.62 + (1 - edge) * 0.3 - tone * 0.12
 
 
 def rooftile():

@@ -3,6 +3,7 @@
 // What is the page's own: where the character stands, which district is drawn, which panel is open.
 import * as THREE from './lib/three.module.min.js';
 import { City, figure, beacon, sky, textures, sequence, loadKit } from './city.js';
+import { SUBURA, buildSubura, liveSubura } from './subura.js';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // The engine (Butterfly.Core + Butterfly.Presentation, compiled to WebAssembly)
@@ -120,10 +121,10 @@ scene.add(sun, sun.target, fill);
 let dome = null;
 const pmrem = new THREE.PMREMGenerator(renderer);
 
-let city = null, spots = [], walkers = [], beacons = [];
+let city = null, spots = [], walkers = [], beacons = [], life = [];
 const hero = figure(0x3d6b8e, { scale: 1.06, rnd: sequence('hero'), hair: 0x2a2018 });
 scene.add(hero);
-const pos = { x: 0, z: 14, yaw: Math.PI, cam: 0, dist: 9.5, target: null, then: null, speed: 0 };
+const pos = { x: -36, z: 10, yaw: Math.PI / 2, cam: -Math.PI / 2, dist: 9.5, target: null, then: null, speed: 0 };
 const camNow = new THREE.Vector3(0, 8, 26), lookNow = new THREE.Vector3(0, 1.6, 14);
 
 function buildDistrict(id) {
@@ -137,6 +138,12 @@ function buildDistrict(id) {
   { const env = new THREE.Scene(); env.add(sky(later)); if (scene.environment) scene.environment.dispose(); scene.environment = pmrem.fromScene(env, 0, 1, 400).texture; scene.environmentIntensity = 0.45; }
   scene.fog = new THREE.Fog(later ? 0xc4c0b2 : 0xeeddc0, 60, 230);
   sun.color.set(later ? 0xdfe0e6 : 0xffe2b4); sun.intensity = later ? 2.3 : 3.1;
+  c.bounds = id === 'subura' ? SUBURA.bounds : { x0: -HALF + 6, x1: HALF - 6, z0: -HALF + 6, z1: HALF - 6 };
+  life = [];
+  if (id === 'subura') {
+    c.skyline();
+    life = buildSubura(c, { ...state.street, machineReady: state.hud.machineReady }).life;
+  } else {
   c.ground(textures.earth(later), HALF * 2 + 90, 26);
   c.paving(HALF * 2, 6, 0, 12);
   c.paving(6, HALF * 2, 0, 0);
@@ -158,7 +165,6 @@ function buildDistrict(id) {
     for (const [x, z] of [[-17, 9], [-16, 9.6], [15, -7]]) c.crate(x, z);
     c.umbrellaPine(16.5, 8.5); c.cypress(-17.5, 15.5);
     c.shrine(4.6, 16.2); c.thermopolium(-9.5, 17.6, Math.PI);
-    c.laundry(-17.5, -6, -9.5, -11.5, 6.5); c.laundry(5.5, -14, 16, -10.5, 7.5); c.laundry(-17, 6, -8.5, 18.5, 7);
   } else if (id === 'curia') {
     c.paving(46, 40, 0, -2);
     c.curia(0, -19.5); c.inscription('SENATVS POPVLVSQVE ROMANVS', 9, 1.1, 0, 11.6, -14.92);
@@ -192,9 +198,10 @@ function buildDistrict(id) {
     c.insula(-12, 22, 0, 0, 0, false, 'insula_b');
   }
 
-  // Passers-by: the streets are alive (cosmetic).
+  }
+  // Passers-by: the streets are alive (cosmetic). The Subura has its own people (subura.js).
   const cloth = [0xb9a27c, 0x8a6f52, 0xa9b0a0, 0x9c7b6b, 0xc7b79a, 0x7a8a6a, 0x8a5a4a];
-  for (let k = 0; k < 12; k++) {
+  for (let k = 0; k < (id === 'subura' ? 0 : 12); k++) {
     const kind = rnd();                                              // a tunic, a citizen's toga, a woman's mantle, a child
     const w = figure(cloth[k % cloth.length], kind < 0.4 ? { rnd } : kind < 0.62 ? { rnd, long: true, toga: 0xe8e0d0 } : kind < 0.9 ? { rnd, long: true, palla: [0x8a5a6a, 0x5a7a8a, 0xa8824a, 0x6a7a5a][k % 4] } : { rnd, scale: 0.62 });
     const along = k % 2 === 0;
@@ -204,12 +211,12 @@ function buildDistrict(id) {
 
   // What can be walked up to.
   const d = DISTRICTS[id];
-  for (const s of d.spots) addSpot({ kind: 'place', place: s.place, x: s.x, z: s.z });
+  for (const s of d.spots) { const at = id === 'subura' ? SUBURA.spots[s.place] : s; addSpot({ kind: 'place', place: s.place, x: at.x, z: at.z }); }
   let n = 0;
   for (const p of (state && state.people) || []) {
     const look = PEOPLE[p.id];
     if (p.away || !look || look.home !== id) continue;
-    const base = d.spots[d.spots.length - 1];
+    const base = id === 'subura' ? { x: SUBURA.people.x, z: SUBURA.people.z - 3.4 } : d.spots[d.spots.length - 1];
     const a = -0.6 + n * 0.7, x = base.x + Math.cos(a) * 4.6, z = base.z + 3.4 + Math.sin(a) * 2.6;
     const fig = figure(look.tunic, { rnd: sequence(p.id), toga: look.toga, long: look.long, hair: look.hair, palla: look.palla });
     fig.position.set(x, 0, z);
@@ -217,10 +224,10 @@ function buildDistrict(id) {
     addSpot({ kind: 'person', id: p.id, x, z, fig });
     n++;
   }
-  addSpot({ kind: 'gate', x: -HALF + 9.5, z: 12 }); addSpot({ kind: 'gate', x: HALF - 9.5, z: 12 });
+  for (const g of id === 'subura' ? SUBURA.gates : [{ x: -HALF + 9.5, z: 12 }, { x: HALF - 9.5, z: 12 }]) addSpot({ kind: 'gate', x: g.x, z: g.z });
   if (state && state.ret) {
     state.ret.sites.forEach((site, k) => {
-      const a = (k / state.ret.sites.length) * Math.PI * 2 + 0.4, x = Math.cos(a) * 14, z = Math.sin(a) * 11 + 3;
+      const a = (k / state.ret.sites.length) * Math.PI * 2 + 0.4, at = id === 'subura' ? SUBURA.sites(k) : null, x = at ? at.x : Math.cos(a) * 14, z = at ? at.z : Math.sin(a) * 11 + 3;
       c.column(x, z, 2.4, 0.32);
       addSpot({ kind: 'site', number: site.number, x: x + 1.5, z: z + 1.5 });
     });
@@ -322,7 +329,7 @@ canvas.addEventListener('wheel', e => { pos.dist = Math.max(6, Math.min(20, pos.
 
 function walkTo(x, z, then) { pos.target = { x, z }; pos.then = then || null; }
 
-let near = null, clock = 0;
+let near = null, clock = 0, camReach = 9.5;
 const blocked = () => !$('card').hidden || !$('full').hidden;
 const hitSolid = (x, z) => city.solids.some(b => Math.abs(x - b.x) < b.hw && Math.abs(z - b.z) < b.hd);
 
@@ -352,7 +359,8 @@ function step(dt) {
   const moving = Math.hypot(dx, dz);
   if (moving > 0.05) {
     const speed = 7 * dt;
-    let nx = Math.max(-HALF + 6, Math.min(HALF - 6, pos.x + dx * speed)), nz = Math.max(-HALF + 6, Math.min(HALF - 6, pos.z + dz * speed));
+    const B = city.bounds;
+    let nx = Math.max(B.x0, Math.min(B.x1, pos.x + dx * speed)), nz = Math.max(B.z0, Math.min(B.z1, pos.z + dz * speed));
     const beforeX = pos.x, beforeZ = pos.z;
     if (!hitSolid(nx, pos.z)) pos.x = nx;
     if (!hitSolid(pos.x, nz)) pos.z = nz;
@@ -364,7 +372,12 @@ function step(dt) {
   hero.position.x = pos.x; hero.position.z = pos.z; hero.rotation.y = pos.yaw;
 
   // The camera follows from behind and above, easing; the sun's shadow follows the character.
-  const want = new THREE.Vector3(pos.x + Math.sin(pos.cam) * pos.dist, 2.2 + pos.dist * 0.26, pos.z + Math.cos(pos.cam) * pos.dist);
+  // The camera stays out of walls: in a narrow lane it closes in behind the character.
+  let reach = pos.dist;
+  for (let k = 1; k <= 12; k++) { const r = pos.dist * k / 12; if (hitSolid(pos.x + Math.sin(pos.cam) * r, pos.z + Math.cos(pos.cam) * r)) { reach = Math.max(3.4, pos.dist * (k - 1) / 12 - 0.3); break; } }
+  camReach += (reach - camReach) * Math.min(1, dt * (reach < camReach ? 14 : 3));
+  const lift = Math.max(0, pos.dist - camReach) * 0.22;          // closer in, the camera rises to look over the shoulder
+  const want = new THREE.Vector3(pos.x + Math.sin(pos.cam) * camReach, 2.2 + camReach * 0.26 + lift, pos.z + Math.cos(pos.cam) * camReach);
   camNow.lerp(want, Math.min(1, dt * 6)); lookNow.lerp(new THREE.Vector3(pos.x, 2.5, pos.z), Math.min(1, dt * 9));
   camera.position.copy(camNow); camera.lookAt(lookNow);
   sun.position.set(pos.x + 26, 44, pos.z + 18); sun.target.position.set(pos.x, 0, pos.z);
@@ -378,6 +391,7 @@ function step(dt) {
     w.userData.animate(dt, Math.abs(u.speed) / 1.6);
   }
   for (const f of city.animated) f(dt, clock);
+  if (life.length) liveSubura(life, dt, clock, pos);
 
   // What can be walked up to: labels, markers over what wants you, and the nearest one in reach.
   let best = null, bestD = 3.3;
@@ -387,10 +401,11 @@ function step(dt) {
     if (d < bestD) { best = s; bestD = d; }
     s.ring.material.opacity = 0.55 + Math.sin(clock * 3) * 0.2 + (s === near ? 0.25 : 0);
     s.ring.scale.setScalar(s === near ? 1.12 : 1);
-    s.mark.visible = info.wants; if (info.wants) s.mark.userData.spin(dt, clock);
+    s.mark.visible = info.wants && d < 22; if (s.mark.visible) s.mark.userData.spin(dt, clock);
+    s.ring.visible = d < 16;
     if (s.fig) { s.fig.userData.animate(dt, 0); if (d < 9) { let t = Math.atan2(pos.x - s.x, pos.z - s.z) - s.fig.rotation.y; t = Math.atan2(Math.sin(t), Math.cos(t)); s.fig.rotation.y += t * Math.min(1, dt * 4); } }
     v.set(s.x, s.kind === 'person' ? 2.5 : 3.2, s.z).project(camera);
-    const show = v.z < 1 && d < 38 && !quiet;
+    const show = v.z < 1 && (d < 9 || s.kind !== 'person' && d < 20) && !quiet;
     s.label.style.display = show ? '' : 'none';
     if (show) {
       s.label.style.left = ((v.x + 1) / 2 * innerWidth) + 'px'; s.label.style.top = ((1 - v.y) / 2 * innerHeight) + 'px';
@@ -420,10 +435,16 @@ function interact() {
   openPanel('place:' + near.place);
 }
 
+// Where the character stands on coming into a district.
+function enter(id) {
+  const at = id === 'subura' ? SUBURA.spawn : { x: 0, z: 14, cam: 0, yaw: Math.PI };
+  pos.x = at.x; pos.z = at.z; pos.cam = at.cam; pos.yaw = at.yaw; pos.target = null;
+  camNow.set(pos.x + Math.sin(pos.cam) * 9, 6, pos.z + Math.cos(pos.cam) * 9); lookNow.set(pos.x, 1.7, pos.z);
+}
+
 function travel(id) {
   buildDistrict(id);
-  pos.x = 0; pos.z = 14; pos.cam = 0; pos.yaw = Math.PI; pos.target = null;
-  camNow.set(0, 9, 30); lookNow.set(0, 1.7, 14);
+  enter(id);
   closePanel();
   render.key = districtKey();
   say(DISTRICTS[id].name + '.');
@@ -436,7 +457,7 @@ function travel(id) {
 function openPanel(what) { view.panel = what; render(); }
 function closePanel() { view.panel = null; $('panel').hidden = true; }
 $('panelClose').addEventListener('click', closePanel);
-const districtKey = () => view.district + '|' + state.hud.away + '|' + state.hud.machineReady + '|' + (state.people || []).filter(p => !p.away).map(p => p.id).join(',') + '|' + (state.ret ? state.ret.sites.length : 0);
+const districtKey = () => view.district + '|' + JSON.stringify(state.street) + '|' + state.hud.away + '|' + state.hud.machineReady + '|' + (state.people || []).filter(p => !p.away).map(p => p.id).join(',') + '|' + (state.ret ? state.ret.sites.length : 0);
 
 async function render() {
   const s = state, phase = s.phase;
@@ -445,7 +466,13 @@ async function render() {
   const era = phase === 'Rome' || (phase === 'Opening' && view.openingRead);
 
   // The city follows the game: a jump or a new acquaintance redraws the district.
-  if (render.key !== districtKey()) { if (s.hud.away) view.district = 'subura'; buildDistrict(view.district); render.key = districtKey(); }
+  if (render.key !== districtKey()) {
+    const first = !city, moved = s.hud.away && view.district !== 'subura';
+    if (s.hud.away) view.district = 'subura';
+    buildDistrict(view.district); render.key = districtKey();
+    if (first || moved || render.away !== s.hud.away) enter(view.district);
+    render.away = s.hud.away;
+  }
 
   // HUD
   const hud = $('hud');
@@ -511,7 +538,7 @@ async function render() {
     a.beats.slice(0, view.beat + 1).forEach(b => fullBody.append(el('p', b.text)));
     fullBody.append(view.beat < a.beats.length - 1
       ? button('Go on', () => { view.beat++; render(); }, true)
-      : button('Walk into the city', async () => { state = await call('FinishArrival'); pos.x = 0; pos.z = 14; render(); }, true));
+      : button('Walk into the city', async () => { state = await call('FinishArrival'); render(); }, true));
     return closePanel();
   }
   if (phase === 'AfterReturn' && view.panel !== 'journal') {
@@ -626,7 +653,7 @@ async function restart(seed) {
   Object.assign(view, { district: 'subura', panel: null, dismissed: '', openingRead: false, beat: 0 });
   $('feed').replaceChildren();
   state = await call('Start', boot.files, seed || String(crypto.getRandomValues(new Uint32Array(1))[0] % 100000));
-  render.key = null; pos.x = 0; pos.z = 14;
+  render.key = null; city = null;
   render();
 }
 
@@ -659,5 +686,5 @@ function frame(now) {
 }
 if (quality.level) setQuality(quality.level);
 requestAnimationFrame(frame);
-window.butterfly = { get state() { return state; }, act, view, pos, travel, openPanel, walkTo, renderer, quality };   // for the browser test only
+window.butterfly = { get state() { return state; }, act, view, pos, travel, openPanel, walkTo, renderer, quality, call: async m => { state = await call(m); render(); } };   // for the browser test only
 boot().catch(e => { $('boot').textContent = 'Could not start: ' + e; console.error(e); });
