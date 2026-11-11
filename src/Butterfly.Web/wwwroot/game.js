@@ -10,7 +10,8 @@ let state = null;
 const call = async (method, ...args) => JSON.parse(await DotNet.invokeMethodAsync('Butterfly.Web', method, ...args));
 
 async function boot() {
-  await Blazor.start();
+  // The runtime's files are served from framework/ (the build renames _framework: some hosts reserve names starting with "_").
+  await Blazor.start({ loadBootResource: (type, name) => new URL('framework/' + name, document.baseURI).href });
   const names = ['tuning.json', ...(await (await fetch('data/content/index.json')).json()).map(n => 'content/' + n)];
   const files = {};
   await Promise.all(names.map(async n => { files[n] = await (await fetch('data/' + n)).text(); }));
