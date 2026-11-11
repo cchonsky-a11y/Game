@@ -29,6 +29,7 @@ function kitMaterial(base, metres, w, h, color) {
   const m = MATS[base].clone(), map = m.map.clone(), nrm = m.normalMap.clone(), orm = m.roughnessMap.clone();
   for (const t of [map, nrm, orm]) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(w / metres, h / metres); t.needsUpdate = true; }
   m.map = map; m.normalMap = nrm; m.roughnessMap = orm; m.metalnessMap = orm; m.color.set(color ?? 0xffffff);
+  m.vertexColors = false;                 // the pack's baked shading lives in its own meshes, not in surfaces built here
   return m;
 }
 const INSULAE = ['insula_a', 'insula_b', 'insula_c', 'insula_d', 'insula_e', 'insula_f'];
@@ -247,14 +248,14 @@ export class City {
   }
   // The shared foot: a bronze measure let into a wall for anyone to check a rule against.
   bronzeFoot(x, z) {
-    const bronze = MATS.bronze.clone();
+    const bronze = Object.assign(MATS.bronze.clone(), { vertexColors: false });
     const plate = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.05), bronze); plate.position.set(x, 1.35, z); this.group.add(plate);
     const slab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.08), kitMaterial('marble', 3, 0.9, 0.5)); slab.position.set(x, 1.35, z - 0.04); this.group.add(slab);
   }
   // A street standpipe with a bronze tap.
   standpipe(x, z) {
     const stone = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.1, 0.45), kitMaterial('travertine', 2.4, 0.45, 1.1)); stone.position.set(x, 0.55, z); stone.castShadow = true; this.group.add(stone);
-    const tap = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8), MATS.bronze.clone()); tap.rotation.x = Math.PI / 2; tap.position.set(x, 0.85, z + 0.3); this.group.add(tap);
+    const tap = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8), Object.assign(MATS.bronze.clone(), { vertexColors: false })); tap.rotation.x = Math.PI / 2; tap.position.set(x, 0.85, z + 0.3); this.group.add(tap);
     const basin = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.25, 0.5), kitMaterial('travertine', 2.4, 0.6, 0.25)); basin.position.set(x, 0.12, z + 0.5); this.group.add(basin);
     this.solid(x, z, 0.4, 0.5);
   }

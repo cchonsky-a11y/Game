@@ -101,6 +101,7 @@ def M(kind, tint=None):
         'lamp': lambda: material('lamplight', flat=0x3a2a18, rough=1.0, emit=0xffb45a),
         'lead': lambda: material('lead', flat=0x6f7478, rough=0.5, metal=0.8),
         'water': lambda: material('water', flat=0x3f86a8, rough=0.08),
+        'leaf': lambda: material('leaf', flat=0x4f7a45, rough=1.0),
         'cloth': lambda: material('cloth#%06x' % (tint or 0xa8482c), flat=tint or 0xa8482c, rough=1.0),
     }
     return table[kind]()
@@ -186,7 +187,38 @@ class Builder:
         for k in range(n):
             self.bm.faces.new([a[(k + 1) % n], a[k], b[k], b[(k + 1) % n]]).material_index = idx
 
-    def finish(self, bevel=0.018, footprint=None):
+    def arch(self, cx, r, y0, y1, zs, ztop, x_lo, x_hi, mat, ring=None, seg=12):
+        """A wall from zs up to ztop between x_lo and x_hi, pierced by a round arch of radius r springing at zs.
+        `ring` is the material of the voussoirs, which stand a little proud of the wall."""
+        idx = self.slot(mat)
+        def quad(p, m=idx, smooth=False):
+            f = self.bm.faces.new([self.bm.verts.new(q) for q in p]); f.material_index = m; f[self.smooth] = 1 if smooth else 0
+        pts = [(cx + r * math.cos(math.pi - math.pi * i / seg), zs + r * math.sin(math.pi * i / seg)) for i in range(seg + 1)]
+        for y in (y0, y1):
+            quad([(x_lo, y, zs), (cx - r, y, zs), (cx - r, y, ztop), (x_lo, y, ztop)]); quad([(cx + r, y, zs), (x_hi, y, zs), (x_hi, y, ztop), (cx + r, y, ztop)])
+            for (ax, az), (bx, bz) in zip(pts, pts[1:]):
+                quad([(ax, y, az), (bx, y, bz), (bx, y, ztop), (ax, y, ztop)])
+        for (ax, az), (bx, bz) in zip(pts, pts[1:]):
+            quad([(ax, y0, az), (bx, y0, bz), (bx, y1, bz), (ax, y1, az)], smooth=True)                     # the soffit
+        quad([(x_lo, y0, ztop), (x_hi, y0, ztop), (x_hi, y1, ztop), (x_lo, y1, ztop)])
+        if ring:
+            ridx, out, proud = self.slot(ring), r + 0.3, y0 - 0.05
+            outer = [(cx + out * math.cos(math.pi - math.pi * i / seg), zs + out * math.sin(math.pi * i / seg)) for i in range(seg + 1)]
+            for i in range(seg):
+                quad([(pts[i][0], proud, pts[i][1]), (pts[i + 1][0], proud, pts[i + 1][1]), (outer[i + 1][0], proud, outer[i + 1][1]), (outer[i][0], proud, outer[i][1])], ridx)
+                quad([(outer[i][0], proud, outer[i][1]), (outer[i + 1][0], proud, outer[i + 1][1]), (outer[i + 1][0], y0, outer[i + 1][1]), (outer[i][0], y0, outer[i][1])], ridx)
+                quad([(pts[i][0], proud, pts[i][1]), (pts[i + 1][0], proud, pts[i + 1][1]), (pts[i + 1][0], y0, pts[i + 1][1]), (pts[i][0], y0, pts[i][1])], ridx)
+
+    def cloth(self, corner, across, out, mat, sag=0.3, nu=7, nv=4):
+        """A sheet hung from a wall and sagging between its supports: corner, then the vectors across and outward."""
+        idx = self.slot(mat)
+        c, a, o = Vector(corner), Vector(across), Vector(out)
+        grid = [[self.bm.verts.new(c + a * (u / nu) + o * (v / nv) - Vector((0, 0, sag * math.sin(math.pi * u / nu) * (0.35 + 0.65 * v / nv)))) for u in range(nu + 1)] for v in range(nv + 1)]
+        for v in range(nv):
+            for u in range(nu):
+                f = self.bm.faces.new([grid[v][u], grid[v][u + 1], grid[v + 1][u + 1], grid[v + 1][u]]); f.material_index = idx; f[self.smooth] = 1
+
+    def finish(self, bevel=0.018, footprint=None, wobble=0.0, lean=(0.0, 0.0), shade=True):
         self.bm.normal_update()
         bmesh.ops.recalc_face_normals(self.bm, faces=self.bm.faces)
         me = bpy.data.meshes.new(self.name)
@@ -200,6 +232,12 @@ class Builder:
             dg = bpy.context.evaluated_depsgraph_get()
             new = bpy.data.meshes.new_from_object(ob.evaluated_get(dg))
             ob.modifiers.clear(); ob.data = new; bpy.data.meshes.remove(me); me = new; me.name = self.name
+        # Nothing hand-built is perfectly straight: a little wander in every wall, and the whole building a touch out of true.
+        if wobble or lean != (0.0, 0.0):
+            for v in me.vertices:
+                x, y, z = v.co
+                n = lambda k: math.sin(x * 1.7 + k * 2.1) * math.cos(y * 1.3 - k) * math.sin(z * 0.9 + k * 0.7)
+                v.co = (x + wobble * n(1) + z * lean[0], y + wobble * n(2) + z * lean[1], z + wobble * 0.5 * n(3) * (1 if z > 0.3 else 0))
         # Real-scale UVs: each face is mapped flat along its dominant axis, so a texture repeat is the same size everywhere.
         uv = me.uv_layers.new(name='UVMap') if not me.uv_layers else me.uv_layers[0]
         smooth = me.attributes.get('smooth')
@@ -216,7 +254,34 @@ class Builder:
             poly.use_smooth = bool(smooth.data[poly.index].value) if smooth else False
         if footprint:
             ob['hw'], ob['hd'] = footprint
+        if shade:
+            bake_shade(ob)
         return ob
+
+
+def bake_shade(ob):
+    """Bakes how much sky each corner sees into the mesh's colours (ambient occlusion), so recesses, eaves and the foot of
+    a wall are darker without any light in the game having to work for it."""
+    me = ob.data
+    col = me.color_attributes.new('Col', 'BYTE_COLOR', 'CORNER')
+    me.color_attributes.active_color = col; me.color_attributes.render_color_index = me.color_attributes.find('Col')
+    sc = bpy.context.scene
+    sc.render.engine = 'CYCLES'; sc.cycles.samples = 24; sc.cycles.device = 'CPU'
+    for other in sc.objects:
+        other.hide_render = other is not ob
+    bpy.ops.object.select_all(action='DESELECT'); ob.select_set(True); bpy.context.view_layer.objects.active = ob
+    try:
+        bpy.ops.object.bake(type='AO', target='VERTEX_COLORS')
+    except Exception as e:                                           # never let shading stop the build
+        print('SHADE-FAILED', ob.name, e)
+        for d in col.data: d.color = (1, 1, 1, 1)
+    arr = np.empty(len(col.data) * 4, np.float32); col.data.foreach_get('color', arr)
+    arr = arr.reshape(-1, 4)
+    open_sky = max(0.05, float(np.percentile(arr[:, 0], 85)))        # what an open wall sees counts as fully lit
+    arr[:, :3] = np.clip((arr[:, :3] / open_sky) ** 1.15, 0.5, 1.0); arr[:, 3] = 1
+    col.data.foreach_set('color', arr.ravel())
+    for other in sc.objects:
+        other.hide_render = False
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -226,77 +291,110 @@ BAY, GROUND, FLOOR = 3.2, 4.0, 3.0
 
 
 def insula(name, bays, floors, depth, seed):
-    """A Roman apartment block: shops (tabernae) open to the street between brick piers, a mezzanine over each, plastered
-    flats above with shuttered windows and the odd timber balcony, a low tiled roof."""
+    """A Roman apartment block: shops (tabernae) open to the street, some under brick arches and some under a timber
+    lintel, a mezzanine over each, plastered flats above that may jut out over the street on beams, shuttered windows,
+    timber balconies, cloth awnings, and a low roof of pan tiles with half-round covers."""
     rng = np.random.default_rng(seed)
     b = Builder(name)
     w = bays * BAY
     x0, yf, yb = -w / 2, -depth / 2, depth / 2
+    jetty = 0.5 if seed % 3 == 1 else 0.0                      # the flats overhang the street
+    arched = seed % 2 == 0                                     # brick arches over the shops, or timber lintels
+    yu = yf - jetty                                            # the face of the upper floors
     plaster = M('plaster', PLASTERS[seed % len(PLASTERS)]); dado = M('dado', [0x8f3626, 0x3b332c, 0x8f3626][seed % 3])
-    shutter = M('wood', SHUTTERS[seed % len(SHUTTERS)]); wood = M('wood'); brick = M('brick'); trav = M('travertine'); dark = M('dark')
+    shutter = M('wood', SHUTTERS[seed % len(SHUTTERS)]); wood = M('wood'); brick = M('brick'); trav = M('travertine'); dark = M('dark'); clay = M('terracotta')
     top = GROUND + (floors - 1) * FLOOR
-    # The body: side and back walls, and the floors inside so the open shops and windows look into a dark room.
+    # The body: side and back walls, and dark rooms behind the openings.
     b.box(x0, x0 + 0.4, yf, yb, 0, top, plaster); b.box(-x0 - 0.4, -x0, yf, yb, 0, top, plaster); b.box(x0, -x0, yb - 0.4, yb, 0, top, plaster)
-    b.box(x0 + 0.4, -x0 - 0.4, yf + 1.9, yf + 2.0, 0, GROUND, dark)                      # back wall of the shops
-    b.box(x0 + 0.4, -x0 - 0.4, yf + 0.5, yb - 0.4, GROUND - 0.25, GROUND, dark)            # the floor over the shops
-    b.box(x0 + 0.4, -x0 - 0.4, yf + 0.45, yf + 0.5, GROUND, top, dark)                    # behind the windows
-    b.box(x0, -x0, yf, yb, top - 0.05, top, plaster)
+    b.box(x0 + 0.4, -x0 - 0.4, yf + 1.9, yf + 2.0, 0, GROUND, dark)
+    b.box(x0 + 0.4, -x0 - 0.4, yf + 0.5, yb - 0.4, GROUND - 0.25, GROUND, dark)
+    b.box(x0 + 0.4, -x0 - 0.4, yu + 0.45, yu + 0.5, GROUND, top, dark)
+    b.box(x0, -x0, yu, yb, top - 0.05, top, plaster)
+    if jetty:                                                  # the overhang: its floor, its cheeks, and the beam ends that carry it
+        b.box(x0, -x0, yu, yf + 0.1, GROUND - 0.14, GROUND, wood)
+        b.box(x0, x0 + 0.4, yu, yf, GROUND, top, plaster); b.box(-x0 - 0.4, -x0, yu, yf, GROUND, top, plaster)
+        for bx in np.arange(x0 + 0.25, -x0, 0.8):
+            b.box(bx - 0.09, bx + 0.09, yu - 0.12, yf + 0.3, GROUND - 0.36, GROUND - 0.14, wood)
     # Street level, bay by bay.
     for k in range(bays):
         bx = x0 + k * BAY
-        for px in (bx, bx + BAY - 0.42):                                                 # brick piers
-            b.box(px, px + 0.42, yf - 0.04, yf + 0.5, 0, 3.05, brick)
-        b.box(bx, bx + BAY, yf - 0.1, yf + 0.55, 3.05, 3.4, wood)                          # the timber lintel
-        b.box(bx, bx + BAY, yf, yf + 0.45, 3.4, GROUND, plaster)                           # the mezzanine wall
-        b.box(bx + BAY / 2 - 0.4, bx + BAY / 2 + 0.4, yf - 0.02, yf + 0.02, 3.5, 3.85, dark)   # its small window
-        b.box(bx + BAY / 2 - 0.46, bx + BAY / 2 + 0.46, yf - 0.05, yf + 0.03, 3.44, 3.5, trav)
+        for px in (bx, bx + BAY - 0.42):                                                 # brick piers on stone feet
+            b.box(px, px + 0.42, yf - 0.04, yf + 0.5, 0.25, 3.4 if not arched else 1.95, brick)
+            b.box(px - 0.04, px + 0.46, yf - 0.08, yf + 0.5, 0, 0.25, trav)
         door = rng.random() < 0.22 and bays > 1
+        if arched and not door:
+            b.box(bx - 0.03, bx + 0.45, yf - 0.07, yf + 0.5, 1.95, 2.07, trav); b.box(bx + BAY - 0.45, bx + BAY + 0.03, yf - 0.07, yf + 0.5, 1.95, 2.07, trav)   # imposts
+            b.arch(bx + BAY / 2, BAY / 2 - 0.42, yf, yf + 0.45, 2.07, 3.4, bx, bx + BAY, plaster, ring=brick)
+        else:
+            if arched:
+                for px in (bx, bx + BAY - 0.42):
+                    b.box(px, px + 0.42, yf - 0.04, yf + 0.5, 1.95, 3.05, brick)
+            b.box(bx, bx + BAY, yf - 0.1, yf + 0.55, 3.05, 3.4, wood)                      # the timber lintel
+        b.box(bx, bx + BAY, yf, yf + 0.45, 3.4, GROUND, plaster)                           # the mezzanine wall
+        b.box(bx + BAY / 2 - 0.4, bx + BAY / 2 + 0.4, yf - 0.02, yf + 0.02, 3.5, 3.85, dark)
+        b.box(bx + BAY / 2 - 0.46, bx + BAY / 2 + 0.46, yf - 0.05, yf + 0.03, 3.44, 3.5, trav)
         if door:                                                                          # the stair door to the flats
             b.box(bx + 0.42, bx + 0.95, yf, yf + 0.45, 0, 3.05, plaster); b.box(bx + BAY - 0.95, bx + BAY - 0.42, yf, yf + 0.45, 0, 3.05, plaster)
             b.box(bx + 0.95, bx + BAY - 0.95, yf + 0.12, yf + 0.2, 0, 2.6, wood)
             b.box(bx + BAY / 2 - 0.02, bx + BAY / 2 + 0.02, yf + 0.1, yf + 0.13, 0, 2.6, dark)
             b.box(bx + 0.95, bx + BAY - 0.95, yf, yf + 0.45, 2.6, 3.05, plaster)
             b.box(bx + 0.85, bx + BAY - 0.85, yf - 0.06, yf + 0.3, -0.02, 0.14, trav)
+            b.box(bx, bx + BAY, yf - 0.03, yf + 0.01, 0, 0.9, dado)
         else:
             b.box(bx + 0.42, bx + BAY - 0.42, yf - 0.08, yf + 0.4, -0.02, 0.12, trav)      # the grooved threshold
-            if rng.random() < 0.55:                                                       # a masonry counter facing the street
+            if rng.random() < 0.55:                                                       # a masonry counter with jars set in it
                 b.box(bx + 0.42, bx + 1.9, yf + 0.05, yf + 0.6, 0.12, 1.0, dado); b.box(bx + 0.4, bx + 1.94, yf + 0.0, yf + 0.64, 1.0, 1.07, trav)
                 for cx in (bx + 0.8, bx + 1.45):
-                    b.lathe([(0.2, 1.07), (0.2, 1.09), (0.15, 1.09)], M('terracotta'), cx, yf + 0.32, 12)
+                    b.lathe([(0.2, 1.07), (0.2, 1.09), (0.15, 1.09)], clay, cx, yf + 0.32, 12)
             for j in range(3):                                                            # the shutter boards, stacked aside
-                b.box(bx + BAY - 0.52 - j * 0.07, bx + BAY - 0.47 - j * 0.07, yf + 0.1, yf + 0.42, 0.14, 2.95, shutter)
-            if rng.random() < 0.6:                                                        # goods hung from the lintel
-                for j in range(3):
-                    b.lathe([(0.0, 2.55), (0.07, 2.62), (0.09, 2.8), (0.04, 2.96), (0.0, 2.98)], M('terracotta'), bx + 0.9 + j * 0.4, yf + 0.25, 10)
-        b.box(bx, bx + BAY, yf - 0.03, yf + 0.01, 0, 0.9, dado) if door else None
-    # The flats: piers of wall between windows, sills, shutters folded back, balconies on brackets.
+                b.box(bx + BAY - 0.52 - j * 0.07, bx + BAY - 0.47 - j * 0.07, yf + 0.1, yf + 0.42, 0.14, 1.9 if arched else 2.95, shutter)
+            if not jetty and rng.random() < 0.4:                                          # a cloth awning, sagging between its poles
+                colour = [0xa8482c, 0x3f6077, 0xb08a3a, 0x6a7a4a][int(rng.integers(4))]
+                b.cloth((bx + 0.3, yf - 0.05, 3.25), (BAY - 0.6, 0, 0), (0, -1.7, -0.75), M('cloth', colour), sag=0.28)
+                for px in (bx + 0.3, bx + BAY - 0.3):
+                    b.tube([(px, yf - 1.75, 0), (px, yf - 1.75, 2.52)], 0.035, wood, 6)
+    # A patch where the plaster has fallen and the brick shows.
+    for _ in range(1 + bays // 2):
+        px = x0 + rng.random() * (w - 1.4); pz = GROUND + rng.random() * max(0.5, top - GROUND - 1.6)
+        for j in range(3):
+            b.box(px + j * 0.12, px + 1.0 - j * 0.18 + rng.random() * 0.2, yu - 0.012, yu + 0.01, pz + j * 0.28, pz + (j + 1) * 0.28, brick)
+    # The flats: wall between the windows, sills, shutters folded back, balconies on brackets.
     for f in range(1, floors):
         z0 = GROUND + (f - 1) * FLOOR
-        b.box(x0 - 0.06, -x0 + 0.06, yf - 0.07, yf + 0.1, z0 - 0.08, z0 + 0.08, trav)      # the string course
+        b.box(x0 - 0.06, -x0 + 0.06, yu - 0.07, yu + 0.1, z0 - 0.08, z0 + 0.08, trav)      # the string course
         for k in range(bays):
             bx = x0 + k * BAY
-            balcony = rng.random() < 0.2
-            wl, wr, wb, wt = bx + BAY / 2 - 0.5, bx + BAY / 2 + 0.5, z0 + (0.15 if balcony else 0.95), z0 + 2.45
-            b.box(bx, wl, yf, yf + 0.45, z0, z0 + FLOOR, plaster); b.box(wr, bx + BAY, yf, yf + 0.45, z0, z0 + FLOOR, plaster)
-            b.box(wl, wr, yf, yf + 0.45, z0, wb, plaster); b.box(wl, wr, yf, yf + 0.45, wt, z0 + FLOOR, plaster)
-            b.box(wl - 0.08, wr + 0.08, yf - 0.05, yf + 0.3, wt, wt + 0.12, wood)          # lintel
+            balcony = rng.random() < 0.22
+            round_head = seed % 2 == 1 and not balcony
+            wl, wr, wb, wt = bx + BAY / 2 - 0.5, bx + BAY / 2 + 0.5, z0 + (0.15 if balcony else 0.95), z0 + (2.05 if round_head else 2.45)
+            b.box(bx, wl, yu, yu + 0.45, z0, z0 + FLOOR, plaster); b.box(wr, bx + BAY, yu, yu + 0.45, z0, z0 + FLOOR, plaster)
+            b.box(wl, wr, yu, yu + 0.45, z0, wb, plaster)
+            if round_head:
+                b.arch(bx + BAY / 2, 0.5, yu, yu + 0.45, wt, z0 + FLOOR, wl, wr, plaster, ring=brick, seg=8)
+            else:
+                b.box(wl, wr, yu, yu + 0.45, wt, z0 + FLOOR, plaster)
+                b.box(wl - 0.08, wr + 0.08, yu - 0.05, yu + 0.3, wt, wt + 0.12, wood)      # lintel
             if not balcony:
-                b.box(wl - 0.1, wr + 0.1, yf - 0.1, yf + 0.3, wb - 0.1, wb, trav)          # sill
+                b.box(wl - 0.1, wr + 0.1, yu - 0.1, yu + 0.3, wb - 0.1, wb, trav)          # sill
+                if rng.random() < 0.25:                                                   # a pot of herbs on the sill
+                    b.lathe([(0.0, wb), (0.09, wb), (0.12, wb + 0.16), (0.1, wb + 0.17)], clay, wl + 0.2, yu - 0.02, 8)
+                    b.lathe([(0.0, wb + 0.16), (0.14, wb + 0.2), (0.16, wb + 0.34), (0.0, wb + 0.42)], M('leaf'), wl + 0.2, yu - 0.02, 7)
             for sx, away in ((wl, -1), (wr, 1)):                                          # shutters, open against the wall
-                b.box(sx, sx + away * 0.5, yf - 0.06, yf - 0.02, wb, wt, shutter)
-                for j in range(3):
-                    b.box(sx + away * 0.04, sx + away * 0.46, yf - 0.075, yf - 0.06, wb + 0.12 + j * (wt - wb - 0.3) / 2, wb + 0.2 + j * (wt - wb - 0.3) / 2, wood)
+                ajar = (rng.random() - 0.5) * 0.5
+                b.box(sx, sx + away * 0.5, yu - 0.06, yu - 0.02, wb, wt, shutter, rot=ajar * away, about=(sx, yu - 0.04))
             if rng.random() < 0.3:
-                b.box(wl, wr, yf + 0.4, yf + 0.44, wb, wt, M('lamp'))                     # someone is home
+                b.box(wl, wr, yu + 0.4, yu + 0.44, wb, wt, M('lamp'))                     # someone is home
             if balcony:
-                b.box(bx + 0.25, bx + BAY - 0.25, yf - 1.0, yf, z0 + 0.05, z0 + 0.15, wood)
+                b.box(bx + 0.25, bx + BAY - 0.25, yu - 1.0, yu, z0 + 0.05, z0 + 0.15, wood)
                 for px in (bx + 0.4, bx + BAY - 0.4):
-                    b.tube([(px, yf - 0.9, z0 + 0.05), (px, yf, z0 - 0.75)], 0.05, wood, 6)
+                    b.tube([(px, yu - 0.9, z0 + 0.05), (px, yu, z0 - 0.75)], 0.05, wood, 6)
                 for px in np.linspace(bx + 0.3, bx + BAY - 0.3, 8):
-                    b.box(px - 0.025, px + 0.025, yf - 0.98, yf - 0.93, z0 + 0.15, z0 + 1.0, wood)
-                b.box(bx + 0.25, bx + BAY - 0.25, yf - 1.0, yf - 0.92, z0 + 1.0, z0 + 1.07, wood)
-                for py in (yf - 0.6, yf - 0.3):
+                    b.box(px - 0.025, px + 0.025, yu - 0.98, yu - 0.93, z0 + 0.15, z0 + 1.0, wood)
+                b.box(bx + 0.25, bx + BAY - 0.25, yu - 1.0, yu - 0.92, z0 + 1.0, z0 + 1.07, wood)
+                for py in (yu - 0.6, yu - 0.3):
                     b.box(bx + 0.25, bx + 0.3, py - 0.02, py + 0.02, z0 + 0.15, z0 + 1.0, wood); b.box(bx + BAY - 0.3, bx + BAY - 0.25, py - 0.02, py + 0.02, z0 + 0.15, z0 + 1.0, wood)
+                if rng.random() < 0.6:                                                    # washing over the rail
+                    b.cloth((bx + 0.5, yu - 1.02, z0 + 1.08), (0.9, 0, 0), (0, -0.02, -0.7), M('cloth', [0xe8e0d0, 0x8a5a6a, 0x6a7a8a][int(rng.integers(3))]), sag=0.03, nu=3, nv=3)
     # Side windows, small and high, as on a lane.
     for f in range(1, floors):
         for sx, face in ((x0 - 0.02, -1), (-x0 + 0.02, 1)):
@@ -304,21 +402,27 @@ def insula(name, bays, floors, depth, seed):
                 z = GROUND + (f - 1) * FLOOR + 1.2
                 b.box(sx - 0.02, sx + 0.02, py - 0.35, py + 0.35, z, z + 0.9, dark)
                 b.box(sx - 0.04 if face < 0 else sx, sx if face < 0 else sx + 0.04, py - 0.42, py + 0.42, z - 0.08, z, trav)
-    # The roof: low pitch, tiles, a timber eaves board, the ridge capped with cover tiles.
-    rise, over = math.tan(math.radians(18)) * (depth / 2 + 0.6), 0.6
+    # A rainwater pipe of clay sections down one corner.
+    b.tube([(x0 + 0.2, yu - 0.09, top), (x0 + 0.2, yu - 0.09, GROUND + 0.3)], 0.07, clay, 8)
+    # The roof: low pitch, pan tiles, a half-round cover tile over every joint, rafter ends under the eaves.
+    over = 0.65
+    rise = math.tan(math.radians(19)) * (depth / 2 + over)
+    ridge = (yu + yb) / 2
     tile = M('rooftile')
-    b.face([(x0 - over, yf - over, top), (-x0 + over, yf - over, top), (-x0 + over, 0, top + rise), (x0 - over, 0, top + rise)], tile)
-    b.face([(-x0 + over, yb + over, top), (x0 - over, yb + over, top), (x0 - over, 0, top + rise), (-x0 + over, 0, top + rise)], tile)
-    b.face([(x0 - over, yf - over, top - 0.02), (x0 - over, yb + over, top - 0.02), (-x0 + over, yb + over, top - 0.02), (-x0 + over, yf - over, top - 0.02)], wood)
-    for sx in (x0, -x0):
-        b.prism([(yf, top), (yb, top), (0, top + rise * (depth / 2) / (depth / 2 + over))], sx - 0.02, sx + 0.02, plaster) if False else None
+    b.face([(x0 - over, yu - over, top), (-x0 + over, yu - over, top), (-x0 + over, ridge, top + rise), (x0 - over, ridge, top + rise)], tile)
+    b.face([(-x0 + over, yb + over, top), (x0 - over, yb + over, top), (x0 - over, ridge, top + rise), (-x0 + over, ridge, top + rise)], tile)
+    b.face([(x0 - over, yu - over, top - 0.03), (x0 - over, yb + over, top - 0.03), (-x0 + over, yb + over, top - 0.03), (-x0 + over, yu - over, top - 0.03)], wood)
+    for tx in np.arange(x0 - over + 0.22, -x0 + over, 0.45):
+        b.tube([(tx, yu - over - 0.04, top + 0.05), (tx, ridge, top + rise + 0.05)], 0.075, tile, 6)
+        b.tube([(tx, yb + over + 0.04, top + 0.05), (tx, ridge, top + rise + 0.05)], 0.075, tile, 6)
+    for tx in np.arange(x0 - over + 0.3, -x0 + over, 0.7):                                # rafter ends
+        b.box(tx - 0.05, tx + 0.05, yu - over + 0.04, yu, top - 0.2, top - 0.04, wood); b.box(tx - 0.05, tx + 0.05, yb, yb + over - 0.04, top - 0.2, top - 0.04, wood)
     for sx in (x0 + 0.2, -x0 - 0.2):                                                      # gable ends
-        b.face([(sx, yf, top), (sx, yb, top), (sx, 0, top + rise - 0.08)], plaster)
-        b.face([(sx, yb, top), (sx, yf, top), (sx, 0, top + rise - 0.08)], plaster)
-    b.tube([(x0 - over, 0, top + rise + 0.03), (-x0 + over, 0, top + rise + 0.03)], 0.11, tile, 8)
-    for py in (yf - over, yb + over):
-        b.box(x0 - over, -x0 + over, py - 0.03, py + 0.03, top - 0.14, top + 0.02, wood)
-    return b.finish(0.0, footprint=(w / 2, depth / 2))       # no bevel: a street of these must stay light enough for a phone
+        b.face([(sx, yu, top), (sx, yb, top), (sx, ridge, top + rise - 0.08)], plaster)
+        b.face([(sx, yb, top), (sx, yu, top), (sx, ridge, top + rise - 0.08)], plaster)
+    b.tube([(x0 - over, ridge, top + rise + 0.06), (-x0 + over, ridge, top + rise + 0.06)], 0.12, tile, 8)
+    lean = ((rng.random() - 0.5) * 0.012, (rng.random() - 0.5) * 0.008)
+    return b.finish(0.0, footprint=(w / 2, depth / 2 + jetty / 2), wobble=0.022, lean=lean)
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -466,7 +570,7 @@ bpy.ops.object.select_all(action='DESELECT')
 for ob in ASSETS:
     ob.select_set(True)
 bpy.ops.export_scene.gltf(filepath=OUT, export_format='GLB', use_selection=True, export_apply=True, export_extras=True, export_yup=True,
-                          export_image_format='JPEG', export_jpeg_quality=86, export_tangents=False, export_animations=False)
+                          export_image_format='JPEG', export_jpeg_quality=86, export_tangents=False, export_animations=False, export_vertex_color='ACTIVE', export_all_vertex_colors=False)
 tris = {ob.name: sum(len(p.vertices) - 2 for p in ob.data.polygons) for ob in ASSETS}
 print('KIT', os.path.getsize(OUT) // 1024, 'KB', tris)
 
