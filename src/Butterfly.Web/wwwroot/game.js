@@ -21,7 +21,7 @@ async function boot() {
   const asked = new URLSearchParams(location.search).get('seed');
   const seed = asked && /^\d+$/.test(asked) ? asked : String(crypto.getRandomValues(new Uint32Array(1))[0] % 100000);
   boot.files = files;
-  await loadKit('kit.glb');
+  await loadKit('kit.txt');
   state = await call('Start', files, seed);
   document.getElementById('boot').remove();
   render();

@@ -8,7 +8,10 @@ import { GLTFLoader } from './lib/GLTFLoader.js';
 // The art pack (art/kit, modelled in Blender): loaded once, then copied wherever a piece stands.
 const KIT = {};
 export async function loadKit(url) {
-  const gltf = await new GLTFLoader().loadAsync(url);
+  // The pack travels as text (base64 of the .glb): some hosts serve only a short list of file types.
+  const text = await (await fetch(url)).text(), raw = atob(text.trim()), bytes = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+  const gltf = await new GLTFLoader().parseAsync(bytes.buffer, '');
   gltf.scene.traverse(o => {
     if (!o.isMesh) return;
     o.castShadow = o.receiveShadow = true;

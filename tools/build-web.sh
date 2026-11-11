@@ -11,6 +11,7 @@ mv build/web-publish/wwwroot "$OUT"
 rm -rf build/web-publish
 mv "$OUT/_framework" "$OUT/framework"
 find "$OUT" \( -name '*.br' -o -name '*.gz' -o -name '*.pdb' \) -delete
+base64 -w0 "$OUT/kit.glb" > "$OUT/kit.txt" && rm "$OUT/kit.glb"      # the art pack as text: see city.js loadKit
 mkdir -p "$OUT/data"
 cp data/tuning.json "$OUT/data/"
 cp -R data/content "$OUT/data/content"
