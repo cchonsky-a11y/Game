@@ -102,6 +102,10 @@ def M(kind, tint=None):
         'lead': lambda: material('lead', flat=0x6f7478, rough=0.5, metal=0.8),
         'water': lambda: material('water', flat=0x3f86a8, rough=0.08),
         'leaf': lambda: material('leaf', flat=0x4f7a45, rough=1.0),
+        'steel': lambda: material('steel', flat=0x5a646e, rough=0.42, metal=0.7),
+        'scorch': lambda: material('scorch', flat=0x15120f, rough=0.9, metal=0.2),
+        'coreglow': lambda: material('coreglow', flat=0x0a1a2a, rough=0.3, emit=0x5fb4ff),
+        'seat': lambda: material('seat', flat=0x2a2622, rough=0.8),
         'cloth': lambda: material('cloth#%06x' % (tint or 0xa8482c), flat=tint or 0xa8482c, rough=1.0),
     }
     return table[kind]()
@@ -558,13 +562,108 @@ def amphora(name, kind):
     return b.finish(0.0, footprint=(fp, fp))
 
 
+def arc_shell(b, profile, a0, a1, mat, seg=10, grow=1.0):
+    """Part of a turned shape: the profile swept only from angle a0 to a1 (a door, a panel)."""
+    idx = b.slot(mat)
+    rings = [[b.bm.verts.new((math.cos(a0 + (a1 - a0) * k / seg) * r * grow, math.sin(a0 + (a1 - a0) * k / seg) * r * grow, z)) for k in range(seg + 1)] for r, z in profile]
+    for p, q in zip(rings, rings[1:]):
+        for k in range(seg):
+            f = b.bm.faces.new([p[k], p[k + 1], q[k + 1], q[k]]); f.material_index = idx; f[b.smooth] = 1
+    return rings
+
+
+def machine(name):
+    """The time machine: a one-seat pod of dark steel on three legs, banded in brass, its hatch swung open on the street
+    side, three gimbal rings round it, the core glowing inside. Nothing about it belongs in AD 155, which is the point."""
+    b = Builder(name)
+    steel, brass, scorch, glow, seat = M('steel'), M('bronze'), M('scorch'), M('coreglow'), M('seat')
+    hull = [(0.0, 0.55), (0.45, 0.6), (0.85, 0.85), (1.08, 1.3), (1.15, 1.8), (1.08, 2.3), (0.85, 2.75), (0.5, 3.05), (0.18, 3.2), (0.0, 3.22)]
+    front0, front1 = math.radians(-128), math.radians(-52)                       # the hatchway faces -Y (the street)
+    arc_shell(b, hull, front1, front0 + 2 * math.pi, steel, seg=30)              # the hull, open at the hatch
+    door_profile = [p for p in hull if 0.8 <= p[1] <= 2.8]
+    arc_shell(b, [hull[0], hull[1], hull[2]], front0, front1, steel, seg=6); arc_shell(b, hull[6:], front0, front1, steel, seg=6)   # below and above the hatch
+    # Inside: a dark shell, a seat, straps, and the core's light.
+    arc_shell(b, [(r * 0.93, z) for r, z in hull], front1, front0 + 2 * math.pi, scorch, seg=24)   # open at the hatch too
+    b.box(-0.32, 0.32, -0.25, 0.35, 0.9, 1.05, seat); b.box(-0.32, 0.32, 0.25, 0.4, 1.05, 2.0, seat); b.box(-0.2, 0.2, 0.2, 0.3, 2.0, 2.3, seat)
+    for sx in (-0.2, 0.2):
+        b.tube([(sx, 0.28, 1.95), (sx * 0.5, -0.05, 1.5), (0, -0.2, 1.1)], 0.025, M('wood', 0x7a2f26), 6)
+    b.lathe([(0.0, 2.35), (0.3, 2.42), (0.42, 2.62), (0.3, 2.82), (0.0, 2.9)], glow, 0, 0.1, 12)
+    b.box(-0.5, 0.5, -0.62, -0.5, 1.15, 1.45, scorch); b.box(-0.42, -0.1, -0.64, -0.6, 1.22, 1.38, glow)        # the dead panel, one lamp still lit
+    # The hatch door, swung out to one side on its hinge.
+    start = len(b.bm.verts)
+    b.bm.verts.ensure_lookup_table()
+    arc_shell(b, door_profile, front0, front1, steel, seg=8, grow=1.02); arc_shell(b, [(r * 0.97, z) for r, z in door_profile], front0, front1, scorch, seg=8)
+    b.bm.verts.ensure_lookup_table()
+    hinge = Vector((math.cos(front1) * 1.12, math.sin(front1) * 1.12, 0)); rot = Matrix.Rotation(math.radians(112), 4, 'Z')
+    for v in list(b.bm.verts)[start:]:
+        v.co = hinge + rot @ (v.co - hinge)
+    # Brass bands, rivets, the three gimbal rings.
+    for z in (0.86, 1.8, 2.74):
+        r = [p[0] for p in hull if abs(p[1] - z) < 0.06]
+        rr = (r[0] if r else 1.15) + 0.02
+        b.tube([(math.cos(a) * rr, math.sin(a) * rr, z) for a in np.linspace(front1, front0 + 2 * math.pi, 40)], 0.035, brass, 6)
+    for k, (tilt, r) in enumerate(((0.35, 1.55), (-0.5, 1.72), (1.25, 1.9))):
+        ring = [Matrix.Rotation(tilt, 4, 'X' if k != 1 else 'Y') @ Vector((math.cos(a) * r, math.sin(a) * r, 0)) + Vector((0, 0, 1.8)) for a in np.linspace(0, 2 * math.pi, 49)]
+        b.tube(ring, 0.04, brass, 6)
+    # Three splayed legs with pads, a torn cable, scorch on the ground side.
+    for k in range(3):
+        a = math.radians(90 + k * 120)
+        b.tube([(math.cos(a) * 0.55, math.sin(a) * 0.55, 0.8), (math.cos(a) * 1.25, math.sin(a) * 1.25, 0.08)], 0.07, steel, 8)
+        b.lathe([(0.0, 0.0), (0.26, 0.0), (0.22, 0.08), (0.0, 0.1)], steel, math.cos(a) * 1.25, math.sin(a) * 1.25, 10)
+    b.tube([(0.9, 0.5, 1.0), (1.4, 0.8, 0.5), (1.5, 1.3, 0.06), (1.1, 1.7, 0.05), (1.6, 2.0, 0.05)], 0.045, scorch, 6)
+    b.lathe([(0.3, 0.52), (0.5, 0.5), (0.42, 0.36), (0.2, 0.3), (0.0, 0.3)], scorch, 0, 0, 12)                      # the field emitter underneath, burnt
+    return b.finish(0.0, footprint=(1.9, 1.9))
+
+
+def cart(name):
+    """A two-wheeled Roman cart (plaustrum): plank bed, stake sides, spoked wheels with iron tyres, a pole for the mule."""
+    b = Builder(name)
+    wood, iron = M('wood'), M('steel')
+    b.box(-1.3, 1.3, -0.7, 0.7, 0.78, 0.9, wood)
+    for sy in (-0.7, 0.66):
+        b.box(-1.3, 1.3, sy, sy + 0.04, 0.9, 1.3, wood)
+        for sx in np.linspace(-1.2, 1.2, 6):
+            b.box(sx - 0.03, sx + 0.03, sy - 0.02, sy + 0.06, 0.78, 1.42, wood)
+    b.box(-1.34, -1.3, -0.7, 0.7, 0.9, 1.3, wood)
+    for sy in (-0.86, 0.86):
+        rim = [(math.cos(a) * 0.62, sy, 0.62 + math.sin(a) * 0.62) for a in np.linspace(0, 2 * math.pi, 25)]
+        b.tube(rim, 0.055, wood, 6); b.tube([(x * 1.07, y, 0.62 + (z - 0.62) * 1.07) for x, y, z in rim], 0.022, iron, 5)
+        for k in range(8):
+            a = k * math.pi / 4
+            b.tube([(0, sy, 0.62), (math.cos(a) * 0.6, sy, 0.62 + math.sin(a) * 0.6)], 0.03, wood, 5)
+        b.lathe([(0.0, 0), (0.11, 0), (0.11, 0.16), (0.0, 0.16)], wood, 0, 0, 8) if False else None
+    b.tube([(0, -0.95, 0.62), (0, 0.95, 0.62)], 0.05, wood, 6)
+    b.tube([(1.3, 0, 0.82), (3.4, 0, 1.0)], 0.045, wood, 6); b.tube([(3.3, -0.5, 1.0), (3.3, 0.5, 1.0)], 0.035, wood, 6)
+    for x, y in ((-0.6, 0.1), (0.2, -0.2), (0.7, 0.25)):                                                           # a load of jars
+        b.lathe([(0.0, 0.9), (0.14, 0.95), (0.2, 1.15), (0.18, 1.4), (0.07, 1.52), (0.08, 1.6)], M('terracotta'), x, y, 10)
+    return b.finish(0.0, footprint=(1.5, 1.0))
+
+
+def shrine(name):
+    """A crossroads shrine of the Lares: a small temple front on a masonry base, painted figures in the niche, a lamp."""
+    b = Builder(name)
+    marble, trav, red = M('marble'), M('travertine'), M('plaster', 0x9a3626)
+    b.box(-0.75, 0.75, -0.5, 0.5, 0, 0.95, trav); b.box(-0.82, 0.82, -0.56, 0.56, 0.95, 1.05, marble); b.box(-0.8, 0.8, -0.54, 0.54, 0, 0.12, marble)
+    b.box(-0.6, 0.6, -0.05, 0.42, 1.05, 2.25, red)
+    b.arch(0, 0.36, -0.07, 0.0, 1.75, 2.25, -0.6, 0.6, M('plaster', 0xe8d8b0), seg=8); b.box(-0.6, -0.36, -0.07, 0.0, 1.05, 1.75, M('plaster', 0xe8d8b0)); b.box(0.36, 0.6, -0.07, 0.0, 1.05, 1.75, M('plaster', 0xe8d8b0))
+    for sx in (-0.62, 0.62):
+        column(b, sx, -0.32, 1.05, 1.25, 0.075, 'tuscan')
+    b.box(-0.78, 0.78, -0.48, 0.48, 2.3, 2.42, marble)
+    b.prism([(-0.8, 2.42), (0.8, 2.42), (0, 2.85)], -0.48, 0.48, marble)
+    for sx in (-0.16, 0.16):                                                                                       # the two Lares, as small bronzes
+        b.lathe([(0.05, 1.07), (0.05, 1.3), (0.035, 1.42), (0.045, 1.5), (0.0, 1.55)], M('bronze'), sx, 0.1, 8)
+    b.lathe([(0.0, 1.07), (0.07, 1.07), (0.08, 1.11), (0.03, 1.13)], M('terracotta'), 0, -0.3, 8); b.lathe([(0.0, 1.13), (0.025, 1.15), (0.0, 1.22)], M('lamp'), 0, -0.3, 6)
+    return b.finish(0.0, footprint=(0.85, 0.6))
+
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Build, export, and a picture to judge by
 
 ASSETS = [insula('insula_a', 3, 4, 8.0, 1), insula('insula_b', 2, 3, 7.0, 2), insula('insula_c', 4, 5, 9.0, 3), insula('insula_d', 3, 2, 7.0, 4),
           insula('insula_e', 2, 5, 7.0, 5), insula('insula_f', 4, 3, 8.0, 6),
           column_asset('column_tuscan', 'tuscan'), column_asset('column_corinthian', 'corinthian', 8.4, 0.5), temple('temple'),
-          street_fountain('street_fountain'), amphora('amphora_oil', 'oil'), amphora('amphora_wine', 'wine')]
+          street_fountain('street_fountain'), amphora('amphora_oil', 'oil'), amphora('amphora_wine', 'wine'),
+          machine('machine'), cart('cart'), shrine('shrine')]
 
 bpy.ops.object.select_all(action='DESELECT')
 for ob in ASSETS:

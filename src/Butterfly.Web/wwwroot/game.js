@@ -518,7 +518,10 @@ async function render() {
   }
   if (phase === 'Opening' && !view.openingRead) {
     full.hidden = false;
-    fullBody.replaceChildren(el('h1', s.opening.title), ...s.opening.paragraphs.map(p => el('p', p)), el('p', 'Seed ' + s.seed, 'dim'));
+    const hero = el('div', '', 'hero');
+    const img = new Image(); img.src = 'opening.jpg'; img.alt = 'The machine standing open in a Roman street at dusk'; img.decoding = 'async';
+    img.onload = () => hero.classList.add('shown'); hero.append(img);
+    fullBody.replaceChildren(hero, el('h1', s.opening.title), ...s.opening.paragraphs.map(p => el('p', p)), el('p', 'Seed ' + s.seed, 'dim'));
     fullBody.append(button('Continue', () => { view.openingRead = true; render(); }, true));
     return;
   }
